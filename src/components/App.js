@@ -1,12 +1,16 @@
+import React from "react";
+
 import "./App.css";
 import Header from "./header";
 import Activity from "./Activity";
 
 function App() {
 	return (
-		<div className='App'>
+		<div>
 			<Header />
-			<Activity />
+			<div className='App'>
+				<Activity />
+			</div>
 		</div>
 	);
 }
