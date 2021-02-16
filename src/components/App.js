@@ -40,29 +40,31 @@ function App() {
 		var data = {
 			persons: {
 				Alicia: {
-					birth: {
+					date_of_birth: {
 						ETERNITY: "1980-01-01",
 					},
-				},
-			},
-			buildings: {
-				_: {
-					energy_savings_type: { ETERNITY: "annual_creation" },
-					gas_savings: {
-						ETERNITY: null,
+					age: {
+						"2021-01-01": null,
 					},
 				},
 			},
+			// buildings: {
+			// 	_: {
+			// 		energy_savings_type: { ETERNITY: "annual_creation" },
+			// 		gas_savings: {
+			// 			ETERNITY: null,
+			// 		},
+			// 	},
+			// },
 		};
-
-		axios.post("https://testrules.herokuapp.com/calculate", data).then(
+		// https://ess-test-1.herokuapp.com/
+		// https://ofcan-dep.herokuapp.com/
+		axios.post("https://ofcan-dep.herokuapp.com//calculate", data).then(
 			(res) => {
 				// console.log(res.headers);
-				console.log("I am here! in the response");
 				console.log(res.data);
 			},
 			(error) => {
-				// console.log(error.response.data);
 				console.log(error.request);
 			}
 		);
