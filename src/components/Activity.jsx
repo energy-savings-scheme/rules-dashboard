@@ -1,4 +1,4 @@
-import "./App.css";
+import "../styles/Activity.css";
 
 export default function Activity() {
 	function checked(event) {
