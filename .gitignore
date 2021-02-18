@@ -24,3 +24,4 @@ yarn-error.log*
 
 # personal files
 userful_links.txt
+src/fullList.json

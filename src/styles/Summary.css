@@ -1,13 +1,16 @@
 /* summary.jsx */
 .summary-div {
-	width: 300px;
+	width: 250px;
 	/* height: 200px; */
-	margin: 5% 5%;
+	margin: 2% 1% 0 2%;
 	padding: 1% 3%;
 	background-color: #ffffff;
 	border-radius: 10px;
 	box-shadow: 1px 1px 10px 1px #e0f2f1, -1px 0 10px 1px #e0f2f1;
 	text-align: left;
+}
+.summary-div:hover {
+	background-color: #b2dfdb;
 }
 
 .summaryValue {
