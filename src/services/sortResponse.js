@@ -1,29 +1,43 @@
 // import variables from "../fullList.json";
 
 function sortResponse(variables) {
-	// variables is the response from get request to ./variables
+	// variables is the response from get request to ./variables, json object
 
 	// let re = /\b[E]\d\w+/;
 	let var_sorted = {
-		A: [],
-		B: [],
-		C: [],
-		D: [],
-		E: [],
-		F: [],
-		others: [],
+		A: {},
+		B: {},
+		C: {},
+		D: {},
+		E: {},
+		F: {},
+		others: {},
 	};
 	//TODO: loop through var_sorted instead
 
-	Object.keys(variables).forEach((key) => {
-		if (key.match(/\b[E]\d\w+/) != null) {
-			var_sorted.E.push(key);
-		} else if (key.match(/\b[F]\d\w+/) != null) {
-			var_sorted.F.push(key);
+	// Object.keys(var_sorted).forEach((key) => {
+	// 	let regex = new RegExp("\b[" + key + "]dw+");
+	// 	console.log(regex);
+	// 	Object.keys(variables).forEach((variableID) => {
+	// 		console.log(variableID.match(regex));
+	// 	});
+	// });
+
+	Object.entries(variables).forEach(([key, value]) => {
+		if (key.match(/\b[A]\d\w+/) != null) {
+			var_sorted.A[key] = value;
+		} else if (key.match(/\b[B]\d\w+/) != null) {
+			var_sorted.B[key] = value;
+		} else if (key.match(/\b[C]\d\w+/) != null) {
+			var_sorted.C[key] = value;
 		} else if (key.match(/\b[D]\d\w+/) != null) {
-			var_sorted.D.push(key);
+			var_sorted.D[key] = value;
+		} else if (key.match(/\b[E]\d\w+/) != null) {
+			var_sorted.E[key] = value;
+		} else if (key.match(/\b[F]\d\w+/) != null) {
+			var_sorted.F[key] = value;
 		} else {
-			var_sorted.others.push(key);
+			var_sorted.others[key] = value;
 		}
 	});
 	return var_sorted;

@@ -1,0 +1,22 @@
+.variable-tile-div {
+	background-color: white;
+	border-radius: 10px;
+	display: flex;
+	margin: 5% 2% 0 2%;
+	padding: 1% 1%;
+	box-shadow: 1px 1px 10px 1px #fbe9e7, -1px 0 10px 1px #fbe9e7;
+}
+
+.variable-tile-div:hover {
+	background-color: #ffccbc;
+}
+.variable-tile-index-div {
+	margin: 0 1%;
+}
+.variable-tile-title {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 600;
+}
+.variable-tile-subtext {
+	font-size: 15px;
+}
