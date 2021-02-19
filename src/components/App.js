@@ -4,8 +4,8 @@ import Header from "./header";
 import Summary from "./Summary";
 import VariableTile from "./variable_tile";
 import "../services/network_request";
-import sortResponse from "../services/sortResponse";
-import { getRequest } from "../services/network_request";
+// import sortResponse from "../services/sortResponse";
+// import { getRequest, postRequest } from "../services/network_request";
 
 function App() {
 	const [sortedVar, setSortedVar] = useState({
@@ -37,6 +37,9 @@ function App() {
 		// 		return varSorted;
 		// 	});
 		// });
+		
+		// postRequest("dependencies");
+		// postRequest("calculate");
 	}, []);
 
 	return (

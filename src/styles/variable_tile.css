@@ -1,22 +1,47 @@
-.variable-tile-div {
+.var-tile-div {
 	background-color: white;
 	border-radius: 10px;
 	display: flex;
 	margin: 5% 2% 0 2%;
 	padding: 1% 1%;
 	box-shadow: 1px 1px 10px 1px #fbe9e7, -1px 0 10px 1px #fbe9e7;
+	align-items: flex-start;
+	position: relative;
 }
-
-.variable-tile-div:hover {
+/* .var-tile-div:hover {
 	background-color: #ffccbc;
-}
-.variable-tile-index-div {
+} */
+
+
+
+.var-tile-index-div {
 	margin: 0 1%;
 }
-.variable-tile-title {
+.var-tile-title {
 	font-family: "Open Sans", sans-serif;
 	font-weight: 600;
 }
-.variable-tile-subtext {
+.var-tile-subtext {
+	font-size: 12px;
+	font-weight: 400;
+}
+
+.var-data-in-subtext {
+	color:#c63f17
+}
+
+.calculate-button {
+	background-color: #b2dfdb ;
+	box-shadow: 1px 1px 2px 1px #e0e0e0, -1px 0 2px 1px #e0e0e0;
+	border-radius: 5px;
+	/* border: 1px solid #ff7043; */
+	padding: 1%;
+	align-self: center;
+	position: absolute;
+	right: 5%;
+}
+
+.calculate-button p {
 	font-size: 15px;
+	font-weight: 600;
 }
