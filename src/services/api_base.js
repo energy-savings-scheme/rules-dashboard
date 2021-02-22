@@ -2,11 +2,11 @@ import axios from 'axios';
 
 const client = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL,
-  withCredentials: false
+  withCredentials: false,
 });
 
 const ApiBase = function (options) {
-  console.log("Base url: ", process.env.REACT_APP_API_BASE_URL)
+  console.log('Base url: ', process.env.REACT_APP_API_BASE_URL);
   const onSuccess = function (response) {
     return response.data;
   };
