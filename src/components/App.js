@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 import '../styles/App.css';
 import Header from './header';
 import Summary from './Summary';
@@ -48,23 +50,30 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <Router>
       <Header />
-      <div className="App">
-        {variable_tree.map((category) => {
-          return (
-            <Summary
-              key={category.majorLabel}
-              sectionTitle={category.activityName}
-              subTitle={category.reference}
-              variableNumber={category.variables.length}
-              subCategories={category.variables}
-            />
-          );
-        })}
-      </div>{' '}
-      {/* <VariableTile /> */}
-    </div>
+
+      <Switch>
+        <Route path="/" exact>
+          <div className="App">
+            {variable_tree.map((category) => {
+              return (
+                <Summary
+                  key={category.majorLabel}
+                  sectionTitle={category.activityName}
+                  subTitle={category.reference}
+                  variableNumber={category.variables.length}
+                  subCategories={category.variables}
+                />
+              );
+            })}
+          </div>
+          {/* <VariableTile /> */}
+        </Route>
+        <Route path="/about" exact></Route>
+        <Route path="*">Not Found</Route>
+      </Switch>
+    </Router>
   );
 }
 
