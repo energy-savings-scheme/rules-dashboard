@@ -5,17 +5,17 @@
         "reference": "Schedule D (Clause 9.8)",
         "variables": [
             {
-                "reference": "D1",
+                "subLabel": "D1",
                 "activityName": "Replace an external single glazed window or door with a thermally efficient winder or door",
                 "variables": {}
             },
             {
-                "reference": "D2",
+                "subLabel": "D2",
                 "activityName": "Modify an external winder or glazed door by installing secondary glazing",
                 "variables": {}
             },
             {
-                "reference": "others",
+                "subLabel": "others",
                 "activityName": "other variables",
                 "variables": {}
             }
@@ -27,17 +27,17 @@
         "reference": "Schedule E (Clause 9.8)",
         "variables": [
             {
-                "reference": "E5",
+                "subLabel": "E5",
                 "activityName": "Replace a T8 or T12 luminarire with a LED luminarire",
                 "variables": {}
             },
             {
-                "reference": "E6",
+                "subLabel": "E6",
                 "activityName": "Replace an existing showerhead with an ultra low flow shoerhead",
                 "variables": {}
             },
             {
-                "reference": "others",
+                "subLabel": "others",
                 "activityName": "other variables",
                 "variables": {}
             }
@@ -49,17 +49,17 @@
         "reference": "Schedule F (Clause 9.9)",
         "variables": [
             {
-                "reference": "F1",
+                "subLabel": "F1",
                 "activityName": "Install a new high efficiency refrigerated cabinet",
                 "variables": {}
             },
             {
-                "reference": "F2",
+                "subLabel": "F2",
                 "activityName": "Install a new high efficiency liquid chilling package",
                 "variables": {}
             },
             {
-                "reference": "others",
+                "subLabel": "others",
                 "activityName": "other variables",
                 "variables": {}
             }

@@ -14,6 +14,7 @@ export default function SubCategoryTile(props) {
             <div className="sub-title">
                 <p className="sub-title">{number_variables} variables</p>
             </div>
+
         </div >
 
     );

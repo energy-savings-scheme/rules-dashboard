@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import { useState } from "react";
 import "../styles/Summary.css";
 import SubCategoryTile from "./SubCategoryTile"
 
@@ -16,7 +16,8 @@ export default function Summary(props) {
 
 	return (
 		<div>
-			<div className='summary-div' onClick={handleClick}>
+			<div className={clicked ? 'summary-div expanded' : 'summary-div'} onClick={handleClick}
+			>
 				<p className='summary-subtitle'>
 					{props.subTitle}
 				</p>
@@ -33,11 +34,11 @@ export default function Summary(props) {
 					return (
 						<SubCategoryTile
 							key={index}
-							subRef={subCat.reference}
+							subRef={subCat.subLabel}
 							title={subCat.activityName} />
 					)
 				})}
 			</div>
-		</div>
+		</div >
 	);
 }

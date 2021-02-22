@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import "../styles/App.css";
 import Header from "./header";
 import Summary from "./Summary";
-import VariableTile from "./variable_tile";
+// import VariableTile from "./variable_tile";
 import "../services/network_request";
 import sortResponse from "../services/sortResponse";
-import { getRequest, postRequest } from "../services/network_request";
+// import { getRequest, postRequest } from "../services/network_request";
+import variables from "../fullList.json";
 
 import variable_tree from "../services/variable_tree.json"
 
@@ -39,6 +40,7 @@ function App() {
 		// 	// });
 		// });
 
+		sortResponse(variables);
 		// postRequest("dependencies");
 		// postRequest("calculate");
 
