@@ -4,25 +4,25 @@ import Header from "./header";
 import Summary from "./Summary";
 import VariableTile from "./variable_tile";
 import "../services/network_request";
-// import sortResponse from "../services/sortResponse";
-// import { getRequest, postRequest } from "../services/network_request";
+import sortResponse from "../services/sortResponse";
+import { getRequest, postRequest } from "../services/network_request";
+
+import variable_tree from "../services/variable_tree.json"
 
 function App() {
-	const [sortedVar, setSortedVar] = useState({
-		A: {},
-		B: {},
-		C: {},
-		D: {},
-		E: {},
-		F: {},
-		others: {},
-	});
+	// const [sortedVar, setSortedVar] = useState({
+	// 	nabers: {},
+	// 	D: {},
+	// 	E: {},
+	// 	F: {},
+	// 	others: {}
+	// });
 
-	// const updateHttpResponse = (name, value) => {
-	// 	setFullList((prevState) => {
+	// const updateSortedVar = (name, variableJson) => {
+	// 	setSortedVar((prevState) => {
 	// 		return {
 	// 			...prevState,
-	// 			[name]: value,
+	// 			[name.variables]: value,
 	// 		};
 	// 	});
 	// };
@@ -33,32 +33,37 @@ function App() {
 		// 	let returnedData = res.data;
 		// 	let varSorted = sortResponse(returnedData);
 		// 	console.log("sorted");
-		// 	setSortedVar((prev) => {
-		// 		return varSorted;
-		// 	});
+		// 	console.log(varSorted);
+		// 	// setSortedVar((prev) => {
+		// 	// 	return varSorted;
+		// 	// });
 		// });
-		
+
 		// postRequest("dependencies");
 		// postRequest("calculate");
+
 	}, []);
 
 	return (
 		<div>
 			<Header />
 			<div className='App'>
-				{Object.entries(sortedVar).map(([key, valueObj]) => {
+				{variable_tree.map((category) => {
 					return (
 						<Summary
-							key={key}
+							key={category.majorLabel}
 							sectionTitle={
-								key === "others" ? "Others" : `Schedule ${key}`
+								category.activityName
 							}
-							variableNumber={Object.keys(valueObj).length}
+							subTitle={category.reference}
+							variableNumber={category.variables.length
+							}
+							subCategories={category.variables}
 						/>
 					);
 				})}
 			</div>{" "}
-			<VariableTile />
+			{/* <VariableTile /> */}
 		</div>
 	);
 }

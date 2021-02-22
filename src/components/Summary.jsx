@@ -1,17 +1,43 @@
+import react, { useState } from "react";
 import "../styles/Summary.css";
+import SubCategoryTile from "./SubCategoryTile"
+
+
+
+
 
 export default function Summary(props) {
+	const [clicked, setClick] = useState(true);
+
+
 	function handleClick() {
-		console.log(props.sectionTitle);
+		setClick(!clicked);
 	}
 
 	return (
-		<div className='summary-div' onClick={handleClick}>
-			<h3>{props.sectionTitle}</h3>
-			<p>
-				<span className='summaryValue'>{props.variableNumber}</span>{" "}
-				variables
-			</p>
+		<div>
+			<div className='summary-div' onClick={handleClick}>
+				<p className='summary-subtitle'>
+					{props.subTitle}
+				</p>
+
+				<h3 className='summary-title'>{props.sectionTitle}</h3>
+				<p>
+					<span className='summaryValue'>{props.variableNumber} variables</span>{" "}
+
+				</p>
+			</div>
+
+			<div className="summary-expansion-div">
+				{clicked && props.subCategories.map((subCat, index) => {
+					return (
+						<SubCategoryTile
+							key={index}
+							subRef={subCat.reference}
+							title={subCat.activityName} />
+					)
+				})}
+			</div>
 		</div>
 	);
 }

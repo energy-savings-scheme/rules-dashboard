@@ -1,13 +1,14 @@
 // import variables from "../fullList.json";
 
+
+
+
 function sortResponse(variables) {
 	// variables is the response from get request to ./variables, json object
 
 	// let re = /\b[E]\d\w+/;
 	let var_sorted = {
-		A: {},
-		B: {},
-		C: {},
+		nabers: {},
 		D: {},
 		E: {},
 		F: {},
@@ -24,13 +25,7 @@ function sortResponse(variables) {
 	// });
 
 	Object.entries(variables).forEach(([key, value]) => {
-		if (key.match(/\b[A]\d\w+/) != null) {
-			var_sorted.A[key] = value;
-		} else if (key.match(/\b[B]\d\w+/) != null) {
-			var_sorted.B[key] = value;
-		} else if (key.match(/\b[C]\d\w+/) != null) {
-			var_sorted.C[key] = value;
-		} else if (key.match(/\b[D]\d\w+/) != null) {
+		if (key.match(/\b[D]\d\w+/) != null) {
 			var_sorted.D[key] = value;
 		} else if (key.match(/\b[E]\d\w+/) != null) {
 			var_sorted.E[key] = value;
