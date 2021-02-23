@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
+import D3_Tree from 'react-d3-tree';
 
 import OpenFiscaAPI from 'services/openfisca_api';
 
@@ -8,7 +9,7 @@ export default function Tree(props) {
   const { entities, variables } = props;
 
   const [variable, setVariable] = useState({});
-  const [dependencyTree, setDependencyTree] = useState([]);
+  const [dependencyTree, setDependencyTree] = useState({});
 
   const createDependenciesPayload = (variable, entity) => {
     var payload = {
@@ -23,7 +24,8 @@ export default function Tree(props) {
     return payload;
   };
 
-  function makeTree(inputArray) {
+  function makeDependencyTree(trace) {
+    const inputArray = Object.entries(trace).map((e) => ({ name: e[0], ...e[1] }));
     var baseNode = inputArray[0];
 
     // Recursively build a nested tree structure starting from the baseNode
@@ -40,24 +42,13 @@ export default function Tree(props) {
           .map((childNode) => buildNestedTreeFromNode(childNode)),
       };
 
-      //   Remove unnecessary keys from object
-      delete return_obj.calculation_time;
-      delete return_obj.formula_time;
       return return_obj;
     }
 
     return buildNestedTreeFromNode(baseNode);
   }
 
-  const buildDependencyTree = (trace) => {
-    const dependencies_array = Object.entries(trace).map((e) => ({ name: e[0], ...e[1] }));
-    const tree = makeTree(dependencies_array);
-    console.log(tree);
-  };
-
   useEffect(() => {
-    // console.log(Object.keys(variables));
-
     OpenFiscaAPI.getVariable(variable_name)
       .then((res) => {
         setVariable(res.data);
@@ -72,7 +63,17 @@ export default function Tree(props) {
 
         OpenFiscaAPI.postTrace(payload)
           .then((res) => {
-            buildDependencyTree(res.data.trace);
+            const depTree = makeDependencyTree(res.data.trace);
+            setDependencyTree(depTree);
+          })
+          .then(() => {
+            // //   Center element
+            // console.log(treeContainer);
+            // var dimensions = treeContainer.current.getBoundingClientRect();
+            // setTranslate({
+            //   x: dimensions.width / 2,
+            //   y: dimensions.height / 2,
+            // });
           })
           .catch((err) => {
             console.log(err);
@@ -81,10 +82,6 @@ export default function Tree(props) {
       .catch((err) => {
         console.log(err);
       });
-
-    // var variable = variables.filter(item => item.name)
-
-    // OpenFiscaAPI.postDependencies({});
   }, [entities]);
 
   return (
@@ -108,11 +105,7 @@ export default function Tree(props) {
             <td>{JSON.stringify(variable.defaultValue)}</td>
           </tr>
           <tr>
-            <td style={{ fontWeight: 600 }}>definitionPeriod:</td>
-            <td>{variable.definitionPeriod}</td>
-          </tr>
-          <tr>
-            <td style={{ fontWeight: 600 }}>entity:</td>
+            orgCharttd>
             <td>{variable.entity}</td>
           </tr>
           <tr>
@@ -126,6 +119,15 @@ export default function Tree(props) {
           </tr>
         </tbody>
       </table>
+      <div id="treeWrapper" style={{ width: '100vw', height: '50vw', backgroundColor: '#fff' }}>
+        <D3_Tree
+          data={dependencyTree}
+          shouldCollapseNeighborNodes
+          allowForeignObjects
+          initialDepth={1}
+          separation={{ siblings: 1, nonSiblings: 3 }}
+        />
+      </div>
     </div>
   );
 }
