@@ -16,9 +16,7 @@ export default function Summary(props) {
         <p className="summary-subtitle">{props.subTitle}</p>
 
         <h3 className="summary-title">{props.sectionTitle}</h3>
-        <p>
-          <span className="summaryValue">{props.variableNumber} variables</span>{' '}
-        </p>
+        <p className="summaryValue">{props.total} variables</p>
       </div>
 
       <div className="summary-expansion-div">

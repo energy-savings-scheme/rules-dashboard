@@ -36,7 +36,7 @@ export default function VariableTile(props) {
     };
     fetchVarData();
     //TODO: clean up unmounted states when closed
-  }, []);
+  }, [props.varID]);
 
   return (
     <div className="var-tile-div">

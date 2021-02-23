@@ -7,12 +7,17 @@
       {
         "subLabel": "D1",
         "activityName": "Replace an external single glazed window or door with a thermally efficient winder or door",
-        "variables": {}
+        "variables": []
       },
       {
         "subLabel": "D2",
         "activityName": "Modify an external winder or glazed door by installing secondary glazing",
-        "variables": {}
+        "variables": []
+      },
+      {
+        "subLabel": "D-Others",
+        "activityName": "Other variables in Schedule D that is not part of the above categories",
+        "variables": []
       }
     ]
   },
@@ -24,12 +29,17 @@
       {
         "subLabel": "E5",
         "activityName": "Replace a T8 or T12 luminarire with a LED luminarire",
-        "variables": {}
+        "variables": []
       },
       {
         "subLabel": "E6",
-        "activityName": "Replace an existing showerhead with an ultra low flow shoerhead",
-        "variables": {}
+        "activityName": "Replace an existing showerhead with an ultra low flow showerhead",
+        "variables": []
+      },
+      {
+        "subLabel": "E-Others",
+        "activityName": "Other variables in Schedule E that is not part of the above categories",
+        "variables": []
       }
     ]
   },
@@ -41,12 +51,17 @@
       {
         "subLabel": "F1",
         "activityName": "Install a new high efficiency refrigerated cabinet",
-        "variables": {}
+        "variables": []
       },
       {
         "subLabel": "F4",
         "activityName": "Install a new high efficiency air conditioner",
-        "variables": {}
+        "variables": []
+      },
+      {
+        "subLabel": "F-others",
+        "activityName": "Other variables in Schedule F that is not part of the above categories",
+        "variables": []
       }
     ]
   },
@@ -54,6 +69,24 @@
     "majorLabel": "nabers",
     "activityName": "NABERS baseline",
     "reference": "Clause 8.8",
-    "subCategories": []
+    "subCategories": [
+      {
+        "subLabel": "nabers",
+        "activityName": "NABERS related variables",
+        "variables": []
+      }
+    ]
+  },
+  {
+    "majorLabel": "others",
+    "activityName": "Other variables",
+    "reference": "",
+    "subCategories": [
+      {
+        "subLabel": "others",
+        "activityName": "other un-categorized variables",
+        "variables": []
+      }
+    ]
   }
 ]

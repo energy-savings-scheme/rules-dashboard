@@ -1,37 +1,38 @@
 /* summary.jsx */
 .summary-div {
-	width: 90%;
-	/* height: 200px; */
-	margin: 2% 1% 0 2%;
-	padding: 1% 2%;
-	background-color: #ffffff;
-	border-radius: 10px;
-	box-shadow: 1px 1px 10px 1px #e0f2f1, -1px 0 10px 1px #e0f2f1;
-	text-align: left;
+  width: 90%;
+  /* height: 200px; */
+  margin: 2% 1% 0 2%;
+  padding: 1% 2%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px 1px #e0f2f1, -1px 0 10px 1px #e0f2f1;
+  text-align: left;
 }
-/* 
+/*
 .summary-div:hover {
 	background-color: #b2dfdb;
 } */
 
 .expanded {
-	background-color: #b2dfdb;
+  background-color: #b2dfdb;
 }
 
-
 .summaryValue {
-	font-weight: bolder;
-	font-size: 0.9rem;
+  text-align: right;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #c63f17;
 }
 
 .summary-title {
-	font-size : 1rem ;
-	margin:0;
+  font-size: 1rem;
+  margin: 0;
 }
 .summary-subtitle {
-	font-size : 0.8rem; 
-	margin: 0;
-	font-family: "Open Sans";
-	font-weight: 400;
-	color: #c63f17
+  font-size: 0.9rem;
+  margin: 0;
+  font-family: 'Open Sans';
+  font-weight: 400;
+  color: #c63f17;
 }
