@@ -28,11 +28,29 @@ function listVariables() {
   });
 }
 
+function postDependencies(payload) {
+  return ApiBase({
+    url: '/dependencies/',
+    method: 'POST',
+    data: payload,
+  });
+}
+
+function postTrace(payload) {
+  return ApiBase({
+    url: '/trace/',
+    method: 'POST',
+    data: payload,
+  });
+}
+
 const OpenFiscaApi = {
   getVariable,
   getParameters,
   listEntities,
   listVariables,
+  postDependencies,
+  postTrace,
 };
 
 export default OpenFiscaApi;
