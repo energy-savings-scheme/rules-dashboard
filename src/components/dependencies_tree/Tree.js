@@ -1,8 +1,10 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import D3_Tree from 'components/dependencies_tree/D3_Tree';
 
 import OpenFiscaAPI from 'services/openfisca_api';
+
+import Codeblock from 'components/Codeblock';
+import D3_Tree from 'components/dependencies_tree/D3_Tree';
 
 export default function Tree(props) {
   let { variable_name } = useParams();
@@ -104,7 +106,21 @@ export default function Tree(props) {
       <div className="nsw-row">
         <div className="nsw-col">
           <h3>What does the formula look like?</h3>
-          <p>{JSON.stringify(variable.formulas)}</p>
+          {Object.keys(variable.formulas).map((formula_date) => {
+            const formula_i = variable.formulas[formula_date];
+            if (formula_date === '0001-01-01') {
+              formula_date = 'ETERNITY';
+            }
+            return (
+              <Fragment>
+                <h5 style={{ marginBottom: '0.5rem' }}>From date: {formula_date}</h5>
+                <p>
+                  <Codeblock code={formula_i.content} language="python" />
+                </p>
+              </Fragment>
+            );
+          })}
+          <p></p>
         </div>
       </div>
     </div>
