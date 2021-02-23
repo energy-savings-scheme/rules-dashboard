@@ -1,80 +1,59 @@
 [
-    {
-        "majorLabel": "D",
-        "activityName": "General Activities for Home Energy Efficiency Retrofits",
-        "reference": "Schedule D (Clause 9.8)",
-        "variables": [
-            {
-                "subLabel": "D1",
-                "activityName": "Replace an external single glazed window or door with a thermally efficient winder or door",
-                "variables": {}
-            },
-            {
-                "subLabel": "D2",
-                "activityName": "Modify an external winder or glazed door by installing secondary glazing",
-                "variables": {}
-            },
-            {
-                "subLabel": "others",
-                "activityName": "other variables",
-                "variables": {}
-            }
-        ]
-    },
-    {
-        "majorLabel": "E",
-        "activityName": "Low Cost Activities for Home Energy Efficiency Retrofits",
-        "reference": "Schedule E (Clause 9.8)",
-        "variables": [
-            {
-                "subLabel": "E5",
-                "activityName": "Replace a T8 or T12 luminarire with a LED luminarire",
-                "variables": {}
-            },
-            {
-                "subLabel": "E6",
-                "activityName": "Replace an existing showerhead with an ultra low flow shoerhead",
-                "variables": {}
-            },
-            {
-                "subLabel": "others",
-                "activityName": "other variables",
-                "variables": {}
-            }
-        ]
-    },
-    {
-        "majorLabel": "F",
-        "activityName": "Installation of High Efficiency Appliances for Businesses",
-        "reference": "Schedule F (Clause 9.9)",
-        "variables": [
-            {
-                "subLabel": "F1",
-                "activityName": "Install a new high efficiency refrigerated cabinet",
-                "variables": {}
-            },
-            {
-                "subLabel": "F2",
-                "activityName": "Install a new high efficiency liquid chilling package",
-                "variables": {}
-            },
-            {
-                "subLabel": "others",
-                "activityName": "other variables",
-                "variables": {}
-            }
-        ]
-    },
-    {
-        "majorLabel": "nabers",
-        "activityName": "NABERS baseline",
-        "reference": "Clause 8.8",
-        "variables": []
-    },
-    {
-        "majorLabel": "others",
-        "activityName": "Other variables",
-        "reference": "",
-        "variables": []
-    }
+  {
+    "majorLabel": "D",
+    "activityName": "General Activities for Home Energy Efficiency Retrofits",
+    "reference": "Schedule D (Clause 9.8)",
+    "subCategories": [
+      {
+        "subLabel": "D1",
+        "activityName": "Replace an external single glazed window or door with a thermally efficient winder or door",
+        "variables": {}
+      },
+      {
+        "subLabel": "D2",
+        "activityName": "Modify an external winder or glazed door by installing secondary glazing",
+        "variables": {}
+      }
+    ]
+  },
+  {
+    "majorLabel": "E",
+    "activityName": "Low Cost Activities for Home Energy Efficiency Retrofits",
+    "reference": "Schedule E (Clause 9.8)",
+    "subCategories": [
+      {
+        "subLabel": "E5",
+        "activityName": "Replace a T8 or T12 luminarire with a LED luminarire",
+        "variables": {}
+      },
+      {
+        "subLabel": "E6",
+        "activityName": "Replace an existing showerhead with an ultra low flow shoerhead",
+        "variables": {}
+      }
+    ]
+  },
+  {
+    "majorLabel": "F",
+    "activityName": "Installation of High Efficiency Appliances for Businesses",
+    "reference": "Schedule F (Clause 9.9)",
+    "subCategories": [
+      {
+        "subLabel": "F1",
+        "activityName": "Install a new high efficiency refrigerated cabinet",
+        "variables": {}
+      },
+      {
+        "subLabel": "F4",
+        "activityName": "Install a new high efficiency air conditioner",
+        "variables": {}
+      }
+    ]
+  },
+  {
+    "majorLabel": "nabers",
+    "activityName": "NABERS baseline",
+    "reference": "Clause 8.8",
+    "subCategories": []
+  }
 ]

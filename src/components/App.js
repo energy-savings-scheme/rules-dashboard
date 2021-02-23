@@ -43,6 +43,7 @@ function App() {
     // });
 
     sortResponse(variables);
+
     // postRequest("dependencies");
     // postRequest("calculate");
   }, []);
@@ -57,8 +58,8 @@ function App() {
               key={category.majorLabel}
               sectionTitle={category.activityName}
               subTitle={category.reference}
-              variableNumber={category.variables.length}
-              subCategories={category.variables}
+              variableNumber={category.subCategories.length}
+              subCategories={category.subCategories}
             />
           );
         })}

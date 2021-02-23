@@ -1,75 +1,45 @@
 // import variables from "../fullList.json";
 import variable_tree from './variable_tree.json';
 
-function variableRelatedToKeyword(varID, varDescription, keyword) {
-  if (
-    varID.indexOf(keyword.toLowerCase()) !== -1 ||
-    varID.indexOf(keyword.toUpperCase()) !== -1 ||
-    varDescription.indexOf(keyword.toLowerCase()) !== -1 ||
-    varDescription.indexOf(keyword.toUpperCase()) !== -1
-  ) {
-    console.log(varID);
-    console.log(varDescription);
-  }
+function varRelatedToKeyword(varID, varDescription, keyword) {
+  let regex = new RegExp(keyword, 'i');
+  return regex.test(varID) || regex.test(varDescription);
 }
 
 function sortResponse(variables) {
-  // variables is the response from get request to ./variables, json object
-  // sort variables into the pre-made tree structure
-
   // let re = /\b[E]\d\w+/;
+  //   let regex = new RegExp('\\b' + majorLabel + '\\d\\w+');
 
   const sorted_var = {};
+  //Construct the variable tree
+  var remainingVariables = variables;
+
   variable_tree.forEach((majorCat) => {
-    sorted_var[majorCat.majorLabel] = {};
-    majorCat.variables.forEach((subCat) => {
-      sorted_var[majorCat.majorLabel][subCat.subLabel] = {};
-    });
-  });
+    let majorLabel = majorCat.majorLabel;
+    sorted_var[majorLabel] = {};
+    let regex = new RegExp('\\b' + majorLabel + '\\d\\w+');
+    let majorList = Object.keys(variables).filter((item) => item.match(regex));
 
-  var majorLabel = 'D1_';
-  var regex = new RegExp('\\b' + majorLabel + '\\w+');
-
-  Object.keys(variables).forEach((id) => {
-    if (id.match(regex) != null) {
-      console.log(id);
-    } else {
-      console.log('others');
+    if (majorList.length > 0) {
+      majorCat.subCategories.forEach((subCat) => {
+        let regex0 = new RegExp('\\b' + subCat.subLabel + '_' + '\\w+');
+        let matches = majorList.filter((item) => item.match(regex0));
+        let nonMatches = majorList.filter((item) => !item.match(regex0));
+        sorted_var[majorLabel][subCat.subLabel] = matches;
+        majorList = nonMatches;
+      });
+      sorted_var[majorLabel]['others'] = majorList;
+    } else if (majorList.length == 0 && majorLabel == 'nabers') {
+      sorted_var[majorLabel]['variables'] = [];
+      Object.entries(variables).forEach(([varID, varData]) => {
+        if (varRelatedToKeyword(varID, varData.description, majorLabel)) {
+          sorted_var[majorLabel]['variables'].push(varID);
+        }
+      });
     }
   });
 
-  // for (let [varID, varData] of Object.entries(variables)) {
-  // 	// console.log(varID);
-  // 	if (varID.match(regex) != null) {
-  // 		console.log(varID)
-  // 	}
-  // 	// variableRelatedToKeyword(varID, varData.description, 'nabers');
-
-  // };
-
-  //TODO: loop through var_sorted instead
-
-  // Object.keys(var_sorted).forEach((key) => {
-  // 	let regex = new RegExp("\b[" + key + "]dw+");
-  // 	console.log(regex);
-  // 	Object.keys(variables).forEach((variableID) => {
-  // 		console.log(variableID.match(regex));
-  // 	});
-  // });
-
-  // Object.entries(variables).forEach(([key, value]) => {
-  // 	if (key.match(/\b[D]\d\w+/) != null) {
-  // 		var_sorted.D[key] = value;
-  // 	} else if (key.match(/\b[E]\d\w+/) != null) {
-  // 		var_sorted.E[key] = value;
-  // 	} else if (key.match(/\b[F]\d\w+/) != null) {
-  // 		var_sorted.F[key] = value;
-  // 	} else {
-  // 		var_sorted.others[key] = value;
-  // 	}
-  // });
   console.log(sorted_var);
 }
-// pattern matching
 
 export default sortResponse;

@@ -1,0 +1,685 @@
+{
+  "number_of_certificates": {
+    "description": "The total number of certificates generated from this activity.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/number_of_certificates"
+  },
+  "CDD_15": {
+    "description": "The relevant cooling days for this building, based on postcode and then climate zone",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/CDD_15"
+  },
+  "Dequip": {
+    "description": "Dequip value used to weigh impact of number of computers",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/Dequip"
+  },
+  "GEClimcorr_tenancy": {
+    "description": "weighted tenancy climate correct greenhouse emissions for the relevant NABERS building.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/GEClimcorr_tenancy"
+  },
+  "GE_25_percent_reduction": {
+    "description": "25% reduction of required maximum greenhouse emissions for use in 5.5 star rating following original rating system",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/GE_25_percent_reduction"
+  },
+  "GE_50_percent_reduction": {
+    "description": "50% reduction of required maximum greenhouse emissions for use in 6 star rating following original rating system",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/GE_50_percent_reduction"
+  },
+  "GE_5star_original_rating": {
+    "description": "original required maximum greenhouse emissions at 5 star rating",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/GE_5star_original_rating"
+  },
+  "GEclimcorr": {
+    "description": "climate corrected greenhouse emissions for the relevant NABERS whole building.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/GEclimcorr"
+  },
+  "GEwholemax": {
+    "description": "Greenhouse emissions for relevant NABERS whole building - applicable above 5 stars.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/GEwholemax"
+  },
+  "HDD_18": {
+    "description": "HDD value for the relevant climate zone, determined by the the relevant postcode.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/HDD_18"
+  },
+  "NGE_5star_original_rating": {
+    "description": "original normalised greenhouse emissions at 5 star for use for > 5 star ratings",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/NGE_5star_original_rating"
+  },
+  "NGEmax": {
+    "description": "Normalised greenhouse emissions for relevant NABERS wholebuilding - only applicable under 5 stars",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/NGEmax"
+  },
+  "SGE_tenancy": {
+    "description": "Specific greenhouse emissions related to tenancy of a building",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/SGE_tenancy"
+  },
+  "SGEcoal": {
+    "description": "specific greenhouse emissions for coal for the relevant state",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/SGEcoal"
+  },
+  "SGEelec": {
+    "description": "specific greenhouse emissions for electricity for the relevant state",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/SGEelec"
+  },
+  "SGEgas": {
+    "description": "specific greenhouse emissions for gas for the relevant state",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/SGEgas"
+  },
+  "SGEoil": {
+    "description": "specific greenhouse emissions for oil for the relevant state",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/SGEoil"
+  },
+  "SGEtenancy": {
+    "description": "specific greenhouse emissions for tenancy",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/SGEtenancy"
+  },
+  "base_building_GEmax": {
+    "description": "GEmax value for base building ratings.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/base_building_GEmax"
+  },
+
+  "NRYi1": {
+    "description": "the NABERS rating year immediately preceding the NABERS Rating Year.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/NRYi1"
+  },
+  "annually_created_electricity_savings": {
+    "description": "What is the electricity savings in MWh?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/annually_created_electricity_savings"
+  },
+  "annually_created_gas_savings": {
+    "description": "What is the gas savings in MWh?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/annually_created_gas_savings"
+  },
+  "counted_elec_savings": {
+    "description": "Total Elec Savings for which Energy Savings Certificates have previously been created for the Implementation for the Current Rating Year in MWh",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/counted_elec_savings"
+  },
+  "counted_energy_savings": {
+    "description": "The total Energy Savings for which ESCs have previously been created for the Implementation for the Current Rating Year. As defined in Clause 8.8.12.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/counted_energy_savings"
+  },
+  "counted_gas_savings": {
+    "description": "What are the total Gas Savings for which Energy Savings Certificates have previously been created for the Implementation for the Current Rating Year in MWh?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/counted_gas_savings"
+  },
+  "electricity_savings_previous_year": {
+    "description": "What are the electricity savings created for the year NRYi-1 - the previous NABERS Rating Year?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/electricity_savings_previous_year"
+  },
+  "gas_savings_previous_year": {
+    "description": "What are the gas savings created for the year NRYi-1 - the previous NABERS Rating Year?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/gas_savings_previous_year"
+  },
+  "regional_network_factor": {
+    "description": "Regional Network Factor is the value from Table A24 of Schedule A corresponding to the postcode of the Address of the Site or Sites where the Implementation(s) took place.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/regional_network_factor"
+  },
+  "input_years_of_forward_creation": {
+    "description": "What are the total number of years you want to forward create for?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/input_years_of_forward_creation"
+  },
+  "total_forward_created_electricity_savings": {
+    "description": "sum of total forward created electricity savings",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/total_forward_created_electricity_savings"
+  },
+  "total_forward_created_gas_savings": {
+    "description": "sum of total forward created gas savings",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/total_forward_created_gas_savings"
+  },
+  "year_one_forward_created_electricity_savings": {
+    "description": "value of year 1 of forward created electricity savings in MWh",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/year_one_forward_created_electricity_savings"
+  },
+  "year_one_forward_created_gas_savings": {
+    "description": "value of year 1 of forward created gas savings",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/year_one_forward_created_gas_savings"
+  },
+  "year_three_forward_created_electricity_savings": {
+    "description": "value of year 3 of forward created electricity savings",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/year_three_forward_created_electricity_savings"
+  },
+  "year_three_forward_created_gas_savings": {
+    "description": "value of year 3 of forward created gas savings",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/year_three_forward_created_gas_savings"
+  },
+  "year_two_forward_created_electricity_savings": {
+    "description": "value of year 2 of forward created electricity savings",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/year_two_forward_created_electricity_savings"
+  },
+  "year_two_forward_created_gas_savings": {
+    "description": "value of year 2 of forward created gas savings",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/year_two_forward_created_gas_savings"
+  },
+  "years_of_forward_creation": {
+    "description": "Tests if a rating has been used for a previous Historical Baseline NABERS Rating for a NABERS Building. Clause 8.8.10 (c) prohibits the use of using a NABERS Rating of the same value more than once to set a fixed Historical NABERS Baseline Rating.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/years_of_forward_creation"
+  },
+  "ESC_creation_date": {
+    "description": "What is the date on which ESCs are registered and created?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/ESC_creation_date"
+  },
+  "NABERS_eligible_to_create_ESCs": {
+    "description": "Determines whether the relevant NABERS rating(s) pass all of the precondition requirements defined in Clause 8.8.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/NABERS_eligible_to_create_ESCs"
+  },
+  "additional_energy_savings_created": {
+    "description": "Is the NABERS Rating used to create ESCs for Additional Energy Savings?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/additional_energy_savings_created"
+  },
+  "current_NABERS_star_rating": {
+    "description": "What is the current star rating for the NABERS rated building for which ESCs are being registered?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/current_NABERS_star_rating"
+  },
+  "energy_saver": {
+    "description": "Who is the Energy Saver for the Implementation?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/energy_saver"
+  },
+  "energy_savings_date": {
+    "description": " For the purposes of section 131 of the Act, Energy Savings are taken to occur on the date that the Scheme Administrator  determines that the relevant NABERS Rating was completed.  In accordance with Clause 8.8.7.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/energy_savings_date"
+  },
+  "first_nabers_rating": {
+    "description": "Is this the first NABERS Rating for the building?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/first_nabers_rating"
+  },
+  "historical_baseline_more_than_7_years": {
+    "description": "if Calculation Method 2 is to be used for Additional Energy Savings and the fixed Historical Baseline NABERS Rating does not meet requirements of 8.8.4 (a), it must be reset using using a previous NABERS rating that is calculated at least 7 years later than the end date of the previous fixed Historical baseline NABERS rating in accordance with clause 8.8.4 (b)",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/historical_baseline_more_than_7_years"
+  },
+  "historical_baseline_no_more_than_7_years_before_current_rating": {
+    "description": "Is the Historical Baseline NABERS Rating calculated no more than 7 years before the end date of the Current Rating Year?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/historical_baseline_no_more_than_7_years_before_current_rating"
+  },
+  "historical_baseline_rating_meets_similar_configuration_criteria": {
+    "description": "Does the Historical Baseline NABERS Rating and the current NABERS Rating fulfill the similar configuration criteria?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/historical_baseline_rating_meets_similar_configuration_criteria"
+  },
+  "implementation_date": {
+    "description": "The Implementation Date means the end date of the Current Rating Period.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/implementation_date"
+  },
+  "includes_GreenPower": {
+    "description": "Does the NABERS rating include Greenpower?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/includes_GreenPower"
+  },
+  "is_current_NABERS_rating": {
+    "description": "Is the NABERS Rating used to calculate ESCs a current NABERS Rating?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/is_current_NABERS_rating"
+  },
+  "meets_minimum_star_rating_requirement": {
+    "description": "Does the star rating exceed the minimum star rating defined in Clause 8.8.3?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/meets_minimum_star_rating_requirement"
+  },
+  "nabers_value_lower_than_previous_historical_NABERS_value": {
+    "description": "Is the current or historical NABERS Star Rating lower than a previous Historical NABERS Star Rating?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/nabers_value_lower_than_previous_historical_NABERS_value"
+  },
+  "nabers_value_previously_used_to_set_historical_NABERS_rating": {
+    "description": "Has a NABERS Rating of the same value previously been used to set a Historical Baseline NABERS Rating?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/nabers_value_previously_used_to_set_historical_NABERS_rating"
+  },
+  "previous_annual_creation_occurred": {
+    "description": "Has annual creation for this implementation already occurred?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/previous_annual_creation_occurred"
+  },
+  "rating_not_obt_for_legal_requirement": {
+    "description": "Is the rating not being obtained in order to comply with any mandatory legal requirement? This includes, but is not limited to the Commercial Building Disclosure Program.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/rating_not_obt_for_legal_requirement"
+  },
+  "star_rating_exceeds_method_one_benchmark_rating": {
+    "description": "Does the NABERS Star Rating used to calculate ESCs within method 1 exceed the minimum star rating?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/star_rating_exceeds_method_one_benchmark_rating"
+  },
+  "star_rating_exceeds_method_two_benchmark_rating": {
+    "description": "Does the NABERS Star Rating used to calculate ESCs within method 1 exceed the minimum star rating?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/star_rating_exceeds_method_two_benchmark_rating"
+  },
+  "time_between_current_ratings_and_ESC_date_within_range": {
+    "description": "Tests the distance between the end of the current rating period and the date of Energy Savings Certificates against the maximum allowable distance between end of rating and ESC creation date. In accordance with clause 8.8.8.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/time_between_current_ratings_and_ESC_date_within_range"
+  },
+  "uses_NABERS_ratings_tool": {
+    "description": "Was the NABERS rating calculated using one of the NABERS Rating Tools?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/uses_NABERS_ratings_tool"
+  },
+  "ESC_cur_diff_as_months": {
+    "description": "Calculates the difference in months between the ESC creation date the current NABERS rating period, for testing against time_between_historical_and_current_ratings_within_range.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/ESC_cur_diff_as_months"
+  },
+  "age_of_historical_rating": {
+    "description": "Calculate the age of the historical rating, for use in determining Annual Rating Adjustment from Table A21.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/age_of_historical_rating"
+  },
+  "baseline_rating_year": {
+    "description": "What is the year for the historical rating period?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/baseline_rating_year"
+  },
+  "benchmark_nabers_rating": {
+    "description": "Benchmark NABERS rating calculated using Method 1 or Method 2",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/benchmark_nabers_rating"
+  },
+  "built_after_nov_2006": {
+    "description": "Was the building built on or after 1 November 2006?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/built_after_nov_2006"
+  },
+  "current_historical_date_distance": {
+    "description": "Calculates the difference in months between the historical NABERS rating period and the current NABERS rating period, for testing against time_between_historical_and_current_ratings_within_range.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/current_historical_date_distance"
+  },
+  "current_rating_period_length": {
+    "description": "What is the length of the Current NABERS Rating Period, as using the current start date and current end date?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/current_rating_period_length"
+  },
+  "current_rating_year": {
+    "description": "What is the year for the current rating period?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/current_rating_year"
+  },
+  "end_date_of_current_nabers_rating_period": {
+    "description": "What is the end date of the Current Rating Period as listed on the Current NABERS Rating Report?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/end_date_of_current_nabers_rating_period"
+  },
+  "end_date_of_current_rating_year": {
+    "description": "What is the end date of the current rating year?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/end_date_of_current_rating_year"
+  },
+  "end_date_of_historical_nabers_rating_period": {
+    "description": "What is the end date of the Historical Rating Period as listed on the Historical NABERS Rating Report?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/end_date_of_historical_nabers_rating_period"
+  },
+  "historical_NABERS_star_rating": {
+    "description": "What is the Star Rating of the Historical NABERS Rating, as listed on the Historical NABERS Rating Report?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/historical_NABERS_star_rating"
+  },
+  "historical_rating_period_length": {
+    "description": "What is the length of the Historical NABERS Rating Period, as using the historical start date and historical end date?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/historical_rating_period_length"
+  },
+  "method_one": {
+    "description": "What is the Benchmark NABERS Rating calculated using Method 1 of the NABERS Baseline Method in the ESS?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/method_one"
+  },
+  "method_one_can_be_used": {
+    "description": "Can Method 1 be used to calculate the NABERS Benchmark Rating for the buildings?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/method_one_can_be_used"
+  },
+  "method_two": {
+    "description": "What is the Benchmark NABERS Rating calculated using Method 1 of the NABERS Baseline Method in the ESS?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/method_two"
+  },
+  "previous_forward_creation_occurred": {
+    "description": "Has previous forward creation occurred for this implementation within the previous 6 years?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/previous_forward_creation_occurred"
+  },
+  "previous_historical_baseline_rating": {
+    "description": "If there has been a previous Historical NABERS Baseline Rating what is the previous Historical NABERS Baseline Rating?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/previous_historical_baseline_rating"
+  },
+  "start_date_of_current_nabers_rating_period": {
+    "description": "What is the start date of the Current Rating Period as listed on the Current NABERS Rating Report?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/start_date_of_current_nabers_rating_period"
+  },
+  "start_date_of_historical_nabers_rating_period": {
+    "description": "What is the start date of the Historical Rating Period as listed on the Historical NABERS Rating Report?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/start_date_of_historical_nabers_rating_period"
+  },
+  "time_between_historical_and_current_ratings_within_range": {
+    "description": "Tests the distance between historical and current ratings against the maximum allowable distance, for forward creation within Method 2. In accordance with Clause 8.8.10 (b).",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/time_between_historical_and_current_ratings_within_range"
+  },
+  "today_date": {
+    "description": "What is the date for today?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/today_date"
+  },
+  "building_type": {
+    "description": "What is the building type for which you are calculating ESCs?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/building_type"
+  },
+  "building_type_status": {
+    "description": "The building type of the NABERS rating building, as entered by the user.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/building_type_status"
+  },
+  "is_apartment_building": {
+    "description": "Building is an apartment building",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/is_apartment_building"
+  },
+  "is_data_centre": {
+    "description": "Building is a data centre",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/is_data_centre"
+  },
+  "is_hospital": {
+    "description": "Building is a hospital",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/is_hospital"
+  },
+  "is_hotel": {
+    "description": "Building is a hotel",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/is_hotel"
+  },
+  "is_office": {
+    "description": "Building is an office",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/is_office"
+  },
+  "is_shopping_centre": {
+    "description": "Building is a shopping centre",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/is_shopping_centre"
+  },
+  "postcode": {
+    "description": "What is the postcode for the building you are calculating ESCs for?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/postcode"
+  },
+  "apartments_benchmark_elec_consumption": {
+    "description": "Condition that determines where end result of the Apartments Reverse Calculator is to be used as the Benchmark Energy Value.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/apartments_benchmark_elec_consumption"
+  },
+  "apartments_benchmark_gas_consumption_MJ": {
+    "description": "Condition that determines where end result of the Apartments Reverse Calculator is to be used as the Benchmark Energy Value.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/apartments_benchmark_gas_consumption_MJ"
+  },
+  "benchmark_elec_consumption": {
+    "description": "Benchmark electricity consumption amount obtained from NABERS reverse calculator",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/benchmark_elec_consumption"
+  },
+  "benchmark_elec_consumption_MWh": {
+    "description": "Benchmark electricity consumption in mWh, as required by Step 3 of ESS NABERS Method.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/benchmark_elec_consumption_MWh"
+  },
+  "benchmark_gas_consumption_MJ": {
+    "description": "Benchmark gas consumption amount obtained from NABERS reverse calculator",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/benchmark_gas_consumption_MJ"
+  },
+  "benchmark_gas_consumption_MWh": {
+    "description": "Benchmark gas consumption amount obtained from NABERS reverse calculator",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/benchmark_gas_consumption_MWh"
+  },
+  "electricity_savings": {
+    "description": "Returns electricity savings, for use in calculating the amount of certificates generated in this implementation.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/electricity_savings"
+  },
+  "energy_savings_type": {
+    "description": "What is the type of energy savings you are creating - annual creation or forward creation?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/energy_savings_type"
+  },
+  "gas_savings": {
+    "description": "Returns electricity savings, for use in calculating the amount of certificates generated in this implementation.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/gas_savings"
+  },
+  "hours_per_week_with_20_percent_occupancy": {
+    "description": "What is the number of hours each week with occupancy levels of 20% or more (hrs/week)",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/hours_per_week_with_20_percent_occupancy"
+  },
+  "net_lettable_area": {
+    "description": "What is the net lettable area of the building as recorded on the NABERS Rating Report, in m2?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/net_lettable_area"
+  },
+  "offices_benchmark_elec_consumption": {
+    "description": "Benchmark electricity consumption amount obtained from NABERS reverse calculator",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/offices_benchmark_elec_consumption"
+  },
+  "offices_benchmark_gas_consumption_MJ": {
+    "description": "Benchmark electricity consumption amount obtained from NABERS reverse calculator",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/offices_benchmark_gas_consumption_MJ"
+  },
+  "measured_electricity_consumption": {
+    "description": "Measured Electricity Consumption (MWh)",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/measured_electricity_consumption"
+  },
+  "measured_gas_consumption": {
+    "description": "Measured Gas Consumption (MWh)",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/measured_gas_consumption"
+  },
+  "nabers_electricity": {
+    "description": "NABERS Electricity, in MWh, is the electricity purchased or imported from the Electricity Network and accounted for in the NABERS Rating, including electricity purchased as GreenPower.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/nabers_electricity"
+  },
+  "nabers_gas": {
+    "description": "NABERS Gas, in MWh, is the total of the Gas accounted for in the NABERS rating",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/nabers_gas"
+  },
+  "onsite_unaccounted_electricity": {
+    "description": "What is the onsite unaccounted electricity use, that is not recorded on the NABERS Rating Report?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/onsite_unaccounted_electricity"
+  },
+  "activity_delivered_through_exempt_energy_program": {
+    "description": "Is the Implementation delivered through an Exempt Energy Program?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/activity_delivered_through_exempt_energy_program"
+  },
+  "activity_delivered_through_low_income_program": {
+    "description": "Is the Implementation delivered through a Low-income Energy Program?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/activity_delivered_through_low_income_program"
+  },
+  "eligibiity_requirements_are_met": {
+    "description": "Have all of the Eligibility Requirements for the relevant Activity Definition been met immediately prior to the Implementation Date?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/eligibiity_requirements_are_met"
+  },
+  "heer_energy_saver": {
+    "description": "Who is the Energy Saver for the Implementation? The Energy Saver for Home Energy Efficiency Retrofits is the Purchaser.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/heer_energy_saver"
+  },
+  "heer_purchaser": {
+    "description": "Who is the Purchaser for the Implementation?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/heer_purchaser"
+  },
+  "implementation_meets_implementation_requirements": {
+    "description": "Does the Implementation meet all of the Implementation Requirements for the relevant activity?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/implementation_meets_implementation_requirements"
+  },
+  "installed_equipment_or_modified_products_meet_equipment_requirements": {
+    "description": "Have all of the Equipment Requirements for the Activity Definition been met by the installed End User Equipment or products which modify existing End User Equipment?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/installed_equipment_or_modified_products_meet_equipment_requirements"
+  },
+  "purchaser_has_paid_minimum_contribution_or_is_exempt": {
+    "description": "Has the Purchaser paid a net amount of minimum of $30 for the Implementation, or are they exempt?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/purchaser_has_paid_minimum_contribution_or_is_exempt"
+  },
+  "purchaser_paid_minimum_contribution": {
+    "description": "Has the Purchaser paid a net amount of minimum of $30 for the Implementation?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/purchaser_paid_minimum_contribution"
+  },
+  "site_assessment_conducted_before_implementation_date": {
+    "description": "Has a Site Assessment been conducted on or before the Implementation Date?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/site_assessment_conducted_before_implementation_date"
+  },
+  "site_implementation_date": {
+    "description": "What is the Site Assessment Date for the RESA?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/site_implementation_date"
+  },
+  "site_is_residential_or_small_business": {
+    "description": "Is the site a Residential or Small Business Site?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/site_is_residential_or_small_business"
+  },
+  "existing_lamp_type": {
+    "description": "Defines the existing lamp type, as defined in Table A9.1 or Table A9.3 in Schedule A.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/existing_lamp_type"
+  },
+  "new_lamp_type": {
+    "description": "Defines the new lamp type, as defined in Table A9.1 or Table A9.3 in Schedule A.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/new_lamp_type"
+  },
+  "ACT_lighting_upgrade_as_part_of_development": {
+    "description": "Is the activity a. in the ACT, b. a Lighting Upgrade, and c. undertaken as part of a development or refurbishment requiring development approval, under the Planning and Development Act 2007?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/ACT_lighting_upgrade_as_part_of_development"
+  },
+  "T5_adaptor_kits_are_ineligible": {
+    "description": "Is the new End User Equipment a T5 Adaptor Kit, as defined in Table A9.3? T5 Adaptor Kits are not eligible to create ESCs.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/T5_adaptor_kits_are_ineligible"
+  },
+  "activity_exports_to_the_electricity_network": {
+    "description": "Does the activity result in generating electricity which is exported to the Electricity Network?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/activity_exports_to_the_electricity_network"
+  },
+  "activity_flares_gas": {
+    "description": "Does the activity result in the flaring of Gas?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/activity_flares_gas"
+  },
+  "activity_is_ineligible_for_RESA_criteria": {
+    "description": "Does the activity meet any of the criteria which makes it ineligible to be considered a RESA?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/activity_is_ineligible_for_RESA_criteria"
+  },
+  "activity_is_standard_control_service_or_prescribed_transmission_service": {
+    "description": "Is the activity a Standard Control Service or a Prescribed Transmission Service undertaken by a Network Service Provider?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/activity_is_standard_control_service_or_prescribed_transmission_service"
+  },
+  "activity_is_supply_purchase_from_retailer_for_emissions_reduction": {
+    "description": "Is the activity a purchase or supply of electricity from a retailer with a representation that the purchased or supplied electricity reduces greenhouse emissions?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/activity_is_supply_purchase_from_retailer_for_emissions_reduction"
+  },
+  "activity_required_to_comply_with_mandatory_legal_requirements": {
+    "description": "Is the activity undertaken to comply with a mandatory legal requirement imposed through a statutory or regulatory instrument of any jurisdiction, including BASIX and BCA requirements?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/activity_required_to_comply_with_mandatory_legal_requirements"
+  },
+  "activity_undertaken_as_part_of_development": {
+    "description": "Is the activity undertaken as part of a development under the Planning and Development Act?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/activity_undertaken_as_part_of_development"
+  },
+  "activity_undertaken_as_part_of_refurbishment_requiring_development_approval": {
+    "description": "Is the activity undertaken as part of a refurbishment requiring development approval under the Planning and Development Act?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/activity_undertaken_as_part_of_refurbishment_requiring_development_approval"
+  },
+  "baseline_greenhouse_gas_emissions": {
+    "description": "What are the greenhouse gas emissions prior to the commencement of a fuel switching activity?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/baseline_greenhouse_gas_emissions"
+  },
+  "current_greenhouse_gas_emissions": {
+    "description": "What are the greenhouse gas emissions following the completion of a fuel switching activity?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/current_greenhouse_gas_emissions"
+  },
+  "fuel_switching_activity_leads_to_greenhouse_emissions_increase": {
+    "description": "Does the fuel switching activity, implemented under clause 7A , 8.5, 8.6 or 8.7 lead to a net increase in greenhouse gas emissions",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/fuel_switching_activity_leads_to_greenhouse_emissions_increase"
+  },
+  "generating_system_more_than_30MW": {
+    "description": "Does the generating system have a nameplate rating of 30MW or higher?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/generating_system_more_than_30MW"
+  },
+  "generator_nameplate_rating": {
+    "description": "What is the nameplate rating of the generating system, in MW?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/generator_nameplate_rating"
+  },
+  "in_ACT_and_required_to_report_under_national_schemes": {
+    "description": "Is the activity required to report energy consumption under the National Greenhouse and Energy Reporting Act 2007?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/in_ACT_and_required_to_report_under_national_schemes"
+  },
+  "increases_non_renewable_fuel_consumption_for_equivalent_services": {
+    "description": "Does the activity reduce energy consumption by increasing consumption of non-renewable fuels, other than Gas, to provide equivalent goods or services?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/increases_non_renewable_fuel_consumption_for_equivalent_services"
+  },
+  "installed_ineligible_end_equipment": {
+    "description": "Equation 1 of the ESS Rule 2009, used to calculate the number of ESCs generated from a Recognised Energy Savings Activity. As defined in Clause 6.5 of the ESS Rule 2009.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/installed_ineligible_end_equipment"
+  },
+  "is_eligible_to_create_RECs": {
+    "description": "Is the activity eligible to create certificates under the Renewable Energy (Electricity) Act 2000?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/is_eligible_to_create_RECs"
+  },
+  "production_or_service_levels_are_reduced": {
+    "description": "Does the activity result in a reduction of the consumption of energy by reducing production levels, service levels, or both?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/production_or_service_levels_are_reduced"
+  },
+  "required_to_report_under_carbon_neutral_ACT_government_framework": {
+    "description": "Is the activity required to report energy consumption under the Energy Efficiency in Government Operations Policy?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/required_to_report_under_carbon_neutral_ACT_government_framework"
+  },
+  "required_to_report_under_energy_efficiency_in_government_operations_policy": {
+    "description": "Is the activity required to report energy consumption under the Energy Efficiency in Government Operations Policy?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/required_to_report_under_energy_efficiency_in_government_operations_policy"
+  },
+  "required_to_report_under_national_greenhouse_act": {
+    "description": "Is the activity required to report energy consumption under the National Greenhouse and Energy Reporting Act 2007?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/required_to_report_under_national_greenhouse_act"
+  },
+  "retrofit_LED_linear_lamps_are_ineligible": {
+    "description": "Is the new End User Equipment a Retrofit Luminaire LED Linear Lamp, as defined in Table A9.3? Retrofit Luminaire LED Linear Lamps are not eligible to create ESCs.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/retrofit_LED_linear_lamps_are_ineligible"
+  },
+
+  "E1_small_business_savings_factor": {
+    "description": "Returns the relevant savings factor for the existing and new lamp for residential replacements.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/E1_small_business_savings_factor"
+  },
+  "E1_existing_lamp_rating": {
+    "description": "Asks for the rated wattage of the existing lamp.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/E1_existing_lamp_rating"
+  },
+  "existing_lamp_is_tungsten_halogen_240V_or_ELV_or_infrafred_ELV": {
+    "description": "Asks whether the existing lamp is a Infrared Coated Halogen Lamp, as required in Eligiblity Requirement 1 in Activity Definition E1, and defined in Table A9.1.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/existing_lamp_is_tungsten_halogen_240V_or_ELV_or_infrafred_ELV"
+  },
+  "existing_lamp_rating_is_35W_or_50W": {
+    "description": "Asks whether the existing lamp rating is 35W or 50W, as required in Eligibility Requirement 3 in Activity Definition E1.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/existing_lamp_rating_is_35W_or_50W"
+  },
+  "is_in_working_order": {
+    "description": "Asks whether the existing lamp and luminaire is in working order as required in Eligibility Requirement 3 in Activity Definition E1.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/is_in_working_order"
+  },
+  "is_multifacted_reflector": {
+    "description": "Asks whether the lamp is a multifaceted reflector lamp, as required in Eligibility Requirement 2 in Activity Definition E1.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/is_multifacted_reflector"
+  },
+  "downward_light_output": {
+    "description": "User input for the downward light output of the new End-User Equipment, in lumens.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/downward_light_output"
+  },
+  "is_compatible_with_circuit_dimmers": {
+    "description": "asks whether the new lamp is compatible with any dimmer installed on the same circuit as the new lamp.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/is_compatible_with_circuit_dimmers"
+  },
+  "light_beam_angles_are_consistent": {
+    "description": "Asks whether the new lamp has a beam angle consistent with the original lamp being replaced, as required by Equipment Requirement 4.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/light_beam_angles_are_consistent"
+  },
+  "new_end_user_equipment_is_eligible": {
+    "description": "Asks whether the existing lamp is a LED Lamp only - ELV, an LED Lamp and Driver, an LED Luminaire-recessed or an LED Lamp only - 240V Self Ballasted, as required in Equipment Requirement 1 in Activity Definition E1, and defined in Table A9.1 or A9.3.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/new_end_user_equipment_is_eligible"
+  },
+  "new_light_beam_angle": {
+    "description": "user input for the angle of the new lamp light beam.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/new_light_beam_angle"
+  },
+  "original_light_beam_angle": {
+    "description": "user input for the angle of the original lamp light beam.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/original_light_beam_angle"
+  },
+  "outputs_minimum_downward_light_output": {
+    "description": "Assesses whether the minimum Download Light Output meets the requirement set out in Equipment Requirement 3 of Activity Definition E1.",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/outputs_minimum_downward_light_output"
+  },
+
+  "F1_4_daily_total_electricity_consumption": {
+    "description": "What is the daily total energy consumption for the new RDC, as determined using GEMS 2019 s12 and recorded in the GEMS Registry?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/F1_4_daily_total_electricity_consumption"
+  },
+  "F1_4_electricity_savings": {
+    "description": "What is the electricity savings for the activity conducted within Activity Definition F1.1?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/F1_4_electricity_savings"
+  },
+  "F1_4_total_display_area": {
+    "description": "What is the total display area for the new RDC, as determined using GEMS 2019 s12 and recorded in the GEMS Registry?",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/F1_4_total_display_area"
+  },
+  "appliance_type": {
+    "description": "Label ABC",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/appliance_type"
+  },
+  "is_combination_washer_dryer": {
+    "description": "Label ABC",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/is_combination_washer_dryer"
+  },
+  "is_washer_eligible": {
+    "description": "Label ABC",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/is_washer_eligible"
+  },
+  "star_rating": {
+    "description": "Label ABC",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/star_rating"
+  },
+  "washer_energy_saving": {
+    "description": "Label ABC",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/washer_energy_saving"
+  },
+  "washer_load": {
+    "description": "Washer load in kg",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/washer_load"
+  },
+  "washer_type": {
+    "description": "Label ABC",
+    "href": "https://dpie-ess-dev.herokuapp.com/variable/washer_type"
+  }
+}
