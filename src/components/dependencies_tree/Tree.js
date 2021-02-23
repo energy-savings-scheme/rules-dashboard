@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import D3_Tree from 'react-d3-tree';
+import D3_Tree from 'components/dependencies_tree/D3_Tree';
 
 import OpenFiscaAPI from 'services/openfisca_api';
 
@@ -66,15 +66,6 @@ export default function Tree(props) {
             const depTree = makeDependencyTree(res.data.trace);
             setDependencyTree(depTree);
           })
-          .then(() => {
-            // //   Center element
-            // console.log(treeContainer);
-            // var dimensions = treeContainer.current.getBoundingClientRect();
-            // setTranslate({
-            //   x: dimensions.width / 2,
-            //   y: dimensions.height / 2,
-            // });
-          })
           .catch((err) => {
             console.log(err);
           });
@@ -86,7 +77,7 @@ export default function Tree(props) {
 
   return (
     <div>
-      <table>
+      <table style={{ marginTop: 40, marginBottom: 40 }}>
         <tbody>
           <tr>
             <td style={{ fontWeight: 600 }}>id:</td>
@@ -105,7 +96,7 @@ export default function Tree(props) {
             <td>{JSON.stringify(variable.defaultValue)}</td>
           </tr>
           <tr>
-            orgCharttd>
+            <td style={{ fontWeight: 600 }}>entity:</td>
             <td>{variable.entity}</td>
           </tr>
           <tr>
@@ -119,14 +110,9 @@ export default function Tree(props) {
           </tr>
         </tbody>
       </table>
+
       <div id="treeWrapper" style={{ width: '100vw', height: '50vw', backgroundColor: '#fff' }}>
-        <D3_Tree
-          data={dependencyTree}
-          shouldCollapseNeighborNodes
-          allowForeignObjects
-          initialDepth={1}
-          separation={{ siblings: 1, nonSiblings: 3 }}
-        />
+        <D3_Tree data={dependencyTree} />
       </div>
     </div>
   );
