@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import '../styles/App.css';
 import Header from './header';
 import Summary from './Summary';
+import Tree from 'components/dependencies_tree/Tree';
+
 // import VariableTile from "./variable_tile";
 import '../services/network_request';
 import sortResponse from '../services/sortResponse';
@@ -32,7 +34,25 @@ function App() {
   // 	});
   // };
 
+  const [entities, setEntities] = useState([]);
+  const [variables, setVariables] = useState([]);
+
   useEffect(() => {
+    OpenFiscaAPI.listEntities()
+      .then((res) => {
+        setEntities(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    OpenFiscaAPI.listVariables()
+      .then((res) => {
+        setVariables(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     //TODO: add a progress bar while loading
     // getRequest("variables").then((res) => {
     // 	let returnedData = res.data;
@@ -70,7 +90,9 @@ function App() {
           </div>
           {/* <VariableTile /> */}
         </Route>
-        <Route path="/about" exact></Route>
+        <Route path="/variables/:variable_name" exact>
+          <Tree entities={entities} variables={variables} />
+        </Route>
         <Route path="*">Not Found</Route>
       </Switch>
     </Router>
