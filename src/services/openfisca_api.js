@@ -1,8 +1,8 @@
 import ApiBase from 'services/api_base';
 
-function getVariables() {
+function getVariable(variable_name) {
   return ApiBase({
-    url: '/variables/',
+    url: `/variable/${variable_name}/`,
     method: 'GET',
   });
 }
@@ -14,9 +14,25 @@ function getParameters() {
   });
 }
 
+function listEntities() {
+  return ApiBase({
+    url: '/entities/',
+    method: 'GET',
+  });
+}
+
+function listVariables() {
+  return ApiBase({
+    url: '/variables/',
+    method: 'GET',
+  });
+}
+
 const OpenFiscaApi = {
-  getVariables,
+  getVariable,
   getParameters,
+  listEntities,
+  listVariables,
 };
 
 export default OpenFiscaApi;

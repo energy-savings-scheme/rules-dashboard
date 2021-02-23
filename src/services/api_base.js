@@ -6,7 +6,6 @@ const client = axios.create({
 });
 
 const ApiBase = function (options) {
-  console.log('Base url: ', process.env.REACT_APP_API_BASE_URL);
   const onSuccess = function (response) {
     return response;
   };
