@@ -1,47 +1,51 @@
 .var-tile-div {
-	background-color: white;
-	border-radius: 10px;
-	display: flex;
-	margin: 5% 2% 0 2%;
-	padding: 1% 1%;
-	box-shadow: 1px 1px 10px 1px #fbe9e7, -1px 0 10px 1px #fbe9e7;
-	align-items: flex-start;
-	position: relative;
+  background-color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  margin: 1px 5% 0 10%;
+  padding: 1% 1%;
+  align-items: flex-start;
+  position: relative;
+  text-align: left;
 }
 /* .var-tile-div:hover {
 	background-color: #ffccbc;
 } */
 
-
+.var-detail-div {
+  padding-right: 6%;
+}
 
 .var-tile-index-div {
-	margin: 0 1%;
+  margin: 0 1%;
+  font-size: 12px;
 }
 .var-tile-title {
-	font-family: "Open Sans", sans-serif;
-	font-weight: 600;
+  font-size: 12px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
 }
 .var-tile-subtext {
-	font-size: 12px;
-	font-weight: 400;
+  font-size: 10px;
+  font-weight: 300;
 }
 
 .var-data-in-subtext {
-	color:#c63f17
+  color: #c63f17;
 }
 
 .calculate-button {
-	background-color: #b2dfdb ;
-	box-shadow: 1px 1px 2px 1px #e0e0e0, -1px 0 2px 1px #e0e0e0;
-	border-radius: 5px;
-	/* border: 1px solid #ff7043; */
-	padding: 1%;
-	align-self: center;
-	position: absolute;
-	right: 5%;
+  background-color: #b2dfdb;
+  box-shadow: 1px 1px 2px 1px #e0e0e0, -1px 0 2px 1px #e0e0e0;
+  border-radius: 5px;
+  /* border: 1px solid #ff7043; */
+  padding: 2px;
+  align-self: flex-end;
+  position: absolute;
+  right: 5px;
 }
 
 .calculate-button p {
-	font-size: 15px;
-	font-weight: 600;
+  font-size: 10px;
+  font-weight: 600;
 }

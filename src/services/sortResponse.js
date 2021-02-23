@@ -38,8 +38,7 @@ function sortResponse(variables) {
       });
     }
   });
-
-  console.log(sorted_var);
+  return sorted_var;
 }
 
 export default sortResponse;

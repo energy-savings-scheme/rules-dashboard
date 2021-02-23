@@ -1,22 +1,41 @@
-
-import "../styles/sub-cat-tile.css"
+import { useEffect, useState } from 'react';
+import '../styles/sub-cat-tile.css';
+import SimpleVariableTile from './Simple_variable_tile';
+import VariableTile from './variable_tile.jsx';
 
 export default function SubCategoryTile(props) {
+  const [clicked, setClick] = useState(false);
 
-    var number_variables = 7;
+  const handleClick = () => {
+    setClick(!clicked);
+  };
 
-    return (
+  useEffect(() => {
+    // setNumVar(props.varList.length);
+  }, []);
 
-        <div className="sub-cat-tile-div">
-            <div className="title-div">
-                {`${props.subRef} - ${props.title}`}
-            </div>
-            <div className="sub-title">
-                <p className="sub-title">{number_variables} variables</p>
-            </div>
-
-        </div >
-
-    );
-
+  return (
+    <div>
+      <div className="sub-cat-tile-div" onClick={handleClick}>
+        <div className="title-div">{`${props.subRef} - ${props.title}`}</div>
+        <div className="sub-title">
+          <p className="sub-title">{props.varLength} variables</p>
+        </div>
+      </div>
+      {/* <div>
+        {clicked &&
+          props.varList.map((item, index) => {
+            return (
+              <SimpleVariableTile key={item} index={index + 1} varID={item} varDescription={item} />
+            );
+          })}
+      </div> */}
+      <div>
+        {clicked &&
+          props.varList.map((item, index) => {
+            return <VariableTile key={item} index={index + 1} varID={item} />;
+          })}
+      </div>
+    </div>
+  );
 }

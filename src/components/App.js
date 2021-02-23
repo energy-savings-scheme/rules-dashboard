@@ -7,19 +7,16 @@ import '../services/network_request';
 import sortResponse from '../services/sortResponse';
 // import { getRequest, postRequest } from "../services/network_request";
 import variables from '../fullList.json';
-
 import variable_tree from '../services/variable_tree.json';
-
 import OpenFiscaAPI from 'services/openfisca_api';
 
 function App() {
-  // const [sortedVar, setSortedVar] = useState({
-  // 	nabers: {},
-  // 	D: {},
-  // 	E: {},
-  // 	F: {},
-  // 	others: {}
-  // });
+  const [sortedVar, setSortedVar] = useState({
+    D: {},
+    E: {},
+    F: {},
+    nabers: {},
+  });
 
   // const updateSortedVar = (name, variableJson) => {
   // 	setSortedVar((prevState) => {
@@ -41,9 +38,9 @@ function App() {
     // 	// 	return varSorted;
     // 	// });
     // });
+    // sortResponse(variables);
 
-    sortResponse(variables);
-
+    setSortedVar(sortResponse(variables));
     // postRequest("dependencies");
     // postRequest("calculate");
   }, []);
@@ -52,14 +49,15 @@ function App() {
     <div>
       <Header />
       <div className="App">
-        {variable_tree.map((category) => {
+        {variable_tree.map((majorCat) => {
           return (
             <Summary
-              key={category.majorLabel}
-              sectionTitle={category.activityName}
-              subTitle={category.reference}
-              variableNumber={category.subCategories.length}
-              subCategories={category.subCategories}
+              key={majorCat.majorLabel}
+              sectionTitle={majorCat.activityName}
+              subTitle={majorCat.reference}
+              variableNumber={majorCat.subCategories.length}
+              subCategories={majorCat.subCategories}
+              majorList={sortedVar[majorCat.majorLabel]}
             />
           );
         })}
