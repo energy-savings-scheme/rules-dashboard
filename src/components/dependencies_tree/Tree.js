@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import D3_Tree from 'components/dependencies_tree/D3_Tree';
 
@@ -76,7 +76,42 @@ export default function Tree(props) {
   }, [entities]);
 
   return (
-    <div>
+    <div className="nsw-container">
+      <div className="nsw-row">
+        <div className="nsw-col">
+          <h2>{variable.id}</h2>
+          <h4 style={{ paddingLeft: '2rem', paddingLeft: '2rem' }}>{variable.description}</h4>
+        </div>
+      </div>
+
+      {/* SECTION --> HOW IT RELATES? */}
+      <div className="nsw-row">
+        <div className="nsw-col">
+          <h3>See how "{variable.id}" relates to other methods and requirements within the ESS</h3>
+        </div>
+
+        <div className="nsw-col">
+          {/* <div
+            id="treeWrapper"
+            style={{ width: '100vw', height: '200px', backgroundColor: '#fff' }}
+          >
+            <D3_Tree data={dependencyTree} height={200} />
+          </div> */}
+        </div>
+      </div>
+
+      {/* SECTION --> WHAT DOES THIS FORMULA LOOK LIKE? */}
+      <div className="nsw-row">
+        <div className="nsw-col">
+          <h3>What does the formula look like?</h3>
+          <p>{JSON.stringify(variable.formulas)}</p>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <Fragment>
       <table style={{ marginTop: 40, marginBottom: 40 }}>
         <tbody>
           <tr>
@@ -110,10 +145,6 @@ export default function Tree(props) {
           </tr>
         </tbody>
       </table>
-
-      <div id="treeWrapper" style={{ width: '100vw', height: '50vw', backgroundColor: '#fff' }}>
-        <D3_Tree data={dependencyTree} />
-      </div>
-    </div>
+    </Fragment>
   );
 }
