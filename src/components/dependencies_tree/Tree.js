@@ -119,7 +119,7 @@ export default function Tree(props) {
                 marginLeft: 10,
               }}
             >
-              Default: {variable.defaultValue}
+              Default: {JSON.stringify(variable.defaultValue)}
             </div>
           </h2>
           <h5>{variable.description}</h5>
