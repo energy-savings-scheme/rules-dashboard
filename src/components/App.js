@@ -48,27 +48,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <div className="App">
-        {variable_tree.map((majorCat) => {
-          let subLengthList = Object.values(sortedVar[majorCat.majorLabel]).map(
-            (list) => list.length,
-          );
-          const cumSum = (accumulator, currentValue) => accumulator + currentValue;
 
-          const totalNum = subLengthList.reduce(cumSum);
-
-          return (
-            <Summary
-              key={majorCat.majorLabel}
-              total={totalNum}
-              sectionTitle={majorCat.activityName}
-              subTitle={majorCat.reference}
-              subCategories={majorCat.subCategories}
-              majorList={sortedVar[majorCat.majorLabel]}
-            />
-          );
-        })}
-      </div>
       <Switch>
         <Route path="/" exact>
           {/* Search section */}
@@ -85,28 +65,27 @@ function App() {
           </div>
 
           <div className="nsw-container">
-            <div className="nsw-row">
-              <div className="nsw-col">
-                <h3>Click below to get more details on each Schedule</h3>
-              </div>
-              {variable_tree.map((category) => {
-                return (
-                  <div className="nsw-col nsw-col-sm-6">
-                    <div className="nsw-card">
-                      <div className="nsw-card__content">
-                        <Summary
-                          key={category.majorLabel}
-                          sectionTitle={category.activityName}
-                          subTitle={category.reference}
-                          variableNumber={category.variables.length}
-                          subCategories={category.variables}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <h3>Click below to get more details on each Schedule</h3>
+
+            {variable_tree.map((majorCat) => {
+              let subLengthList = Object.values(sortedVar[majorCat.majorLabel]).map(
+                (list) => list.length,
+              );
+              const cumSum = (accumulator, currentValue) => accumulator + currentValue;
+
+              const totalNum = subLengthList.reduce(cumSum);
+
+              return (
+                <Summary
+                  key={majorCat.majorLabel}
+                  total={totalNum}
+                  sectionTitle={majorCat.activityName}
+                  subTitle={majorCat.reference}
+                  subCategories={majorCat.subCategories}
+                  majorList={sortedVar[majorCat.majorLabel]}
+                />
+              );
+            })}
           </div>
           {/* <VariableTile /> */}
         </Route>
