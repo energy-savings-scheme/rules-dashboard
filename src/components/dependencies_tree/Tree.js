@@ -1,17 +1,20 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import D3_Tree from 'components/dependencies_tree/D3_Tree';
+import { Link, useParams } from 'react-router-dom';
 
 import OpenFiscaAPI from 'services/openfisca_api';
+
+import Codeblock from 'components/Codeblock';
+import D3_Tree from 'components/dependencies_tree/D3_Tree';
 
 export default function Tree(props) {
   let { variable_name } = useParams();
   const { entities, variables } = props;
 
   const [variable, setVariable] = useState({});
-  const [dependencyTree, setDependencyTree] = useState({});
+  const [dependencies, setDependencies] = useState([]);
+  const [traceTree, setTraceTree] = useState({});
 
-  const createDependenciesPayload = (variable, entity) => {
+  const createDependenciesPayload = (variable_i, entity) => {
     var payload = {
       persons: {
         'person 1': {},
@@ -19,7 +22,7 @@ export default function Tree(props) {
     };
     payload[entity.plural] = {};
     payload[entity.plural][`${entity.description} abcd`] = {};
-    payload[entity.plural][`${entity.description} abcd`][variable.id] = { '2021-5-5': null };
+    payload[entity.plural][`${entity.description} abcd`][variable_i.id] = { '2021-5-5': null };
 
     return payload;
   };
@@ -61,10 +64,21 @@ export default function Tree(props) {
       .then((res) => {
         const payload = createDependenciesPayload(res.variable, res.entity);
 
+        OpenFiscaAPI.postDependencies(payload)
+          .then((res) => {
+            setDependencies(Object.keys(res.data));
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+
+        return Promise.resolve(payload);
+      })
+      .then((payload) => {
         OpenFiscaAPI.postTrace(payload)
           .then((res) => {
-            const depTree = makeDependencyTree(res.data.trace);
-            setDependencyTree(depTree);
+            const traceTree = makeDependencyTree(res.data.trace);
+            setTraceTree(traceTree);
           })
           .catch((err) => {
             console.log(err);
@@ -73,21 +87,77 @@ export default function Tree(props) {
       .catch((err) => {
         console.log(err);
       });
-  }, [entities]);
+  }, [entities, variable_name]);
 
   return (
     <div className="nsw-container">
       <div className="nsw-row">
         <div className="nsw-col">
-          <h2>{variable.id}</h2>
-          <h4 style={{ paddingLeft: '2rem', paddingLeft: '2rem' }}>{variable.description}</h4>
+          <h2>
+            <span style={{ marginRight: 10 }}>{variable.id}</span>
+            <div
+              className="nsw-button nsw-button--outline"
+              style={{
+                minWidth: 0,
+                padding: 0,
+                margin: 0,
+                paddingLeft: 20,
+                paddingRight: 20,
+                marginLeft: 10,
+              }}
+            >
+              {variable.valueType}
+            </div>
+            <div
+              className="nsw-button nsw-button--outline"
+              style={{
+                minWidth: 0,
+                padding: 0,
+                margin: 0,
+                paddingLeft: 20,
+                paddingRight: 20,
+                marginLeft: 10,
+              }}
+            >
+              Default: {variable.defaultValue}
+            </div>
+          </h2>
+          <h5>{variable.description}</h5>
         </div>
       </div>
 
       {/* SECTION --> HOW IT RELATES? */}
       <div className="nsw-row">
         <div className="nsw-col">
-          <h3>See how "{variable.id}" relates to other methods and requirements within the ESS</h3>
+          <h3>Variables used:</h3>
+          {dependencies.length === 0 ? (
+            'None'
+          ) : (
+            <Fragment>
+              <p>The following are the variables used in this calculation.</p>
+
+              <div className="nsw-table-responsive">
+                <div className="nsw-table nsw-table--striped">
+                  <thead>
+                    <th colSpan="2" style={{ fontWeight: 600 }}>
+                      Inputs
+                    </th>
+                  </thead>
+                  <tbody>
+                    {dependencies.map((dep) => {
+                      return (
+                        <tr>
+                          <td>
+                            <Link to={`/variables/${dep}`}>{dep}</Link>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </div>
+              </div>
+            </Fragment>
+          )}
         </div>
 
         <div className="nsw-col">
@@ -100,11 +170,47 @@ export default function Tree(props) {
         </div>
       </div>
 
+      {/* SECTION --> WHERE IS THIS VARIABLE USED? */}
+      <div className="nsw-row">
+        <div className="nsw-col">
+          <h3>Where is this variable used?</h3>
+          <p>
+            The following is a list of all the other variables and activity definitions that use
+            this variable for their calculations.
+          </p>
+
+          <ul>
+            {/* <div
+            id="treeWrapper"
+            style={{ width: '100vw', height: '200px', backgroundColor: '#fff' }}
+          >
+            <D3_Tree data={dependencyTree} height={200} />
+          </div> */}
+          </ul>
+        </div>
+      </div>
+
       {/* SECTION --> WHAT DOES THIS FORMULA LOOK LIKE? */}
       <div className="nsw-row">
         <div className="nsw-col">
           <h3>What does the formula look like?</h3>
-          <p>{JSON.stringify(variable.formulas)}</p>
+          {variable && variable.formulas
+            ? Object.keys(variable.formulas).map((formula_date) => {
+                const formula_i = variable.formulas[formula_date];
+                if (formula_date === '0001-01-01') {
+                  formula_date = 'ETERNITY';
+                }
+                return (
+                  <Fragment>
+                    <h5 style={{ marginBottom: '0.5rem' }}>From date: {formula_date}</h5>
+                    <p>
+                      <Codeblock code={formula_i.content} language="python" />
+                    </p>
+                  </Fragment>
+                );
+              })
+            : 'This variable does not have a formula'}
+          <p></p>
         </div>
       </div>
     </div>

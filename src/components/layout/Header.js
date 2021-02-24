@@ -8,34 +8,34 @@ export default function Header() {
     <Fragment>
       <div className="nsw-infobar">
         <div className="nsw-container">
-          <p>A NSW Government website</p>
-        </div>
-      </div>
+          <div className="nsw-row">
+            <div className="nsw-col">
+              <p>A NSW Government website</p>
+            </div>
 
-      <header className="nsw-header">
-        <div className="nsw-container">
-          <div className="nsw-header__wrapper">
-            <div className="nsw-header__center">
+            <div className="nsw-col">
               <Link to="/" className="nsw-header__logo-link">
-                <svg className="nsw-icon nsw-header__logo" focusable="false" aria-hidden="true">
+                <img
+                  src="https://www.dpie.nsw.gov.au/__data/assets/image/0009/231759/DPIE-logo.png"
+                  alt="NSW Department of Planing Inustry and Environment"
+                  height="60"
+                />
+                {/* <svg className="nsw-icon nsw-header__logo" focusable="false" aria-hidden="true">
                   <use xlinkHref="#dpc-logo"></use>
-                </svg>
-                <span className="sr-only">NSW Department of Premier and Cabinet</span>
+                </svg> */}
+                <span className="sr-only">NSW Department of Planing Inustry and Environment</span>
               </Link>
+            </div>
+
+            <div className="nsw-col">
+              <h1 style={{ fontSize: '3rem', marginLeft: '1rem' }}>ESS Rules Dashboard</h1>
             </div>
           </div>
         </div>
-      </header>
+      </div>
 
       {/* Breadcrumb */}
       <Breadcrumb />
-
-      {/* Title section */}
-      <div className="nsw-infobar" style={{ height: 200, marginTop: 20 }}>
-        <div className="nsw-container">
-          <h1>ESS Rules Dashboard</h1>
-        </div>
-      </div>
     </Fragment>
   );
 
