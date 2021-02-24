@@ -54,7 +54,6 @@ function sortResponse(variables) {
       sorted_var[majorLabel]['others'] = remainingVariablesList;
     }
   });
-  console.log(sorted_var);
   return sorted_var;
 }
 

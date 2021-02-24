@@ -12,6 +12,10 @@ export default function VariableTile(props) {
     varDescription: null,
   });
 
+  const handleClick = () => {
+    console.log('clicked!');
+    window.location.href = `/variables/${props.varID}`;
+  };
   const createForm = () => {
     console.log('create form to compute this variable');
   };
@@ -34,14 +38,12 @@ export default function VariableTile(props) {
   }, [props.varID]);
 
   return (
-    <div className="var-tile-div">
+    <div className="var-tile-div" onClick={handleClick}>
       <div className="var-tile-index-div">
         <span>{props.index}. </span>
       </div>
       <div className="var-detail-div">
-        <p className="var-tile-title">
-          <a href={`/variables/${props.varID}`}>{varData.varDescription}</a>
-        </p>
+        <p className="var-tile-title">{varData.varDescription}</p>
         <p className="var-tile-subtext">
           <span className="var-data-in-subtext"> {props.varID} </span> with value in
           <span className="var-data-in-subtext"> {varData.unit} </span> applies to{' '}

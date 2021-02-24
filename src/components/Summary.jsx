@@ -7,7 +7,6 @@ export default function Summary(props) {
 
   function handleClick() {
     setClick(!clicked);
-    console.log(props.majorList);
   }
 
   return (

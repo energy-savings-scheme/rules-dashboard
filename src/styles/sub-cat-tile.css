@@ -1,15 +1,18 @@
 .sub-cat-tile-div {
   width: inherit;
   background-color: white;
-  color: #004d40;
-  border-radius: 10px;
-  margin: 1px 5% 0 5%;
+  color: #0d47a1;
+  /* border-radius: 10px; */
+  margin: 1% 0;
   padding: 1px 1%;
   text-align: left;
+  box-shadow: 1px 1px 5px 1px #eeeeee, -1px 0 5px 1px #eeeeee;
 }
-
+.sub-cat-tile-div:hover {
+  box-shadow: 1px 1px 10px 1px #424242, -1px 0 10px 1px #424242;
+}
 .title-div {
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin: 0 0 0 1%;
   font-family: 'Open Sans';
   font-weight: 600;
@@ -17,8 +20,8 @@
 
 .sub-title {
   text-align: right;
-  font-size: 0.7rem;
+  font-size: 1rem;
   margin: 0 0 0 1%;
   font-weight: 400;
-  color: #c63f17;
+  color: #8e0000;
 }

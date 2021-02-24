@@ -40,7 +40,6 @@ function App() {
     getRequest('variables').then((res) => {
       let returnedData = res.data;
       let varSorted = sortResponse(returnedData);
-      console.log('sorted');
       setSortedVar(varSorted);
     });
   }, []);
