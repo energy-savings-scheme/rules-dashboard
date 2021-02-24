@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import D3_Tree from 'components/dependencies_tree/D3_Tree';
 
 import OpenFiscaAPI from 'services/openfisca_api';
 
@@ -8,7 +9,7 @@ export default function Tree(props) {
   const { entities, variables } = props;
 
   const [variable, setVariable] = useState({});
-  const [dependencyTree, setDependencyTree] = useState([]);
+  const [dependencyTree, setDependencyTree] = useState({});
 
   const createDependenciesPayload = (variable, entity) => {
     var payload = {
@@ -23,7 +24,8 @@ export default function Tree(props) {
     return payload;
   };
 
-  function makeTree(inputArray) {
+  function makeDependencyTree(trace) {
+    const inputArray = Object.entries(trace).map((e) => ({ name: e[0], ...e[1] }));
     var baseNode = inputArray[0];
 
     // Recursively build a nested tree structure starting from the baseNode
@@ -40,24 +42,13 @@ export default function Tree(props) {
           .map((childNode) => buildNestedTreeFromNode(childNode)),
       };
 
-      //   Remove unnecessary keys from object
-      delete return_obj.calculation_time;
-      delete return_obj.formula_time;
       return return_obj;
     }
 
     return buildNestedTreeFromNode(baseNode);
   }
 
-  const buildDependencyTree = (trace) => {
-    const dependencies_array = Object.entries(trace).map((e) => ({ name: e[0], ...e[1] }));
-    const tree = makeTree(dependencies_array);
-    console.log(tree);
-  };
-
   useEffect(() => {
-    // console.log(Object.keys(variables));
-
     OpenFiscaAPI.getVariable(variable_name)
       .then((res) => {
         setVariable(res.data);
@@ -72,7 +63,8 @@ export default function Tree(props) {
 
         OpenFiscaAPI.postTrace(payload)
           .then((res) => {
-            buildDependencyTree(res.data.trace);
+            const depTree = makeDependencyTree(res.data.trace);
+            setDependencyTree(depTree);
           })
           .catch((err) => {
             console.log(err);
@@ -81,15 +73,46 @@ export default function Tree(props) {
       .catch((err) => {
         console.log(err);
       });
-
-    // var variable = variables.filter(item => item.name)
-
-    // OpenFiscaAPI.postDependencies({});
   }, [entities]);
 
   return (
-    <div>
-      <table>
+    <div className="nsw-container">
+      <div className="nsw-row">
+        <div className="nsw-col">
+          <h2>{variable.id}</h2>
+          <h4 style={{ paddingLeft: '2rem', paddingLeft: '2rem' }}>{variable.description}</h4>
+        </div>
+      </div>
+
+      {/* SECTION --> HOW IT RELATES? */}
+      <div className="nsw-row">
+        <div className="nsw-col">
+          <h3>See how "{variable.id}" relates to other methods and requirements within the ESS</h3>
+        </div>
+
+        <div className="nsw-col">
+          {/* <div
+            id="treeWrapper"
+            style={{ width: '100vw', height: '200px', backgroundColor: '#fff' }}
+          >
+            <D3_Tree data={dependencyTree} height={200} />
+          </div> */}
+        </div>
+      </div>
+
+      {/* SECTION --> WHAT DOES THIS FORMULA LOOK LIKE? */}
+      <div className="nsw-row">
+        <div className="nsw-col">
+          <h3>What does the formula look like?</h3>
+          <p>{JSON.stringify(variable.formulas)}</p>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <Fragment>
+      <table style={{ marginTop: 40, marginBottom: 40 }}>
         <tbody>
           <tr>
             <td style={{ fontWeight: 600 }}>id:</td>
@@ -108,10 +131,6 @@ export default function Tree(props) {
             <td>{JSON.stringify(variable.defaultValue)}</td>
           </tr>
           <tr>
-            <td style={{ fontWeight: 600 }}>definitionPeriod:</td>
-            <td>{variable.definitionPeriod}</td>
-          </tr>
-          <tr>
             <td style={{ fontWeight: 600 }}>entity:</td>
             <td>{variable.entity}</td>
           </tr>
@@ -126,6 +145,6 @@ export default function Tree(props) {
           </tr>
         </tbody>
       </table>
-    </div>
+    </Fragment>
   );
 }

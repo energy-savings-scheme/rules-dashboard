@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import '../styles/App.css';
-import Header from './header';
+import Footer from 'components/layout/Footer';
+import Header from 'components/layout/Header';
+import SearchBar from 'components/SearchBar';
 import Summary from './Summary';
 import Tree from 'components/dependencies_tree/Tree';
 
@@ -68,12 +70,53 @@ function App() {
         })}
       </div>
       <Switch>
-        <Route path="/" exact></Route>
+        <Route path="/" exact>
+          {/* Search section */}
+          <div className="nsw-container">
+            <div className="nsw-row">
+              <div className="nsw-col">
+                <h2>Energy Savings Scheme Rule of 2019</h2>
+                <h3>
+                  Search a term below to find more information on related methods and requirements
+                </h3>
+                <SearchBar variables={variables} />
+              </div>
+            </div>
+          </div>
+
+          <div className="nsw-container">
+            <div className="nsw-row">
+              <div className="nsw-col">
+                <h3>Click below to get more details on each Schedule</h3>
+              </div>
+              {variable_tree.map((category) => {
+                return (
+                  <div className="nsw-col nsw-col-sm-6">
+                    <div className="nsw-card">
+                      <div className="nsw-card__content">
+                        <Summary
+                          key={category.majorLabel}
+                          sectionTitle={category.activityName}
+                          subTitle={category.reference}
+                          variableNumber={category.variables.length}
+                          subCategories={category.variables}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          {/* <VariableTile /> */}
+        </Route>
         <Route path="/variables/:variable_name" exact>
           <Tree entities={entities} variables={variables} />
         </Route>
         <Route path="*">Not Found</Route>
       </Switch>
+
+      <Footer />
     </Router>
   );
 }
