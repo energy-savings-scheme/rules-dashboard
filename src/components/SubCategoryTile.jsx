@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import '../styles/sub-cat-tile.css';
-import SimpleVariableTile from './Simple_variable_tile';
 import VariableTile from './variable_tile.jsx';
 
 export default function SubCategoryTile(props) {
@@ -22,14 +21,6 @@ export default function SubCategoryTile(props) {
           <p className="sub-title">{props.varLength} variables</p>
         </div>
       </div>
-      {/* <div>
-        {clicked &&
-          props.varList.map((item, index) => {
-            return (
-              <SimpleVariableTile key={item} index={index + 1} varID={item} varDescription={item} />
-            );
-          })}
-      </div> */}
       <div>
         {clicked &&
           props.varList.map((item, index) => {

@@ -4,18 +4,13 @@ import { getRequest } from '../services/network_request';
 
 export default function VariableTile(props) {
   const [varData, setVarData] = useState({
-    id: 'number_of_certificates',
+    id: null,
     entity: null,
     unit: null,
     definitionPeriod: null,
     formula: false,
     varDescription: null,
   });
-
-  // const index = 1;
-  // const varID = 'number_of_certificates';
-  // const varDescription = 'The total number of certificates generated from this activity.';
-  // const varURL = 'variable/number_of_certificates';
 
   const createForm = () => {
     console.log('create form to compute this variable');
