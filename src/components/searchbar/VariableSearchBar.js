@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-export default function SearchBar(props) {
+export default function VariableSearchBar(props) {
   const { variables } = props;
   const history = useHistory();
   const [searchTerm, setSearchTerm] = useState('');

@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 
 import OpenFiscaAPI from 'services/openfisca_api';
 
-import Codeblock from 'components/Codeblock';
+import Codeblock from 'components/codeblock/Codeblock';
 import D3_Tree from 'components/dependencies_tree/D3_Tree';
 
 export default function Tree(props) {

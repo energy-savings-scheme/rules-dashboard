@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import '../styles/App.css';
 import Footer from 'components/layout/Footer';
 import Header from 'components/layout/Header';
-import SearchBar from 'components/SearchBar';
+import VariableSearchBar from 'components/searchbar/VariableSearchBar';
 import Summary from './Summary';
 import Tree from 'components/dependencies_tree/Tree';
 
@@ -58,7 +58,7 @@ function App() {
                 <h3>
                   Search a term below to find more information on related methods and requirements
                 </h3>
-                <SearchBar variables={variables} />
+                <VariableSearchBar variables={variables} />
               </div>
             </div>
           </div>
