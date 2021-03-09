@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { Link, NavLink, useLocation, useParams } from 'react-router-dom';
 
-export default function Breadcrumb(match) {
+export default function Breadcrumb() {
   const location = useLocation();
+  const params = useParams();
 
-  // THIS IS A JANKY PLACEHOLDER WAY OF GETTING THE BREADCRUMB!
-  // TODO - refactor heavily!
-  try {
-    var crumb = String(location.pathname).replace('/variables/', '');
-  } catch {
-    var crumb = null;
+  let path = {};
+
+  if (params.schedule_name) {
+    path = { breadcrumb_category: 'Schedules', breadcrumb_name: params.schedule_name };
+  }
+  if (params.variable_name) {
+    path = { breadcrumb_category: 'Variables', breadcrumb_name: params.variable_name };
   }
 
   return (
@@ -28,15 +30,18 @@ export default function Breadcrumb(match) {
               Home
             </NavLink>
           </li>
-          {crumb && crumb !== '/' && (
-            <li className="nsw-breadcrumb__item">
-              <NavLink
-                to={`/variables/${crumb}`}
-                className="nsw-breadcrumb__link nsw-breadcrumb--current"
-              >
-                {crumb}
-              </NavLink>
-            </li>
+          {path.breadcrumb_name && (
+            <Fragment>
+              <li className="nsw-breadcrumb__item">{path.breadcrumb_category}</li>
+              <li className="nsw-breadcrumb__item">
+                <NavLink
+                  to={`/variables/${path.breadcrumb_name}`}
+                  className="nsw-breadcrumb__link nsw-breadcrumb--current"
+                >
+                  {path.breadcrumb_name}
+                </NavLink>
+              </li>
+            </Fragment>
           )}
         </ol>
       </nav>
