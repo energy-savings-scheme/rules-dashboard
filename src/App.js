@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Import Pages
 import Homepage from 'pages/homepage/Homepage';
+import SchedulePage from 'pages/SchedulePage';
 import VariablePage from 'pages/VariablePage';
 
 // Import components
@@ -59,10 +60,13 @@ function App() {
 
       <Switch>
         <Route path="/" exact>
-          <Homepage entities={entities} sortedVar={sortedVar} variables={variables} />
+          <Homepage variables={variables} />
         </Route>
         <Route path="/variables/:variable_name" exact>
           <VariablePage entities={entities} variables={variables} />
+        </Route>
+        <Route path="/schedules/:schedule_name" exact>
+          <SchedulePage entities={entities} variables={variables} />
         </Route>
         <Route path="*">Not Found</Route>
       </Switch>
