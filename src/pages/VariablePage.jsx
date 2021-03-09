@@ -1,13 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-// Import components
-import Codeblock from 'components/codeblock/Codeblock';
-
 export default function VariablePage(props) {
   let { variable_name } = useParams();
   const { entities, variables } = props;
   // const variable = variables.find((item) => item.name === variable_name)
+  // console.log(variable)
 
   const variable = {
     name: 'benchmark_star_rating',
@@ -32,9 +30,9 @@ export default function VariablePage(props) {
     <div className="nsw-container">
       <div className="nsw-row">
         <div className="nsw-col">
-          <h2 style={{ fontSize: 32 }}>{variable.metadata.alias}</h2>
+          <h2 className="nsw-section-title">{variable.metadata.alias}</h2>
           <div style={{ margin: '16px 0' }}>
-            <h5 style={{ fontSize: 16 }}>{variable.description}</h5>
+            <h5 style={{ fontSize: '16px', fontWeight:600,lineHeight:'24px' }}>{variable.description}</h5>
           </div>
           <div
             className="nsw-tag"
@@ -47,55 +45,61 @@ export default function VariablePage(props) {
           </div>
         </div>
       </div>
+      
+      {/* TODO alias should be able to get accessed from the parents&children and display in those links*/}
 
       {/* SECTION --> HOW IT RELATES? */}
       <div className="nsw-row">
-        <div className="nsw-col">
-          <h3>Variables used:</h3>
-          {variable.children.length === 0 ? (
-            'None'
-          ) : (
-            <Fragment>
-              <p>The following are the variables used in this calculation.</p>
-
-              <div className="nsw-table-responsive">
-                <div className="nsw-table nsw-table--striped">
-                  <thead>
-                    <th colSpan="2" style={{ fontWeight: 600 }}>
-                      Inputs
-                    </th>
-                  </thead>
-                  <tbody>
-                    {variable.children.map((dep) => {
-                      return (
-                        <tr>
-                          <td>
-                            <Link to={`/variables/${dep}`}>{dep}</Link>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </div>
-              </div>
-            </Fragment>
-          )}
+        <div className='nsw-col'>
+          <div className="nsw-content-block">
+            <div className='nsw-content-block__content'>
+              <h2 className='nsw-content-block__title'>See how the requirement {variable.metadata.alias} relates to other methods and requirements within the ESS</h2>
+              {variable.children.length === 0 ? (
+                'None'
+                ) : (
+                <Fragment>
+                  <p className='nsw-content-block__copy'>To calculate the result of this variable, the below process is followed:</p>
+                  <ul className="nsw-content-block__list">
+                      {variable.children.map((dep) => {
+                        return (
+                          <li ><Link to={`/variables/${dep}`} style={{textDecorationLine:'underline'}}>{dep}</Link></li>
+                        );  
+                      })}
+                  </ul>
+                </Fragment>
+                )}
+            </div>
+          </div>
         </div>
       </div>
 
       {/* SECTION --> WHERE IS THIS VARIABLE USED? */}
       <div className="nsw-row">
-        <div className="nsw-col">
-          <h3>Where is this variable used?</h3>
-          <p>
-            The following is a list of all the other variables and activity definitions that use
-            this variable for their calculations.
-          </p>
+        <div className='nsw-col'>
+          <div className="nsw-content-block">
+            <div className='nsw-content-block__content'>
+              <h2 className='nsw-content-block__title'>Where is this variable used?</h2>
+              {variable.parents.length === 0 ? (
+                'None'
+                ) : (
+                <Fragment>
+                  <p className='nsw-content-block__copy'>The following is a list of all the other variables and activity definitions that use this variable for their calculations.</p>
+                  <ul className="nsw-content-block__list">
+                      {variable.parents.map((dep) => {
+                        return (
+                          <li ><Link to={`/variables/${dep}`} style={{textDecorationLine:'underline'}}>{dep}</Link></li>
+                        );  
+                      })}
+                  </ul>
+                </Fragment>
+                )}
+            </div>
+          </div>
         </div>
       </div>
-
+      
       {/* SECTION --> WHAT DOES THIS FORMULA LOOK LIKE? */}
-      <div className="nsw-row">
+      {/* <div className="nsw-row">
         <div className="nsw-col">
           <h3>What does the formula look like?</h3>
           {variable && variable.formulas
@@ -114,47 +118,8 @@ export default function VariablePage(props) {
                 );
               })
             : 'This variable does not have a formula'}
-          <p></p>
         </div>
-      </div>
+      </div> */}
     </div>
-  );
-
-  return (
-    <Fragment>
-      <table style={{ marginTop: 40, marginBottom: 40 }}>
-        <tbody>
-          <tr>
-            <td style={{ fontWeight: 600 }}>id:</td>
-            <td>{variable.id}</td>
-          </tr>
-          <tr>
-            <td style={{ fontWeight: 600 }}>description:</td>
-            <td>{variable.description}</td>
-          </tr>
-          <tr>
-            <td style={{ fontWeight: 600 }}>type:</td>
-            <td>{variable.valueType}</td>
-          </tr>
-          <tr>
-            <td style={{ fontWeight: 600 }}>default:</td>
-            <td>{JSON.stringify(variable.defaultValue)}</td>
-          </tr>
-          <tr>
-            <td style={{ fontWeight: 600 }}>entity:</td>
-            <td>{variable.entity}</td>
-          </tr>
-          <tr>
-            <td style={{ fontWeight: 600 }}>source:</td>
-            <td>...github source link here</td>
-          </tr>
-          <tr>
-            <td style={{ fontWeight: 600 }}>formula:</td>
-            {/* <td>{JSON.stringify(variable.formulas)}</td> */}
-            <td>...formula block here</td>
-          </tr>
-        </tbody>
-      </table>
-    </Fragment>
   );
 }
