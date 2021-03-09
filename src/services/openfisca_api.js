@@ -1,8 +1,9 @@
 import ApiBase from 'services/api_base';
 
+// Note the change in url for openfisca-djangoapi
 function getVariable(variable_name) {
   return ApiBase({
-    url: `/variable/${variable_name}/`,
+    url: `/variables/${variable_name}/`,
     method: 'GET',
   });
 }

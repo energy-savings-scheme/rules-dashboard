@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Spinner, Modal } from 'react-bootstrap';
 
 function SpinnerFullscreen() {

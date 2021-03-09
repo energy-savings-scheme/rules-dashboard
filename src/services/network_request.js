@@ -6,7 +6,7 @@ const baseURL = 'https://dpie-ess-dev.herokuapp.com';
 function getRequest(route) {
   let url = `${baseURL}/${route}`;
   const dataPromise = axios.get(url);
-  console.log(dataPromise);
+  // console.log(dataPromise);
   return dataPromise;
 }
 //testing on canadian-op API server
@@ -30,7 +30,7 @@ var data3 = { persons: { 'person 1': {} }, buildings: { 'building 1': {} } };
 function postRequest(route) {
   axios.post(`${baseURL}/${route}`, data3).then(
     (response) => {
-      console.log(response.data);
+      // console.log(response.data);
     },
     (error) => {
       console.log(error.request);

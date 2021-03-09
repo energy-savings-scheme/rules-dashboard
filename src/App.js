@@ -20,7 +20,6 @@ import './styles/App.css';
 
 function App() {
   const [sortedVar, setSortedVar] = useState(emptyTree());
-
   const [entities, setEntities] = useState([]);
   const [variables, setVariables] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -48,6 +47,7 @@ function App() {
       let returnedData = res.data;
       let varSorted = sortResponse(returnedData);
       setSortedVar(varSorted);
+      setLoading(false);
     });
   }, []);
 

@@ -9,50 +9,13 @@ import Codeblock from 'components/codeblock/Codeblock';
 
 export default function VariablePage(props) {
   let { variable_name } = useParams();
-  const { entities, variables } = props;
+  const { entities, variables } = props; 
 
   const [variable, setVariable] = useState({});
   const [dependencies, setDependencies] = useState([]);
   const [traceTree, setTraceTree] = useState({});
 
-  //   //////// BELOW IS NOT USED ANYMORE!!!
-  //   const createDependenciesPayload = (variable_i, entity) => {
-  //     var payload = {
-  //       persons: {
-  //         'person 1': {},
-  //       },
-  //     };
-  //     payload[entity.plural] = {};
-  //     payload[entity.plural][`${entity.description} abcd`] = {};
-  //     payload[entity.plural][`${entity.description} abcd`][variable_i.id] = { '2021-5-5': null };
 
-  //     return payload;
-  //   };
-
-  //   //////// BELOW IS NOT USED ANYMORE!!!
-  //   function makeDependencyTree(trace) {
-  //     const inputArray = Object.entries(trace).map((e) => ({ name: e[0], ...e[1] }));
-  //     var baseNode = inputArray[0];
-
-  //     // Recursively build a nested tree structure starting from the baseNode
-  //     function buildNestedTreeFromNode(inputNode) {
-  //       let return_obj;
-  //       if (!inputNode.dependencies || inputNode.dependencies.length === 0) {
-  //         return_obj = { ...inputNode, children: [] };
-  //       }
-
-  //       return_obj = {
-  //         ...inputNode,
-  //         children: inputArray
-  //           .filter((item) => inputNode.dependencies.includes(item.name))
-  //           .map((childNode) => buildNestedTreeFromNode(childNode)),
-  //       };
-
-  //       return return_obj;
-  //     }
-
-  //     return buildNestedTreeFromNode(baseNode);
-  //   }
 
   useEffect(() => {
     OpenFiscaAPI.getVariable(variable_name)
@@ -61,32 +24,7 @@ export default function VariablePage(props) {
 
         const entity_name = res.data.entity;
         const entity = entities[entity_name];
-
-        // return Promise.resolve({ variable: res.data, entity: entity });
       })
-      //   .then((res) => {
-      //     const payload = createDependenciesPayload(res.variable, res.entity);
-
-      //     OpenFiscaAPI.postDependencies(payload)
-      //       .then((res) => {
-      //         setDependencies(Object.keys(res.data));
-      //       })
-      //       .catch((err) => {
-      //         console.log(err);
-      //       });
-
-      //     return Promise.resolve(payload);
-      //   })
-      //   .then((payload) => {
-      //     OpenFiscaAPI.postTrace(payload)
-      //       .then((res) => {
-      //         const traceTree = makeDependencyTree(res.data.trace);
-      //         setTraceTree(traceTree);
-      //       })
-      //       .catch((err) => {
-      //         console.log(err);
-      //       });
-      //   })
       .catch((err) => {
         console.log(err);
       });
