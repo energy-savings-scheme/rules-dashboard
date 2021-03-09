@@ -78,12 +78,12 @@ function App() {
       });
 
     //TODO: add a progress bar while loading
-    getRequest('variables').then((res) => {
-      let returnedData = res.data;
-      let varSorted = sortResponse(returnedData);
-      setSortedVar(varSorted);
-      setLoading(false);
-    });
+    // getRequest('variables').then((res) => {
+    //   let returnedData = res.data;
+    //   let varSorted = sortResponse(returnedData);
+    //   setSortedVar(varSorted);
+    //   setLoading(false);
+    // });
   }, []);
 
   return (
