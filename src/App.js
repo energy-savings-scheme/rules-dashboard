@@ -9,7 +9,6 @@ import VariablePage from 'pages/VariablePage';
 import Footer from 'components/layout/Footer';
 import Header from 'components/layout/Header';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
-import Tree from 'components/dependencies_tree/Tree';
 
 // Import services
 import { getRequest } from 'services/network_request';

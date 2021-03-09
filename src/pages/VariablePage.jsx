@@ -7,7 +7,7 @@ import OpenFiscaAPI from 'services/openfisca_api';
 // Import components
 import Codeblock from 'components/codeblock/Codeblock';
 
-export default function Tree(props) {
+export default function VariablePage(props) {
   let { variable_name } = useParams();
   const { entities, variables } = props;
 
