@@ -2,6 +2,7 @@
   {
     "majorLabel": "D",
     "activityName": "General Activities for Home Energy Efficiency Retrofits",
+    "description": "Schedule D sets out Activity Definitions for General Activities for Home Energy Efficiency Retrofits (clause 9.8)",
     "reference": "Schedule D (Clause 9.8)",
     "subCategories": [
       {
@@ -24,6 +25,7 @@
   {
     "majorLabel": "E",
     "activityName": "Low Cost Activities for Home Energy Efficiency Retrofits",
+    "description": "Schedule E sets out Activity Definitions for Low Cost Activities for Home Energy Efficiency Retrofits (clause 9.8)",
     "reference": "Schedule E (Clause 9.8)",
     "subCategories": [
       {
@@ -46,6 +48,7 @@
   {
     "majorLabel": "F",
     "activityName": "Installation of High Efficiency Appliances for Businesses",
+    "description": "Schedule F sets out Activity Definitions for the Installation of High Efficiency Appliances for Businesses (clause 9.9)",
     "reference": "Schedule F (Clause 9.9)",
     "subCategories": [
       {
@@ -68,23 +71,12 @@
   {
     "majorLabel": "nabers",
     "activityName": "NABERS baseline",
+    "description": "Schedule ? sets out Activity Definitions for the NABERS method (clause X.X)",
     "reference": "Clause 8.8",
     "subCategories": [
       {
         "subLabel": "nabers",
         "activityName": "NABERS related variables",
-        "variables": []
-      }
-    ]
-  },
-  {
-    "majorLabel": "others",
-    "activityName": "Other variables",
-    "reference": "",
-    "subCategories": [
-      {
-        "subLabel": "others",
-        "activityName": "other un-categorized variables",
         "variables": []
       }
     ]

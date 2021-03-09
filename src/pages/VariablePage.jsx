@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-
 // Import components
 import Codeblock from 'components/codeblock/Codeblock';
 
@@ -10,33 +9,42 @@ export default function VariablePage(props) {
   const { entities, variables } = props;
   // const variable = variables.find((item) => item.name === variable_name)
 
+  const variable = {
+    name: 'benchmark_star_rating',
+    description:
+      'The star rating for which the benchmark electricity and gasconsumption is calculated against - what NABERS rating the building aims to achieve. Prior to rounding - Offices requires star ratings in 0.5 intervals.',
+    value_type: 'Float',
+    entity: 'building',
+    definition_period: 'ETERNITY',
+    default_value: '0',
+    possible_values: null,
+    metadata: { majorCat: 'nabers', minorCat: 'nabers', alias: 'Benchmark Star Rating' },
+    children: ['method_one', 'method_one_can_be_used', 'method_two'],
+    parents: [
+      'offices_benchmark_star_rating',
+      'GEwholemax',
+      'NGEmax',
+      'office_maximum_electricity_consumption',
+    ],
+  };
 
-  const variable = {"name":"benchmark_star_rating","description":"The star rating for which the benchmark electricity and gasconsumption is calculated against - what NABERS rating the building aims to achieve. Prior to rounding - Offices requires star ratings in 0.5 intervals.","value_type":"Float","entity":"building","definition_period":"ETERNITY","default_value":"0","possible_values":null,"metadata":{"majorCat":"nabers","minorCat":"nabers","alias":"Benchmark Star Rating"},"children":["method_one","method_one_can_be_used","method_two"],"parents":["offices_benchmark_star_rating","GEwholemax","NGEmax","office_maximum_electricity_consumption"]};
-
-
-  
-  
   return (
     <div className="nsw-container">
       <div className="nsw-row">
         <div className="nsw-col">
-          <h2 style={{fontSize:32 }}>
-             {variable.metadata.alias}
-            </h2>
-          <div style={{margin: "16px 0"}}>
-            <h5 style={{fontSize:16 }}>{variable.description}</h5>
+          <h2 style={{ fontSize: 32 }}>{variable.metadata.alias}</h2>
+          <div style={{ margin: '16px 0' }}>
+            <h5 style={{ fontSize: 16 }}>{variable.description}</h5>
           </div>
-            <div
-              className="nsw-tag"
-              style={{
-                padding: "2px 16px 2px 16px",
-                margin: 0,
-              }}
-            >
-              {variable.value_type.toLowerCase()}
-            </div>
-          
-        
+          <div
+            className="nsw-tag"
+            style={{
+              padding: '2px 16px 2px 16px',
+              margin: 0,
+            }}
+          >
+            {variable.value_type.toLowerCase()}
+          </div>
         </div>
       </div>
 
