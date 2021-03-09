@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 
-import VariableSearchBar from 'components/searchbar/VariableSearchBar';
+import VariableSearchBar from 'pages/homepage/VariableSearchBar';
 import ScheduleTile from './ScheduleTile';
 
 const initial_schedules = [
