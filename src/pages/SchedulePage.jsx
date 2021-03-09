@@ -9,16 +9,18 @@ export default function SchedulePage(props) {
   let { schedule_name } = useParams();
   const { schedules, variables } = props;
 
-  const current_schedule = schedules.find((item) => item.name === schedule_name);
-
-  const activities = variables.filter((item) => item.metadata.schedule === current_schedule);
+  const current_schedule = schedules.find((item) => item.activityName === schedule_name);
+  let activities = [];
+  try {
+    activities = current_schedule.subCategories;
+  } catch {}
 
   return (
     <div className="nsw-container">
       <div className="nsw-row">
         <div className="nsw-col">
           <h2>
-            <span style={{ marginRight: 10 }}>{current_schedule.name}</span>
+            <span style={{ marginRight: 10 }}>{current_schedule.activityName}</span>
           </h2>
           <h5>{current_schedule.description}</h5>
         </div>
@@ -43,15 +45,12 @@ export default function SchedulePage(props) {
                     <td colSpan="2">No activities found for this Schedule</td>
                   </tr>
                 ) : (
-                  activities.map((variable) => (
+                  activities.map((activity) => (
                     <tr>
+                      <td>{activity.subLabel || 'Activity definition not found'}</td>
                       <td>
-                        {variable.metadata.activity_definition_number ||
-                          'Activity definition not found'}
-                      </td>
-                      <td>
-                        <Link to={`/variables/${variable.name}`} className="nsw-page-nav__link">
-                          {variable.metadata.alias}
+                        <Link to={`/variables/123`} className="nsw-page-nav__link">
+                          {activity.activityName}
                         </Link>
                       </td>
                     </tr>
