@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import './styles/App.css';
+// Import Pages
+import Homepage from 'pages/Homepage';
+
+// Import components
 import Footer from 'components/layout/Footer';
 import Header from 'components/layout/Header';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
-import VariableSearchBar from 'components/searchbar/VariableSearchBar';
-import Summary from './components/Summary';
 import Tree from 'components/dependencies_tree/Tree';
 
-import './services/network_request';
-import { emptyTree, sortResponse } from './services/sortResponse';
-import { getRequest } from './services/network_request';
-import variable_tree from './services/variable_tree.json';
+// Import services
+import { getRequest } from 'services/network_request';
 import OpenFiscaAPI from 'services/openfisca_api';
+import { emptyTree, sortResponse } from 'services/sortResponse';
+
+// Import styles
+import './styles/App.css';
 
 function App() {
   const [sortedVar, setSortedVar] = useState(emptyTree());
@@ -56,43 +59,7 @@ function App() {
 
       <Switch>
         <Route path="/" exact>
-          {/* Search section */}
-          <div className="nsw-container">
-            <div className="nsw-row">
-              <div className="nsw-col">
-                <h2>Energy Savings Scheme Rule of 2019</h2>
-                <h3>
-                  Search a term below to find more information on related methods and requirements
-                </h3>
-                <VariableSearchBar variables={variables} />
-              </div>
-            </div>
-          </div>
-
-          <div className="nsw-container">
-            <h3>Click below to get more details on each Schedule</h3>
-
-            {variable_tree.map((majorCat) => {
-              let subLengthList = Object.values(sortedVar[majorCat.majorLabel]).map(
-                (list) => list.length,
-              );
-              const cumSum = (accumulator, currentValue) => accumulator + currentValue;
-
-              const totalNum = subLengthList.reduce(cumSum);
-
-              return (
-                <Summary
-                  key={majorCat.majorLabel}
-                  total={totalNum}
-                  sectionTitle={majorCat.activityName}
-                  subTitle={majorCat.reference}
-                  subCategories={majorCat.subCategories}
-                  majorList={sortedVar[majorCat.majorLabel]}
-                />
-              );
-            })}
-          </div>
-          {/* <VariableTile /> */}
+          <Homepage entities={entities} sortedVar={sortedVar} variables={variables} />
         </Route>
         <Route path="/variables/:variable_name" exact>
           <Tree entities={entities} variables={variables} />
