@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Import Pages
 import Homepage from 'pages/Homepage';
+import VariablePage from 'pages/VariablePage';
 
 // Import components
 import Footer from 'components/layout/Footer';
@@ -62,7 +63,7 @@ function App() {
           <Homepage entities={entities} sortedVar={sortedVar} variables={variables} />
         </Route>
         <Route path="/variables/:variable_name" exact>
-          <Tree entities={entities} variables={variables} />
+          <VariablePage entities={entities} variables={variables} />
         </Route>
         <Route path="*">Not Found</Route>
       </Switch>
