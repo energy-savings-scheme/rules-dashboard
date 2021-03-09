@@ -1,0 +1,68 @@
+
+// GET all variables for a sub-category in a list
+{
+  "method": "post",
+  "argument": {
+    "major-category": "D",
+    "sub-category": "D1",
+    "final-output": false
+  },
+  "response" : [
+  {"variable_id_1": {"alias": "", "details": {}, "metadata":{}}},
+  {"variable_id_2": {"alias": "", "details": {}, "metadata":{}} }
+]
+}
+
+// GET the final output variable for a sub-category
+
+{
+  "method": "post",
+  "argument": {
+    "major-category": "D",
+    "sub-category": "D1",
+    "final-output": true
+  },
+  "response" :
+  {"final_output_variable_id": {"alias": "", "details": {}, "metadata":{}} }
+}
+
+// GET the dependency tree in json format for a random variable
+// if "is_query_root"=true, return only the subtree with queried variable at the root; -- THE UPPER TREE
+
+{
+  "method": "post",
+  "argument": {
+    "variable_id": "number_of_certificates",
+    "is_query_root": true,//false: return the entire tree containing the query variable
+  },
+  "response" :{
+    "number_of_certificates": {
+      "var_branch1":{
+        "var_branch_branch1":{},
+        "var_branch_branch2":{},
+        "var_branch_branch3":{},
+        },
+      "var_branch2":{}
+  }
+},
+}
+
+// GET the upper tree of a variable, i.e. "is_query_end"=false, return the  tree of variables that depend on the query variable (and ends there)--THE LOWER TREE
+
+{
+  "method": "post",
+  "argument": {
+    "variable_id": "number_of_certificates",
+    "is_query_end": true, //false: return the entire tree containing the query variable
+  },
+  "response" :{
+    "some_root_var": {
+      "var_branch1":{
+        "var_branch_branch1":{},
+        "var_branch_branch2":{},
+        "number_of_certificates":{},
+        },
+      "var_branch2":{}
+  }
+},
+}
