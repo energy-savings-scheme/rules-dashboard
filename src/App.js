@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './styles/App.css';
 import Footer from 'components/layout/Footer';
 import Header from 'components/layout/Header';
+import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import VariableSearchBar from 'components/searchbar/VariableSearchBar';
 import Summary from './components/Summary';
 import Tree from 'components/dependencies_tree/Tree';
@@ -19,6 +20,7 @@ function App() {
 
   const [entities, setEntities] = useState([]);
   const [variables, setVariables] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     OpenFiscaAPI.listEntities()
@@ -32,10 +34,12 @@ function App() {
     OpenFiscaAPI.listVariables()
       .then((res) => {
         setVariables(res.data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
       });
+
     //TODO: add a progress bar while loading
     getRequest('variables').then((res) => {
       let returnedData = res.data;
@@ -47,6 +51,8 @@ function App() {
   return (
     <Router>
       <Header />
+
+      {loading && <SpinnerFullscreen />}
 
       <Switch>
         <Route path="/" exact>
