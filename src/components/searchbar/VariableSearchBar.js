@@ -7,7 +7,10 @@ export default function VariableSearchBar(props) {
   const [searchTerm, setSearchTerm] = useState('');
 
   return (
-    <div className="nsw-col nsw-col-md-6 nsw-offset-md-3">
+    <div
+      className="nsw-col nsw-col-md-6 nsw-offset-md-3"
+      style={{ marginTop: 80, marginBottom: 80 }}
+    >
       <div className="nsw-form-search">
         <label for="hero-search-input" className="sr-only">
           Search a term below to find more information on related methods and requirements:

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Import Pages
-import Homepage from 'pages/Homepage';
+import Homepage from 'pages/homepage/Homepage';
 import VariablePage from 'pages/VariablePage';
 
 // Import components
