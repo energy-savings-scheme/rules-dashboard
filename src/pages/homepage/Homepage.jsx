@@ -1,30 +1,44 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
-import Summary from 'components/Summary';
 import VariableSearchBar from 'components/searchbar/VariableSearchBar';
-
-import variable_tree from 'services/variable_tree.json';
 import ScheduleTile from './ScheduleTile';
 
-export default function Homepage(props) {
-  const { entities, sortedVar, variables } = props;
+const initial_schedules = [
+  {
+    name: 'Default Factors and Classifications',
+    description: 'Schedule A sets out Default Factors and Classifications.',
+  },
+  {
+    name: 'Sale of New Appliances',
+    description:
+      'Schedule B sets out Activity Definitions for the Sale of New Appliances (clause 9.3)',
+  },
+  {
+    name: 'Removal of Old Appliance',
+    description:
+      'Schedule C sets out Activity Definitions for the Removal of Old Appliances (clause 9.7)',
+  },
+  {
+    name: 'General Activities for Home Energy Efficiency Retrofits',
+    description:
+      'Schedule D sets out Activity Definitions for General Activities for Home Energy Efficiency Retrofits (clause 9.8)',
+  },
+  {
+    name: 'Low Cost Activities for Home Energy Efficiency Retrofits',
+    description:
+      'Schedule E sets out Activity Definitions for Low Cost Activities for Home Energy Efficiency Retrofits (clause 9.8)',
+  },
+  {
+    name: 'Installation of High Efficiency Appliances for Businesses',
+    description:
+      'Schedule F sets out Activity Definitions for the Installation of High Efficiency Appliances for Businesses (clause 9.9)',
+  },
+];
 
-  const schedules = [
-    {
-      name: 'Default Factors and Classifications',
-      description: 'Schedule A sets out Default Factors and Classifications.',
-    },
-    {
-      name: 'Sale of New Appliances',
-      description:
-        'Schedule B sets out Activity Definitions for the Sale of New Appliances (clause 9.3)',
-    },
-    {
-      name: 'General Activities for Home Energy Efficiency Retrofits',
-      description:
-        'Schedule D sets out Activity Definitions for General Activities for Home Energy Efficiency Retrofits (clause 9.8)',
-    },
-  ];
+export default function Homepage(props) {
+  const { variables } = props;
+
+  const [schedules, setSchedules] = useState(initial_schedules);
 
   return (
     <Fragment>

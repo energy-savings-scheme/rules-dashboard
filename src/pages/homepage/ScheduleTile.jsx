@@ -8,7 +8,7 @@ export default function ScheduleTile(props) {
       <div className="nsw-card ">
         <div className="nsw-card__content">
           <h2 className="nsw-card__title">
-            <Link to="/123" className="nsw-card__link">
+            <Link to={`schedules/${schedule.name}`} className="nsw-card__link">
               {schedule.name}
             </Link>
           </h2>
