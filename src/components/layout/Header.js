@@ -1,12 +1,10 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-import Breadcrumb from 'components/layout/Breadcrumb';
-
 export default function Header() {
   return (
     <Fragment>
-      <div className="nsw-infobar">
+      <div className="nsw-infobar" style={{ marginBottom: 20 }}>
         <div className="nsw-container">
           <div className="nsw-row">
             <div className="nsw-col">
@@ -35,7 +33,6 @@ export default function Header() {
       </div>
 
       {/* Breadcrumb */}
-      <Breadcrumb />
     </Fragment>
   );
 

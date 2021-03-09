@@ -7,6 +7,7 @@ import SchedulePage from 'pages/SchedulePage';
 import VariablePage from 'pages/VariablePage';
 
 // Import components
+import Breadcrumb from 'components/layout/Breadcrumb';
 import Footer from 'components/layout/Footer';
 import Header from 'components/layout/Header';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
@@ -97,9 +98,11 @@ function App() {
           <Homepage schedules={schedules} variables={variables} />
         </Route>
         <Route path="/variables/:variable_name" exact>
+          <Breadcrumb />
           <VariablePage entities={entities} variables={variables} />
         </Route>
         <Route path="/schedules/:schedule_name" exact>
+          <Breadcrumb />
           <SchedulePage schedules={schedules} variables={variables} />
         </Route>
         <Route path="*">Not Found</Route>

@@ -18,9 +18,9 @@ export default function SchedulePage(props) {
       <div className="nsw-row">
         <div className="nsw-col">
           <h2>
-            <span style={{ marginRight: 10 }}>Title</span>
+            <span style={{ marginRight: 10 }}>{current_schedule.name}</span>
           </h2>
-          <h5>Description</h5>
+          <h5>{current_schedule.description}</h5>
         </div>
       </div>
 

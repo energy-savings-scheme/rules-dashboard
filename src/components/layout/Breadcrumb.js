@@ -13,7 +13,7 @@ export default function Breadcrumb(match) {
   }
 
   return (
-    <div className="nsw-container">
+    <div className="nsw-container" style={{ marginBottom: 20 }}>
       <nav aria-label="Breadcrumb" className="nsw-breadcrumb">
         <ol className="nsw-breadcrumb__list">
           <li className="nsw-breadcrumb__item">
