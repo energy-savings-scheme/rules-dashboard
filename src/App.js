@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import '../styles/App.css';
+import './styles/App.css';
 import Footer from 'components/layout/Footer';
 import Header from 'components/layout/Header';
 import VariableSearchBar from 'components/searchbar/VariableSearchBar';
-import Summary from './Summary';
+import Summary from './components/Summary';
 import Tree from 'components/dependencies_tree/Tree';
 
-import '../services/network_request';
-import { emptyTree, sortResponse } from '../services/sortResponse';
-import { getRequest } from '../services/network_request';
-import variable_tree from '../services/variable_tree.json';
+import './services/network_request';
+import { emptyTree, sortResponse } from './services/sortResponse';
+import { getRequest } from './services/network_request';
+import variable_tree from './services/variable_tree.json';
 import OpenFiscaAPI from 'services/openfisca_api';
 
 function App() {
