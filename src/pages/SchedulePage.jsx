@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 
 // Import services
 
@@ -7,6 +7,7 @@ import { Link, useParams } from 'react-router-dom';
 
 export default function SchedulePage(props) {
   let { schedule_name } = useParams();
+  const location = useLocation();
   const { schedules, variables } = props;
 
   const current_schedule = schedules.find((item) => item.activityName === schedule_name);
@@ -49,7 +50,10 @@ export default function SchedulePage(props) {
                     <tr>
                       <td>{activity.subLabel || 'Activity definition not found'}</td>
                       <td>
-                        <Link to={`/variables/123`} className="nsw-page-nav__link">
+                        <Link
+                          to={`${location.pathname}/${activity.subLabel}`}
+                          className="nsw-page-nav__link"
+                        >
                           {activity.activityName}
                         </Link>
                       </td>

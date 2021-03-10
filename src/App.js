@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Import Pages
+import ActivityDefinitionPage from 'pages/ActivityDefinitionPage';
 import Homepage from 'pages/homepage/Homepage';
 import SchedulePage from 'pages/SchedulePage';
 import VariablePage from 'pages/VariablePage';
@@ -58,14 +59,22 @@ function App() {
         <Route path="/" exact>
           <Homepage schedules={schedules} variables={variables} />
         </Route>
+
         <Route path="/variables/:variable_name" exact>
           <Breadcrumb />
           <VariablePage entities={entities} variables={variables} />
         </Route>
+
         <Route path="/schedules/:schedule_name" exact>
           <Breadcrumb />
           <SchedulePage schedules={schedules} variables={variables} />
         </Route>
+
+        <Route path="/schedules/:schedule_name/:activity_sublabel" exact>
+          <Breadcrumb />
+          <ActivityDefinitionPage schedules={schedules} variables={variables} />
+        </Route>
+
         <Route path="*">Not Found</Route>
       </Switch>
 

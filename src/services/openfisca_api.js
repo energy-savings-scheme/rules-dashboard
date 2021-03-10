@@ -22,10 +22,11 @@ function listEntities() {
   });
 }
 
-function listVariables() {
+function listVariables(params) {
   return ApiBase({
     url: '/variables/',
     method: 'GET',
+    params: params,
   });
 }
 
