@@ -1,6 +1,8 @@
 import React, { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
+import { Popover, OverlayTrigger } from 'react-bootstrap';
+
 export default function VariableTreeListItem(props) {
   const { variable_name, variables, renderNestedChildren } = props;
 
@@ -13,11 +15,20 @@ export default function VariableTreeListItem(props) {
     setExpanded(!expanded);
   };
 
+  const infoPopover = (
+    <Popover id="popover-basic" style={{ maxWidth: 400 }}>
+      <Popover.Title as="h3">{variable.metadata.alias}</Popover.Title>
+      <Popover.Content>{variable.description}</Popover.Content>
+    </Popover>
+  );
+
   return (
     <li style={{ lineHeight: '2rem', paddingBottom: '0.8rem' }}>
-      <Link to={`/variables/${variable.name}`} style={{ textDecorationLine: 'underline' }}>
-        {variable.metadata.alias}
-      </Link>
+      <OverlayTrigger trigger="hover" placement="bottom" overlay={infoPopover}>
+        <Link to={`/variables/${variable.name}`} style={{ textDecorationLine: 'underline' }}>
+          {variable.metadata.alias}
+        </Link>
+      </OverlayTrigger>
 
       {renderNestedChildren && (
         <Fragment>
