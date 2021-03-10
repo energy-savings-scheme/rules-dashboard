@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import Codeblock from 'components/codeblock/Codeblock';
+import VariableTreeListItem from 'components/VariableTreeListItem';
 
 export default function VariablePage(props) {
   let { variable_name } = useParams();
@@ -67,21 +68,13 @@ export default function VariablePage(props) {
                         To calculate the result of this variable, the below process is followed:
                       </p>
                       <ul className="nsw-content-block__list">
-                        {variable.children.map((child_name) => {
-                          let child_var = variables.find((item) => item.name === child_name);
-                          if (!child_var) return null;
-
-                          return (
-                            <li>
-                              <Link
-                                to={`/variables/${child_name}`}
-                                style={{ textDecorationLine: 'underline' }}
-                              >
-                                {child_var.metadata.alias}
-                              </Link>
-                            </li>
-                          );
-                        })}
+                        {variable.children.map((child_name) => (
+                          <VariableTreeListItem
+                            variable_name={child_name}
+                            variables={variables}
+                            renderNestedChildren
+                          />
+                        ))}
                       </ul>
                     </Fragment>
                   )}
@@ -105,21 +98,9 @@ export default function VariablePage(props) {
                         that use this variable for their calculations.
                       </p>
                       <ul className="nsw-content-block__list">
-                        {variable.parents.map((parent_name) => {
-                          let parent_var = variables.find((item) => item.name === parent_name);
-                          if (!parent_var) return null;
-
-                          return (
-                            <li>
-                              <Link
-                                to={`/variables/${parent_name}`}
-                                style={{ textDecorationLine: 'underline' }}
-                              >
-                                {parent_var.metadata.alias}
-                              </Link>
-                            </li>
-                          );
-                        })}
+                        {variable.parents.map((parent_name) => (
+                          <VariableTreeListItem variable_name={parent_name} variables={variables} />
+                        ))}
                       </ul>
                     </Fragment>
                   )}
