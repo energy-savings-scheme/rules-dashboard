@@ -55,7 +55,10 @@ export default function VariablePage(props) {
                     requirements within the ESS
                   </h2>
                   {variable.children.length === 0 ? (
-                    'This variable does not depend any other variables. It could be a variable requiring user input.'
+                    <p className="nsw-content-block__copy">
+                      This variable does not depend any other variables. It could be a variable
+                      requiring user input.
+                    </p>
                   ) : (
                     <Fragment>
                       <p className="nsw-content-block__copy">
@@ -90,7 +93,9 @@ export default function VariablePage(props) {
                 <div className="nsw-content-block__content">
                   <h2 className="nsw-content-block__title">Where is this variable used?</h2>
                   {variable.parents.length === 0 ? (
-                    'This variable is not used in any calculations.'
+                    <p className="nsw-content-block__copy">
+                      This variable is not used in any calculations.
+                    </p>
                   ) : (
                     <Fragment>
                       <p className="nsw-content-block__copy">
