@@ -28,13 +28,19 @@ export default function ActivityDefinitionPage(props) {
   const current_activity = activities.find((item) => item.subLabel === activity_sublabel);
 
   useEffect(() => {
-    const searchParams = { minorcat: activity_sublabel, is_input: true };
+    openfisca_api
+      .listVariables({ minorcat: activity_sublabel, is_input: true })
+      .then((res) => {
+        setRelatedVariables(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     openfisca_api
-      .listVariables(searchParams)
+      .listVariables({ minorcat: activity_sublabel, is_output: true, is_input: false })
       .then((res) => {
-        console.log(res);
-        setRelatedVariables(res.data);
+        setOutputVariables(res.data);
       })
       .catch((err) => {
         console.log(err);
