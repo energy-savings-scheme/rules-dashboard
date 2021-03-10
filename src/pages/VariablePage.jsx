@@ -31,84 +31,97 @@ export default function VariablePage(props) {
         </div>
       </div>
 
-      {/* SECTION --> HOW IT RELATES? */}
-      <div className="nsw-row">
-        <div className="nsw-col">
-          <div className="nsw-content-block">
-            <div className="nsw-content-block__content">
-              <h2 className="nsw-content-block__title">
-                See how the requirement {variable.metadata.alias} relates to other methods and
-                requirements within the ESS
-              </h2>
-              {variable.children.length === 0 ? (
-                'None'
-              ) : (
-                <Fragment>
-                  <p className="nsw-content-block__copy">
-                    To calculate the result of this variable, the below process is followed:
-                  </p>
-                  <ul className="nsw-content-block__list">
-                    {variable.children.map((child_name) => {
-                      let child_var = variables.find((item) => item.name === child_name);
-                      if (!child_var) return null;
-
-                      return (
-                        <li>
-                          <Link
-                            to={`/variables/${child_name}`}
-                            style={{ textDecorationLine: 'underline' }}
-                          >
-                            {child_var.metadata.alias}
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </Fragment>
-              )}
+      {variable.children.length === 0 && variable.parents.length === 0 ? (
+        <div className="nsw-row">
+          <div className="nsw-col">
+            <div className="nsw-content-block">
+              <div className="nsw-content-block__content">
+                <h2 className="nsw-content-block__title">
+                  This variable is not related to any other variables.
+                </h2>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        /* SECTION --> HOW IT RELATES? */
+        <div>
+          <div className="nsw-row">
+            <div className="nsw-col">
+              <div className="nsw-content-block">
+                <div className="nsw-content-block__content">
+                  <h2 className="nsw-content-block__title">
+                    See how the requirement {variable.metadata.alias} relates to other methods and
+                    requirements within the ESS
+                  </h2>
+                  {variable.children.length === 0 ? (
+                    'This variable does not depend any other variables. It could be a variable requiring user input.'
+                  ) : (
+                    <Fragment>
+                      <p className="nsw-content-block__copy">
+                        To calculate the result of this variable, the below process is followed:
+                      </p>
+                      <ul className="nsw-content-block__list">
+                        {variable.children.map((child_name) => {
+                          let child_var = variables.find((item) => item.name === child_name);
+                          if (!child_var) return null;
 
-      {/* SECTION --> WHERE IS THIS VARIABLE USED? */}
-      <div className="nsw-row">
-        <div className="nsw-col">
-          <div className="nsw-content-block">
-            <div className="nsw-content-block__content">
-              <h2 className="nsw-content-block__title">Where is this variable used?</h2>
-              {variable.parents.length === 0 ? (
-                'None'
-              ) : (
-                <Fragment>
-                  <p className="nsw-content-block__copy">
-                    The following is a list of all the other variables and activity definitions that
-                    use this variable for their calculations.
-                  </p>
-                  <ul className="nsw-content-block__list">
-                    {variable.parents.map((parent_name) => {
-                      let parent_var = variables.find((item) => item.name === parent_name);
-                      if (!parent_var) return null;
+                          return (
+                            <li>
+                              <Link
+                                to={`/variables/${child_name}`}
+                                style={{ textDecorationLine: 'underline' }}
+                              >
+                                {child_var.metadata.alias}
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </Fragment>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="nsw-row">
+            <div className="nsw-col">
+              <div className="nsw-content-block">
+                <div className="nsw-content-block__content">
+                  <h2 className="nsw-content-block__title">Where is this variable used?</h2>
+                  {variable.parents.length === 0 ? (
+                    'This variable is not used in any calculations.'
+                  ) : (
+                    <Fragment>
+                      <p className="nsw-content-block__copy">
+                        The following is a list of all the other variables and activity definitions
+                        that use this variable for their calculations.
+                      </p>
+                      <ul className="nsw-content-block__list">
+                        {variable.parents.map((parent_name) => {
+                          let parent_var = variables.find((item) => item.name === parent_name);
+                          if (!parent_var) return null;
 
-                      return (
-                        <li>
-                          <Link
-                            to={`/variables/${parent_name}`}
-                            style={{ textDecorationLine: 'underline' }}
-                          >
-                            {parent_var.metadata.alias}
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </Fragment>
-              )}
+                          return (
+                            <li>
+                              <Link
+                                to={`/variables/${parent_name}`}
+                                style={{ textDecorationLine: 'underline' }}
+                              >
+                                {parent_var.metadata.alias}
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </Fragment>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
+      )}
       {/* SECTION --> WHAT DOES THIS FORMULA LOOK LIKE? */}
       {/* <div className="nsw-row">
         <div className="nsw-col">
