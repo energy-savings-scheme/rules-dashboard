@@ -1,17 +1,18 @@
 import React from 'react';
-import { CopyBlock, github } from 'react-code-blocks';
+import { CopyBlock, a11yLight } from 'react-code-blocks';
 
 export default function Codeblock(props) {
   const { code, language, showLineNumbers } = props;
 
   return (
     <CopyBlock
-      text={props.code}
-      language={props.language}
-      showLineNumbers={props.showLineNumbers}
-      theme={github}
+      text={code}
+      language={language}
+      showLineNumbers={showLineNumbers}
+      theme={a11yLight}
       wrapLines
       codeBlock
+      codeContainerStyle={{ lineHeight: '2.2rem' }}
     />
   );
 }

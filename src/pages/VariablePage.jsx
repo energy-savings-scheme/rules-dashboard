@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
+import Codeblock from 'components/codeblock/Codeblock';
+
 export default function VariablePage(props) {
   let { variable_name } = useParams();
   const { entities, variables } = props;
@@ -128,27 +130,24 @@ export default function VariablePage(props) {
         </div>
       )}
       {/* SECTION --> WHAT DOES THIS FORMULA LOOK LIKE? */}
-      {/* <div className="nsw-row">
+      <div className="nsw-row">
         <div className="nsw-col">
-          <h3>What does the formula look like?</h3>
-          {variable && variable.formulas
-            ? Object.keys(variable.formulas).map((formula_date) => {
-                const formula_i = variable.formulas[formula_date];
-                if (formula_date === '0001-01-01') {
-                  formula_date = 'ETERNITY';
-                }
-                return (
-                  <Fragment>
-                    <h5 style={{ marginBottom: '0.5rem' }}>From date: {formula_date}</h5>
-                    <p>
-                      <Codeblock code={formula_i.content} language="python" />
-                    </p>
-                  </Fragment>
-                );
-              })
-            : 'This variable does not have a formula'}
+          <div className="nsw-content-block">
+            <div className="nsw-content-block__content">
+              <h2 className="nsw-content-block__title">What does the formula look like?</h2>
+              {variable && variable.formula ? (
+                <Fragment>
+                  <p>
+                    <Codeblock code={variable.formula} language="python" />
+                  </p>
+                </Fragment>
+              ) : (
+                <p className="nsw-content-block__copy">This variable does not have a formula</p>
+              )}
+            </div>
+          </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
