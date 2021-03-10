@@ -1,13 +1,17 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 // Import services
+import openfisca_api from 'services/openfisca_api';
 
 // Import components
 
 export default function ActivityDefinitionPage(props) {
   let { schedule_name, activity_sublabel } = useParams();
-  const { schedules, variables } = props;
+  const { schedules } = props;
+
+  const [relatedVariables, setRelatedVariables] = useState([]);
+  const [outputVariables, setOutputVariables] = useState([]);
 
   // Get list of activities from `variable_tree.json`
   // NOTE - this needs refactoring. Too much manual data processing of the `variable_tree.json`!
@@ -22,6 +26,20 @@ export default function ActivityDefinitionPage(props) {
   // the URL parameters is not generalisable...
   const current_schedule = schedules.find((item) => item.activityName === schedule_name);
   const current_activity = activities.find((item) => item.subLabel === activity_sublabel);
+
+  useEffect(() => {
+    const searchParams = { minorcat: activity_sublabel, is_input: true };
+
+    openfisca_api
+      .listVariables(searchParams)
+      .then((res) => {
+        console.log(res);
+        setRelatedVariables(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [schedule_name, activity_sublabel]);
 
   return (
     <div className="nsw-container">
@@ -53,38 +71,76 @@ export default function ActivityDefinitionPage(props) {
         </div>
       </div>
 
-      {/* SECTION --> HOW IT RELATES? */}
+      {/* SECTION --> VARIABLES USED? */}
       <div className="nsw-row">
         <div className="nsw-col">
-          <div className="nsw-table-responsive">
-            <table className="nsw-table nsw-table--striped" style={{ width: '100%' }}>
-              <colgroup>
-                <col span="1" style={{ width: '20%' }} />
-                <col span="1" style={{ width: '80%' }} />
-              </colgroup>
-              <thead>
-                <th style={{ fontWeight: 600 }}>Activity Definition</th>
-                <th style={{ fontWeight: 600 }}>Name</th>
-              </thead>
-              <tbody>
-                {activities.length === 0 ? (
-                  <tr>
-                    <td colSpan="2">No activities found for this Schedule</td>
-                  </tr>
-                ) : (
-                  activities.map((activity) => (
+          <div className="nsw-content-block">
+            <div className="nsw-content-block__content">
+              <h4 className="nsw-content-block__title">Variables used:</h4>
+
+              <table
+                className="nsw-table nsw-table--striped"
+                style={{ width: '100%', marginBottom: 50 }}
+              >
+                <thead>
+                  <th style={{ fontWeight: 600 }}>
+                    Direct inputs
+                    <small style={{ paddingLeft: 30 }}>
+                      These inputs are needed to inform the result of the output variables of this
+                      activity.
+                    </small>
+                  </th>
+                </thead>
+                <tbody>
+                  {relatedVariables.length === 0 ? (
                     <tr>
-                      <td>{activity.subLabel || 'Activity definition not found'}</td>
-                      <td>
-                        <Link to={`/variables/123`} className="nsw-page-nav__link">
-                          {activity.activityName}
-                        </Link>
-                      </td>
+                      <td>None</td>
                     </tr>
-                  ))
-                )}
-              </tbody>
-            </table>
+                  ) : (
+                    relatedVariables.map((variable) => (
+                      <tr>
+                        <td>
+                          <Link to={`/variables/${variable.name}`} className="nsw-page-nav__link">
+                            {variable.metadata.alias}
+                          </Link>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+
+              <table
+                className="nsw-table nsw-table--striped"
+                style={{ width: '100%', marginBottom: 50 }}
+              >
+                <thead>
+                  <th style={{ fontWeight: 600 }}>
+                    Outputs
+                    <small style={{ paddingLeft: 30 }}>
+                      These are the ouputs of this activity definition.
+                    </small>
+                  </th>
+                </thead>
+                <tbody>
+                  {outputVariables.length === 0 ? (
+                    <tr>
+                      <td>None</td>
+                    </tr>
+                  ) : (
+                    outputVariables.map((variable) => (
+                      <tr>
+                        <td>
+                          <Link to={`/variables/${variable.name}`} className="nsw-page-nav__link">
+                            {variable.metadata.alias}
+                          </Link>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
