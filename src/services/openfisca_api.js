@@ -1,29 +1,30 @@
-import ApiBase from 'services/api_base';
+import DjangoApiBase from 'services/django_api_base';
+import OpenFiscaApiBase from 'services/openfisca_api_base';
 
 // Note the change in url for openfisca-djangoapi
 function getVariable(variable_name) {
-  return ApiBase({
+  return DjangoApiBase({
     url: `/variables/${variable_name}/`,
     method: 'GET',
   });
 }
 
 function getParameters() {
-  return ApiBase({
+  return DjangoApiBase({
     url: '/parameters/',
     method: 'GET',
   });
 }
 
 function listEntities() {
-  return ApiBase({
+  return DjangoApiBase({
     url: '/entities/',
     method: 'GET',
   });
 }
 
 function listVariables(params) {
-  return ApiBase({
+  return DjangoApiBase({
     url: '/variables/',
     method: 'GET',
     params: params,
@@ -31,7 +32,7 @@ function listVariables(params) {
 }
 
 function postDependencies(payload) {
-  return ApiBase({
+  return DjangoApiBase({
     url: '/dependencies/',
     method: 'POST',
     data: payload,
@@ -39,8 +40,16 @@ function postDependencies(payload) {
 }
 
 function postTrace(payload) {
-  return ApiBase({
+  return DjangoApiBase({
     url: '/trace/',
+    method: 'POST',
+    data: payload,
+  });
+}
+
+function postCalculate(payload) {
+  return OpenFiscaApiBase({
+    url: '/calculate/',
     method: 'POST',
     data: payload,
   });
@@ -53,6 +62,7 @@ const OpenFiscaApi = {
   listVariables,
   postDependencies,
   postTrace,
+  postCalculate,
 };
 
 export default OpenFiscaApi;

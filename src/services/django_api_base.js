@@ -5,7 +5,7 @@ const client = axios.create({
   withCredentials: false,
 });
 
-const ApiBase = function (options) {
+const DjangoApiBase = function (options) {
   const onSuccess = function (response) {
     return response;
   };
@@ -31,4 +31,4 @@ const ApiBase = function (options) {
   return client(options).then(onSuccess).catch(onError);
 };
 
-export default ApiBase;
+export default DjangoApiBase;
