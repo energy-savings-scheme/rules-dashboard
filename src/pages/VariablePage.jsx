@@ -132,7 +132,7 @@ export default function VariablePage(props) {
       </div>
 
       {/* CALCULATE SECTION */}
-      <CalculateBlock variable={variable} entities={entities} />
+      <CalculateBlock variables={variables} variable={variable} entities={entities} />
     </div>
   );
 }
