@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
+import CalculateButton from "components/calculate/CalculateButton"
 import Codeblock from 'components/codeblock/Codeblock';
 import VariableTreeListItem from 'components/VariableTreeListItem';
 
@@ -67,6 +68,7 @@ export default function VariablePage(props) {
                       <p className="nsw-content-block__copy">
                         To calculate the result of this variable, the below process is followed:
                       </p>
+                      <CalculateButton variable={variable} entities={entities} />
                       <ul className="nsw-content-block__list">
                         {variable.children.map((child_name) => (
                           <VariableTreeListItem
