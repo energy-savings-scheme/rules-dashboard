@@ -14,9 +14,8 @@ import Header from 'components/layout/Header';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 
 // Import services
-import { getRequest } from 'services/network_request';
 import OpenFiscaAPI from 'services/openfisca_api';
-import { emptyTree, sortResponse } from 'services/sortResponse';
+import { emptyTree } from 'services/sortResponse';
 import variable_tree from 'services/variable_tree.json';
 
 // Import styles

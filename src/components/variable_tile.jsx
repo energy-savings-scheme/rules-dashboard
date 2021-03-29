@@ -1,6 +1,6 @@
 import '../styles/variable_tile.css';
 import React, { useState, useEffect } from 'react';
-import { getRequest } from '../services/network_request';
+import OpenFiscaApi from 'services/openfisca_api';
 
 export default function VariableTile(props) {
   const [varData, setVarData] = useState({
@@ -23,7 +23,7 @@ export default function VariableTile(props) {
   useEffect(() => {
     var varURL = `variable/${props.varID}`;
     const fetchVarData = async () => {
-      let res = await getRequest(varURL);
+      let res = await OpenFiscaApi.getVariable(props.varID);
       let data = res.data;
       setVarData({
         definitionPeriod: data.definitionPeriod,
