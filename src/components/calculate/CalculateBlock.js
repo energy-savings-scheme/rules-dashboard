@@ -16,6 +16,7 @@ export default function CalculateBlock(props) {
     var array = [
       {
         name: 'Implementation Date',
+        description: 'On what date did the energy saving activity occur?',
         value_type: 'Date',
         default_value: '2021-01-01',
         form_value: '2021-01-01',
@@ -61,10 +62,6 @@ export default function CalculateBlock(props) {
         <div className="nsw-content-block">
           <div className="nsw-content-block__content">
             <h2 className="nsw-content-block__title">Calculate</h2>
-            <p style={{ color: 'red' }}>
-              For each children, render the correct form Input (based on the type). For example,
-              radio-select for True/False, and Dropdown for an Enum
-            </p>
             <form>{formValues.map((formItem, index) => renderFormField(formItem))}</form>
           </div>
         </div>
@@ -72,7 +69,7 @@ export default function CalculateBlock(props) {
       <div className="nsw-col">
         <div className="nsw-content-block">
           <div className="nsw-content-block__content">
-            <CalculateButton variable={variable} entities={entities} />
+            <CalculateButton variable={variable} entities={entities} formValues={formValues} />
           </div>
         </div>
       </div>
