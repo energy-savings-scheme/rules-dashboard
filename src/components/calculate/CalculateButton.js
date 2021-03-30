@@ -1,6 +1,8 @@
 import React from 'react';
 import OpenFiscaApi from 'services/openfisca_api';
 
+import Button from 'nsw-ds-react/button/button';
+
 export default function CalculateButton(props) {
   const { variable, entities } = props;
 
@@ -19,7 +21,7 @@ export default function CalculateButton(props) {
     payload[entity.plural][`${entity.name}_1`]['PDRS__Air_Conditioner__AC_type'] = {};
     payload[entity.plural][`${entity.name}_1`]['PDRS__Air_Conditioner__AC_type'][date] = 'type_1';
 
-    OpenFiscaApi(payload)
+    OpenFiscaApi.postCalculate(payload)
       .then((res) => {
         console.log(res);
       })
@@ -28,5 +30,9 @@ export default function CalculateButton(props) {
       });
   };
 
-  return <button onClick={handleCalculate}>Calculate</button>;
+  return (
+    <Button as="primary" onClick={handleCalculate}>
+      Calculate
+    </Button>
+  );
 }
