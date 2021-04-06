@@ -7,6 +7,28 @@ export default function Breadcrumb() {
 
   let path = {};
 
+  if (location.pathname === '/calculate') {
+    return (
+      <div className="nsw-container" style={{ marginBottom: 20 }}>
+        <nav aria-label="Breadcrumb" className="nsw-breadcrumb">
+          <ol className="nsw-breadcrumb__list">
+            <li className="nsw-breadcrumb__item">
+              <NavLink to="/" className="nsw-breadcrumb__link">
+                Home
+              </NavLink>
+            </li>
+
+            <li className="nsw-breadcrumb__item">
+              <NavLink to="/calculate" className="nsw-breadcrumb__link nsw-breadcrumb--current">
+                Calculate your Savings
+              </NavLink>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    );
+  }
+
   if (params.schedule_name && !params.activity_sublabel) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
@@ -62,6 +84,7 @@ export default function Breadcrumb() {
       </div>
     );
   }
+
   if (params.variable_name) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>

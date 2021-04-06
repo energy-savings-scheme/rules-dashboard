@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Import Pages
 import ActivityDefinitionPage from 'pages/ActivityDefinitionPage';
+import CalculatePage from 'pages/calculate/CalculatePage';
 import Homepage from 'pages/homepage/Homepage';
 import SchedulePage from 'pages/SchedulePage';
 import VariablePage from 'pages/VariablePage';
@@ -60,6 +61,11 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Homepage schedules={schedules} variables={variables} />
+        </Route>
+
+        <Route path="/calculate" exact>
+          <Breadcrumb />
+          <CalculatePage />
         </Route>
 
         <Route path="/variables/:variable_name" exact>
