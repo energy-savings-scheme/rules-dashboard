@@ -3,6 +3,8 @@ import React, { Fragment, useState } from 'react';
 import VariableSearchBar from 'pages/homepage/VariableSearchBar';
 import ScheduleTile from './ScheduleTile';
 
+import Card, { CardCopy } from 'nsw-ds-react/card/card';
+
 export default function Homepage(props) {
   const { variables, schedules } = props;
 
@@ -22,6 +24,17 @@ export default function Homepage(props) {
       </div>
 
       <div className="nsw-container">
+        <h2 style={{ textAlign: 'center', marginBottom: 50 }}>OR</h2>
+
+        <div style={{ marginBottom: 100 }}>
+          <Card headline="Calculate your savings" link="calculate">
+            <CardCopy>
+              Use the calculator to enter in details of an activity, and understand what your
+              electricity or gas savings are.
+            </CardCopy>
+          </Card>
+        </div>
+
         <h3>Click below to get more details on each Schedule</h3>
 
         {/* Iterate through list of Schedules in `schedules` */}
