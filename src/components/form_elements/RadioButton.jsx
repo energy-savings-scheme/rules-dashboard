@@ -1,31 +1,33 @@
 import React from 'react';
-import { FormGroupRadio } from 'nsw-ds-react/forms';
+import { FormGroup } from 'nsw-ds-react/forms';
+import { RadioItem } from 'nsw-ds-react/forms/radio/formRadio';
+// style
+
+import 'styles/formInput.css';
 
 export default function RadioInput(props) {
   const { formItem, setItemValue } = props;
 
   const possibleValues = [
-    { value: false, text: 'false', checked: 'true' },
-    { value: true, text: 'true', checked: 'false' },
+    { value: false, text: 'False', checked: 'true' },
+    { value: true, text: 'True' },
   ];
-  // for (const [key, value] of Object.entries(formItem.possible_values)) {
-  //   possibleValues.push({ text: value, value: key });
-  // }
 
   console.log(formItem);
 
+  const toggleRadio = (e) => {
+    console.log(e.target);
+  };
   return (
-    <FormGroupRadio
-      // helper={
-      //   formItem.metadata && formItem.metadata.alias ? formItem.metadata.alias : formItem.name
-      // } // (secondary label)
+    <FormGroup
       label={formItem.description} // primary label
       errorText="Invalid value!" // error text if invalid
       status={formItem.invalid && 'invalid'} // if `true` renders invalid formatting
-      options={possibleValues}
-      // onClick={() => {
-      //   console.log('clicked');
-      // }}
-    ></FormGroupRadio>
+    >
+      {possibleValues.map((option, i) => {
+        console.log(option);
+        return <RadioItem key={i} {...option} onClick={toggleRadio} />;
+      })}
+    </FormGroup>
   );
 }
