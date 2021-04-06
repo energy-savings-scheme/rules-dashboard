@@ -20,6 +20,9 @@ import variable_tree from 'services/variable_tree.json';
 
 // Import styles
 import './styles/App.css';
+import 'nsw-design-system/src/main.scss';
+import '@fontsource/montserrat';
+import '@fontsource/montserrat/600.css';
 
 function App() {
   const [sortedVar, setSortedVar] = useState(emptyTree());
