@@ -39,7 +39,7 @@ export default function CaculatePage(props) {
 
   useEffect(() => {
     setVariable(variables.find((item) => item.name === dropdownOptions[0].value));
-  }, []);
+  }, [variables]);
 
   useEffect(() => {
     if (variable && variable.name) {

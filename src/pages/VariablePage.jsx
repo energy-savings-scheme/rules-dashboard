@@ -1,13 +1,12 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { useParams } from 'react-router-dom';
 
-import CalculateBlock from 'components/calculate/CalculateBlock';
 import Codeblock from 'components/codeblock/Codeblock';
 import VariableTreeListItem from 'components/VariableTreeListItem';
 
 export default function VariablePage(props) {
   let { variable_name } = useParams();
-  const { entities, variables } = props;
+  const { variables } = props;
 
   const variable = variables.find((item) => item.name === variable_name);
   if (!variable) return null;
@@ -129,9 +128,6 @@ export default function VariablePage(props) {
           </div>
         </div>
       </div>
-
-      {/* CALCULATE SECTION */}
-      <CalculateBlock variables={variables} variable={variable} entities={entities} />
     </div>
   );
 }
