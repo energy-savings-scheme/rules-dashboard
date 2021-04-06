@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Import Pages
 import ActivityDefinitionPage from 'pages/ActivityDefinitionPage';
+import CalculatePage from 'pages/calculate/CalculatePage';
 import Homepage from 'pages/homepage/Homepage';
 import SchedulePage from 'pages/SchedulePage';
 import VariablePage from 'pages/VariablePage';
@@ -15,7 +16,6 @@ import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 
 // Import services
 import OpenFiscaAPI from 'services/openfisca_api';
-// import { emptyTree } from 'services/sortResponse';
 import variable_tree from 'services/variable_tree.json';
 
 // Import styles
@@ -25,7 +25,6 @@ import '@fontsource/montserrat';
 import '@fontsource/montserrat/600.css';
 
 function App() {
-  // const [sortedVar, setSortedVar] = useState(emptyTree());
   const [entities, setEntities] = useState([]);
   const [variables, setVariables] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -60,6 +59,11 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Homepage schedules={schedules} variables={variables} />
+        </Route>
+
+        <Route path="/calculate" exact>
+          <Breadcrumb />
+          <CalculatePage entities={entities} variables={variables} />
         </Route>
 
         <Route path="/variables/:variable_name" exact>

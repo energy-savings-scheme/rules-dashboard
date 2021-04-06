@@ -7,30 +7,19 @@ import DropDownMenu from 'components/form_elements/DropDownMenu';
 import RadioButton from 'components/form_elements/RadioButton';
 
 export default function CalculateBlock(props) {
-  const { variables, variable, entities } = props;
-
-  const [formValues, setFormValues] = useState([]);
-
-  useEffect(() => {
-    const children = variables.filter((item) => variable.children.includes(item.name));
-
-    // Define the original array (at a minimum include the Implementation Date)
-    var array = [
-      {
-        name: 'Implementation Date',
-        description: 'On what date did the energy saving activity occur?',
-        value_type: 'Date',
-        default_value: '2021-01-01',
-        form_value: '2021-01-01',
-        invalid: true,
-      },
-    ];
-    children.map((child) => {
-      array.push({ ...child, form_value: child.default_value, invalid: false });
-    });
-
-    setFormValues(array);
-  }, []);
+  const {
+    variables,
+    variable,
+    entities,
+    calculationDate = '2021-01-01',
+    calculationResult,
+    setCalculationResult,
+    setCalculationError,
+    stepNumber,
+    setStepNumber,
+    formValues,
+    setFormValues,
+  } = props;
 
   const renderFormField = (formItem) => {
     // This function checks the `value_type` attribute of the Variable
@@ -79,7 +68,17 @@ export default function CalculateBlock(props) {
       <div className="nsw-col">
         <div className="nsw-content-block">
           <div className="nsw-content-block__content">
-            <CalculateButton variable={variable} entities={entities} formValues={formValues} />
+            <CalculateButton
+              calculationDate={calculationDate}
+              variable={variable}
+              entities={entities}
+              formValues={formValues}
+              calculationResult={calculationResult}
+              setCalculationResult={setCalculationResult}
+              setCalculationError={setCalculationError}
+              stepNumber={stepNumber}
+              setStepNumber={setStepNumber}
+            />
           </div>
         </div>
       </div>

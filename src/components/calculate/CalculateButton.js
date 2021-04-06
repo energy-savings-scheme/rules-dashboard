@@ -5,11 +5,17 @@ import Button from 'nsw-ds-react/button/button';
 import { Notification } from 'nsw-ds-react/notification/notification';
 
 export default function CalculateButton(props) {
-  const { variable, entities } = props;
+  const {
+    variable,
+    entities,
+    calculationDate,
+    calculationResult,
+    setCalculationResult,
+    setCalculationError,
+    stepNumber,
+    setStepNumber,
+  } = props;
   var { formValues } = props;
-
-  const [result, setResult] = useState(null);
-  const [error, setError] = useState(false);
 
   const validateDataType = (item) => {
     // OpenFisca requires payload data to be correctly typed.
@@ -24,12 +30,12 @@ export default function CalculateButton(props) {
   };
 
   const handleCalculate = (e) => {
-    setError(false);
+    setCalculationError(false);
 
     const entity = entities.find((item) => item.name === variable.entity);
 
     // Set implementation date from DateInput component - and pop item from formValues
-    const date = formValues.find((item) => item.value_type === 'Date').form_value;
+    const date = calculationDate;
     formValues = formValues.filter((item) => item.name !== 'Implementation Date');
 
     var payload = {
@@ -48,50 +54,21 @@ export default function CalculateButton(props) {
     OpenFiscaApi.postCalculate(payload)
       .then((res) => {
         var result = res.data[entity.plural][`${entity.name}_1`][variable.name][date];
-        setResult(result);
+        setCalculationResult(result);
       })
       .catch((err) => {
-        setResult(null);
-        setError(true);
+        setCalculationResult(null);
+        setCalculationError(true);
         console.log(err);
+      })
+      .finally(() => {
+        setStepNumber(stepNumber + 1);
       });
   };
 
   return (
-    <Fragment>
-      {result !== null && (
-        <div className="nsw-row">
-          <div className="nsw-col">
-            <div className="nsw-content-block">
-              <div className="nsw-content-block__content">
-                <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
-                  Based on the information provided, your{' '}
-                  <span style={{ fontWeight: 600, textDecoration: 'underline' }}>
-                    {variable.metadata && variable.metadata.alias
-                      ? variable.metadata.alias
-                      : variable.name}
-                  </span>{' '}
-                  are
-                </h4>
-                <h1 style={{ textAlign: 'center', paddingTop: 10 }}>{result}</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {error && (
-        <Notification as="error" title="Sorry! An error has occurred.">
-          <p>
-            An error occurred during calculation. Try choosing a more recent Date and re-running the
-            calculation
-          </p>
-        </Notification>
-      )}
-
-      <Button as="primary" onClick={handleCalculate}>
-        {result ? 'Calculate again' : 'Calculate'}
-      </Button>
-    </Fragment>
+    <Button as="primary" onClick={handleCalculate}>
+      {calculationResult ? 'Calculate again' : 'Calculate'}
+    </Button>
   );
 }
