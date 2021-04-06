@@ -31,7 +31,11 @@ export default function CalculateBlock(props) {
       setFormValues(
         [...formValues].map((item) => {
           if (item.name === formItem.name) {
-            return { ...item, form_value: e.target.value };
+            if (formItem.value_type === 'Boolean') {
+              return { ...item, form_value: e.target.value === 'true' };
+            } else {
+              return { ...item, form_value: e.target.value };
+            }
           } else {
             return item;
           }
