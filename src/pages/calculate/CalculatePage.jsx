@@ -43,7 +43,8 @@ export default function CaculatePage(props) {
 
   useEffect(() => {
     if (variable && variable.name) {
-      const children = variables.filter((item) => variable.children.includes(item.name));
+      const offsprings = variable.metadata.input_offspring;
+      const children = variables.filter((item) => offsprings.includes(item.name));
 
       // Define the original array (at a minimum include the Implementation Date)
       var array = [];

@@ -55,8 +55,6 @@ export default function CalculateBlock(props) {
     }
   };
 
-  console.log(formValues);
-
   return (
     <div className="nsw-row">
       <div className="nsw-col">
