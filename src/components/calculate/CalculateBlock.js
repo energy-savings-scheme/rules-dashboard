@@ -15,22 +15,9 @@ export default function CalculateBlock(props) {
     setCalculationError,
     stepNumber,
     setStepNumber,
+    formValues,
+    setFormValues,
   } = props;
-
-  const [formValues, setFormValues] = useState([]);
-
-  useEffect(() => {
-    const children = variables.filter((item) => variable.children.includes(item.name));
-
-    // Define the original array (at a minimum include the Implementation Date)
-    var array = [];
-
-    children.map((child) => {
-      array.push({ ...child, form_value: child.default_value, invalid: false });
-    });
-
-    setFormValues(array);
-  }, []);
 
   const renderFormField = (formItem) => {
     // This function checks the `value_type` attribute of the Variable

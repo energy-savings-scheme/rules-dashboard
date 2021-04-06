@@ -33,6 +33,21 @@ export default function CaculatePage(props) {
     setVariable(variables.find((item) => item.name === dropdownOptions[0].value));
   }, []);
 
+  useEffect(() => {
+    if (variable && variable.name) {
+      const children = variables.filter((item) => variable.children.includes(item.name));
+
+      // Define the original array (at a minimum include the Implementation Date)
+      var array = [];
+
+      children.map((child) => {
+        array.push({ ...child, form_value: child.default_value, invalid: false });
+      });
+
+      setFormValues(array);
+    }
+  }, [variable]);
+
   if (!variable) return null;
 
   return (
@@ -113,6 +128,8 @@ export default function CaculatePage(props) {
             setCalculationError={setCalculationError}
             stepNumber={stepNumber}
             setStepNumber={setStepNumber}
+            formValues={formValues}
+            setFormValues={setFormValues}
           />
 
           <div className="nsw-row">
