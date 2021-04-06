@@ -42,8 +42,6 @@ export default function CalculateBlock(props) {
       setFormValues(
         [...formValues].map((item) => {
           if (item.name === formItem.name) {
-            console.log(e.target);
-
             return { ...item, form_value: e.target.value };
           } else {
             return item;
@@ -72,7 +70,9 @@ export default function CalculateBlock(props) {
         <div className="nsw-content-block">
           <div className="nsw-content-block__content">
             <h2 className="nsw-content-block__title">Calculate</h2>
-            <form>{formValues.map((formItem, index) => renderFormField(formItem))}</form>
+            <form className="nsw-form-group">
+              {formValues.map((formItem, index) => renderFormField(formItem))}
+            </form>
           </div>
         </div>
       </div>
