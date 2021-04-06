@@ -35,7 +35,7 @@ export const RadioItem = ({
       aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
       id={uniqueID}
       value={value}
-      {...checked}
+      checked={checked}
       {...attributeOptions}
     ></input>
     <label class="nsw-form-radio__label" for={uniqueID}>
@@ -87,6 +87,7 @@ export const FormGroupRadio = (props) => (
           <RadioItem
             key={i}
             {...option}
+            checked={props.form_value === option.value}
             htmlId={props.htmlId}
             status={props.status}
             value={option.value}
