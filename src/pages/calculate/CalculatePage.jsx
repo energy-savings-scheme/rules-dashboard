@@ -56,6 +56,10 @@ export default function CaculatePage(props) {
     }
   }, [variable]);
 
+  const formatResultString = (result) => {
+    return JSON.stringify(result);
+  };
+
   if (!variable) return null;
 
   return (
@@ -171,7 +175,9 @@ export default function CaculatePage(props) {
                       </span>{' '}
                       are
                     </h4>
-                    <h1 style={{ textAlign: 'center', paddingTop: 10 }}>{calculationResult}</h1>
+                    <h1 style={{ textAlign: 'center', paddingTop: 10 }}>
+                      {formatResultString(calculationResult)}
+                    </h1>
                   </div>
                 </div>
               </div>
