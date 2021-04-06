@@ -4,6 +4,7 @@ import CalculateButton from 'components/calculate/CalculateButton';
 import DateInput from 'components/form_elements/DateInput';
 import FormTextInput from 'components/form_elements/FormTextInput';
 import DropDownMenu from 'components/form_elements/DropDownMenu';
+import RadioButton from 'components/form_elements/RadioButton';
 
 export default function CalculateBlock(props) {
   const { variables, variable, entities } = props;
@@ -41,6 +42,8 @@ export default function CalculateBlock(props) {
       setFormValues(
         [...formValues].map((item) => {
           if (item.name === formItem.name) {
+            console.log(e.target);
+
             return { ...item, form_value: e.target.value };
           } else {
             return item;
@@ -48,6 +51,7 @@ export default function CalculateBlock(props) {
         }),
       );
     };
+
     switch (formItem.value_type) {
       case 'Float':
         return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
@@ -55,9 +59,12 @@ export default function CalculateBlock(props) {
         return <DateInput formItem={formItem} setItemValue={setItemValue} />;
       case 'String':
         return <DropDownMenu formItem={formItem} setItemValue={setItemValue} />;
+      case 'Boolean':
+        return <RadioButton formItem={formItem} setItemValue={setItemValue} />;
     }
   };
 
+  console.log(formValues);
   return (
     <div className="nsw-row">
       <div className="nsw-col">
