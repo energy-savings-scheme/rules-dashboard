@@ -13,6 +13,14 @@ import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progres
 const dropdownOptions = [
   { text: 'PDRS ROOA Peak Demand Savings', value: 'PDRS__ROOA__peak_demand_savings' },
   { text: 'PDRS A/C Peak Demand Savings', value: 'PDRS__Air_Conditioner__peak_demand_savings' },
+  {
+    text: 'ESS F1.1 - [TO TEST RADIO INPUT]',
+    value: 'F1_1_meets_installation_requirements',
+  },
+  {
+    text: 'PRDS A/C Firmness Factor - [TO TEST DROPDOWN SELECT]',
+    value: 'PDRS__Air_Conditioner__firmness_factor',
+  },
 ];
 
 export default function CaculatePage(props) {
