@@ -10,6 +10,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
+import { Link } from 'react-router-dom';
+
 /**
  * The card  component
  *
@@ -152,9 +154,9 @@ export const CardHeader = ({
   if (link != undefined) {
     return (
       <HeadingTag className={`nsw-card__title`}>
-        <a href="" className="nsw-card__link">
+        <Link to={link} className="nsw-card__link">
           {children}
-        </a>
+        </Link>
       </HeadingTag>
     );
   } else {
