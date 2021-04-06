@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import CalculateButton from 'components/calculate/CalculateButton';
 import DateInput from 'components/form_elements/DateInput';
 import FormTextInput from 'components/form_elements/FormTextInput';
+import DropDownMenu from 'components/form_elements/DropDownMenu';
 
 export default function CalculateBlock(props) {
   const { variables, variable, entities } = props;
@@ -47,12 +48,13 @@ export default function CalculateBlock(props) {
         }),
       );
     };
-
     switch (formItem.value_type) {
       case 'Float':
         return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
       case 'Date':
         return <DateInput formItem={formItem} setItemValue={setItemValue} />;
+      case 'String':
+        return <DropDownMenu formItem={formItem} setItemValue={setItemValue} />;
     }
   };
 

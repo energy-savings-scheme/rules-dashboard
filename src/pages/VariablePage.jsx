@@ -11,7 +11,6 @@ export default function VariablePage(props) {
 
   const variable = variables.find((item) => item.name === variable_name);
   if (!variable) return null;
-  console.log(variable);
 
   return (
     <div className="nsw-container">

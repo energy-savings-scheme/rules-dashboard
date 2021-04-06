@@ -15,7 +15,7 @@ import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 
 // Import services
 import OpenFiscaAPI from 'services/openfisca_api';
-import { emptyTree } from 'services/sortResponse';
+// import { emptyTree } from 'services/sortResponse';
 import variable_tree from 'services/variable_tree.json';
 
 // Import styles
@@ -25,7 +25,7 @@ import '@fontsource/montserrat';
 import '@fontsource/montserrat/600.css';
 
 function App() {
-  const [sortedVar, setSortedVar] = useState(emptyTree());
+  // const [sortedVar, setSortedVar] = useState(emptyTree());
   const [entities, setEntities] = useState([]);
   const [variables, setVariables] = useState([]);
   const [loading, setLoading] = useState(true);
