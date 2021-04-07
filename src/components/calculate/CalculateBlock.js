@@ -6,6 +6,8 @@ import FormTextInput from 'components/form_elements/FormTextInput';
 import DropDownMenu from 'components/form_elements/DropDownMenu';
 import RadioButton from 'components/form_elements/RadioButton';
 
+import Button from 'nsw-ds-react/button/button';
+
 export default function CalculateBlock(props) {
   const {
     variables,
@@ -19,6 +21,7 @@ export default function CalculateBlock(props) {
     setStepNumber,
     formValues,
     setFormValues,
+    backAction,
   } = props;
 
   const renderFormField = (formItem) => {
@@ -67,9 +70,14 @@ export default function CalculateBlock(props) {
           </div>
         </div>
       </div>
-      <div className="nsw-col">
-        <div className="nsw-content-block">
-          <div className="nsw-content-block__content">
+
+      <div className="nsw-row">
+        <div className="nsw-col">
+          <Button as="secondary" onClick={backAction}>
+            Back
+          </Button>
+
+          <div style={{ float: 'right' }}>
             <CalculateButton
               calculationDate={calculationDate}
               variable={variable}

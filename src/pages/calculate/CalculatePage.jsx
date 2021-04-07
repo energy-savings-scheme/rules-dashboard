@@ -144,20 +144,10 @@ export default function CaculatePage(props) {
               setStepNumber={setStepNumber}
               formValues={formValues}
               setFormValues={setFormValues}
+              backAction={(e) => {
+                setStepNumber(stepNumber - 1);
+              }}
             />
-
-            <div className="nsw-row">
-              <div className="nsw-col">
-                <Button
-                  as="secondary"
-                  onClick={(e) => {
-                    setStepNumber(stepNumber - 1);
-                  }}
-                >
-                  Back
-                </Button>
-              </div>
-            </div>
           </Fragment>
         )}
 
