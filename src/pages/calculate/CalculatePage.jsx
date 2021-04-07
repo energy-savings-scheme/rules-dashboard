@@ -57,7 +57,7 @@ export default function CaculatePage(props) {
   }, [variable]);
 
   const formatResultString = (result) => {
-    return JSON.stringify(result);
+    return JSON.stringify(result) + ' kW';
   };
 
   if (!variable) return null;
