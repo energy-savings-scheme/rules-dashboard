@@ -79,7 +79,10 @@ export default function CalculateForm(props) {
     <form onSubmit={handleCalculate}>
       <div className="nsw-content-block">
         <div className="nsw-content-block__content">
-          <h2 className="nsw-content-block__title">Calculate</h2>
+          <h2 className="nsw-content-block__title">
+            Calculate{' '}
+            {variable.metadata && variable.metadata.alias ? variable.metadata.alias : variable.name}
+          </h2>
         </div>
       </div>
 
