@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import CalculateButton from 'components/calculate/CalculateButton';
+import CalculateForm from 'components/calculate/CalculateForm';
 import DateInput from 'components/form_elements/DateInput';
 import FormTextInput from 'components/form_elements/FormTextInput';
 import DropDownMenu from 'components/form_elements/DropDownMenu';
@@ -59,39 +59,19 @@ export default function CalculateBlock(props) {
   };
 
   return (
-    <div className="nsw-row">
-      <div className="nsw-col">
-        <div className="nsw-content-block">
-          <div className="nsw-content-block__content">
-            <h2 className="nsw-content-block__title">Calculate</h2>
-            <form className="nsw-form-group">
-              {formValues.map((formItem, index) => renderFormField(formItem))}
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <div className="nsw-row">
-        <div className="nsw-col">
-          <Button as="secondary" onClick={backAction}>
-            Back
-          </Button>
-
-          <div style={{ float: 'right' }}>
-            <CalculateButton
-              calculationDate={calculationDate}
-              variable={variable}
-              entities={entities}
-              formValues={formValues}
-              calculationResult={calculationResult}
-              setCalculationResult={setCalculationResult}
-              setCalculationError={setCalculationError}
-              stepNumber={stepNumber}
-              setStepNumber={setStepNumber}
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+    <CalculateForm
+      calculationDate={calculationDate}
+      variable={variable}
+      entities={entities}
+      formValues={formValues}
+      calculationResult={calculationResult}
+      setCalculationResult={setCalculationResult}
+      setCalculationError={setCalculationError}
+      stepNumber={stepNumber}
+      setStepNumber={setStepNumber}
+      backAction={backAction}
+    >
+      {formValues.map((formItem, index) => renderFormField(formItem))}
+    </CalculateForm>
   );
 }

@@ -4,7 +4,7 @@ import { FormGroup, Select } from 'nsw-ds-react/forms';
 export default function DropDownMenu(props) {
   const { formItem, setItemValue } = props;
 
-  const possibleValues = [];
+  const possibleValues = [{ text: '', value: '', disabled: true }];
 
   if (formItem && formItem.possible_values) {
     Object.entries(formItem.possible_values).map((dictArray) => {
@@ -19,7 +19,12 @@ export default function DropDownMenu(props) {
       errorText="Invalid value!" // error text if invalid
       status={formItem.invalid && 'invalid'} // if `true` renders invalid formatting
     >
-      <Select options={possibleValues} onChange={setItemValue} value={formItem.form_value}></Select>
+      <Select
+        options={possibleValues}
+        onChange={setItemValue}
+        value={formItem.form_value}
+        required
+      />
     </FormGroup>
   );
 }

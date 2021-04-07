@@ -6,7 +6,7 @@ import { Notification } from 'nsw-ds-react/notification/notification';
 
 import { Spinner } from 'react-bootstrap';
 
-export default function CalculateButton(props) {
+export default function CalculateForm(props) {
   const {
     variable,
     entities,
@@ -16,6 +16,7 @@ export default function CalculateButton(props) {
     setCalculationError,
     stepNumber,
     setStepNumber,
+    backAction,
   } = props;
   var { formValues } = props;
 
@@ -34,6 +35,8 @@ export default function CalculateButton(props) {
   };
 
   const handleCalculate = (e) => {
+    e.preventDefault();
+
     setLoading(true);
     setCalculationError(false);
 
@@ -73,16 +76,33 @@ export default function CalculateButton(props) {
   };
 
   return (
-    <Button as="primary" onClick={handleCalculate}>
-      {loading ? (
-        <Spinner animation="border" role="status" size="lg">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
-      ) : calculationResult ? (
-        'Calculate again'
-      ) : (
-        'Calculate'
-      )}
-    </Button>
+    <form onSubmit={handleCalculate}>
+      <div className="nsw-content-block">
+        <div className="nsw-content-block__content">
+          <h2 className="nsw-content-block__title">Calculate</h2>
+        </div>
+      </div>
+
+      {props.children}
+
+      <div className="nsw-row">
+        <div className="nsw-col">
+          <Button as="secondary" onClick={backAction}>
+            Back
+          </Button>
+          <Button as="primary" type="submit" style={{ float: 'right' }}>
+            {loading ? (
+              <Spinner animation="border" role="status" size="lg">
+                <span className="sr-only">Loading...</span>
+              </Spinner>
+            ) : calculationResult ? (
+              'Calculate again'
+            ) : (
+              'Calculate'
+            )}
+          </Button>
+        </div>
+      </div>
+    </form>
   );
 }

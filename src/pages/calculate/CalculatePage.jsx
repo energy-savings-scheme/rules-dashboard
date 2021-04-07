@@ -51,7 +51,7 @@ export default function CaculatePage(props) {
       var array = [];
 
       children.map((child) => {
-        array.push({ ...child, form_value: child.default_value, invalid: false });
+        array.push({ ...child, form_value: '', invalid: false });
       });
 
       setFormValues(array);
@@ -122,6 +122,7 @@ export default function CaculatePage(props) {
                   onClick={(e) => {
                     setStepNumber(stepNumber + 1);
                   }}
+                  style={{ float: 'right' }}
                 >
                   Next
                 </Button>
