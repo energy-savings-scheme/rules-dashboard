@@ -11,16 +11,15 @@ import { Notification } from 'nsw-ds-react/notification/notification';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 
 const dropdownOptions = [
-  { text: 'PDRS ROOA Peak Demand Savings', value: 'PDRS__ROOA__peak_demand_savings' },
-  { text: 'PDRS A/C Peak Demand Savings', value: 'PDRS__Air_Conditioner__peak_demand_savings' },
   {
-    text: 'ESS F1.1 - [TO TEST RADIO INPUT]',
-    value: 'F1_1_meets_installation_requirements',
+    text: 'Peak Demand Savings - Removal of Old Appliance',
+    value: 'PDRS__ROOA__peak_demand_savings',
   },
   {
-    text: 'PRDS A/C Firmness Factor - [TO TEST DROPDOWN SELECT]',
-    value: 'PDRS__Air_Conditioner__firmness_factor',
+    text: 'Peak Demand Savings - Air Conditioner',
+    value: 'PDRS__Air_Conditioner__peak_demand_savings',
   },
+  { text: 'Peak Demand Savings - Motors', value: 'PDRS__motors__peak_demand_savings' },
 ];
 
 export default function CaculatePage(props) {
