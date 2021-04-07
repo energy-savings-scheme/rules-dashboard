@@ -1,8 +1,10 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import OpenFiscaApi from 'services/openfisca_api';
 
 import Button from 'nsw-ds-react/button/button';
 import { Notification } from 'nsw-ds-react/notification/notification';
+
+import { Spinner } from 'react-bootstrap';
 
 export default function CalculateButton(props) {
   const {
@@ -17,6 +19,8 @@ export default function CalculateButton(props) {
   } = props;
   var { formValues } = props;
 
+  const [loading, setLoading] = useState(false);
+
   const validateDataType = (item) => {
     // OpenFisca requires payload data to be correctly typed.
     // eg. a Float value cannot be 'stringified'.
@@ -30,6 +34,7 @@ export default function CalculateButton(props) {
   };
 
   const handleCalculate = (e) => {
+    setLoading(true);
     setCalculationError(false);
 
     const entity = entities.find((item) => item.name === variable.entity);
@@ -62,13 +67,22 @@ export default function CalculateButton(props) {
         console.log(err);
       })
       .finally(() => {
+        setLoading(false);
         setStepNumber(stepNumber + 1);
       });
   };
 
   return (
     <Button as="primary" onClick={handleCalculate}>
-      {calculationResult ? 'Calculate again' : 'Calculate'}
+      {loading ? (
+        <Spinner animation="border" role="status" size="lg">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      ) : calculationResult ? (
+        'Calculate again'
+      ) : (
+        'Calculate'
+      )}
     </Button>
   );
 }
