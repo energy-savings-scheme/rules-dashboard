@@ -21,6 +21,10 @@ const dropdownOptions = [
     value: 'PDRS__Air_Conditioner__peak_demand_savings',
   },
   { text: 'Peak Demand Savings - Motors', value: 'PDRS__motors__peak_demand_savings' },
+  {
+    text: 'ESS Eligiblity Requirements for Activity D5',
+    value: 'D5_all_eligibility_requirements_are_true',
+  },
 ];
 
 export default function CaculatePage(props) {
@@ -59,6 +63,10 @@ export default function CaculatePage(props) {
   }, [variable]);
 
   const formatResultString = (result) => {
+    if (typeof result === 'boolean') {
+      return JSON.stringify(result);
+    }
+
     return JSON.stringify(result) + ' kW';
   };
 
