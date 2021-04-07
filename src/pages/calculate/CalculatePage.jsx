@@ -73,140 +73,141 @@ export default function CaculatePage(props) {
       </div>
 
       <ProgressIndicator step={stepNumber} of={3} />
-
-      {stepNumber === 1 && (
-        <Fragment>
-          <div className="nsw-row">
-            <div className="nsw-col">
-              <div className="nsw-content-block">
-                <div className="nsw-content-block__content">
-                  <h3 className="nsw-content-block__title">
-                    What would you like to calculate savings for?
-                  </h3>
-                  <FormGroupSelect
-                    label="What actitivty are you calculating savings for?" // primary label
-                    helper="Search by activity name or code." // helper text (secondary label)
-                    options={dropdownOptions}
-                    value={variable.name}
-                    onChange={(e) => {
-                      setVariable(variables.find((item) => item.name === e.target.value));
-                    }}
-                  ></FormGroupSelect>
-
-                  <FormGroup
-                    label="What is the activity date?"
-                    helper="What date did the energy saving activity occur?"
-                    errorText="The date provided is invalid!"
-                    status={dateInvalid && 'invalid'}
-                  >
-                    <TextInput
-                      as="input"
-                      type="date"
-                      status={dateInvalid && 'invalid'}
-                      placeholder="Enter value"
-                      value={calculationDate}
-                      onChange={(e) => setCalculationDate(e.target.value)}
-                    />
-                  </FormGroup>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="nsw-row">
-            <div className="nsw-col">
-              <Button
-                as="primary"
-                onClick={(e) => {
-                  setStepNumber(stepNumber + 1);
-                }}
-              >
-                Next
-              </Button>
-            </div>
-          </div>
-        </Fragment>
-      )}
-
-      {stepNumber === 2 && (
-        <Fragment>
-          <CalculateBlock
-            calculationDate={calculationDate}
-            variable={variable}
-            variables={variables}
-            entities={entities}
-            calculationResult={calculationResult}
-            setCalculationResult={setCalculationResult}
-            setCalculationError={setCalculationError}
-            stepNumber={stepNumber}
-            setStepNumber={setStepNumber}
-            formValues={formValues}
-            setFormValues={setFormValues}
-          />
-
-          <div className="nsw-row">
-            <div className="nsw-col">
-              <Button
-                as="secondary"
-                onClick={(e) => {
-                  setStepNumber(stepNumber - 1);
-                }}
-              >
-                Back
-              </Button>
-            </div>
-          </div>
-        </Fragment>
-      )}
-
-      {stepNumber === 3 && (
-        <Fragment>
-          {calculationResult !== null && (
+      <div style={{ marginTop: 70, marginBottom: 70 }}>
+        {stepNumber === 1 && (
+          <Fragment>
             <div className="nsw-row">
               <div className="nsw-col">
                 <div className="nsw-content-block">
                   <div className="nsw-content-block__content">
-                    <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
-                      Based on the information provided, your{' '}
-                      <span style={{ fontWeight: 600, textDecoration: 'underline' }}>
-                        {variable.metadata && variable.metadata.alias
-                          ? variable.metadata.alias
-                          : variable.name}
-                      </span>{' '}
-                      are
-                    </h4>
-                    <h1 style={{ textAlign: 'center', paddingTop: 10 }}>
-                      {formatResultString(calculationResult)}
-                    </h1>
+                    <h3 className="nsw-content-block__title">
+                      What would you like to calculate savings for?
+                    </h3>
+                    <FormGroupSelect
+                      label="What actitivty are you calculating savings for?" // primary label
+                      helper="Search by activity name or code." // helper text (secondary label)
+                      options={dropdownOptions}
+                      value={variable.name}
+                      onChange={(e) => {
+                        setVariable(variables.find((item) => item.name === e.target.value));
+                      }}
+                    ></FormGroupSelect>
+
+                    <FormGroup
+                      label="What is the activity date?"
+                      helper="What date did the energy saving activity occur?"
+                      errorText="The date provided is invalid!"
+                      status={dateInvalid && 'invalid'}
+                    >
+                      <TextInput
+                        as="input"
+                        type="date"
+                        status={dateInvalid && 'invalid'}
+                        placeholder="Enter value"
+                        value={calculationDate}
+                        onChange={(e) => setCalculationDate(e.target.value)}
+                      />
+                    </FormGroup>
                   </div>
                 </div>
               </div>
             </div>
-          )}
 
-          {calculationError && (
-            <Notification as="error" title="Sorry! An error has occurred.">
-              <p>
-                An error occurred during calculation. Try choosing a more recent Date and re-running
-                the calculation
-              </p>
-            </Notification>
-          )}
-
-          <div className="nsw-row">
-            <div className="nsw-col">
-              <Button
-                as="secondary"
-                onClick={(e) => {
-                  setStepNumber(stepNumber - 1);
-                }}
-              >
-                Back
-              </Button>
+            <div className="nsw-row">
+              <div className="nsw-col">
+                <Button
+                  as="primary"
+                  onClick={(e) => {
+                    setStepNumber(stepNumber + 1);
+                  }}
+                >
+                  Next
+                </Button>
+              </div>
             </div>
-          </div>
-        </Fragment>
-      )}
+          </Fragment>
+        )}
+
+        {stepNumber === 2 && (
+          <Fragment>
+            <CalculateBlock
+              calculationDate={calculationDate}
+              variable={variable}
+              variables={variables}
+              entities={entities}
+              calculationResult={calculationResult}
+              setCalculationResult={setCalculationResult}
+              setCalculationError={setCalculationError}
+              stepNumber={stepNumber}
+              setStepNumber={setStepNumber}
+              formValues={formValues}
+              setFormValues={setFormValues}
+            />
+
+            <div className="nsw-row">
+              <div className="nsw-col">
+                <Button
+                  as="secondary"
+                  onClick={(e) => {
+                    setStepNumber(stepNumber - 1);
+                  }}
+                >
+                  Back
+                </Button>
+              </div>
+            </div>
+          </Fragment>
+        )}
+
+        {stepNumber === 3 && (
+          <Fragment>
+            {calculationResult !== null && (
+              <div className="nsw-row">
+                <div className="nsw-col">
+                  <div className="nsw-content-block">
+                    <div className="nsw-content-block__content">
+                      <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
+                        Based on the information provided, your{' '}
+                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}>
+                          {variable.metadata && variable.metadata.alias
+                            ? variable.metadata.alias
+                            : variable.name}
+                        </span>{' '}
+                        are
+                      </h4>
+                      <h1 style={{ textAlign: 'center', paddingTop: 10 }}>
+                        {formatResultString(calculationResult)}
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {calculationError && (
+              <Notification as="error" title="Sorry! An error has occurred.">
+                <p>
+                  An error occurred during calculation. Try choosing a more recent Date and
+                  re-running the calculation
+                </p>
+              </Notification>
+            )}
+
+            <div className="nsw-row">
+              <div className="nsw-col">
+                <Button
+                  as="secondary"
+                  onClick={(e) => {
+                    setStepNumber(stepNumber - 1);
+                  }}
+                >
+                  Back
+                </Button>
+              </div>
+            </div>
+          </Fragment>
+        )}
+      </div>
     </div>
   );
 }
