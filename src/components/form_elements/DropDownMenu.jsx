@@ -5,12 +5,13 @@ export default function DropDownMenu(props) {
   const { formItem, setItemValue } = props;
 
   const possibleValues = [];
-  for (const [key, value] of Object.entries(formItem.possible_values)) {
-    possibleValues.push({ text: value, value: key });
+
+  if (formItem && formItem.possible_values) {
+    Object.entries(formItem.possible_values).map((dictArray) => {
+      possibleValues.push({ text: dictArray[1], value: dictArray[0] });
+    });
   }
 
-  // console.log(Object.entries(possibleValues));
-  // console.log(typeof possibleValues);
   return (
     <FormGroup
       label={formItem.metadata && formItem.metadata.alias ? formItem.metadata.alias : formItem.name} // primary label
@@ -18,7 +19,7 @@ export default function DropDownMenu(props) {
       errorText="Invalid value!" // error text if invalid
       status={formItem.invalid && 'invalid'} // if `true` renders invalid formatting
     >
-      <Select options={possibleValues} onChange={setItemValue}></Select>
+      <Select options={possibleValues} onChange={setItemValue} value={formItem.form_value}></Select>
     </FormGroup>
   );
 }
