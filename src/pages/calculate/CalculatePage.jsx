@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 
 // Import services
+import moment from 'moment';
 
 // Import components
 import CalculateBlock from 'components/calculate/CalculateBlock';
@@ -28,7 +29,8 @@ export default function CaculatePage(props) {
   const [stepNumber, setStepNumber] = useState(1);
   const [variable, setVariable] = useState({});
 
-  const [calculationDate, setCalculationDate] = useState('2021-01-01');
+  var today = new Date();
+  const [calculationDate, setCalculationDate] = useState(moment(today).format('YYYY-MM-DD'));
   const [dateInvalid, setDateInvalid] = useState(false);
 
   const [calculationResult, setCalculationResult] = useState(null);
