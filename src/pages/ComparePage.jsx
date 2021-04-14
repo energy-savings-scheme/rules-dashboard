@@ -1,0 +1,178 @@
+import React, { Fragment, useEffect, useState } from 'react';
+
+// Import services
+import moment from 'moment';
+
+// Import components
+import CalculateBlock from 'components/calculate/CalculateBlock';
+
+import Button from 'nsw-ds-react/button/button';
+import { FormGroup, FormGroupSelect, TextInput } from 'nsw-ds-react/forms';
+import { Notification } from 'nsw-ds-react/notification/notification';
+import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
+
+const dropdownOptions = [
+  {
+    text: 'Peak Demand Savings - Removal of Old Appliance',
+    value: 'PDRS__ROOA__peak_demand_savings',
+  },
+  {
+    text: 'Peak Demand Savings - Air Conditioner',
+    value: 'PDRS__Air_Conditioner__peak_demand_savings',
+  },
+  { text: 'Peak Demand Savings - Motors', value: 'PDRS__motors__peak_demand_savings' },
+  {
+    text: 'ESS Eligiblity Requirements for Activity D5',
+    value: 'D5_all_eligibility_requirements_are_true',
+  },
+];
+
+export default function CaculatePage(props) {
+  const { variables, entities } = props;
+
+  const [stepNumber, setStepNumber] = useState(1);
+  const [variable1, setVariable1] = useState({});
+  const [variable2, setVariable2] = useState({});
+
+  var today = new Date();
+  const [calculationDate, setCalculationDate] = useState(moment(today).format('YYYY-MM-DD'));
+  const [dateInvalid, setDateInvalid] = useState(false);
+
+  const [calculationResult, setCalculationResult] = useState(null);
+  const [calculationError, setCalculationError] = useState(false);
+
+  const [formValues, setFormValues] = useState([]);
+
+  useEffect(() => {
+    setVariable1(variables.find((item) => item.name === dropdownOptions[0].value));
+    setVariable2(variables.find((item) => item.name === dropdownOptions[1].value));
+  }, [variables]);
+
+  // useEffect(() => {
+  //   if (variable && variable.name) {
+  //     const offsprings = variable.metadata.input_offspring;
+  //     const children = variables.filter((item) => offsprings.includes(item.name));
+
+  //     // Define the original array (at a minimum include the Implementation Date)
+  //     var array = [];
+
+  //     children.map((child) => {
+  //       array.push({ ...child, form_value: '', invalid: false });
+  //     });
+
+  //     setFormValues(array);
+  //   }
+  // }, [variable]);
+
+  // const formatResultString = (result) => {
+  //   if (typeof result === 'boolean') {
+  //     return JSON.stringify(result);
+  //   }
+
+  //   return JSON.stringify(result) + ' kW';
+  // };
+
+  if (!variable1) return null;
+  if (!variable2) return null;
+
+  return (
+    <div className="nsw-container">
+      <div className="nsw-row">
+        <div className="nsw-col">
+          <h2>
+            <span style={{ marginRight: 10 }}>Calculate your savings</span>
+          </h2>
+        </div>
+      </div>
+
+      <ProgressIndicator step={stepNumber} of={2} />
+      <div style={{ marginTop: 70, marginBottom: 70 }}>
+        {stepNumber === 1 && (
+          <Fragment>
+            <div className="nsw-row">
+              <div className="nsw-col">
+                <div className="nsw-content-block">
+                  <div className="nsw-content-block__content">
+                    <h3 className="nsw-content-block__title">
+                      Which variables would you like to compare?
+                    </h3>
+                    <FormGroupSelect
+                      label="Variable One" // primary label
+                      helper="Search by activity name or code." // helper text (secondary label)
+                      options={dropdownOptions}
+                      value={variable1.name}
+                      onChange={(e) => {
+                        setVariable1(variables.find((item) => item.name === e.target.value));
+                      }}
+                    ></FormGroupSelect>
+                    <FormGroupSelect
+                      label="Variable Two" // primary label
+                      helper="Search by activity name or code." // helper text (secondary label)
+                      options={dropdownOptions}
+                      value={variable2.name}
+                      onChange={(e) => {
+                        setVariable2(variables.find((item) => item.name === e.target.value));
+                      }}
+                    ></FormGroupSelect>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="nsw-row">
+              <div className="nsw-col">
+                <Button
+                  as="primary"
+                  onClick={(e) => {
+                    setStepNumber(stepNumber + 1);
+                  }}
+                  style={{ float: 'right' }}
+                >
+                  Next
+                </Button>
+              </div>
+            </div>
+          </Fragment>
+        )}
+
+        {stepNumber === 2 && (
+          <Fragment>
+            <div className="nsw-row">
+              <div className="nsw-col">
+                <div className="nsw-content-block">
+                  <div className="nsw-content-block__content">
+                    <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
+                      Based on the information provided, your{' '}
+                      <span style={{ fontWeight: 600, textDecoration: 'underline' }}>
+                        {variable1.metadata && variable1.metadata.alias
+                          ? variable1.metadata.alias
+                          : variable1.name}
+                      </span>{' '}
+                      are
+                    </h4>
+                    {/* <h1 style={{ textAlign: 'center', paddingTop: 10 }}>
+                        {formatResultString(calculationResult)}
+                      </h1> */}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="nsw-row">
+              <div className="nsw-col">
+                <Button
+                  as="secondary"
+                  onClick={(e) => {
+                    setStepNumber(stepNumber - 1);
+                  }}
+                >
+                  Back
+                </Button>
+              </div>
+            </div>
+          </Fragment>
+        )}
+      </div>
+    </div>
+  );
+}

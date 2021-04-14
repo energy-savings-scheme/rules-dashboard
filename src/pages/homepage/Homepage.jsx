@@ -26,13 +26,26 @@ export default function Homepage(props) {
       <div className="nsw-container">
         <h2 style={{ textAlign: 'center', marginBottom: 50 }}>OR</h2>
 
-        <div style={{ marginBottom: 100 }}>
-          <Card headline="Calculate your savings" link="calculate">
-            <CardCopy>
-              Use the calculator to enter in details of an activity, and understand what your
-              electricity or gas savings are.
-            </CardCopy>
-          </Card>
+        <div className="nsw-grid">
+          {/* <div className="nsw-col nsw-col-md-6">
+            <Card headline={schedule.activityName} link={`/schedules/${schedule.activityName}`}>
+              <CardCopy>{schedule.description}</CardCopy>
+            </Card>
+          </div> */}
+
+          <div className="nsw-col nsw-col-md-6" style={{ marginBottom: 100 }}>
+            <Card headline="Calculate your savings" link="calculate">
+              <CardCopy>
+                Use the calculator to enter in details of an activity, and understand what your
+                electricity or gas savings are.
+              </CardCopy>
+            </Card>
+          </div>
+          <div className="nsw-col nsw-col-md-6" style={{ marginBottom: 100 }}>
+            <Card headline="Compare Variables" link="compare">
+              <CardCopy>Select Two Variables and Compare them.</CardCopy>
+            </Card>
+          </div>
         </div>
 
         <h3>Click below to get more details on each Schedule</h3>
