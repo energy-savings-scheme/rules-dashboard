@@ -4,33 +4,40 @@ import { FormGroupSelect } from 'nsw-ds-react/forms';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 import { Link } from 'react-router-dom';
 
-const dropdownOptions = [
-  {
-    text: 'Peak Demand Savings - Removal of Old Appliance',
-    value: 'PDRS__ROOA__peak_demand_savings',
-  },
-  {
-    text: 'Peak Demand Savings - Air Conditioner',
-    value: 'PDRS__Air_Conditioner__peak_demand_savings',
-  },
-  { text: 'Peak Demand Savings - Motors', value: 'PDRS__motors__peak_demand_savings' },
-  {
-    text: 'ESS__D16__deemed_elec_savings',
-    value: 'ESS__D16__deemed_elec_savings',
-  },
-];
+// const dropdownOptions = [
+//   {
+//     text: 'Peak Demand Savings - Removal of Old Appliance',
+//     value: 'PDRS__ROOA__peak_demand_savings',
+//   },
+//   {
+//     text: 'Peak Demand Savings - Air Conditioner',
+//     value: 'PDRS__Air_Conditioner__peak_demand_savings',
+//   },
+//   { text: 'Peak Demand Savings - Motors', value: 'PDRS__motors__peak_demand_savings' },
+//   {
+//     text: 'ESS__D16__deemed_elec_savings',
+//     value: 'ESS__D16__deemed_elec_savings',
+//   },
+// ];
 
 export default function CaculatePage(props) {
   const { variables, entities } = props;
 
+  const [dropdownOptions, setDropdownOptions] = useState([{}]);
   const [stepNumber, setStepNumber] = useState(1);
   const [variable1, setVariable1] = useState({});
   const [variable2, setVariable2] = useState({});
 
+  const populateDropDown = (newOption) => {
+    setDropdownOptions((prev) => {
+      return [...prev, newOption];
+    });
+  };
+
   useEffect(() => {
-    setVariable1(variables.find((item) => item.name === dropdownOptions[0].value));
-    setVariable2(variables.find((item) => item.name === dropdownOptions[1].value));
-    // console.log(variables);
+    variables.forEach((item) => populateDropDown({ text: item.metadata.alias, value: item.name }));
+    // setVariable1(variables.find((item) => item.name === dropdownOptions[0].value));
+    // setVariable2(variables.find((item) => item.name === dropdownOptions[1].value));
   }, [variables]);
 
   if (!variable1) return null;
