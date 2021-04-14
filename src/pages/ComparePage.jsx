@@ -1,15 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react';
-
-// Import services
-import moment from 'moment';
-
-// Import components
-import CalculateBlock from 'components/calculate/CalculateBlock';
-
 import Button from 'nsw-ds-react/button/button';
-import { FormGroup, FormGroupSelect, TextInput } from 'nsw-ds-react/forms';
-import { Notification } from 'nsw-ds-react/notification/notification';
+import { FormGroupSelect } from 'nsw-ds-react/forms';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
+import { Link } from 'react-router-dom';
 
 const dropdownOptions = [
   {
@@ -22,8 +15,8 @@ const dropdownOptions = [
   },
   { text: 'Peak Demand Savings - Motors', value: 'PDRS__motors__peak_demand_savings' },
   {
-    text: 'ESS Eligiblity Requirements for Activity D5',
-    value: 'D5_all_eligibility_requirements_are_true',
+    text: 'ESS__D16__deemed_elec_savings',
+    value: 'ESS__D16__deemed_elec_savings',
   },
 ];
 
@@ -34,43 +27,11 @@ export default function CaculatePage(props) {
   const [variable1, setVariable1] = useState({});
   const [variable2, setVariable2] = useState({});
 
-  var today = new Date();
-  const [calculationDate, setCalculationDate] = useState(moment(today).format('YYYY-MM-DD'));
-  const [dateInvalid, setDateInvalid] = useState(false);
-
-  const [calculationResult, setCalculationResult] = useState(null);
-  const [calculationError, setCalculationError] = useState(false);
-
-  const [formValues, setFormValues] = useState([]);
-
   useEffect(() => {
     setVariable1(variables.find((item) => item.name === dropdownOptions[0].value));
     setVariable2(variables.find((item) => item.name === dropdownOptions[1].value));
+    // console.log(variables);
   }, [variables]);
-
-  // useEffect(() => {
-  //   if (variable && variable.name) {
-  //     const offsprings = variable.metadata.input_offspring;
-  //     const children = variables.filter((item) => offsprings.includes(item.name));
-
-  //     // Define the original array (at a minimum include the Implementation Date)
-  //     var array = [];
-
-  //     children.map((child) => {
-  //       array.push({ ...child, form_value: '', invalid: false });
-  //     });
-
-  //     setFormValues(array);
-  //   }
-  // }, [variable]);
-
-  // const formatResultString = (result) => {
-  //   if (typeof result === 'boolean') {
-  //     return JSON.stringify(result);
-  //   }
-
-  //   return JSON.stringify(result) + ' kW';
-  // };
 
   if (!variable1) return null;
   if (!variable2) return null;
@@ -78,11 +39,7 @@ export default function CaculatePage(props) {
   return (
     <div className="nsw-container">
       <div className="nsw-row">
-        <div className="nsw-col">
-          <h2>
-            <span style={{ marginRight: 10 }}>Calculate your savings</span>
-          </h2>
-        </div>
+        <div className="nsw-col"></div>
       </div>
 
       <ProgressIndicator step={stepNumber} of={2} />
@@ -141,18 +98,98 @@ export default function CaculatePage(props) {
               <div className="nsw-col">
                 <div className="nsw-content-block">
                   <div className="nsw-content-block__content">
-                    <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
-                      Based on the information provided, your{' '}
-                      <span style={{ fontWeight: 600, textDecoration: 'underline' }}>
-                        {variable1.metadata && variable1.metadata.alias
-                          ? variable1.metadata.alias
-                          : variable1.name}
-                      </span>{' '}
-                      are
-                    </h4>
-                    {/* <h1 style={{ textAlign: 'center', paddingTop: 10 }}>
-                        {formatResultString(calculationResult)}
-                      </h1> */}
+                    <div className="nsw-table-responsive">
+                      <table className="nsw-table nsw-table--caption-top nsw-table--bordered nsw-table--striped ">
+                        <caption>Here are the details of these two variables.</caption>
+                        <thead>
+                          <tr>
+                            <th width="20%"></th>
+                            <th width="40%">
+                              <Link to={`/variables/${variable1.name}`}>
+                                {' '}
+                                {variable1.metadata.alias}
+                              </Link>
+                            </th>
+                            <th width="40%">
+                              {' '}
+                              <Link to={`/variables/${variable2.name}`}>
+                                {' '}
+                                {variable2.metadata.alias}
+                              </Link>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <strong>Description</strong>
+                            </td>
+                            <td>{variable1.description}</td>
+                            <td>{variable2.description}</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              {' '}
+                              <strong>Activity Name</strong>
+                            </td>
+                            <td>{variable1.metadata.minorCat}</td>
+                            <td>{variable2.metadata.minorCat}</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Activity Group</strong>
+                            </td>
+                            <td>{variable1.metadata.majorCat}</td>
+                            <td>{variable2.metadata.majorCat}</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Children</strong>
+                            </td>
+                            <td>
+                              {variable1.children.map((item) => {
+                                return <p>{item}</p>;
+                              })}
+                            </td>
+                            <td>
+                              {variable2.children.map((item) => {
+                                return <p>{item}</p>;
+                              })}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Parents</strong>
+                            </td>
+                            <td>
+                              {variable1.parents.map((item) => {
+                                return <p>{item}</p>;
+                              })}
+                            </td>
+                            <td>
+                              {variable2.parents.map((item) => {
+                                return <p>{item}</p>;
+                              })}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Input offsprings</strong>
+                            </td>
+                            <td>
+                              {variable1.metadata.input_offspring.map((item) => {
+                                return <p>{item}</p>;
+                              })}
+                            </td>
+                            <td>
+                              {variable2.metadata.input_offspring.map((item) => {
+                                return <p>{item}</p>;
+                              })}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
