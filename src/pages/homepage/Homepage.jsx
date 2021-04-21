@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from 'react';
 
 import VariableSearchBar from 'pages/homepage/VariableSearchBar';
-import ScheduleTile from './ScheduleTile';
 
 import Card, { CardCopy } from 'nsw-ds-react/card/card';
 
@@ -52,8 +51,12 @@ export default function Homepage(props) {
 
         {/* Iterate through list of Schedules in `schedules` */}
         <div className="nsw-grid">
-          {schedules.map((item) => (
-            <ScheduleTile schedule={item} />
+          {schedules.map((schedule) => (
+            <div className="nsw-col nsw-col-md-6">
+              <Card headline={schedule.title} link={`/schedules/${schedule.identifier}`}>
+                <CardCopy>{schedule.description}</CardCopy>
+              </Card>
+            </div>
           ))}
         </div>
       </div>
