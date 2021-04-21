@@ -7,7 +7,7 @@ import openfisca_api from 'services/openfisca_api';
 // Import components
 
 export default function ActivityDefinitionPage(props) {
-  let { schedule_name, activity_sublabel } = useParams();
+  let { schedule_identifier, activity_identifier } = useParams();
   const { schedules } = props;
 
   const [relatedVariables, setRelatedVariables] = useState([]);
@@ -18,18 +18,18 @@ export default function ActivityDefinitionPage(props) {
   var activities = [];
   schedules.map((schedule) => {
     schedule.subCategories.map((activity) => {
-      activities.push({ subLabel: activity.subLabel, activityName: activity.activityName });
+      activities.push({ identifier: activity.identifier, title: activity.title });
     });
   });
 
   // NOTE - this needs refactoring. Passing down the `variable_tree.json` object and doing filtering based on
   // the URL parameters is not generalisable...
-  const current_schedule = schedules.find((item) => item.activityName === schedule_name);
-  const current_activity = activities.find((item) => item.subLabel === activity_sublabel);
+  // const current_schedule = schedules.find((item) => item.identifier === schedule_identifier);
+  const current_activity = activities.find((item) => item.identifier === activity_identifier);
 
   useEffect(() => {
     openfisca_api
-      .listVariables({ minorcat: activity_sublabel, is_input: true })
+      .listVariables({ schedule:schedule_identifier, activity: activity_identifier, is_input: true })
       .then((res) => {
         setRelatedVariables(res.data);
       })
@@ -38,14 +38,14 @@ export default function ActivityDefinitionPage(props) {
       });
 
     openfisca_api
-      .listVariables({ minorcat: activity_sublabel, is_output: true, is_input: false })
+      .listVariables({ schedule:schedule_identifier, activity: activity_identifier, is_output: true, is_input: false })
       .then((res) => {
         setOutputVariables(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [schedule_name, activity_sublabel]);
+  }, [schedule_identifier, activity_identifier]);
 
   return (
     <div className="nsw-container">
@@ -53,7 +53,7 @@ export default function ActivityDefinitionPage(props) {
         <div className="nsw-col">
           <h2>
             <span style={{ marginRight: 10 }}>
-              Activity {current_activity.subLabel} - {current_activity.activityName}
+              Activity {current_activity.identifier} - {current_activity.title}
             </span>
           </h2>
           <div
@@ -107,7 +107,7 @@ export default function ActivityDefinitionPage(props) {
                       <tr>
                         <td>
                           <Link to={`/variables/${variable.name}`} className="nsw-page-nav__link">
-                            {variable.metadata.alias}
+                            {variable.metadata.alias ? variable.metadata.alias : variable.name }
                           </Link>
                         </td>
                       </tr>
@@ -138,7 +138,7 @@ export default function ActivityDefinitionPage(props) {
                       <tr>
                         <td>
                           <Link to={`/variables/${variable.name}`} className="nsw-page-nav__link">
-                            {variable.metadata.alias}
+                              {variable.metadata.alias ? variable.metadata.alias : variable.name }
                           </Link>
                         </td>
                       </tr>

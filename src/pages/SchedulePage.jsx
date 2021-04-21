@@ -6,11 +6,11 @@ import { Link, useParams, useLocation } from 'react-router-dom';
 // Import components
 
 export default function SchedulePage(props) {
-  let { schedule_name } = useParams();
+  let { schedule_identifier } = useParams();
   const location = useLocation();
-  const { schedules, variables } = props;
+  const { schedules } = props;
 
-  const current_schedule = schedules.find((item) => item.activityName === schedule_name);
+  const current_schedule = schedules.find((item) => item.identifier === schedule_identifier);
   let activities = [];
   try {
     activities = current_schedule.subCategories;
@@ -21,7 +21,7 @@ export default function SchedulePage(props) {
       <div className="nsw-row">
         <div className="nsw-col">
           <h2>
-            <span style={{ marginRight: 10 }}>{current_schedule.activityName}</span>
+            <span style={{ marginRight: 10 }}>{current_schedule.title}</span>
           </h2>
           <h5>{current_schedule.description}</h5>
         </div>
@@ -48,13 +48,13 @@ export default function SchedulePage(props) {
                 ) : (
                   activities.map((activity) => (
                     <tr>
-                      <td>{activity.subLabel || 'Activity definition not found'}</td>
+                      <td>{activity.identifier || 'Activity definition not found'}</td>
                       <td>
                         <Link
-                          to={`${location.pathname}/${activity.subLabel}`}
+                          to={`${location.pathname}/${activity.identifier}`}
                           className="nsw-page-nav__link"
                         >
-                          {activity.activityName}
+                          {activity.title}
                         </Link>
                       </td>
                     </tr>

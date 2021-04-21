@@ -76,12 +76,12 @@ function App() {
           <VariablePage entities={entities} variables={variables} />
         </Route>
 
-        <Route path="/schedules/:schedule_name" exact>
+        <Route path="/schedules/:schedule_identifier" exact>
           <Breadcrumb />
           <SchedulePage schedules={schedules} variables={variables} />
         </Route>
 
-        <Route path="/schedules/:schedule_name/:activity_sublabel" exact>
+        <Route path="/schedules/:schedule_identifier/:activity_identifier" exact>
           <Breadcrumb />
           <ActivityDefinitionPage schedules={schedules} variables={variables} />
         </Route>

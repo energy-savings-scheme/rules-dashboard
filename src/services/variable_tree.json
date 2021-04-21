@@ -1,258 +1,217 @@
 [
   {
-    "majorLabel": "D",
-    "activityName": "General Activities for Home Energy Efficiency Retrofits",
+    "identifier": "D",
+    "title": "General Activities for Home Energy Efficiency Retrofits",
     "description": "Schedule D sets out Activity Definitions for General Activities for Home Energy Efficiency Retrofits (clause 9.8)",
     "reference": "Schedule D (Clause 9.8)",
     "subCategories": [
       {
-        "subLabel": "D1",
-        "activityName": "Replace an external single glazed window or door with a thermally efficient winder or door",
-        "variables": []
+        "identifier": "1",
+        "title": "Replace an external single glazed window or door with a thermally efficient winder or door"
       },
       {
-        "subLabel": "D2",
-        "activityName": "Modify an external winder or glazed door by installing secondary glazing",
-        "variables": []
+        "identifier": "2",
+        "title": "Modify an external winder or glazed door by installing secondary glazing"
       },
       {
-        "subLabel": "D3",
-        "activityName": "REPLACE AN EXISTING AIR CONDITIONER WITH A HIGH EFFICIENCY AIR CONDITIONER",
-        "variables": []
+        "identifier": "3",
+        "title": "REPLACE AN EXISTING AIR CONDITIONER WITH A HIGH EFFICIENCY AIR CONDITIONER"
       },
       {
-        "subLabel": "D4",
-        "activityName": "INSTALL A HIGH EFFICIENCY AIR CONDITIONER",
-        "variables": []
+        "identifier": "4",
+        "title": "INSTALL A HIGH EFFICIENCY AIR CONDITIONER"
       },
       {
-        "subLabel": "D5",
-        "activityName": "REPLACE AN EXISTING POOL PUMP WITH A HIGH EFFICIENCY POOL PUMP",
-        "variables": []
+        "identifier": "5",
+        "title": "REPLACE AN EXISTING POOL PUMP WITH A HIGH EFFICIENCY POOL PUMP"
       },
       {
-        "subLabel": "D6",
-        "activityName": "INSTALL CEILING INSULATION IN AN UNINSULATED CEILING SPACE",
-        "variables": []
+        "identifier": "6",
+        "title": "INSTALL CEILING INSULATION IN AN UNINSULATED CEILING SPACE"
       },
       {
-        "subLabel": "D7",
-        "activityName": "INSTALL CEILING INSULATION IN AN UNDER-INSULATED CEILING SPACE",
-        "variables": []
+        "identifier": "7",
+        "title": "INSTALL CEILING INSULATION IN AN UNDER-INSULATED CEILING SPACE"
       },
       {
-        "subLabel": "D8",
-        "activityName": "INSTALL UNDER-FLOOR INSULATION",
-        "variables": []
+        "identifier": "8",
+        "title": "INSTALL UNDER-FLOOR INSULATION"
       },
       {
-        "subLabel": "D9",
-        "activityName": "INSTALL WALL INSULATION",
-        "variables": []
+        "identifier": "9",
+        "title": "INSTALL WALL INSULATION"
       },
       {
-        "subLabel": "D10",
-        "activityName": "REPLACE AN EXISTING ELECTRIC WATER HEATER WITH A HIGH EFFICIENCY GAS FIRED WATER HEATER",
-        "variables": []
+        "identifier": "10",
+        "title": "REPLACE AN EXISTING ELECTRIC WATER HEATER WITH A HIGH EFFICIENCY GAS FIRED WATER HEATER"
       },
       {
-        "subLabel": "D11",
-        "activityName": "REPLACE AN EXISTING GAS FIRED WATER HEATER WITH A HIGH EFFICIENCY GAS FIRED WATER HEATER",
-        "variables": []
+        "identifier": "11",
+        "title": "REPLACE AN EXISTING GAS FIRED WATER HEATER WITH A HIGH EFFICIENCY GAS FIRED WATER HEATER"
       },
       {
-        "subLabel": "D12",
-        "activityName": "INSTALL A HIGH EFFICIENCY GAS SPACE HEATER OR REPLACE AN EXISTING GAS SPACE HEATER WITH A HIGH EFFICIENCY GAS SPACE HEATER",
-        "variables": []
+        "identifier": "12",
+        "title": "INSTALL A HIGH EFFICIENCY GAS SPACE HEATER OR REPLACE AN EXISTING GAS SPACE HEATER WITH A HIGH EFFICIENCY GAS SPACE HEATER"
       },
       {
-        "subLabel": "D13",
-        "activityName": "INSTALL A NATURAL ROOF SPACE VENTILATOR",
-        "variables": []
+        "identifier": "13",
+        "title": "INSTALL A NATURAL ROOF SPACE VENTILATOR"
       },
       {
-        "subLabel": "D14",
-        "activityName": "INSTALL A FAN-FORCED ROOF SPACE VENTILATOR, PV POWERED FAN-FORCED ROOF SPACE VENTILATOR OR AN OCCUPIED SPACE VENTILATOR",
-        "variables": []
+        "identifier": "14",
+        "title": "INSTALL A FAN-FORCED ROOF SPACE VENTILATOR, PV POWERED FAN-FORCED ROOF SPACE VENTILATOR OR AN OCCUPIED SPACE VENTILATOR"
       },
       {
-        "subLabel": "D15",
-        "activityName": "REPLACE AN EXHAUST FAN WITH A SELF SEALING EXHAUST FAN",
-        "variables": []
+        "identifier": "15",
+        "title": "Replace an Exhaust Fan With a Self Sealing Exhaust Fan"
+      },
+      {
+        "identifier": "16",
+        "title": "Install a New High Efficiency Air Conditioner or Replace an Existing Air Conditioner with a High Efficiency Air Conditioner"
       }
     ]
   },
   {
-    "majorLabel": "E",
-    "activityName": "Low Cost Activities for Home Energy Efficiency Retrofits",
+    "identifier": "E",
+    "title": "Low Cost Activities for Home Energy Efficiency Retrofits",
     "description": "Schedule E sets out Activity Definitions for Low Cost Activities for Home Energy Efficiency Retrofits (clause 9.8)",
     "reference": "Schedule E (Clause 9.8)",
     "subCategories": [
       {
-        "subLabel": "E1",
-        "activityName": "RREPLACE HALOGEN DOWNLIGHT WITH AN LED LUMINAIRE AND/OR LAMP",
-        "variables": []
+        "identifier": "E1",
+        "title": "RREPLACE HALOGEN DOWNLIGHT WITH AN LED LUMINAIRE AND/OR LAMP"
       },
       {
-        "subLabel": "E2",
-        "activityName": "REPLACE A LINEAR HALOGEN FLOODLIGHT WITH A HIGH EFFICIENCY LAMP",
-        "variables": []
+        "identifier": "E2",
+        "title": "REPLACE A LINEAR HALOGEN FLOODLIGHT WITH A HIGH EFFICIENCY LAMP"
       },
       {
-        "subLabel": "E3",
-        "activityName": "REPLACE PARABOLIC ALUMINISED REFLECTOR (PAR) LAMP WITH EFFICIENT LUMINAIRE AND/OR LAMP",
-        "variables": []
+        "identifier": "E3",
+        "title": "REPLACE PARABOLIC ALUMINISED REFLECTOR (PAR) LAMP WITH EFFICIENT LUMINAIRE AND/OR LAMP"
       },
       {
-        "subLabel": "E4",
-        "activityName": "REPLACE A T8 OR T12 LUMINAIRE WITH A T5 LUMINAIRE",
-        "variables": []
+        "identifier": "E4",
+        "title": "REPLACE A T8 OR T12 LUMINAIRE WITH A T5 LUMINAIRE"
       },
       {
-        "subLabel": "E5",
-        "activityName": "REPLACE A T8 OR T12 LUMINAIRE WITH A LED LUMINAIRE",
-        "variables": []
+        "identifier": "E5",
+        "title": "REPLACE A T8 OR T12 LUMINAIRE WITH A LED LUMINAIRE"
       },
       {
-        "subLabel": "E6",
-        "activityName": "REPLACE AN EXISTING SHOWERHEAD WITH AN ULTRA LOW FLOW SHOWERHEAD",
-        "variables": []
+        "identifier": "E6",
+        "title": "REPLACE AN EXISTING SHOWERHEAD WITH AN ULTRA LOW FLOW SHOWERHEAD"
       },
       {
-        "subLabel": "E7",
-        "activityName": "MODIFY AN EXTERNAL DOOR WITH DRAUGHT-PROOFING",
-        "variables": []
+        "identifier": "E7",
+        "title": "MODIFY AN EXTERNAL DOOR WITH DRAUGHT-PROOFING"
       },
       {
-        "subLabel": "E8",
-        "activityName": "MODIFY AN EXTERNAL WINDOW WITH DRAUGHT-PROOFING",
-        "variables": []
+        "identifier": "E8",
+        "title": "MODIFY AN EXTERNAL WINDOW WITH DRAUGHT-PROOFING"
       },
       {
-        "subLabel": "E9",
-        "activityName": "MODIFY A FIREPLACE CHIMNEY BY SEALING WITH A DAMPER",
-        "variables": []
+        "identifier": "E9",
+        "title": "MODIFY A FIREPLACE CHIMNEY BY SEALING WITH A DAMPER"
       },
       {
-        "subLabel": "E10",
-        "activityName": "INSTALL AN EXTERNAL BLIND TO A WINDOW OR DOOR",
-        "variables": []
+        "identifier": "E10",
+        "title": "INSTALL AN EXTERNAL BLIND TO A WINDOW OR DOOR"
       },
       {
-        "subLabel": "E11",
-        "activityName": "REPLACE AN EDISON SCREW OR BAYONET LAMP WITH AN LED LAMP FOR GENERAL LIGHTING PURPOSES",
-        "variables": []
+        "identifier": "E11",
+        "title": "REPLACE AN EDISON SCREW OR BAYONET LAMP WITH AN LED LAMP FOR GENERAL LIGHTING PURPOSES"
       },
       {
-        "subLabel": "E12",
-        "activityName": "MODIFY AN EXHAUST FAN WITH A SEALING PRODUCT",
-        "variables": []
+        "identifier": "E12",
+        "title": "MODIFY AN EXHAUST FAN WITH A SEALING PRODUCT"
       },
       {
-        "subLabel": "E13",
-        "activityName": "REPLACE A T5 LUMINAIRE WITH A LED LUMINAIRE",
-        "variables": []
+        "identifier": "E13",
+        "title": "REPLACE A T5 LUMINAIRE WITH A LED LUMINAIRE"
       }
     ]
   },
   {
-    "majorLabel": "F",
-    "activityName": "Installation of High Efficiency Appliances for Businesses",
+    "identifier": "F",
+    "title": "Installation of High Efficiency Appliances for Businesses",
     "description": "Schedule F sets out Activity Definitions for the Installation of High Efficiency Appliances for Businesses (clause 9.9)",
     "reference": "Schedule F (Clause 9.9)",
     "subCategories": [
       {
-        "subLabel": "F1",
-        "activityName": "INSTALL A NEW HIGH EFFICIENCY REFRIGERATED CABINET",
-        "variables": []
+        "identifier": "F1",
+        "title": "INSTALL A NEW HIGH EFFICIENCY REFRIGERATED CABINET"
       },
       {
-        "subLabel": "F2",
-        "activityName": "INSTALL A NEW HIGH EFFICIENCY LIQUID CHILLING PACKAGE",
-        "variables": []
+        "identifier": "F2",
+        "title": "INSTALL A NEW HIGH EFFICIENCY LIQUID CHILLING PACKAGE"
       },
       {
-        "subLabel": "F3",
-        "activityName": "INSTALL A NEW HIGH EFFICIENCY CLOSE CONTROL AIR CONDITIONER",
-        "variables": []
+        "identifier": "F3",
+        "title": "INSTALL A NEW HIGH EFFICIENCY CLOSE CONTROL AIR CONDITIONER"
       },
       {
-        "subLabel": "F4",
-        "activityName": "INSTALL A NEW HIGH EFFICIENCY AIR CONDITIONER",
-        "variables": []
+        "identifier": "F4",
+        "title": "INSTALL A NEW HIGH EFFICIENCY AIR CONDITIONER"
       },
       {
-        "subLabel": "F5",
-        "activityName": "INSTALL AN ELECTRONICALLY COMMUTATED MOTOR TO POWER A FAN IN AN INSTALLED REFRIGERATED CABINET, FREEZER OR COOL ROOM",
-        "variables": []
+        "identifier": "F5",
+        "title": "INSTALL AN ELECTRONICALLY COMMUTATED MOTOR TO POWER A FAN IN AN INSTALLED REFRIGERATED CABINET, FREEZER OR COOL ROOM"
       },
       {
-        "subLabel": "F6",
-        "activityName": "INSTALL AN ELECTRONICALLY COMMUTATED MOTOR TO POWER A VENTILATION FAN",
-        "variables": []
+        "identifier": "F6",
+        "title": "INSTALL AN ELECTRONICALLY COMMUTATED MOTOR TO POWER A VENTILATION FAN"
       },
       {
-        "subLabel": "F7",
-        "activityName": "INSTALL A NEW HIGH EFFICIENCY MOTOR",
-        "variables": []
+        "identifier": "F7",
+        "title": "INSTALL A NEW HIGH EFFICIENCY MOTOR"
       },
       {
-        "subLabel": "F8",
-        "activityName": "REPLACE EXISTING GAS FIRED STEAM BOILER WITH A NEW HIGH EFFICIENCY GAS FIRED STEAM BOILER",
-        "variables": []
+        "identifier": "F8",
+        "title": "REPLACE EXISTING GAS FIRED STEAM BOILER WITH A NEW HIGH EFFICIENCY GAS FIRED STEAM BOILER"
       },
       {
-        "subLabel": "F9",
-        "activityName": "REPLACE EXISTING GAS FIRED HOT WATER BOILER OR GAS FIRED WATER HEATER WITH A NEW HIGH EFFICIENCY GAS FIRED HOT WATER BOILER OR A NEW GAS FIRED WATER HEATER",
-        "variables": []
+        "identifier": "F9",
+        "title": "REPLACE EXISTING GAS FIRED HOT WATER BOILER OR GAS FIRED WATER HEATER WITH A NEW HIGH EFFICIENCY GAS FIRED HOT WATER BOILER OR A NEW GAS FIRED WATER HEATER"
       },
       {
-        "subLabel": "F10",
-        "activityName": "INSTALL AN OXYGEN TRIM SYSTEM ON A GAS FIRED STEAM BOILER, HOT WATER BOILER OR WATER HEATER",
-        "variables": []
+        "identifier": "F10",
+        "title": "INSTALL AN OXYGEN TRIM SYSTEM ON A GAS FIRED STEAM BOILER, HOT WATER BOILER OR WATER HEATER"
       },
       {
-        "subLabel": "F11",
-        "activityName": "REPLACE BURNER ON A GAS FIRED STEAM BOILER, HOT WATER BOILER, OR WATER HEATER",
-        "variables": []
+        "identifier": "F11",
+        "title": "REPLACE BURNER ON A GAS FIRED STEAM BOILER, HOT WATER BOILER, OR WATER HEATER"
       },
       {
-        "subLabel": "F12",
-        "activityName": "INSTALL AN ECONOMISER ON A GAS FIRED STEAM BOILER, HOT WATER BOILER, OR WATER HEATER",
-        "variables": []
+        "identifier": "F12",
+        "title": "INSTALL AN ECONOMISER ON A GAS FIRED STEAM BOILER, HOT WATER BOILER, OR WATER HEATER"
       },
       {
-        "subLabel": "F13",
-        "activityName": "INSTALL A SENSOR BASED BLOWDOWN CONTROL ON A GAS FIRED STEAM BOILER",
-        "variables": []
+        "identifier": "F13",
+        "title": "INSTALL A SENSOR BASED BLOWDOWN CONTROL ON A GAS FIRED STEAM BOILER"
       },
       {
-        "subLabel": "F14",
-        "activityName": "INSTALL A BLOWDOWN FLASH STEAM HEAT RECOVERY SYSTEM ON GAS FIRED STEAM BOILER",
-        "variables": []
+        "identifier": "F14",
+        "title": "INSTALL A BLOWDOWN FLASH STEAM HEAT RECOVERY SYSTEM ON GAS FIRED STEAM BOILER"
       },
       {
-        "subLabel": "F15",
-        "activityName": "INSTALL A RESIDUAL BLOWDOWN HEAT EXCHANGER ON GAS FIRED STEAM BOILER",
-        "variables": []
+        "identifier": "F15",
+        "title": "INSTALL A RESIDUAL BLOWDOWN HEAT EXCHANGER ON GAS FIRED STEAM BOILER"
       }
     ]
   },
   {
-    "majorLabel": "nabers",
-    "activityName": "NABERS baseline",
+    "identifier": "nabers",
+    "title": "NABERS baseline",
     "description": "Activities related to the NABERS method (clause 8.8)",
     "reference": "Clause 8.8",
     "subCategories": [
       {
-        "subLabel": "apartments",
-        "activityName": "NABERS Apartments",
-        "variables": []
+        "identifier": "apartments",
+        "title": "NABERS Apartments"
       },
       {
-        "subLabel": "offices",
-        "activityName": "NABERS Offices",
-        "variables": []
+        "identifier": "offices",
+        "title": "NABERS Offices"
       }
     ]
   }
