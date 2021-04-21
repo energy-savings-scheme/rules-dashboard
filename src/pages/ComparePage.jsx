@@ -43,6 +43,9 @@ export default function CaculatePage(props) {
   if (!variable1) return null;
   if (!variable2) return null;
 
+  console.log(variable1)
+  console.log(variable2)
+
   return (
     <div className="nsw-container">
       <div className="nsw-row">
@@ -136,18 +139,17 @@ export default function CaculatePage(props) {
                           </tr>
                           <tr>
                             <td>
-                              {' '}
                               <strong>Activity Name</strong>
                             </td>
-                            <td>{variable1.metadata.minorCat}</td>
-                            <td>{variable2.metadata.minorCat}</td>
+                            <td>{variable1.metadata.regulation_reference && variable1.metadata.regulation_reference.part && variable1.metadata.regulation_reference.part.part && variable1.metadata.regulation_reference.part.part.title}</td>
+                            <td>{variable2.metadata.regulation_reference && variable2.metadata.regulation_reference.part && variable2.metadata.regulation_reference.part.part && variable2.metadata.regulation_reference.part.part.title}</td>
                           </tr>
                           <tr>
                             <td>
                               <strong>Activity Group</strong>
                             </td>
-                            <td>{variable1.metadata.majorCat}</td>
-                            <td>{variable2.metadata.majorCat}</td>
+                            <td>{variable1.metadata.regulation_reference && variable1.metadata.regulation_reference.part && variable1.metadata.regulation_reference.part.title}</td>
+                            <td>{variable2.metadata.regulation_reference && variable2.metadata.regulation_reference.part && variable2.metadata.regulation_reference.part.title}</td>
                           </tr>
                           <tr>
                             <td>
