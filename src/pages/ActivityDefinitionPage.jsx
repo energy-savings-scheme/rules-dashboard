@@ -29,7 +29,7 @@ export default function ActivityDefinitionPage(props) {
 
   useEffect(() => {
     openfisca_api
-      .listVariables({ schedule:schedule_identifier, activity: activity_identifier, is_input: true })
+      .listVariables({ activity: activity_identifier, is_input: true })
       .then((res) => {
         setRelatedVariables(res.data);
       })
@@ -38,7 +38,7 @@ export default function ActivityDefinitionPage(props) {
       });
 
     openfisca_api
-      .listVariables({ schedule:schedule_identifier, activity: activity_identifier, is_output: true, is_input: false })
+      .listVariables({ activity: activity_identifier, is_output: true, is_input: false })
       .then((res) => {
         setOutputVariables(res.data);
       })

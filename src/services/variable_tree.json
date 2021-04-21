@@ -6,67 +6,67 @@
     "reference": "Schedule D (Clause 9.8)",
     "subCategories": [
       {
-        "identifier": "1",
+        "identifier": "D1",
         "title": "Replace an external single glazed window or door with a thermally efficient winder or door"
       },
       {
-        "identifier": "2",
+        "identifier": "D2",
         "title": "Modify an external winder or glazed door by installing secondary glazing"
       },
       {
-        "identifier": "3",
+        "identifier": "D3",
         "title": "REPLACE AN EXISTING AIR CONDITIONER WITH A HIGH EFFICIENCY AIR CONDITIONER"
       },
       {
-        "identifier": "4",
+        "identifier": "D4",
         "title": "INSTALL A HIGH EFFICIENCY AIR CONDITIONER"
       },
       {
-        "identifier": "5",
+        "identifier": "D5",
         "title": "REPLACE AN EXISTING POOL PUMP WITH A HIGH EFFICIENCY POOL PUMP"
       },
       {
-        "identifier": "6",
+        "identifier": "D6",
         "title": "INSTALL CEILING INSULATION IN AN UNINSULATED CEILING SPACE"
       },
       {
-        "identifier": "7",
+        "identifier": "D7",
         "title": "INSTALL CEILING INSULATION IN AN UNDER-INSULATED CEILING SPACE"
       },
       {
-        "identifier": "8",
+        "identifier": "D8",
         "title": "INSTALL UNDER-FLOOR INSULATION"
       },
       {
-        "identifier": "9",
+        "identifier": "D9",
         "title": "INSTALL WALL INSULATION"
       },
       {
-        "identifier": "10",
+        "identifier": "D10",
         "title": "REPLACE AN EXISTING ELECTRIC WATER HEATER WITH A HIGH EFFICIENCY GAS FIRED WATER HEATER"
       },
       {
-        "identifier": "11",
+        "identifier": "D11",
         "title": "REPLACE AN EXISTING GAS FIRED WATER HEATER WITH A HIGH EFFICIENCY GAS FIRED WATER HEATER"
       },
       {
-        "identifier": "12",
+        "identifier": "D12",
         "title": "INSTALL A HIGH EFFICIENCY GAS SPACE HEATER OR REPLACE AN EXISTING GAS SPACE HEATER WITH A HIGH EFFICIENCY GAS SPACE HEATER"
       },
       {
-        "identifier": "13",
+        "identifier": "D13",
         "title": "INSTALL A NATURAL ROOF SPACE VENTILATOR"
       },
       {
-        "identifier": "14",
+        "identifier": "D14",
         "title": "INSTALL A FAN-FORCED ROOF SPACE VENTILATOR, PV POWERED FAN-FORCED ROOF SPACE VENTILATOR OR AN OCCUPIED SPACE VENTILATOR"
       },
       {
-        "identifier": "15",
+        "identifier": "D15",
         "title": "Replace an Exhaust Fan With a Self Sealing Exhaust Fan"
       },
       {
-        "identifier": "16",
+        "identifier": "D16",
         "title": "Install a New High Efficiency Air Conditioner or Replace an Existing Air Conditioner with a High Efficiency Air Conditioner"
       }
     ]
@@ -200,18 +200,14 @@
     ]
   },
   {
-    "identifier": "nabers",
+    "identifier": "8",
     "title": "NABERS baseline",
     "description": "Activities related to the NABERS method (clause 8.8)",
     "reference": "Clause 8.8",
     "subCategories": [
       {
-        "identifier": "apartments",
-        "title": "NABERS Apartments"
-      },
-      {
-        "identifier": "offices",
-        "title": "NABERS Offices"
+        "identifier": "8.8",
+        "title": "NABERS Baseline"
       }
     ]
   }
