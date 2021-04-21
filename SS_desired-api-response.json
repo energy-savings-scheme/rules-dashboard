@@ -14,7 +14,6 @@
 }
 
 // GET the final output variable for a sub-category
-
 {
   "method": "post",
   "argument": {
