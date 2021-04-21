@@ -1,0 +1,226 @@
+[
+  {
+    "identifier": "D",
+    "title": "General Activities for Home Energy Efficiency Retrofits",
+    "description": "Schedule D sets out Activity Definitions for General Activities for Home Energy Efficiency Retrofits (clause 9.8)",
+    "reference": "Schedule D (Clause 9.8)",
+    "subCategories": [
+      {
+        "identifier": "D1",
+        "title": "Replace an external single glazed window or door with a thermally efficient winder or door"
+      },
+      {
+        "identifier": "D2",
+        "title": "Modify an external winder or glazed door by installing secondary glazing"
+      },
+      {
+        "identifier": "D3",
+        "title": "REPLACE AN EXISTING AIR CONDITIONER WITH A HIGH EFFICIENCY AIR CONDITIONER"
+      },
+      {
+        "identifier": "D4",
+        "title": "INSTALL A HIGH EFFICIENCY AIR CONDITIONER"
+      },
+      {
+        "identifier": "D5",
+        "title": "REPLACE AN EXISTING POOL PUMP WITH A HIGH EFFICIENCY POOL PUMP"
+      },
+      {
+        "identifier": "D6",
+        "title": "INSTALL CEILING INSULATION IN AN UNINSULATED CEILING SPACE"
+      },
+      {
+        "identifier": "D7",
+        "title": "INSTALL CEILING INSULATION IN AN UNDER-INSULATED CEILING SPACE"
+      },
+      {
+        "identifier": "D8",
+        "title": "INSTALL UNDER-FLOOR INSULATION"
+      },
+      {
+        "identifier": "D9",
+        "title": "INSTALL WALL INSULATION"
+      },
+      {
+        "identifier": "D10",
+        "title": "REPLACE AN EXISTING ELECTRIC WATER HEATER WITH A HIGH EFFICIENCY GAS FIRED WATER HEATER"
+      },
+      {
+        "identifier": "D11",
+        "title": "REPLACE AN EXISTING GAS FIRED WATER HEATER WITH A HIGH EFFICIENCY GAS FIRED WATER HEATER"
+      },
+      {
+        "identifier": "D12",
+        "title": "INSTALL A HIGH EFFICIENCY GAS SPACE HEATER OR REPLACE AN EXISTING GAS SPACE HEATER WITH A HIGH EFFICIENCY GAS SPACE HEATER"
+      },
+      {
+        "identifier": "D13",
+        "title": "INSTALL A NATURAL ROOF SPACE VENTILATOR"
+      },
+      {
+        "identifier": "D14",
+        "title": "INSTALL A FAN-FORCED ROOF SPACE VENTILATOR, PV POWERED FAN-FORCED ROOF SPACE VENTILATOR OR AN OCCUPIED SPACE VENTILATOR"
+      },
+      {
+        "identifier": "D15",
+        "title": "Replace an Exhaust Fan With a Self Sealing Exhaust Fan"
+      },
+      {
+        "identifier": "D16",
+        "title": "Install a New High Efficiency Air Conditioner or Replace an Existing Air Conditioner with a High Efficiency Air Conditioner"
+      }
+    ]
+  },
+  {
+    "identifier": "E",
+    "title": "Low Cost Activities for Home Energy Efficiency Retrofits",
+    "description": "Schedule E sets out Activity Definitions for Low Cost Activities for Home Energy Efficiency Retrofits (clause 9.8)",
+    "reference": "Schedule E (Clause 9.8)",
+    "subCategories": [
+      {
+        "identifier": "E1",
+        "title": "RREPLACE HALOGEN DOWNLIGHT WITH AN LED LUMINAIRE AND/OR LAMP"
+      },
+      {
+        "identifier": "E2",
+        "title": "REPLACE A LINEAR HALOGEN FLOODLIGHT WITH A HIGH EFFICIENCY LAMP"
+      },
+      {
+        "identifier": "E3",
+        "title": "REPLACE PARABOLIC ALUMINISED REFLECTOR (PAR) LAMP WITH EFFICIENT LUMINAIRE AND/OR LAMP"
+      },
+      {
+        "identifier": "E4",
+        "title": "REPLACE A T8 OR T12 LUMINAIRE WITH A T5 LUMINAIRE"
+      },
+      {
+        "identifier": "E5",
+        "title": "REPLACE A T8 OR T12 LUMINAIRE WITH A LED LUMINAIRE"
+      },
+      {
+        "identifier": "E6",
+        "title": "REPLACE AN EXISTING SHOWERHEAD WITH AN ULTRA LOW FLOW SHOWERHEAD"
+      },
+      {
+        "identifier": "E7",
+        "title": "MODIFY AN EXTERNAL DOOR WITH DRAUGHT-PROOFING"
+      },
+      {
+        "identifier": "E8",
+        "title": "MODIFY AN EXTERNAL WINDOW WITH DRAUGHT-PROOFING"
+      },
+      {
+        "identifier": "E9",
+        "title": "MODIFY A FIREPLACE CHIMNEY BY SEALING WITH A DAMPER"
+      },
+      {
+        "identifier": "E10",
+        "title": "INSTALL AN EXTERNAL BLIND TO A WINDOW OR DOOR"
+      },
+      {
+        "identifier": "E11",
+        "title": "REPLACE AN EDISON SCREW OR BAYONET LAMP WITH AN LED LAMP FOR GENERAL LIGHTING PURPOSES"
+      },
+      {
+        "identifier": "E12",
+        "title": "MODIFY AN EXHAUST FAN WITH A SEALING PRODUCT"
+      },
+      {
+        "identifier": "E13",
+        "title": "REPLACE A T5 LUMINAIRE WITH A LED LUMINAIRE"
+      }
+    ]
+  },
+  {
+    "identifier": "F",
+    "title": "Installation of High Efficiency Appliances for Businesses",
+    "description": "Schedule F sets out Activity Definitions for the Installation of High Efficiency Appliances for Businesses (clause 9.9)",
+    "reference": "Schedule F (Clause 9.9)",
+    "subCategories": [
+      {
+        "identifier": "F1",
+        "title": "INSTALL A NEW HIGH EFFICIENCY REFRIGERATED CABINET"
+      },
+      {
+        "identifier": "F2",
+        "title": "INSTALL A NEW HIGH EFFICIENCY LIQUID CHILLING PACKAGE"
+      },
+      {
+        "identifier": "F3",
+        "title": "INSTALL A NEW HIGH EFFICIENCY CLOSE CONTROL AIR CONDITIONER"
+      },
+      {
+        "identifier": "F4",
+        "title": "INSTALL A NEW HIGH EFFICIENCY AIR CONDITIONER"
+      },
+      {
+        "identifier": "F5",
+        "title": "INSTALL AN ELECTRONICALLY COMMUTATED MOTOR TO POWER A FAN IN AN INSTALLED REFRIGERATED CABINET, FREEZER OR COOL ROOM"
+      },
+      {
+        "identifier": "F6",
+        "title": "INSTALL AN ELECTRONICALLY COMMUTATED MOTOR TO POWER A VENTILATION FAN"
+      },
+      {
+        "identifier": "F7",
+        "title": "INSTALL A NEW HIGH EFFICIENCY MOTOR"
+      },
+      {
+        "identifier": "F8",
+        "title": "REPLACE EXISTING GAS FIRED STEAM BOILER WITH A NEW HIGH EFFICIENCY GAS FIRED STEAM BOILER"
+      },
+      {
+        "identifier": "F9",
+        "title": "REPLACE EXISTING GAS FIRED HOT WATER BOILER OR GAS FIRED WATER HEATER WITH A NEW HIGH EFFICIENCY GAS FIRED HOT WATER BOILER OR A NEW GAS FIRED WATER HEATER"
+      },
+      {
+        "identifier": "F10",
+        "title": "INSTALL AN OXYGEN TRIM SYSTEM ON A GAS FIRED STEAM BOILER, HOT WATER BOILER OR WATER HEATER"
+      },
+      {
+        "identifier": "F11",
+        "title": "REPLACE BURNER ON A GAS FIRED STEAM BOILER, HOT WATER BOILER, OR WATER HEATER"
+      },
+      {
+        "identifier": "F12",
+        "title": "INSTALL AN ECONOMISER ON A GAS FIRED STEAM BOILER, HOT WATER BOILER, OR WATER HEATER"
+      },
+      {
+        "identifier": "F13",
+        "title": "INSTALL A SENSOR BASED BLOWDOWN CONTROL ON A GAS FIRED STEAM BOILER"
+      },
+      {
+        "identifier": "F14",
+        "title": "INSTALL A BLOWDOWN FLASH STEAM HEAT RECOVERY SYSTEM ON GAS FIRED STEAM BOILER"
+      },
+      {
+        "identifier": "F15",
+        "title": "INSTALL A RESIDUAL BLOWDOWN HEAT EXCHANGER ON GAS FIRED STEAM BOILER"
+      }
+    ]
+  },
+  {
+    "identifier": "8",
+    "title": "NABERS baseline",
+    "description": "Activities related to the NABERS method (clause 8.8)",
+    "reference": "Clause 8.8",
+    "subCategories": [
+      {
+        "identifier": "8.8",
+        "title": "NABERS Baseline"
+      }
+    ]
+  },
+  {
+    "identifier": "X",
+    "title": "PDRS Example Method",
+    "description": "Activities related to the PDRS method ABC (clause X.x)",
+    "reference": "Clause X",
+    "subCategories": [
+      {
+        "identifier": "X.5",
+        "title": "Example PDRS activity"
+      }
+    ]
+  }
+]
