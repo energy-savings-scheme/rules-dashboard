@@ -13,7 +13,7 @@ export default function Homepage(props) {
       <div className="nsw-container">
         <div className="nsw-row">
           <div className="nsw-col">
-            <h2>Energy Savings Scheme Rule</h2>
+            <h2>Energy Security Safeguard Rule</h2>
             <h3>
               Search a term below to find more information on related methods and requirements
             </h3>

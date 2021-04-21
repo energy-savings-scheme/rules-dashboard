@@ -26,7 +26,7 @@ export default function Header() {
             </div>
 
             <div className="nsw-col">
-              <h1 style={{ fontSize: '3rem', marginLeft: '1rem' }}>ESS Rules Dashboard</h1>
+              <h1 style={{ fontSize: '3rem', marginLeft: '1rem' }}>Safeguard Dashboard</h1>
             </div>
           </div>
         </div>
@@ -35,18 +35,4 @@ export default function Header() {
       {/* Breadcrumb */}
     </Fragment>
   );
-
-  // return (
-  //   <header className="App-header">
-  //     <h1>
-  //       <Link to="/">ESS Rules Dashboard</Link>
-  //       {/* DPIE{" "}
-  // 			<a
-  // 				className='Rules-link'
-  // 				href='https://www.ess.nsw.gov.au/Home/Document-Search/Legislation/Energy-Savings-Scheme-Rule-of-2009/Energy-Savings-Scheme-Rule-of-2009-30-March-2020'>
-  // 				Energy Saving Scheme (ESS) Rules
-  // 			</a>{" "} */}
-  //     </h1>
-  //   </header>
-  // );
 }

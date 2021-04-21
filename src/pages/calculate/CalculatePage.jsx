@@ -22,7 +22,7 @@ const dropdownOptions = [
   },
   { text: 'Peak Demand Savings - Motors', value: 'PDRS__motors__peak_demand_savings' },
   {
-    text: 'ESS Eligiblity Requirements for Activity D5',
+    text: 'Eligiblity Requirements for ESS Activity D5',
     value: 'D5_all_eligibility_requirements_are_true',
   },
 ];

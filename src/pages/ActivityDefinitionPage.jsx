@@ -67,7 +67,7 @@ export default function ActivityDefinitionPage(props) {
           </div>
         </div>
         <div className="nsw-col">
-          <h4>See how this relates to other methods and requirements within the ESS:</h4>
+          <h4>See how this relates to other methods and requirements within the Safeguard:</h4>
         </div>
       </div>
 

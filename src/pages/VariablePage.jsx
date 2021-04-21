@@ -54,7 +54,7 @@ export default function VariablePage(props) {
                 <div className="nsw-content-block__content">
                   <h2 className="nsw-content-block__title">
                     See how the requirement {variable.metadata.alias} relates to other methods and
-                    requirements within the ESS
+                    requirements within the Safeguard
                   </h2>
                   {variable.children.length === 0 ? (
                     <p className="nsw-content-block__copy">
