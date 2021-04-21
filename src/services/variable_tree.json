@@ -29,13 +29,21 @@
   },
   {
     "identifier": "X",
-    "title": "PDRS Example Method",
+    "title": "PDRS Methods",
     "description": "Activities related to the PDRS method ABC (clause X.x)",
     "reference": "Clause X",
     "subCategories": [
       {
         "identifier": "X.5",
-        "title": "Example PDRS activity"
+        "title": "PDRS Air Conditioners"
+      },
+      {
+        "identifier": "X.6",
+        "title": "PDRS Motors"
+      },
+      {
+        "identifier": "X.7",
+        "title": "PDRS Removal of Old Appliances"
       }
     ]
   }
