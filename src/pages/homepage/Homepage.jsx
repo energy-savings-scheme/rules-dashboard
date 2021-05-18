@@ -14,10 +14,10 @@ export default function Homepage(props) {
       <div className="nsw-container">
         <div className="nsw-row">
           <div className="nsw-col">
-            <h2>Energy Savings Scheme Rule</h2>
-            <h3>
+            <h3>Energy Security Safeguard Rules</h3>
+            <h5>
               Search a term below to find more information on related methods and requirements
-            </h3>
+            </h5>
             <VariableSearchBar variables={variables} />
           </div>
         </div>

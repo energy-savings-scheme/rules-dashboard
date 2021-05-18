@@ -11,22 +11,6 @@ import { FormGroup, FormGroupSelect, TextInput } from 'nsw-ds-react/forms';
 import { Notification } from 'nsw-ds-react/notification/notification';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 
-// const dropdownOptions = [
-//   {
-//     text: 'Peak Demand Savings - Removal of Old Appliance',
-//     value: 'PDRS__ROOA__peak_demand_savings',
-//   },
-//   {
-//     text: 'Peak Demand Savings - Air Conditioner',
-//     value: 'PDRS__Air_Conditioner__peak_demand_savings',
-//   },
-//   { text: 'Peak Demand Savings - Motors', value: 'PDRS__motors__peak_demand_savings' },
-//   {
-//     text: 'ESS Eligiblity Requirements for Activity D5',
-//     value: 'D5_all_eligibility_requirements_are_true',
-//   },
-// ];
-
 export default function CaculatePage(props) {
   const { variables, entities } = props;
 
@@ -81,13 +65,13 @@ export default function CaculatePage(props) {
 
   return (
     <div className="nsw-container">
-      <div className="nsw-row">
+      {/* <div className="nsw-row">
         <div className="nsw-col">
-          <h2>
+          <h3>
             <span style={{ marginRight: 10 }}>Calculate your savings</span>
-          </h2>
+          </h3>
         </div>
-      </div>
+      </div> */}
 
       <ProgressIndicator step={stepNumber} of={3} />
       <div style={{ marginTop: 70, marginBottom: 70 }}>

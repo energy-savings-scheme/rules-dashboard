@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Header() {
   return (
     <Fragment>
-      <div className="nsw-infobar" style={{ marginBottom: 20 }}>
+      <div className="nsw-masthead" style={{ marginBottom: 20 }}>
         <div className="nsw-container">
           <div className="nsw-row">
             <div className="nsw-col">
@@ -15,18 +15,18 @@ export default function Header() {
               <Link to="/" className="nsw-header__logo-link">
                 <img
                   src="https://www.dpie.nsw.gov.au/__data/assets/image/0009/231759/DPIE-logo.png"
-                  alt="NSW Department of Planing Inustry and Environment"
+                  alt="NSW Department of Planing Industry and Environment"
                   height="60"
                 />
                 {/* <svg className="nsw-icon nsw-header__logo" focusable="false" aria-hidden="true">
                   <use xlinkHref="#dpc-logo"></use>
                 </svg> */}
-                <span className="sr-only">NSW Department of Planing Inustry and Environment</span>
+                <span className="sr-only">NSW Department of Planing Industry and Environment</span>
               </Link>
             </div>
 
             <div className="nsw-col">
-              <h1 style={{ fontSize: '3rem', marginLeft: '1rem' }}>ESS Rules Dashboard</h1>
+              <h3 style={{ fontSize: '2rem', marginLeft: '1rem' }}>Safeguard Dashboard</h3>
             </div>
           </div>
         </div>
