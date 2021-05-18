@@ -34,7 +34,9 @@ export default function CaculatePage(props) {
   };
 
   useEffect(() => {
-    variables.forEach((item) => populateDropDown({ text: item.metadata.alias, value: item.name }));
+    variables
+      .filter((item) => item.formula != null)
+      .forEach((item) => populateDropDown({ text: item.metadata.alias, value: item.name }));
   }, [variables]);
 
   useEffect(() => {
@@ -65,14 +67,6 @@ export default function CaculatePage(props) {
 
   return (
     <div className="nsw-container">
-      {/* <div className="nsw-row">
-        <div className="nsw-col">
-          <h3>
-            <span style={{ marginRight: 10 }}>Calculate your savings</span>
-          </h3>
-        </div>
-      </div> */}
-
       <ProgressIndicator step={stepNumber} of={3} />
       <div style={{ marginTop: 70, marginBottom: 70 }}>
         {stepNumber === 1 && (
