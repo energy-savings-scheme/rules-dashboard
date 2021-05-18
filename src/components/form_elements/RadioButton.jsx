@@ -14,8 +14,10 @@ export default function RadioInput(props) {
 
   return (
     <FormGroupRadio
-      label={formItem.metadata && formItem.metadata.alias ? formItem.metadata.alias : formItem.name} // primary label
-      helper={formItem.description} // helper text (secondary label)
+      helper={
+        formItem.metadata && formItem.metadata.alias ? formItem.metadata.alias : formItem.name
+      }
+      label={formItem.description}
       options={possibleValues}
       htmlId={formItem.name}
       form_value={formItem.form_value}
