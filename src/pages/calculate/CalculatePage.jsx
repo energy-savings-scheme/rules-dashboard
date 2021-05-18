@@ -11,25 +11,26 @@ import { FormGroup, FormGroupSelect, TextInput } from 'nsw-ds-react/forms';
 import { Notification } from 'nsw-ds-react/notification/notification';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 
-const dropdownOptions = [
-  {
-    text: 'Peak Demand Savings - Removal of Old Appliance',
-    value: 'PDRS__ROOA__peak_demand_savings',
-  },
-  {
-    text: 'Peak Demand Savings - Air Conditioner',
-    value: 'PDRS__Air_Conditioner__peak_demand_savings',
-  },
-  { text: 'Peak Demand Savings - Motors', value: 'PDRS__motors__peak_demand_savings' },
-  {
-    text: 'ESS Eligiblity Requirements for Activity D5',
-    value: 'D5_all_eligibility_requirements_are_true',
-  },
-];
+// const dropdownOptions = [
+//   {
+//     text: 'Peak Demand Savings - Removal of Old Appliance',
+//     value: 'PDRS__ROOA__peak_demand_savings',
+//   },
+//   {
+//     text: 'Peak Demand Savings - Air Conditioner',
+//     value: 'PDRS__Air_Conditioner__peak_demand_savings',
+//   },
+//   { text: 'Peak Demand Savings - Motors', value: 'PDRS__motors__peak_demand_savings' },
+//   {
+//     text: 'ESS Eligiblity Requirements for Activity D5',
+//     value: 'D5_all_eligibility_requirements_are_true',
+//   },
+// ];
 
 export default function CaculatePage(props) {
   const { variables, entities } = props;
 
+  const [dropdownOptions, setDropdownOptions] = useState([{}]);
   const [stepNumber, setStepNumber] = useState(1);
   const [variable, setVariable] = useState({});
 
@@ -42,8 +43,14 @@ export default function CaculatePage(props) {
 
   const [formValues, setFormValues] = useState([]);
 
+  const populateDropDown = (newOption) => {
+    setDropdownOptions((prev) => {
+      return [...prev, newOption];
+    });
+  };
+
   useEffect(() => {
-    setVariable(variables.find((item) => item.name === dropdownOptions[0].value));
+    variables.forEach((item) => populateDropDown({ text: item.metadata.alias, value: item.name }));
   }, [variables]);
 
   useEffect(() => {
@@ -93,16 +100,16 @@ export default function CaculatePage(props) {
                     <h3 className="nsw-content-block__title">
                       What would you like to calculate savings for?
                     </h3>
+
                     <FormGroupSelect
-                      label="What actitivty are you calculating savings for?" // primary label
-                      helper="Search by activity name or code." // helper text (secondary label)
+                      label="What activity are you calculating savings for?" // primary label
+                      helper="Select a variable below." // helper text (secondary label)
                       options={dropdownOptions}
                       value={variable.name}
                       onChange={(e) => {
                         setVariable(variables.find((item) => item.name === e.target.value));
                       }}
                     ></FormGroupSelect>
-
                     <FormGroup
                       label="What is the activity date?"
                       helper="What date did the energy saving activity occur?"

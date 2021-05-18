@@ -54,7 +54,6 @@ function App() {
 
     OpenFiscaAPI.listActivities()
       .then((res) => {
-        console.log(res.data);
         setActivities(res.data);
         setLoading(false);
       })

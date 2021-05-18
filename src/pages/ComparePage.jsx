@@ -4,23 +4,7 @@ import { FormGroupSelect } from 'nsw-ds-react/forms';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 import { Link } from 'react-router-dom';
 
-// const dropdownOptions = [
-//   {
-//     text: 'Peak Demand Savings - Removal of Old Appliance',
-//     value: 'PDRS__ROOA__peak_demand_savings',
-//   },
-//   {
-//     text: 'Peak Demand Savings - Air Conditioner',
-//     value: 'PDRS__Air_Conditioner__peak_demand_savings',
-//   },
-//   { text: 'Peak Demand Savings - Motors', value: 'PDRS__motors__peak_demand_savings' },
-//   {
-//     text: 'ESS__D16__deemed_elec_savings',
-//     value: 'ESS__D16__deemed_elec_savings',
-//   },
-// ];
-
-export default function CaculatePage(props) {
+export default function ComparePage(props) {
   const { variables, entities } = props;
 
   const [dropdownOptions, setDropdownOptions] = useState([{}]);
@@ -36,8 +20,6 @@ export default function CaculatePage(props) {
 
   useEffect(() => {
     variables.forEach((item) => populateDropDown({ text: item.metadata.alias, value: item.name }));
-    // setVariable1(variables.find((item) => item.name === dropdownOptions[0].value));
-    // setVariable2(variables.find((item) => item.name === dropdownOptions[1].value));
   }, [variables]);
 
   if (!variable1) return null;
@@ -62,7 +44,7 @@ export default function CaculatePage(props) {
                     </h3>
                     <FormGroupSelect
                       label="Variable One" // primary label
-                      helper="Search by activity name or code." // helper text (secondary label)
+                      helper="Select a variable below." // helper text (secondary label)
                       options={dropdownOptions}
                       value={variable1.name}
                       onChange={(e) => {
@@ -71,7 +53,7 @@ export default function CaculatePage(props) {
                     ></FormGroupSelect>
                     <FormGroupSelect
                       label="Variable Two" // primary label
-                      helper="Search by activity name or code." // helper text (secondary label)
+                      helper="Select a variable below." // helper text (secondary label)
                       options={dropdownOptions}
                       value={variable2.name}
                       onChange={(e) => {
