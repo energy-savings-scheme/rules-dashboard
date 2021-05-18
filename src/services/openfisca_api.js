@@ -31,6 +31,14 @@ function listVariables(params) {
   });
 }
 
+function listActivities(params) {
+  return DjangoApiBase({
+    url: '/activities/',
+    method: 'GET',
+    params: params,
+  });
+}
+
 function postDependencies(payload) {
   return DjangoApiBase({
     url: '/dependencies/',
@@ -60,6 +68,7 @@ const OpenFiscaApi = {
   getParameters,
   listEntities,
   listVariables,
+  listActivities,
   postDependencies,
   postTrace,
   postCalculate,

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Import Pages
 import ActivityDefinitionPage from 'pages/ActivityDefinitionPage';
+import ActivityRequirementPage from 'pages/ActivityRequirementPage';
 import CalculatePage from 'pages/calculate/CalculatePage';
 import ComparePage from 'pages/ComparePage';
 import Homepage from 'pages/homepage/Homepage';
@@ -28,6 +29,7 @@ import '@fontsource/montserrat/600.css';
 function App() {
   const [entities, setEntities] = useState([]);
   const [variables, setVariables] = useState([]);
+  const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const [schedules, setSchedules] = useState(variable_tree);
@@ -49,6 +51,16 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
+
+    OpenFiscaAPI.listActivities()
+      .then((res) => {
+        console.log(res.data);
+        setActivities(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
@@ -60,6 +72,11 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Homepage schedules={schedules} variables={variables} />
+        </Route>
+
+        <Route path="/activities" exact>
+          <Breadcrumb />
+          <ActivityRequirementPage activities={activities} variables={variables} />
         </Route>
 
         <Route path="/calculate" exact>
