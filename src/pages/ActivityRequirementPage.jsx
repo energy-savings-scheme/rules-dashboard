@@ -12,8 +12,8 @@ const activityRequirements_name = [
 export default function ActivityRequirementPage(props) {
   const { activities, variables } = props;
 
-  const [displayActivity, setDisplayActivity] = useState();
-  const [requirementArray, setRequirementArray] = useState();
+  const [displayActivity, setDisplayActivity] = useState({});
+  const [requirementArray, setRequirementArray] = useState({});
 
   const methodList = activities.map((activity) => activity['sub_method']);
   const uniqueMethods = Array.from(new Set(methodList));
@@ -31,17 +31,24 @@ export default function ActivityRequirementPage(props) {
   };
 
   useEffect(() => {
+    const setInitialActivity = (initActivity) => {
+      setDisplayActivity(initActivity);
+      setRequirementArray([
+        initActivity['eligibility'],
+        initActivity['equipment'],
+        initActivity['implementation'],
+        [initActivity['energy_savings']],
+      ]);
+    };
     const initActivity = activities[1];
-    setDisplayActivity(initActivity);
-    setRequirementArray([
-      initActivity['eligibility'],
-      initActivity['equipment'],
-      initActivity['implementation'],
-      [initActivity['energy_savings']],
-    ]);
+    if (!initActivity) {
+      return null;
+    } else {
+      setInitialActivity(initActivity);
+    }
   }, [activities]);
 
-  if (!displayActivity) return null;
+  // if (!displayActivity | !requirementArray) return null;
 
   return (
     <div className="nsw-container nsw-p-top-sm nsw-p-bottom-lg">
@@ -52,19 +59,19 @@ export default function ActivityRequirementPage(props) {
               <h5>PDRS 2022</h5>
             </div>
             <ul className="nsw-sidenav__list nsw-sidenav__list--level-1">
-              {uniqueMethods.map((subMethod) => {
+              {uniqueMethods.map((subMethod, methodIndex) => {
                 const filteredActs = activities.filter(
                   (eachAct) => eachAct['sub_method'] === subMethod,
                 );
                 return (
-                  <li className="nsw-sidenav__list-item">
+                  <li key={methodIndex} className="nsw-sidenav__list-item">
                     <a className="nsw-sidenav__link">
                       <strong>{subMethod}</strong>
                     </a>
                     <ul className="nsw-sidenav__list nsw-sidenav__list--level-2">
-                      {filteredActs.map((activity) => {
+                      {filteredActs.map((activity, index) => {
                         return (
-                          <li className="nsw-sidenav__list-item">
+                          <li key={index} className="nsw-sidenav__list-item">
                             <a className="nsw-sidenav__link" href="#" onClick={handleClickActivity}>
                               {activity['activity_name']}
                             </a>
@@ -121,7 +128,7 @@ export default function ActivityRequirementPage(props) {
                     <div className="nsw-content-block__content">
                       <RequirementTable
                         requirementName={value}
-                        requirementArray={requirementArray[index]}
+                        requirementArrayFilled={requirementArray[index]}
                         variables={variables}
                       />
                     </div>

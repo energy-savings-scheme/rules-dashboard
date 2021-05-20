@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 export default function RequirementTable(props) {
-  const { requirementName, requirementArray, variables } = props;
+  const { requirementName, requirementArrayFilled, variables } = props;
 
   const getDescription = (var_id) => {
     var itemVar = variables.find((entry) => entry.name === var_id);
@@ -15,18 +15,22 @@ export default function RequirementTable(props) {
     return itemVar.directory;
   };
 
+  if (!requirementName) return null;
+  if (!requirementArrayFilled) return null;
+  // if (!variables) return null;
+
   return (
     <table className="nsw-table nsw-table--striped" style={{ width: '100%', marginBottom: 50 }}>
       <thead>
         <th style={{ fontWeight: 700 }}>{requirementName}</th>
       </thead>
       <tbody>
-        {requirementArray.length === 0 ? (
+        {requirementArrayFilled.length === 0 ? (
           <tr>
             <td>None</td>
           </tr>
         ) : (
-          requirementArray.map((item, index) => (
+          requirementArrayFilled.map((item, index) => (
             <tr>
               <td>
                 <strong>
