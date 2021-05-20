@@ -53,7 +53,7 @@ Tabs.propTypes = {
 export const TabItems = ({ children }) => <ul className="nsw-tabs__list">{children}</ul>;
 
 export const TabItem = ({ urlHash, title }) => (
-  <li class="nsw-tabs__list-item">
+  <li className="nsw-tabs__list-item">
     <a href={`#${urlHash}`} className="nsw-tabs__link">
       {title}
     </a>

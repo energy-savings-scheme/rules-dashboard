@@ -38,7 +38,7 @@ export default {
 };
 
 const Template = (args) => (
-  <div class="nsw-col nsw-col-md-4">
+  <div className="nsw-col nsw-col-md-4">
     <Card {...args} />
   </div>
 );

@@ -30,7 +30,7 @@ export const Callout = ({
 
   return (
     <div className={`nsw-callout ${className}`} {...attributeOptions}>
-      <div class="nsw-callout__content">
+      <div className="nsw-callout__content">
         <HeadingTag children={title} className={`nsw-callout__title`} />
         {children}
       </div>

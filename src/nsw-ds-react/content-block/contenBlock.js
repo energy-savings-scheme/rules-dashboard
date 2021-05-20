@@ -38,7 +38,7 @@ export const ContentBlock = ({
   let ContentBlockContainer = 'div';
   return (
     <ContentBlockContainer className={`nsw-content-block ${className}`}>
-      <div class="nsw-content-block__content">
+      <div className="nsw-content-block__content">
         {headline ? <ContentBlockHeading>{headline}</ContentBlockHeading> : ''}
         {copy ? <ContentBlockCopy>{copy}</ContentBlockCopy> : ''}
         <ul className="nsw-content-block__list">
@@ -110,7 +110,7 @@ ContentBlock.defaultProps = {
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 export const ContentBlockImage = ({ src, className, alt, ...attributesOptions }) => (
-  <div class="nsw-content-block__image-area">
+  <div className="nsw-content-block__image-area">
     <img src={src} alt={alt} className={`nsw-content-block__image`} {...attributesOptions} />
   </div>
 );

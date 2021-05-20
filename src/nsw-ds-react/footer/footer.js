@@ -27,7 +27,7 @@ export const FooterLinks = ({
   <ul className={`nsw-footer-links ${className}`} {...attributeOptions}>
     {footerLinks.map((footerLink) => (
       <li className="nsw-footer-links__item">
-        <a class="nsw-footer-links__link" href={footerLink.url}>
+        <a className="nsw-footer-links__link" href={footerLink.url}>
           {footerLink.text}
         </a>
       </li>

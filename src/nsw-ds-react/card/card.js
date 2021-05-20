@@ -185,7 +185,7 @@ CardHeader.defaultProps = {
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 export const CardImage = ({ src, className, alt, ...attributesOptions }) => (
-  <div class="nsw-card__image-area">
+  <div className="nsw-card__image-area">
     <img className={`nsw-card__image ${className}`} src={src} alt={alt} {...attributesOptions} />
   </div>
 );

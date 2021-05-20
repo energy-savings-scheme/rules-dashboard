@@ -44,8 +44,8 @@ export const Notification = ({ title = '', as, children, className = '', ...attr
     <i focusable="false" className="material-icons nsw-material-icons nsw-notification__icon">
       {icons[as]}
     </i>
-    <div class="nsw-notification__content">
-      <h4 class="nsw-notification__title">{title}</h4>
+    <div className="nsw-notification__content">
+      <h4 className="nsw-notification__title">{title}</h4>
       {children}
     </div>
   </div>

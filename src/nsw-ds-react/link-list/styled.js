@@ -66,7 +66,7 @@ export const LinkListItem = ({
         <LinkComponent {...attributeOptions}>
           {text}
           <i
-            class="material-icons nsw-material-icons nsw-link-list__icon"
+            className="material-icons nsw-material-icons nsw-link-list__icon"
             focusable="false"
             aria-hidden="true"
           >
@@ -108,7 +108,7 @@ LinkListItem.defaultProps = {
  * @param  {object}  attributeOptions - Any other attribute options, optional
  */
 export const StyledLinkList = ({ items, linkComponent, className = '', ...attributeOptions }) => (
-  <div class="nsw-link-list">
+  <div className="nsw-link-list">
     <ol className={`nsw-link-list__list ${className}`} {...attributeOptions}>
       {items.map((item, i) => (
         <LinkListItem linkComponent={linkComponent} key={i} {...item} />

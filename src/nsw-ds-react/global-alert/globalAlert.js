@@ -63,7 +63,7 @@ export class GlobalAlert extends React.PureComponent {
             <p>{this.props.content}</p>
           </div>
           {this.props.ctaText && this.props.ctaHref ? (
-            <a href={this.props.ctaHref} class="nsw-button">
+            <a href={this.props.ctaHref} className="nsw-button">
               {this.props.ctaText}
             </a>
           ) : (

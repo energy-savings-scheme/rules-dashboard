@@ -28,7 +28,7 @@ export const CheckboxItem = ({
 }) => (
   <>
     <input
-      class="nsw-form-checkbox__input"
+      className="nsw-form-checkbox__input"
       type="checkbox"
       name={htmlId}
       aria-invalid={status === 'invalid' && !(as == 'group') ? 'true' : ''}
@@ -36,7 +36,7 @@ export const CheckboxItem = ({
       id={uniqueID}
       {...checked}
     ></input>
-    <label class="nsw-form-checkbox__label" for={uniqueID}>
+    <label className="nsw-form-checkbox__label" for={uniqueID}>
       {text}
     </label>
   </>
@@ -64,10 +64,10 @@ CheckboxItem.propTypes = {
  */
 export const FormGroupCheckbox = (props) => (
   <div className={`nsw-form-group ${props.className}`}>
-    <fieldset class="nsw-form-fieldset" aria-invalid={props.status === 'invalid' ? 'true' : ''}>
+    <fieldset className="nsw-form-fieldset" aria-invalid={props.status === 'invalid' ? 'true' : ''}>
       {props.as === 'group' ? (
         <legend>
-          <span class="nsw-form-legend-text">{props.label}</span>
+          <span className="nsw-form-legend-text">{props.label}</span>
           {props.helper ? <FormHelper htmlId={props.htmlId}>{props.helper}</FormHelper> : ''}
           {props.status === 'invalid' ? (
             <FormHelper htmlId={props.htmlId} error>
@@ -81,7 +81,7 @@ export const FormGroupCheckbox = (props) => (
         ''
       )}
 
-      <div class="nsw-form-checkbox">
+      <div className="nsw-form-checkbox">
         {props.options.map((option, i) => (
           <CheckboxItem
             key={i}

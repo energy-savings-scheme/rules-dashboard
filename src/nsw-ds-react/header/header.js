@@ -5,7 +5,7 @@ import './header.scss';
 const Logo = () => (
   <>
     <svg
-      class="nsw-header__logo"
+      className="nsw-header__logo"
       focusable="false"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
@@ -38,24 +38,24 @@ const Logo = () => (
 export const Header = ({ department, logo, hideSearch, hideMobileMenu, ...attributeOptions }) => (
   <>
     <Infobar />
-    <header class="nsw-header">
-      <div class="nsw-container">
-        <div class="nsw-header__wrapper">
-          <div class="nsw-header__center">
-            <a href="#" class="nsw-header__logo-link">
+    <header className="nsw-header">
+      <div className="nsw-container">
+        <div className="nsw-header__wrapper">
+          <div className="nsw-header__center">
+            <a href="#" className="nsw-header__logo-link">
               {logo}
-              <span class="sr-only">{department}</span>
+              <span className="sr-only">{department}</span>
             </a>
           </div>
-          <div class="nsw-header__left">
+          <div className="nsw-header__left">
             <button
               type="button"
-              class={`nsw-header-btn nsw-header-btn--menu ${
+              className={`nsw-header-btn nsw-header-btn--menu ${
                 hideMobileMenu ? 'nsw-header-btn--hidden' : ''
               }`}
             >
               <i
-                class="material-icons nsw-material-icons nsw-header-btn__icon"
+                className="material-icons nsw-material-icons nsw-header-btn__icon"
                 focusable="false"
                 aria-hidden="true"
               >
@@ -63,44 +63,44 @@ export const Header = ({ department, logo, hideSearch, hideMobileMenu, ...attrib
               </i>
             </button>
           </div>
-          <div class="nsw-header__right">
+          <div className="nsw-header__right">
             <button
               type="button"
-              class={`nsw-header-btn nsw-header-btn--search js-open-search ${
+              className={`nsw-header-btn nsw-header-btn--search js-open-search ${
                 hideSearch ? 'nsw-header-btn--hidden' : ''
               }`}
               aria-expanded="false"
               aria-controls="header-search"
             >
               <i
-                class={`material-icons nsw-material-icons nsw-header-btn__icon`}
+                className={`material-icons nsw-material-icons nsw-header-btn__icon`}
                 focusable="false"
                 aria-hidden="true"
               >
                 search
               </i>
-              <span class="nsw-header-btn__sub" aria-hidden={hideSearch ? 'true' : 'false'}>
-                <span class="sr-only">Show</span> Search
+              <span className="nsw-header-btn__sub" aria-hidden={hideSearch ? 'true' : 'false'}>
+                <span className="sr-only">Show</span> Search
               </span>
             </button>
           </div>
         </div>
-        <div class="nsw-search">
-          <div id="header-search" class="nsw-search__area js-search-area" hidden>
+        <div className="nsw-search">
+          <div id="header-search" className="nsw-search__area js-search-area" hidden>
             <form role="search">
-              <label for="nsw-search__input" class="sr-only">
+              <label for="nsw-search__input" className="sr-only">
                 Search site for:
               </label>
               <input
                 autocomplete="off"
-                class="nsw-search__input js-search-input"
+                className="nsw-search__input js-search-input"
                 id="nsw-search__input"
                 name="input-autocomplete"
                 type="text"
               />
-              <button class="nsw-search__submit" type="submit" aria-label="search">
+              <button className="nsw-search__submit" type="submit" aria-label="search">
                 <i
-                  class="material-icons nsw-material-icons nsw-search__search-icon"
+                  className="material-icons nsw-material-icons nsw-search__search-icon"
                   focusable="false"
                   aria-hidden="true"
                 >
@@ -109,18 +109,18 @@ export const Header = ({ department, logo, hideSearch, hideMobileMenu, ...attrib
               </button>
             </form>
             <button
-              class="nsw-search__close-btn js-close-search"
+              className="nsw-search__close-btn js-close-search"
               aria-expanded="true"
               aria-controls="header-search"
             >
               <i
-                class="material-icons nsw-material-icons nsw-search__close-icon"
+                className="material-icons nsw-material-icons nsw-search__close-icon"
                 focusable="false"
                 aria-hidden="true"
               >
                 close
               </i>
-              <span class="sr-only">Close search</span>
+              <span className="sr-only">Close search</span>
             </button>
           </div>
         </div>
@@ -141,8 +141,8 @@ Header.defaultProps = {
 };
 
 const Infobar = ({ text }) => (
-  <div class="nsw-infobar">
-    <div class="nsw-container">
+  <div className="nsw-infobar">
+    <div className="nsw-container">
       <p>{text}</p>
     </div>
   </div>

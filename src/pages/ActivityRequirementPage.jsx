@@ -51,17 +51,17 @@ export default function ActivityRequirementPage(props) {
             <div className="nsw-sidenav__header">
               <h5>PDRS 2022</h5>
             </div>
-            <ul class="nsw-sidenav__list nsw-sidenav__list--level-1">
+            <ul className="nsw-sidenav__list nsw-sidenav__list--level-1">
               {uniqueMethods.map((subMethod) => {
                 const filteredActs = activities.filter(
                   (eachAct) => eachAct['sub_method'] === subMethod,
                 );
                 return (
-                  <li class="nsw-sidenav__list-item">
+                  <li className="nsw-sidenav__list-item">
                     <a className="nsw-sidenav__link">
                       <strong>{subMethod}</strong>
                     </a>
-                    <ul class="nsw-sidenav__list nsw-sidenav__list--level-2">
+                    <ul className="nsw-sidenav__list nsw-sidenav__list--level-2">
                       {filteredActs.map((activity) => {
                         return (
                           <li className="nsw-sidenav__list-item">
