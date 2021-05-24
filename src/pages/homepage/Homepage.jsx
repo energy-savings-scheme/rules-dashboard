@@ -27,12 +27,6 @@ export default function Homepage(props) {
         <h2 style={{ textAlign: 'center', marginBottom: 50 }}>OR</h2>
 
         <div className="nsw-grid">
-          {/* <div className="nsw-col nsw-col-md-6">
-            <Card headline={schedule.activityName} link={`/schedules/${schedule.activityName}`}>
-              <CardCopy>{schedule.description}</CardCopy>
-            </Card>
-          </div> */}
-
           <div className="nsw-col nsw-col-md-6" style={{ marginBottom: 100 }}>
             <Card headline="Calculate your savings" link="calculate">
               <CardCopy>
@@ -44,6 +38,11 @@ export default function Homepage(props) {
           <div className="nsw-col nsw-col-md-6" style={{ marginBottom: 100 }}>
             <Card headline="Compare Variables" link="compare">
               <CardCopy>Select Two Variables and Compare them.</CardCopy>
+            </Card>
+          </div>
+          <div className="nsw-col nsw-col-md-6" style={{ marginBottom: 100 }}>
+            <Card headline="PDRS 2022 Activities " link="activities">
+              <CardCopy>See All Peak Demand Savings Activities Currently In Development. </CardCopy>
             </Card>
           </div>
         </div>
