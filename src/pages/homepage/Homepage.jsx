@@ -26,8 +26,8 @@ export default function Homepage(props) {
       <div className="nsw-container">
         <h2 style={{ textAlign: 'center', marginBottom: 50 }}>OR</h2>
 
-        <div className="nsw-grid">
-          <div className="nsw-col nsw-col-md-6" style={{ marginBottom: 100 }}>
+        <div className="nsw-grid" style={{ marginBottom: 100 }}>
+          <div className="nsw-col nsw-col-md-6">
             <Card headline="Calculate your savings" link="calculate">
               <CardCopy>
                 Use the calculator to enter in details of an activity, and understand what your
@@ -35,12 +35,12 @@ export default function Homepage(props) {
               </CardCopy>
             </Card>
           </div>
-          <div className="nsw-col nsw-col-md-6" style={{ marginBottom: 100 }}>
+          <div className="nsw-col nsw-col-md-6">
             <Card headline="Compare Variables" link="compare">
               <CardCopy>Select Two Variables and Compare them.</CardCopy>
             </Card>
           </div>
-          <div className="nsw-col nsw-col-md-6" style={{ marginBottom: 100 }}>
+          <div className="nsw-col nsw-col-md-6">
             <Card headline="PDRS 2022 Activities " link="activities">
               <CardCopy>See All Peak Demand Savings Activities Currently In Development. </CardCopy>
             </Card>
