@@ -9,11 +9,14 @@ const activityRequirements_name = [
   'Energy Savings',
 ];
 
+const DBbaseURL = process.env.REACT_APP_API_BASE_URL;
+
 export default function ActivityRequirementPage(props) {
   const { activities, variables } = props;
 
   const [displayActivity, setDisplayActivity] = useState({});
   const [requirementArray, setRequirementArray] = useState({});
+  const [activityPlotVar, setActivityPlotVar] = useState('');
 
   const methodList = activities.map((activity) => activity['sub_method']);
   const uniqueMethods = Array.from(new Set(methodList));
@@ -28,6 +31,8 @@ export default function ActivityRequirementPage(props) {
       chosenActivity['implementation'],
       [chosenActivity['energy_savings']],
     ]);
+
+    setActivityPlotVar(chosenActivity['energy_savings']);
   };
 
   useEffect(() => {
@@ -45,6 +50,7 @@ export default function ActivityRequirementPage(props) {
       return null;
     } else {
       setInitialActivity(initActivity);
+      setActivityPlotVar(initActivity['energy_savings']);
     }
   }, [activities]);
 
@@ -115,6 +121,12 @@ export default function ActivityRequirementPage(props) {
           <div className="nsw-row">
             <div className="nsw-col">
               Status: <a href="#">In Development</a>
+              <p>
+                Visualization:{' '}
+                <a href={`${DBbaseURL}/plots/shortest/${activityPlotVar}`}>
+                  Activity Variable Graph
+                </a>
+              </p>
             </div>
           </div>
 
