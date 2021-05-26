@@ -45,6 +45,11 @@ export default function Homepage(props) {
               <CardCopy>See All Peak Demand Savings Activities Currently In Development. </CardCopy>
             </Card>
           </div>
+          <div className="nsw-col nsw-col-md-6">
+            <Card headline="Compare Activities " link="activities/compare">
+              <CardCopy>Select two activities and compare them. </CardCopy>
+            </Card>
+          </div>
         </div>
 
         <h3>Click below to get more details on each Schedule</h3>

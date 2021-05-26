@@ -4,6 +4,8 @@ import { FormGroupSelect } from 'nsw-ds-react/forms';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 import { Link } from 'react-router-dom';
 
+const DBbaseURL = process.env.REACT_APP_API_BASE_URL;
+
 export default function ActivityComparePage(props) {
   const { activities, variables } = props;
 
@@ -16,6 +18,12 @@ export default function ActivityComparePage(props) {
     setDropdownOptions((prev) => {
       return [...prev, newOption];
     });
+  };
+
+  const getDescription = (var_id) => {
+    var itemVar = variables.find((entry) => entry.name === var_id);
+    if (!itemVar) return null;
+    return itemVar.description;
   };
 
   useEffect(() => {
@@ -46,7 +54,7 @@ export default function ActivityComparePage(props) {
                     </h3>
                     <FormGroupSelect
                       label="Activity One" // primary label
-                      helper="Select a variable below." // helper text (secondary label)
+                      helper="Select an activity below." // helper text (secondary label)
                       options={dropdownOptions}
                       value={activity1.activity_name}
                       onChange={(e) => {
@@ -57,7 +65,7 @@ export default function ActivityComparePage(props) {
                     ></FormGroupSelect>
                     <FormGroupSelect
                       label="Activity Two" // primary label
-                      helper="Select a variable below." // helper text (secondary label)
+                      helper="Select an activity below." // helper text (secondary label)
                       options={dropdownOptions}
                       value={activity2.activity_name}
                       onChange={(e) => {
@@ -125,14 +133,20 @@ export default function ActivityComparePage(props) {
                               <strong>Eligibility Requirement</strong>
                             </td>
                             <td>
-                              {activity1.eligibility.map((item) => {
-                                return <Link to={`/variables/${item}`}>{item}</Link>;
-                              })}
+                              <ul>
+                                {' '}
+                                {activity1.eligibility.map((item) => {
+                                  return <li>{getDescription(item)}</li>;
+                                })}
+                              </ul>
                             </td>
                             <td>
-                              {activity2.eligibility.map((item) => {
-                                return <Link to={`/variables/${item}`}>{item}</Link>;
-                              })}
+                              <ul>
+                                {' '}
+                                {activity2.eligibility.map((item) => {
+                                  return <li>{getDescription(item)}</li>;
+                                })}
+                              </ul>
                             </td>
                           </tr>
                           <tr>
@@ -141,14 +155,20 @@ export default function ActivityComparePage(props) {
                               <strong>Equipment Requirement</strong>
                             </td>
                             <td>
-                              {activity1.equipment.map((item) => {
-                                return <Link to={`/variables/${item}`}>{item}</Link>;
-                              })}
+                              <ul>
+                                {' '}
+                                {activity1.equipment.map((item) => {
+                                  return <li>{getDescription(item)}</li>;
+                                })}
+                              </ul>
                             </td>
                             <td>
-                              {activity2.equipment.map((item) => {
-                                return <Link to={`/variables/${item}`}>{item}</Link>;
-                              })}
+                              <ul>
+                                {' '}
+                                {activity2.equipment.map((item) => {
+                                  return <li>{getDescription(item)}</li>;
+                                })}
+                              </ul>
                             </td>
                           </tr>
                           <tr>
@@ -157,14 +177,20 @@ export default function ActivityComparePage(props) {
                               <strong>Implementation Requirement</strong>
                             </td>
                             <td>
-                              {activity1.implementation.map((item) => {
-                                return <Link to={`/variables/${item}`}>{item}</Link>;
-                              })}
+                              <ul>
+                                {' '}
+                                {activity1.implementation.map((item) => {
+                                  return <li>{getDescription(item)}</li>;
+                                })}
+                              </ul>
                             </td>
                             <td>
-                              {activity2.implementation.map((item) => {
-                                return <Link to={`/variables/${item}`}>{item}</Link>;
-                              })}
+                              <ul>
+                                {' '}
+                                {activity2.implementation.map((item) => {
+                                  return <li>{getDescription(item)}</li>;
+                                })}
+                              </ul>
                             </td>
                           </tr>
                           <tr>
@@ -176,12 +202,28 @@ export default function ActivityComparePage(props) {
                               <Link to={`/variables/${activity1.energy_savings}`}>
                                 {activity1.energy_savings}
                               </Link>
+                              <a
+                                className="nsw-button nsw-button--secondary"
+                                href={`${DBbaseURL}/plots/shortest/${activity1.energy_savings}`}
+                                target="_blank"
+                                rel="noopener noreferer"
+                              >
+                                Variable Graph
+                              </a>
                             </td>
                             <td>
                               {' '}
                               <Link to={`/variables/${activity2.energy_savings}`}>
                                 {activity2.energy_savings}
                               </Link>
+                              <a
+                                className="nsw-button nsw-button--secondary"
+                                href={`${DBbaseURL}/plots/shortest/${activity2.energy_savings}`}
+                                target="_blank"
+                                rel="noopener noreferer"
+                              >
+                                Variable Graph
+                              </a>
                             </td>
                           </tr>
                         </tbody>

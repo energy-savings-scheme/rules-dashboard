@@ -101,7 +101,7 @@ export default function ActivityRequirementPage(props) {
         <div id="content" className="nsw-container nsw-page-layout__main">
           <div className="nsw-row">
             <div className="nsw-col">
-              <h4>{'Activity: ' + displayActivity['activity_name']}</h4>
+              <h4>{displayActivity['activity_name']}</h4>
               <div
                 className="nsw-tag"
                 style={{
@@ -126,19 +126,20 @@ export default function ActivityRequirementPage(props) {
           </div>
 
           <div className="nsw-row">
-            <div className="nsw-col">
+            <div className="nsw-col nsw-col-md-8">
               Status: <a href="#">In Development</a>
-              <p>
-                Visualization:{' '}
-                <a href={`${DBbaseURL}/plots/shortest/${activityPlotVar}`}>
-                  Activity Variable Graph
-                </a>
-              </p>
+            </div>
+            <div className="nsw-col nsw-col-md-4">
+              <a
+                href={`${DBbaseURL}/plots/shortest/${activityPlotVar}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Activity Variable Graph
+              </a>
             </div>
           </div>
-
           {/* SECTION: Requirement Table: four components */}
-
           {activityRequirements_name.map((value, index) => {
             return (
               <div className="nsw-row">
