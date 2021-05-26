@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import RequirementTable from 'components/RequirementTable';
+import Button from 'nsw-ds-react/button/button';
 
 const activityRequirements_name = [
   'Eligibility Requirements',
@@ -90,8 +91,14 @@ export default function ActivityRequirementPage(props) {
               })}
             </ul>
           </nav>
+          <Link to="/activities/compare">
+            <Button as="primary" style={{ marginLeft: '5%' }}>
+              Compare Activities
+            </Button>
+          </Link>
         </div>
-        <div id="content" className="nsw-container nsw-page-layout__main" s>
+
+        <div id="content" className="nsw-container nsw-page-layout__main">
           <div className="nsw-row">
             <div className="nsw-col">
               <h4>{'Activity: ' + displayActivity['activity_name']}</h4>

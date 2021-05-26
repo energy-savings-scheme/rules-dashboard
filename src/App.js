@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // Import Pages
 import ActivityDefinitionPage from 'pages/ActivityDefinitionPage';
 import ActivityRequirementPage from 'pages/ActivityRequirementPage';
+import ActivityComparePage from 'pages/ActivityComparePage';
+
 import CalculatePage from 'pages/calculate/CalculatePage';
 import ComparePage from 'pages/ComparePage';
 import Homepage from 'pages/homepage/Homepage';
@@ -76,6 +78,10 @@ function App() {
         <Route path="/activities" exact>
           <Breadcrumb />
           <ActivityRequirementPage activities={activities} variables={variables} />
+        </Route>
+        <Route path="/activities/compare" exact>
+          <Breadcrumb />
+          <ActivityComparePage activities={activities} variables={variables} />
         </Route>
 
         <Route path="/calculate" exact>
