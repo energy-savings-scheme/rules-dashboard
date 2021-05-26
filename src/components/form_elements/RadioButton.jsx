@@ -11,10 +11,8 @@ export default function RadioInput(props) {
 
   return (
     <FormGroupRadio
-      label={formItem.description}
-      helper={
-        formItem.metadata && formItem.metadata.alias ? formItem.metadata.alias : formItem.name
-      }
+      helper={formItem.description}
+      label={formItem.metadata && formItem.metadata.alias ? formItem.metadata.alias : formItem.name}
       options={possibleValues}
       htmlId={formItem.name}
       form_value={formItem.form_value}
