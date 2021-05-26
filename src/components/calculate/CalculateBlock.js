@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import CalculateForm from 'components/calculate/CalculateForm';
 import DateInput from 'components/form_elements/DateInput';
 import FormTextInput from 'components/form_elements/FormTextInput';
 import DropDownMenu from 'components/form_elements/DropDownMenu';
 import RadioButton from 'components/form_elements/RadioButton';
-
-import Button from 'nsw-ds-react/button/button';
 
 export default function CalculateBlock(props) {
   const {
