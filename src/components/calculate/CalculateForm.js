@@ -59,9 +59,12 @@ export default function CalculateForm(props) {
       };
     });
 
+//    console.log(payload);
+
     OpenFiscaApi.postCalculate(payload)
       .then((res) => {
         var result = res.data[entity.plural][`${entity.name}_1`][variable.name][date];
+        console.log(res.data)
         setCalculationResult(result);
       })
       .catch((err) => {

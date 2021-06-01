@@ -102,7 +102,7 @@ export default function ActivityComparePage(props) {
                 <div className="nsw-content-block">
                   <div className="nsw-content-block__content">
                     <div className="nsw-table-responsive">
-                      <p>Here are the details of these two activities.</p>
+                      <p>Here are the details of these two activities:</p>
                       <table className="nsw-table nsw-table--caption-top nsw-table--bordered nsw-table--striped ">
                         <thead>
                           <tr>

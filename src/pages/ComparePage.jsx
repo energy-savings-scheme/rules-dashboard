@@ -122,7 +122,7 @@ export default function ComparePage(props) {
                 <div className="nsw-content-block">
                   <div className="nsw-content-block__content">
                     <div className="nsw-table-responsive">
-                      <p>Here are the details of these two variables.</p>
+                      <p>Here are the details of these two variables:</p>
                       <table className="nsw-table nsw-table--caption-top nsw-table--bordered nsw-table--striped ">
                         <thead>
                           <tr>

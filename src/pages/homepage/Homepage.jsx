@@ -30,23 +30,23 @@ export default function Homepage(props) {
           <div className="nsw-col nsw-col-md-6">
             <Card headline="Calculate your savings" link="calculate">
               <CardCopy>
-                Use the calculator to enter in details of an activity, and understand what your
+                Use the calculator to enter details of an activity, and understand what your
                 electricity or gas savings are.
               </CardCopy>
             </Card>
           </div>
           <div className="nsw-col nsw-col-md-6">
             <Card headline="Compare Variables" link="compare">
-              <CardCopy>Select Two Variables and Compare them.</CardCopy>
+              <CardCopy>Select two variables and compare them.</CardCopy>
             </Card>
           </div>
           <div className="nsw-col nsw-col-md-6">
             <Card headline="PDRS 2022 Activities " link="activities">
-              <CardCopy>See All Peak Demand Savings Activities Currently In Development. </CardCopy>
+              <CardCopy>See all peak demand savings activities currently in development. </CardCopy>
             </Card>
           </div>
           <div className="nsw-col nsw-col-md-6">
-            <Card headline="Compare Activities " link="activities/compare">
+            <Card headline="Compare Activities " link="compare2activities">
               <CardCopy>Select two activities and compare them. </CardCopy>
             </Card>
           </div>

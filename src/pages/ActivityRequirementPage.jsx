@@ -91,7 +91,7 @@ export default function ActivityRequirementPage(props) {
               })}
             </ul>
           </nav>
-          <Link to="/activities/compare">
+          <Link to="/compare2activities">
             <Button as="primary" style={{ marginLeft: '5%' }}>
               Compare Activities
             </Button>
