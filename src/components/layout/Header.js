@@ -14,13 +14,10 @@ export default function Header() {
             <div className="nsw-col">
               <Link to="/" className="nsw-header__logo-link">
                 <img
-                  src="https://www.dpie.nsw.gov.au/__data/assets/image/0009/231759/DPIE-logo.png"
+                  src="/logo.png"
                   alt="NSW Department of Planing Industry and Environment"
-                  height="60"
+                  height="80"
                 />
-                {/* <svg className="nsw-icon nsw-header__logo" focusable="false" aria-hidden="true">
-                  <use xlinkHref="#dpc-logo"></use>
-                </svg> */}
                 <span className="sr-only">NSW Department of Planing Industry and Environment</span>
               </Link>
             </div>
