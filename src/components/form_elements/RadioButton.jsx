@@ -9,6 +9,10 @@ export default function RadioInput(props) {
     { value: true, text: 'True' },
   ];
 
+  if (formItem.form_value === '') {
+    formItem.form_value = formItem.default_value;
+  }
+
   return (
     <FormGroupRadio
       label={formItem.description}
