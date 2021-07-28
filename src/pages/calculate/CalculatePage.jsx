@@ -35,7 +35,7 @@ export default function CaculatePage(props) {
 
   useEffect(() => {
     variables
-      .filter((item) => item.formula != null)
+      .filter((item) => item.formula && item.children.length > 1)
       .forEach((item) => populateDropDown({ text: item.metadata.alias, value: item.name }));
   }, [variables]);
 
