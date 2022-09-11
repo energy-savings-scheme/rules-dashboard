@@ -23,7 +23,7 @@ export default function Header() {
             </div>
 
             <div className="nsw-col">
-              <h3 style={{ fontSize: '2rem', marginLeft: '1rem' }}>Safeguard Dashboard</h3>
+              <h3 style={{ fontSize: '2rem', marginLeft: '1rem' }}>Safeguard Rules Interface</h3>
             </div>
           </div>
         </div>
