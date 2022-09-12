@@ -1,6 +1,6 @@
 # Energy Security Safeguard - Rule Dashboard
 
-This is the frontend application for the Energy Security Safeguard "Rules Dashboard".
+This is the frontend application for the Energy Security Safeguard "Rules Interface".
 
 
 Functionality:
