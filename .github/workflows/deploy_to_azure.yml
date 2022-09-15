@@ -27,4 +27,4 @@ jobs:
         uses: TravisSpomer/deploy-to-azure-storage@v1.4.0
         with:
           source-path: build
-          sas-url: "https://racuistorage.blob.core.windows.net/$web?sp=racwdl&st=2022-09-14T07:38:40Z&se=2024-09-14T15:38:40Z&spr=https&sv=2021-06-08&sr=c&sig=3xp82oy2Kp8XwbUgLOmitSi9tdmlhpyPIe7GgHDjcg4%3D"
+          sas-url: "https://racuistorage.blob.core.windows.net/?sp=racwdl&st=2022-09-14T07:38:40Z&se=2024-09-14T15:38:40Z&spr=https&sv=2021-06-08&sr=c&sig=3xp82oy2Kp8XwbUgLOmitSi9tdmlhpyPIe7GgHDjcg4%3D"
