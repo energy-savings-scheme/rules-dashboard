@@ -38,7 +38,11 @@ export const RadioItem = ({
       checked={checked}
       {...attributeOptions}
     ></input>
-    <label className="nsw-form-radio__label" for={uniqueID}>
+    <label
+      style={{ display: 'inline-block', marginRight: '100px' }}
+      className="nsw-form-radio__label"
+      for={uniqueID}
+    >
       {text}
     </label>
   </>
@@ -92,6 +96,7 @@ export const FormGroupRadio = (props) => (
             status={props.status}
             value={option.value}
             onChange={props.onChange}
+            row
           />
         ))}
       </div>

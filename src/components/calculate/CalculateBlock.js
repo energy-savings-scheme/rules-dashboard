@@ -22,7 +22,10 @@ export default function CalculateBlock(props) {
     backAction,
   } = props;
 
+  console.log(formValues); // the questions
+
   const renderFormField = (formItem) => {
+    console.log(formItem);
     // This function checks the `value_type` attribute of the Variable
     // and renders the appropriate HTML input element.
 

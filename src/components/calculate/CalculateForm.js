@@ -50,7 +50,7 @@ export default function CalculateForm(props) {
       persons: { person1: {} },
       [entity.plural]: { [`${entity.name}_1`]: { [variable.name]: { [date]: null } } },
     };
-
+    console.log('.....variablee', variable);
     formValues.map((variable) => {
       const variable_entity = entities.find((item) => item.name === variable.entity);
 
@@ -59,12 +59,12 @@ export default function CalculateForm(props) {
       };
     });
 
-//    console.log(payload);
+    console.log('payload', payload);
 
     OpenFiscaApi.postCalculate(payload)
       .then((res) => {
         var result = res.data[entity.plural][`${entity.name}_1`][variable.name][date];
-        console.log(res.data)
+        console.log(res.data);
         setCalculationResult(result);
       })
       .catch((err) => {
@@ -82,10 +82,7 @@ export default function CalculateForm(props) {
     <form onSubmit={handleCalculate}>
       <div className="nsw-content-block">
         <div className="nsw-content-block__content">
-          <h2 className="nsw-content-block__title">
-            Calculate{' '}
-            {variable.metadata && variable.metadata.alias ? variable.metadata.alias : variable.name}
-          </h2>
+          <h2 className="nsw-content-block__title">Check if you meet the following requirements</h2>
         </div>
       </div>
 

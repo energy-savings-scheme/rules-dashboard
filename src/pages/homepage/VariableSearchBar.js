@@ -18,7 +18,7 @@ export default function VariableSearchBar(props) {
 
   return (
     <div
-      className="nsw-col nsw-col-md-6 nsw-offset-md-3"
+      className="nsw-col nsw-col-md-3 nsw-offset-md-3"
       style={{ marginTop: 80, marginBottom: 80 }}
     >
       <div className="nsw-form-search">

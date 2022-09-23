@@ -11,6 +11,8 @@ import ComparePage from 'pages/ComparePage';
 import Homepage from 'pages/homepage/Homepage';
 import SchedulePage from 'pages/SchedulePage';
 import VariablePage from 'pages/VariablePage';
+import BaseEligibilityCommercialAC from 'pages/commercial_ac/BaseEligibilityCommercialAcPage';
+import BaseEligibilityCommercialWH from 'pages/commercial_wh/BaseEligibilityCommercialWhPage';
 
 // Import components
 import Breadcrumb from 'components/layout/Breadcrumb';
@@ -27,6 +29,8 @@ import variable_tree from 'services/variable_tree.json';
 import 'nsw-design-system/src/main.scss';
 import '@fontsource/montserrat';
 import '@fontsource/montserrat/600.css';
+import CommercialAC from 'pages/commercial_ac/CommercialAcPage';
+import CommercialWH from 'pages/commercial_wh/CommercialWhPage';
 
 function App() {
   const [entities, setEntities] = useState([]);
@@ -66,12 +70,13 @@ function App() {
 
   return (
     <Router>
-      <Header />
+      <Header variables={variables} />
 
       {loading && <SpinnerFullscreen />}
 
       <Switch>
         <Route path="/" exact>
+          <Breadcrumb />
           <Homepage schedules={schedules} variables={variables} />
         </Route>
 
@@ -83,7 +88,6 @@ function App() {
           <Breadcrumb />
           <ActivityComparePage activities={activities} variables={variables} />
         </Route>
-
         <Route path="/calculate" exact>
           <Breadcrumb />
           <CalculatePage entities={entities} variables={variables} />
@@ -92,12 +96,34 @@ function App() {
           <Breadcrumb />
           <ComparePage entities={entities} variables={variables} />
         </Route>
-
+        <Route path="/commercialac" exact>
+          <Breadcrumb />
+          <CommercialAC entities={entities} variables={variables} />
+        </Route>
+        <Route path="/commercialwh" exact>
+          <Breadcrumb />
+          <CommercialWH entities={entities} variables={variables} />
+        </Route>
+        <Route path="/commercialwh/base_eligibility_commercialwh" exact>
+          <Breadcrumb />
+          <BaseEligibilityCommercialWH
+            entities={entities}
+            variables={variables}
+            variableToLoad="ESS__meets_overall_eligibility_requirements"
+          />
+        </Route>
+        <Route path="/commercialac/base_eligibility_commercialac" exact>
+          <Breadcrumb />
+          <BaseEligibilityCommercialAC
+            entities={entities}
+            variables={variables}
+            variableToLoad="ESS__meets_overall_eligibility_requirements"
+          />
+        </Route>
         <Route path="/variables/:variable_name" exact>
           <Breadcrumb />
           <VariablePage entities={entities} variables={variables} />
         </Route>
-
         <Route path="/schedules/:schedule_name" exact>
           <Breadcrumb />
           <SchedulePage schedules={schedules} variables={variables} />

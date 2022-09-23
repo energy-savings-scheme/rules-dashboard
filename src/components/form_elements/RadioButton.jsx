@@ -5,8 +5,8 @@ export default function RadioInput(props) {
   const { formItem, setItemValue } = props;
 
   const possibleValues = [
-    { value: false, text: 'False' },
-    { value: true, text: 'True' },
+    { value: true, text: 'Yes' },
+    { value: false, text: 'No' },
   ];
 
   if (formItem.form_value === '') {
@@ -15,10 +15,8 @@ export default function RadioInput(props) {
 
   return (
     <FormGroupRadio
-      label={formItem.description}
-      helper={
-        formItem.metadata && formItem.metadata.alias ? formItem.metadata.alias : formItem.name
-      }
+      // label={formItem.description}
+      helper={formItem.description}
       options={possibleValues}
       htmlId={formItem.name}
       form_value={formItem.form_value}

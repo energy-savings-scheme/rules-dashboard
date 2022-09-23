@@ -16,23 +16,35 @@ export default function Footer() {
             footerLinks={[
               {
                 url: '#',
-                text: 'Tertiary',
+                text: 'Accessibility',
               },
               {
                 url: '#',
-                text: 'Tertiary',
+                text: 'Copyright',
               },
               {
                 url: '#',
-                text: 'Tertiary',
+                text: 'Disclaimer',
               },
               {
                 url: '#',
-                text: 'Tertiary',
+                text: 'Privacy',
+              },
+              {
+                url: '#',
+                text: 'Content Sources',
+              },
+              {
+                url: '#',
+                text: 'RSS',
+              },
+              {
+                url: '#',
+                text: 'Contact Us',
               },
             ]}
           />
-          <p>Copyright © 2019</p>
+          <p>Copyright © 2022</p>
         </div>
       </FooterLower>
     </FooterNSW>

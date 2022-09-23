@@ -1,29 +1,29 @@
 [
-	{
-		"appliance": "Washing Machine",
-		"reference": "Clause 9.3 Schedule B1",
-		"requirement": [
-			{
-				"rule1": "blah"
-			}
-		]
-	},
-	{
-		"appliance": "Clothes Dryer",
-		"reference": "Clause 9.3 Schedule B2",
-		"requirement": [
-			{
-				"rule1": "blah"
-			}
-		]
-	},
-	{
-		"appliance": "Dish Washer",
-		"reference": "Clause 9.3 Schedule B3",
-		"requirement": [
-			{
-				"rule1": "blah"
-			}
-		]
-	}
+  {
+    "appliance": "Washing Machine",
+    "reference": "Clause 9.3 Schedule B1",
+    "requirement": [
+      {
+        "rule1": "blah"
+      }
+    ]
+  },
+  {
+    "appliance": "Clothes Dryer",
+    "reference": "Clause 9.3 Schedule B2",
+    "requirement": [
+      {
+        "rule1": "blah"
+      }
+    ]
+  },
+  {
+    "appliance": "Dish Washer",
+    "reference": "Clause 9.3 Schedule B3",
+    "requirement": [
+      {
+        "rule1": "blah"
+      }
+    ]
+  }
 ]

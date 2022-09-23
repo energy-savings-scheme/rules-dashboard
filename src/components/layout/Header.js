@@ -1,49 +1,50 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { MainNav } from 'nsw-ds-react/main-nav/mainNav';
+import { Breadcrumbs } from 'nsw-ds-react/breadcrumbs/breadcrumb';
+import VariableSearchBar from 'pages/homepage/VariableSearchBar';
 
-export default function Header() {
+export default function Header(props) {
+  const { variables } = props;
   return (
     <Fragment>
-      <div className="nsw-masthead" style={{ marginBottom: 20 }}>
+      <div className="nsw-masthead" style={{ marginBottom: 20, backgroundColor: '#ffffff' }}>
         <div className="nsw-container">
           <div className="nsw-row">
             <div className="nsw-col">
-              <p>A NSW Government website</p>
-            </div>
-
-            <div className="nsw-col">
               <Link to="/" className="nsw-header__logo-link">
-                <img
-                  src="/logo.png"
-                  alt="NSW Department of Planing Industry and Environment"
-                  height="80"
-                />
-                <span className="sr-only">NSW Department of Planing Industry and Environment</span>
+                <img src="/PRIMARY-nsw-logo.png" height="80" />
               </Link>
-            </div>
-
-            <div className="nsw-col">
-              <h3 style={{ fontSize: '2rem', marginLeft: '1rem' }}>Safeguard Dashboard</h3>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Breadcrumb */}
+      <div className="nsw-layout">
+        <MainNav
+          megaMenu
+          navItems={[
+            {
+              description: 'Filium morte multavit si sine causa? quae fuerit causa, nollem.',
+              text: 'Home',
+              url: '/',
+            },
+            {
+              text: 'Safeguard Digital Tools',
+              url: '/',
+            },
+            {
+              text: 'Energy Savings Scheme',
+              url: '/',
+            },
+            {
+              text: 'Peak Demand Reduction Scheme',
+              url: '/',
+            },
+          ]}
+        />
+      </div>
+      {/* </div> */}
     </Fragment>
   );
-
-  // return (
-  //   <header className="App-header">
-  //     <h1>
-  //       <Link to="/">ESS Rules Dashboard</Link>
-  //       {/* DPIE{" "}
-  // 			<a
-  // 				className='Rules-link'
-  // 				href='https://www.ess.nsw.gov.au/Home/Document-Search/Legislation/Energy-Savings-Scheme-Rule-of-2009/Energy-Savings-Scheme-Rule-of-2009-30-March-2020'>
-  // 				Energy Saving Scheme (ESS) Rules
-  // 			</a>{" "} */}
-  //     </h1>
-  //   </header>
-  // );
 }

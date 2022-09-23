@@ -24,11 +24,11 @@
       },
     "alias":"Number Of ESCs",
     "meta-data":{
-      "activity-ref": "Clause 6.5"
+      "activity-ref": "Clause 6.5",
       "major-category":"General ESS",
-      "sub-category": ""
+      "sub-category": "",
       "item-position": "",
-      "variable-position": "output",
+      "variable-position": "output"
       }
   },
   "CDD_15": {
@@ -45,11 +45,11 @@
       "formulas":{"0001-01-01":{"source":"https://github.com/openfisca/country-template/blob/0.8.0/openfisca_nsw_ess_nabers/variables/energy_savings_scheme/NABERS_offices/nabers_office_shared_library_of_terms.py#L94-L96","content":"def formula(buildings, period, parameters):\n    postcode = buildings('postcode', period)\n    return parameters(period).energy_savings_scheme.NABERS_offices.cdd[postcode]  # This is a built in OpenFisca function that is used to calculate a single value for regional network factor based on a zipcode provided\n"}},},
     "alias":"Number Of Cooling Days",
     "meta-data":{
-      "activity-ref": ""
+      "activity-ref": "",
       "major-category":"NABERS",
-      "sub-category": "offices"
+      "sub-category": "offices",
       "item-position": "",
-      "variable-position": "intermediate",
+      "variable-position": "intermediate"
     }
 
   },
@@ -60,11 +60,11 @@
     "details":{"id":"built_after_nov_2006","description":"Was the building built on or after 1 November 2006?","valueType":"Boolean","defaultValue":false,"definitionPeriod":"ETERNITY","entity":"building","source":"https://github.com/openfisca/country-template/blob/0.8.0/openfisca_nsw_ess_nabers/variables/energy_savings_scheme/NABERS_ESS/step_two.py#L135-L139"},
     "alias":"Built After 01-11-2006?",
     "meta-data":{
-      "activity-ref": ""
+      "activity-ref": "",
       "major-category":"NABERS",
-      "sub-category": ""
+      "sub-category": "",
       "item-position": "",
-      "variable-position": "input",
+      "variable-position": "input"
     }
   },
 
@@ -74,11 +74,11 @@
     "details":{"id":"E1_small_business_savings_factor","description":"Returns the relevant savings factor for the existing and new lamp for residential replacements.","valueType":"Float","defaultValue":0,"definitionPeriod":"ETERNITY","entity":"building","source":"https://github.com/openfisca/country-template/blob/0.8.0/openfisca_nsw_ess_heer/variables/Home Energy Efficiency Retrofits (HEER)/act_definition_E1/E1_energy_savings.py#L29-L48","formulas":{"0001-01-01":{"source":"https://github.com/openfisca/country-template/blob/0.8.0/openfisca_nsw_ess_heer/variables/Home Energy Efficiency Retrofits (HEER)/act_definition_E1/E1_energy_savings.py#L36-L48","content":"def formula(buildings, period, parameters):\n    existing_lamp_type = buildings('existing_lamp_type', period)\n    new_lamp_type = buildings('new_lamp_type', period)\n    new_lamp_circuit_power = buildings('new_lamp_circuit_power', period)\n    lamp_rating_power = select([new_lamp_circuit_power <= 5,\n    new_lamp_circuit_power > 5 and new_lamp_circuit_power <= 10,\n    new_lamp_circuit_power > 10 and new_lamp_circuit_power <= 15],\n    [\"under_or_equal_to_five_watts\",\n    \"under_or_equal_to_ten_watts\",\n    \"under_or_equal_to_fifteen_watts\"])\n    small_business_building_savings_factor = (parameters(period).table_E1_2.small_business_savings_factor\n    [existing_lamp_type][new_lamp_type][lamp_rating_power])\n    return small_business_building_savings_factor\n"}}},
     "alias":"Small Buisness Savings Factor",
     "meta-data":{
-      "activity-ref": ""
+      "activity-ref": "",
       "major-category":"Schedule E Low Cost Activities for Home Energy Efficiency Retrofits (clause 9.8)",
-      "sub-category": "E1 REPLACE HALOGEN DOWNLIGHT WITH AN LED LUMINAIRE AND/OR LAMP"
+      "sub-category": "E1 REPLACE HALOGEN DOWNLIGHT WITH AN LED LUMINAIRE AND/OR LAMP",
       "item-position": "",
-      "variable-position": "intermediate",
+      "variable-position": "intermediate"
     }
 },
 
@@ -89,11 +89,11 @@
     "details":{"id":"existing_lamp_is_tungsten_halogen_240V_or_ELV_or_infrafred_ELV","description":"Asks whether the existing lamp is a Infrared Coated Halogen Lamp, as required in Eligiblity Requirement 1 in Activity Definition E1, and defined in Table A9.1.","valueType":"Boolean","defaultValue":false,"definitionPeriod":"ETERNITY","entity":"building","source":"https://github.com/openfisca/country-template/blob/0.8.0/openfisca_nsw_ess_heer/variables/Home Energy Efficiency Retrofits (HEER)/act_definition_E1/E1_eligibility_requirements.py#L7-L21","formulas":{"0001-01-01":{"source":"https://github.com/openfisca/country-template/blob/0.8.0/openfisca_nsw_ess_heer/variables/Home Energy Efficiency Retrofits (HEER)/act_definition_E1/E1_eligibility_requirements.py#L15-L21","content":"def formula(buildings, period, parameters):\n    existing_lamp_type = buildings('existing_lamp_type', period)\n    EquipmentClassStatus = existing_lamp_type.possible_values  # imports functionality of Table A9.1 and Table A9.3 to define existing lamp type\n    is_tungsten_halogen_240V = (existing_lamp_type == EquipmentClassStatus.tungsten_halogen_240V)\n    is_tungsten_halogen_ELV = (existing_lamp_type == EquipmentClassStatus.tungsten_halogen_ELV)\n    is_infrared_coated_ELV = (existing_lamp_type == EquipmentClassStatus.infrared_coated_ELV)\n    return is_tungsten_halogen_240V + is_tungsten_halogen_ELV + is_infrared_coated_ELV\n"}}},
     "alias":"Type of Existing Lamp",
     "meta-data":{
-      "activity-ref": "Clause 9.8"
+      "activity-ref": "Clause 9.8",
       "major-category":"Schedule E Low Cost Activities for Home Energy Efficiency Retrofits (clause 9.8)",
-      "sub-category": "E1 REPLACE HALOGEN DOWNLIGHT WITH AN LED LUMINAIRE AND/OR LAMP"
+      "sub-category": "E1 REPLACE HALOGEN DOWNLIGHT WITH AN LED LUMINAIRE AND/OR LAMP",
       "item-position": "Eligibility Requirement",
-      "variable-position": "intermediate",
+      "variable-position": "intermediate"
     }
 },
 
@@ -104,7 +104,7 @@
     "details":{},
     "alias":"Rating of Existing Lamp",
     "meta-data":{
-      "activity-ref": "Clause 9.8"
+      "activity-ref": "Clause 9.8",
       "major-category":"Schedule E Low Cost Activities for Home Energy Efficiency Retrofits (clause 9.8)",
       "sub-category": "E1 REPLACE HALOGEN DOWNLIGHT WITH AN LED LUMINAIRE AND/OR LAMP",
       "item-position": "Eligibility requirement",
@@ -118,10 +118,10 @@
     "details":{},
     "alias":"Rating of Existing Lamp",
     "meta-data":{
-      "activity-ref": "Clause 9.8"
+      "activity-ref": "Clause 9.8",
       "major-category":"Schedule E Low Cost Activities for Home Energy Efficiency Retrofits (clause 9.8)",
       "sub-category": "E1 REPLACE HALOGEN DOWNLIGHT WITH AN LED LUMINAIRE AND/OR LAMP",
-      "item-position": "Eligibility requirement"
+      "item-position": "Eligibility requirement",
       "variable-position": "input"
     }
   },

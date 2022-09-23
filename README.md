@@ -2,17 +2,17 @@
 
 This is the frontend application for the Energy Security Safeguard "Rules Dashboard".
 
-
 Functionality:
+
 - Presents the contents of the ["openfisca_nsw_safeguard"](https://github.com/energy-savings-scheme/openfisca_nsw_safeguard) OpenFisca ruleset in a graphical frontend web application.
 - Displays relationships between OpenFisca Variables. This includes the ability to compare Variables.
 - Performs calculations on OpenFisca Variables.
 
 ![image](https://user-images.githubusercontent.com/33742989/126919827-e55d93b7-6486-4317-9cbe-94e6feab12f4.png)
 **Application stack**
-* The "Rule Dashboard" repo assumes the above application stack.
-* The stack comprises of the ['OpenFisca-Core API'](https://github.com/energy-savings-scheme/openfisca_nsw_safeguard) and the ['Django API'](https://github.com/energy-savings-scheme/openfisca-djangoapi) 
 
+- The "Rule Dashboard" repo assumes the above application stack.
+- The stack comprises of the ['OpenFisca-Core API'](https://github.com/energy-savings-scheme/openfisca_nsw_safeguard) and the ['Django API'](https://github.com/energy-savings-scheme/openfisca-djangoapi)
 
 ## To serve locally:
 
@@ -22,7 +22,6 @@ Installation process may differ on Windows/Mac/Linux. If unsure, Google the step
 
 - Node.JS and NPM (https://www.npmjs.com/get-npm)
 - Yarn (https://classic.yarnpkg.com/en/docs/install/#debian-stable)
-
 
 #### Launch the app locally
 
