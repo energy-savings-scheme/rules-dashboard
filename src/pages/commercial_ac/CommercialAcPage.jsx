@@ -69,7 +69,6 @@ export default function CommercialAC(props) {
               headline="Review schemes base eligibility, activity requirements and estimate certificates"
               link="base_eligibility_commercialac/"
               image="/commercialac/baseeleg.jpeg"
-              content
             >
               {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
                 Review schemes base eligibility, activity requirements and estimate certificates</b></p> */}
@@ -80,7 +79,6 @@ export default function CommercialAC(props) {
               headline="Check activity requirements and estimate certificates"
               link="compare"
               image="/commercialac/actelig.jpeg"
-              content
             >
               {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
             Check activity requirements and estimate certificates</b></p> */}
@@ -91,7 +89,6 @@ export default function CommercialAC(props) {
               link="compare"
               image="/commercialac/certlogo.jpeg"
               headline="Estimate certificates only"
-              content
             >
               {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
           Estimate certificates only</b></p> */}

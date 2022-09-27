@@ -7,7 +7,7 @@ import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 import LoadClauses from './LoadClauses';
 
-export default function BaseEligibilityCommercialAC(props) {
+export default function ActivityRequirementsCommercialAC(props) {
   const { entities, variables, variableToLoad } = props;
   console.log(variableToLoad);
 
@@ -65,23 +65,19 @@ export default function BaseEligibilityCommercialAC(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-              Energy Savings Scheme and Peak Demand Reduction Scheme Certificate Estimator
+            Energy Savings Scheme and Peak Demand Reduction Scheme Certificate Estimator
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-              <b>Base eligibility requirements </b>
+              <b>Commercial heat pump water heater activity requirements</b>
             </p>
             <p className="nsw-content-block__copy">
-              The following questions assess the basic eligibility requirements for the Energy
-              Savings Scheme and Peak Demand Reduction Scheme. Answer the questions and click the
-              button below to check your eligibility. If ineligible, you will be shown the
-              ineligible answers and their corresponding rule clauses.
-            </p>
+            The following questions assess the eligibility requirements for the Commercial Heat Pump Water Heater Activity (F16 in the ESS and WH1 in the PDRS). Answer the questions to check your eligibility and click the button below to review ineligible answers and their corresponding rule clauses.            </p>
           </div>
         </div>
 
         <p className="nsw-content-block__copy">
-          <b> Schemes base eligibility check progress </b>
+          <b> Commercial heat pump water heater eligibility check progress </b>
         </p>
         <ProgressIndicator step={stepNumber} of={2} />
 
@@ -94,13 +90,13 @@ export default function BaseEligibilityCommercialAC(props) {
             // calculationResult={calculationResult}
             // setCalculationResult={setCalculationResult}
             // setCalculationError={setCalculationError}
-            stepNumber={stepNumber}
-            setStepNumber={setStepNumber}
+            // stepNumber={stepNumber}
+            // setStepNumber={setStepNumber}
             // formValues={formValues}
             // setFormValues={setFormValues}
-            backAction={(e) => {
-              setStepNumber(stepNumber - 1);
-            }}
+            // backAction={(e) => {
+            //   setStepNumber(stepNumber - 1);
+            // }}
           />
         </Fragment>
 

@@ -13,12 +13,12 @@ import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progres
 import OpenFiscaApi from 'services/openfisca_api';
 
 export default function LoadClauses(props) {
-  const { variableToLoad, variables, entities } = props;
+  const { variableToLoad, variables, entities, setStepNumber, stepNumber } = props;
 
   console.log(variableToLoad);
 
   const [dropdownOptions, setDropdownOptions] = useState([{}]);
-  const [stepNumber, setStepNumber] = useState(1);
+  // const [stepNumber, setStepNumber] = useState(1);
   const [variable, setVariable] = useState({}); // all info about variable
 
   var today = new Date();
@@ -186,7 +186,7 @@ export default function LoadClauses(props) {
               </div>
             )}
 
-            {calculationError && (
+            {stepNumber === 2 && calculationError && (
               <Notification as="error" title="Sorry! An error has occurred.">
                 <p>
                   An error occurred during calculation. Try choosing a more recent Date and
