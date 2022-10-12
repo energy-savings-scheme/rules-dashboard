@@ -13,6 +13,7 @@ export default function Homepage(props) {
   return (
     <Fragment>
       {/* Search section */}
+      <br></br>
       <div className="nsw-layout">
         <div className="nsw-row">
           <figure
@@ -36,7 +37,7 @@ export default function Homepage(props) {
       </div>
 
       <div class="nsw-section nsw-section--white">
-        <div class="nsw-container" style={{ padding: 0 }}>
+        <div class="nsw-container">
           <div class="nsw-layout">
             <div class="nsw-layout__main">
               <div className="nsw-grid nsw-grid--spaced">
@@ -72,7 +73,7 @@ export default function Homepage(props) {
       </div>
 
       <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
-        <div class="nsw-container">
+        <div class="nsw-container" style={{ paddingBottom: '4rem'}}>
           <div class="nsw-layout">
             <div class="nsw-layout__main">
               <br></br>
@@ -96,7 +97,7 @@ export default function Homepage(props) {
                 </div>
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
                   <Card
-                    headline="Spare Refigerator or Freezer"
+                    headline="Spare Refrigerator or Freezer"
                     link="compare"
                     image="/ResidentialRefrigeratorFreezer.jpeg"
                   >

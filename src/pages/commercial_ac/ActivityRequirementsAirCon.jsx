@@ -13,6 +13,7 @@ export default function ActivityRequirementsCommercialAC(props) {
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
+  const [dependencies, setDependencies] = useState([]);
 
   console.log(variables);
 
@@ -27,12 +28,20 @@ export default function ActivityRequirementsCommercialAC(props) {
 
       // Define the original array (at a minimum include the Implementation Date)
       var array = [];
+      var dep_arr = [];
 
       children.map((child) => {
-        array.push({ ...child, form_value: '', invalid: false });
+        console.log(child);
+
+        if (child.metadata.conditional === 'True') {
+          dep_arr.push({ ...child, form_value: '', invalid: false })
+        } else {
+          array.push({...child, form_value: '', invalid: false})
+        }
       });
 
       setFormValues(array);
+      setDependencies(dep_arr);
     }
   }, [variables]);
 
@@ -90,13 +99,14 @@ export default function ActivityRequirementsCommercialAC(props) {
             // calculationResult={calculationResult}
             // setCalculationResult={setCalculationResult}
             // setCalculationError={setCalculationError}
-            // stepNumber={stepNumber}
-            // setStepNumber={setStepNumber}
-            // formValues={formValues}
-            // setFormValues={setFormValues}
-            // backAction={(e) => {
-            //   setStepNumber(stepNumber - 1);
-            // }}
+            dependencies={dependencies}
+            stepNumber={stepNumber}
+            setStepNumber={setStepNumber}
+            formValues={formValues}
+            setFormValues={setFormValues}
+            backAction={(e) => {
+              setStepNumber(stepNumber - 1);
+            }}
           />
         </Fragment>
 
@@ -135,7 +145,6 @@ export default function ActivityRequirementsCommercialAC(props) {
             </Card>
           </div>
         </div>
-
         <div className="nsw-grid" style={{ backgroundColor: '#F2F2F2' }}>
           <h2 className="nsw-col nsw-content-block__title">
             Check your eligibility and estimate certificates

@@ -13,6 +13,7 @@ import SchedulePage from 'pages/SchedulePage';
 import VariablePage from 'pages/VariablePage';
 import BaseEligibilityCommercialAC from 'pages/commercial_ac/BaseEligibilityCommercialAcPage';
 import BaseEligibilityCommercialWH from 'pages/commercial_wh/BaseEligibilityCommercialWhPage';
+import ActivityRequirementsCommercialAC from 'pages/commercial_ac/ActivityRequirementsAirCon';
 
 // Import components
 import Breadcrumb from 'components/layout/Breadcrumb';
@@ -27,10 +28,11 @@ import variable_tree from 'services/variable_tree.json';
 // Import styles
 //import './styles/App.css';
 import 'nsw-design-system/src/main.scss';
-import '@fontsource/montserrat';
-import '@fontsource/montserrat/600.css';
+import '@fontsource/public-sans';
+import '@fontsource/public-sans/600.css';
 import CommercialAC from 'pages/commercial_ac/CommercialAcPage';
 import CommercialWH from 'pages/commercial_wh/CommercialWhPage';
+
 
 function App() {
   const [entities, setEntities] = useState([]);
@@ -109,7 +111,7 @@ function App() {
           <BaseEligibilityCommercialWH
             entities={entities}
             variables={variables}
-            variableToLoad="ESS__meets_overall_eligibility_requirements"
+            variableToLoad="ESS__PDRS__ACP_base_scheme_eligibility"
           />
         </Route>
         <Route path="/commercialac/base_eligibility_commercialac" exact>
@@ -117,7 +119,15 @@ function App() {
           <BaseEligibilityCommercialAC
             entities={entities}
             variables={variables}
-            variableToLoad="ESS__meets_overall_eligibility_requirements"
+            variableToLoad="ESS__PDRS__ACP_base_scheme_eligibility"
+          />
+        </Route>
+        <Route path="/commercialac/activity-requirements" exact>
+          <Breadcrumb />
+          <ActivityRequirementsCommercialAC
+            entities={entities}
+            variables={variables}
+            variableToLoad="HVAC2_installation_replacement_final_activity_eligibility"
           />
         </Route>
         <Route path="/variables/:variable_name" exact>

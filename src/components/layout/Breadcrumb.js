@@ -207,6 +207,46 @@ export default function Breadcrumb() {
     );
   }
 
+
+  if (location.pathname === '/commercialac/activity-requirements/') {
+    return (
+      <div className="nsw-container" style={{ marginBottom: 20 }}>
+        <nav aria-label="Breadcrumb" className="nsw-breadcrumb">
+          <ol className="nsw-breadcrumb__list">
+            <li className="nsw-breadcrumb__item">
+              <NavLink to="/" className="nsw-breadcrumb__link">
+                Home
+              </NavLink>
+            </li>
+            <li className="nsw-breadcrumb__item">
+              <NavLink to="/" className="nsw-breadcrumb__link">
+                Safeguard Digital Tools
+              </NavLink>
+            </li>
+            <li className="nsw-breadcrumb__item">
+              <NavLink to="/" className="nsw-breadcrumb__link">
+                Certificate Estimator
+              </NavLink>
+            </li>
+            <li className="nsw-breadcrumb__item">
+              <NavLink to="/compare2activities" className="nsw-breadcrumb__link">
+                Commercial Air Conditioners
+              </NavLink>
+            </li>
+            <li className="nsw-breadcrumb__item">
+              <NavLink
+                to="/compare2activities"
+                className="nsw-breadcrumb__link nsw-breadcrumb--current"
+              >
+                Activity Eligibility
+              </NavLink>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    );
+  }
+
   if (location.pathname === '/activities') {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>

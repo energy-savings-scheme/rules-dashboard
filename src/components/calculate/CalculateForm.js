@@ -17,6 +17,7 @@ export default function CalculateForm(props) {
     stepNumber,
     setStepNumber,
     backAction,
+    dependencies
   } = props;
   var { formValues } = props;
 
@@ -50,7 +51,7 @@ export default function CalculateForm(props) {
       persons: { person1: {} },
       [entity.plural]: { [`${entity.name}_1`]: { [variable.name]: { [date]: null } } },
     };
-    console.log('.....variablee', variable);
+    // console.log('.....variablee', variable);
     formValues.map((variable) => {
       const variable_entity = entities.find((item) => item.name === variable.entity);
 
@@ -82,26 +83,25 @@ export default function CalculateForm(props) {
     <form onSubmit={handleCalculate}>
       <div className="nsw-content-block">
         <div className="nsw-content-block__content">
-          <h2 className="nsw-content-block__title">Check if you meet the following requirements</h2>
+          <h2 className="nsw-content-block__title">
+            Check if you meet the following requirements 
+          </h2>
         </div>
       </div>
 
       {props.children}
 
-      <div className="nsw-row">
-        <div className="nsw-col">
-          <Button as="secondary" onClick={backAction}>
-            Back
-          </Button>
-          <Button as="primary" type="submit" style={{ float: 'right' }}>
+      <div className="nsw-grid">
+        <div className="nsw-col-md-7">
+          <Button as="primary" type="submit" style={{float: 'right'}}>
             {loading ? (
               <Spinner animation="border" role="status" size="lg">
                 <span className="sr-only">Loading...</span>
               </Spinner>
             ) : calculationResult ? (
-              'Calculate again'
+              'Check eligibility again'
             ) : (
-              'Calculate'
+              'Check eligibility'
             )}
           </Button>
         </div>

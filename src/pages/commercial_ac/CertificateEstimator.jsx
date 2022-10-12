@@ -6,50 +6,47 @@ import Card, { CardCopy } from 'nsw-ds-react/card/card';
 import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 import LoadClauses from './LoadClauses';
+import DropDownMenu from 'components/form_elements/DropDownMenu';
 
-export default function BaseEligibilityCommercialAC(props) {
+export default function CertificateEstimatorHVAC(props) {
   const { entities, variables, variableToLoad } = props;
+  console.log(variableToLoad);
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
   const [dependencies, setDependencies] = useState([]);
+
+  console.log(variables);
 
   useEffect(() => {
     if (variables) {
       const variable = variables.find((item) => item.name === variableToLoad);
       console.log(variable);
       const offsprings = variable.metadata.input_offspring;
-
       console.log(offsprings);
       const children = variables.filter((item) => offsprings.includes(item.name));
       console.log(children);
 
       // Define the original array (at a minimum include the Implementation Date)
       var array = [];
-
       var dep_arr = [];
 
       children.map((child) => {
         console.log(child);
-        const dependency = child.metadata.conditional === 'True'
-        console.log(dependency);
 
-        if (child.metadata.conditional == 'True') {
+        if (child.metadata.conditional === 'True') {
           dep_arr.push({ ...child, form_value: '', invalid: false })
         } else {
           array.push({...child, form_value: '', invalid: false})
         }
       });
 
-      console.log(array);
-      console.log(dep_arr);
-
       setFormValues(array);
       setDependencies(dep_arr);
-    
     }
   }, [variables]);
 
+  console.log(formValues);
 
   return (
     <Fragment>
@@ -78,28 +75,27 @@ export default function BaseEligibilityCommercialAC(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-              Energy Savings Scheme and Peak Demand Reduction Scheme Certificate Estimator
+            Energy Savings Scheme and Peak Demand Reduction Scheme Certificate Estimator
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-              <b>Base eligibility requirements </b>
+              <b>Commercial heat pump water heater activity requirements</b>
             </p>
             <p className="nsw-content-block__copy">
-              The following questions assess the basic eligibility requirements for the Energy
-              Savings Scheme and Peak Demand Reduction Scheme. Answer the questions and click the
-              button below to check your eligibility. If ineligible, you will be shown the
-              ineligible answers and their corresponding rule clauses.
-            </p>
+            The following questions assess the eligibility requirements for the Commercial Heat Pump Water Heater Activity (F16 in the ESS and WH1 in the PDRS). Answer the questions to check your eligibility and click the button below to review ineligible answers and their corresponding rule clauses.            </p>
           </div>
         </div>
 
         <p className="nsw-content-block__copy">
-          <b> Schemes base eligibility check progress </b>
+          <b> Commercial heat pump water heater eligibility check progress </b>
         </p>
         <ProgressIndicator step={stepNumber} of={2} />
 
         <Fragment>
-          <LoadClauses
+
+        <DropDownMenu formItem={formItem} setItemValue={setItemValue} />;
+            
+          {/* <LoadClauses
             // calculationDate={calculationDate}
             variableToLoad={variableToLoad}
             variables={variables}
@@ -107,15 +103,15 @@ export default function BaseEligibilityCommercialAC(props) {
             // calculationResult={calculationResult}
             // setCalculationResult={setCalculationResult}
             // setCalculationError={setCalculationError}
+            dependencies={dependencies}
             stepNumber={stepNumber}
             setStepNumber={setStepNumber}
             formValues={formValues}
-            dependencies={dependencies}
             setFormValues={setFormValues}
             backAction={(e) => {
               setStepNumber(stepNumber - 1);
             }}
-          />
+          /> */}
         </Fragment>
 
         {/* <div className="nsw-grid">
@@ -153,7 +149,6 @@ export default function BaseEligibilityCommercialAC(props) {
             </Card>
           </div>
         </div>
-
         <div className="nsw-grid" style={{ backgroundColor: '#F2F2F2' }}>
           <h2 className="nsw-col nsw-content-block__title">
             Check your eligibility and estimate certificates
@@ -196,52 +191,6 @@ export default function BaseEligibilityCommercialAC(props) {
         ))}
       </div> */}
       </div>
-      <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
-        <div class="nsw-container" style={{ paddingBottom: '4rem' }}>
-          <div class="nsw-layout">
-            <div class="nsw-layout__main">
-              <br></br>
-              <br></br>
-              <h2 className="nsw-col nsw-content-block__title">
-                Check your eligibility and estimate certificates
-              </h2>
-              <br></br>
-              <div class="nsw-grid">
-                <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Review schemes base eligibility, activity requirements and estimate certificates"
-                    link="base_eligibility_commercialac/"
-                    image="/commercialac/navigation_row/full_flow_card.jpeg"
-                  >
-                    {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
-                        Review schemes base eligibility, activity requirements and estimate certificates</b></p> */}
-                  </Card>
-                </div>
-                <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Check activity requirements and estimate certificates"
-                    link="activity-requirements/"
-                    image="/commercialac/navigation_row/activity_certificates.png"
-                  >
-                    {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
-                        Check activity requirements and estimate certificates</b></p> */}
-                  </Card>
-                </div>
-                <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Estimate certificates only"
-                    link="compare2activities"
-                    image="/commercialac/navigation_row/certificates_only.jpg"
-                  >
-                    {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
-                        Estimate certificates only</b></p> */}
-                  </Card>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </Fragment>
   );
 }

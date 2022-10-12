@@ -13,7 +13,7 @@ import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progres
 import OpenFiscaApi from 'services/openfisca_api';
 
 export default function LoadClauses(props) {
-  const { variableToLoad, variables, entities, setStepNumber, stepNumber } = props;
+  const { variableToLoad, variables, entities, setStepNumber, stepNumber, formValues, setFormValues, dependencies } = props;
 
   console.log(variableToLoad);
 
@@ -28,7 +28,7 @@ export default function LoadClauses(props) {
   const [calculationResult, setCalculationResult] = useState(null);
   const [calculationError, setCalculationError] = useState(false);
 
-  const [formValues, setFormValues] = useState([]);
+  // const [formValues, setFormValues] = useState([]);
   const [loading, setLoading] = useState(true);
 
   //   const populateDropDown = (newOption) => {
@@ -54,23 +54,23 @@ export default function LoadClauses(props) {
   //       .forEach((item) => populateDropDown({ text: item.metadata.alias, value: item.name }));
   //   }, [variables]);
 
-  useEffect(() => {
-    if (variable && variable.name) {
-      const offsprings = variable.metadata.input_offspring;
-      const children = variables.filter((item) => offsprings.includes(item.name));
+  // useEffect(() => {
+  //   if (variable && variable.name) {
+  //     const offsprings = variable.metadata.input_offspring;
+  //     const children = variables.filter((item) => offsprings.includes(item.name));
 
-      // Define the original array (at a minimum include the Implementation Date)
-      var array = [];
+  //     // Define the original array (at a minimum include the Implementation Date)
+  //     var array = [];
 
-      children.map((child) => {
-        array.push({ ...child, form_value: '', invalid: false });
-      });
+  //     children.map((child) => {
+  //       array.push({ ...child, form_value: '', invalid: false });
+  //     });
 
-      setFormValues(array);
-    }
-  }, [variable]);
+  //     setFormValues(array);
+  //   }
+  // }, [variable]);
 
-  console.log(formValues);
+  // console.log(formValues);
 
   const formatResultString = (result) => {
     if (typeof result === 'boolean') {
@@ -83,7 +83,7 @@ export default function LoadClauses(props) {
   if (!variable) return null;
 
   return (
-    <div className="nsw-container">
+    <div className>
       <div style={{ marginTop: 70, marginBottom: 70 }}>
         {stepNumber === 1 && (
           <Fragment>
@@ -157,6 +157,8 @@ export default function LoadClauses(props) {
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}
+              dependencies={dependencies}
+              // dependencyMapping={dependencyMapping}
             />
           </Fragment>
         )}

@@ -48,6 +48,7 @@ export default function CommercialAC(props) {
         </div> */}
       </div>
       <br></br>
+      <br></br>
       <div className="nsw-container">
         <div className="nsw-grid nsw-grid--spaced">
           <div className="nsw-col nsw-col-md-12">
@@ -77,7 +78,7 @@ export default function CommercialAC(props) {
           <div className="nsw-col nsw-col-md-4">
             <Card
               headline="Check activity requirements and estimate certificates"
-              link="compare"
+              link="activity-requirements/"
               image="/commercialac/actelig.jpeg"
             >
               {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
@@ -96,8 +97,11 @@ export default function CommercialAC(props) {
           </div>
         </div>
       </div>
+      <br></br>
+      <br></br>
+      <br></br>
       <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
-        <div class="nsw-container">
+        <div class="nsw-container" style={{ paddingBottom: '4rem' }}>
           <div class="nsw-layout">
             <div class="nsw-layout__main">
               <br></br>
@@ -105,6 +109,7 @@ export default function CommercialAC(props) {
               <h2 className="nsw-col nsw-content-block__title">
                 Check your eligibility and estimate certificates
               </h2>
+              <br></br>
               <div class="nsw-grid">
                 <div className="nsw-col nsw-col-md-4">
                   <Card
@@ -119,7 +124,7 @@ export default function CommercialAC(props) {
                 <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Check activity requirements and estimate certificates"
-                    link="compare2activities"
+                    link="activity-requirements/"
                     image="/commercialac/navigation_row/activity_certificates.png"
                   >
                     {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>

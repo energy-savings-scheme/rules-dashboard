@@ -11,7 +11,7 @@ export default function Header(props) {
       <div className="nsw-masthead" style={{ marginBottom: 20, backgroundColor: '#ffffff' }}>
         <div className="nsw-container">
           <div className="nsw-row">
-            <div className="nsw-col">
+            <div className="nsw-col" style={{ padding: 'inherit'}}>
               <Link to="/" className="nsw-header__logo-link">
                 <img src="/PRIMARY-nsw-logo.png" height="80" />
               </Link>

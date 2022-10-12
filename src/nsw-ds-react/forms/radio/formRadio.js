@@ -72,7 +72,7 @@ export const FormGroupRadio = (props) => (
     <fieldset className="nsw-form-fieldset" aria-invalid={props.status === 'invalid' ? 'true' : ''}>
       {props.as === 'group' ? (
         <legend>
-          <span className="nsw-form-legend-text">{props.label}</span>
+          <span className="nsw-form-legend-text" style={{ fontSize: '16px'}}>{props.label}</span>
           {props.helper ? <FormHelper htmlId={props.htmlId}>{props.helper}</FormHelper> : ''}
           {props.status === 'invalid' ? (
             <FormHelper htmlId={props.htmlId} error>
