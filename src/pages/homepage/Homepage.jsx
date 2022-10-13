@@ -73,7 +73,7 @@ export default function Homepage(props) {
       </div>
 
       <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
-        <div class="nsw-container" style={{ paddingBottom: '4rem'}}>
+        <div class="nsw-container" style={{ paddingBottom: '4rem' }}>
           <div class="nsw-layout">
             <div class="nsw-layout__main">
               <br></br>

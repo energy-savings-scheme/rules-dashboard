@@ -33,7 +33,6 @@ import '@fontsource/public-sans/600.css';
 import CommercialAC from 'pages/commercial_ac/CommercialAcPage';
 import CommercialWH from 'pages/commercial_wh/CommercialWhPage';
 
-
 function App() {
   const [entities, setEntities] = useState([]);
   const [variables, setVariables] = useState([]);

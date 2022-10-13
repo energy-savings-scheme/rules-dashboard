@@ -35,9 +35,9 @@ export default function CertificateEstimatorHVAC(props) {
         console.log(child);
 
         if (child.metadata.conditional === 'True') {
-          dep_arr.push({ ...child, form_value: '', invalid: false })
+          dep_arr.push({ ...child, form_value: '', invalid: false });
         } else {
-          array.push({...child, form_value: '', invalid: false})
+          array.push({ ...child, form_value: '', invalid: false });
         }
       });
 
@@ -75,14 +75,18 @@ export default function CertificateEstimatorHVAC(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-            Energy Savings Scheme and Peak Demand Reduction Scheme Certificate Estimator
+              Energy Savings Scheme and Peak Demand Reduction Scheme Certificate Estimator
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
               <b>Commercial heat pump water heater activity requirements</b>
             </p>
             <p className="nsw-content-block__copy">
-            The following questions assess the eligibility requirements for the Commercial Heat Pump Water Heater Activity (F16 in the ESS and WH1 in the PDRS). Answer the questions to check your eligibility and click the button below to review ineligible answers and their corresponding rule clauses.            </p>
+              The following questions assess the eligibility requirements for the Commercial Heat
+              Pump Water Heater Activity (F16 in the ESS and WH1 in the PDRS). Answer the questions
+              to check your eligibility and click the button below to review ineligible answers and
+              their corresponding rule clauses.{' '}
+            </p>
           </div>
         </div>
 
@@ -92,9 +96,7 @@ export default function CertificateEstimatorHVAC(props) {
         <ProgressIndicator step={stepNumber} of={2} />
 
         <Fragment>
-
-        <DropDownMenu formItem={formItem} setItemValue={setItemValue} />;
-            
+          <DropDownMenu formItem={formItem} setItemValue={setItemValue} />;
           {/* <LoadClauses
             // calculationDate={calculationDate}
             variableToLoad={variableToLoad}

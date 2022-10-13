@@ -34,9 +34,9 @@ export default function ActivityRequirementsCommercialAC(props) {
         console.log(child);
 
         if (child.metadata.conditional === 'True') {
-          dep_arr.push({ ...child, form_value: '', invalid: false })
+          dep_arr.push({ ...child, form_value: '', invalid: false });
         } else {
-          array.push({...child, form_value: '', invalid: false})
+          array.push({ ...child, form_value: '', invalid: false });
         }
       });
 
@@ -74,19 +74,20 @@ export default function ActivityRequirementsCommercialAC(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-            Energy Savings Scheme and Peak Demand Reduction Scheme Certificate Estimator
+              Energy Savings Scheme and Peak Demand Reduction Scheme Certificate Estimator
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-              <b>Commercial heat pump water heater activity requirements</b>
+              <b>Commercial air conditioners activity requirements</b>
             </p>
             <p className="nsw-content-block__copy">
-            The following questions assess the eligibility requirements for the Commercial Heat Pump Water Heater Activity (F16 in the ESS and WH1 in the PDRS). Answer the questions to check your eligibility and click the button below to review ineligible answers and their corresponding rule clauses.            </p>
+            The following questions assess the eligibility requirements for the Commercial Air Conditioner Activity (F4 in the ESS and HVAC2 in the PDRS). Answer the questions to check your eligibility and click the button below to review ineligible answers and their corresponding rule clauses.{' '}
+            </p>
           </div>
         </div>
 
         <p className="nsw-content-block__copy">
-          <b> Commercial heat pump water heater eligibility check progress </b>
+          <b> Commercial air conditioner eligibility check progress </b>
         </p>
         <ProgressIndicator step={stepNumber} of={2} />
 
@@ -187,6 +188,52 @@ export default function ActivityRequirementsCommercialAC(props) {
         ))}
       </div> */}
       </div>
+      <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
+        <div class="nsw-container" style={{ paddingBottom: '4rem' }}>
+          <div class="nsw-layout">
+            <div class="nsw-layout__main">
+              <br></br>
+              <br></br>
+              <h2 className="nsw-col nsw-content-block__title">
+                Check your eligibility and estimate certificates
+              </h2>
+              <br></br>
+              <div class="nsw-grid">
+                <div className="nsw-col nsw-col-md-4">
+                  <Card
+                    headline="Review schemes base eligibility, activity requirements and estimate certificates"
+                    link="base_eligibility_commercialac/"
+                    image="/commercialac/navigation_row/full_flow_card.jpeg"
+                  >
+                    {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
+                        Review schemes base eligibility, activity requirements and estimate certificates</b></p> */}
+                  </Card>
+                </div>
+                <div className="nsw-col nsw-col-md-4">
+                  <Card
+                    headline="Check activity requirements and estimate certificates"
+                    link="activity-requirements/"
+                    image="/commercialac/navigation_row/activity_certificates.png"
+                  >
+                    {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
+                        Check activity requirements and estimate certificates</b></p> */}
+                  </Card>
+                </div>
+                <div className="nsw-col nsw-col-md-4">
+                  <Card
+                    headline="Estimate certificates only"
+                    link="compare2activities"
+                    image="/commercialac/navigation_row/certificates_only.jpg"
+                  >
+                    {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
+                        Estimate certificates only</b></p> */}
+                  </Card>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </Fragment>
   );
 }

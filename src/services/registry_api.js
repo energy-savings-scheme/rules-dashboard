@@ -11,11 +11,11 @@ function getCommercialHVACBrands() {
 }
 
 function getCommercialWHBrands() {
-    return RegistryApiBase({
-      url: `/commercial_wh/brands`,
-      method: 'GET',
-    });
-  }
+  return RegistryApiBase({
+    url: `/commercial_wh/brands`,
+    method: 'GET',
+  });
+}
 
 function getCommercialHVACmodel(params) {
   return DjangoApiBase({

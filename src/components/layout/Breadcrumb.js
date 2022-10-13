@@ -207,7 +207,6 @@ export default function Breadcrumb() {
     );
   }
 
-
   if (location.pathname === '/commercialac/activity-requirements/') {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>

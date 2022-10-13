@@ -13,7 +13,16 @@ import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progres
 import OpenFiscaApi from 'services/openfisca_api';
 
 export default function LoadClauses(props) {
-  const { variableToLoad, variables, entities, setStepNumber, stepNumber, formValues, setFormValues, dependencies } = props;
+  const {
+    variableToLoad,
+    variables,
+    entities,
+    setStepNumber,
+    stepNumber,
+    formValues,
+    setFormValues,
+    dependencies,
+  } = props;
 
   console.log(variableToLoad);
 

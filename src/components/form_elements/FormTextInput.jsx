@@ -13,7 +13,7 @@ export default function FormTextInput(props) {
       status={formItem.invalid && 'invalid'} // if `true` renders invalid formatting
     >
       <TextInput
-        style= {{maxWidth: '50%'}}
+        style={{ maxWidth: '50%' }}
         as="input"
         number={['Float', 'Integer'].includes(formItem.value_type)}
         type={['Float', 'Integer'].includes(formItem.value_type) ? 'number' : 'text'}

@@ -31,13 +31,13 @@ export default function BaseEligibilityCommercialAC(props) {
 
       children.map((child) => {
         console.log(child);
-        const dependency = child.metadata.conditional === 'True'
+        const dependency = child.metadata.conditional === 'True';
         console.log(dependency);
 
         if (child.metadata.conditional == 'True') {
-          dep_arr.push({ ...child, form_value: '', invalid: false })
+          dep_arr.push({ ...child, form_value: '', invalid: false });
         } else {
-          array.push({...child, form_value: '', invalid: false})
+          array.push({ ...child, form_value: '', invalid: false });
         }
       });
 
@@ -46,10 +46,8 @@ export default function BaseEligibilityCommercialAC(props) {
 
       setFormValues(array);
       setDependencies(dep_arr);
-    
     }
   }, [variables]);
-
 
   return (
     <Fragment>

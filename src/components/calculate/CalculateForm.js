@@ -17,7 +17,7 @@ export default function CalculateForm(props) {
     stepNumber,
     setStepNumber,
     backAction,
-    dependencies
+    dependencies,
   } = props;
   var { formValues } = props;
 
@@ -83,9 +83,7 @@ export default function CalculateForm(props) {
     <form onSubmit={handleCalculate}>
       <div className="nsw-content-block">
         <div className="nsw-content-block__content">
-          <h2 className="nsw-content-block__title">
-            Check if you meet the following requirements 
-          </h2>
+          <h2 className="nsw-content-block__title">Check if you meet the following requirements</h2>
         </div>
       </div>
 
@@ -93,7 +91,7 @@ export default function CalculateForm(props) {
 
       <div className="nsw-grid">
         <div className="nsw-col-md-7">
-          <Button as="primary" type="submit" style={{float: 'right'}}>
+          <Button as="primary" type="submit" style={{ float: 'right' }}>
             {loading ? (
               <Spinner animation="border" role="status" size="lg">
                 <span className="sr-only">Loading...</span>
