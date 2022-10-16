@@ -6,50 +6,38 @@ import RegistryApiBase from './registry_api_base';
 function getCommercialHVACBrands() {
   return RegistryApiBase({
     url: `/commercial_hvac/brands`,
-    method: 'GET',
+    method: 'GET'
   });
 }
 
 function getCommercialWHBrands() {
   return RegistryApiBase({
     url: `/commercial_wh/brands`,
-    method: 'GET',
+    method: 'GET'
   });
 }
 
-function getCommercialHVACmodel(params) {
-  return DjangoApiBase({
-    url: '/commercial_hvac/brands',
-    method: 'GET',
-    params: params,
-  });
-}
+function listHvacModels(brandName) {
+    return RegistryApiBase({
+      url: `/commercial_hvac/brands/${brandName}/models`,
+      method: 'GET',
+    });
+  }
 
-function listVariables(params) {
-  return DjangoApiBase({
-    url: '/variables/',
-    method: 'GET',
-    params: params,
-  });
-}
+function getHvacModelsMetadata(payload) {
+    return RegistryApiBase({
+      url: `/commercial_hvac/metadata`,
+      method: 'POST',
+      data: payload
+    });
+  }
 
-function listActivities(params) {
-  return DjangoApiBase({
-    url: '/activities/',
-    method: 'GET',
-    params: params,
-  });
-}
 
-const OpenFiscaApi = {
-  getVariable,
-  getParameters,
-  listEntities,
-  listVariables,
-  listActivities,
-  postDependencies,
-  postTrace,
-  postCalculate,
+const RegistryApi = {
+    getCommercialHVACBrands,
+    getCommercialWHBrands,
+    listHvacModels,
+    getHvacModelsMetadata
 };
 
-export default OpenFiscaApi;
+export default RegistryApi;

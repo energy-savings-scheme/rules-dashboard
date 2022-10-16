@@ -40,6 +40,9 @@ export default function ActivityRequirementsCommercialAC(props) {
         }
       });
 
+      array.sort((a, b) => a.metadata.sorting - b.metadata.sorting)
+      dep_arr.sort((a, b) => a.metadata.sorting - b.metadata.sorting)
+
       setFormValues(array);
       setDependencies(dep_arr);
     }

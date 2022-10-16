@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 
 import CalculateForm from 'components/calculate/CalculateForm';
 import DateInput from 'components/form_elements/DateInput';
@@ -21,7 +21,12 @@ export default function CalculateBlock(props) {
     setFormValues,
     backAction,
     dependencies,
+    metadata
   } = props;
+
+  if (metadata) {
+    console.log(metadata);
+  }
 
   const removeItem = (obj, toRemove) => {
     const findIndex = obj.findIndex((a) => a.name === toRemove);
@@ -31,12 +36,23 @@ export default function CalculateBlock(props) {
   console.log(dependencies);
   console.log(formValues);
 
-  formValues.sort((a, b) => {
-    return a.metadata.sorting - b.metadata.sorting;
-  });
 
   const renderFormField = (formItem) => {
-    console.log(formItem);
+    if(formItem.name === "HVAC2_rated_AEER_input") {
+      formItem.form_value = metadata['Rated AEER']
+    }
+    if(formItem.name === "HVAC2_cooling_capacity_input") {
+      formItem.form_value = metadata['Cooling Capacity']
+    }
+    if(formItem.name === "HVAC2_input_power") {
+      formItem.form_value = metadata['Input Power']
+    }
+    if(formItem.name === "HVAC2_heating_capacity_input") {
+      formItem.form_value = metadata['Heating Capacity']
+    }
+    if(formItem.name === "HVAC2_rated_ACOP_input") {
+      formItem.form_value = metadata['Rated ACOP']
+    }
 
     if (
       formItem.name === 'Base_registered_ACP' &&
@@ -51,6 +67,7 @@ export default function CalculateBlock(props) {
     ) {
       if (formValues.find((o) => o.name === 'Base_engaged_ACP') !== undefined) {
         removeItem(formValues, 'Base_engaged_ACP');
+
       }
     }
 
@@ -146,15 +163,11 @@ export default function CalculateBlock(props) {
 
       if (formItem.name === 'Base_registered_ACP') {
         if (e.target.value === 'false') {
-          console.log('i am in false ~');
           if (formValues.find((o) => o.name === 'Base_engaged_ACP') === undefined) {
             formValues.push(dependencies.find((o) => o.name === 'Base_engaged_ACP'));
           }
-          console.log(formValues);
-        } else {
-          console.log('i ma in true~');
+        } else if (e.target.value === 'true') {
           removeItem(formValues, 'Base_engaged_ACP');
-          console.log(formValues);
         }
       }
 
@@ -210,11 +223,9 @@ export default function CalculateBlock(props) {
 
       if (formItem.name === 'HVAC2_equipment_replaced') {
         if (e.target.value === 'true') {
-          console.log('i am in false ~');
           if (formValues.find((o) => o.name === 'HVAC2_equipment_removed') === undefined) {
             formValues.push(dependencies.find((o) => o.name === 'HVAC2_equipment_removed'));
           }
-          console.log(formValues);
         } else {
           removeItem(formValues, 'HVAC2_equipment_removed');
           removeItem(formValues, 'HVAC2_Installed_by_qualified_person');
@@ -304,21 +315,30 @@ export default function CalculateBlock(props) {
         }
       }
 
+
+      // setFormValues(formValues.sort((a, b) => {
+      //   if (a.metadata.sorting < b.metadata.sorting) return -1
+      //   return a.metadata.sorting > b.metadata.sorting ? 1 : 0
+      // }))
+
+
       setFormValues(
         [...formValues].map((item) => {
+          console.log(formValues)
           if (item.name === formItem.name) {
             if (formItem.value_type === 'Boolean') {
-              return { ...item, form_value: e.target.value === 'true' };
+              return { ...item, form_value: e.target.value === 'true'? true: false };
             } else {
               return { ...item, form_value: e.target.value };
             }
           } else {
-            return item;
+            return { ...item, form_value: item.form_value, default_value: item.default_value };
           }
         }),
       );
     };
 
+    
     switch (formItem.value_type) {
       case 'Float':
         return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;

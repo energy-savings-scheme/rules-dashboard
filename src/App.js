@@ -32,12 +32,17 @@ import '@fontsource/public-sans';
 import '@fontsource/public-sans/600.css';
 import CommercialAC from 'pages/commercial_ac/CommercialAcPage';
 import CommercialWH from 'pages/commercial_wh/CommercialWhPage';
+import RegistryApi from 'services/registry_api';
+import CertificateEstimatorHVAC from 'pages/commercial_ac/CertificateEstimator';
 
 function App() {
   const [entities, setEntities] = useState([]);
   const [variables, setVariables] = useState([]);
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [hvacBrands, setHvacBrands] = useState([]);
+  const [hvacModels, setHvacModels] = useState([]);
+  const [whBrands, setWhBrands] = useState([]);
 
   const [schedules, setSchedules] = useState(variable_tree);
 
@@ -67,6 +72,25 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
+
+    RegistryApi.getCommercialHVACBrands()
+    .then((res) => {
+      setHvacBrands(res.data);
+      setLoading(false);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+    RegistryApi.getCommercialWHBrands()
+      .then((res) => {
+        setWhBrands(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
   }, []);
 
   return (
@@ -127,6 +151,15 @@ function App() {
             entities={entities}
             variables={variables}
             variableToLoad="HVAC2_installation_replacement_final_activity_eligibility"
+          />
+        </Route>
+        <Route path="/commercialac/certificate-estimator" exact>
+          <Breadcrumb />
+          <CertificateEstimatorHVAC
+            entities={entities}
+            variables={variables}
+            brands={hvacBrands}
+            // variableToLoad="HVAC2_installation_replacement_final_activity_eligibility"
           />
         </Route>
         <Route path="/variables/:variable_name" exact>

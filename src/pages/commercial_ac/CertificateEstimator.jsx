@@ -7,46 +7,95 @@ import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 import LoadClauses from './LoadClauses';
 import DropDownMenu from 'components/form_elements/DropDownMenu';
+import Button from 'nsw-ds-react/button/button';
+import { FormGroupSelect } from 'nsw-ds-react/forms';
+import RegistryApi from 'services/registry_api';
+import CertificateEstimatorLoadClauses from './CertificatEstimatorLoadClauses';
+
 
 export default function CertificateEstimatorHVAC(props) {
-  const { entities, variables, variableToLoad } = props;
-  console.log(variableToLoad);
+  const { entities, variables, brands } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
   const [dependencies, setDependencies] = useState([]);
+  const [dropdownOptions, setDropdownOptions] = useState([]);
+  const [dropdownOptionsModels, setDropdownOptionsModels] = useState([]);
+  const [selectedBrand, setSelectedBrand] = useState(null);
+  const [selectedModel, setSelectedModel] = useState(null);
+  const [models, setModels] = useState([]);
+  const [metadata, setMetadata] = useState(null);
+ 
+// For brands
+  const populateDropDown = (newOption) => {
+    setDropdownOptions((prev) => {
+      return [...prev, newOption];
+    });
+  };
 
-  console.log(variables);
+  // For models   {text: abc, value: abc}
+  const populateModelDropDown = (newOption) => {
+    setDropdownOptionsModels((prev) => {
+      return [...prev, newOption];
+    });
+  };
 
   useEffect(() => {
-    if (variables) {
-      const variable = variables.find((item) => item.name === variableToLoad);
-      console.log(variable);
-      const offsprings = variable.metadata.input_offspring;
-      console.log(offsprings);
-      const children = variables.filter((item) => offsprings.includes(item.name));
-      console.log(children);
+        setDropdownOptionsModels([{value : "", text : "Please select model"}])
+        models.forEach((item) =>
+            populateModelDropDown({ text: item, value: item }),
+        );
+    }, [models]);
 
-      // Define the original array (at a minimum include the Implementation Date)
-      var array = [];
-      var dep_arr = [];
 
-      children.map((child) => {
-        console.log(child);
+    useEffect(() => {
 
-        if (child.metadata.conditional === 'True') {
-          dep_arr.push({ ...child, form_value: '', invalid: false });
-        } else {
-          array.push({ ...child, form_value: '', invalid: false });
+        if (!selectedBrand) return null;
+        if (!selectedModel) return null;
+        
+        var payload = {
+            'brand': selectedBrand,
+            'model': selectedModel
         }
-      });
+        console.log(payload);
+        RegistryApi.getHvacModelsMetadata(payload)
+        .then((res) => {
+            setMetadata(res.data);
+        })
+        .catch((err) => {
+        console.log(err);
+        });
 
-      setFormValues(array);
-      setDependencies(dep_arr);
-    }
-  }, [variables]);
+        console.log(metadata);
 
-  console.log(formValues);
+    }, [selectedModel]);
+
+
+  useEffect(() => {
+    setDropdownOptions([{value : "", text : "Please select brand"}]);
+
+    brands.forEach((item) =>
+        populateDropDown({ text: item, value: item }),
+    );
+   }, [brands]);
+
+
+    useEffect(() => {
+        console.log(selectedBrand);
+
+        RegistryApi.listHvacModels(selectedBrand)
+            .then((res) => {
+                setModels(res.data);
+            })
+            .catch((err) => {
+            console.log(err);
+            });
+
+
+        console.log(models);
+
+    }, [selectedBrand]);
+
 
   return (
     <Fragment>
@@ -79,7 +128,7 @@ export default function CertificateEstimatorHVAC(props) {
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-              <b>Commercial heat pump water heater activity requirements</b>
+              <b>Commercial air conditioner activity requirements</b>
             </p>
             <p className="nsw-content-block__copy">
               The following questions assess the eligibility requirements for the Commercial Heat
@@ -94,104 +143,77 @@ export default function CertificateEstimatorHVAC(props) {
           <b> Commercial heat pump water heater eligibility check progress </b>
         </p>
         <ProgressIndicator step={stepNumber} of={2} />
+        <br></br>
+        <br></br>
 
         <Fragment>
-          <DropDownMenu formItem={formItem} setItemValue={setItemValue} />;
-          {/* <LoadClauses
-            // calculationDate={calculationDate}
-            variableToLoad={variableToLoad}
-            variables={variables}
-            entities={entities}
-            // calculationResult={calculationResult}
-            // setCalculationResult={setCalculationResult}
-            // setCalculationError={setCalculationError}
-            dependencies={dependencies}
-            stepNumber={stepNumber}
-            setStepNumber={setStepNumber}
-            formValues={formValues}
-            setFormValues={setFormValues}
-            backAction={(e) => {
-              setStepNumber(stepNumber - 1);
-            }}
-          /> */}
+        {stepNumber === 1 && <div className="nsw-row">
+              <div className="nsw-col" style={{ padding: 'inherit' }}>
+                <div className="nsw-content-block">
+                  <div className="nsw-content-block__content">
+                    <FormGroupSelect
+                      label="Select commercial air conditioner brand" // primary label
+                    //   helper="Select commercial air conditioner brand" // helper text (secondary label)
+                      options={dropdownOptions}
+                      value={selectedBrand}
+                      onChange={(e) => {
+                        setSelectedBrand(
+                          brands.find((item) => item === e.target.value),
+                        );
+                      }}
+                    ></FormGroupSelect>
+                    <FormGroupSelect
+                      label="Select commercial air conditioner model" // primary label
+                    //   helper="Select commercial air conditioner model" // helper text (secondary label)
+                      options={dropdownOptionsModels}
+                      value={selectedModel}
+                      onChange={(e) => {
+                        setSelectedModel(
+                          models.find((item) => item === e.target.value),
+                        );
+                      }}
+                    ></FormGroupSelect>
+                  </div>
+                </div>
+              </div>
+            </div> }
+
+            {stepNumber === 2 && (
+          <CertificateEstimatorLoadClauses
+          // calculationDate={calculationDate}
+          variableToLoad1={"HVAC2_PRC_calculation"}
+          variableToLoad2={"HVAC2_ESC_calculation"}
+          variables={variables}
+          entities={entities}
+          metadata={metadata}
+        //   // calculationResult={calculationResult}
+        //   // setCalculationResult={setCalculationResult}
+        //   // setCalculationError={setCalculationError}
+        //   dependencies={dependencies}
+          stepNumber={stepNumber}
+        //   setStepNumber={setStepNumber}
+        //   formValues={formValues}
+        //   setFormValues={setFormValues}
+          backAction={(e) => {
+            setStepNumber(stepNumber - 1);
+          }}
+        />
+        )}
+
+            <div className="nsw-row">
+              <div className="nsw-col">
+                <Button
+                  as="primary"
+                  onClick={(e) => {
+                    setStepNumber(stepNumber + 1);
+                  }}
+                  style={{ float: 'right' }}
+                >
+                  Next
+                </Button>
+              </div>
+            </div>
         </Fragment>
-
-        {/* <div className="nsw-grid">
-          <h2 className="nsw-col nsw-content-block__title">
-            Which eligibility requirements would you like to check?
-          </h2>
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              headline="Review schemes base eligibility, activity requirements and estimate certificates"
-              content
-              link="calculate"
-              image="/commercialac/baseeligibility.jpeg"
-            >
-              <CardCopy></CardCopy>
-            </Card>
-          </div>
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              content
-              headline="Check activity requirements and estimate certificates"
-              link="compare"
-              image="/commercialac/activityeligibility.jpeg"
-            >
-              <CardCopy></CardCopy>
-            </Card>
-          </div>
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              content
-              headline="Estimate certificates only"
-              link="compare"
-              image="/commercialac/certificateslogo.jpeg"
-            >
-              <CardCopy></CardCopy>
-            </Card>
-          </div>
-        </div>
-        <div className="nsw-grid" style={{ backgroundColor: '#F2F2F2' }}>
-          <h2 className="nsw-col nsw-content-block__title">
-            Check your eligibility and estimate certificates
-          </h2>
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              headline="Review schemes base eligibility, activity requirements and estimate certificates"
-              link="activities"
-              image="/commercialac/navigation_row/full_flow_card.jpeg"
-            >
-              <CardCopy> </CardCopy>
-            </Card>
-          </div>
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              headline="Check activity requirements and estimate certificates"
-              link="compare2activities"
-              image="/commercialac/navigation_row/activity_certificates.png"
-            >
-              <CardCopy> </CardCopy>
-            </Card>
-          </div>
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              headline="Estimate certificates only"
-              link="compare2activities"
-              image="/commercialac/navigation_row/certificates_only.jpg"
-            >
-              <CardCopy></CardCopy>
-            </Card>
-          </div>
-        </div> */}
-
-        {/* <h3>Click below to get more details on each Schedule</h3> */}
-
-        {/* Iterate through list of Schedules in `schedules` */}
-        {/* <div className="nsw-grid">
-        {schedules.map((item) => (
-          <ScheduleTile schedule={item} />
-        ))}
-      </div> */}
       </div>
     </Fragment>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import OpenFiscaApi from 'services/openfisca_api';
 
 import Button from 'nsw-ds-react/button/button';
@@ -19,6 +19,7 @@ export default function CalculateForm(props) {
     backAction,
     dependencies,
   } = props;
+
   var { formValues } = props;
 
   const [loading, setLoading] = useState(false);
@@ -78,6 +79,8 @@ export default function CalculateForm(props) {
         setStepNumber(stepNumber + 1);
       });
   };
+
+  console.log(props.children);
 
   return (
     <form onSubmit={handleCalculate}>

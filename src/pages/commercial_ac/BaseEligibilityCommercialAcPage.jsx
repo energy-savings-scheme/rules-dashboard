@@ -41,8 +41,8 @@ export default function BaseEligibilityCommercialAC(props) {
         }
       });
 
-      console.log(array);
-      console.log(dep_arr);
+      array.sort((a, b) => a.metadata.sorting - b.metadata.sorting)
+      dep_arr.sort((a, b) => a.metadata.sorting - b.metadata.sorting)
 
       setFormValues(array);
       setDependencies(dep_arr);
