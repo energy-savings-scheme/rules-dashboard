@@ -21,7 +21,7 @@ export default function CalculateBlock(props) {
     setFormValues,
     backAction,
     dependencies,
-    metadata
+    metadata,
   } = props;
 
   if (metadata) {
@@ -36,22 +36,21 @@ export default function CalculateBlock(props) {
   console.log(dependencies);
   console.log(formValues);
 
-
   const renderFormField = (formItem) => {
-    if(formItem.name === "HVAC2_rated_AEER_input") {
-      formItem.form_value = metadata['Rated AEER']
+    if (formItem.name === 'HVAC2_rated_AEER_input') {
+      formItem.form_value = metadata['Rated AEER'];
     }
-    if(formItem.name === "HVAC2_cooling_capacity_input") {
-      formItem.form_value = metadata['Cooling Capacity']
+    if (formItem.name === 'HVAC2_cooling_capacity_input') {
+      formItem.form_value = metadata['Cooling Capacity'];
     }
-    if(formItem.name === "HVAC2_input_power") {
-      formItem.form_value = metadata['Input Power']
+    if (formItem.name === 'HVAC2_input_power') {
+      formItem.form_value = metadata['Input Power'];
     }
-    if(formItem.name === "HVAC2_heating_capacity_input") {
-      formItem.form_value = metadata['Heating Capacity']
+    if (formItem.name === 'HVAC2_heating_capacity_input') {
+      formItem.form_value = metadata['Heating Capacity'];
     }
-    if(formItem.name === "HVAC2_rated_ACOP_input") {
-      formItem.form_value = metadata['Rated ACOP']
+    if (formItem.name === 'HVAC2_rated_ACOP_input') {
+      formItem.form_value = metadata['Rated ACOP'];
     }
 
     if (
@@ -67,7 +66,6 @@ export default function CalculateBlock(props) {
     ) {
       if (formValues.find((o) => o.name === 'Base_engaged_ACP') !== undefined) {
         removeItem(formValues, 'Base_engaged_ACP');
-
       }
     }
 
@@ -238,7 +236,9 @@ export default function CalculateBlock(props) {
         if (e.target.value === 'true') {
           console.log('i am in false ~');
           if (formValues.find((o) => o.name === 'HVAC2_TCPSF_greater_than_minimum') === undefined) {
-            formValues.push(dependencies.find((o) => o.name === 'HVAC2_TCPSF_greater_than_minimum'));
+            formValues.push(
+              dependencies.find((o) => o.name === 'HVAC2_TCPSF_greater_than_minimum'),
+            );
           }
           removeItem(formValues, 'HVAC2_AEER_greater_than_minimum');
 
@@ -315,19 +315,17 @@ export default function CalculateBlock(props) {
         }
       }
 
-
       // setFormValues(formValues.sort((a, b) => {
       //   if (a.metadata.sorting < b.metadata.sorting) return -1
       //   return a.metadata.sorting > b.metadata.sorting ? 1 : 0
       // }))
 
-
       setFormValues(
         [...formValues].map((item) => {
-          console.log(formValues)
+          console.log(formValues);
           if (item.name === formItem.name) {
             if (formItem.value_type === 'Boolean') {
-              return { ...item, form_value: e.target.value === 'true'? true: false };
+              return { ...item, form_value: e.target.value === 'true' ? true : false };
             } else {
               return { ...item, form_value: e.target.value };
             }
@@ -338,7 +336,6 @@ export default function CalculateBlock(props) {
       );
     };
 
-    
     switch (formItem.value_type) {
       case 'Float':
         return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;

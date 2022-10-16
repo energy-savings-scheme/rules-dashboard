@@ -6,38 +6,37 @@ import RegistryApiBase from './registry_api_base';
 function getCommercialHVACBrands() {
   return RegistryApiBase({
     url: `/commercial_hvac/brands`,
-    method: 'GET'
+    method: 'GET',
   });
 }
 
 function getCommercialWHBrands() {
   return RegistryApiBase({
     url: `/commercial_wh/brands`,
-    method: 'GET'
+    method: 'GET',
   });
 }
 
 function listHvacModels(brandName) {
-    return RegistryApiBase({
-      url: `/commercial_hvac/brands/${brandName}/models`,
-      method: 'GET',
-    });
-  }
+  return RegistryApiBase({
+    url: `/commercial_hvac/brands/${brandName}/models`,
+    method: 'GET',
+  });
+}
 
 function getHvacModelsMetadata(payload) {
-    return RegistryApiBase({
-      url: `/commercial_hvac/metadata`,
-      method: 'POST',
-      data: payload
-    });
-  }
-
+  return RegistryApiBase({
+    url: `/commercial_hvac/metadata`,
+    method: 'POST',
+    data: payload,
+  });
+}
 
 const RegistryApi = {
-    getCommercialHVACBrands,
-    getCommercialWHBrands,
-    listHvacModels,
-    getHvacModelsMetadata
+  getCommercialHVACBrands,
+  getCommercialWHBrands,
+  listHvacModels,
+  getHvacModelsMetadata,
 };
 
 export default RegistryApi;

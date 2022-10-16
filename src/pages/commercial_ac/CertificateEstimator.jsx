@@ -12,7 +12,6 @@ import { FormGroupSelect } from 'nsw-ds-react/forms';
 import RegistryApi from 'services/registry_api';
 import CertificateEstimatorLoadClauses from './CertificatEstimatorLoadClauses';
 
-
 export default function CertificateEstimatorHVAC(props) {
   const { entities, variables, brands } = props;
 
@@ -25,8 +24,8 @@ export default function CertificateEstimatorHVAC(props) {
   const [selectedModel, setSelectedModel] = useState(null);
   const [models, setModels] = useState([]);
   const [metadata, setMetadata] = useState(null);
- 
-// For brands
+
+  // For brands
   const populateDropDown = (newOption) => {
     setDropdownOptions((prev) => {
       return [...prev, newOption];
@@ -41,61 +40,49 @@ export default function CertificateEstimatorHVAC(props) {
   };
 
   useEffect(() => {
-        setDropdownOptionsModels([{value : "", text : "Please select model"}])
-        models.forEach((item) =>
-            populateModelDropDown({ text: item, value: item }),
-        );
-    }, [models]);
-
-
-    useEffect(() => {
-
-        if (!selectedBrand) return null;
-        if (!selectedModel) return null;
-        
-        var payload = {
-            'brand': selectedBrand,
-            'model': selectedModel
-        }
-        console.log(payload);
-        RegistryApi.getHvacModelsMetadata(payload)
-        .then((res) => {
-            setMetadata(res.data);
-        })
-        .catch((err) => {
-        console.log(err);
-        });
-
-        console.log(metadata);
-
-    }, [selectedModel]);
-
+    setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
+    models.forEach((item) => populateModelDropDown({ text: item, value: item }));
+  }, [models]);
 
   useEffect(() => {
-    setDropdownOptions([{value : "", text : "Please select brand"}]);
+    if (!selectedBrand) return null;
+    if (!selectedModel) return null;
 
-    brands.forEach((item) =>
-        populateDropDown({ text: item, value: item }),
-    );
-   }, [brands]);
+    var payload = {
+      brand: selectedBrand,
+      model: selectedModel,
+    };
+    console.log(payload);
+    RegistryApi.getHvacModelsMetadata(payload)
+      .then((res) => {
+        setMetadata(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
+    console.log(metadata);
+  }, [selectedModel]);
 
-    useEffect(() => {
-        console.log(selectedBrand);
+  useEffect(() => {
+    setDropdownOptions([{ value: '', text: 'Please select brand' }]);
 
-        RegistryApi.listHvacModels(selectedBrand)
-            .then((res) => {
-                setModels(res.data);
-            })
-            .catch((err) => {
-            console.log(err);
-            });
+    brands.forEach((item) => populateDropDown({ text: item, value: item }));
+  }, [brands]);
 
+  useEffect(() => {
+    console.log(selectedBrand);
 
-        console.log(models);
+    RegistryApi.listHvacModels(selectedBrand)
+      .then((res) => {
+        setModels(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-    }, [selectedBrand]);
-
+    console.log(models);
+  }, [selectedBrand]);
 
   return (
     <Fragment>
@@ -147,72 +134,70 @@ export default function CertificateEstimatorHVAC(props) {
         <br></br>
 
         <Fragment>
-        {stepNumber === 1 && <div className="nsw-row">
+          {stepNumber === 1 && (
+            <div className="nsw-row">
               <div className="nsw-col" style={{ padding: 'inherit' }}>
                 <div className="nsw-content-block">
                   <div className="nsw-content-block__content">
                     <FormGroupSelect
                       label="Select commercial air conditioner brand" // primary label
-                    //   helper="Select commercial air conditioner brand" // helper text (secondary label)
+                      //   helper="Select commercial air conditioner brand" // helper text (secondary label)
                       options={dropdownOptions}
                       value={selectedBrand}
                       onChange={(e) => {
-                        setSelectedBrand(
-                          brands.find((item) => item === e.target.value),
-                        );
+                        setSelectedBrand(brands.find((item) => item === e.target.value));
                       }}
                     ></FormGroupSelect>
                     <FormGroupSelect
                       label="Select commercial air conditioner model" // primary label
-                    //   helper="Select commercial air conditioner model" // helper text (secondary label)
+                      //   helper="Select commercial air conditioner model" // helper text (secondary label)
                       options={dropdownOptionsModels}
                       value={selectedModel}
                       onChange={(e) => {
-                        setSelectedModel(
-                          models.find((item) => item === e.target.value),
-                        );
+                        setSelectedModel(models.find((item) => item === e.target.value));
                       }}
                     ></FormGroupSelect>
                   </div>
                 </div>
               </div>
-            </div> }
-
-            {stepNumber === 2 && (
-          <CertificateEstimatorLoadClauses
-          // calculationDate={calculationDate}
-          variableToLoad1={"HVAC2_PRC_calculation"}
-          variableToLoad2={"HVAC2_ESC_calculation"}
-          variables={variables}
-          entities={entities}
-          metadata={metadata}
-        //   // calculationResult={calculationResult}
-        //   // setCalculationResult={setCalculationResult}
-        //   // setCalculationError={setCalculationError}
-        //   dependencies={dependencies}
-          stepNumber={stepNumber}
-        //   setStepNumber={setStepNumber}
-        //   formValues={formValues}
-        //   setFormValues={setFormValues}
-          backAction={(e) => {
-            setStepNumber(stepNumber - 1);
-          }}
-        />
-        )}
-
-            <div className="nsw-row">
-              <div className="nsw-col">
-                <Button
-                  as="primary"
-                  onClick={(e) => {
-                    setStepNumber(stepNumber + 1);
-                  }}
-                  style={{ float: 'right' }}
-                >
-                  Next
-                </Button>
-              </div>
             </div>
+          )}
+
+          {stepNumber === 2 && (
+            <CertificateEstimatorLoadClauses
+              // calculationDate={calculationDate}
+              variableToLoad1={'HVAC2_PRC_calculation'}
+              variableToLoad2={'HVAC2_ESC_calculation'}
+              variables={variables}
+              entities={entities}
+              metadata={metadata}
+              //   // calculationResult={calculationResult}
+              //   // setCalculationResult={setCalculationResult}
+              //   // setCalculationError={setCalculationError}
+              //   dependencies={dependencies}
+              stepNumber={stepNumber}
+              //   setStepNumber={setStepNumber}
+              //   formValues={formValues}
+              //   setFormValues={setFormValues}
+              backAction={(e) => {
+                setStepNumber(stepNumber - 1);
+              }}
+            />
+          )}
+
+          <div className="nsw-row">
+            <div className="nsw-col">
+              <Button
+                as="primary"
+                onClick={(e) => {
+                  setStepNumber(stepNumber + 1);
+                }}
+                style={{ float: 'right' }}
+              >
+                Next
+              </Button>
+            </div>
+          </div>
         </Fragment>
       </div>
     </Fragment>

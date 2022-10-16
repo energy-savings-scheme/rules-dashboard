@@ -74,13 +74,13 @@ function App() {
       });
 
     RegistryApi.getCommercialHVACBrands()
-    .then((res) => {
-      setHvacBrands(res.data);
-      setLoading(false);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      .then((res) => {
+        setHvacBrands(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     RegistryApi.getCommercialWHBrands()
       .then((res) => {
@@ -90,7 +90,6 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-
   }, []);
 
   return (
