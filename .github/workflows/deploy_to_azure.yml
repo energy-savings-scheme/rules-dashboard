@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 14.x
 
-      - name: Build website
+      - name: Build website 
         run: |
           yarn install
           CI="" yarn run build
@@ -28,3 +28,5 @@ jobs:
         with:
           source-path: build
           sas-url: ${{ secrets.DEPLOY_SAS_URL }}
+          run: echo ${{ secrets.DEPLOY_SAS_URL}}
+
