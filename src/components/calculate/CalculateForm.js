@@ -9,6 +9,7 @@ import { Spinner } from 'react-bootstrap';
 export default function CalculateForm(props) {
   const {
     variable,
+    variable2,
     entities,
     calculationDate,
     calculationResult,
@@ -18,11 +19,18 @@ export default function CalculateForm(props) {
     setStepNumber,
     backAction,
     dependencies,
+    setCalculationResult2,
+    calculationResult2,
+    workflow
   } = props;
 
   var { formValues } = props;
 
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const validateDataType = (item) => {
     // OpenFisca requires payload data to be correctly typed.
@@ -35,6 +43,9 @@ export default function CalculateForm(props) {
 
     return item;
   };
+
+  console.log(variable);
+  console.log(variable2);
 
   const handleCalculate = (e) => {
     e.preventDefault();
@@ -52,7 +63,7 @@ export default function CalculateForm(props) {
       persons: { person1: {} },
       [entity.plural]: { [`${entity.name}_1`]: { [variable.name]: { [date]: null } } },
     };
-    // console.log('.....variablee', variable);
+
     formValues.map((variable) => {
       const variable_entity = entities.find((item) => item.name === variable.entity);
 
@@ -76,11 +87,43 @@ export default function CalculateForm(props) {
       })
       .finally(() => {
         setLoading(false);
-        setStepNumber(stepNumber + 1);
       });
-  };
 
-  console.log(props.children);
+      if (variable2) {
+        const entity2 = entities.find((item) => item.name === variable2.entity);
+        var payload2 = {
+          persons: { person1: {} },
+          [entity2.plural]: { [`${entity2.name}_1`]: { [variable2.name]: { [date]: null } } },
+        };
+  
+        formValues.map((variable) => {
+          const variable_entity2 = entities.find((item) => item.name === variable.entity);
+    
+          payload2[variable_entity2.plural][`${variable_entity2.name}_1`][`${variable.name}`] = {
+            [date]: validateDataType(variable).form_value,
+          };
+        });
+
+        console.log(payload2);
+
+        OpenFiscaApi.postCalculate(payload2)
+        .then((res) => {
+          var result = res.data[entity2.plural][`${entity2.name}_1`][variable2.name][date];
+          console.log(res.data);
+          setCalculationResult2(result);
+        })
+        .catch((err) => {
+          setCalculationResult2(null);
+          console.log(err);
+        })
+
+      }
+
+      setStepNumber(stepNumber + 1);
+
+      console.log(calculationResult);
+      console.log(calculationResult2)
+  };
 
   return (
     <form onSubmit={handleCalculate}>
@@ -91,18 +134,31 @@ export default function CalculateForm(props) {
       </div>
 
       {props.children}
+      
+      
 
       <div className="nsw-grid">
-        <div className="nsw-col-md-7">
+      <div className="nsw-col-md-6">
+
+      { stepNumber !== 1 && <Button
+        as="secondary"
+        onClick={(e) => {
+          setStepNumber(stepNumber - 1);
+        }}
+      > 
+        Back
+      </Button> }
+      </div>
+        <div className="nsw-col-md-6">
           <Button as="primary" type="submit" style={{ float: 'right' }}>
             {loading ? (
               <Spinner animation="border" role="status" size="lg">
                 <span className="sr-only">Loading...</span>
               </Spinner>
-            ) : calculationResult ? (
-              'Check eligibility again'
-            ) : (
+            ) : workflow === 'eligibility' ? (
               'Check eligibility'
+            ) : (
+              'Calculate certificates'
             )}
           </Button>
         </div>

@@ -31,11 +31,10 @@ export default function LoadClausesWh(props) {
   const [formValues, setFormValues] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  //   const populateDropDown = (newOption) => {
-  //     setDropdownOptions((prev) => {
-  //       return [...prev, newOption];
-  //     });
-  //   };
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
 
   useEffect(() => {
     OpenFiscaApi.getVariable(variableToLoad)
@@ -161,7 +160,7 @@ export default function LoadClausesWh(props) {
           </Fragment>
         )}
 
-        {stepNumber === 2 && (
+        {stepNumber === 2 && !calculationError && (
           <Fragment>
             {calculationResult !== null && (
               <div className="nsw-row">
@@ -186,7 +185,7 @@ export default function LoadClausesWh(props) {
               </div>
             )}
 
-            {calculationError && (
+            {stepNumber === 2 && calculationError && (
               <Notification as="error" title="Sorry! An error has occurred.">
                 <p>
                   An error occurred during calculation. Try choosing a more recent Date and

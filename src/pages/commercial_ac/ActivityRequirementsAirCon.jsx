@@ -18,6 +18,10 @@ export default function ActivityRequirementsCommercialAC(props) {
   console.log(variables);
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
     if (variables) {
       const variable = variables.find((item) => item.name === variableToLoad);
       console.log(variable);

@@ -2,15 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Import Pages
-import ActivityDefinitionPage from 'pages/ActivityDefinitionPage';
-import ActivityRequirementPage from 'pages/ActivityRequirementPage';
-import ActivityComparePage from 'pages/ActivityComparePage';
-
 import CalculatePage from 'pages/calculate/CalculatePage';
-import ComparePage from 'pages/ComparePage';
 import Homepage from 'pages/homepage/Homepage';
-import SchedulePage from 'pages/SchedulePage';
-import VariablePage from 'pages/VariablePage';
 import BaseEligibilityCommercialAC from 'pages/commercial_ac/BaseEligibilityCommercialAcPage';
 import BaseEligibilityCommercialWH from 'pages/commercial_wh/BaseEligibilityCommercialWhPage';
 import ActivityRequirementsCommercialAC from 'pages/commercial_ac/ActivityRequirementsAirCon';
@@ -34,6 +27,7 @@ import CommercialAC from 'pages/commercial_ac/CommercialAcPage';
 import CommercialWH from 'pages/commercial_wh/CommercialWhPage';
 import RegistryApi from 'services/registry_api';
 import CertificateEstimatorHVAC from 'pages/commercial_ac/CertificateEstimator';
+import CertificateEstimatorWH from 'pages/commercial_wh/CertificateEstimatorWH';
 
 function App() {
   const [entities, setEntities] = useState([]);
@@ -45,6 +39,11 @@ function App() {
   const [whBrands, setWhBrands] = useState([]);
 
   const [schedules, setSchedules] = useState(variable_tree);
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   useEffect(() => {
     OpenFiscaAPI.listEntities()
@@ -103,22 +102,9 @@ function App() {
           <Breadcrumb />
           <Homepage schedules={schedules} variables={variables} />
         </Route>
-
-        <Route path="/activities" exact>
-          <Breadcrumb />
-          <ActivityRequirementPage activities={activities} variables={variables} />
-        </Route>
-        <Route path="/compare2activities" exact>
-          <Breadcrumb />
-          <ActivityComparePage activities={activities} variables={variables} />
-        </Route>
         <Route path="/calculate" exact>
           <Breadcrumb />
           <CalculatePage entities={entities} variables={variables} />
-        </Route>
-        <Route path="/compare" exact>
-          <Breadcrumb />
-          <ComparePage entities={entities} variables={variables} />
         </Route>
         <Route path="/commercialac" exact>
           <Breadcrumb />
@@ -158,23 +144,16 @@ function App() {
             entities={entities}
             variables={variables}
             brands={hvacBrands}
-            // variableToLoad="HVAC2_installation_replacement_final_activity_eligibility"
           />
         </Route>
-        <Route path="/variables/:variable_name" exact>
+        <Route path="/commercial-wh/certificate-estimator" exact>
           <Breadcrumb />
-          <VariablePage entities={entities} variables={variables} />
+          <CertificateEstimatorWH
+            entities={entities}
+            variables={variables}
+            brands={whBrands}
+          />
         </Route>
-        <Route path="/schedules/:schedule_name" exact>
-          <Breadcrumb />
-          <SchedulePage schedules={schedules} variables={variables} />
-        </Route>
-
-        <Route path="/schedules/:schedule_name/:activity_sublabel" exact>
-          <Breadcrumb />
-          <ActivityDefinitionPage schedules={schedules} variables={variables} />
-        </Route>
-
         <Route path="*">Not Found</Route>
       </Switch>
 

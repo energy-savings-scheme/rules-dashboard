@@ -10,10 +10,13 @@ export default function CalculateBlock(props) {
   const {
     variables,
     variable,
+    variable2,
     entities,
     calculationDate = '2021-01-01',
     calculationResult,
+    calculationResult2,
     setCalculationResult,
+    setCalculationResult2,
     setCalculationError,
     stepNumber,
     setStepNumber,
@@ -22,35 +25,35 @@ export default function CalculateBlock(props) {
     backAction,
     dependencies,
     metadata,
+    zone,
+    workflow
   } = props;
 
   if (metadata) {
     console.log(metadata);
   }
 
+  if (zone) {
+    console.log(zone);
+  }
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+ 
   const removeItem = (obj, toRemove) => {
     const findIndex = obj.findIndex((a) => a.name === toRemove);
     findIndex !== -1 && obj.splice(findIndex, 1);
   };
 
-  console.log(dependencies);
-  console.log(formValues);
-
   const renderFormField = (formItem) => {
-    if (formItem.name === 'HVAC2_rated_AEER_input') {
-      formItem.form_value = metadata['Rated AEER'];
-    }
-    if (formItem.name === 'HVAC2_cooling_capacity_input') {
-      formItem.form_value = metadata['Cooling Capacity'];
-    }
-    if (formItem.name === 'HVAC2_input_power') {
-      formItem.form_value = metadata['Input Power'];
-    }
-    if (formItem.name === 'HVAC2_heating_capacity_input') {
-      formItem.form_value = metadata['Heating Capacity'];
-    }
-    if (formItem.name === 'HVAC2_rated_ACOP_input') {
-      formItem.form_value = metadata['Rated ACOP'];
+    if (
+      formItem.name === 'Base_registered_ACP' &&
+      (formItem.form_value === false || formItem.default_value === false)
+    ) {
+      if (formValues.find((o) => o.name === 'Base_engaged_ACP') === undefined) {
+        formValues.push(dependencies.find((o) => o.name === 'Base_engaged_ACP'));
+      }
     }
 
     if (
@@ -97,7 +100,6 @@ export default function CalculateBlock(props) {
       formItem.name === 'HVAC2_installation' &&
       (formItem.form_value === false || formItem.default_value === false)
     ) {
-      console.log('i am in hvac installation');
       if (formValues.find((o) => o.name === 'HVAC2_equipment_replaced') === undefined) {
         formValues.push(dependencies.find((o) => o.name === 'HVAC2_equipment_replaced'));
       }
@@ -234,7 +236,6 @@ export default function CalculateBlock(props) {
       // cooling capacity path
       if (formItem.name === 'HVAC2_new_equipment_cooling_capacity') {
         if (e.target.value === 'true') {
-          console.log('i am in false ~');
           if (formValues.find((o) => o.name === 'HVAC2_TCPSF_greater_than_minimum') === undefined) {
             formValues.push(
               dependencies.find((o) => o.name === 'HVAC2_TCPSF_greater_than_minimum'),
@@ -248,7 +249,6 @@ export default function CalculateBlock(props) {
             formValues.push(dependencies.find((o) => o.name === 'HVAC2_AEER_greater_than_minimum'));
           }
           removeItem(formValues, 'HVAC2_TCPSF_greater_than_minimum');
-          console.log(formValues);
         }
       }
 
@@ -315,11 +315,6 @@ export default function CalculateBlock(props) {
         }
       }
 
-      // setFormValues(formValues.sort((a, b) => {
-      //   if (a.metadata.sorting < b.metadata.sorting) return -1
-      //   return a.metadata.sorting > b.metadata.sorting ? 1 : 0
-      // }))
-
       setFormValues(
         [...formValues].map((item) => {
           console.log(formValues);
@@ -330,7 +325,7 @@ export default function CalculateBlock(props) {
               return { ...item, form_value: e.target.value };
             }
           } else {
-            return { ...item, form_value: item.form_value, default_value: item.default_value };
+            return item;
           }
         }),
       );
@@ -354,15 +349,21 @@ export default function CalculateBlock(props) {
     <CalculateForm
       calculationDate={calculationDate}
       variable={variable}
+      variable2={variable2}
       entities={entities}
       formValues={formValues}
       calculationResult={calculationResult}
+      calculationResult2={calculationResult2}
       setCalculationResult={setCalculationResult}
+      setCalculationResult2={setCalculationResult2}
       setCalculationError={setCalculationError}
       stepNumber={stepNumber}
       setStepNumber={setStepNumber}
-      backAction={backAction}
       dependencies={dependencies}
+      workflow={workflow}
+      backAction={(e) => {
+        setStepNumber(stepNumber - 1);
+      }}
     >
       {formValues.map((formItem, index) => renderFormField(formItem))}
     </CalculateForm>

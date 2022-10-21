@@ -10,13 +10,6 @@ function getCommercialHVACBrands() {
   });
 }
 
-function getCommercialWHBrands() {
-  return RegistryApiBase({
-    url: `/commercial_wh/brands`,
-    method: 'GET',
-  });
-}
-
 function listHvacModels(brandName) {
   return RegistryApiBase({
     url: `/commercial_hvac/brands/${brandName}/models`,
@@ -32,11 +25,35 @@ function getHvacModelsMetadata(payload) {
   });
 }
 
+function getCommercialWHBrands() {
+  return RegistryApiBase({
+    url: `/commercial_wh/brands`,
+    method: 'GET',
+  });
+}
+
+function listWHModels(brandName) {
+  return RegistryApiBase({
+    url: `/commercial_wh/brands/${brandName}/models`,
+    method: 'GET',
+  });
+}
+
+function getWHModelsMetadata(payload) {
+  return RegistryApiBase({
+    url: `/commercial_wh/metadata`,
+    method: 'POST',
+    data: payload,
+  });
+}
+
 const RegistryApi = {
   getCommercialHVACBrands,
   getCommercialWHBrands,
   listHvacModels,
   getHvacModelsMetadata,
+  listWHModels,
+  getWHModelsMetadata
 };
 
 export default RegistryApi;

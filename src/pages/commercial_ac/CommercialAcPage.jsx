@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 
 import VariableSearchBar from 'pages/homepage/VariableSearchBar';
 
@@ -7,6 +7,10 @@ import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 
 export default function CommercialAC(props) {
   const { entities, variables } = props;
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <Fragment>
@@ -87,7 +91,7 @@ export default function CommercialAC(props) {
           </div>
           <div className="nsw-col nsw-col-md-4">
             <Card
-              link="compare"
+              link="certificate-estimator/"
               image="/commercialac/certlogo.jpeg"
               headline="Estimate certificates only"
             >
@@ -134,7 +138,7 @@ export default function CommercialAC(props) {
                 <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Estimate certificates only"
-                    link="compare2activities"
+                    link="certificate-estimator/"
                     image="/commercialac/navigation_row/certificates_only.jpg"
                   >
                     {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>

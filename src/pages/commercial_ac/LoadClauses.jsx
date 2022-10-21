@@ -26,7 +26,7 @@ export default function LoadClauses(props) {
 
   console.log(variableToLoad);
 
-  const [dropdownOptions, setDropdownOptions] = useState([{}]);
+  // const [dropdownOptions, setDropdownOptions] = useState([{}]);
   // const [stepNumber, setStepNumber] = useState(1);
   const [variable, setVariable] = useState({}); // all info about variable
 
@@ -40,11 +40,10 @@ export default function LoadClauses(props) {
   // const [formValues, setFormValues] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  //   const populateDropDown = (newOption) => {
-  //     setDropdownOptions((prev) => {
-  //       return [...prev, newOption];
-  //     });
-  //   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   useEffect(() => {
     OpenFiscaApi.getVariable(variableToLoad)
@@ -83,7 +82,12 @@ export default function LoadClauses(props) {
 
   const formatResultString = (result) => {
     if (typeof result === 'boolean') {
-      return JSON.stringify(result);
+      if (result === true) {
+        return "you are eligible"
+      } else {
+        return "you are not eligible"
+      }
+      // return JSON.stringify(result);
     }
 
     return JSON.stringify(result) + ' kW';
@@ -167,7 +171,7 @@ export default function LoadClauses(props) {
                 setStepNumber(stepNumber - 1);
               }}
               dependencies={dependencies}
-              // dependencyMapping={dependencyMapping}
+              workflow={"eligibility"}
             />
           </Fragment>
         )}
@@ -180,17 +184,8 @@ export default function LoadClauses(props) {
                   <div className="nsw-content-block">
                     <div className="nsw-content-block__content">
                       <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
-                        Based on the information provided, your{' '}
-                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}>
-                          {variable.metadata && variable.metadata.alias
-                            ? variable.metadata.alias
-                            : variable.name}
-                        </span>{' '}
-                        are
+                        Based on the information provided {formatResultString(calculationResult)}.
                       </h4>
-                      <h1 style={{ textAlign: 'center', paddingTop: 10 }}>
-                        {formatResultString(calculationResult)}
-                      </h1>
                     </div>
                   </div>
                 </div>
@@ -206,7 +201,7 @@ export default function LoadClauses(props) {
               </Notification>
             )}
 
-            <div className="nsw-row">
+            { stepNumber === 2 && <div className="nsw-row">
               <div className="nsw-col">
                 <Button
                   as="secondary"
@@ -217,7 +212,8 @@ export default function LoadClauses(props) {
                   Back
                 </Button>
               </div>
-            </div>
+            </div> }
+
           </Fragment>
         )}
       </div>

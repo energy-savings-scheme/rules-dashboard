@@ -15,6 +15,11 @@ export default function BaseEligibilityCommercialAC(props) {
   const [dependencies, setDependencies] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
     if (variables) {
       const variable = variables.find((item) => item.name === variableToLoad);
       console.log(variable);

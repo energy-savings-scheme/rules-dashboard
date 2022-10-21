@@ -17,6 +17,10 @@ export default function BaseEligibilityCommercialAC(props) {
   console.log(variables);
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
     if (variables) {
       const variable = variables.find((item) => item.name === variableToLoad);
       console.log(variable);
@@ -182,6 +186,51 @@ export default function BaseEligibilityCommercialAC(props) {
         ))}
       </div> */}
       </div>
+      <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
+        <div class="nsw-container">
+          <div class="nsw-layout">
+            <div class="nsw-layout__main">
+              <br></br>
+              <br></br>
+              <h2 className="nsw-col nsw-content-block__title">
+                Check your eligibility and estimate certificates
+              </h2>
+              <div class="nsw-grid">
+                <div className="nsw-col nsw-col-md-4">
+                  <Card
+                    headline="Review schemes base eligibility, activity requirements and estimate certificates"
+                    link="base_eligibility_commercialwh/"
+                    image="/commercialac/navigation_row/full_flow_card.jpeg"
+                  >
+                    {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
+                        Review schemes base eligibility, activity requirements and estimate certificates</b></p> */}
+                  </Card>
+                </div>
+                <div className="nsw-col nsw-col-md-4">
+                  <Card
+                    headline="Check activity requirements and estimate certificates"
+                    link="compare2activities"
+                    image="/commercialac/navigation_row/activity_certificates.png"
+                  >
+                    {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
+                        Check activity requirements and estimate certificates</b></p> */}
+                  </Card>
+                </div>
+                <div className="nsw-col nsw-col-md-4">
+                  <Card
+                    headline="Estimate certificates only"
+                    link="compare2activities"
+                    image="/commercialac/navigation_row/certificates_only.jpg"
+                  >
+                    {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
+                        Estimate certificates only</b></p> */}
+                  </Card>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </Fragment>
   );
 }

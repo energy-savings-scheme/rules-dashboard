@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 
 import VariableSearchBar from 'pages/homepage/VariableSearchBar';
 
@@ -7,6 +7,10 @@ import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 
 export default function CommercialWH(props) {
   const { entities, variables } = props;
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <Fragment>

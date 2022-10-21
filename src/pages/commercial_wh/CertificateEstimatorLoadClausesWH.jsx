@@ -12,8 +12,9 @@ import { Notification } from 'nsw-ds-react/notification/notification';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 import OpenFiscaApi from 'services/openfisca_api';
 import VariableTreeListItem from 'components/VariableTreeListItem';
+import { Spinner } from 'react-bootstrap';
 
-export default function CertificateEstimatorLoadClauses(props) {
+export default function CertificateEstimatorLoadClausesWH(props) {
   const {
     variableToLoad1,
     variableToLoad2,
@@ -28,19 +29,17 @@ export default function CertificateEstimatorLoadClauses(props) {
     setCalculationError,
     calculationResult2,
     setCalculationResult2,
+    zone,
     postcode
   } = props;
 
   console.log(variableToLoad1);
   console.log(variableToLoad2);
   console.log(metadata);
-  console.log(postcode);
-
+  console.log("**********");
+  console.log(zone);
   console.log(stepNumber);
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
 
   const [variable, setVariable] = useState({}); // all info about variable
 
@@ -59,16 +58,9 @@ export default function CertificateEstimatorLoadClauses(props) {
   const [variableData2, setVariableData2] = useState([]);
 
 
-  console.log(calculationResult);
-  console.log(calculationResult2);
-
-  if (calculationResult2 === null) {
-    setCalculationResult2('0')
-  }
-
-  if (calculationResult === null) {
-    setCalculationResult2('0')
-  }
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   useEffect(() => {
     OpenFiscaApi.getVariable(variableToLoad1)
@@ -134,28 +126,33 @@ export default function CertificateEstimatorLoadClauses(props) {
       console.log(array1);
 
       array1.map((formItem) => {
-        if (formItem.name === 'HVAC2_rated_AEER_input') {
-          formItem.form_value = metadata['Rated AEER'];
+        console.log(metadata);
+        if (formItem.name === 'WH1_annual_energy_savings') {
+          formItem.form_value = metadata[`HPGas_zone_${zone}`];
         }
-        if (formItem.name === 'HVAC2_cooling_capacity_input' && metadata['Cooling Capacity'] != '') {
-          formItem.form_value = metadata['Cooling Capacity'];
+        if (formItem.name === 'WH1_com_peak_load') {
+          formItem.form_value = metadata[`ComPkLoad_zone_${zone}`];
         }
-        if (formItem.name === 'HVAC2_input_power' && metadata['Input Power'] != '') {
-          formItem.form_value = metadata['Input Power'];
+        if (formItem.name === "WH1_HP_capacity_factor") {
+          formItem.form_value = metadata['HPCap'];
         }
-        if (formItem.name === 'HVAC2_heating_capacity_input' && metadata['Heating Capacity'] != '') {
-          formItem.form_value = metadata['Heating Capacity'];
+        if (formItem.name === "WH1_HP_elec") {
+          formItem.form_value = metadata[`HPElec_zone_${zone}`];
         }
-        if (formItem.name === 'HVAC2_rated_ACOP_input' && metadata['Rated ACOP'] != '' && metadata['Rated ACOP'] != '-') {
-          formItem.form_value = metadata['Rated ACOP'];
+        if (formItem.name === "WH1_HP_gas") {
+          formItem.form_value = metadata[`HPGas_zone_${zone}`];
         };
-        if (formItem.name === "PDRS__postcode") {
+        if (formItem.name === "WH1_WH_capacity_factor") {
+          formItem.form_value = metadata['WHCap'];
+        };
+        if (formItem.name === "WH1_PDRS__postcode") {
           formItem.form_value = postcode;
           formItem.read_only = true;
         };
       })
 
       array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
+
 
       setFormValues(array1)
     }
@@ -232,7 +229,9 @@ export default function CertificateEstimatorLoadClauses(props) {
 
         {stepNumber === 2 && (
           <Fragment>
+
             <CalculateBlock
+              zone={zone}
               calculationDate={calculationDate}
               variable={variableData1}
               variable2={variableData2}
@@ -257,7 +256,7 @@ export default function CertificateEstimatorLoadClauses(props) {
           </Fragment>
         )}
 
-        {stepNumber === 3 && (
+{stepNumber === 3 && !calculationError && (
           <Fragment>
             { (
               <div className="nsw-row">
@@ -298,7 +297,7 @@ export default function CertificateEstimatorLoadClauses(props) {
             </Fragment>
         )}
 
-            {stepNumber === 2 && calculationError && (
+            {stepNumber === 3 && calculationError && (
               <Notification as="error" title="Sorry! An error has occurred.">
                 <p>
                   An error occurred during calculation. Try choosing a more recent Date and
@@ -307,8 +306,8 @@ export default function CertificateEstimatorLoadClauses(props) {
               </Notification>
             )}
 
-            {/* <div className="nsw-grid">
-              <div className="nsw-col">
+            {stepNumber === 3 && <div className="nsw-row">
+            <div className="nsw-col nsw-col-md-6">
                 <Button
                   as="secondary"
                   onClick={(e) => {
@@ -318,7 +317,7 @@ export default function CertificateEstimatorLoadClauses(props) {
                   Back
                 </Button>
               </div>
-            </div> */}
+            </div> }
         
       </div>
     </div>

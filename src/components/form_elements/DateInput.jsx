@@ -20,6 +20,7 @@ export default function DateInput(props) {
         placeholder="Enter value"
         value={formItem.form_value}
         onChange={setItemValue}
+        required
       />
     </FormGroup>
   );

@@ -4,7 +4,7 @@ import { FormGroup, Select } from 'nsw-ds-react/forms';
 export default function DropDownMenu(props) {
   const { formItem, setItemValue } = props;
 
-  const possibleValues = [{ text: '', value: '', disabled: true }];
+  const possibleValues = [{ text: 'Please select', value: '', disabled: true }];
 
   if (formItem && formItem.possible_values) {
     Object.entries(formItem.possible_values).map((dictArray) => {
@@ -14,7 +14,7 @@ export default function DropDownMenu(props) {
 
   return (
     <FormGroup
-      helper={formItem.description} // primary question text
+      helper={formItem.metadata.display_question} // primary question text
       errorText="Invalid value!" // error text if invalid
       status={formItem.invalid && 'invalid'} // if `true` renders invalid formatting
     >
