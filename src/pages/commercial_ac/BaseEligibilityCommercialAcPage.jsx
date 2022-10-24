@@ -5,28 +5,23 @@ import LoadClauses from './LoadClauses';
 import OpenFiscaAPI from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 
-
 export default function BaseEligibilityCommercialAC(props) {
   const { entities, variables, setEntities, setVariables, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
   const [dependencies, setDependencies] = useState([]);
-  const [variableToLoad, setVariableToLoad] = useState("ESS__PDRS__ACP_base_scheme_eligibility");
-
+  const [variableToLoad, setVariableToLoad] = useState('ESS__PDRS__ACP_base_scheme_eligibility');
 
   if (formValues.length === 0) {
     setLoading(true);
-  }
-  else if (variables.length === 0) {
+  } else if (variables.length === 0) {
     setLoading(true);
-  }
-  else if (variables.length === 0) {
+  } else if (variables.length === 0) {
     setLoading(true);
   } else {
     setLoading(false);
   }
-
 
   useEffect(() => {
     if (variables.length < 1) {
@@ -38,9 +33,9 @@ export default function BaseEligibilityCommercialAC(props) {
         .catch((err) => {
           console.log(err);
         });
-  }
+    }
 
-  if (entities.length < 1) {
+    if (entities.length < 1) {
       OpenFiscaAPI.listVariables()
         .then((res) => {
           setVariables(res.data);
@@ -49,10 +44,10 @@ export default function BaseEligibilityCommercialAC(props) {
         .catch((err) => {
           console.log(err);
         });
-  }
-}, [])
+    }
+  }, []);
 
-useEffect(() => {
+  useEffect(() => {
     if (variables.length > 0) {
       console.log(variableToLoad);
       console.log(variables);
@@ -138,22 +133,23 @@ useEffect(() => {
         <ProgressIndicator step={stepNumber} of={2} />
 
         <Fragment>
-        {loading && <SpinnerFullscreen />}
-        {!loading &&  <LoadClauses
-            variableToLoad={variableToLoad}
-            variables={variables}
-            entities={entities}
-            stepNumber={stepNumber}
-            setStepNumber={setStepNumber}
-            formValues={formValues}
-            dependencies={dependencies}
-            setFormValues={setFormValues}
-            backAction={(e) => {
-              setStepNumber(stepNumber - 1);
-            }}
-          /> }
+          {loading && <SpinnerFullscreen />}
+          {!loading && (
+            <LoadClauses
+              variableToLoad={variableToLoad}
+              variables={variables}
+              entities={entities}
+              stepNumber={stepNumber}
+              setStepNumber={setStepNumber}
+              formValues={formValues}
+              dependencies={dependencies}
+              setFormValues={setFormValues}
+              backAction={(e) => {
+                setStepNumber(stepNumber - 1);
+              }}
+            />
+          )}
         </Fragment>
-
       </div>
       <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
         <div class="nsw-container" style={{ paddingBottom: '4rem' }}>

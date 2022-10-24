@@ -15,22 +15,21 @@ export default function ActivityRequirementsCommercialAC(props) {
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
   const [dependencies, setDependencies] = useState([]);
-  const [variableToLoad, setVariableToLoad] = useState("HVAC2_installation_replacement_final_activity_eligibility");
+  const [variableToLoad, setVariableToLoad] = useState(
+    'HVAC2_installation_replacement_final_activity_eligibility',
+  );
 
   console.log(variables);
 
   if (formValues.length === 0) {
     setLoading(true);
-  }
-  else if (variables.length === 0) {
+  } else if (variables.length === 0) {
     setLoading(true);
-  }
-  else if (variables.length === 0) {
+  } else if (variables.length === 0) {
     setLoading(true);
   } else {
     setLoading(false);
   }
-
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -44,9 +43,9 @@ export default function ActivityRequirementsCommercialAC(props) {
         .catch((err) => {
           console.log(err);
         });
-  }
+    }
 
-  if (entities.length < 1) {
+    if (entities.length < 1) {
       OpenFiscaAPI.listVariables()
         .then((res) => {
           setVariables(res.data);
@@ -55,8 +54,8 @@ export default function ActivityRequirementsCommercialAC(props) {
         .catch((err) => {
           console.log(err);
         });
-  }
-}, [])
+    }
+  }, []);
 
   useEffect(() => {
     if (variables.length > 0) {
@@ -89,7 +88,6 @@ export default function ActivityRequirementsCommercialAC(props) {
       setLoading(false);
     }
   }, [variables, variableToLoad]);
-
 
   return (
     <Fragment>
@@ -140,19 +138,21 @@ export default function ActivityRequirementsCommercialAC(props) {
 
         <Fragment>
           {loading && <SpinnerFullscreen />}
-          {!loading &&  <LoadClauses
-            variableToLoad={variableToLoad}
-            variables={variables}
-            entities={entities}
-            stepNumber={stepNumber}
-            setStepNumber={setStepNumber}
-            formValues={formValues}
-            dependencies={dependencies}
-            setFormValues={setFormValues}
-            backAction={(e) => {
-              setStepNumber(stepNumber - 1);
-            }}
-          /> }
+          {!loading && (
+            <LoadClauses
+              variableToLoad={variableToLoad}
+              variables={variables}
+              entities={entities}
+              stepNumber={stepNumber}
+              setStepNumber={setStepNumber}
+              formValues={formValues}
+              dependencies={dependencies}
+              setFormValues={setFormValues}
+              backAction={(e) => {
+                setStepNumber(stepNumber - 1);
+              }}
+            />
+          )}
         </Fragment>
 
         {/* <div className="nsw-grid">

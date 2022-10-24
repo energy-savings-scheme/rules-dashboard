@@ -7,7 +7,6 @@ export default function Breadcrumb() {
 
   let path = {};
 
-
   if (location.pathname === '/') {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
@@ -25,10 +24,7 @@ export default function Breadcrumb() {
               </NavLink>
             </li>
             <li className="nsw-breadcrumb__item">
-              <NavLink
-                to=""
-                className="nsw-breadcrumb__link nsw-breadcrumb--current"
-              >
+              <NavLink to="" className="nsw-breadcrumb__link nsw-breadcrumb--current">
                 Activities
               </NavLink>
             </li>
@@ -37,7 +33,7 @@ export default function Breadcrumb() {
       </div>
     );
   }
-  if (location.pathname === '/commercialwh/' || location.pathname === '/commercialwh' ) {
+  if (location.pathname === '/commercialwh/' || location.pathname === '/commercialwh') {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
         <nav aria-label="Breadcrumb" className="nsw-breadcrumb">
@@ -58,10 +54,7 @@ export default function Breadcrumb() {
               </NavLink>
             </li>
             <li className="nsw-breadcrumb__item">
-              <NavLink
-                to="/commercialwh"
-                className="nsw-breadcrumb__link nsw-breadcrumb--current"
-              >
+              <NavLink to="/commercialwh" className="nsw-breadcrumb__link nsw-breadcrumb--current">
                 Commercial Heat Pump Water Heater
               </NavLink>
             </li>
@@ -92,10 +85,7 @@ export default function Breadcrumb() {
               </NavLink>
             </li>
             <li className="nsw-breadcrumb__item">
-              <NavLink
-                to="/commercialac"
-                className="nsw-breadcrumb__link nsw-breadcrumb--current"
-              >
+              <NavLink to="/commercialac" className="nsw-breadcrumb__link nsw-breadcrumb--current">
                 Commercial Air Conditioners
               </NavLink>
             </li>
@@ -105,7 +95,10 @@ export default function Breadcrumb() {
     );
   }
 
-  if (location.pathname === '/commercialwh/base_eligibility_commercialwh/' || location.pathname === '/commercialwh/base_eligibility_commercialwh') {
+  if (
+    location.pathname === '/commercialwh/base_eligibility_commercialwh/' ||
+    location.pathname === '/commercialwh/base_eligibility_commercialwh'
+  ) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
         <nav aria-label="Breadcrumb" className="nsw-breadcrumb">
@@ -144,7 +137,10 @@ export default function Breadcrumb() {
     );
   }
 
-  if (location.pathname === '/commercialac/base_eligibility_commercialac/' || location.pathname === '/commercialac/base_eligibility_commercialac') {
+  if (
+    location.pathname === '/commercialac/base_eligibility_commercialac/' ||
+    location.pathname === '/commercialac/base_eligibility_commercialac'
+  ) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
         <nav aria-label="Breadcrumb" className="nsw-breadcrumb">
@@ -183,7 +179,10 @@ export default function Breadcrumb() {
     );
   }
 
-  if (location.pathname === '/commercialac/activity-requirements' || location.pathname === '/commercialac/activity-requirements/') {
+  if (
+    location.pathname === '/commercialac/activity-requirements' ||
+    location.pathname === '/commercialac/activity-requirements/'
+  ) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
         <nav aria-label="Breadcrumb" className="nsw-breadcrumb">
@@ -222,7 +221,10 @@ export default function Breadcrumb() {
     );
   }
 
-  if (location.pathname === '/commercialac/certificate-estimator' || location.pathname === '/commercialac/certificate-estimator/') {
+  if (
+    location.pathname === '/commercialac/certificate-estimator' ||
+    location.pathname === '/commercialac/certificate-estimator/'
+  ) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
         <nav aria-label="Breadcrumb" className="nsw-breadcrumb">
@@ -256,7 +258,10 @@ export default function Breadcrumb() {
     );
   }
 
-  if (location.pathname === '/commercialwh/certificate-estimator' || location.pathname === '/commercialwh/certificate-estimator/') {
+  if (
+    location.pathname === '/commercialwh/certificate-estimator' ||
+    location.pathname === '/commercialwh/certificate-estimator/'
+  ) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
         <nav aria-label="Breadcrumb" className="nsw-breadcrumb">

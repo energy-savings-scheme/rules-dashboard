@@ -148,11 +148,13 @@ export default function CertificateEstimatorWH(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-            Energy Savings Scheme and Peak Demand Reduction Scheme Certificate Estimator
+              Energy Savings Scheme and Peak Demand Reduction Scheme Certificate Estimator
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-            Estimate your ESCs and PRCs for the Commercial Heat Pump Water Heater Activity (F16 in the ESS and WH1 in the PDRS) by answering the following questions.  Please keep in mind that the results are indicative only and cannot be promoted or published.{' '}
+              Estimate your ESCs and PRCs for the Commercial Heat Pump Water Heater Activity (F16 in
+              the ESS and WH1 in the PDRS) by answering the following questions. Please keep in mind
+              that the results are indicative only and cannot be promoted or published.{' '}
             </p>
           </div>
         </div>
@@ -162,16 +164,17 @@ export default function CertificateEstimatorWH(props) {
         </p>
         <ProgressIndicator step={stepNumber} of={3} />
 
-
         <Fragment>
           {stepNumber === 1 && (
             <div className="nsw-row">
               <div className="nsw-col" style={{ padding: 'inherit' }}>
                 <div className="nsw-content-block">
-                    <br></br>
-                    <br></br>
+                  <br></br>
+                  <br></br>
                   <div className="nsw-content-block__content">
-                   <h5 className="nsw-content-block__copy"><b>Answer the following questions to calculate your ESCs and PRCs</b></h5>
+                    <h5 className="nsw-content-block__copy">
+                      <b>Answer the following questions to calculate your ESCs and PRCs</b>
+                    </h5>
 
                     <FormGroup
                       helper="What is your postcode?" // helper text (secondary label)

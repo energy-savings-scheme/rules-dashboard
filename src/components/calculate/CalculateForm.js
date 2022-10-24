@@ -128,14 +128,22 @@ export default function CalculateForm(props) {
     <form onSubmit={handleCalculate}>
       <div className="nsw-content-block">
         <div className="nsw-content-block__content">
-          {workflow === 'certificates' ?       <h5 className="nsw-content-block__copy"><b>Answer the following questions to calculate your ESCs and PRCs</b></h5>
-: <h5 className="nsw-content-block__copy"> <b> Check if you meet the following requirements </b></h5> }
+          {workflow === 'certificates' ? (
+            <h5 className="nsw-content-block__copy">
+              <b>Answer the following questions to calculate your ESCs and PRCs</b>
+            </h5>
+          ) : (
+            <h5 className="nsw-content-block__copy">
+              {' '}
+              <b> Check if you meet the following requirements </b>
+            </h5>
+          )}
         </div>
       </div>
 
       {props.children}
 
-      <div className="nsw-grid" >
+      <div className="nsw-grid">
         <div className="nsw-col-md-6">
           {stepNumber !== 1 && (
             <Button
@@ -149,7 +157,7 @@ export default function CalculateForm(props) {
           )}
         </div>
         <div className="nsw-col-md-6">
-          <Button as="primary" type="submit" style={{float: 'right'}}>
+          <Button as="primary" type="submit" style={{ float: 'right' }}>
             {loading ? (
               <Spinner animation="border" role="status" size="lg">
                 <span className="sr-only">Loading...</span>

@@ -15,7 +15,16 @@ import CertificateEstimatorLoadClauses from './CertificatEstimatorLoadClauses';
 import OpenFiscaAPI from 'services/openfisca_api';
 
 export default function CertificateEstimatorHVAC(props) {
-  const { entities, variables, hvacBrands, setVariables, setEntities, setHvacBrands, loading, setLoading } = props;
+  const {
+    entities,
+    variables,
+    hvacBrands,
+    setVariables,
+    setEntities,
+    setHvacBrands,
+    loading,
+    setLoading,
+  } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
@@ -42,9 +51,9 @@ export default function CertificateEstimatorHVAC(props) {
         .catch((err) => {
           console.log(err);
         });
-  }
+    }
 
-  if (entities.length < 1) {
+    if (entities.length < 1) {
       OpenFiscaAPI.listVariables()
         .then((res) => {
           setVariables(res.data);
@@ -52,17 +61,17 @@ export default function CertificateEstimatorHVAC(props) {
         .catch((err) => {
           console.log(err);
         });
-  }
+    }
 
-  if (hvacBrands.length < 1) {
+    if (hvacBrands.length < 1) {
       RegistryApi.getCommercialHVACBrands()
-      .then((res) => {
-        setHvacBrands(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((res) => {
+          setHvacBrands(res.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   }, []);
 
@@ -81,9 +90,8 @@ export default function CertificateEstimatorHVAC(props) {
   };
 
   useEffect(() => {
-      setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
-      models.forEach((item) => populateModelDropDown({ text: item, value: item }));
-    
+    setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
+    models.forEach((item) => populateModelDropDown({ text: item, value: item }));
   }, [models]);
 
   useEffect(() => {
@@ -159,7 +167,9 @@ export default function CertificateEstimatorHVAC(props) {
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-            Estimate your ESCs and PRCs for the Commercial Air Conditioner Activity (F4 in the ESS and HVAC2 in the PDRS) by answering the following questions.  Please keep in mind that the results are indicative only and cannot be promoted or published.{' '}
+              Estimate your ESCs and PRCs for the Commercial Air Conditioner Activity (F4 in the ESS
+              and HVAC2 in the PDRS) by answering the following questions. Please keep in mind that
+              the results are indicative only and cannot be promoted or published.{' '}
             </p>
           </div>
         </div>
@@ -173,13 +183,15 @@ export default function CertificateEstimatorHVAC(props) {
         <Fragment>
           {stepNumber === 1 && (
             <div className="nsw-row">
-              <div className="nsw-col"  style={{ padding: 'inherit' }}>
+              <div className="nsw-col" style={{ padding: 'inherit' }}>
                 <div className="nsw-content-block">
-                <br></br>
-        <br></br>
-        <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
                   <div className="nsw-content-block__content">
-                  <h5 className="nsw-content-block__copy"><b>Answer the following questions to calculate your ESCs and PRCs</b></h5>
+                    <h5 className="nsw-content-block__copy">
+                      <b>Answer the following questions to calculate your ESCs and PRCs</b>
+                    </h5>
 
                     <FormGroup
                       helper="What is your postcode?" // helper text (secondary label)

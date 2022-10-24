@@ -132,7 +132,7 @@ export default function CertificateEstimatorLoadClauses(props) {
 
       array1.map((formItem) => {
         if (formItem.name === 'HVAC2_rated_AEER_input') {
-          console.log(formItem.form_value)
+          console.log(formItem.form_value);
           formItem.form_value = metadata['Rated AEER'];
         }
 
@@ -140,8 +140,10 @@ export default function CertificateEstimatorLoadClauses(props) {
           formItem.name === 'HVAC2_cooling_capacity_input' &&
           metadata['Cooling Capacity'] != ''
         ) {
-          console.log(formItem.form_value)
-          if (!formItem.form_value) {formItem.form_value = metadata['Cooling Capacity'];}
+          console.log(formItem.form_value);
+          if (!formItem.form_value) {
+            formItem.form_value = metadata['Cooling Capacity'];
+          }
         }
 
         if (formItem.name === 'HVAC2_input_power' && metadata['Input Power'] != '') {
@@ -310,7 +312,7 @@ export default function CertificateEstimatorLoadClauses(props) {
           </Notification>
         )}
 
-      {stepNumber === 3 && (
+        {stepNumber === 3 && (
           <div className="nsw-row">
             <div className="nsw-col nsw-col-md-6">
               <Button

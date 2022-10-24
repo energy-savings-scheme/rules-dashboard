@@ -148,9 +148,9 @@ function App() {
         </Route>
         <Route path="/commercialac/certificate-estimator" exact>
           <Breadcrumb />
-          <CertificateEstimatorHVAC 
-            entities={entities} 
-            variables={variables} 
+          <CertificateEstimatorHVAC
+            entities={entities}
+            variables={variables}
             hvacBrands={hvacBrands}
             loading={loading}
             setEntities={setEntities}
@@ -161,10 +161,10 @@ function App() {
         </Route>
         <Route path="/commercialwh/certificate-estimator" exact>
           <Breadcrumb />
-          <CertificateEstimatorWH 
-            entities={entities} 
-            variables={variables} 
-            brands={whBrands} 
+          <CertificateEstimatorWH
+            entities={entities}
+            variables={variables}
+            brands={whBrands}
             setEntities={setEntities}
             setVariables={setVariables}
             setLoading={setLoading}
