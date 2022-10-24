@@ -21,7 +21,7 @@ export default function CalculateForm(props) {
     dependencies,
     setCalculationResult2,
     calculationResult2,
-    workflow
+    workflow,
   } = props;
 
   var { formValues } = props;
@@ -29,8 +29,8 @@ export default function CalculateForm(props) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   const validateDataType = (item) => {
     // OpenFisca requires payload data to be correctly typed.
@@ -89,24 +89,24 @@ export default function CalculateForm(props) {
         setLoading(false);
       });
 
-      if (variable2) {
-        const entity2 = entities.find((item) => item.name === variable2.entity);
-        var payload2 = {
-          persons: { person1: {} },
-          [entity2.plural]: { [`${entity2.name}_1`]: { [variable2.name]: { [date]: null } } },
+    if (variable2) {
+      const entity2 = entities.find((item) => item.name === variable2.entity);
+      var payload2 = {
+        persons: { person1: {} },
+        [entity2.plural]: { [`${entity2.name}_1`]: { [variable2.name]: { [date]: null } } },
+      };
+
+      formValues.map((variable) => {
+        const variable_entity2 = entities.find((item) => item.name === variable.entity);
+
+        payload2[variable_entity2.plural][`${variable_entity2.name}_1`][`${variable.name}`] = {
+          [date]: validateDataType(variable).form_value,
         };
-  
-        formValues.map((variable) => {
-          const variable_entity2 = entities.find((item) => item.name === variable.entity);
-    
-          payload2[variable_entity2.plural][`${variable_entity2.name}_1`][`${variable.name}`] = {
-            [date]: validateDataType(variable).form_value,
-          };
-        });
+      });
 
-        console.log(payload2);
+      console.log(payload2);
 
-        OpenFiscaApi.postCalculate(payload2)
+      OpenFiscaApi.postCalculate(payload2)
         .then((res) => {
           var result = res.data[entity2.plural][`${entity2.name}_1`][variable2.name][date];
           console.log(res.data);
@@ -115,42 +115,41 @@ export default function CalculateForm(props) {
         .catch((err) => {
           setCalculationResult2(null);
           console.log(err);
-        })
+        });
+    }
 
-      }
+    setStepNumber(stepNumber + 1);
 
-      setStepNumber(stepNumber + 1);
-
-      console.log(calculationResult);
-      console.log(calculationResult2)
+    console.log(calculationResult);
+    console.log(calculationResult2);
   };
 
   return (
     <form onSubmit={handleCalculate}>
       <div className="nsw-content-block">
         <div className="nsw-content-block__content">
-          <h2 className="nsw-content-block__title">Check if you meet the following requirements</h2>
+          {workflow === 'certificates' ?       <h5 className="nsw-content-block__copy"><b>Answer the following questions to calculate your ESCs and PRCs</b></h5>
+: <h5 className="nsw-content-block__copy"> <b> Check if you meet the following requirements </b></h5> }
         </div>
       </div>
 
       {props.children}
-      
-      
 
-      <div className="nsw-grid">
-      <div className="nsw-col-md-6">
-
-      { stepNumber !== 1 && <Button
-        as="secondary"
-        onClick={(e) => {
-          setStepNumber(stepNumber - 1);
-        }}
-      > 
-        Back
-      </Button> }
-      </div>
+      <div className="nsw-grid" >
         <div className="nsw-col-md-6">
-          <Button as="primary" type="submit" style={{ float: 'right' }}>
+          {stepNumber !== 1 && (
+            <Button
+              as="secondary"
+              onClick={(e) => {
+                setStepNumber(stepNumber - 1);
+              }}
+            >
+              Back
+            </Button>
+          )}
+        </div>
+        <div className="nsw-col-md-6">
+          <Button as="primary" type="submit" style={{float: 'right'}}>
             {loading ? (
               <Spinner animation="border" role="status" size="lg">
                 <span className="sr-only">Loading...</span>

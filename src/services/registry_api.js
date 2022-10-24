@@ -53,7 +53,7 @@ const RegistryApi = {
   listHvacModels,
   getHvacModelsMetadata,
   listWHModels,
-  getWHModelsMetadata
+  getWHModelsMetadata,
 };
 
 export default RegistryApi;

@@ -40,10 +40,9 @@ function App() {
 
   const [schedules, setSchedules] = useState(variable_tree);
 
-
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     OpenFiscaAPI.listEntities()
@@ -120,6 +119,9 @@ function App() {
             entities={entities}
             variables={variables}
             variableToLoad="ESS__PDRS__ACP_base_scheme_eligibility"
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
           />
         </Route>
         <Route path="/commercialac/base_eligibility_commercialac" exact>
@@ -128,6 +130,9 @@ function App() {
             entities={entities}
             variables={variables}
             variableToLoad="ESS__PDRS__ACP_base_scheme_eligibility"
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
           />
         </Route>
         <Route path="/commercialac/activity-requirements" exact>
@@ -136,22 +141,33 @@ function App() {
             entities={entities}
             variables={variables}
             variableToLoad="HVAC2_installation_replacement_final_activity_eligibility"
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
           />
         </Route>
         <Route path="/commercialac/certificate-estimator" exact>
           <Breadcrumb />
-          <CertificateEstimatorHVAC
-            entities={entities}
-            variables={variables}
-            brands={hvacBrands}
+          <CertificateEstimatorHVAC 
+            entities={entities} 
+            variables={variables} 
+            hvacBrands={hvacBrands}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+            setHvacBrands={setHvacBrands}
           />
         </Route>
-        <Route path="/commercial-wh/certificate-estimator" exact>
+        <Route path="/commercialwh/certificate-estimator" exact>
           <Breadcrumb />
-          <CertificateEstimatorWH
-            entities={entities}
-            variables={variables}
-            brands={whBrands}
+          <CertificateEstimatorWH 
+            entities={entities} 
+            variables={variables} 
+            brands={whBrands} 
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
           />
         </Route>
         <Route path="*">Not Found</Route>

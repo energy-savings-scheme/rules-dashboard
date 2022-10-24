@@ -32,8 +32,8 @@ export default function CertificateEstimatorWH(props) {
   const [zone, setZone] = useState(0);
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   // For brands
   const populateDropDown = (newOption) => {
@@ -53,7 +53,6 @@ export default function CertificateEstimatorWH(props) {
     setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
     models.forEach((item) => populateModelDropDown({ text: item, value: item }));
   }, [models]);
-
 
   useEffect(() => {
     if (!selectedBrand) return null;
@@ -75,13 +74,11 @@ export default function CertificateEstimatorWH(props) {
     console.log(metadata);
   }, [selectedModel]);
 
-
   useEffect(() => {
     setDropdownOptions([{ value: '', text: 'Please select brand' }]);
 
     brands.forEach((item) => populateDropDown({ text: item, value: item }));
   }, [brands]);
-
 
   useEffect(() => {
     console.log(selectedBrand);
@@ -97,36 +94,32 @@ export default function CertificateEstimatorWH(props) {
     console.log(models);
   }, [selectedBrand]);
 
-
   useEffect(() => {
     const payload = {
-        "buildings": {
-            "building_1": {
-                "WH1_PDRS__postcode": {"2021-01-01": postcode},
-                "WH1_get_zone_by_postcode": {"2021-01-01": null}
-            }
+      buildings: {
+        building_1: {
+          WH1_PDRS__postcode: { '2021-01-01': postcode },
+          WH1_get_zone_by_postcode: { '2021-01-01': null },
         },
-        "persons":
-            {
-                "person1": {}
-            }
-    }
+      },
+      persons: {
+        person1: {},
+      },
+    };
 
     OpenFiscaApi.postCalculate(payload)
-        .then((res) => {
-            var result = res.data.buildings.building_1['WH1_get_zone_by_postcode']['2021-01-01'];
-            setZone(result);
-            console.log(result);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+      .then((res) => {
+        var result = res.data.buildings.building_1['WH1_get_zone_by_postcode']['2021-01-01'];
+        setZone(result);
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-        console.log("********");
-        console.log(zone);
-
+    console.log('********');
+    console.log(zone);
   }, [postcode]);
-
 
   return (
     <Fragment>
@@ -139,7 +132,7 @@ export default function CertificateEstimatorWH(props) {
               <div class="nsw-hero-banner__box">
                 <img
                   class="nsw-hero-banner__image"
-                  src="/commercialac/Base_Eligibility_Hero.jpg"
+                  src="/commercial_wh/WH1_Activity_Page_Hero.jpeg"
                   alt=""
                   style={{ top: '50%' }}
                 />
@@ -155,79 +148,76 @@ export default function CertificateEstimatorWH(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-              Energy Savings Scheme and Peak Demand Reduction Scheme Certificate Estimator
+            Energy Savings Scheme and Peak Demand Reduction Scheme Certificate Estimator
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-              <b>Commercial water heater activity requirements</b>
-            </p>
-            <p className="nsw-content-block__copy">
-              The following questions assess the eligibility requirements for the Commercial Heat
-              Pump Water Heater Activity (F16 in the ESS and WH1 in the PDRS). Answer the questions
-              to check your eligibility and click the button below to review ineligible answers and
-              their corresponding rule clauses.{' '}
+            Estimate your ESCs and PRCs for the Commercial Heat Pump Water Heater Activity (F16 in the ESS and WH1 in the PDRS) by answering the following questions.  Please keep in mind that the results are indicative only and cannot be promoted or published.{' '}
             </p>
           </div>
         </div>
 
         <p className="nsw-content-block__copy">
-          <b> Commercial heat pump water heater calculations progress </b>
+          <b> Commercial heat pump water heater certificate estimator </b>
         </p>
         <ProgressIndicator step={stepNumber} of={3} />
-        <br></br>
-        <br></br>
+
 
         <Fragment>
           {stepNumber === 1 && (
             <div className="nsw-row">
               <div className="nsw-col" style={{ padding: 'inherit' }}>
                 <div className="nsw-content-block">
+                    <br></br>
+                    <br></br>
                   <div className="nsw-content-block__content">
-                  <FormGroup
-            helper= 'What is your postcode?' // helper text (secondary label)
-            errorText="Invalid value!" // error text if invalid
-            >
-            <TextInput
-                style={{ maxWidth: '50%' }}
-                as="input"
-                type='number'
-                placeholder="Enter value"
-                value={postcode}
-                onChange={(e) => {
-                    setPostcode(e.target.value);
-                }}
-                required
-            />
-            </FormGroup>
-                    <FormGroup
-                        helper="Select commercial water heater brand" // primary question text
-                        errorText="Invalid value!" // error text if invalid
-                        >
-                        <Select
-                            style={{ maxWidth: '50%' }}
-                            options={dropdownOptions}
-                            onChange={(e) => {
-                                setSelectedBrand(brands.find((item) => item === e.target.value));
-                            }}
-                            value={selectedBrand}
-                            required
-                        />
-                        </FormGroup>
+                   <h5 className="nsw-content-block__copy"><b>Answer the following questions to calculate your ESCs and PRCs</b></h5>
 
-                        <FormGroup
-                        helper="Select commercial water heater model"// primary question text
-                        errorText="Invalid value!" // error text if invalid
-                        >
-                        <Select
-                            style={{ maxWidth: '50%' }}
-                            options={dropdownOptionsModels}
-                            onChange={(e) => {
-                                setSelectedModel(models.find((item) => item === e.target.value));
-                              }}
-                            value={selectedModel}
-                            required
-                        />
-                        </FormGroup>
+                    <FormGroup
+                      helper="What is your postcode?" // helper text (secondary label)
+                      errorText="Invalid value!" // error text if invalid
+                    >
+                      <TextInput
+                        style={{ maxWidth: '50%' }}
+                        as="input"
+                        type="number"
+                        placeholder="Enter value"
+                        value={postcode}
+                        onChange={(e) => {
+                          setPostcode(e.target.value);
+                        }}
+                        required
+                      />
+                    </FormGroup>
+                    <FormGroup
+                      helper="Select commercial water heater brand" // primary question text
+                      errorText="Invalid value!" // error text if invalid
+                    >
+                      <Select
+                        style={{ maxWidth: '50%' }}
+                        options={dropdownOptions}
+                        onChange={(e) => {
+                          setSelectedBrand(brands.find((item) => item === e.target.value));
+                        }}
+                        value={selectedBrand}
+                        required
+                      />
+                    </FormGroup>
+
+                    <FormGroup
+                      helper="Select commercial water heater model" // primary question text
+                      errorText="Invalid value!" // error text if invalid
+                    >
+                      <Select
+                        style={{ maxWidth: '50%' }}
+                        options={dropdownOptionsModels}
+                        onChange={(e) => {
+                          setSelectedModel(models.find((item) => item === e.target.value));
+                        }}
+                        value={selectedModel}
+                        required
+                      />
+                    </FormGroup>
                   </div>
                 </div>
               </div>
@@ -257,7 +247,7 @@ export default function CertificateEstimatorWH(props) {
             />
           )}
 
-        {stepNumber === 3 && (
+          {stepNumber === 3 && (
             <CertificateEstimatorLoadClausesWH
               // calculationDate={calculationDate}
               variableToLoad1={'WH1_PRC_calculation'}
@@ -271,31 +261,32 @@ export default function CertificateEstimatorWH(props) {
               setCalculationError={setCalculationError}
               calculationResult2={calculationResult2}
               setCalculationResult2={setCalculationResult2}
-                // calculationResult={calculationResult}
-                // setCalculationResult={setCalculationResult}
-                // setCalculationError={setCalculationError}
+              // calculationResult={calculationResult}
+              // setCalculationResult={setCalculationResult}
+              // setCalculationError={setCalculationError}
               //   dependencies={dependencies}
               stepNumber={stepNumber}
               setStepNumber={setStepNumber}
               //   formValues={formValues}
               //   setFormValues={setFormValues}
             />
-          )} 
+          )}
 
-        {stepNumber !==3 && stepNumber !==2 && <div className="nsw-row">
-            <div className="nsw-col">
-              <Button
-                as="primary"
-                onClick={(e) => {
-                  setStepNumber(stepNumber + 1);
-                }}
-                style={{ float: 'right' }}
-              >
-                Next
-              </Button>
+          {stepNumber !== 3 && stepNumber !== 2 && (
+            <div className="nsw-row">
+              <div className="nsw-col">
+                <Button
+                  as="primary"
+                  onClick={(e) => {
+                    setStepNumber(stepNumber + 1);
+                  }}
+                  style={{ float: 'right' }}
+                >
+                  Next
+                </Button>
+              </div>
             </div>
-          </div>
-        }
+          )}
         </Fragment>
       </div>
       <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>

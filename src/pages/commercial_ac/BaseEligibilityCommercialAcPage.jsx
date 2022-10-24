@@ -1,26 +1,61 @@
 import React, { Fragment, useState, useEffect } from 'react';
-
-import VariableSearchBar from 'pages/homepage/VariableSearchBar';
-
 import Card, { CardCopy } from 'nsw-ds-react/card/card';
-import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 import LoadClauses from './LoadClauses';
+import OpenFiscaAPI from 'services/openfisca_api';
+import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
+
 
 export default function BaseEligibilityCommercialAC(props) {
-  const { entities, variables, variableToLoad } = props;
+  const { entities, variables, setEntities, setVariables, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
   const [dependencies, setDependencies] = useState([]);
+  const [variableToLoad, setVariableToLoad] = useState("ESS__PDRS__ACP_base_scheme_eligibility");
+
+
+  if (formValues.length === 0) {
+    setLoading(true);
+  }
+  else if (variables.length === 0) {
+    setLoading(true);
+  }
+  else if (variables.length === 0) {
+    setLoading(true);
+  } else {
+    setLoading(false);
+  }
+
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    if (variables.length < 1) {
+      OpenFiscaAPI.listEntities()
+        .then((res) => {
+          setEntities(res.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-    if (variables) {
+  if (entities.length < 1) {
+      OpenFiscaAPI.listVariables()
+        .then((res) => {
+          setVariables(res.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }
+}, [])
+
+useEffect(() => {
+    if (variables.length > 0) {
+      console.log(variableToLoad);
+      console.log(variables);
       const variable = variables.find((item) => item.name === variableToLoad);
       console.log(variable);
       const offsprings = variable.metadata.input_offspring;
@@ -51,8 +86,9 @@ export default function BaseEligibilityCommercialAC(props) {
 
       setFormValues(array);
       setDependencies(dep_arr);
+      setLoading(false);
     }
-  }, [variables]);
+  }, [variables, variableToLoad]);
 
   return (
     <Fragment>
@@ -102,14 +138,11 @@ export default function BaseEligibilityCommercialAC(props) {
         <ProgressIndicator step={stepNumber} of={2} />
 
         <Fragment>
-          <LoadClauses
-            // calculationDate={calculationDate}
+        {loading && <SpinnerFullscreen />}
+        {!loading &&  <LoadClauses
             variableToLoad={variableToLoad}
             variables={variables}
             entities={entities}
-            // calculationResult={calculationResult}
-            // setCalculationResult={setCalculationResult}
-            // setCalculationError={setCalculationError}
             stepNumber={stepNumber}
             setStepNumber={setStepNumber}
             formValues={formValues}
@@ -118,86 +151,9 @@ export default function BaseEligibilityCommercialAC(props) {
             backAction={(e) => {
               setStepNumber(stepNumber - 1);
             }}
-          />
+          /> }
         </Fragment>
 
-        {/* <div className="nsw-grid">
-          <h2 className="nsw-col nsw-content-block__title">
-            Which eligibility requirements would you like to check?
-          </h2>
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              headline="Review schemes base eligibility, activity requirements and estimate certificates"
-              content
-              link="calculate"
-              image="/commercialac/baseeligibility.jpeg"
-            >
-              <CardCopy></CardCopy>
-            </Card>
-          </div>
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              content
-              headline="Check activity requirements and estimate certificates"
-              link="compare"
-              image="/commercialac/activityeligibility.jpeg"
-            >
-              <CardCopy></CardCopy>
-            </Card>
-          </div>
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              content
-              headline="Estimate certificates only"
-              link="compare"
-              image="/commercialac/certificateslogo.jpeg"
-            >
-              <CardCopy></CardCopy>
-            </Card>
-          </div>
-        </div>
-
-        <div className="nsw-grid" style={{ backgroundColor: '#F2F2F2' }}>
-          <h2 className="nsw-col nsw-content-block__title">
-            Check your eligibility and estimate certificates
-          </h2>
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              headline="Review schemes base eligibility, activity requirements and estimate certificates"
-              link="activities"
-              image="/commercialac/navigation_row/full_flow_card.jpeg"
-            >
-              <CardCopy> </CardCopy>
-            </Card>
-          </div>
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              headline="Check activity requirements and estimate certificates"
-              link="compare2activities"
-              image="/commercialac/navigation_row/activity_certificates.png"
-            >
-              <CardCopy> </CardCopy>
-            </Card>
-          </div>
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              headline="Estimate certificates only"
-              link="compare2activities"
-              image="/commercialac/navigation_row/certificates_only.jpg"
-            >
-              <CardCopy></CardCopy>
-            </Card>
-          </div>
-        </div> */}
-
-        {/* <h3>Click below to get more details on each Schedule</h3> */}
-
-        {/* Iterate through list of Schedules in `schedules` */}
-        {/* <div className="nsw-grid">
-        {schedules.map((item) => (
-          <ScheduleTile schedule={item} />
-        ))}
-      </div> */}
       </div>
       <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
         <div class="nsw-container" style={{ paddingBottom: '4rem' }}>

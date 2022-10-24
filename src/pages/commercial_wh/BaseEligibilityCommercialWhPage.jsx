@@ -17,8 +17,8 @@ export default function BaseEligibilityCommercialAC(props) {
   console.log(variables);
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (variables) {
@@ -53,7 +53,7 @@ export default function BaseEligibilityCommercialAC(props) {
               <div class="nsw-hero-banner__box">
                 <img
                   class="nsw-hero-banner__image"
-                  src="/commercialac/Base_Eligibility_Hero.jpg"
+                  src="/commercial_wh/WH1_Activity_Page_Hero.jpeg"
                   alt=""
                   style={{ top: '50%' }}
                 />

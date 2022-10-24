@@ -12,9 +12,10 @@ import { FormGroupSelect } from 'nsw-ds-react/forms';
 import { FormGroup, TextInput, Select } from 'nsw-ds-react/forms';
 import RegistryApi from 'services/registry_api';
 import CertificateEstimatorLoadClauses from './CertificatEstimatorLoadClauses';
+import OpenFiscaAPI from 'services/openfisca_api';
 
 export default function CertificateEstimatorHVAC(props) {
-  const { entities, variables, brands } = props;
+  const { entities, variables, hvacBrands, setVariables, setEntities, setHvacBrands, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
@@ -31,8 +32,39 @@ export default function CertificateEstimatorHVAC(props) {
   const [postcode, setPostcode] = useState(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+
+    if (variables.length < 1) {
+      OpenFiscaAPI.listEntities()
+        .then((res) => {
+          setEntities(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }
+
+  if (entities.length < 1) {
+      OpenFiscaAPI.listVariables()
+        .then((res) => {
+          setVariables(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }
+
+  if (hvacBrands.length < 1) {
+      RegistryApi.getCommercialHVACBrands()
+      .then((res) => {
+        setHvacBrands(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    }
+  }, []);
 
   // For brands
   const populateDropDown = (newOption) => {
@@ -49,8 +81,9 @@ export default function CertificateEstimatorHVAC(props) {
   };
 
   useEffect(() => {
-    setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
-    models.forEach((item) => populateModelDropDown({ text: item, value: item }));
+      setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
+      models.forEach((item) => populateModelDropDown({ text: item, value: item }));
+    
   }, [models]);
 
   useEffect(() => {
@@ -74,10 +107,12 @@ export default function CertificateEstimatorHVAC(props) {
   }, [selectedModel]);
 
   useEffect(() => {
-    setDropdownOptions([{ value: '', text: 'Please select brand' }]);
+    if (hvacBrands.length > 1) {
+      setDropdownOptions([{ value: '', text: 'Please select brand' }]);
 
-    brands.forEach((item) => populateDropDown({ text: item, value: item }));
-  }, [brands]);
+      hvacBrands.forEach((item) => populateDropDown({ text: item, value: item }));
+    }
+  }, [hvacBrands]);
 
   useEffect(() => {
     console.log(selectedBrand);
@@ -92,7 +127,6 @@ export default function CertificateEstimatorHVAC(props) {
 
     console.log(models);
   }, [selectedBrand]);
-
 
   return (
     <Fragment>
@@ -125,75 +159,73 @@ export default function CertificateEstimatorHVAC(props) {
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-              <b>Commercial air conditioner activity requirements</b>
-            </p>
-            <p className="nsw-content-block__copy">
-              The following questions assess the eligibility requirements for the Commercial Heat
-              Pump Water Heater Activity (F16 in the ESS and WH1 in the PDRS). Answer the questions
-              to check your eligibility and click the button below to review ineligible answers and
-              their corresponding rule clauses.{' '}
+            Estimate your ESCs and PRCs for the Commercial Air Conditioner Activity (F4 in the ESS and HVAC2 in the PDRS) by answering the following questions.  Please keep in mind that the results are indicative only and cannot be promoted or published.{' '}
             </p>
           </div>
         </div>
 
         <p className="nsw-content-block__copy">
-          <b> Commercial heat pump water heater eligibility check progress </b>
+          <b> Commercial air conditioner certificate estimator</b>
         </p>
+
         <ProgressIndicator step={stepNumber} of={3} />
-        <br></br>
-        <br></br>
 
         <Fragment>
           {stepNumber === 1 && (
             <div className="nsw-row">
-              <div className="nsw-col">
+              <div className="nsw-col"  style={{ padding: 'inherit' }}>
                 <div className="nsw-content-block">
+                <br></br>
+        <br></br>
+        <br></br>
                   <div className="nsw-content-block__content">
-                  <FormGroup
-                    helper= 'What is your postcode?' // helper text (secondary label)
-                    errorText="Invalid value!" // error text if invalid
+                  <h5 className="nsw-content-block__copy"><b>Answer the following questions to calculate your ESCs and PRCs</b></h5>
+
+                    <FormGroup
+                      helper="What is your postcode?" // helper text (secondary label)
+                      errorText="Invalid value!" // error text if invalid
                     >
-                    <TextInput
+                      <TextInput
                         style={{ maxWidth: '50%' }}
                         as="input"
-                        type='number'
+                        type="number"
                         placeholder="Enter value"
                         value={postcode}
                         onChange={(e) => {
-                            setPostcode(e.target.value);
+                          setPostcode(e.target.value);
                         }}
                         required
-                    />
+                      />
                     </FormGroup>
                     <FormGroup
-                        helper="Select commercial water heater brand" // primary question text
-                        errorText="Invalid value!" // error text if invalid
-                        >
-                        <Select
-                            style={{ maxWidth: '50%' }}
-                            options={dropdownOptions}
-                            onChange={(e) => {
-                                setSelectedBrand(brands.find((item) => item === e.target.value));
-                            }}
-                            value={selectedBrand}
-                            required
-                        />
-                        </FormGroup>
+                      helper="Select commercial water heater brand" // primary question text
+                      errorText="Invalid value!" // error text if invalid
+                    >
+                      <Select
+                        style={{ maxWidth: '50%' }}
+                        options={dropdownOptions}
+                        onChange={(e) => {
+                          setSelectedBrand(hvacBrands.find((item) => item === e.target.value));
+                        }}
+                        value={selectedBrand}
+                        required
+                      />
+                    </FormGroup>
 
-                        <FormGroup
-                        helper="Select commercial water heater model"// primary question text
-                        errorText="Invalid value!" // error text if invalid
-                        >
-                        <Select
-                            style={{ maxWidth: '50%' }}
-                            options={dropdownOptionsModels}
-                            onChange={(e) => {
-                                setSelectedModel(models.find((item) => item === e.target.value));
-                              }}
-                            value={selectedModel}
-                            required
-                        />
-                        </FormGroup>
+                    <FormGroup
+                      helper="Select commercial water heater model" // primary question text
+                      errorText="Invalid value!" // error text if invalid
+                    >
+                      <Select
+                        style={{ maxWidth: '50%' }}
+                        options={dropdownOptionsModels}
+                        onChange={(e) => {
+                          setSelectedModel(models.find((item) => item === e.target.value));
+                        }}
+                        value={selectedModel}
+                        required
+                      />
+                    </FormGroup>
                   </div>
                 </div>
               </div>
@@ -240,21 +272,23 @@ export default function CertificateEstimatorHVAC(props) {
               stepNumber={stepNumber}
               setStepNumber={setStepNumber}
             />
-          )} 
+          )}
 
-          { stepNumber !==3 && stepNumber !==2 && <div className="nsw-row">
-            <div className="nsw-col">
-              <Button
-                as="primary"
-                onClick={(e) => {
-                  setStepNumber(stepNumber + 1);
-                }}
-                style={{ float: 'right' }}
-              >
-                Next
-              </Button>
+          {stepNumber !== 3 && stepNumber !== 2 && (
+            <div className="nsw-row">
+              <div className="nsw-col">
+                <Button
+                  as="primary"
+                  onClick={(e) => {
+                    setStepNumber(stepNumber + 1);
+                  }}
+                  style={{ float: 'right' }}
+                >
+                  Next
+                </Button>
+              </div>
             </div>
-          </div> }
+          )}
         </Fragment>
       </div>
       <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>

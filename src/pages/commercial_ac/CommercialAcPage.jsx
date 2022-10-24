@@ -6,11 +6,11 @@ import Card, { CardCopy } from 'nsw-ds-react/card/card';
 import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 
 export default function CommercialAC(props) {
-  const { entities, variables } = props;
+  const { entities, variables, setEntities, setVariables, loading, setLoading} = props;
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Fragment>

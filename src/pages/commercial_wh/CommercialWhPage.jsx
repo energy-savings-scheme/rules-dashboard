@@ -9,8 +9,8 @@ export default function CommercialWH(props) {
   const { entities, variables } = props;
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Fragment>
@@ -91,7 +91,7 @@ export default function CommercialWH(props) {
           </div>
           <div className="nsw-col nsw-col-md-4">
             <Card
-              link="compare"
+              link="certificate-estimator/"
               image="/commercialac/certlogo.jpeg"
               headline="Estimate certificates only"
             >

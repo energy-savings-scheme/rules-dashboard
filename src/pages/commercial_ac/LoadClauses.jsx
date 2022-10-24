@@ -40,10 +40,9 @@ export default function LoadClauses(props) {
   // const [formValues, setFormValues] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     OpenFiscaApi.getVariable(variableToLoad)
@@ -83,9 +82,9 @@ export default function LoadClauses(props) {
   const formatResultString = (result) => {
     if (typeof result === 'boolean') {
       if (result === true) {
-        return "you are eligible"
+        return 'you are eligible';
       } else {
-        return "you are not eligible"
+        return 'you are not eligible';
       }
       // return JSON.stringify(result);
     }
@@ -97,11 +96,12 @@ export default function LoadClauses(props) {
 
   return (
     <div className>
-      <div style={{ marginTop: 70, marginBottom: 70 }}>
+      <div style={{ marginBottom: 70 }}>
         {stepNumber === 1 && (
           <Fragment>
             <div className="nsw-row">
               <div className="nsw-col">
+                <br></br>
                 <div className="nsw-content-block">
                   <div className="nsw-content-block__content">
                     {/* <h3 className="nsw-content-block__title">
@@ -171,7 +171,7 @@ export default function LoadClauses(props) {
                 setStepNumber(stepNumber - 1);
               }}
               dependencies={dependencies}
-              workflow={"eligibility"}
+              workflow={'eligibility'}
             />
           </Fragment>
         )}
@@ -181,6 +181,7 @@ export default function LoadClauses(props) {
             {calculationResult !== null && (
               <div className="nsw-row">
                 <div className="nsw-col">
+                  <br></br>
                   <div className="nsw-content-block">
                     <div className="nsw-content-block__content">
                       <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
@@ -201,19 +202,20 @@ export default function LoadClauses(props) {
               </Notification>
             )}
 
-            { stepNumber === 2 && <div className="nsw-row">
-              <div className="nsw-col">
-                <Button
-                  as="secondary"
-                  onClick={(e) => {
-                    setStepNumber(stepNumber - 1);
-                  }}
-                >
-                  Back
-                </Button>
+            {stepNumber === 2 && (
+              <div className="nsw-row">
+                <div className="nsw-col">
+                  <Button
+                    as="secondary"
+                    onClick={(e) => {
+                      setStepNumber(stepNumber - 1);
+                    }}
+                  >
+                    Back
+                  </Button>
+                </div>
               </div>
-            </div> }
-
+            )}
           </Fragment>
         )}
       </div>

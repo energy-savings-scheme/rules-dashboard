@@ -6,23 +6,60 @@ import Card, { CardCopy } from 'nsw-ds-react/card/card';
 import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 import LoadClauses from './LoadClauses';
+import OpenFiscaAPI from 'services/openfisca_api';
+import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 
 export default function ActivityRequirementsCommercialAC(props) {
-  const { entities, variables, variableToLoad } = props;
-  console.log(variableToLoad);
+  const { entities, variables, setEntities, setVariables, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
   const [dependencies, setDependencies] = useState([]);
+  const [variableToLoad, setVariableToLoad] = useState("HVAC2_installation_replacement_final_activity_eligibility");
 
   console.log(variables);
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+  if (formValues.length === 0) {
+    setLoading(true);
+  }
+  else if (variables.length === 0) {
+    setLoading(true);
+  }
+  else if (variables.length === 0) {
+    setLoading(true);
+  } else {
+    setLoading(false);
+  }
+
 
   useEffect(() => {
-    if (variables) {
+    window.scrollTo(0, 0);
+
+    if (variables.length < 1) {
+      OpenFiscaAPI.listEntities()
+        .then((res) => {
+          setEntities(res.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }
+
+  if (entities.length < 1) {
+      OpenFiscaAPI.listVariables()
+        .then((res) => {
+          setVariables(res.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }
+}, [])
+
+  useEffect(() => {
+    if (variables.length > 0) {
       const variable = variables.find((item) => item.name === variableToLoad);
       console.log(variable);
       const offsprings = variable.metadata.input_offspring;
@@ -49,10 +86,10 @@ export default function ActivityRequirementsCommercialAC(props) {
 
       setFormValues(array);
       setDependencies(dep_arr);
+      setLoading(false);
     }
-  }, [variables]);
+  }, [variables, variableToLoad]);
 
-  console.log(formValues);
 
   return (
     <Fragment>
@@ -102,23 +139,20 @@ export default function ActivityRequirementsCommercialAC(props) {
         <ProgressIndicator step={stepNumber} of={2} />
 
         <Fragment>
-          <LoadClauses
-            // calculationDate={calculationDate}
+          {loading && <SpinnerFullscreen />}
+          {!loading &&  <LoadClauses
             variableToLoad={variableToLoad}
             variables={variables}
             entities={entities}
-            // calculationResult={calculationResult}
-            // setCalculationResult={setCalculationResult}
-            // setCalculationError={setCalculationError}
-            dependencies={dependencies}
             stepNumber={stepNumber}
             setStepNumber={setStepNumber}
             formValues={formValues}
+            dependencies={dependencies}
             setFormValues={setFormValues}
             backAction={(e) => {
               setStepNumber(stepNumber - 1);
             }}
-          />
+          /> }
         </Fragment>
 
         {/* <div className="nsw-grid">

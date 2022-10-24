@@ -30,24 +30,21 @@ export default function CertificateEstimatorLoadClausesWH(props) {
     calculationResult2,
     setCalculationResult2,
     zone,
-    postcode
+    postcode,
   } = props;
 
   console.log(variableToLoad1);
   console.log(variableToLoad2);
   console.log(metadata);
-  console.log("**********");
+  console.log('**********');
   console.log(zone);
   console.log(stepNumber);
-
 
   const [variable, setVariable] = useState({}); // all info about variable
 
   var today = new Date();
   const [calculationDate, setCalculationDate] = useState(moment(today).format('YYYY-MM-DD'));
   const [dateInvalid, setDateInvalid] = useState(false);
-
-
 
   const [formValues, setFormValues] = useState([]);
   const [dependencies, setDependencies] = useState([]);
@@ -57,10 +54,9 @@ export default function CertificateEstimatorLoadClausesWH(props) {
   const [variableData1, setVariableData1] = useState([]);
   const [variableData2, setVariableData2] = useState([]);
 
-
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     OpenFiscaApi.getVariable(variableToLoad1)
@@ -133,31 +129,29 @@ export default function CertificateEstimatorLoadClausesWH(props) {
         if (formItem.name === 'WH1_com_peak_load') {
           formItem.form_value = metadata[`ComPkLoad_zone_${zone}`];
         }
-        if (formItem.name === "WH1_HP_capacity_factor") {
+        if (formItem.name === 'WH1_HP_capacity_factor') {
           formItem.form_value = metadata['HPCap'];
         }
-        if (formItem.name === "WH1_HP_elec") {
+        if (formItem.name === 'WH1_HP_elec') {
           formItem.form_value = metadata[`HPElec_zone_${zone}`];
         }
-        if (formItem.name === "WH1_HP_gas") {
+        if (formItem.name === 'WH1_HP_gas') {
           formItem.form_value = metadata[`HPGas_zone_${zone}`];
-        };
-        if (formItem.name === "WH1_WH_capacity_factor") {
+        }
+        if (formItem.name === 'WH1_WH_capacity_factor') {
           formItem.form_value = metadata['WHCap'];
-        };
-        if (formItem.name === "WH1_PDRS__postcode") {
+        }
+        if (formItem.name === 'WH1_PDRS__postcode') {
           formItem.form_value = postcode;
           formItem.read_only = true;
-        };
-      })
+        }
+      });
 
       array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
 
-
-      setFormValues(array1)
+      setFormValues(array1);
     }
   }, [variableData1, variableData2]);
-
 
   const formatResultString = (result) => {
     if (typeof result === 'boolean') {
@@ -229,7 +223,6 @@ export default function CertificateEstimatorLoadClausesWH(props) {
 
         {stepNumber === 2 && (
           <Fragment>
-
             <CalculateBlock
               zone={zone}
               calculationDate={calculationDate}
@@ -251,74 +244,68 @@ export default function CertificateEstimatorLoadClausesWH(props) {
               }}
               dependencies={dependencies}
               metadata={metadata}
-              workflow={"certificates"}
+              workflow={'certificates'}
             />
           </Fragment>
         )}
 
-{stepNumber === 3 && !calculationError && (
+        {stepNumber === 3 && !calculationError && (
           <Fragment>
-            { (
+            {
               <div className="nsw-row">
                 <div className="nsw-col">
                   <div className="nsw-content-block">
                     <div className="nsw-content-block__content">
                       <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
                         Based on the information provided
-                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}>
-                          
-                        </span>{' '}
-
+                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>{' '}
                       </h4>
                       <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
-                      your PRC certificates are
-                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}>
-                          
-                        </span>{' '}
+                        your PRC certificates are
+                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>{' '}
                       </h4>
 
                       <h1 style={{ textAlign: 'center', paddingTop: 10, fontWeight: 600 }}>
                         {calculationResult}
                       </h1>
                       <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
-                      and ESC certificates are
-                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}>
-                          
-                        </span>{' '}
+                        and ESC certificates are
+                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>{' '}
                       </h4>
                       <h1 style={{ textAlign: 'center', paddingTop: 10, fontWeight: 600 }}>
-                          {calculationResult2}
+                        {calculationResult2}
                       </h1>
                     </div>
                   </div>
                 </div>
               </div>
-            )}
-            </Fragment>
+            }
+          </Fragment>
         )}
 
-            {stepNumber === 3 && calculationError && (
-              <Notification as="error" title="Sorry! An error has occurred.">
-                <p>
-                  An error occurred during calculation. Try choosing a more recent Date and
-                  re-running the calculation
-                </p>
-              </Notification>
-            )}
+        {stepNumber === 3 && calculationError && (
+          <Notification as="error" title="Sorry! An error has occurred.">
+            <p>
+              An error occurred during calculation. Try choosing a more recent Date and re-running
+              the calculation
+            </p>
+          </Notification>
+        )}
 
-            {stepNumber === 3 && <div className="nsw-row">
+        {stepNumber === 3 && (
+          <div className="nsw-row">
             <div className="nsw-col nsw-col-md-6">
-                <Button
-                  as="secondary"
-                  onClick={(e) => {
-                    setStepNumber(stepNumber - 1);
-                  }}
-                >
-                  Back
-                </Button>
-              </div>
-            </div> }
-        
+              <Button
+                as="secondary"
+                onClick={(e) => {
+                  setStepNumber(stepNumber - 1);
+                }}
+              >
+                Back
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

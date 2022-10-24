@@ -26,7 +26,7 @@ export default function CalculateBlock(props) {
     dependencies,
     metadata,
     zone,
-    workflow
+    workflow,
   } = props;
 
   if (metadata) {
@@ -38,9 +38,9 @@ export default function CalculateBlock(props) {
   }
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
- 
+    window.scrollTo(0, 0);
+  }, []);
+
   const removeItem = (obj, toRemove) => {
     const findIndex = obj.findIndex((a) => a.name === toRemove);
     findIndex !== -1 && obj.splice(findIndex, 1);
@@ -352,6 +352,7 @@ export default function CalculateBlock(props) {
       variable2={variable2}
       entities={entities}
       formValues={formValues}
+      setFormValues={setFormValues}
       calculationResult={calculationResult}
       calculationResult2={calculationResult2}
       setCalculationResult={setCalculationResult}
