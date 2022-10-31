@@ -5,19 +5,16 @@ import VariableSearchBar from 'pages/homepage/VariableSearchBar';
 import Card, { CardCopy } from 'nsw-ds-react/card/card';
 import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
-import LoadClauses from './LoadClauses';
-import DropDownMenu from 'components/form_elements/DropDownMenu';
 import Button from 'nsw-ds-react/button/button';
 import { FormGroupSelect } from 'nsw-ds-react/forms';
 import { FormGroup, TextInput, Select } from 'nsw-ds-react/forms';
 import RegistryApi from 'services/registry_api';
-import CertificateEstimatorLoadClauses from './CertificatEstimatorLoadClauses';
+import CertificateEstimatorResidentialACLoadClauses from './CertificateEstimatorResidentialACLoadClauses';
 import OpenFiscaAPI from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import OpenFiscaApi from 'services/openfisca_api';
-import Notification from 'nsw-ds-react/notification/notification';
 
-export default function CertificateEstimatorHVAC(props) {
+export default function CertificateEstimatorResidentialAC(props) {
   const {
     entities,
     variables,
@@ -44,11 +41,9 @@ export default function CertificateEstimatorHVAC(props) {
   const [postcode, setPostcode] = useState(null);
   const [zone, setZone] = useState(null);
   const [registryData, setRegistryData] = useState(true);
-
+ 
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    setDropdownOptions([{ value: '', text: 'Please select brand' }]);
 
     if (variables.length < 1) {
       OpenFiscaAPI.listEntities()
@@ -82,7 +77,6 @@ export default function CertificateEstimatorHVAC(props) {
           setRegistryData(false);
         });
     }
-
   }, []);
 
   // For brands
@@ -101,7 +95,6 @@ export default function CertificateEstimatorHVAC(props) {
 
   useEffect(() => {
     setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
-
     models.forEach((item) => populateModelDropDown({ text: item, value: item }));
   }, [models]);
 
@@ -127,6 +120,7 @@ export default function CertificateEstimatorHVAC(props) {
 
   useEffect(() => {
     if (hvacBrands.length > 1) {
+      setDropdownOptions([{ value: '', text: 'Please select brand' }]);
       hvacBrands.forEach((item) => populateDropDown({ text: item, value: item }));
     }
   }, [hvacBrands]);
@@ -147,13 +141,12 @@ export default function CertificateEstimatorHVAC(props) {
     console.log(models);
   }, [selectedBrand]);
 
-
   useEffect(() => {
     const payload = {
       buildings: {
         building_1: {
-          HVAC2_PDRS__postcode: { '2021-01-01': postcode },
-          HVAC2_get_climate_zone_by_postcode: { '2021-01-01': null },
+          HVAC1_PDRS__postcode: { '2021-01-01': postcode },
+          HVAC1_get_climate_zone_by_postcode: { '2021-01-01': null },
         },
       },
       persons: {
@@ -163,7 +156,7 @@ export default function CertificateEstimatorHVAC(props) {
 
     OpenFiscaApi.postCalculate(payload)
       .then((res) => {
-        var result = res.data.buildings.building_1['HVAC2_get_climate_zone_by_postcode']['2021-01-01'];
+        var result = res.data.buildings.building_1['HVAC1_get_climate_zone_by_postcode']['2021-01-01'];
         setZone(result);
         console.log(result);
       })
@@ -173,7 +166,6 @@ export default function CertificateEstimatorHVAC(props) {
 
     console.log(zone);
   }, [postcode]);
-
 
   return (
     <Fragment>
@@ -186,9 +178,9 @@ export default function CertificateEstimatorHVAC(props) {
               <div class="nsw-hero-banner__box">
                 <img
                   class="nsw-hero-banner__image"
-                  src="/commercialac/HVAC2Hero.jpeg"
+                  src="ResidentialAC.jpg"
                   alt=""
-                  style={{ top: '80%' }}
+                  style={{ top: '75%' }}
                 />
               </div>
             </div>
@@ -206,17 +198,18 @@ export default function CertificateEstimatorHVAC(props) {
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-            Estimate your ESCs and PRCs for the Commercial Air Conditioner Activity (F4 in the ESS and HVAC2 in the PDRS) by answering the following questions. 
-</p>
-<p className="nsw-content-block__copy">
+            Estimate your ESCs and PRCs for the Residential Air Conditioner Activity (D16 in the ESS and HVAC1 in the PDRS) by answering the following questions. 
+            
+            </p>
+            <p className="nsw-content-block__copy">
 
-            Please keep in mind that the results are indicative only and cannot be promoted or published. {" "}
+              Please keep in mind that the results are indicative only and cannot be promoted or published. {" "}
             </p>
           </div>
         </div>
 
         <p className="nsw-content-block__copy">
-          <b> Commercial air conditioner certificate estimator</b>
+          <b> Residential air conditioner certificate estimator</b>
         </p>
 
         <ProgressIndicator step={stepNumber} of={3} />
@@ -251,7 +244,7 @@ export default function CertificateEstimatorHVAC(props) {
                       />
                     </FormGroup>
                     <FormGroup
-                      helper="Select commercial air conditioner brand" // primary question text
+                      helper="Select residential air conditioner brand" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
@@ -266,7 +259,7 @@ export default function CertificateEstimatorHVAC(props) {
                     </FormGroup>
 
                     <FormGroup
-                      helper="Select commercial air conditioner model" // primary question text
+                      helper="Select residential air conditioner model" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
@@ -285,21 +278,12 @@ export default function CertificateEstimatorHVAC(props) {
             </div>
           )}
 
-          {stepNumber === 1 && !registryData && (
-                    <Notification as="error" title="Sorry! An error has occurred.">
-                      <p>
-                        Unable to load data from the product registry. Please try again later.
-                      </p>
-                    </Notification>
-                  )}
-
-
           {stepNumber === 2 && loading && <SpinnerFullscreen />}
 
           {stepNumber === 2 && (
-            <CertificateEstimatorLoadClauses
-              variableToLoad1={'HVAC2_PRC_calculation'}
-              variableToLoad2={'HVAC2_ESC_calculation'}
+            <CertificateEstimatorResidentialACLoadClauses
+              variableToLoad1={'HVAC1_PRC_calculation'}
+              variableToLoad2={'HVAC1_ESC_calculation'}
               variables={variables}
               entities={entities}
               metadata={metadata}
@@ -322,9 +306,9 @@ export default function CertificateEstimatorHVAC(props) {
           )}
 
           {stepNumber === 3 && (
-            <CertificateEstimatorLoadClauses
-              variableToLoad1={'HVAC2_PRC_calculation'}
-              variableToLoad2={'HVAC2_ESC_calculation'}
+            <CertificateEstimatorResidentialACLoadClauses
+              variableToLoad1={'HVAC1_PRC_calculation'}
+              variableToLoad2={'HVAC1_ESC_calculation'}
               variables={variables}
               entities={entities}
               metadata={metadata}
@@ -340,12 +324,7 @@ export default function CertificateEstimatorHVAC(props) {
             />
           )}
 
-          {/* {stepNumber === 3 && !calculationResult && !calculationResult2 && <SpinnerFullscreen />} */}
-
-          {stepNumber === 3 && calculationError && calculationError2 && <SpinnerFullscreen />}
-
-
-          {stepNumber === 1 && registryData && postcode && postcode.length === 4 && selectedBrand && selectedModel && (
+        {stepNumber === 1 && registryData && postcode && postcode.length === 4 && selectedBrand && selectedModel && (
             <div className="nsw-row">
               <div className="nsw-col">
                 <Button

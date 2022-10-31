@@ -12,9 +12,10 @@ import RegistryApi from 'services/registry_api';
 import CertificateEstimatorLoadClausesWH from './CertificateEstimatorLoadClausesWH';
 import { FormGroup, TextInput, Select } from 'nsw-ds-react/forms';
 import OpenFiscaApi from 'services/openfisca_api';
+import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 
 export default function CertificateEstimatorWH(props) {
-  const { entities, variables, brands } = props;
+  const { entities, variables, brands, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
@@ -27,9 +28,12 @@ export default function CertificateEstimatorWH(props) {
   const [metadata, setMetadata] = useState(null);
   const [calculationResult, setCalculationResult] = useState(null);
   const [calculationError, setCalculationError] = useState(false);
+  const [calculationError2, setCalculationError2] = useState(false);
   const [postcode, setPostcode] = useState(null);
   const [calculationResult2, setCalculationResult2] = useState(null);
   const [zone, setZone] = useState(0);
+  const [registryData, setRegistryData] = useState(true);
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -86,9 +90,11 @@ export default function CertificateEstimatorWH(props) {
     RegistryApi.listWHModels(selectedBrand)
       .then((res) => {
         setModels(res.data);
+        setRegistryData(true);
       })
       .catch((err) => {
         console.log(err);
+        setRegistryData(false);
       });
 
     console.log(models);
@@ -134,7 +140,7 @@ export default function CertificateEstimatorWH(props) {
                   class="nsw-hero-banner__image"
                   src="/commercial_wh/WH1_Activity_Page_Hero.jpeg"
                   alt=""
-                  style={{ top: '50%' }}
+                  style={{ top: '80%' }}
                 />
               </div>
             </div>
@@ -152,9 +158,9 @@ export default function CertificateEstimatorWH(props) {
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-              Estimate your ESCs and PRCs for the Commercial Heat Pump Water Heater Activity (F16 in
-              the ESS and WH1 in the PDRS) by answering the following questions. Please keep in mind
-              that the results are indicative only and cannot be promoted or published.{' '}
+            Estimate your ESCs and PRCs for the Commercial Heat Pump Water Heater Activity (F16 in the ESS and WH1 in the PDRS) by answering the following questions. </p>
+            <p className="nsw-content-block__copy">
+            Please keep in mind that the results are indicative only and cannot be promoted or published. {" "}
             </p>
           </div>
         </div>
@@ -237,7 +243,9 @@ export default function CertificateEstimatorWH(props) {
               calculationResult={calculationResult}
               setCalculationResult={setCalculationResult}
               calculationError={calculationError}
+              calculationError2={calculationError2}
               setCalculationError={setCalculationError}
+              setCalculationError2={setCalculationError2}
               zone={zone}
               postcode={postcode}
               calculationResult2={calculationResult2}
@@ -249,6 +257,9 @@ export default function CertificateEstimatorWH(props) {
               }}
             />
           )}
+
+          {stepNumber === 2 && loading && <SpinnerFullscreen />}
+
 
           {stepNumber === 3 && (
             <CertificateEstimatorLoadClausesWH
@@ -275,7 +286,7 @@ export default function CertificateEstimatorWH(props) {
             />
           )}
 
-          {stepNumber !== 3 && stepNumber !== 2 && (
+{stepNumber === 1 && registryData && postcode && postcode.length === 4 && selectedBrand && selectedModel && (
             <div className="nsw-row">
               <div className="nsw-col">
                 <Button
@@ -292,51 +303,6 @@ export default function CertificateEstimatorWH(props) {
           )}
         </Fragment>
       </div>
-      <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
-        <div class="nsw-container">
-          <div class="nsw-layout">
-            <div class="nsw-layout__main">
-              <br></br>
-              <br></br>
-              <h2 className="nsw-col nsw-content-block__title">
-                Check your eligibility and estimate certificates
-              </h2>
-              <div class="nsw-grid">
-                <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Review schemes base eligibility, activity requirements and estimate certificates"
-                    link="base_eligibility_commercialwh/"
-                    image="/commercialac/navigation_row/full_flow_card.jpeg"
-                  >
-                    {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
-                        Review schemes base eligibility, activity requirements and estimate certificates</b></p> */}
-                  </Card>
-                </div>
-                <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Check activity requirements and estimate certificates"
-                    link="compare2activities"
-                    image="/commercialac/navigation_row/activity_certificates.png"
-                  >
-                    {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
-                        Check activity requirements and estimate certificates</b></p> */}
-                  </Card>
-                </div>
-                <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Estimate certificates only"
-                    link="compare2activities"
-                    image="/commercialac/navigation_row/certificates_only.jpg"
-                  >
-                    {/* <p class="nsw-card__copy" style={{ fontSize: '21px', color: '#202D61' }}><b>
-                        Estimate certificates only</b></p> */}
-                  </Card>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </Fragment>
   );
 }

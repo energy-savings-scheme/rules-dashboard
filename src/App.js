@@ -28,6 +28,7 @@ import CommercialWH from 'pages/commercial_wh/CommercialWhPage';
 import RegistryApi from 'services/registry_api';
 import CertificateEstimatorHVAC from 'pages/commercial_ac/CertificateEstimator';
 import CertificateEstimatorWH from 'pages/commercial_wh/CertificateEstimatorWH';
+import CertificateEstimatorResidentialAC from 'pages/residential_ac/CertificateEstimatorResidentialAC';
 
 function App() {
   const [entities, setEntities] = useState([]);
@@ -146,7 +147,7 @@ function App() {
             setLoading={setLoading}
           />
         </Route>
-        <Route path="/commercialac/certificate-estimator" exact>
+        <Route path="/commercial-ac-estimator" exact>
           <Breadcrumb />
           <CertificateEstimatorHVAC
             entities={entities}
@@ -159,7 +160,7 @@ function App() {
             setHvacBrands={setHvacBrands}
           />
         </Route>
-        <Route path="/commercialwh/certificate-estimator" exact>
+        <Route path="/commercial-wh-estimator" exact>
           <Breadcrumb />
           <CertificateEstimatorWH
             entities={entities}
@@ -168,6 +169,19 @@ function App() {
             setEntities={setEntities}
             setVariables={setVariables}
             setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/residential-ac-estimator" exact>
+          <Breadcrumb />
+          <CertificateEstimatorResidentialAC
+            entities={entities}
+            variables={variables}
+            hvacBrands={hvacBrands}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+            setHvacBrands={setHvacBrands}
           />
         </Route>
         <Route path="*">Not Found</Route>

@@ -221,9 +221,10 @@ export default function Breadcrumb() {
     );
   }
 
+
   if (
-    location.pathname === '/commercialac/certificate-estimator' ||
-    location.pathname === '/commercialac/certificate-estimator/'
+    location.pathname === '/residential-ac-estimator' ||
+    location.pathname === '/residential-ac-estimator/'
   ) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
@@ -237,11 +238,6 @@ export default function Breadcrumb() {
             <li className="nsw-breadcrumb__item">
               <NavLink to="/" className="nsw-breadcrumb__link">
                 Safeguard Digital Tools
-              </NavLink>
-            </li>
-            <li className="nsw-breadcrumb__item">
-              <NavLink to="/commercialac" className="nsw-breadcrumb__link">
-                Commercial Air Conditioners
               </NavLink>
             </li>
             <li className="nsw-breadcrumb__item">
@@ -259,8 +255,8 @@ export default function Breadcrumb() {
   }
 
   if (
-    location.pathname === '/commercialwh/certificate-estimator' ||
-    location.pathname === '/commercialwh/certificate-estimator/'
+    location.pathname === '/commercial-ac-estimator' ||
+    location.pathname === '/commercial-ac-estimator/'
   ) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
@@ -277,8 +273,35 @@ export default function Breadcrumb() {
               </NavLink>
             </li>
             <li className="nsw-breadcrumb__item">
-              <NavLink to="/commercialwh" className="nsw-breadcrumb__link">
-                Commercial Heat Pump Water Heater
+              <NavLink
+                to="certificate-estimator/"
+                className="nsw-breadcrumb__link nsw-breadcrumb--current"
+              >
+                Certificate Estimator
+              </NavLink>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    );
+  }
+
+  if (
+    location.pathname === '/commercial-wh-estimator' ||
+    location.pathname === '/commercial-wh-estimator/'
+  ) {
+    return (
+      <div className="nsw-container" style={{ marginBottom: 20 }}>
+        <nav aria-label="Breadcrumb" className="nsw-breadcrumb">
+          <ol className="nsw-breadcrumb__list">
+            <li className="nsw-breadcrumb__item">
+              <NavLink to="/" className="nsw-breadcrumb__link">
+                Home
+              </NavLink>
+            </li>
+            <li className="nsw-breadcrumb__item">
+              <NavLink to="/" className="nsw-breadcrumb__link">
+                Safeguard Digital Tools
               </NavLink>
             </li>
             <li className="nsw-breadcrumb__item">
