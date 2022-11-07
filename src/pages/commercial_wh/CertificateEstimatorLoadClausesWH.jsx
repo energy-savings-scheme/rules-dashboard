@@ -231,15 +231,12 @@ export default function CertificateEstimatorLoadClausesWH(props) {
           </Fragment>
         )}
 
-        {stepNumber === 3 && calculationError || stepNumber === 3 && calculationError2 && (
-                  <Notification as="error" title="Sorry! An error has occurred.">
-                    <p>
-                      An error occurred during calculation. Try re-running
-                      the calculation
-                    </p>
-                  </Notification>
-                )}
-
+        {(stepNumber === 3 && calculationError) ||
+          (stepNumber === 3 && calculationError2 && (
+            <Notification as="error" title="Sorry! An error has occurred.">
+              <p>An error occurred during calculation. Try re-running the calculation</p>
+            </Notification>
+          ))}
 
         {stepNumber === 3 && (
           <div className="nsw-row">

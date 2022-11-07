@@ -41,7 +41,7 @@ export default function CertificateEstimatorResidentialAC(props) {
   const [postcode, setPostcode] = useState(null);
   const [zone, setZone] = useState(null);
   const [registryData, setRegistryData] = useState(true);
- 
+
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -156,7 +156,8 @@ export default function CertificateEstimatorResidentialAC(props) {
 
     OpenFiscaApi.postCalculate(payload)
       .then((res) => {
-        var result = res.data.buildings.building_1['HVAC1_get_climate_zone_by_postcode']['2021-01-01'];
+        var result =
+          res.data.buildings.building_1['HVAC1_get_climate_zone_by_postcode']['2021-01-01'];
         setZone(result);
         console.log(result);
       })
@@ -198,12 +199,12 @@ export default function CertificateEstimatorResidentialAC(props) {
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-            Estimate your ESCs and PRCs for the Residential Air Conditioner Activity (D16 in the ESS and HVAC1 in the PDRS) by answering the following questions. 
-            
+              Estimate your ESCs and PRCs for the Residential Air Conditioner Activity (D16 in the
+              ESS and HVAC1 in the PDRS) by answering the following questions.
             </p>
             <p className="nsw-content-block__copy">
-
-              Please keep in mind that the results are indicative only and cannot be promoted or published. {" "}
+              Please keep in mind that the results are indicative only and cannot be promoted or
+              published.{' '}
             </p>
           </div>
         </div>
@@ -228,6 +229,7 @@ export default function CertificateEstimatorResidentialAC(props) {
                     </h5>
 
                     <FormGroup
+                      label="Postcode"
                       helper="What is your postcode?" // helper text (secondary label)
                       errorText="Invalid value!" // error text if invalid
                     >
@@ -244,6 +246,7 @@ export default function CertificateEstimatorResidentialAC(props) {
                       />
                     </FormGroup>
                     <FormGroup
+                      label="Brand"
                       helper="Select residential air conditioner brand" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
@@ -259,6 +262,7 @@ export default function CertificateEstimatorResidentialAC(props) {
                     </FormGroup>
 
                     <FormGroup
+                      label="Model"
                       helper="Select residential air conditioner model" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
@@ -305,6 +309,8 @@ export default function CertificateEstimatorResidentialAC(props) {
             />
           )}
 
+          {stepNumber === 3 && calculationError && calculationError2 && <SpinnerFullscreen />}
+
           {stepNumber === 3 && (
             <CertificateEstimatorResidentialACLoadClauses
               variableToLoad1={'HVAC1_PRC_calculation'}
@@ -324,21 +330,26 @@ export default function CertificateEstimatorResidentialAC(props) {
             />
           )}
 
-        {stepNumber === 1 && registryData && postcode && postcode.length === 4 && selectedBrand && selectedModel && (
-            <div className="nsw-row">
-              <div className="nsw-col">
-                <Button
-                  as="primary"
-                  onClick={(e) => {
-                    setStepNumber(stepNumber + 1);
-                  }}
-                  style={{ float: 'right' }}
-                >
-                  Next
-                </Button>
+          {stepNumber === 1 &&
+            registryData &&
+            postcode &&
+            postcode.length === 4 &&
+            selectedBrand &&
+            selectedModel && (
+              <div className="nsw-row">
+                <div className="nsw-col">
+                  <Button
+                    as="primary"
+                    onClick={(e) => {
+                      setStepNumber(stepNumber + 1);
+                    }}
+                    style={{ float: 'right' }}
+                  >
+                    Next
+                  </Button>
+                </div>
               </div>
-            </div>
-          )}
+            )}
         </Fragment>
       </div>
     </Fragment>

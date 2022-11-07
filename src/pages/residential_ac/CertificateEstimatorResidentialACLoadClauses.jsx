@@ -31,7 +31,7 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
     calculationResult2,
     setCalculationResult2,
     postcode,
-    zone
+    zone,
   } = props;
 
   console.log(variableToLoad1);
@@ -139,32 +139,28 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
           formItem.form_value = metadata['Rated AEER'];
         }
 
-        if (
-          formItem.name === 'HVAC1_cooling_capacity_input'
-        ) {
+        if (formItem.name === 'HVAC1_cooling_capacity_input') {
           if (parseInt(metadata[`cooling_SEER_${zone}`]) > 0) {
-            console.log(parseInt(metadata[`cooling_SEER_${zone}`]))
+            console.log(parseInt(metadata[`cooling_SEER_${zone}`]));
             formItem.form_value = metadata[`cooling_SEER_${zone}`];
           } else if (parseInt(metadata[`Residential tcec_${zone}`]) > 0) {
-          formItem.form_value = metadata[`Residential tcec_${zone}`];
-          console.log(parseInt(metadata[`Residential tcec_${zone}`]))
-        } else if (metadata['Cooling Capacity'] !== '') {
-          console.log(metadata['Cooling Capacity'])
-          formItem.form_value = metadata['Cooling Capacity'];
+            formItem.form_value = metadata[`Residential tcec_${zone}`];
+            console.log(parseInt(metadata[`Residential tcec_${zone}`]));
+          } else if (metadata['Cooling Capacity'] !== '') {
+            console.log(metadata['Cooling Capacity']);
+            formItem.form_value = metadata['Cooling Capacity'];
+          }
         }
-      }
 
-        if (
-          formItem.name === 'HVAC1_heating_capacity_input'
-        ) {
+        if (formItem.name === 'HVAC1_heating_capacity_input') {
           if (parseInt(metadata[`heating_SEER_${zone}`]) > 0) {
             formItem.form_value = metadata[`heating_SEER_${zone}`];
           } else if (parseInt(metadata[`Residential thec_${zone}`]) > 0) {
-          formItem.form_value = metadata[`Residential thec_${zone}`];
-        } else {
-          formItem.form_value = metadata['Heating Capacity'];
+            formItem.form_value = metadata[`Residential thec_${zone}`];
+          } else {
+            formItem.form_value = metadata['Heating Capacity'];
+          }
         }
-      }
 
         if (formItem.name === 'HVAC1_input_power' && metadata['Input Power'] != '') {
           formItem.form_value = metadata['Input Power'];
@@ -249,14 +245,14 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
                       </h4>
 
                       <h1 style={{ textAlign: 'center', paddingTop: 10, fontWeight: 600 }}>
-                        {calculationResult}
+                        {isFinite(calculationResult) ? Math.round(calculationResult) : 0}
                       </h1>
                       <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
                         and ESC certificates are
                         <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>{' '}
                       </h4>
                       <h1 style={{ textAlign: 'center', paddingTop: 10, fontWeight: 600 }}>
-                        {calculationResult2}
+                        {isFinite(calculationResult2)? Math.round(calculationResult2) : 0}
                       </h1>
                     </div>
                   </div>
@@ -266,14 +262,12 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
           </Fragment>
         )}
 
-        {stepNumber === 3 && calculationError || stepNumber === 3 && calculationError2 && (
-          <Notification as="error" title="Sorry! An error has occurred.">
-            <p>
-              An error occurred during calculation. Try re-running
-              the calculation
-            </p>
-          </Notification>
-        )}
+        {(stepNumber === 3 && calculationError) ||
+          (stepNumber === 3 && calculationError2 && (
+            <Notification as="error" title="Sorry! An error has occurred.">
+              <p>An error occurred during calculation. Try re-running the calculation</p>
+            </Notification>
+          ))}
 
         {stepNumber === 3 && (
           <div className="nsw-row">

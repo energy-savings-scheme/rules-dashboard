@@ -55,9 +55,9 @@ export default function CalculateForm(props) {
     setLoading(true);
     setCalculationError(true);
 
-    if (variable2) {    
-      
-    setCalculationError2(true);}
+    if (variable2) {
+      setCalculationError2(true);
+    }
 
     const entity = entities.find((item) => item.name === variable.entity);
 
@@ -123,7 +123,8 @@ export default function CalculateForm(props) {
           setCalculationResult2(null);
           setCalculationError2(true);
           console.log(err);
-        }).finally(() => {
+        })
+        .finally(() => {
           setLoading(false);
         });
     }
@@ -166,7 +167,7 @@ export default function CalculateForm(props) {
             </Button>
           )}
         </div>
-        
+
         <div className="nsw-col-md-6">
           <Button as="primary" type="submit" style={{ float: 'right' }}>
             {loading ? (

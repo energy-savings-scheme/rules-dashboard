@@ -82,7 +82,6 @@ export default function CertificateEstimatorHVAC(props) {
           setRegistryData(false);
         });
     }
-
   }, []);
 
   // For brands
@@ -147,7 +146,6 @@ export default function CertificateEstimatorHVAC(props) {
     console.log(models);
   }, [selectedBrand]);
 
-
   useEffect(() => {
     const payload = {
       buildings: {
@@ -163,7 +161,8 @@ export default function CertificateEstimatorHVAC(props) {
 
     OpenFiscaApi.postCalculate(payload)
       .then((res) => {
-        var result = res.data.buildings.building_1['HVAC2_get_climate_zone_by_postcode']['2021-01-01'];
+        var result =
+          res.data.buildings.building_1['HVAC2_get_climate_zone_by_postcode']['2021-01-01'];
         setZone(result);
         console.log(result);
       })
@@ -173,7 +172,6 @@ export default function CertificateEstimatorHVAC(props) {
 
     console.log(zone);
   }, [postcode]);
-
 
   return (
     <Fragment>
@@ -206,11 +204,12 @@ export default function CertificateEstimatorHVAC(props) {
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-            Estimate your ESCs and PRCs for the Commercial Air Conditioner Activity (F4 in the ESS and HVAC2 in the PDRS) by answering the following questions. 
-</p>
-<p className="nsw-content-block__copy">
-
-            Please keep in mind that the results are indicative only and cannot be promoted or published. {" "}
+              Estimate your ESCs and PRCs for the Commercial Air Conditioner Activity (F4 in the ESS
+              and HVAC2 in the PDRS) by answering the following questions.
+            </p>
+            <p className="nsw-content-block__copy">
+              Please keep in mind that the results are indicative only and cannot be promoted or
+              published.{' '}
             </p>
           </div>
         </div>
@@ -235,6 +234,7 @@ export default function CertificateEstimatorHVAC(props) {
                     </h5>
 
                     <FormGroup
+                      label="Postcode"
                       helper="What is your postcode?" // helper text (secondary label)
                       errorText="Invalid value!" // error text if invalid
                     >
@@ -251,6 +251,7 @@ export default function CertificateEstimatorHVAC(props) {
                       />
                     </FormGroup>
                     <FormGroup
+                      label="Brand"
                       helper="Select commercial air conditioner brand" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
@@ -266,6 +267,7 @@ export default function CertificateEstimatorHVAC(props) {
                     </FormGroup>
 
                     <FormGroup
+                      label="Model"
                       helper="Select commercial air conditioner model" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
@@ -286,13 +288,10 @@ export default function CertificateEstimatorHVAC(props) {
           )}
 
           {stepNumber === 1 && !registryData && (
-                    <Notification as="error" title="Sorry! An error has occurred.">
-                      <p>
-                        Unable to load data from the product registry. Please try again later.
-                      </p>
-                    </Notification>
-                  )}
-
+            <Notification as="error" title="Sorry! An error has occurred.">
+              <p>Unable to load data from the product registry. Please try again later.</p>
+            </Notification>
+          )}
 
           {stepNumber === 2 && loading && <SpinnerFullscreen />}
 
@@ -344,22 +343,26 @@ export default function CertificateEstimatorHVAC(props) {
 
           {stepNumber === 3 && calculationError && calculationError2 && <SpinnerFullscreen />}
 
-
-          {stepNumber === 1 && registryData && postcode && postcode.length === 4 && selectedBrand && selectedModel && (
-            <div className="nsw-row">
-              <div className="nsw-col">
-                <Button
-                  as="primary"
-                  onClick={(e) => {
-                    setStepNumber(stepNumber + 1);
-                  }}
-                  style={{ float: 'right' }}
-                >
-                  Next
-                </Button>
+          {stepNumber === 1 &&
+            registryData &&
+            postcode &&
+            postcode.length === 4 &&
+            selectedBrand &&
+            selectedModel && (
+              <div className="nsw-row">
+                <div className="nsw-col">
+                  <Button
+                    as="primary"
+                    onClick={(e) => {
+                      setStepNumber(stepNumber + 1);
+                    }}
+                    style={{ float: 'right' }}
+                  >
+                    Next
+                  </Button>
+                </div>
               </div>
-            </div>
-          )}
+            )}
         </Fragment>
       </div>
     </Fragment>
