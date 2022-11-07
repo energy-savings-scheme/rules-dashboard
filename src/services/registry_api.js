@@ -78,7 +78,7 @@ const RegistryApi = {
   getWHModelsMetadata,
   getRF2Brands,
   listRF2Models,
-  getRF2ModelsMetadata
+  getRF2ModelsMetadata,
 };
 
 export default RegistryApi;

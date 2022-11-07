@@ -97,72 +97,69 @@ export default function CertificateEstimatorLoadClausesRC(props) {
 
   useEffect(() => {
     if (variables.length < 1) {
-        OpenFiscaAPI.listVariables()
-          .then((res) => {
-            setVariables(res.data);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-    } 
-      console.log(variables);
-      const variable1 = variables.find((item) => item.name === variableToLoad1);
-      console.log(variable1);
-      const variable2 = variables.find((item) => item.name === variableToLoad2);
-      console.log(variable2);
+      OpenFiscaAPI.listVariables()
+        .then((res) => {
+          setVariables(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+    console.log(variables);
+    const variable1 = variables.find((item) => item.name === variableToLoad1);
+    console.log(variable1);
+    const variable2 = variables.find((item) => item.name === variableToLoad2);
+    console.log(variable2);
 
-      const offsprings1 = variable1.metadata.input_offspring;
-      const offsprings2 = variable2.metadata.input_offspring;
+    const offsprings1 = variable1.metadata.input_offspring;
+    const offsprings2 = variable2.metadata.input_offspring;
 
-      const children1 = variables.filter((item) => offsprings1.includes(item.name));
-      const children2 = variables.filter((item) => offsprings2.includes(item.name));
+    const children1 = variables.filter((item) => offsprings1.includes(item.name));
+    const children2 = variables.filter((item) => offsprings2.includes(item.name));
 
-      console.log(children1);
-      console.log(children2);
+    console.log(children1);
+    console.log(children2);
 
-      // Define the original array (at a minimum include the Implementation Date)
-      var array1 = [];
-      var array2 = [];
+    // Define the original array (at a minimum include the Implementation Date)
+    var array1 = [];
+    var array2 = [];
 
-      children1.map((child) => {
-        array1.push({ ...child, form_value: '', invalid: false });
-      });
+    children1.map((child) => {
+      array1.push({ ...child, form_value: '', invalid: false });
+    });
 
-      children2.map((child) => {
-        array2.push({ ...child, form_value: '', invalid: false });
-      });
+    children2.map((child) => {
+      array2.push({ ...child, form_value: '', invalid: false });
+    });
 
-      array2.forEach((item) => addElement(array1, item));
+    array2.forEach((item) => addElement(array1, item));
 
-      console.log(array1);
+    console.log(array1);
 
-      console.log(metadata);
+    console.log(metadata);
 
-      array1.map((formItem) => {
-        if (formItem.name === "RF2_product_EEI") {
-          console.log(formItem.form_value);
-          formItem.form_value = metadata['product_eei'];
-        }
+    array1.map((formItem) => {
+      if (formItem.name === 'RF2_product_EEI') {
+        console.log(formItem.form_value);
+        formItem.form_value = metadata['product_eei'];
+      }
 
-        if (formItem.name === "RF2_total_display_area") {
-          formItem.form_value = metadata['total_display_area'];
-        }
+      if (formItem.name === 'RF2_total_display_area') {
+        formItem.form_value = metadata['total_display_area'];
+      }
 
-        if (
-          formItem.name === "RF2_total_energy_consumption"
-        ) {
-          formItem.form_value = metadata['total_energy_consumption'];
-        }
-        if (formItem.name === 'RF2_PDRS__postcode') {
-          formItem.form_value = postcode;
-          formItem.read_only = true;
-        }
-      });
+      if (formItem.name === 'RF2_total_energy_consumption') {
+        formItem.form_value = metadata['total_energy_consumption'];
+      }
+      if (formItem.name === 'RF2_PDRS__postcode') {
+        formItem.form_value = postcode;
+        formItem.read_only = true;
+      }
+    });
 
-      array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
+    array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
 
-      setFormValues(array1);
-    
+    setFormValues(array1);
   }, [variableData1, variableData2]);
 
   const formatResultString = (result) => {

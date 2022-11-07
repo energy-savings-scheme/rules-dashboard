@@ -252,7 +252,7 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
                         <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>{' '}
                       </h4>
                       <h1 style={{ textAlign: 'center', paddingTop: 10, fontWeight: 600 }}>
-                        {isFinite(calculationResult2)? Math.round(calculationResult2) : 0}
+                        {isFinite(calculationResult2) ? Math.round(calculationResult2) : 0}
                       </h1>
                     </div>
                   </div>

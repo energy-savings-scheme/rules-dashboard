@@ -146,7 +146,6 @@ export default function CertificateEstimatorRC(props) {
     console.log(models);
   }, [selectedBrand]);
 
-
   return (
     <Fragment>
       <br></br>
@@ -177,10 +176,12 @@ export default function CertificateEstimatorRC(props) {
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-            Estimate your ESCs and PRCs for the Commercial Refrigerated Cabinet Activity (F1 in the ESS and RF2 in the PDRS) by answering the following questions.
+              Estimate your ESCs and PRCs for the Commercial Refrigerated Cabinet Activity (F1 in
+              the ESS and RF2 in the PDRS) by answering the following questions.
             </p>
             <p className="nsw-content-block__copy">
-            Please keep in mind that the results are indicative only and cannot be promoted or published.{' '}
+              Please keep in mind that the results are indicative only and cannot be promoted or
+              published.{' '}
             </p>
           </div>
         </div>
