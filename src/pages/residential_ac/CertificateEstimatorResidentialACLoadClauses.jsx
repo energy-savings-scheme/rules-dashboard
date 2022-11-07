@@ -245,14 +245,14 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
                       </h4>
 
                       <h1 style={{ textAlign: 'center', paddingTop: 10, fontWeight: 600 }}>
-                        {isFinite(calculationResult) ? Math.round(calculationResult) : 0}
+                        {Math.round(calculationResult)}
                       </h1>
                       <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
                         and ESC certificates are
                         <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>{' '}
                       </h4>
                       <h1 style={{ textAlign: 'center', paddingTop: 10, fontWeight: 600 }}>
-                        {isFinite(calculationResult2) ? Math.round(calculationResult2) : 0}
+                        {Math.round(calculationResult2)}
                       </h1>
                     </div>
                   </div>
