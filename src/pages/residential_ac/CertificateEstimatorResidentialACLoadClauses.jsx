@@ -140,27 +140,31 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
         }
 
         if (formItem.name === 'HVAC1_cooling_capacity_input') {
-          if (parseInt(metadata[`cooling_SEER_${zone}`]) > 0) {
-            console.log(parseInt(metadata[`cooling_SEER_${zone}`]));
-            formItem.form_value = metadata[`cooling_SEER_${zone}`];
-          } else if (parseInt(metadata[`Residential tcec_${zone}`]) > 0) {
-            formItem.form_value = metadata[`Residential tcec_${zone}`];
-            console.log(parseInt(metadata[`Residential tcec_${zone}`]));
-          } else if (metadata['Cooling Capacity'] !== '') {
-            console.log(metadata['Cooling Capacity']);
-            formItem.form_value = metadata['Cooling Capacity'];
-          }
+          formItem.form_value = metadata['Cooling Capacity'];
         }
+        //   if (parseInt(metadata[`cooling_SEER_${zone}`]) > 0) {
+        //     console.log(parseInt(metadata[`cooling_SEER_${zone}`]));
+        //     formItem.form_value = metadata[`cooling_SEER_${zone}`];
+        //   } else if (parseInt(metadata[`Residential tcec_${zone}`]) > 0) {
+        //     formItem.form_value = metadata[`Residential tcec_${zone}`];
+        //     console.log(parseInt(metadata[`Residential tcec_${zone}`]));
+        //   } else if (metadata['Cooling Capacity'] !== '') {
+        //     console.log(metadata['Cooling Capacity']);
+        //     formItem.form_value = metadata['Cooling Capacity'];
+        //   }
+        // }
 
         if (formItem.name === 'HVAC1_heating_capacity_input') {
-          if (parseInt(metadata[`heating_SEER_${zone}`]) > 0) {
-            formItem.form_value = metadata[`heating_SEER_${zone}`];
-          } else if (parseInt(metadata[`Residential thec_${zone}`]) > 0) {
-            formItem.form_value = metadata[`Residential thec_${zone}`];
-          } else {
-            formItem.form_value = metadata['Heating Capacity'];
-          }
+          formItem.form_value = metadata['Heating Capacity'];
         }
+        //   if (parseInt(metadata[`heating_SEER_${zone}`]) > 0) {
+        //     formItem.form_value = metadata[`heating_SEER_${zone}`];
+        //   } else if (parseInt(metadata[`Residential thec_${zone}`]) > 0) {
+        //     formItem.form_value = metadata[`Residential thec_${zone}`];
+        //   } else {
+        //     formItem.form_value = metadata['Heating Capacity'];
+        //   }
+        // }
 
         if (formItem.name === 'HVAC1_input_power' && metadata['Input Power'] != '') {
           formItem.form_value = metadata['Input Power'];
