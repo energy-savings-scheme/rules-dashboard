@@ -134,7 +134,6 @@ export default function CertificateEstimatorLoadClauses(props) {
           formItem.form_value = metadata['Cooling Capacity'];
         }
 
-
         if (formItem.name === 'HVAC2_heating_capacity_input') {
           formItem.form_value = metadata['Heating Capacity'];
         }
