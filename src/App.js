@@ -30,6 +30,8 @@ import CertificateEstimatorHVAC from 'pages/commercial_ac/CertificateEstimator';
 import CertificateEstimatorWH from 'pages/commercial_wh/CertificateEstimatorWH';
 import CertificateEstimatorResidentialAC from 'pages/residential_ac/CertificateEstimatorResidentialAC';
 import CertificateEstimatorRC from 'pages/refrigerated_cabinets/CertificateEstimatorRC';
+import CertificateEstimatorPP from 'pages/pool_pumps/CertificateEstimatorPP';
+import CertificateEstimatorMotors from 'pages/commercial_motors/CertificateEstimatorMotors';
 
 function App() {
   const [entities, setEntities] = useState([]);
@@ -205,6 +207,28 @@ function App() {
             setVariables={setVariables}
             setLoading={setLoading}
             setRF2Brands={setRF2Brands}
+          />
+        </Route>
+        <Route path="/pool-pumps-estimator" exact>
+          <Breadcrumb />
+          <CertificateEstimatorPP
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/commercial-motors-estimator" exact>
+          <Breadcrumb />
+          <CertificateEstimatorMotors
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
           />
         </Route>
         <Route path="*">Not Found</Route>

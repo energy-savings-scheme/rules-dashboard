@@ -14,10 +14,10 @@ import OpenFiscaApi from 'services/openfisca_api';
 import VariableTreeListItem from 'components/VariableTreeListItem';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 
-export default function CertificateEstimatorLoadClauses(props) {
+export default function CertificateEstimatorLoadClausesPP(props) {
   const {
-    variableToLoad1,
-    variableToLoad2,
+    variableData1,
+    variableData2,
     variables,
     entities,
     setStepNumber,
@@ -31,17 +31,12 @@ export default function CertificateEstimatorLoadClauses(props) {
     setCalculationResult,
     calculationResult2,
     setCalculationResult2,
-    postcode,
-    zone,
   } = props;
 
-  console.log(variableToLoad1);
-  console.log(variableToLoad2);
-  console.log(metadata);
-  console.log(postcode);
+  console.log(variableData1);
+  console.log(variableData2);
 
   console.log(stepNumber);
-  console.log(zone);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -58,33 +53,6 @@ export default function CertificateEstimatorLoadClauses(props) {
 
   const [loading, setLoading] = useState(true);
 
-  const [variableData1, setVariableData1] = useState([]);
-  const [variableData2, setVariableData2] = useState([]);
-
-  useEffect(() => {
-    OpenFiscaApi.getVariable(variableToLoad1)
-      .then((res) => {
-        setVariableData1(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [variableToLoad1]);
-
-  useEffect(() => {
-    OpenFiscaApi.getVariable(variableToLoad2)
-      .then((res) => {
-        setVariableData2(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [variableToLoad2]);
-
-  console.log(variableData1);
-  console.log(variableData2);
 
   function addElement(arr, obj) {
     const { length } = arr;
@@ -95,77 +63,48 @@ export default function CertificateEstimatorLoadClauses(props) {
   }
 
   useEffect(() => {
-    if (variables) {
-      const variable1 = variables.find((item) => item.name === variableToLoad1);
-      const variable2 = variables.find((item) => item.name === variableToLoad2);
+    if (variableData1.length == 0 || variableData1.length == 0 ) {
+        setLoading(true);
+    }
+    else {
+        setLoading(false);
+        if (variables.length == 0) {
+            setLoading(true);
+        } else {
+            setLoading(false);
+            console.log(variables);
+            const variable1 = variables.find((item) => item.name === "SYS2_ESC_calculation");
+            const variable2 = variables.find((item) => item.name === "SYS2_PRC_calculation");
 
-      const offsprings1 = variable1.metadata.input_offspring;
-      const offsprings2 = variable2.metadata.input_offspring;
+            const offsprings1 = variable1.metadata.input_offspring;
+            const offsprings2 = variable2.metadata.input_offspring;
 
-      const children1 = variables.filter((item) => offsprings1.includes(item.name));
-      const children2 = variables.filter((item) => offsprings2.includes(item.name));
+            const children1 = variables.filter((item) => offsprings1.includes(item.name));
+            const children2 = variables.filter((item) => offsprings2.includes(item.name));
 
-      console.log(children1);
-      console.log(children2);
+            console.log(children1);
+            console.log(children2);
 
-      // Define the original array (at a minimum include the Implementation Date)
-      var array1 = [];
-      var array2 = [];
+            // Define the original array (at a minimum include the Implementation Date)
+            var array1 = [];
+            var array2 = [];
 
-      children1.map((child) => {
-        array1.push({ ...child, form_value: '', invalid: false });
-      });
+            children1.map((child) => {
+                array1.push({ ...child, form_value: '', invalid: false });
+            });
 
-      children2.map((child) => {
-        array2.push({ ...child, form_value: '', invalid: false });
-      });
+            children2.map((child) => {
+                array2.push({ ...child, form_value: '', invalid: false });
+            });
 
-      array2.forEach((item) => addElement(array1, item));
+            array2.forEach((item) => addElement(array1, item));
 
-      console.log(array1);
+            console.log(array1);
 
-      array1.map((formItem) => {
-        if (formItem.name === 'HVAC2_rated_AEER_input') {
-          console.log(formItem.form_value);
-          formItem.form_value = metadata['Rated AEER'];
+            array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
+
+            setFormValues(array1);
         }
-
-        if (formItem.name === 'HVAC2_cooling_capacity_input') {
-          formItem.form_value = metadata['Cooling Capacity'];
-        }
-
-        if (formItem.name === 'HVAC2_heating_capacity_input') {
-          formItem.form_value = metadata['Heating Capacity'];
-        }
-
-        if (formItem.name === 'HVAC2_commercial_TCEC') {
-          formItem.form_value = metadata[`Commercial tcec_${zone}`];
-        }
-
-        if (formItem.name === 'HVAC2_commercial_THEC') {
-          formItem.form_value = metadata[`Commercial thec_${zone}`];
-        }
-
-        if (formItem.name === 'HVAC2_input_power' && metadata['Input Power'] != '') {
-          formItem.form_value = metadata['Input Power'];
-        }
-
-        if (
-          formItem.name === 'HVAC2_rated_ACOP_input' &&
-          metadata['Rated ACOP'] != '' &&
-          metadata['Rated ACOP'] != '-'
-        ) {
-          formItem.form_value = metadata['Rated ACOP'];
-        }
-        if (formItem.name === 'HVAC2_PDRS__postcode') {
-          formItem.form_value = postcode;
-          formItem.read_only = true;
-        }
-      });
-
-      array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
-
-      setFormValues(array1);
     }
   }, [variableData1, variableData2]);
 
@@ -182,7 +121,7 @@ export default function CertificateEstimatorLoadClauses(props) {
   return (
     <div className>
       <div style={{ marginTop: 70, marginBottom: 70 }}>
-        {stepNumber === 2 && (
+        {stepNumber === 1 && (
           <Fragment>
             <CalculateBlock
               calculationDate={calculationDate}
@@ -212,7 +151,7 @@ export default function CertificateEstimatorLoadClauses(props) {
           </Fragment>
         )}
 
-        {stepNumber === 3 && !calculationError && !calculationError2 && (
+        {stepNumber === 2 && !calculationError && !calculationError2 && (
           <Fragment>
             {
               <div className="nsw-row">
@@ -246,14 +185,18 @@ export default function CertificateEstimatorLoadClauses(props) {
           </Fragment>
         )}
 
-        {(stepNumber === 3 && calculationError === true) ||
-          (stepNumber === 3 && calculationError2 === true && (
+
+{stepNumber === 1 && loading && <SpinnerFullscreen />}
+
+        {(stepNumber === 2 && calculationError === true) ||
+          (stepNumber === 2 && calculationError2 === true && (
             <Notification as="error" title="Sorry! An error has occurred.">
               <p>An error occurred during calculation. Try re-running the calculation</p>
             </Notification>
           ))}
 
-        {stepNumber === 3 && (
+
+        {stepNumber === 2 && (
           <div className="nsw-row">
             <div className="nsw-col nsw-col-md-6">
               <Button
