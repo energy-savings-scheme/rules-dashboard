@@ -110,10 +110,12 @@ export default function CertificateEstimatorPP(props) {
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-            Estimate your ESCs and PRCs for the Residential Pool Pumps Activity (D5 in the ESS and SYS2 in the PDRS) by answering the following questions. 
+              Estimate your ESCs and PRCs for the Residential Pool Pumps Activity (D5 in the ESS and
+              SYS2 in the PDRS) by answering the following questions.
             </p>
             <p className="nsw-content-block__copy">
-            Please keep in mind that the results are indicative only and cannot be promoted or published.{' '}
+              Please keep in mind that the results are indicative only and cannot be promoted or
+              published.{' '}
             </p>
           </div>
         </div>

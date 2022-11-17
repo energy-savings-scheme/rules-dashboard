@@ -16,7 +16,6 @@ import OpenFiscaApi from 'services/openfisca_api';
 import Notification from 'nsw-ds-react/notification/notification';
 import CertificateEstimatorLoadClausesRefrigerators from './CertificateEstimatorLoadClausesRefrigerators';
 
-
 export default function CertificateEstimatorRefrigerators(props) {
   const { entities, variables, setVariables, setEntities, loading, setLoading } = props;
 
@@ -111,12 +110,12 @@ export default function CertificateEstimatorRefrigerators(props) {
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-            Estimate your ESCs and PRCs for the Residential spare Refrigerator or Freezer removal Activity (C1 in the ESS and RF1 in the PDRS) by answering the following questions. 
-
-
+              Estimate your ESCs and PRCs for the Residential spare Refrigerator or Freezer removal
+              Activity (C1 in the ESS and RF1 in the PDRS) by answering the following questions.
             </p>
             <p className="nsw-content-block__copy">
-            Please keep in mind that the results are indicative only and cannot be promoted or published.{' '}
+              Please keep in mind that the results are indicative only and cannot be promoted or
+              published.{' '}
             </p>
           </div>
         </div>

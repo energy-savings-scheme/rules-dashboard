@@ -99,7 +99,7 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
 
         console.log(array1);
 
-        array1 = array1.filter((item) => item.name !== "RF1_peak_demand_savings_capacity")
+        array1 = array1.filter((item) => item.name !== 'RF1_peak_demand_savings_capacity');
 
         array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
 

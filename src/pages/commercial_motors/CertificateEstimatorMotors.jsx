@@ -110,11 +110,12 @@ export default function CertificateEstimatorMotors(props) {
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-            Estimate your ESCs and PRCs for the Commercial Motors (Refrigeration or Ventilation) Activity (F7 in the ESS and SYS1 in the PDRS) by answering the following questions. 
-
+              Estimate your ESCs and PRCs for the Commercial Motors (Refrigeration or Ventilation)
+              Activity (F7 in the ESS and SYS1 in the PDRS) by answering the following questions.
             </p>
             <p className="nsw-content-block__copy">
-            Please keep in mind that the results are indicative only and cannot be promoted or published.{' '}
+              Please keep in mind that the results are indicative only and cannot be promoted or
+              published.{' '}
             </p>
           </div>
         </div>

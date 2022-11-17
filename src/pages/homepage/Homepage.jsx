@@ -94,7 +94,11 @@ export default function Homepage(props) {
                   </Card>
                 </div>
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
-                  <Card headline="Pool Pump" link="pool-pumps-estimator" image="/ResidentialPoolPumps.jpg">
+                  <Card
+                    headline="Pool Pump"
+                    link="pool-pumps-estimator"
+                    image="/ResidentialPoolPumps.jpg"
+                  >
                     <CardCopy>
                       Replace an existing pool pump with a high efficiency pool pump
                     </CardCopy>
