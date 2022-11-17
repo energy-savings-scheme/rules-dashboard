@@ -14,9 +14,10 @@ import OpenFiscaAPI from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import OpenFiscaApi from 'services/openfisca_api';
 import Notification from 'nsw-ds-react/notification/notification';
-import CertificateEstimatorLoadClausesPP from './CertificateEstimatorLoadClausesPP';
+import CertificateEstimatorLoadClausesRefrigerators from './CertificateEstimatorLoadClausesRefrigerators';
 
-export default function CertificateEstimatorPP(props) {
+
+export default function CertificateEstimatorRefrigerators(props) {
   const { entities, variables, setVariables, setEntities, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
@@ -56,7 +57,7 @@ export default function CertificateEstimatorPP(props) {
   }, []);
 
   useEffect(() => {
-    OpenFiscaAPI.getVariable('SYS2_PRC_calculation')
+    OpenFiscaAPI.getVariable('RF1_PRC_calculation')
       .then((res) => {
         setVariableData1(res.data);
         console.log(res.data);
@@ -67,7 +68,7 @@ export default function CertificateEstimatorPP(props) {
         console.log(err);
       });
 
-    OpenFiscaAPI.getVariable('SYS2_ESC_calculation')
+    OpenFiscaAPI.getVariable('RF1_ESC_calculation')
       .then((res) => {
         setVariableData2(res.data);
         console.log(res.data);
@@ -90,9 +91,9 @@ export default function CertificateEstimatorPP(props) {
               <div class="nsw-hero-banner__box">
                 <img
                   class="nsw-hero-banner__image"
-                  src="ResidentialPoolPumps.jpg"
+                  src="ResidentialRefrigeratorFreezer.jpeg"
                   alt=""
-                  style={{ top: '80%' }}
+                  style={{ top: '100%' }}
                 />
               </div>
             </div>
@@ -110,7 +111,9 @@ export default function CertificateEstimatorPP(props) {
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-            Estimate your ESCs and PRCs for the Residential Pool Pumps Activity (D5 in the ESS and SYS2 in the PDRS) by answering the following questions. 
+            Estimate your ESCs and PRCs for the Residential spare Refrigerator or Freezer removal Activity (C1 in the ESS and RF1 in the PDRS) by answering the following questions. 
+
+
             </p>
             <p className="nsw-content-block__copy">
             Please keep in mind that the results are indicative only and cannot be promoted or published.{' '}
@@ -119,7 +122,7 @@ export default function CertificateEstimatorPP(props) {
         </div>
 
         <p className="nsw-content-block__copy">
-          <b> Residential pool pump certificate estimator</b>
+          <b> Residential spare Refrigerator or Freezer removal certificate estimator</b>
         </p>
 
         <ProgressIndicator step={stepNumber} of={2} />
@@ -200,7 +203,7 @@ export default function CertificateEstimatorPP(props) {
           {stepNumber === 1 && loading && <SpinnerFullscreen />}
 
           {stepNumber === 1 && (
-            <CertificateEstimatorLoadClausesPP
+            <CertificateEstimatorLoadClausesRefrigerators
               variableData1={variableData1}
               variableData2={variableData2}
               variables={variables}
@@ -223,7 +226,7 @@ export default function CertificateEstimatorPP(props) {
           )}
 
           {stepNumber === 2 && (
-            <CertificateEstimatorLoadClausesPP
+            <CertificateEstimatorLoadClausesRefrigerators
               variableData1={variableData1}
               variableData2={variableData2}
               variables={variables}

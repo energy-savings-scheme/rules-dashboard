@@ -94,7 +94,7 @@ export default function Homepage(props) {
                   </Card>
                 </div>
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
-                  <Card headline="Pool Pump" link="compare" image="/ResidentialPoolPumps.jpg">
+                  <Card headline="Pool Pump" link="pool-pumps-estimator" image="/ResidentialPoolPumps.jpg">
                     <CardCopy>
                       Replace an existing pool pump with a high efficiency pool pump
                     </CardCopy>
@@ -103,7 +103,7 @@ export default function Homepage(props) {
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
                   <Card
                     headline="Spare Refrigerator or Freezer"
-                    link="compare"
+                    link="residential-refrigerators-estimator"
                     image="/ResidentialRefrigeratorFreezer.jpeg"
                   >
                     <CardCopy>Remove a spare refrigerator or freezer</CardCopy>
@@ -164,7 +164,7 @@ export default function Homepage(props) {
                 <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Ventilation or Refrigeration motor"
-                    link="compare2activities"
+                    link="commercial-motors-estimator"
                     image="CommercialVentilationRefrigeration.jpeg"
                   >
                     <CardCopy>

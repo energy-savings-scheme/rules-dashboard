@@ -287,7 +287,10 @@ export default function Breadcrumb() {
 
   if (
     location.pathname === '/refrigerated-cabinet-estimator' ||
-    location.pathname === '/refrigerated-cabinet-estimator/'
+    location.pathname === '/refrigerated-cabinet-estimator/' ||
+    location.pathname === '/pool-pumps-estimator' ||
+    location.pathname === '/commercial-motors-estimator' ||
+    location.pathname === '/residential-refrigerators-estimator'
   ) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>

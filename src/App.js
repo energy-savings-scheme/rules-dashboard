@@ -32,6 +32,7 @@ import CertificateEstimatorResidentialAC from 'pages/residential_ac/CertificateE
 import CertificateEstimatorRC from 'pages/refrigerated_cabinets/CertificateEstimatorRC';
 import CertificateEstimatorPP from 'pages/pool_pumps/CertificateEstimatorPP';
 import CertificateEstimatorMotors from 'pages/commercial_motors/CertificateEstimatorMotors';
+import CertificateEstimatorRefrigerators from 'pages/residential_refrigerators/CertificateEstimatorRefrigerators';
 
 function App() {
   const [entities, setEntities] = useState([]);
@@ -223,6 +224,17 @@ function App() {
         <Route path="/commercial-motors-estimator" exact>
           <Breadcrumb />
           <CertificateEstimatorMotors
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/residential-refrigerators-estimator" exact>
+          <Breadcrumb />
+          <CertificateEstimatorRefrigerators
             entities={entities}
             variables={variables}
             loading={loading}

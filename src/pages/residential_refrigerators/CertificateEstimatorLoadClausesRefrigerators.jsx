@@ -14,7 +14,7 @@ import OpenFiscaApi from 'services/openfisca_api';
 import VariableTreeListItem from 'components/VariableTreeListItem';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 
-export default function CertificateEstimatorLoadClausesMotors(props) {
+export default function CertificateEstimatorLoadClausesRefrigerators(props) {
   const {
     variableData1,
     variableData2,
@@ -71,8 +71,8 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
       } else {
         setLoading(false);
         console.log(variables);
-        const variable1 = variables.find((item) => item.name === 'SYS1_ESC_calculation');
-        const variable2 = variables.find((item) => item.name === 'SYS1_PRC_calculation');
+        const variable1 = variables.find((item) => item.name === 'RF1_ESC_calculation');
+        const variable2 = variables.find((item) => item.name === 'RF1_PRC_calculation');
 
         const offsprings1 = variable1.metadata.input_offspring;
         const offsprings2 = variable2.metadata.input_offspring;
@@ -98,6 +98,8 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
         array2.forEach((item) => addElement(array1, item));
 
         console.log(array1);
+
+        array1 = array1.filter((item) => item.name !== "RF1_peak_demand_savings_capacity")
 
         array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
 

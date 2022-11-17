@@ -17,14 +17,7 @@ import Notification from 'nsw-ds-react/notification/notification';
 import CertificateEstimatorLoadClausesMotors from './CertificateEstimatorLoadClausesMotors';
 
 export default function CertificateEstimatorMotors(props) {
-  const {
-    entities,
-    variables,
-    setVariables,
-    setEntities,
-    loading,
-    setLoading,
-  } = props;
+  const { entities, variables, setVariables, setEntities, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
@@ -60,33 +53,31 @@ export default function CertificateEstimatorMotors(props) {
           console.log(err);
         });
     }
-
   }, []);
 
   useEffect(() => {
-    OpenFiscaAPI.getVariable("SYS1_PRC_calculation")
-        .then((res) => {
+    OpenFiscaAPI.getVariable('SYS1_PRC_calculation')
+      .then((res) => {
         setVariableData1(res.data);
         console.log(res.data);
-        console.log("here!!")
+        console.log('here!!');
         setLoading(false);
-        })
-        .catch((err) => {
+      })
+      .catch((err) => {
         console.log(err);
-    });
+      });
 
-    OpenFiscaAPI.getVariable("SYS1_ESC_calculation")
-        .then((res) => {
+    OpenFiscaAPI.getVariable('SYS1_ESC_calculation')
+      .then((res) => {
         setVariableData2(res.data);
         console.log(res.data);
 
         setLoading(false);
-        })
-        .catch((err) => {
+      })
+      .catch((err) => {
         console.log(err);
-    });
-  }, [variables, entities])
-
+      });
+  }, [variables, entities]);
 
   return (
     <Fragment>
@@ -99,7 +90,7 @@ export default function CertificateEstimatorMotors(props) {
               <div class="nsw-hero-banner__box">
                 <img
                   class="nsw-hero-banner__image"
-                  src="/commercialac/HVAC2Hero.jpeg"
+                  src="CommercialVentilationRefrigeration.jpeg"
                   alt=""
                   style={{ top: '80%' }}
                 />
@@ -119,18 +110,17 @@ export default function CertificateEstimatorMotors(props) {
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-              Estimate your ESCs and PRCs for the Commercial Air Conditioner Activity (F4 in the ESS
-              and HVAC2 in the PDRS) by answering the following questions.
+            Estimate your ESCs and PRCs for the Commercial Motors (Refrigeration or Ventilation) Activity (F7 in the ESS and SYS1 in the PDRS) by answering the following questions. 
+
             </p>
             <p className="nsw-content-block__copy">
-              Please keep in mind that the results are indicative only and cannot be promoted or
-              published.{' '}
+            Please keep in mind that the results are indicative only and cannot be promoted or published.{' '}
             </p>
           </div>
         </div>
 
         <p className="nsw-content-block__copy">
-          <b> Commercial refrigerated motors certificate estimator</b>
+          <b> Commercial motors certificate estimator</b>
         </p>
 
         <ProgressIndicator step={stepNumber} of={2} />
@@ -235,8 +225,8 @@ export default function CertificateEstimatorMotors(props) {
 
           {stepNumber === 2 && (
             <CertificateEstimatorLoadClausesMotors
-                variableData1={variableData1}
-                variableData2={variableData2}
+              variableData1={variableData1}
+              variableData2={variableData2}
               variables={variables}
               entities={entities}
               metadata={metadata}
@@ -255,24 +245,21 @@ export default function CertificateEstimatorMotors(props) {
 
           {stepNumber === 2 && calculationError && calculationError2 && <SpinnerFullscreen />}
 
-          {stepNumber === 1 &&
-            registryData &&
-            postcode &&
-            postcode.length === 4 && (
-              <div className="nsw-row">
-                <div className="nsw-col">
-                  <Button
-                    as="primary"
-                    onClick={(e) => {
-                      setStepNumber(stepNumber + 1);
-                    }}
-                    style={{ float: 'right' }}
-                  >
-                    Next
-                  </Button>
-                </div>
+          {stepNumber === 1 && registryData && postcode && postcode.length === 4 && (
+            <div className="nsw-row">
+              <div className="nsw-col">
+                <Button
+                  as="primary"
+                  onClick={(e) => {
+                    setStepNumber(stepNumber + 1);
+                  }}
+                  style={{ float: 'right' }}
+                >
+                  Next
+                </Button>
               </div>
-            )}
+            </div>
+          )}
         </Fragment>
       </div>
     </Fragment>
