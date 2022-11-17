@@ -141,7 +141,7 @@ export default function CalculateForm(props) {
         <div className="nsw-content-block__content">
           {workflow === 'certificates' ? (
             <h5 className="nsw-content-block__copy">
-              <b>Answer the following questions to calculate your ESCs and PRCs</b>
+              <b>Please answer the following questions to calculate your ESCs and PRCs</b>
             </h5>
           ) : (
             <h5 className="nsw-content-block__copy">
