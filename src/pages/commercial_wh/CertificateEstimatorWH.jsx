@@ -13,6 +13,7 @@ import CertificateEstimatorLoadClausesWH from './CertificateEstimatorLoadClauses
 import { FormGroup, TextInput, Select } from 'nsw-ds-react/forms';
 import OpenFiscaApi from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
+import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 
 export default function CertificateEstimatorWH(props) {
   const { entities, variables, brands, loading, setLoading } = props;
@@ -130,22 +131,16 @@ export default function CertificateEstimatorWH(props) {
     <Fragment>
       {/* Search section */}
       <br></br>
-      <div className="nsw-layout">
-        <div class="nsw-hero-banner nsw-hero-banner--dark">
-          <div class="nsw-hero-banner__container">
-            <div class="nsw-hero-banner__wrapper">
-              <div class="nsw-hero-banner__box">
-                <img
-                  class="nsw-hero-banner__image"
-                  src="/commercial_wh/WH1_Activity_Page_Hero.jpeg"
-                  alt=""
-                  style={{ top: '80%' }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HeroBanner
+        wide
+        style="dark"
+        image={{
+          alt: 'commercial wh',
+          src: "/commercial_wh/WH1_Activity_Page_Hero.jpeg"
+        }}
+        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
+        title="Safeguard Certificate Estimator"
+      />
 
       <div className="nsw-container">
         <div className="nsw-grid nsw-grid--spaced">
@@ -300,7 +295,7 @@ export default function CertificateEstimatorWH(props) {
               <div className="nsw-row">
                 <div className="nsw-col">
                   <Button
-                    as="primary"
+                    as="dark"
                     onClick={(e) => {
                       setStepNumber(stepNumber + 1);
                     }}

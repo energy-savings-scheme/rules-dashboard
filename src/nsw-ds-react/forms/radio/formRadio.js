@@ -26,12 +26,12 @@ export const RadioItem = ({
   checked = '',
   ...attributeOptions
 }) => (
-  <>
+  <React.Fragment>
     <input
-      className="nsw-form-radio__input"
+      className="nsw-form__radio-input"
       type="radio"
       name={htmlId}
-      aria-invalid={status === 'invalid' && as != 'group' ? 'true' : ''}
+      // aria-invalid={status === 'invalid' && as != 'group' ? 'true' : ''}
       aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
       id={uniqueID}
       value={value}
@@ -40,12 +40,12 @@ export const RadioItem = ({
     ></input>
     <label
       style={{ display: 'inline-block', marginRight: '100px' }}
-      className="nsw-form-radio__label"
+      className="nsw-form__radio-label"
       for={uniqueID}
     >
       {text}
     </label>
-  </>
+  </React.Fragment>
 );
 
 RadioItem.propTypes = {
@@ -68,14 +68,14 @@ RadioItem.propTypes = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const FormGroupRadio = (props) => (
-  <div className={`nsw-form-group ${props.className}`}>
-    <fieldset className="nsw-form-fieldset" aria-invalid={props.status === 'invalid' ? 'true' : ''}>
+  <div className={`nsw-form__group ${props.className}`} style={{paddingBottom: '4%'}} >
+    <fieldset className="nsw-form__fieldset" aria-invalid={props.status === 'invalid' ? 'true' : ''}>
       {props.as === 'group' ? (
         <legend>
-          <span className="nsw-form-legend-text" style={{ fontSize: '16px' }}>
+          <span className="nsw-form__legend" style={{ fontSize: '16px' }}>
             {props.label}
           </span>
-          {props.helper ? <FormHelper htmlId={props.htmlId}>{props.helper}</FormHelper> : ''}
+          {props.helper ? <FormHelper style={{marginTop: '10px'}} htmlId={props.htmlId}>{props.helper}</FormHelper> : ''}
           {props.status === 'invalid' ? (
             <FormHelper htmlId={props.htmlId} error>
               {props.errorText}

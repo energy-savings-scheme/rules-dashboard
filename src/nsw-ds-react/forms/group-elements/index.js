@@ -24,14 +24,26 @@ const defHtmlId = nextId();
  * @param  {boolean} error         - Whether this helper is an error
  */
 
-export const FormHelper = ({ htmlId, children, className, error, ...attributeOptions }) => (
-  <span
-    id={`${error ? `error` : `helper`}${htmlId}`}
-    className={`nsw-form-helper ${error ? ` nsw-form-helper--error` : ''} ${className}`}
-  >
+ export const FormHelper = ({
+  htmlId, children, className, status, ...attributeOptions
+}) => (
+
+  <span id={`${status === 'invalid' ? 'error' : 'helper'}${htmlId}`} className={`nsw-form__helper ${status === 'invalid' ? ' nsw-form__helper--error' : ''} ${status === 'valid' ? ' nsw-form__helper--valid' : ''} ${className}`} {...attributeOptions}>
+    <span className="material-icons nsw-material-icons" focusable="false" aria-hidden="true">
+      {status === 'invalid' ? 'cancel' : ''}
+      {status === 'valid' ? 'check_circle' : ''}
+    </span>
     {children}
   </span>
+
 );
+
+FormHelper.propTypes = {
+  htmlId: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  error: PropTypes.bool,
+};
 
 FormHelper.defaultProps = {
   htmlId: defHtmlId,
@@ -46,29 +58,25 @@ FormHelper.defaultProps = {
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const FormLabel = ({ text, dark, inline, className, ...attributeOptions }) => (
-  <label className={`nsw-form-label ${className}`} {...attributeOptions}>
-    {text}
+
+ export const FormLabel = ({
+  htmlFor, text, dark, inline, className, ...attributeOptions
+}) => (
+  <label
+    htmlFor={htmlFor}
+    className={`nsw-form__label ${className}`}
+    {...attributeOptions}
+  >
+    { text }
   </label>
 );
 
 FormLabel.propTypes = {
-  /**
-   * Text of the label, required
-   */
   text: PropTypes.string.isRequired,
-  /**
-   * Add the dark variation class, optional
-   */
   dark: PropTypes.bool,
-  /**
-   * Display the label inline, optional
-   */
   inline: PropTypes.bool,
-  /**
-   * An additional class, optional
-   */
   className: PropTypes.string,
+  htmlFor: PropTypes.string,
 };
 
 FormLabel.defaultProps = {
@@ -87,46 +95,39 @@ FormLabel.defaultProps = {
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const FormGroup = ({
-  htmlId = nextId(),
-  status,
-  children,
-  label,
-  helper,
-  errorText,
-  error,
-  options,
-  className,
-  ...attributeOptions
+ export const FormGroup = ({
+  htmlId = nextId(), status, children, label, helper, statusText, error,
+  className, ...attributeOptions
 }) => (
-  <div className={`nsw-form-group ${className}`} {...attributeOptions}>
+
+  <div
+    className={`nsw-form__group ${className}`}
+    {...attributeOptions}
+  >
     <FormLabel htmlFor={htmlId} text={label} />
-    {helper ? <FormHelper htmlId={htmlId}>{helper}</FormHelper> : ''}
-    {React.Children.map(children, (child) => {
-      return React.cloneElement(child, { error });
-    })}
-    {status === 'invalid' ? (
-      <FormHelper htmlId={htmlId} error>
-        {errorText}
-      </FormHelper>
-    ) : (
-      ''
-    )}
+    {helper
+      ? <FormHelper htmlId={htmlId}>{helper}</FormHelper>
+      : ''}
+    {React.Children.map(children, (child) => React.cloneElement(child, { error }))}
+    {status
+      ? <FormHelper htmlId={htmlId} status={status}>{statusText}</FormHelper>
+      : ''}
   </div>
 );
 
 FormGroup.propTypes = {
-  /**
-   * Adds invalid state to form group
-   */
+  status: PropTypes.oneOf(['invalid', 'valid', 'default']),
   error: PropTypes.bool,
-  /**
-   * An additional class, optional
-   */
   className: PropTypes.string,
+  htmlId: PropTypes.string,
+  label: PropTypes.string,
+  children: PropTypes.node,
+  helper: PropTypes.string,
+  statusText: PropTypes.string,
+  uniqueID: PropTypes.func,
 };
 
 FormGroup.defaultProps = {
-  status: 'valid',
+  status: 'default',
   className: '',
 };

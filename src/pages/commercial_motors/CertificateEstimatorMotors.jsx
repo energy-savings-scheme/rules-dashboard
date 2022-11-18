@@ -15,6 +15,7 @@ import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import OpenFiscaApi from 'services/openfisca_api';
 import Notification from 'nsw-ds-react/notification/notification';
 import CertificateEstimatorLoadClausesMotors from './CertificateEstimatorLoadClausesMotors';
+import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 
 export default function CertificateEstimatorMotors(props) {
   const { entities, variables, setVariables, setEntities, loading, setLoading } = props;
@@ -81,24 +82,17 @@ export default function CertificateEstimatorMotors(props) {
 
   return (
     <Fragment>
-      {/* Search section */}
       <br></br>
-      <div className="nsw-layout">
-        <div class="nsw-hero-banner nsw-hero-banner--dark">
-          <div class="nsw-hero-banner__container">
-            <div class="nsw-hero-banner__wrapper">
-              <div class="nsw-hero-banner__box">
-                <img
-                  class="nsw-hero-banner__image"
-                  src="CommercialVentilationRefrigeration.jpeg"
-                  alt=""
-                  style={{ top: '80%' }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HeroBanner
+        wide
+        style="dark"
+        image={{
+          alt: 'commercial motoes',
+          src: "CommercialVentilationRefrigeration.jpeg"
+        }}
+        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
+        title="Safeguard Certificate Estimator"
+      />
 
       <div className="nsw-container">
         <div className="nsw-grid nsw-grid--spaced">
@@ -251,7 +245,7 @@ export default function CertificateEstimatorMotors(props) {
             <div className="nsw-row">
               <div className="nsw-col">
                 <Button
-                  as="primary"
+                  as="dark"
                   onClick={(e) => {
                     setStepNumber(stepNumber + 1);
                   }}

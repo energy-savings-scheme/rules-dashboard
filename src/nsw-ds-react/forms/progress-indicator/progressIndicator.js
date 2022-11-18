@@ -2,33 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const ProgressIndicator = ({ step, of, ...attributeOptions }) => (
-  <div className="nsw-progress-indicator">
+  <div className="nsw-progress-indicator" {...attributeOptions}>
     <div className="nsw-progress-indicator__count">
-      Step {step} of {of}
+      Step { step } of { of }
     </div>
     <div className="nsw-progress-indicator__bar">
-      {[...Array(step)].map((e, i) => (
-        <ProgressIndicatorStep active />
-      ))}
-      {Array(of - step).fill(<ProgressIndicatorStep />)}
+      {
+          // eslint-disable-next-line react/no-array-index-key
+          [...Array(of)].fill().map((value, index) => (index + 1 <= step ? <ProgressIndicatorStep key={index} active /> : <ProgressIndicatorStep key={index} />))
+        }
     </div>
   </div>
 );
 ProgressIndicator.propTypes = {
-  /**
-   * Current step number
-   */
   step: PropTypes.number.isRequired,
-  /**
-   * Total number of steps
-   */
   of: PropTypes.number.isRequired,
 };
 
 export const ProgressIndicatorStep = ({ active }) => (
-  <div
-    className={`nsw-progress-indicator__step ${
-      active ? 'nsw-progress-indicator__step--active' : ''
-    }`}
-  ></div>
+  <div className={`${active ? 'active' : ''}`} />
 );
+
+ProgressIndicatorStep.propTypes = {
+  active: PropTypes.bool,
+};

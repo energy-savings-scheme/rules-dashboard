@@ -11,6 +11,7 @@ import { FormGroup, FormGroupSelect, TextInput } from 'nsw-ds-react/forms';
 import { Notification } from 'nsw-ds-react/notification/notification';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 import OpenFiscaApi from 'services/openfisca_api';
+import Alert from 'nsw-ds-react/alert/alert';
 
 export default function LoadClauses(props) {
   const {
@@ -194,19 +195,19 @@ export default function LoadClauses(props) {
             )}
 
             {stepNumber === 2 && calculationError && (
-              <Notification as="error" title="Sorry! An error has occurred.">
+              <Alert as="error" title="Sorry! An error has occurred.">
                 <p>
                   An error occurred during calculation. Try choosing a more recent Date and
                   re-running the calculation
                 </p>
-              </Notification>
+              </Alert>
             )}
 
             {stepNumber === 2 && (
               <div className="nsw-row">
                 <div className="nsw-col">
                   <Button
-                    as="secondary"
+                    as="light"
                     onClick={(e) => {
                       setStepNumber(stepNumber - 1);
                     }}

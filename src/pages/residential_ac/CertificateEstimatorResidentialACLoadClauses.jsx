@@ -5,13 +5,9 @@ import moment from 'moment';
 
 // Import components
 import CalculateBlock from 'components/calculate/CalculateBlock';
-
 import Button from 'nsw-ds-react/button/button';
-import { FormGroup, FormGroupSelect, TextInput } from 'nsw-ds-react/forms';
-import { Notification } from 'nsw-ds-react/notification/notification';
-import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 import OpenFiscaApi from 'services/openfisca_api';
-import VariableTreeListItem from 'components/VariableTreeListItem';
+import Alert from 'nsw-ds-react/alert/alert';
 
 export default function CertificateEstimatorResidentialACLoadClauses(props) {
   const {
@@ -223,50 +219,49 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
 
         {stepNumber === 3 && !calculationError && !calculationError2 && (
           <Fragment>
-            {
-              <div className="nsw-row">
-                <div className="nsw-col">
-                  <div className="nsw-content-block">
-                    <div className="nsw-content-block__content">
-                      <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
-                        Based on the information provided
-                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>{' '}
-                      </h4>
-                      <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
-                        your PRC certificates are
-                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>{' '}
-                      </h4>
-
-                      <h1 style={{ textAlign: 'center', paddingTop: 10, fontWeight: 600 }}>
-                        {Math.round(calculationResult)}
-                      </h1>
-                      <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
-                        and ESC certificates are
-                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>{' '}
-                      </h4>
-                      <h1 style={{ textAlign: 'center', paddingTop: 10, fontWeight: 600 }}>
-                        {Math.round(calculationResult2)}
-                      </h1>
-                    </div>
+          {
+            <div className="nsw-row">
+              <div className="nsw-col">
+                <div className="nsw-content-block">
+                  <div className="nsw-content-block__content">
+                    <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
+                      Based on the information provided
+                      <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>
+                    </h4>
+                    <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
+                      your PRC certificates are
+                      <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>
+                    </h4>
+                    <h2 className="nsw-content-block__copy" style={{ textAlign: 'center', fontWeight: 600 }}>
+                      {Math.round(calculationResult)}
+                    </h2>
+                    <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
+                      and ESC certificates are
+                      <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>
+                    </h4>
+                    <h2 className="nsw-content-block__copy" style={{ textAlign: 'center', fontWeight: 600 }}>
+                      {Math.round(calculationResult2)}
+                    </h2>
                   </div>
                 </div>
               </div>
-            }
-          </Fragment>
+            </div>
+          }
+        </Fragment>
         )}
 
         {(stepNumber === 3 && calculationError) ||
           (stepNumber === 3 && calculationError2 && (
-            <Notification as="error" title="Sorry! An error has occurred.">
+            <Alert as="error" title="Sorry! An error has occurred.">
               <p>An error occurred during calculation. Try re-running the calculation</p>
-            </Notification>
+            </Alert>
           ))}
 
         {stepNumber === 3 && (
           <div className="nsw-row">
             <div className="nsw-col nsw-col-md-6">
               <Button
-                as="secondary"
+                as="light"
                 onClick={(e) => {
                   setStepNumber(stepNumber - 1);
                 }}

@@ -1,13 +1,7 @@
-/***************************************************************************************************************************************************************
- *
- * select functions
- *
- **************************************************************************************************************************************************************/
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormHelper } from '../group-elements';
 import nextId from 'react-id-generator';
+import { FormHelper } from '../group-elements';
 
 /**
  * An item inside the Select component
@@ -17,44 +11,37 @@ import nextId from 'react-id-generator';
  * @param  {object}   attributeOptions - Any other attribute options
  */
 export const CheckboxItem = ({
-  text,
-  htmlId,
-  value,
-  status,
-  as,
-  uniqueID = nextId(),
-  checked = '',
-  ...attributeOptions
+  text, htmlId, value, status, as, uniqueID = nextId(), ...attributeOptions
 }) => (
-  <>
+  <React.Fragment>
     <input
-      className="nsw-form-checkbox__input"
+      className="nsw-form__checkbox-input"
       type="checkbox"
       name={htmlId}
-      aria-invalid={status === 'invalid' && !(as == 'group') ? 'true' : ''}
+      aria-invalid={(status === 'invalid' && !(as === 'group')) ? 'true' : ''}
       aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
       id={uniqueID}
-      {...checked}
-    ></input>
-    <label className="nsw-form-checkbox__label" for={uniqueID}>
-      {text}
-    </label>
-  </>
+      {...attributeOptions}
+    />
+    <label className="nsw-form__checkbox-label" htmlFor={uniqueID}>{ text }</label>
+  </React.Fragment>
 );
 
 CheckboxItem.propTypes = {
   text: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   className: PropTypes.string,
-  uniqueID: nextId(),
-  checked: '',
+  htmlId: PropTypes.string,
+  uniqueID: PropTypes.func,
+  status: PropTypes.oneOf(['valid', 'invalid','default']),
+  as: PropTypes.string,
 };
 
 /**
  * The checkbox group component
  *
- * @param  {string}  status           - Adds invalid state to form group
- * @param  {string}  errorText        - Text for error message
+ * @param  {string}  status           - Adds invalid/valid state to form group
+ * @param  {string}  statusText        - Text for error message
  * @param  {string}  htmlId           - Unique ID for this checkbox group
  * @param  {string}  label            - Text for label
  * @param  {string}  helper           - Text for helper
@@ -62,89 +49,58 @@ CheckboxItem.propTypes = {
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const FormGroupCheckbox = (props) => (
-  <div className={`nsw-form-group ${props.className}`}>
-    <fieldset className="nsw-form-fieldset" aria-invalid={props.status === 'invalid' ? 'true' : ''}>
-      {props.as === 'group' ? (
+export const FormGroupCheckbox = ({
+  className, as, status, label, options, htmlId, statusText, helper,
+}) => (
+  <div className={`nsw-form__group ${className}`}>
+    <fieldset className="nsw-form__fieldset" aria-invalid={status === 'invalid' ? 'true' : ''}>
+      {as === 'group' ? (
         <legend>
-          <span className="nsw-form-legend-text">{props.label}</span>
-          {props.helper ? <FormHelper htmlId={props.htmlId}>{props.helper}</FormHelper> : ''}
-          {props.status === 'invalid' ? (
-            <FormHelper htmlId={props.htmlId} error>
-              {props.errorText}
-            </FormHelper>
-          ) : (
-            ''
-          )}
+          <span className="nsw-form__legend">{label}</span>
+          {helper ? <FormHelper htmlId={htmlId}>{helper}</FormHelper> : ''}
+          {status ? <FormHelper htmlId={htmlId} status={status}>{statusText}</FormHelper> : ''}
         </legend>
-      ) : (
-        ''
-      )}
+      ) : ''}
 
-      <div className="nsw-form-checkbox">
-        {props.options.map((option, i) => (
-          <CheckboxItem
-            key={i}
-            {...option}
-            as={props.as}
-            htmlId={props.htmlId}
-            status={props.status}
-          />
-        ))}
+      <div>
+        {
+          options.map(
+            (option) => (
+              <CheckboxItem
+                key={option.value}
+                {...option}
+                as={as}
+                htmlId={htmlId}
+                status={status}
+              />
+            ),
+          )
+        }
       </div>
-      {props.status === 'invalid' && props.as != 'group' ? (
-        <FormHelper htmlId={props.htmlId} error>
-          {props.errorText}
-        </FormHelper>
-      ) : (
-        ''
-      )}
+      {status && as !== 'group' ? <FormHelper htmlId={htmlId} status={status}>{statusText}</FormHelper> : ''}
+
     </fieldset>
   </div>
 );
 
 FormGroupCheckbox.propTypes = {
-  /**
-   * Adds invalid state to checkbox / group
-   */
-  status: PropTypes.oneOf(['invalid', false]),
-  /**
-   * Text to show if field is in error state (ignored otherwise)
-   */
-  errorText: PropTypes.string,
-  /**
-   * Unique ID for the checkbox / group
-   */
+  status: PropTypes.oneOf(['valid', 'invalid', 'default']),
+  statusText: PropTypes.string,
   htmlId: PropTypes.string,
-  /**
-   * Legend title for group (where `as` is 'group')
-   */
   label: PropTypes.string,
-  /**
-   * Set to group for group of checkboxes with legend
-   */
   as: PropTypes.oneOf(['group', false]),
-  /**
-   * Helper text for the field
-   */
   helper: PropTypes.string,
-  /**
-   * Schema for checkboxes
-   */
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string,
       text: PropTypes.string,
     }),
   ).isRequired,
-  /**
-   * An additional class, optional
-   */
   className: PropTypes.string,
 };
 
 FormGroupCheckbox.defaultProps = {
-  status: false,
+  status: 'default',
   className: '',
   htmlId: nextId(),
 };

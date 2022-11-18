@@ -334,7 +334,7 @@ export default function CalculateBlock(props) {
 
     switch (formItem.value_type) {
       case 'Float':
-        return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
+        return <FormTextInput formItem={formItem} setItemValue={setItemValue}/>;
       case 'Int':
         return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
       case 'Date':

@@ -1,50 +1,49 @@
-import React from 'react';
-import { Header, Logo } from './header';
-
-const Preamble = `
-### Full documentation
-
-For usage, UX guidelines, and a library of usability testing visit the NSW Design System docs.
-
-### Installing
-
-Our design system react kit comes with all components
-
-\`\`\`bash
-npm install nsw-design-system-react
-\`\`\`
-
-### Importing
-
-To import this component
-
-\`\`\`javascript
-import Header from "nsw-design-system/components/header";
-\`\`\`
-`;
+import React from 'react'
+import { Header } from '../component/header/header'
+import { Masthead } from '../component/header/masthead'
+import { SkipTo } from '../component/header/skipTo'
+import scLogo from './assets/seniorscardlogo.png';
 
 export default {
-  title: 'Templates/Header',
+  title: 'Globals/Header',
   component: Header,
   parameters: {
     docs: {
       description: {
-        component: Preamble,
-      },
-    },
+        component:
+          'Displays across the top of all NSW Government sites. For mobile menu to work, add the main navigation component'
+      }
+    }
+  }
+}
+
+const Template = (args) => (
+  <>
+    <SkipTo nav='#nav' content='#content' />
+    <Masthead />
+    <Header {...args} />
+  </>
+)
+
+export const Search = Template.bind({})
+Search.args = {
+  headerUrl: '#',
+  siteTitle: 'digital.nsw',
+  siteDescriptor: 'Department of Customer Service',
+  search: true,
+  mobile: true,
+  onSubmit: (event) => {
+    event.preventDefault()
+    console.log(event.target.searchInput.value)
   },
-};
+}
 
-const Template = (args) => <Header {...args} />;
-
-export const WithoutSearch = Template.bind({});
-WithoutSearch.args = {
-  hideSearch: true,
-  logo: Logo,
-};
-
-export const WithoutMobileMenu = Template.bind({});
-WithoutMobileMenu.args = {
-  hideMobileMenu: true,
-  logo: Logo,
-};
+export const Simple = Template.bind({})
+Simple.args = {
+  logo:
+    scLogo,
+  headerUrl: '#',
+  siteTitle: 'Seniors Card NSW',
+  mobile: false,
+  search: false
+}

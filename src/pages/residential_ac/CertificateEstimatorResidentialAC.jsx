@@ -13,6 +13,7 @@ import CertificateEstimatorResidentialACLoadClauses from './CertificateEstimator
 import OpenFiscaAPI from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import OpenFiscaApi from 'services/openfisca_api';
+import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 
 export default function CertificateEstimatorResidentialAC(props) {
   const {
@@ -172,22 +173,16 @@ export default function CertificateEstimatorResidentialAC(props) {
     <Fragment>
       {/* Search section */}
       <br></br>
-      <div className="nsw-layout">
-        <div class="nsw-hero-banner nsw-hero-banner--dark">
-          <div class="nsw-hero-banner__container">
-            <div class="nsw-hero-banner__wrapper">
-              <div class="nsw-hero-banner__box">
-                <img
-                  class="nsw-hero-banner__image"
-                  src="ResidentialAC.jpg"
-                  alt=""
-                  style={{ top: '75%' }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HeroBanner
+            wide
+            style="dark"
+            image={{
+            alt: 'res ac',
+            src: "ResidentialAC.jpg"
+            }}
+            intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
+            title="Safeguard Certificate Estimator"
+      />
 
       <div className="nsw-container">
         <div className="nsw-grid nsw-grid--spaced">
@@ -340,7 +335,7 @@ export default function CertificateEstimatorResidentialAC(props) {
               <div className="nsw-row">
                 <div className="nsw-col">
                   <Button
-                    as="primary"
+                    as="dark"
                     onClick={(e) => {
                       setStepNumber(stepNumber + 1);
                     }}

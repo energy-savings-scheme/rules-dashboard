@@ -16,6 +16,8 @@ import OpenFiscaAPI from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import OpenFiscaApi from 'services/openfisca_api';
 import Notification from 'nsw-ds-react/notification/notification';
+import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
+import Alert from 'nsw-ds-react/alert/alert';
 
 export default function CertificateEstimatorHVAC(props) {
   const {
@@ -175,24 +177,17 @@ export default function CertificateEstimatorHVAC(props) {
 
   return (
     <Fragment>
-      {/* Search section */}
       <br></br>
-      <div className="nsw-layout">
-        <div class="nsw-hero-banner nsw-hero-banner--dark">
-          <div class="nsw-hero-banner__container">
-            <div class="nsw-hero-banner__wrapper">
-              <div class="nsw-hero-banner__box">
-                <img
-                  class="nsw-hero-banner__image"
-                  src="/commercialac/HVAC2Hero.jpeg"
-                  alt=""
-                  style={{ top: '80%' }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HeroBanner
+        wide
+        style="dark"
+        image={{
+          alt: 'commercial ac',
+          src: "/commercialac/HVAC2Hero.jpeg"
+        }}
+        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
+        title="Safeguard Certificate Estimator"
+      />
 
       <div className="nsw-container">
         <div className="nsw-grid nsw-grid--spaced">
@@ -240,7 +235,7 @@ export default function CertificateEstimatorHVAC(props) {
                       errorText="Invalid value!" // error text if invalid
                     >
                       <TextInput
-                        style={{ maxWidth: '50%' }}
+                        style={{ maxWidth: '50%', marginBottom: '1%'  }}
                         as="input"
                         type="number"
                         placeholder="Enter value"
@@ -257,7 +252,7 @@ export default function CertificateEstimatorHVAC(props) {
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
-                        style={{ maxWidth: '50%' }}
+                        style={{ maxWidth: '50%' , marginBottom: '1%' }}
                         options={dropdownOptions}
                         onChange={(e) => {
                           setSelectedBrand(hvacBrands.find((item) => item === e.target.value));
@@ -273,7 +268,7 @@ export default function CertificateEstimatorHVAC(props) {
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
-                        style={{ maxWidth: '50%' }}
+                        style={{ maxWidth: '50%', marginBottom: '1%'  }}
                         options={dropdownOptionsModels}
                         onChange={(e) => {
                           setSelectedModel(models.find((item) => item === e.target.value));
@@ -289,9 +284,9 @@ export default function CertificateEstimatorHVAC(props) {
           )}
 
           {stepNumber === 1 && !registryData && (
-            <Notification as="error" title="Sorry! An error has occurred.">
+            <Alert as="error" title="Sorry! An error has occurred.">
               <p>Unable to load data from the product registry. Please try again later.</p>
-            </Notification>
+            </Alert>
           )}
 
           {stepNumber === 2 && loading && <SpinnerFullscreen />}
@@ -353,7 +348,7 @@ export default function CertificateEstimatorHVAC(props) {
               <div className="nsw-row">
                 <div className="nsw-col">
                   <Button
-                    as="primary"
+                    as="dark"
                     onClick={(e) => {
                       setStepNumber(stepNumber + 1);
                     }}
