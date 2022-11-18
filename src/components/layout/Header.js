@@ -25,7 +25,7 @@ export default function Header(props) {
       <MainNav
         navItems={[
           {
-            text: 'home',
+            text: 'Home',
             url: '/',
           },
           {
