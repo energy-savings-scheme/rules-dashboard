@@ -18,37 +18,41 @@ import { FormGroup } from '../group-elements';
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const TextInput = ({
-  as, status, block, number, htmlId, type = 'text', className = '', ...attributeOptions
-}) => (
-  as === 'textarea'
-    ? (
-      <textarea
-        className={
-                `nsw-form__input ${className}`
-                + `${block ? ' nsw-form__input--block' : ''}`
-                + `${number ? ' nsw-form__input--number' : ''}`
-            }
-        aria-invalid={status === 'invalid' ? 'true' : 'false'}
-        aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
-        id={htmlId}
-        {...attributeOptions}
-      />
-    )
-    : (
-      <input
-        className={
-            `nsw-form__input ${className}`
-            + `${block ? ' nsw-form__input--block' : ''}`
-            + `${number ? ' nsw-form__input--number' : ''}`
-        }
-        aria-invalid={status === 'invalid' ? 'true' : 'false'}
-        aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
-        type={type}
-        {...attributeOptions}
-        id={htmlId}
-      />
-    )
-);
+  as,
+  status,
+  block,
+  number,
+  htmlId,
+  type = 'text',
+  className = '',
+  ...attributeOptions
+}) =>
+  as === 'textarea' ? (
+    <textarea
+      className={
+        `nsw-form__input ${className}` +
+        `${block ? ' nsw-form__input--block' : ''}` +
+        `${number ? ' nsw-form__input--number' : ''}`
+      }
+      aria-invalid={status === 'invalid' ? 'true' : 'false'}
+      aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
+      id={htmlId}
+      {...attributeOptions}
+    />
+  ) : (
+    <input
+      className={
+        `nsw-form__input ${className}` +
+        `${block ? ' nsw-form__input--block' : ''}` +
+        `${number ? ' nsw-form__input--number' : ''}`
+      }
+      aria-invalid={status === 'invalid' ? 'true' : 'false'}
+      aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
+      type={type}
+      {...attributeOptions}
+      id={htmlId}
+    />
+  );
 
 TextInput.propTypes = {
   as: PropTypes.oneOf(['input', 'text', 'textarea']),
@@ -56,7 +60,7 @@ TextInput.propTypes = {
   number: PropTypes.bool,
   className: PropTypes.string,
   htmlId: PropTypes.string,
-  status: PropTypes.oneOf(['valid', 'invalid','default']),
+  status: PropTypes.oneOf(['valid', 'invalid', 'default']),
   type: PropTypes.string,
 };
 
@@ -77,9 +81,24 @@ TextInput.defaultProps = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const FormGroupText = ({
-  status, className, inputType, as, statusText, label, helper, htmlId, ...attributeOptions
+  status,
+  className,
+  inputType,
+  as,
+  statusText,
+  label,
+  helper,
+  htmlId,
+  ...attributeOptions
 }) => (
-  <FormGroup status={status} as={as} statusText={statusText} label={label} helper={helper} htmlId={htmlId}>
+  <FormGroup
+    status={status}
+    as={as}
+    statusText={statusText}
+    label={label}
+    helper={helper}
+    htmlId={htmlId}
+  >
     <TextInput status={status} htmlId={htmlId} {...attributeOptions} type={inputType} />
   </FormGroup>
 );

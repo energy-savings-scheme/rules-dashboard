@@ -12,11 +12,7 @@ const defHtmlId = nextId();
  * @param  {string}   value            - The value of this option
  * @param  {object}   attributeOptions - Any other attribute options
  */
-export const SelectItem = ({
-  text, value,
-}) => (
-  <option value={value}>{ text }</option>
-);
+export const SelectItem = ({ text, value }) => <option value={value}>{text}</option>;
 
 SelectItem.propTypes = {
   text: PropTypes.string.isRequired,
@@ -35,7 +31,13 @@ SelectItem.propTypes = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const Select = ({
-  htmlId, selected, options, block, status, className = '', ...attributeOptions
+  htmlId,
+  selected,
+  options,
+  block,
+  status,
+  className = '',
+  ...attributeOptions
 }) => (
   <select
     className={`nsw-form__select ${className}`}
@@ -45,11 +47,9 @@ export const Select = ({
     defaultValue={selected}
     {...attributeOptions}
   >
-    {
-          options.map(
-            (option) => <SelectItem key={option.value} {...option} />,
-          )
-      }
+    {options.map((option) => (
+      <SelectItem key={option.value} {...option} />
+    ))}
   </select>
 );
 
@@ -79,7 +79,13 @@ Select.propTypes = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const FormGroupSelect = ({
-  status, selected, statusText, label, helper, options, htmlId,
+  status,
+  selected,
+  statusText,
+  label,
+  helper,
+  options,
+  htmlId,
 }) => (
   <FormGroup status={status} statusText={statusText} label={label} helper={helper} htmlId={htmlId}>
     <Select options={options} selected={selected} />

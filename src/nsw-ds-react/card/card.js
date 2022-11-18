@@ -17,9 +17,17 @@ import PropTypes from 'prop-types';
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 const Card = ({
-  link, style, headline, highlight, tag, date,
-  image, imageAlt, className,
-  children, ...attributesOptions
+  link,
+  style,
+  headline,
+  highlight,
+  tag,
+  date,
+  image,
+  imageAlt,
+  className,
+  children,
+  ...attributesOptions
 }) => {
   let CardContainer = 'div';
 
@@ -30,9 +38,11 @@ const Card = ({
 
   return (
     <CardContainer
-      className={`nsw-card nsw-card--${style} ${className}`
-      + `${headline ? 'nsw-card--headline' : ''} `
-      + `${highlight ? 'nsw-card--highlight' : ''} `}
+      className={
+        `nsw-card nsw-card--${style} ${className}` +
+        `${headline ? 'nsw-card--headline' : ''} ` +
+        `${highlight ? 'nsw-card--highlight' : ''} `
+      }
       {...attributesOptions}
     >
       {image ? <CardImage src={image} alt={imageAlt} /> : ''}
@@ -72,7 +82,13 @@ Card.defaultProps = {
 export const CardContent = ({ className, children, ...attributesOptions }) => (
   <div className={`nsw-card__content ${className}`} {...attributesOptions}>
     {children}
-    <span className="material-icons nsw-material-icons nsw-card__icon" focusable="false" aria-hidden="true">east</span>
+    <span
+      className="material-icons nsw-material-icons nsw-card__icon"
+      focusable="false"
+      aria-hidden="true"
+    >
+      east
+    </span>
   </div>
 );
 
@@ -91,18 +107,18 @@ CardContent.defaultProps = {
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardHeader = ({
-  className, link, children,
-}) => {
+export const CardHeader = ({ className, link, children }) => {
   const HeadingTag = 'div';
   if (link !== undefined) {
     return (
-      <HeadingTag className={`nsw-card__title ${className}`}><a href={link} className="nsw-card__link">{children}</a></HeadingTag>
+      <HeadingTag className={`nsw-card__title ${className}`}>
+        <a href={link} className="nsw-card__link">
+          {children}
+        </a>
+      </HeadingTag>
     );
   }
-  return (
-    <HeadingTag className="nsw-card__title">{children}</HeadingTag>
-  );
+  return <HeadingTag className="nsw-card__title">{children}</HeadingTag>;
 };
 
 CardHeader.propTypes = {
@@ -121,9 +137,7 @@ CardHeader.defaultProps = {
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardImage = ({
-  src, className, alt, ...attributesOptions
-}) => (
+export const CardImage = ({ src, className, alt, ...attributesOptions }) => (
   <div className="nsw-card__image">
     <img className={className} src={src} alt={alt} {...attributesOptions} />
   </div>
@@ -144,9 +158,7 @@ CardImage.defaultProps = {
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardCopy = ({
-  src, children, className, ...attributesOptions
-}) => (
+export const CardCopy = ({ src, children, className, ...attributesOptions }) => (
   <p className={`nsw-card__copy ${className}`} {...attributesOptions}>
     {children}
   </p>
@@ -167,9 +179,7 @@ CardCopy.defaultProps = {
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardTag = ({
-  children, className, ...attributesOptions
-}) => (
+export const CardTag = ({ children, className, ...attributesOptions }) => (
   <p className={`nsw-card__tag ${className}`} {...attributesOptions}>
     {children}
   </p>
@@ -189,13 +199,9 @@ CardTag.defaultProps = {
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardDate = ({
-  className, date, ...attributesOptions
-}) => (
+export const CardDate = ({ className, date, ...attributesOptions }) => (
   <p className={`nsw-card__date ${className}`} {...attributesOptions}>
-    <time dateTime={date}>
-      {date}
-    </time>
+    <time dateTime={date}>{date}</time>
   </p>
 );
 
@@ -231,9 +237,7 @@ CardDivider.defaultProps = {
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardLink = ({
-  link, text, className, ...attributesOptions
-}) => (
+export const CardLink = ({ link, text, className, ...attributesOptions }) => (
   <a href={link} className={`nsw-card--clickable__link ${className}`} {...attributesOptions}>
     {text}
   </a>
@@ -254,9 +258,7 @@ CardLink.defaultProps = {
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardFooter = ({
-  dark, alt, children, className, ...attributesOptions
-}) => (
+export const CardFooter = ({ dark, alt, children, className, ...attributesOptions }) => (
   <div className={`nsw-card__footer ${className}`} {...attributesOptions}>
     {children}
   </div>
@@ -280,13 +282,13 @@ CardFooter.defaultProps = {
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardTitle = ({
-  children, className, ...attributeOptions
-}) => {
+export const CardTitle = ({ children, className, ...attributeOptions }) => {
   const HeadingTag = `div`;
 
   return (
-    <HeadingTag className={`nsw-card__title ${className}`} {...attributeOptions}>{ children }</HeadingTag>
+    <HeadingTag className={`nsw-card__title ${className}`} {...attributeOptions}>
+      {children}
+    </HeadingTag>
   );
 };
 

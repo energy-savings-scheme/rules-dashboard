@@ -74,14 +74,14 @@ export default function CertificateEstimatorPP(props) {
       {/* Search section */}
       <br></br>
       <HeroBanner
-            wide
-            style="dark"
-            image={{
-            alt: 'pool pumps',
-            src: "ResidentialPoolPumps.jpg"
-            }}
-            intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-            title="Safeguard Certificate Estimator"
+        wide
+        style="dark"
+        image={{
+          alt: 'pool pumps',
+          src: 'ResidentialPoolPumps.jpg',
+        }}
+        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
+        title="Safeguard Certificate Estimator"
       />
 
       <div className="nsw-container">

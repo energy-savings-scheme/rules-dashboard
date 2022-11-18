@@ -21,7 +21,14 @@ import PropTypes from 'prop-types';
  * @param  {object}   attributeOptions - Any other attribute options
  */
 export const Button = ({
-  linkComponent, link, children, as, type, block, className = '', ...attributeOptions
+  linkComponent,
+  link,
+  children,
+  as,
+  type,
+  block,
+  className = '',
+  ...attributeOptions
 }) => {
   if (link) {
     const LinkComponent = linkComponent;
@@ -39,18 +46,18 @@ export const Button = ({
         className={`nsw-button ${className} nsw-button--${as}${block ? ' nsw-button--block' : ''}`}
         {...attributeOptions}
       >
-        { children }
+        {children}
       </LinkComponent>
     );
   }
 
   return (
     <button
-      type={ type }
+      type={type}
       className={`nsw-button ${className} nsw-button--${as}${block ? ' nsw-button--block' : ''}`}
       {...attributeOptions}
     >
-      { children }
+      {children}
     </button>
   );
 };
@@ -58,7 +65,15 @@ export const Button = ({
 Button.propTypes = {
   link: PropTypes.string,
   children: PropTypes.node.isRequired,
-  as: PropTypes.oneOf(['dark', 'dark-outline', 'dark-outline-solid', 'light', 'light-outline','white','danger']),
+  as: PropTypes.oneOf([
+    'dark',
+    'dark-outline',
+    'dark-outline-solid',
+    'light',
+    'light-outline',
+    'white',
+    'danger',
+  ]),
   type: PropTypes.string,
   block: PropTypes.bool,
   linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),

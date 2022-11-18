@@ -7,14 +7,14 @@ import PropTypes from 'prop-types';
  * @param  {object} link             - The link of this section
  * @param  {object} title            - The title of the section
  * @param  {object} li               - An additional object to be spread
-*                                      into the wrapping element, optional
+ *                                      into the wrapping element, optional
  * @param  {object} attributeOptions - Any other attribute options
  */
-export const InpageNavLinksItem = ({
-  url, title, ...attributeOptions
-}) => (
+export const InpageNavLinksItem = ({ url, title, ...attributeOptions }) => (
   <li>
-    <a href={`${url}`} {...attributeOptions}>{ title }</a>
+    <a href={`${url}`} {...attributeOptions}>
+      {title}
+    </a>
   </li>
 );
 
@@ -34,14 +34,22 @@ InpageNavLinksItem.propTypes = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const InPageNavLinks = ({
-  title, links, ariaLabel, className = '', ...attributeOptions
+  title,
+  links,
+  ariaLabel,
+  className = '',
+  ...attributeOptions
 }) => (
-  <nav className={`nsw-in-page-nav ${className}`} aria-labelled-by={ariaLabel} {...attributeOptions}>
-    <div id={ariaLabel} className="nsw-in-page-nav__title">{ title }</div>
+  <nav
+    className={`nsw-in-page-nav ${className}`}
+    aria-labelled-by={ariaLabel}
+    {...attributeOptions}
+  >
+    <div id={ariaLabel} className="nsw-in-page-nav__title">
+      {title}
+    </div>
 
-    <ul>
-      { links ? links.map((link) => <InpageNavLinksItem {...link} key={link.title} />) : '' }
-    </ul>
+    <ul>{links ? links.map((link) => <InpageNavLinksItem {...link} key={link.title} />) : ''}</ul>
   </nav>
 );
 

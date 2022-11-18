@@ -88,7 +88,7 @@ export default function CertificateEstimatorMotors(props) {
         style="dark"
         image={{
           alt: 'commercial motoes',
-          src: "CommercialVentilationRefrigeration.jpeg"
+          src: 'CommercialVentilationRefrigeration.jpeg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
         title="Safeguard Certificate Estimator"

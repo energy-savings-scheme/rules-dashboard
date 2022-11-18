@@ -174,14 +174,14 @@ export default function CertificateEstimatorResidentialAC(props) {
       {/* Search section */}
       <br></br>
       <HeroBanner
-            wide
-            style="dark"
-            image={{
-            alt: 'res ac',
-            src: "ResidentialAC.jpg"
-            }}
-            intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-            title="Safeguard Certificate Estimator"
+        wide
+        style="dark"
+        image={{
+          alt: 'res ac',
+          src: 'ResidentialAC.jpg',
+        }}
+        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
+        title="Safeguard Certificate Estimator"
       />
 
       <div className="nsw-container">

@@ -153,7 +153,7 @@ export default function CalculateForm(props) {
       </div>
 
       {props.children}
-      
+
       <br></br>
       <br></br>
       <div className="nsw-grid">

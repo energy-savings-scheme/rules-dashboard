@@ -219,35 +219,41 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
 
         {stepNumber === 3 && !calculationError && !calculationError2 && (
           <Fragment>
-          {
-            <div className="nsw-row">
-              <div className="nsw-col">
-                <div className="nsw-content-block">
-                  <div className="nsw-content-block__content">
-                    <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
-                      Based on the information provided
-                      <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>
-                    </h4>
-                    <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
-                      your PRC certificates are
-                      <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>
-                    </h4>
-                    <h2 className="nsw-content-block__copy" style={{ textAlign: 'center', fontWeight: 600 }}>
-                      {Math.round(calculationResult)}
-                    </h2>
-                    <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
-                      and ESC certificates are
-                      <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>
-                    </h4>
-                    <h2 className="nsw-content-block__copy" style={{ textAlign: 'center', fontWeight: 600 }}>
-                      {Math.round(calculationResult2)}
-                    </h2>
+            {
+              <div className="nsw-row">
+                <div className="nsw-col">
+                  <div className="nsw-content-block">
+                    <div className="nsw-content-block__content">
+                      <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
+                        Based on the information provided
+                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>
+                      </h4>
+                      <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
+                        your PRC certificates are
+                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>
+                      </h4>
+                      <h2
+                        className="nsw-content-block__copy"
+                        style={{ textAlign: 'center', fontWeight: 600 }}
+                      >
+                        {Math.round(calculationResult)}
+                      </h2>
+                      <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
+                        and ESC certificates are
+                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>
+                      </h4>
+                      <h2
+                        className="nsw-content-block__copy"
+                        style={{ textAlign: 'center', fontWeight: 600 }}
+                      >
+                        {Math.round(calculationResult2)}
+                      </h2>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          }
-        </Fragment>
+            }
+          </Fragment>
         )}
 
         {(stepNumber === 3 && calculationError) ||

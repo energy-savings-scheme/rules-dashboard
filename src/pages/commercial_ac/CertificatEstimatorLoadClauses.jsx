@@ -9,7 +9,6 @@ import Button from 'nsw-ds-react/button/button';
 import { Alert } from 'nsw-ds-react/alert/alert';
 import OpenFiscaApi from 'services/openfisca_api';
 
-
 export default function CertificateEstimatorLoadClauses(props) {
   const {
     variableToLoad1,
@@ -223,14 +222,20 @@ export default function CertificateEstimatorLoadClauses(props) {
                         your PRC certificates are
                         <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>
                       </h4>
-                      <h2 className="nsw-content-block__copy" style={{ textAlign: 'center', fontWeight: 600 }}>
+                      <h2
+                        className="nsw-content-block__copy"
+                        style={{ textAlign: 'center', fontWeight: 600 }}
+                      >
                         {Math.round(calculationResult)}
                       </h2>
                       <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
                         and ESC certificates are
                         <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>
                       </h4>
-                      <h2 className="nsw-content-block__copy" style={{ textAlign: 'center', fontWeight: 600 }}>
+                      <h2
+                        className="nsw-content-block__copy"
+                        style={{ textAlign: 'center', fontWeight: 600 }}
+                      >
                         {Math.round(calculationResult2)}
                       </h2>
                     </div>

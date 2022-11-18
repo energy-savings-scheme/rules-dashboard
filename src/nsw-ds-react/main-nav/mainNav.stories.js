@@ -1,6 +1,6 @@
 import React from 'react';
 import { MainNav } from '../component/main-nav/mainNav';
-import { Header } from '../component/header/header'
+import { Header } from '../component/header/header';
 
 export default {
   title: 'Navigation/Main Navigation',

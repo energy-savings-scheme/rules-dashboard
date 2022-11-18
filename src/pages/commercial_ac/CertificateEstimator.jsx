@@ -183,7 +183,7 @@ export default function CertificateEstimatorHVAC(props) {
         style="dark"
         image={{
           alt: 'commercial ac',
-          src: "/commercialac/HVAC2Hero.jpeg"
+          src: '/commercialac/HVAC2Hero.jpeg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
         title="Safeguard Certificate Estimator"
@@ -235,7 +235,7 @@ export default function CertificateEstimatorHVAC(props) {
                       errorText="Invalid value!" // error text if invalid
                     >
                       <TextInput
-                        style={{ maxWidth: '50%', marginBottom: '1%'  }}
+                        style={{ maxWidth: '50%', marginBottom: '1%' }}
                         as="input"
                         type="number"
                         placeholder="Enter value"
@@ -252,7 +252,7 @@ export default function CertificateEstimatorHVAC(props) {
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
-                        style={{ maxWidth: '50%' , marginBottom: '1%' }}
+                        style={{ maxWidth: '50%', marginBottom: '1%' }}
                         options={dropdownOptions}
                         onChange={(e) => {
                           setSelectedBrand(hvacBrands.find((item) => item === e.target.value));
@@ -268,7 +268,7 @@ export default function CertificateEstimatorHVAC(props) {
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
-                        style={{ maxWidth: '50%', marginBottom: '1%'  }}
+                        style={{ maxWidth: '50%', marginBottom: '1%' }}
                         options={dropdownOptionsModels}
                         onChange={(e) => {
                           setSelectedModel(models.find((item) => item === e.target.value));

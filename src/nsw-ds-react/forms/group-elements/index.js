@@ -24,18 +24,20 @@ const defHtmlId = nextId();
  * @param  {boolean} error         - Whether this helper is an error
  */
 
- export const FormHelper = ({
-  htmlId, children, className, status, ...attributeOptions
-}) => (
-
-  <span id={`${status === 'invalid' ? 'error' : 'helper'}${htmlId}`} className={`nsw-form__helper ${status === 'invalid' ? ' nsw-form__helper--error' : ''} ${status === 'valid' ? ' nsw-form__helper--valid' : ''} ${className}`} {...attributeOptions}>
+export const FormHelper = ({ htmlId, children, className, status, ...attributeOptions }) => (
+  <span
+    id={`${status === 'invalid' ? 'error' : 'helper'}${htmlId}`}
+    className={`nsw-form__helper ${status === 'invalid' ? ' nsw-form__helper--error' : ''} ${
+      status === 'valid' ? ' nsw-form__helper--valid' : ''
+    } ${className}`}
+    {...attributeOptions}
+  >
     <span className="material-icons nsw-material-icons" focusable="false" aria-hidden="true">
       {status === 'invalid' ? 'cancel' : ''}
       {status === 'valid' ? 'check_circle' : ''}
     </span>
     {children}
   </span>
-
 );
 
 FormHelper.propTypes = {
@@ -59,15 +61,9 @@ FormHelper.defaultProps = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 
- export const FormLabel = ({
-  htmlFor, text, dark, inline, className, ...attributeOptions
-}) => (
-  <label
-    htmlFor={htmlFor}
-    className={`nsw-form__label ${className}`}
-    {...attributeOptions}
-  >
-    { text }
+export const FormLabel = ({ htmlFor, text, dark, inline, className, ...attributeOptions }) => (
+  <label htmlFor={htmlFor} className={`nsw-form__label ${className}`} {...attributeOptions}>
+    {text}
   </label>
 );
 
@@ -95,23 +91,28 @@ FormLabel.defaultProps = {
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
- export const FormGroup = ({
-  htmlId = nextId(), status, children, label, helper, statusText, error,
-  className, ...attributeOptions
+export const FormGroup = ({
+  htmlId = nextId(),
+  status,
+  children,
+  label,
+  helper,
+  statusText,
+  error,
+  className,
+  ...attributeOptions
 }) => (
-
-  <div
-    className={`nsw-form__group ${className}`}
-    {...attributeOptions}
-  >
+  <div className={`nsw-form__group ${className}`} {...attributeOptions}>
     <FormLabel htmlFor={htmlId} text={label} />
-    {helper
-      ? <FormHelper htmlId={htmlId}>{helper}</FormHelper>
-      : ''}
+    {helper ? <FormHelper htmlId={htmlId}>{helper}</FormHelper> : ''}
     {React.Children.map(children, (child) => React.cloneElement(child, { error }))}
-    {status
-      ? <FormHelper htmlId={htmlId} status={status}>{statusText}</FormHelper>
-      : ''}
+    {status ? (
+      <FormHelper htmlId={htmlId} status={status}>
+        {statusText}
+      </FormHelper>
+    ) : (
+      ''
+    )}
   </div>
 );
 

@@ -68,14 +68,23 @@ RadioItem.propTypes = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const FormGroupRadio = (props) => (
-  <div className={`nsw-form__group ${props.className}`} style={{paddingBottom: '4%'}} >
-    <fieldset className="nsw-form__fieldset" aria-invalid={props.status === 'invalid' ? 'true' : ''}>
+  <div className={`nsw-form__group ${props.className}`} style={{ paddingBottom: '4%' }}>
+    <fieldset
+      className="nsw-form__fieldset"
+      aria-invalid={props.status === 'invalid' ? 'true' : ''}
+    >
       {props.as === 'group' ? (
         <legend>
           <span className="nsw-form__legend" style={{ fontSize: '16px' }}>
             {props.label}
           </span>
-          {props.helper ? <FormHelper style={{marginTop: '10px'}} htmlId={props.htmlId}>{props.helper}</FormHelper> : ''}
+          {props.helper ? (
+            <FormHelper style={{ marginTop: '10px' }} htmlId={props.htmlId}>
+              {props.helper}
+            </FormHelper>
+          ) : (
+            ''
+          )}
           {props.status === 'invalid' ? (
             <FormHelper htmlId={props.htmlId} error>
               {props.errorText}

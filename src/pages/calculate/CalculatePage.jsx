@@ -8,7 +8,7 @@ import CalculateBlock from 'components/calculate/CalculateBlock';
 
 import Button from 'nsw-ds-react/button/button';
 import { FormGroup, FormGroupSelect, TextInput } from 'nsw-ds-react/forms';
-import {Alert} from 'nsw-ds-react/alert/alert'
+import { Alert } from 'nsw-ds-react/alert/alert';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 
 export default function CaculatePage(props) {

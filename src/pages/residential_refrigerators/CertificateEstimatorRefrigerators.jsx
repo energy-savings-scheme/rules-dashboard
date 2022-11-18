@@ -17,7 +17,6 @@ import Notification from 'nsw-ds-react/notification/notification';
 import CertificateEstimatorLoadClausesRefrigerators from './CertificateEstimatorLoadClausesRefrigerators';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 
-
 export default function CertificateEstimatorRefrigerators(props) {
   const { entities, variables, setVariables, setEntities, loading, setLoading } = props;
 
@@ -86,14 +85,14 @@ export default function CertificateEstimatorRefrigerators(props) {
       {/* Search section */}
       <br></br>
       <HeroBanner
-            wide
-            style="dark"
-            image={{
-            alt: 'res ref',
-            src: "ResidentialRefrigeratorFreezer.jpeg"
-            }}
-            intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-            title="Safeguard Certificate Estimator"
+        wide
+        style="dark"
+        image={{
+          alt: 'res ref',
+          src: 'ResidentialRefrigeratorFreezer.jpeg',
+        }}
+        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
+        title="Safeguard Certificate Estimator"
       />
 
       <div className="nsw-container">

@@ -9,7 +9,6 @@ import CertificateEstimatorLoadClausesRC from './CertificatEstimatorLoadClausesR
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import Alert from 'nsw-ds-react/alert/alert';
 
-
 export default function CertificateEstimatorRC(props) {
   const {
     entities,
@@ -143,14 +142,14 @@ export default function CertificateEstimatorRC(props) {
     <Fragment>
       <br></br>
       <HeroBanner
-            wide
-            style="dark"
-            image={{
-            alt: 'RF2',
-            src: "/CommercialRefrigeratedCabinet.jpg"
-            }}
-            intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-            title="Safeguard Certificate Estimator"
+        wide
+        style="dark"
+        image={{
+          alt: 'RF2',
+          src: '/CommercialRefrigeratedCabinet.jpg',
+        }}
+        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
+        title="Safeguard Certificate Estimator"
       />
 
       <div className="nsw-container">

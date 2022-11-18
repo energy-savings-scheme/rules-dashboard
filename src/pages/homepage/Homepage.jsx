@@ -6,7 +6,7 @@ import ScheduleTile from './ScheduleTile';
 import Card, { CardCopy } from 'nsw-ds-react/card/card';
 import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 import { Breadcrumbs } from 'nsw-ds-react/breadcrumbs/breadcrumb';
-import { HeroBanner } from 'nsw-ds-react/heroBanner/heroBanner'
+import { HeroBanner } from 'nsw-ds-react/heroBanner/heroBanner';
 
 import 'nsw-design-system/src/main.scss';
 import '@fontsource/public-sans';
@@ -21,7 +21,7 @@ export default function Homepage(props) {
         style="dark"
         image={{
           alt: 'homepage',
-          src: "/LandingPageHero.jpg"
+          src: '/LandingPageHero.jpg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
         title="Safeguard Certificate Estimator"

@@ -17,7 +17,14 @@ import PropTypes from 'prop-types';
  */
 
 export const ContentBlock = ({
-  links, mainLink, headline, copy, image, imageAlt, icon, className,
+  links,
+  mainLink,
+  headline,
+  copy,
+  image,
+  imageAlt,
+  icon,
+  className,
 }) => {
   const ContentBlockContainer = 'div';
   return (
@@ -28,15 +35,21 @@ export const ContentBlock = ({
         {headline ? <ContentBlockHeading>{headline}</ContentBlockHeading> : ''}
         {copy ? <ContentBlockCopy>{copy}</ContentBlockCopy> : ''}
         <ul className="nsw-content-block__list">
-          {
-                        links ? links.map(
-                          (link) => (
-                            <li key={link.title}><a href={link.href}>{link.title}</a></li>
-                          ),
-                        ) : ''
-                    }
+          {links
+            ? links.map((link) => (
+                <li key={link.title}>
+                  <a href={link.href}>{link.title}</a>
+                </li>
+              ))
+            : ''}
         </ul>
-        {mainLink ? <div className="nsw-content-block__link"><a href={mainLink.url}>{mainLink.text}</a></div> : ''}
+        {mainLink ? (
+          <div className="nsw-content-block__link">
+            <a href={mainLink.url}>{mainLink.text}</a>
+          </div>
+        ) : (
+          ''
+        )}
       </div>
     </ContentBlockContainer>
   );
@@ -72,9 +85,7 @@ ContentBlock.defaultProps = {
  * @param {string}   alt                - Alt text
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const ContentBlockImage = ({
-  src, className, imageAlt, ...attributesOptions
-}) => (
+export const ContentBlockImage = ({ src, className, imageAlt, ...attributesOptions }) => (
   <div className="nsw-content-block__image">
     <img src={src} alt={imageAlt} className="nsw-content-block__image" {...attributesOptions} />
   </div>
@@ -97,9 +108,7 @@ ContentBlockImage.defaultProps = {
  */
 export const ContentBlockIcon = ({ children, className, ...attributesOptions }) => (
   <div className="nsw-content-block__image" {...attributesOptions}>
-    <div className="nsw-content-block__icon">
-      { children }
-    </div>
+    <div className="nsw-content-block__icon">{children}</div>
   </div>
 );
 
@@ -138,7 +147,9 @@ ContentBlockCopy.defaultProps = {
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 export const ContentBlockHeading = ({ children, className, ...attributesOptions }) => (
-  <h2 className="nsw-content-block__title" {...attributesOptions}>{children}</h2>
+  <h2 className="nsw-content-block__title" {...attributesOptions}>
+    {children}
+  </h2>
 );
 
 ContentBlockHeading.propTypes = {

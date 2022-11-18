@@ -36,21 +36,9 @@ const icons = {
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const Alert = ({
-  title = '',
-  as,
-  children,
-  className = '',
-  ...attributeOptions
-}) => (
-  <div
-    className={`nsw-in-page-alert ${className} ${options[as]}`}
-    {...attributeOptions}
-  >
-    <span
-      focusable="false"
-      className="material-icons nsw-material-icons nsw-in-page-alert__icon"
-    >
+export const Alert = ({ title = '', as, children, className = '', ...attributeOptions }) => (
+  <div className={`nsw-in-page-alert ${className} ${options[as]}`} {...attributeOptions}>
+    <span focusable="false" className="material-icons nsw-material-icons nsw-in-page-alert__icon">
       {icons[as]}
     </span>
     <div className="nsw-in-page-alert__content">

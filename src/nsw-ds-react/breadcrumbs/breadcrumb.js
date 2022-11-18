@@ -12,13 +12,13 @@ import PropTypes from 'prop-types';
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const Breadcrumbs = ({
-  label, items, linkComponent, className = '', ...attributeOptions
+  label,
+  items,
+  linkComponent,
+  className = '',
+  ...attributeOptions
 }) => (
-  <nav
-    className={`nsw-breadcrumbs ${className}`}
-    aria-label={label}
-    {...attributeOptions}
-  >
+  <nav className={`nsw-breadcrumbs ${className}`} aria-label={label} {...attributeOptions}>
     <BreadcrumbLinkList inline linkComponent={linkComponent} items={items} />
   </nav>
 );
@@ -51,7 +51,12 @@ Breadcrumbs.defaultProps = {
  * @param  {object} attributeOptions - Any other attribute options, optional
  */
 export const BreadcrumbLinkListItem = ({
-  text, link, linkComponent, children, onClick, ...attributeOptions
+  text,
+  link,
+  linkComponent,
+  children,
+  onClick,
+  ...attributeOptions
 }) => {
   const LinkComponent = linkComponent;
 
@@ -120,18 +125,13 @@ export const BreadcrumbLinkList = ({
   className = '',
   ...attributeOptions
 }) => (
-  <ol className={`nsw-breadcrumb__list ${className}${inline ? ' nsw-breadcrumb__list--inline' : ''}`} {...attributeOptions}>
-    {
-            items.map(
-              (item) => (
-                <BreadcrumbLinkListItem
-                  linkComponent={linkComponent}
-                  key={item.text}
-                  {...item}
-                />
-              ),
-            )
-        }
+  <ol
+    className={`nsw-breadcrumb__list ${className}${inline ? ' nsw-breadcrumb__list--inline' : ''}`}
+    {...attributeOptions}
+  >
+    {items.map((item) => (
+      <BreadcrumbLinkListItem linkComponent={linkComponent} key={item.text} {...item} />
+    ))}
   </ol>
 );
 

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link, NavLink, useLocation, useParams } from 'react-router-dom';
-import { Breadcrumbs } from 'nsw-ds-react/breadcrumbs/breadcrumb'
+import { Breadcrumbs } from 'nsw-ds-react/breadcrumbs/breadcrumb';
 
 export default function Breadcrumb() {
   const location = useLocation();
@@ -11,23 +11,23 @@ export default function Breadcrumb() {
   if (location.pathname === '/') {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
-      <Breadcrumbs
-        label="Breadcrumb for homepage"
-        items={[
-          {
-            link: '#',
-            text: 'Home'
-          },
-          {
-            link: '#',
-            text: 'Safeguard Digital Tools'
-          },
-          {
-            text: 'Activities'
-          }
-        ]}
-    />
-    </div>
+        <Breadcrumbs
+          label="Breadcrumb for homepage"
+          items={[
+            {
+              link: '#',
+              text: 'Home',
+            },
+            {
+              link: '#',
+              text: 'Safeguard Digital Tools',
+            },
+            {
+              text: 'Activities',
+            },
+          ]}
+        />
+      </div>
     );
   }
 
@@ -42,27 +42,27 @@ export default function Breadcrumb() {
   ) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
-      <Breadcrumbs
-        label="Breadcrumb for certificates"
-        items={[
-          {
-            link: '/',
-            text: 'Home'
-          },
-          {
-            link: '#',
-            text: 'Safeguard Digital Tools'
-          },
-          {
-            link: '/',
-            text: 'Activities'
-          },
-          {
-            text: 'Certificate Estimator'
-          }
-        ]}
-    />
-    </div>
+        <Breadcrumbs
+          label="Breadcrumb for certificates"
+          items={[
+            {
+              link: '/',
+              text: 'Home',
+            },
+            {
+              link: '#',
+              text: 'Safeguard Digital Tools',
+            },
+            {
+              link: '/',
+              text: 'Activities',
+            },
+            {
+              text: 'Certificate Estimator',
+            },
+          ]}
+        />
+      </div>
     );
   }
 

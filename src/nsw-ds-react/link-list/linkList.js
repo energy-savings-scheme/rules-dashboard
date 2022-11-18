@@ -8,12 +8,17 @@ import PropTypes from 'prop-types';
  * @param  {string} link             - The link URL, optional
  * @param  {string} linkComponent    - The component used for the link
  * @param  {object} li               - An additional object to be spread
-*                                      into the wrapping element, optional
+ *                                      into the wrapping element, optional
  * @param  {object} onClick          - The onClick event handler
  * @param  {object} attributeOptions - Any other attribute options, optional
  */
 export const LinkListItem = ({
-  text, link, linkComponent, children, onClick, ...attributeOptions
+  text,
+  link,
+  linkComponent,
+  children,
+  onClick,
+  ...attributeOptions
 }) => {
   const LinkComponent = linkComponent;
 
@@ -32,7 +37,7 @@ export const LinkListItem = ({
   if (LinkComponent === 'a') {
     attributeOptions.href = link;
   } else if (typeof LinkComponent === 'function') {
-  // If we are using a link component
+    // If we are using a link component
     attributeOptions.to = link;
   }
 
@@ -84,22 +89,12 @@ LinkListItem.defaultProps = {
  * @param  {string}  linkComponent    - The component used for the link
  * @param  {object}  attributeOptions - Any other attribute options, optional
  */
-export const LinkList = ({
-  items, linkComponent, className = '', ...attributeOptions
-}) => (
+export const LinkList = ({ items, linkComponent, className = '', ...attributeOptions }) => (
   <div className="nsw-link-list">
     <ul className={`nsw-link-list__list ${className}`} {...attributeOptions}>
-      {
-                items.map(
-                  (item) => (
-                    <LinkListItem
-                      linkComponent={linkComponent}
-                      key={item.text}
-                      {...item}
-                    />
-                  ),
-                )
-            }
+      {items.map((item) => (
+        <LinkListItem linkComponent={linkComponent} key={item.text} {...item} />
+      ))}
     </ul>
   </div>
 );

@@ -6,9 +6,7 @@ import PropTypes from 'prop-types';
  * @param  {string}  text             - The text for the tag
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const Tag = ({
-  link, text, linkComponent, className, ...attributeOptions
-}) => {
+export const Tag = ({ link, text, linkComponent, className, ...attributeOptions }) => {
   const TagContainer = 'span';
   const LinkComponent = linkComponent;
 
@@ -19,14 +17,14 @@ export const Tag = ({
     attributeOptions.to = link;
   }
 
-  return (
-    link
-      ? <LinkComponent className={`nsw-tag ${className}`} {...attributeOptions}>{ text }</LinkComponent>
-      : (
-        <TagContainer {...attributeOptions} className={`nsw-tag ${className}`}>
-          {text}
-        </TagContainer>
-      )
+  return link ? (
+    <LinkComponent className={`nsw-tag ${className}`} {...attributeOptions}>
+      {text}
+    </LinkComponent>
+  ) : (
+    <TagContainer {...attributeOptions} className={`nsw-tag ${className}`}>
+      {text}
+    </TagContainer>
   );
 };
 
@@ -53,21 +51,15 @@ Tag.defaultProps = {
  */
 const TagList = ({ tags, className = '', ...attributeOptions }) => (
   <div className={`nsw-list nsw-list--8 ${className}`} {...attributeOptions}>
-    {
-          tags.map(
-            (tag) => (
-
-              <Tag
-                key={tag.text}
-                linkComponent={tag.linkComponent}
-                link={tag.link}
-                text={tag.text}
-                {...tag.attributeOptions}
-              />
-
-            ),
-          )
-      }
+    {tags.map((tag) => (
+      <Tag
+        key={tag.text}
+        linkComponent={tag.linkComponent}
+        link={tag.link}
+        text={tag.text}
+        {...tag.attributeOptions}
+      />
+    ))}
   </div>
 );
 
@@ -82,7 +74,6 @@ TagList.propTypes = {
   className: PropTypes.string,
 };
 
-TagList.defaultProps = {
-};
+TagList.defaultProps = {};
 
 export default TagList;

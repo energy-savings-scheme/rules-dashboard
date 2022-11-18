@@ -11,19 +11,27 @@ import { FormHelper } from '../group-elements';
  * @param  {object}   attributeOptions - Any other attribute options
  */
 export const CheckboxItem = ({
-  text, htmlId, value, status, as, uniqueID = nextId(), ...attributeOptions
+  text,
+  htmlId,
+  value,
+  status,
+  as,
+  uniqueID = nextId(),
+  ...attributeOptions
 }) => (
   <React.Fragment>
     <input
       className="nsw-form__checkbox-input"
       type="checkbox"
       name={htmlId}
-      aria-invalid={(status === 'invalid' && !(as === 'group')) ? 'true' : ''}
+      aria-invalid={status === 'invalid' && !(as === 'group') ? 'true' : ''}
       aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
       id={uniqueID}
       {...attributeOptions}
     />
-    <label className="nsw-form__checkbox-label" htmlFor={uniqueID}>{ text }</label>
+    <label className="nsw-form__checkbox-label" htmlFor={uniqueID}>
+      {text}
+    </label>
   </React.Fragment>
 );
 
@@ -33,7 +41,7 @@ CheckboxItem.propTypes = {
   className: PropTypes.string,
   htmlId: PropTypes.string,
   uniqueID: PropTypes.func,
-  status: PropTypes.oneOf(['valid', 'invalid','default']),
+  status: PropTypes.oneOf(['valid', 'invalid', 'default']),
   as: PropTypes.string,
 };
 
@@ -50,7 +58,14 @@ CheckboxItem.propTypes = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const FormGroupCheckbox = ({
-  className, as, status, label, options, htmlId, statusText, helper,
+  className,
+  as,
+  status,
+  label,
+  options,
+  htmlId,
+  statusText,
+  helper,
 }) => (
   <div className={`nsw-form__group ${className}`}>
     <fieldset className="nsw-form__fieldset" aria-invalid={status === 'invalid' ? 'true' : ''}>
@@ -58,27 +73,30 @@ export const FormGroupCheckbox = ({
         <legend>
           <span className="nsw-form__legend">{label}</span>
           {helper ? <FormHelper htmlId={htmlId}>{helper}</FormHelper> : ''}
-          {status ? <FormHelper htmlId={htmlId} status={status}>{statusText}</FormHelper> : ''}
+          {status ? (
+            <FormHelper htmlId={htmlId} status={status}>
+              {statusText}
+            </FormHelper>
+          ) : (
+            ''
+          )}
         </legend>
-      ) : ''}
+      ) : (
+        ''
+      )}
 
       <div>
-        {
-          options.map(
-            (option) => (
-              <CheckboxItem
-                key={option.value}
-                {...option}
-                as={as}
-                htmlId={htmlId}
-                status={status}
-              />
-            ),
-          )
-        }
+        {options.map((option) => (
+          <CheckboxItem key={option.value} {...option} as={as} htmlId={htmlId} status={status} />
+        ))}
       </div>
-      {status && as !== 'group' ? <FormHelper htmlId={htmlId} status={status}>{statusText}</FormHelper> : ''}
-
+      {status && as !== 'group' ? (
+        <FormHelper htmlId={htmlId} status={status}>
+          {statusText}
+        </FormHelper>
+      ) : (
+        ''
+      )}
     </fieldset>
   </div>
 );

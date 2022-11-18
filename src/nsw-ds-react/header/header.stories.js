@@ -1,7 +1,7 @@
-import React from 'react'
-import { Header } from '../component/header/header'
-import { Masthead } from '../component/header/masthead'
-import { SkipTo } from '../component/header/skipTo'
+import React from 'react';
+import { Header } from '../component/header/header';
+import { Masthead } from '../component/header/masthead';
+import { SkipTo } from '../component/header/skipTo';
 import scLogo from './assets/seniorscardlogo.png';
 
 export default {
@@ -11,21 +11,21 @@ export default {
     docs: {
       description: {
         component:
-          'Displays across the top of all NSW Government sites. For mobile menu to work, add the main navigation component'
-      }
-    }
-  }
-}
+          'Displays across the top of all NSW Government sites. For mobile menu to work, add the main navigation component',
+      },
+    },
+  },
+};
 
 const Template = (args) => (
   <>
-    <SkipTo nav='#nav' content='#content' />
+    <SkipTo nav="#nav" content="#content" />
     <Masthead />
     <Header {...args} />
   </>
-)
+);
 
-export const Search = Template.bind({})
+export const Search = Template.bind({});
 Search.args = {
   headerUrl: '#',
   siteTitle: 'digital.nsw',
@@ -33,17 +33,16 @@ Search.args = {
   search: true,
   mobile: true,
   onSubmit: (event) => {
-    event.preventDefault()
-    console.log(event.target.searchInput.value)
+    event.preventDefault();
+    console.log(event.target.searchInput.value);
   },
-}
+};
 
-export const Simple = Template.bind({})
+export const Simple = Template.bind({});
 Simple.args = {
-  logo:
-    scLogo,
+  logo: scLogo,
   headerUrl: '#',
   siteTitle: 'Seniors Card NSW',
   mobile: false,
-  search: false
-}
+  search: false,
+};

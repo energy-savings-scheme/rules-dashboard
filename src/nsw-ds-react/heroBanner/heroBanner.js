@@ -16,24 +16,34 @@ import PropTypes from 'prop-types';
  * @param  {object}  attributeOptions - Any other attribute options
  */
 
- const options = {
-   dark: 'nsw-hero-banner--dark',
-   light: 'nsw-hero-banner--light',
-   white: 'nsw-hero-banner--white',
- };
+const options = {
+  dark: 'nsw-hero-banner--dark',
+  light: 'nsw-hero-banner--light',
+  white: 'nsw-hero-banner--white',
+};
 
- const buttonStyles = {
-   dark: 'nsw-button nsw-button--white',
-   light: 'nsw-button nsw-button--dark',
-   white: 'nsw-button nsw-button--dark',
- };
-
+const buttonStyles = {
+  dark: 'nsw-button nsw-button--white',
+  light: 'nsw-button nsw-button--dark',
+  white: 'nsw-button nsw-button--dark',
+};
 
 export const HeroBanner = ({
-  title, intro, cta, style, wide, featured, image, children, className = '', ...attributeOptions
+  title,
+  intro,
+  cta,
+  style,
+  wide,
+  featured,
+  image,
+  children,
+  className = '',
+  ...attributeOptions
 }) => (
   <div
-    className={`nsw-hero-banner ${style ? options[style] : ''} ${wide ? 'nsw-hero-banner--wide' : ''} ${featured ? ' nsw-hero-banner--featured' : ''}  ${className}`}
+    className={`nsw-hero-banner ${style ? options[style] : ''} ${
+      wide ? 'nsw-hero-banner--wide' : ''
+    } ${featured ? ' nsw-hero-banner--featured' : ''}  ${className}`}
     {...attributeOptions}
   >
     <div className="nsw-hero-banner__container">
@@ -41,19 +51,23 @@ export const HeroBanner = ({
         <div className="nsw-hero-banner__content nsw-wysiwyg-content">
           <h1>{title}</h1>
           <p className="nsw-intro">{intro}</p>
-          {
-                            cta ? (
-                              <div className="nsw-hero-banner__button">
-                                <a href={cta.url} className={`nsw-button ${buttonStyles[style]}`}>{cta.text}</a>
-                              </div>
-                            ) : ''
-                        }
-
+          {cta ? (
+            <div className="nsw-hero-banner__button">
+              <a href={cta.url} className={`nsw-button ${buttonStyles[style]}`}>
+                {cta.text}
+              </a>
+            </div>
+          ) : (
+            ''
+          )}
         </div>
         {children}
         <div className="nsw-hero-banner__box" role="presentation">
-          {image ? <img className="nsw-hero-banner__image" src={image.src} alt={image.alt} />
-            : <div className="nsw-hero-banner__bg" />}
+          {image ? (
+            <img className="nsw-hero-banner__image" src={image.src} alt={image.alt} />
+          ) : (
+            <div className="nsw-hero-banner__bg" />
+          )}
         </div>
       </div>
     </div>

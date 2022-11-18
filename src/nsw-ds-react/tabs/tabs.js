@@ -4,11 +4,11 @@ import { Tabs as TabsObject } from 'nsw-design-system/src/main';
 
 export class Tabs extends React.PureComponent {
   /**
-     * Constructor
-     * Create state and iterate over a unique ID
-     *
-     * @param  {object}  props - The props object
-     */
+   * Constructor
+   * Create state and iterate over a unique ID
+   *
+   * @param  {object}  props - The props object
+   */
   constructor(props) {
     super(props);
 
@@ -42,11 +42,7 @@ Tabs.propTypes = {
   children: PropTypes.node,
 };
 
-export const TabItemWrapper = ({ children }) => (
-  <ul className="nsw-tabs__list">
-    {children}
-  </ul>
-);
+export const TabItemWrapper = ({ children }) => <ul className="nsw-tabs__list">{children}</ul>;
 
 TabItemWrapper.propTypes = {
   children: PropTypes.node.isRequired,
@@ -54,7 +50,9 @@ TabItemWrapper.propTypes = {
 
 export const TabItem = ({ urlHash, title }) => (
   <li className="nsw-tabs__list-item">
-    <a href={`#${urlHash}`} className="nsw-tabs__link">{title}</a>
+    <a href={`#${urlHash}`} className="nsw-tabs__link">
+      {title}
+    </a>
   </li>
 );
 
