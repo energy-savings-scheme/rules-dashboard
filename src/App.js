@@ -160,7 +160,7 @@ function App() {
             setLoading={setLoading}
           />
         </Route>
-        <Route path="/commercial-ac-estimator" exact>
+        <Route path="/commercial-ac-estimator/" exact>
           <Breadcrumb />
           <CertificateEstimatorHVAC
             entities={entities}
@@ -173,7 +173,7 @@ function App() {
             setHvacBrands={setHvacBrands}
           />
         </Route>
-        <Route path="/commercial-wh-estimator" exact>
+        <Route path="/commercial-wh-estimator/" exact>
           <Breadcrumb />
           <CertificateEstimatorWH
             entities={entities}
