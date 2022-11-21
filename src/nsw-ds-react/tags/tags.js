@@ -1,29 +1,19 @@
-/***************************************************************************************************************************************************************
- *
- * tags function
- *
- * Use tags to apply a taxonomy and link to similar content.
- *
- **************************************************************************************************************************************************************/
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * TODO
  * @param  {string}  link             - The link for this tag, optional
  * @param  {string}  text             - The text for the tag
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const Tag = ({ link, text, linkComponent, className, ...attributeOptions }) => {
-  let TagContainer = 'span';
-  let LinkComponent = linkComponent;
+  const TagContainer = 'span';
+  const LinkComponent = linkComponent;
 
   if (LinkComponent === 'a') {
     attributeOptions.href = link;
-  }
-  // If we are using a link component
-  else if (typeof LinkComponent === 'function') {
+  } else if (typeof LinkComponent === 'function') {
+    // If we are using a link component
     attributeOptions.to = link;
   }
 
@@ -39,21 +29,9 @@ export const Tag = ({ link, text, linkComponent, className, ...attributeOptions 
 };
 
 Tag.propTypes = {
-  /**
-   * Additional class name
-   */
   className: PropTypes.string,
-  /**
-   * Tag link
-   */
   link: PropTypes.string,
-  /**
-   * Tag text
-   */
   text: PropTypes.string.isRequired,
-  /**
-   * Link component (a/func)
-   */
   linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 };
 
@@ -72,9 +50,10 @@ Tag.defaultProps = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 const TagList = ({ tags, className = '', ...attributeOptions }) => (
-  <div className={`nsw-tag-list ${className}`} {...attributeOptions}>
-    {tags.map((tag, i) => (
+  <div className={`nsw-list nsw-list--8 ${className}`} {...attributeOptions}>
+    {tags.map((tag) => (
       <Tag
+        key={tag.text}
         linkComponent={tag.linkComponent}
         link={tag.link}
         text={tag.text}
@@ -89,7 +68,7 @@ TagList.propTypes = {
     PropTypes.shape({
       link: PropTypes.string,
       text: PropTypes.string.isRequired,
-      li: PropTypes.object,
+      li: PropTypes.shape,
     }),
   ).isRequired,
   className: PropTypes.string,

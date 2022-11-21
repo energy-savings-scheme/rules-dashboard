@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import OpenFiscaApi from 'services/openfisca_api';
 
 import Button from 'nsw-ds-react/button/button';
-import { Notification } from 'nsw-ds-react/notification/notification';
+import Alert from 'nsw-ds-react/alert/alert';
 
 import { Spinner } from 'react-bootstrap';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
@@ -154,11 +154,13 @@ export default function CalculateForm(props) {
 
       {props.children}
 
+      <br></br>
+      <br></br>
       <div className="nsw-grid">
         <div className="nsw-col-md-6">
           {stepNumber !== 1 && (
             <Button
-              as="secondary"
+              as="light"
               onClick={(e) => {
                 setStepNumber(stepNumber - 1);
               }}
@@ -169,7 +171,7 @@ export default function CalculateForm(props) {
         </div>
 
         <div className="nsw-col-md-6">
-          <Button as="primary" type="submit" style={{ float: 'right' }}>
+          <Button as="dark" type="submit" style={{ float: 'right' }}>
             {loading ? (
               <Spinner animation="border" role="status" size="lg">
                 <span className="sr-only">Loading...</span>

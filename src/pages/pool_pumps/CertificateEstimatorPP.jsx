@@ -1,20 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react';
-
-import VariableSearchBar from 'pages/homepage/VariableSearchBar';
-
-import Card, { CardCopy } from 'nsw-ds-react/card/card';
-import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
-import DropDownMenu from 'components/form_elements/DropDownMenu';
 import Button from 'nsw-ds-react/button/button';
-import { FormGroupSelect } from 'nsw-ds-react/forms';
-import { FormGroup, TextInput, Select } from 'nsw-ds-react/forms';
-import RegistryApi from 'services/registry_api';
 import OpenFiscaAPI from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
-import OpenFiscaApi from 'services/openfisca_api';
-import Notification from 'nsw-ds-react/notification/notification';
 import CertificateEstimatorLoadClausesPP from './CertificateEstimatorLoadClausesPP';
+import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 
 export default function CertificateEstimatorPP(props) {
   const { entities, variables, setVariables, setEntities, loading, setLoading } = props;
@@ -83,32 +73,27 @@ export default function CertificateEstimatorPP(props) {
     <Fragment>
       {/* Search section */}
       <br></br>
-      <div className="nsw-layout">
-        <div class="nsw-hero-banner nsw-hero-banner--dark">
-          <div class="nsw-hero-banner__container">
-            <div class="nsw-hero-banner__wrapper">
-              <div class="nsw-hero-banner__box">
-                <img
-                  class="nsw-hero-banner__image"
-                  src="ResidentialPoolPumps.jpg"
-                  alt=""
-                  style={{ top: '80%' }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HeroBanner
+        wide
+        style="dark"
+        image={{
+          alt: 'pool pumps',
+          src: 'ResidentialPoolPumps.jpg',
+        }}
+        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
+        title="Safeguard Certificate Estimator"
+      />
 
       <div className="nsw-container">
         <div className="nsw-grid nsw-grid--spaced">
           <div className="nsw-col nsw-col-md-12">
             <br></br>
-            <br></br>
-            <h2 className="nsw-content-block__title">Safeguard Certificate Estimator</h2>
-            <h5 className="nsw-content-block__copy">
+            <h2 className="nsw-content-block__title">
+              Residential Pool Pump Certificate Estimator
+            </h2>
+            {/* <h5 className="nsw-content-block__copy">
               Energy Savings Scheme and Peak Demand Reduction Scheme
-            </h5>
+            </h5> */}
             <br></br>
             <p className="nsw-content-block__copy">
               Estimate your ESCs and PRCs for the Residential Pool Pumps Activity (D5 in the ESS and
@@ -120,10 +105,10 @@ export default function CertificateEstimatorPP(props) {
             </p>
           </div>
         </div>
-
-        <p className="nsw-content-block__copy">
+        <br></br>
+        {/* <p className="nsw-content-block__copy">
           <b> Residential pool pump certificate estimator</b>
-        </p>
+        </p> */}
 
         <ProgressIndicator step={stepNumber} of={2} />
 
@@ -251,7 +236,7 @@ export default function CertificateEstimatorPP(props) {
             <div className="nsw-row">
               <div className="nsw-col">
                 <Button
-                  as="primary"
+                  as="dark"
                   onClick={(e) => {
                     setStepNumber(stepNumber + 1);
                   }}
