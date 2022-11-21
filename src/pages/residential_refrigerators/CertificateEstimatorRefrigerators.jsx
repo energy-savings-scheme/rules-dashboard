@@ -1,26 +1,14 @@
 import React, { Fragment, useState, useEffect } from 'react';
-
-import VariableSearchBar from 'pages/homepage/VariableSearchBar';
-
-import Card, { CardCopy } from 'nsw-ds-react/card/card';
-import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
-import DropDownMenu from 'components/form_elements/DropDownMenu';
 import Button from 'nsw-ds-react/button/button';
-import { FormGroupSelect } from 'nsw-ds-react/forms';
-import { FormGroup, TextInput, Select } from 'nsw-ds-react/forms';
-import RegistryApi from 'services/registry_api';
 import OpenFiscaAPI from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
-import OpenFiscaApi from 'services/openfisca_api';
-import Notification from 'nsw-ds-react/notification/notification';
 import CertificateEstimatorLoadClausesRefrigerators from './CertificateEstimatorLoadClausesRefrigerators';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 
 export default function CertificateEstimatorRefrigerators(props) {
   const { entities, variables, setVariables, setEntities, loading, setLoading } = props;
 
-  const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
   const [metadata, setMetadata] = useState(null);
   const [calculationResult, setCalculationResult] = useState(null);

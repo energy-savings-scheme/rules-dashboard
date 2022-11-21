@@ -42,11 +42,8 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
 
   var today = new Date();
   const [calculationDate, setCalculationDate] = useState(moment(today).format('YYYY-MM-DD'));
-  const [dateInvalid, setDateInvalid] = useState(false);
-
   const [formValues, setFormValues] = useState([]);
   const [dependencies, setDependencies] = useState([]);
-
   const [loading, setLoading] = useState(true);
 
   function addElement(arr, obj) {
@@ -58,15 +55,14 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
   }
 
   useEffect(() => {
-    if (variableData1.length == 0 || variableData1.length == 0) {
+    if (variableData1.length === 0 || variableData1.length === 0) {
       setLoading(true);
     } else {
       setLoading(false);
-      if (variables.length == 0) {
+      if (variables.length === 0) {
         setLoading(true);
       } else {
         setLoading(false);
-        console.log(variables);
         const variable1 = variables.find((item) => item.name === 'RF1_ESC_calculation');
         const variable2 = variables.find((item) => item.name === 'RF1_PRC_calculation');
 
@@ -75,9 +71,6 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
 
         const children1 = variables.filter((item) => offsprings1.includes(item.name));
         const children2 = variables.filter((item) => offsprings2.includes(item.name));
-
-        console.log(children1);
-        console.log(children2);
 
         // Define the original array (at a minimum include the Implementation Date)
         var array1 = [];

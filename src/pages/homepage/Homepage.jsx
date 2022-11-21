@@ -75,6 +75,7 @@ export default function Homepage(props) {
                     headline="Air Conditioner"
                     link="residential-ac-estimator"
                     image="/ResidentialAC.jpg"
+                    highlight
                   >
                     <CardCopy>
                       Install a new or replace an existing air conditioner with a high efficiency
@@ -83,7 +84,11 @@ export default function Homepage(props) {
                   </Card>
                 </div>
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
-                  <Card headline="Pool Pump" link="pool-pumps-estimator" image="/ResidentialPoolPumps.jpg">
+                  <Card 
+                    headline="Pool Pump" 
+                    link="pool-pumps-estimator" 
+                    image="/ResidentialPoolPumps.jpg"
+                    highlight>
                     <CardCopy>
                       Replace an existing pool pump with a high efficiency pool pump
                     </CardCopy>
@@ -94,6 +99,7 @@ export default function Homepage(props) {
                     headline="Spare Refrigerator or Freezer"
                     link="residential-refrigerators-estimator"
                     image="/ResidentialRefrigeratorFreezer.jpeg"
+                    highlight
                   >
                     <CardCopy>Remove a spare refrigerator or freezer</CardCopy>
                   </Card>
@@ -106,7 +112,7 @@ export default function Homepage(props) {
       <br></br>
       <br></br>
 
-      <section class="nsw-section nsw-section--off-white">
+      <section class="nsw-section nsw-section--white">
         <div class="nsw-container">
           <div class="nsw-layout">
             <div class="nsw-layout__main">
@@ -117,6 +123,7 @@ export default function Homepage(props) {
                     headline="Air Conditioner"
                     link="commercial-ac-estimator"
                     image="CommercialAC.jpeg"
+                    highlight
                   >
                     <CardCopy>
                       Install a new or replace an existing air conditioner with a high efficiency
@@ -129,6 +136,7 @@ export default function Homepage(props) {
                     headline="Heat Pump Water Heater"
                     link="commercial-wh-estimator"
                     image="CommercialHeatPumpWaterHeater.jpeg"
+                    highlight
                   >
                     <CardCopy>
                       Replace one or more existing hot water boilers or water heaters with one or
@@ -141,6 +149,7 @@ export default function Homepage(props) {
                     headline="Refrigerated Cabinet"
                     link="refrigerated-cabinet-estimator"
                     image="CommercialRefrigeratedCabinet.jpg"
+                    highlight
                   >
                     <CardCopy>
                       Install a new high efficiency refrigerated cabinet or replace an existing
@@ -154,6 +163,7 @@ export default function Homepage(props) {
                     headline="Ventilation or Refrigeration motor"
                     link="commercial-motors-estimator"
                     image="CommercialVentilationRefrigeration.jpeg"
+                    highlight
                   >
                     <CardCopy>
                       Install a new high efficiency ventilation or refrigeration motor
