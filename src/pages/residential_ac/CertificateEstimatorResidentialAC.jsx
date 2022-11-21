@@ -185,7 +185,9 @@ export default function CertificateEstimatorResidentialAC(props) {
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">Residential Air Conditioner Certificate Estimator</h2>
+            <h2 className="nsw-content-block__title">
+              Residential Air Conditioner Certificate Estimator
+            </h2>
             {/* <h5 className="nsw-content-block__copy">
               Energy Savings Scheme and Peak Demand Reduction Scheme
             </h5> */}

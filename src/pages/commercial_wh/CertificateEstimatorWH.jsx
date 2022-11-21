@@ -9,7 +9,6 @@ import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import Alert from 'nsw-ds-react/alert/alert';
 
-
 export default function CertificateEstimatorWH(props) {
   const { entities, variables, brands, loading, setLoading } = props;
 
@@ -142,7 +141,9 @@ export default function CertificateEstimatorWH(props) {
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">Commercial Heat Pump Water Heater Certificate Estimator</h2>
+            <h2 className="nsw-content-block__title">
+              Commercial Heat Pump Water Heater Certificate Estimator
+            </h2>
             {/* <h5 className="nsw-content-block__copy">
               Energy Savings Scheme and Peak Demand Reduction Scheme
             </h5> */}
