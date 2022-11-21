@@ -113,7 +113,7 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Breadcrumb />
-          <Homepage schedules={schedules} variables={variables} />
+          <Homepage />
         </Route>
         <Route path="/calculate" exact>
           <Breadcrumb />
