@@ -33,11 +33,11 @@ export default function Homepage(props) {
             <div class="nsw-layout__main">
               <div className="nsw-grid nsw-grid--spaced" style={{ fontFamily: 'sans-serif' }}>
                 <div className="nsw-col nsw-col-md-12">
-                  <h2 className="nsw-content-block__title">Safeguard Certificate Estimator</h2>
+                  {/* <h2 className="nsw-content-block__title">Safeguard Certificate Estimator</h2>
                   <h5 className="nsw-content-block__copy">
                     Energy Savings Scheme and Peak Demand Reduction Scheme
-                  </h5>
-                  <br></br>
+                  </h5> */}
+                  {/* <br></br> */}
                   <p className="nsw-content-block__copy">
                     Use our Safeguard Certificate Estimator to get an idea of how many Energy
                     Savings Certificates (ESCs) and Peak Demand Reduction Certificates (PRCs) your

@@ -99,10 +99,10 @@ export default function CertificateEstimatorMotors(props) {
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">Safeguard Certificate Estimator</h2>
-            <h5 className="nsw-content-block__copy">
+            <h2 className="nsw-content-block__title">Commercial Motors Certificate Estimator</h2>
+            {/* <h5 className="nsw-content-block__copy">
               Energy Savings Scheme and Peak Demand Reduction Scheme
-            </h5>
+            </h5> */}
             <br></br>
             <p className="nsw-content-block__copy">
               Estimate your ESCs and PRCs for the Commercial Motors (Refrigeration or Ventilation)
@@ -115,9 +115,10 @@ export default function CertificateEstimatorMotors(props) {
           </div>
         </div>
 
-        <p className="nsw-content-block__copy">
+        {/* <p className="nsw-content-block__copy">
           <b> Commercial motors certificate estimator</b>
-        </p>
+        </p> */}
+        <br></br>
 
         <ProgressIndicator step={stepNumber} of={2} />
 

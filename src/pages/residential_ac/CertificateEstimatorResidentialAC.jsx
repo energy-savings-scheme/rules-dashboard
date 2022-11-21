@@ -1,12 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 
-import VariableSearchBar from 'pages/homepage/VariableSearchBar';
-
-import Card, { CardCopy } from 'nsw-ds-react/card/card';
-import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 import Button from 'nsw-ds-react/button/button';
-import { FormGroupSelect } from 'nsw-ds-react/forms';
 import { FormGroup, TextInput, Select } from 'nsw-ds-react/forms';
 import RegistryApi from 'services/registry_api';
 import CertificateEstimatorResidentialACLoadClauses from './CertificateEstimatorResidentialACLoadClauses';
@@ -14,6 +9,7 @@ import OpenFiscaAPI from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import OpenFiscaApi from 'services/openfisca_api';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
+import Alert from 'nsw-ds-react/alert/alert';
 
 export default function CertificateEstimatorResidentialAC(props) {
   const {
@@ -189,10 +185,10 @@ export default function CertificateEstimatorResidentialAC(props) {
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">Safeguard Certificate Estimator</h2>
-            <h5 className="nsw-content-block__copy">
+            <h2 className="nsw-content-block__title">Residential Air Conditioner Certificate Estimator</h2>
+            {/* <h5 className="nsw-content-block__copy">
               Energy Savings Scheme and Peak Demand Reduction Scheme
-            </h5>
+            </h5> */}
             <br></br>
             <p className="nsw-content-block__copy">
               Estimate your ESCs and PRCs for the Residential Air Conditioner Activity (D16 in the
@@ -204,10 +200,10 @@ export default function CertificateEstimatorResidentialAC(props) {
             </p>
           </div>
         </div>
-
-        <p className="nsw-content-block__copy">
+        <br></br>
+        {/* <p className="nsw-content-block__copy">
           <b> Residential air conditioner certificate estimator</b>
-        </p>
+        </p> */}
 
         <ProgressIndicator step={stepNumber} of={3} />
 
@@ -276,6 +272,12 @@ export default function CertificateEstimatorResidentialAC(props) {
                 </div>
               </div>
             </div>
+          )}
+
+          {stepNumber === 1 && !registryData && (
+            <Alert as="error" title="Sorry! An error has occurred.">
+              <p>Unable to load data from the product registry. Please try again later.</p>
+            </Alert>
           )}
 
           {stepNumber === 2 && loading && <SpinnerFullscreen />}

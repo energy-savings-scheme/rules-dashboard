@@ -157,10 +157,10 @@ export default function CertificateEstimatorRC(props) {
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">Safeguard Certificate Estimator</h2>
-            <h5 className="nsw-content-block__copy">
+            <h2 className="nsw-content-block__title">Commercial Refrigerated Cabinet Certificate Estimator</h2>
+            {/* <h5 className="nsw-content-block__copy">
               Energy Savings Scheme and Peak Demand Reduction Scheme
-            </h5>
+            </h5> */}
             <br></br>
             <p className="nsw-content-block__copy">
               Estimate your ESCs and PRCs for the Commercial Refrigerated Cabinet Activity (F1 in
@@ -172,10 +172,10 @@ export default function CertificateEstimatorRC(props) {
             </p>
           </div>
         </div>
-
-        <p className="nsw-content-block__copy">
+<br></br>
+        {/* <p className="nsw-content-block__copy">
           <b> Commercial refrigerated cabinet certificate estimator</b>
-        </p>
+        </p> */}
 
         <ProgressIndicator step={stepNumber} of={3} />
 
