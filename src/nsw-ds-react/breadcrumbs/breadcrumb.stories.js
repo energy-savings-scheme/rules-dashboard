@@ -1,39 +1,9 @@
 import React from 'react';
-import { Breadcrumbs as BreadcrumbsComponent } from './breadcrumb';
-
-const Preamble = `
-### Full documentation
-
-For usage, UX guidelines, and a library of usability testing visit the NSW Design System docs.
-
-### Installing
-
-Our design system react kit comes with all components
-
-\`\`\`bash
-npm install nsw-design-system-react
-\`\`\`
-
-### Importing
-
-To import this component
-
-\`\`\`javascript
-import Breadcrumbs from "nsw-design-system/components/breadcrumbs";
-\`\`\`
-
-`;
+import { Breadcrumbs as BreadcrumbsComponent } from '../component/breadcrumbs/breadcrumb';
 
 export default {
   title: 'Content/Breadcrumb',
   component: BreadcrumbsComponent,
-  parameters: {
-    docs: {
-      description: {
-        component: Preamble,
-      },
-    },
-  },
 };
 
 const Template = (args) => <BreadcrumbsComponent {...args} />;
@@ -43,14 +13,15 @@ Breadcrumbs.args = {
   items: [
     {
       link: 'breadcrumb/one/',
-      text: 'breadcrumb 1',
+      text: 'Home',
     },
     {
       link: 'breadcrumb/two/',
-      text: 'breadcrumb 2',
+      text: 'About DPC',
     },
     {
-      text: 'breadcrumb 3',
+      link: 'breadcrumb/three/',
+      text: 'NSW Digital Design System',
     },
   ],
 };

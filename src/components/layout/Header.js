@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { MainNav } from 'nsw-ds-react/main-nav/mainNav';
 import { Breadcrumbs } from 'nsw-ds-react/breadcrumbs/breadcrumb';
 import VariableSearchBar from 'pages/homepage/VariableSearchBar';
+import 'nsw-design-system/dist/css/main.css';
+import nextId from 'react-id-generator';
 
 export default function Header(props) {
   const { variables } = props;
@@ -20,31 +22,26 @@ export default function Header(props) {
         </div>
       </div>
 
-      <div className="nsw-layout">
-        <MainNav
-          megaMenu
-          navItems={[
-            {
-              description: 'Filium morte multavit si sine causa? quae fuerit causa, nollem.',
-              text: 'Home',
-              url: '/',
-            },
-            {
-              text: 'Safeguard Digital Tools',
-              url: '/',
-            },
-            {
-              text: 'Energy Savings Scheme',
-              url: '/',
-            },
-            {
-              text: 'Peak Demand Reduction Scheme',
-              url: '/',
-            },
-          ]}
-        />
-      </div>
-      {/* </div> */}
+      <MainNav
+        navItems={[
+          {
+            text: 'Home',
+            url: '/',
+          },
+          {
+            text: 'Safeguard Digital Tools',
+            url: '/',
+          },
+          {
+            text: 'Energy Savings Scheme',
+            url: '/',
+          },
+          {
+            text: 'Peak Demand Reduction Scheme',
+            url: '/',
+          },
+        ]}
+      />
     </Fragment>
   );
 }

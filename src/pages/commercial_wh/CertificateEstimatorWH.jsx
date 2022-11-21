@@ -1,18 +1,13 @@
 import React, { Fragment, useState, useEffect } from 'react';
-
-import VariableSearchBar from 'pages/homepage/VariableSearchBar';
-
-import Card, { CardCopy } from 'nsw-ds-react/card/card';
-import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
-import DropDownMenu from 'components/form_elements/DropDownMenu';
 import Button from 'nsw-ds-react/button/button';
-import { FormGroupSelect } from 'nsw-ds-react/forms';
 import RegistryApi from 'services/registry_api';
 import CertificateEstimatorLoadClausesWH from './CertificateEstimatorLoadClausesWH';
 import { FormGroup, TextInput, Select } from 'nsw-ds-react/forms';
 import OpenFiscaApi from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
+import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
+import Alert from 'nsw-ds-react/alert/alert';
 
 export default function CertificateEstimatorWH(props) {
   const { entities, variables, brands, loading, setLoading } = props;
@@ -130,32 +125,28 @@ export default function CertificateEstimatorWH(props) {
     <Fragment>
       {/* Search section */}
       <br></br>
-      <div className="nsw-layout">
-        <div class="nsw-hero-banner nsw-hero-banner--dark">
-          <div class="nsw-hero-banner__container">
-            <div class="nsw-hero-banner__wrapper">
-              <div class="nsw-hero-banner__box">
-                <img
-                  class="nsw-hero-banner__image"
-                  src="/commercial_wh/WH1_Activity_Page_Hero.jpeg"
-                  alt=""
-                  style={{ top: '80%' }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HeroBanner
+        wide
+        style="dark"
+        image={{
+          alt: 'commercial wh',
+          src: '/commercial_wh/WH1_Activity_Page_Hero.jpeg',
+        }}
+        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
+        title="Safeguard Certificate Estimator"
+      />
 
       <div className="nsw-container">
         <div className="nsw-grid nsw-grid--spaced">
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">Safeguard Certificate Estimator</h2>
-                  <h5 className="nsw-content-block__copy">
-                    Energy Savings Scheme and Peak Demand Reduction Scheme
-                  </h5>
+            <h2 className="nsw-content-block__title">
+              Commercial Heat Pump Water Heater Certificate Estimator
+            </h2>
+            {/* <h5 className="nsw-content-block__copy">
+              Energy Savings Scheme and Peak Demand Reduction Scheme
+            </h5> */}
             <br></br>
             <p className="nsw-content-block__copy">
               Estimate your ESCs and PRCs for the Commercial Heat Pump Water Heater Activity (F16 in
@@ -167,10 +158,10 @@ export default function CertificateEstimatorWH(props) {
             </p>
           </div>
         </div>
-
-        <p className="nsw-content-block__copy">
+        <br></br>
+        {/* <p className="nsw-content-block__copy">
           <b> Commercial heat pump water heater certificate estimator </b>
-        </p>
+        </p> */}
         <ProgressIndicator step={stepNumber} of={3} />
 
         <Fragment>
@@ -264,6 +255,12 @@ export default function CertificateEstimatorWH(props) {
             />
           )}
 
+          {stepNumber === 1 && !registryData && (
+            <Alert as="error" title="Sorry! An error has occurred.">
+              <p>Unable to load data from the product registry. Please try again later.</p>
+            </Alert>
+          )}
+
           {stepNumber === 2 && loading && <SpinnerFullscreen />}
 
           {stepNumber === 3 && (
@@ -300,7 +297,7 @@ export default function CertificateEstimatorWH(props) {
               <div className="nsw-row">
                 <div className="nsw-col">
                   <Button
-                    as="primary"
+                    as="dark"
                     onClick={(e) => {
                       setStepNumber(stepNumber + 1);
                     }}

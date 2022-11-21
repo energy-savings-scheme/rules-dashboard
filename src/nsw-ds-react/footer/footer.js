@@ -1,13 +1,6 @@
-/***************************************************************************************************************************************************************
- *
- * footer function
- *
- * Footers help users who reach the bottom of a page without finding what they want.
- *
- **************************************************************************************************************************************************************/
-
 import React from 'react';
 import PropTypes from 'prop-types';
+import nextId from 'react-id-generator';
 
 /**
  * A section for the footer that sits at the end
@@ -17,19 +10,11 @@ import PropTypes from 'prop-types';
  * @param  {string} className        - An additional class, optional
  * @param  {object} attributeOptions - Any other attribute options
  */
-export const FooterLinks = ({
-  heading,
-  footerLinks,
-  children,
-  className = '',
-  ...attributeOptions
-}) => (
-  <ul className={`nsw-footer-links ${className}`} {...attributeOptions}>
+export const FooterLinks = ({ footerLinks, className = '', ...attributeOptions }) => (
+  <ul className={className} {...attributeOptions}>
     {footerLinks.map((footerLink) => (
-      <li className="nsw-footer-links__item">
-        <a className="nsw-footer-links__link" href={footerLink.url}>
-          {footerLink.text}
-        </a>
+      <li key={nextId()}>
+        <a href={footerLink.url}>{footerLink.text}</a>
       </li>
     ))}
   </ul>
@@ -57,17 +42,16 @@ FooterLinks.propTypes = {
 export const FooterSectionGroup = ({
   heading,
   sectionLinks,
-  children,
   className = '',
   ...attributeOptions
 }) => (
-  <div className={`section-links__group ${className}`} {...attributeOptions}>
-    <h3 className="section-links__heading">
+  <div className={`nsw-footer__group ${className}`} {...attributeOptions}>
+    <h3 className="nsw-footer__heading">
       <a href={heading.url}>{heading.text}</a>
     </h3>
-    <ul className="section-links__list">
+    <ul className="nsw-footer__list">
       {sectionLinks.map((sectionLink) => (
-        <li className="section-links__item">
+        <li key={nextId()}>
           <a href={sectionLink.url}>{sectionLink.text}</a>
         </li>
       ))}
@@ -99,7 +83,7 @@ FooterSectionGroup.propTypes = {
  */
 export const FooterUpper = ({ children, className = '', ariaLabel, ...attributeOptions }) => (
   <nav className={`nsw-footer__upper ${className}`} aria-label={ariaLabel} {...attributeOptions}>
-    <div className="nsw-container section-links">{children}</div>
+    <div className="nsw-container">{children}</div>
   </nav>
 );
 

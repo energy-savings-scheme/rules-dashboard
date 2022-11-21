@@ -15,6 +15,7 @@ import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import OpenFiscaApi from 'services/openfisca_api';
 import Notification from 'nsw-ds-react/notification/notification';
 import CertificateEstimatorLoadClausesRefrigerators from './CertificateEstimatorLoadClausesRefrigerators';
+import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 
 export default function CertificateEstimatorRefrigerators(props) {
   const { entities, variables, setVariables, setEntities, loading, setLoading } = props;
@@ -83,32 +84,28 @@ export default function CertificateEstimatorRefrigerators(props) {
     <Fragment>
       {/* Search section */}
       <br></br>
-      <div className="nsw-layout">
-        <div class="nsw-hero-banner nsw-hero-banner--dark">
-          <div class="nsw-hero-banner__container">
-            <div class="nsw-hero-banner__wrapper">
-              <div class="nsw-hero-banner__box">
-                <img
-                  class="nsw-hero-banner__image"
-                  src="ResidentialRefrigeratorFreezer.jpeg"
-                  alt=""
-                  style={{ top: '100%' }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HeroBanner
+        wide
+        style="dark"
+        image={{
+          alt: 'res ref',
+          src: 'ResidentialRefrigeratorFreezer.jpeg',
+        }}
+        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
+        title="Safeguard Certificate Estimator"
+      />
 
       <div className="nsw-container">
         <div className="nsw-grid nsw-grid--spaced">
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">Safeguard Certificate Estimator</h2>
-                  <h5 className="nsw-content-block__copy">
-                    Energy Savings Scheme and Peak Demand Reduction Scheme
-                  </h5>
+            <h2 className="nsw-content-block__title">
+              Residential Spare Refrigerator or Freezer removal Certificate Estimator
+            </h2>
+            {/* <h5 className="nsw-content-block__copy">
+              Energy Savings Scheme and Peak Demand Reduction Scheme
+            </h5> */}
             <br></br>
             <p className="nsw-content-block__copy">
               Estimate your ESCs and PRCs for the Residential spare Refrigerator or Freezer removal
@@ -121,10 +118,11 @@ export default function CertificateEstimatorRefrigerators(props) {
           </div>
         </div>
 
-        <p className="nsw-content-block__copy">
+        {/* <p className="nsw-content-block__copy">
           <b> Residential spare Refrigerator or Freezer removal certificate estimator</b>
-        </p>
+        </p> */}
 
+        <br></br>
         <ProgressIndicator step={stepNumber} of={2} />
 
         <Fragment>
@@ -243,15 +241,13 @@ export default function CertificateEstimatorRefrigerators(props) {
             />
           )}
 
-          {/* {stepNumber === 3 && !calculationResult && !calculationResult2 && <SpinnerFullscreen />} */}
-
           {stepNumber === 2 && calculationError && calculationError2 && <SpinnerFullscreen />}
 
           {stepNumber === 1 && registryData && postcode && postcode.length === 4 && (
             <div className="nsw-row">
               <div className="nsw-col">
                 <Button
-                  as="primary"
+                  as="dark"
                   onClick={(e) => {
                     setStepNumber(stepNumber + 1);
                   }}

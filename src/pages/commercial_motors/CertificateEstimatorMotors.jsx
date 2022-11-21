@@ -15,6 +15,7 @@ import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import OpenFiscaApi from 'services/openfisca_api';
 import Notification from 'nsw-ds-react/notification/notification';
 import CertificateEstimatorLoadClausesMotors from './CertificateEstimatorLoadClausesMotors';
+import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 
 export default function CertificateEstimatorMotors(props) {
   const { entities, variables, setVariables, setEntities, loading, setLoading } = props;
@@ -81,34 +82,27 @@ export default function CertificateEstimatorMotors(props) {
 
   return (
     <Fragment>
-      {/* Search section */}
       <br></br>
-      <div className="nsw-layout">
-        <div class="nsw-hero-banner nsw-hero-banner--dark">
-          <div class="nsw-hero-banner__container">
-            <div class="nsw-hero-banner__wrapper">
-              <div class="nsw-hero-banner__box">
-                <img
-                  class="nsw-hero-banner__image"
-                  src="CommercialVentilationRefrigeration.jpeg"
-                  alt=""
-                  style={{ top: '80%' }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HeroBanner
+        wide
+        style="dark"
+        image={{
+          alt: 'commercial motoes',
+          src: 'CommercialVentilationRefrigeration.jpeg',
+        }}
+        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
+        title="Safeguard Certificate Estimator"
+      />
 
       <div className="nsw-container">
         <div className="nsw-grid nsw-grid--spaced">
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">Safeguard Certificate Estimator</h2>
-                  <h5 className="nsw-content-block__copy">
-                    Energy Savings Scheme and Peak Demand Reduction Scheme
-                  </h5>
+            <h2 className="nsw-content-block__title">Commercial Motors Certificate Estimator</h2>
+            {/* <h5 className="nsw-content-block__copy">
+              Energy Savings Scheme and Peak Demand Reduction Scheme
+            </h5> */}
             <br></br>
             <p className="nsw-content-block__copy">
               Estimate your ESCs and PRCs for the Commercial Motors (Refrigeration or Ventilation)
@@ -121,9 +115,10 @@ export default function CertificateEstimatorMotors(props) {
           </div>
         </div>
 
-        <p className="nsw-content-block__copy">
+        {/* <p className="nsw-content-block__copy">
           <b> Commercial motors certificate estimator</b>
-        </p>
+        </p> */}
+        <br></br>
 
         <ProgressIndicator step={stepNumber} of={2} />
 
@@ -251,7 +246,7 @@ export default function CertificateEstimatorMotors(props) {
             <div className="nsw-row">
               <div className="nsw-col">
                 <Button
-                  as="primary"
+                  as="dark"
                   onClick={(e) => {
                     setStepNumber(stepNumber + 1);
                   }}

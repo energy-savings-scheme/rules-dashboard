@@ -1,81 +1,69 @@
-/***************************************************************************************************************************************************************
- *
- * Accordion class
- *
- * A component to allow users to show or hide page elements.
- *
- **************************************************************************************************************************************************************/
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import { initSite } from 'nsw-design-system/src/main.js';
-
-// The following line will be replaced automatically with generic imports for the ES5 pipeline.
-// You can safely ignore this bit if you use this module with pancake
-//
-// [replace-imports]
-
-let IDstart = 0;
+import { uniqueId } from 'nsw-design-system/src/global/scripts/helpers/utilities';
 
 export class Accordion extends React.PureComponent {
-  /**
-   * Constructor
-   * Create state and iterate over a unique ID
-   *
-   * @param  {object}  props - The props object
-   */
   constructor(props) {
     super(props);
-
-    const { contents, header, className = '', children, ...attributeOptions } = props;
-
+    this.state = {
+      isOpen: false,
+    };
+    const { header, body, closed, className = '', ...attributeOptions } = props;
+    this.uID = uniqueId('accordion');
     this.className = className;
     this.attributeOptions = attributeOptions;
-
-    // Generate a unique ID and our css class
-    IDstart++;
-
-    this.ID = `accordion${IDstart}`;
-  }
-
-  componentDidMount() {
-    initSite();
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    initSite();
   }
 
   render() {
     return (
-      <div className={`nsw-accordion js-accordion ${this.className}`} {...this.attributeOptions}>
-        {this.props.contents.map((content) => (
-          <div>
-            <h2 className={`nsw-accordion__title`}>{content.header}</h2>
-            <div className="nsw-accordion__content">
-              <div className="nsw-wysiwyg-content">{content.body}</div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <React.Fragment>
+        <div className="nsw-accordion__title">
+          <button
+            type="button"
+            aria-expanded={this.state.isOpen}
+            aria-controls={this.uID}
+            className={`nsw-accordion__button ${this.state.isOpen ? 'is-open' : ''}`}
+            onClick={() => this.setState({ isOpen: !this.state.isOpen })}
+          >
+            {this.props.header}
+            <i
+              className="material-icons nsw-material-icons nsw-accordion__icon"
+              focusable="false"
+              aria-hidden="true"
+            >
+              keyboard_arrow_right
+            </i>
+          </button>
+        </div>
+        <div
+          className="nsw-accordion__content"
+          id={this.uID}
+          hidden={this.state.isOpen ? '' : 'hidden'}
+        >
+          <div className="nsw-wysiwyg-content">{this.props.body}</div>
+        </div>
+      </React.Fragment>
     );
   }
 }
 
 Accordion.propTypes = {
-  /**
-   * Object of accordion contents
-   */
-  contents: PropTypes.arrayOf(
-    PropTypes.shape({
-      header: PropTypes.string,
-      body: PropTypes.string,
-    }),
-  ).isRequired,
-  /**
-   * Additional class name
-   */
+  header: PropTypes.string.isRequired,
+  body: PropTypes.node.isRequired,
   className: PropTypes.string,
 };
 
-export default Accordion;
+Accordion.defaultProps = {
+  className: null,
+};
+
+export const AccordionGroup = ({ className, children, ...attributeOptions }) => (
+  <div className={`nsw-accordion ready ${className ? className : ''}`} {...attributeOptions}>
+    {children}
+  </div>
+);
+
+AccordionGroup.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+};

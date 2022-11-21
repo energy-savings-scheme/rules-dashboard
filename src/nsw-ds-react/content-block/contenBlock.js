@@ -1,11 +1,3 @@
-/***************************************************************************************************************************************************************
- *
- * card function
- *
- * A container for all types of content
- *
- **************************************************************************************************************************************************************/
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -23,6 +15,7 @@ import PropTypes from 'prop-types';
  * @param {array}    links               - A list of anchor tags and its links
  * @param {object}   attributeOptions   - Default HTML attributes
  */
+
 export const ContentBlock = ({
   links,
   mainLink,
@@ -32,19 +25,19 @@ export const ContentBlock = ({
   imageAlt,
   icon,
   className,
-  children,
-  ...attributesOptions
 }) => {
-  let ContentBlockContainer = 'div';
+  const ContentBlockContainer = 'div';
   return (
     <ContentBlockContainer className={`nsw-content-block ${className}`}>
+      {image ? <ContentBlockImage src={image} alt={imageAlt} /> : ''}
+      {icon ? <ContentBlockIcon>{icon}</ContentBlockIcon> : ''}
       <div className="nsw-content-block__content">
         {headline ? <ContentBlockHeading>{headline}</ContentBlockHeading> : ''}
         {copy ? <ContentBlockCopy>{copy}</ContentBlockCopy> : ''}
         <ul className="nsw-content-block__list">
           {links
             ? links.map((link) => (
-                <li>
+                <li key={link.title}>
                   <a href={link.href}>{link.title}</a>
                 </li>
               ))
@@ -58,44 +51,26 @@ export const ContentBlock = ({
           ''
         )}
       </div>
-      {image ? <ContentBlockImage src={image} alt={imageAlt} /> : ''}
-      {icon ? <ContentBlockIcon>{icon}</ContentBlockIcon> : ''}
     </ContentBlockContainer>
   );
 };
 
 ContentBlock.propTypes = {
-  /**
-   * The image URL/path (optional)
-   */
   image: PropTypes.string,
-  /**
-   * Alt text for image (req if image supplied)
-   */
   imageAlt: PropTypes.string,
-  /**
-   * Headline (required)
-   */
   headline: PropTypes.string.isRequired,
-  /**
-   * Array of link objects
-   */
+  icon: PropTypes.node,
+  copy: PropTypes.string,
   links: PropTypes.arrayOf(
     PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
+      url: PropTypes.string,
+      text: PropTypes.string,
     }),
   ),
-  /**
-   * Array of link objects
-   */
   mainLink: PropTypes.shape({
     url: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
   }),
-  /**
-   * Additional class names
-   */
   className: PropTypes.string,
 };
 
@@ -107,16 +82,18 @@ ContentBlock.defaultProps = {
  * An image inside the card
  * @param {string}   src                - Image source
  * @param {string}   className          - An additional class, optional
+ * @param {string}   alt                - Alt text
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const ContentBlockImage = ({ src, className, alt, ...attributesOptions }) => (
-  <div className="nsw-content-block__image-area">
-    <img src={src} alt={alt} className={`nsw-content-block__image`} {...attributesOptions} />
+export const ContentBlockImage = ({ src, className, imageAlt, ...attributesOptions }) => (
+  <div className="nsw-content-block__image">
+    <img src={src} alt={imageAlt} className="nsw-content-block__image" {...attributesOptions} />
   </div>
 );
 
 ContentBlockImage.propTypes = {
   src: PropTypes.string.isRequired,
+  imageAlt: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -130,17 +107,18 @@ ContentBlockImage.defaultProps = {
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 export const ContentBlockIcon = ({ children, className, ...attributesOptions }) => (
-  <div className="nsw-content-block__image-area">
+  <div className="nsw-content-block__image" {...attributesOptions}>
     <div className="nsw-content-block__icon">{children}</div>
   </div>
 );
 
 ContentBlockIcon.propTypes = {
   className: PropTypes.string,
+  children: PropTypes.node,
 };
 
 ContentBlockIcon.defaultProps = {
-  className: '',
+  className: null,
 };
 
 /**
@@ -149,15 +127,18 @@ ContentBlockIcon.defaultProps = {
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 export const ContentBlockCopy = ({ children, className, ...attributesOptions }) => (
-  <p className={`nsw-content-block__copy ${className}`}>{children}</p>
+  <p className={`nsw-content-block__copy ${className}`} {...attributesOptions}>
+    {children}
+  </p>
 );
 
 ContentBlockCopy.propTypes = {
   className: PropTypes.string,
+  children: PropTypes.node,
 };
 
 ContentBlockCopy.defaultProps = {
-  className: '',
+  className: null,
 };
 
 /**
@@ -166,13 +147,18 @@ ContentBlockCopy.defaultProps = {
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 export const ContentBlockHeading = ({ children, className, ...attributesOptions }) => (
-  <h2 className="nsw-content-block__title">{children}</h2>
+  <h2 className="nsw-content-block__title" {...attributesOptions}>
+    {children}
+  </h2>
 );
 
 ContentBlockHeading.propTypes = {
   className: PropTypes.string,
+  children: PropTypes.node,
 };
 
 ContentBlockHeading.defaultProps = {
-  className: '',
+  className: null,
 };
+
+export default ContentBlock;

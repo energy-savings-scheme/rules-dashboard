@@ -1,18 +1,5 @@
-/***************************************************************************************************************************************************************
- *
- * breadcrumbs function
- *
- * Breadcrumbs help users understand where they are in the service and how they got there.
- *
- **************************************************************************************************************************************************************/
-
 import React from 'react';
 import PropTypes from 'prop-types';
-
-// The following line will be replaced automatically with generic imports for the ES5 pipeline.
-// You can safely ignore this bit if you use this module with pancake
-//
-// [replace-imports]
 
 /**
  * DEFAULT
@@ -31,12 +18,13 @@ export const Breadcrumbs = ({
   className = '',
   ...attributeOptions
 }) => (
-  <nav className={`nsw-breadcrumb ${className}`} aria-label={label} {...attributeOptions}>
+  <nav className={`nsw-breadcrumbs ${className}`} aria-label={label} {...attributeOptions}>
     <BreadcrumbLinkList inline linkComponent={linkComponent} items={items} />
   </nav>
 );
 
 Breadcrumbs.propTypes = {
+  label: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       link: PropTypes.string,
@@ -44,12 +32,13 @@ Breadcrumbs.propTypes = {
     }),
   ).isRequired,
   linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  aria: PropTypes.string,
   className: PropTypes.string,
 };
 
 Breadcrumbs.defaultProps = {
   linkComponent: 'a',
+  className: null,
+  label: null,
 };
 
 /**
@@ -58,7 +47,6 @@ Breadcrumbs.defaultProps = {
  * @param  {node}   text             - The link Text or link html
  * @param  {string} link             - The link URL, optional
  * @param  {string} linkComponent    - The component used for the link
- * @param  {object} li               - An additional object to be spread into the wrapping element, optional
  * @param  {object} onClick          - The onClick event handler
  * @param  {object} attributeOptions - Any other attribute options, optional
  */
@@ -66,7 +54,6 @@ export const BreadcrumbLinkListItem = ({
   text,
   link,
   linkComponent,
-  li = {},
   children,
   onClick,
   ...attributeOptions
@@ -76,8 +63,8 @@ export const BreadcrumbLinkListItem = ({
   // If there is no link provided and an onClick function
   if (typeof onClick === 'function') {
     attributeOptions.onClick = onClick;
-
-    // if we find an onClick event but no link we make it a link so onClick can be added (no button support yet)
+    // if we find an onClick event but no link we make it
+    // a link so onClick can be added (no button support yet)
     if (!link) {
       link = '#';
     }
@@ -86,25 +73,22 @@ export const BreadcrumbLinkListItem = ({
   // If we are using a normal link
   if (LinkComponent === 'a') {
     attributeOptions.href = link;
-  }
-  // If we are using a link component
-  else if (typeof LinkComponent === 'function') {
+  } else if (typeof LinkComponent === 'function') {
+    // If we are using a link component
     attributeOptions.to = link;
   }
 
   if (link) {
     return (
-      <li className="nsw-breadcrumb__item" {...li}>
-        <LinkComponent className="nsw-breadcrumb__link" {...attributeOptions}>
-          {text}
-        </LinkComponent>
+      <li>
+        <LinkComponent {...attributeOptions}>{text}</LinkComponent>
         {children}
       </li>
     );
   }
 
   return (
-    <li className="nsw-breadcrumb__item" {...li}>
+    <li>
       {text}
       {children}
     </li>
@@ -114,8 +98,8 @@ export const BreadcrumbLinkListItem = ({
 BreadcrumbLinkListItem.propTypes = {
   text: PropTypes.node.isRequired,
   link: PropTypes.string,
-  li: PropTypes.object,
   onClick: PropTypes.func,
+  children: PropTypes.node,
   linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 };
 
@@ -127,7 +111,9 @@ BreadcrumbLinkListItem.defaultProps = {
  * DEFAULT
  * The Link List component
  *
- * @param  {array}   items            - All items inside the link list to be passed to BreadcrumbLinkListItem, format: { link: '', text: '', onClick: () }
+ * @param  {array}   items            - All items inside the link list to be passed to
+ *                                      BreadcrumbLinkListItem, format: { link: '', text: '',
+ *                                      onClick: () }
  * @param  {string}  className        - An additional class, optional
  * @param  {string}  linkComponent    - The component used for the link
  * @param  {object}  attributeOptions - Any other attribute options, optional
@@ -143,8 +129,8 @@ export const BreadcrumbLinkList = ({
     className={`nsw-breadcrumb__list ${className}${inline ? ' nsw-breadcrumb__list--inline' : ''}`}
     {...attributeOptions}
   >
-    {items.map((item, i) => (
-      <BreadcrumbLinkListItem linkComponent={linkComponent} key={i} {...item} />
+    {items.map((item) => (
+      <BreadcrumbLinkListItem linkComponent={linkComponent} key={item.text} {...item} />
     ))}
   </ol>
 );
@@ -155,10 +141,11 @@ BreadcrumbLinkList.propTypes = {
     PropTypes.shape({
       link: PropTypes.string,
       text: PropTypes.node.isRequired,
-      li: PropTypes.object,
+      li: PropTypes.shape,
     }),
   ).isRequired,
   linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  className: PropTypes.string,
 };
 
 BreadcrumbLinkList.defaultProps = {
