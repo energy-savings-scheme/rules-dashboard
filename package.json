@@ -1,6 +1,7 @@
 {
   "name": "dpie-spb-ess",
   "version": "0.1.0",
+  "homepage": "",
   "private": true,
   "dependencies": {
     "@fontsource/montserrat": "^4.2.2",
