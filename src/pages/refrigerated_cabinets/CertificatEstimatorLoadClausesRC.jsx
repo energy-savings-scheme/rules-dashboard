@@ -202,22 +202,26 @@ export default function CertificateEstimatorLoadClausesRC(props) {
 
         {stepNumber === 3 && !calculationError && !calculationError2 && (
           <Fragment>
-          {
-            <Alert as="info" title="ESCs and PRCs" style={{width: "80%"}}>
-            <p>
-            {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
-                      Based on the information provided, your ESC certificates are
-                      <span style={{fontSize: '25px', paddingLeft:'10px', paddingRight:'10px'}}><b>{Math.round(calculationResult2)}</b></span>
-                    {/* </h4> */} 
-                    {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
-                      and your PRC certificates are
-                      <span style={{fontSize: '25px', paddingLeft:'10px', paddingRight:'10px'}}><b>{Math.round(calculationResult)}</b></span>
-                    {/* </h4> */}
-            </p>
-          </Alert>
-          }
-          <br></br> <br></br>
-        </Fragment>
+            {
+              <Alert as="info" title="ESCs and PRCs" style={{ width: '80%' }}>
+                <p>
+                  {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
+                  Based on the information provided, your ESC certificates are
+                  <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
+                    <b>{Math.round(calculationResult2)}</b>
+                  </span>
+                  {/* </h4> */}
+                  {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
+                  and your PRC certificates are
+                  <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
+                    <b>{Math.round(calculationResult)}</b>
+                  </span>
+                  {/* </h4> */}
+                </p>
+              </Alert>
+            }
+            <br></br> <br></br>
+          </Fragment>
         )}
 
         {(stepNumber === 3 && calculationError === true) ||

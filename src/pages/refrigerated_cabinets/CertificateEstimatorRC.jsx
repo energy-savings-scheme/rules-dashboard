@@ -179,7 +179,7 @@ export default function CertificateEstimatorRC(props) {
           <b> Commercial refrigerated cabinet certificate estimator</b>
         </p> */}
 
-        <ProgressIndicator step={stepNumber} of={3} style={{width: '80%'}} />
+        <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
         <Fragment>
           {stepNumber === 1 && (

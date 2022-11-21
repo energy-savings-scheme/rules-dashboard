@@ -162,7 +162,7 @@ export default function CertificateEstimatorWH(props) {
         {/* <p className="nsw-content-block__copy">
           <b> Commercial heat pump water heater certificate estimator </b>
         </p> */}
-        <ProgressIndicator step={stepNumber} of={3} style={{width: '80%'}} />
+        <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
         <Fragment>
           {stepNumber === 1 && (

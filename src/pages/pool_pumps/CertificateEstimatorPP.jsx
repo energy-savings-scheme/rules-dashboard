@@ -107,10 +107,9 @@ export default function CertificateEstimatorPP(props) {
         </div>
         <br></br>
 
-        <ProgressIndicator step={stepNumber} of={2} style={{width: '80%'}}/>
+        <ProgressIndicator step={stepNumber} of={2} style={{ width: '80%' }} />
 
         <Fragment>
-
           {stepNumber === 1 && loading && <SpinnerFullscreen />}
 
           {stepNumber === 1 && (

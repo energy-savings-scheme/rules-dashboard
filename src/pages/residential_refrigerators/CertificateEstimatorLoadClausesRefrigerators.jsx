@@ -142,18 +142,22 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
 
         {stepNumber === 2 && !calculationError && !calculationError2 && (
           <Fragment>
-          {
-            <Alert as="info" title="ESCs and PRCs" style={{width: "80%"}}>
-            <p>
-                      Based on the information provided, your ESC certificates are
-                      <span style={{fontSize: '25px', paddingLeft:'10px', paddingRight:'10px'}}><b>{Math.round(calculationResult2)}</b></span>
-                      and your PRC certificates are
-                      <span style={{fontSize: '25px', paddingLeft:'10px', paddingRight:'10px'}}><b>{Math.round(calculationResult)}</b></span>
-            </p>
-          </Alert>
-          }
-          <br></br> <br></br>
-        </Fragment>
+            {
+              <Alert as="info" title="ESCs and PRCs" style={{ width: '80%' }}>
+                <p>
+                  Based on the information provided, your ESC certificates are
+                  <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
+                    <b>{Math.round(calculationResult2)}</b>
+                  </span>
+                  and your PRC certificates are
+                  <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
+                    <b>{Math.round(calculationResult)}</b>
+                  </span>
+                </p>
+              </Alert>
+            }
+            <br></br> <br></br>
+          </Fragment>
         )}
 
         {stepNumber === 1 && loading && <SpinnerFullscreen />}
