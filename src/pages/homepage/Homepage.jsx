@@ -73,7 +73,7 @@ export default function Homepage(props) {
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
                   <Card
                     headline="Air Conditioner"
-                    link="residential-ac-estimator"
+                    link="#residential-ac-estimator"
                     image="/ResidentialAC.jpg"
                     highlight
                   >
@@ -86,7 +86,7 @@ export default function Homepage(props) {
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
                   <Card
                     headline="Pool Pump"
-                    link="pool-pumps-estimator"
+                    link="#pool-pumps-estimator"
                     image="/ResidentialPoolPumps.jpg"
                     highlight
                   >
@@ -98,7 +98,7 @@ export default function Homepage(props) {
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
                   <Card
                     headline="Spare Refrigerator or Freezer"
-                    link="residential-refrigerators-estimator"
+                    link="#residential-refrigerators-estimator"
                     image="/ResidentialRefrigeratorFreezer.jpeg"
                     highlight
                   >
@@ -122,7 +122,7 @@ export default function Homepage(props) {
                 <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Air Conditioner"
-                    link="commercial-ac-estimator"
+                    link="#commercial-ac-estimator"
                     image="CommercialAC.jpeg"
                     highlight
                   >
@@ -135,7 +135,7 @@ export default function Homepage(props) {
                 <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Heat Pump Water Heater"
-                    link="commercial-wh-estimator"
+                    link="#commercial-wh-estimator"
                     image="CommercialHeatPumpWaterHeater.jpeg"
                     highlight
                   >
@@ -148,7 +148,7 @@ export default function Homepage(props) {
                 <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Refrigerated Cabinet"
-                    link="refrigerated-cabinet-estimator"
+                    link="#refrigerated-cabinet-estimator"
                     image="CommercialRefrigeratedCabinet.jpg"
                     highlight
                   >
@@ -162,7 +162,7 @@ export default function Homepage(props) {
                 <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Ventilation or Refrigeration motor"
-                    link="commercial-motors-estimator"
+                    link="#commercial-motors-estimator"
                     image="CommercialVentilationRefrigeration.jpeg"
                     highlight
                   >

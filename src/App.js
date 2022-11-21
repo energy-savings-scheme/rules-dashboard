@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Import Pages
 import CalculatePage from 'pages/calculate/CalculatePage';
@@ -44,7 +44,6 @@ function App() {
   const [whBrands, setWhBrands] = useState([]);
   const [RF2Brands, setRF2Brands] = useState([]);
 
-  const [schedules, setSchedules] = useState(variable_tree);
 
   useEffect(() => {
     window.scrollTo(0, 0);
