@@ -160,7 +160,7 @@ function App() {
             setLoading={setLoading}
           />
         </Route>
-        <Route path="https://essestimatorui-secondary.z8.web.core.windows.net/commercial-ac-estimator" exact>
+        <Route path="/commercial-ac-estimator" exact>
           <Breadcrumb />
           <CertificateEstimatorHVAC
             entities={entities}
