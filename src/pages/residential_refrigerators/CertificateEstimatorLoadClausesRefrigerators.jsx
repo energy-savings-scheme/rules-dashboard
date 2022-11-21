@@ -143,39 +143,20 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
         {stepNumber === 2 && !calculationError && !calculationError2 && (
           <Fragment>
             {
-              <div className="nsw-row">
-                <div className="nsw-col">
-                  <div className="nsw-content-block">
-                    <div className="nsw-content-block__content">
-                      <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
-                        Based on the information provided
-                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>
-                      </h4>
-                      <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
-                        your PRC certificates are
-                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>
-                      </h4>
-                      <h2
-                        className="nsw-content-block__copy"
-                        style={{ textAlign: 'center', fontWeight: 600 }}
-                      >
-                        {Math.round(calculationResult)}
-                      </h2>
-                      <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}>
-                        and ESC certificates are
-                        <span style={{ fontWeight: 600, textDecoration: 'underline' }}></span>
-                      </h4>
-                      <h2
-                        className="nsw-content-block__copy"
-                        style={{ textAlign: 'center', fontWeight: 600 }}
-                      >
-                        {Math.round(calculationResult2)}
-                      </h2>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <Alert as="info" title="ESCs and PRCs" style={{ width: '80%' }}>
+                <p>
+                  Based on the information provided, your ESC certificates are
+                  <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
+                    <b>{Math.round(calculationResult2)}</b>
+                  </span>
+                  and your PRC certificates are
+                  <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
+                    <b>{Math.round(calculationResult)}</b>
+                  </span>
+                </p>
+              </Alert>
             }
+            <br></br> <br></br>
           </Fragment>
         )}
 
