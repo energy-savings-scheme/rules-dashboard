@@ -44,7 +44,6 @@ function App() {
   const [whBrands, setWhBrands] = useState([]);
   const [RF2Brands, setRF2Brands] = useState([]);
 
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -114,51 +113,7 @@ function App() {
           <Breadcrumb />
           <Homepage />
         </Route>
-        <Route path="/calculate" exact>
-          <Breadcrumb />
-          <CalculatePage entities={entities} variables={variables} />
-        </Route>
-        <Route path="/commercialac" exact>
-          <Breadcrumb />
-          <CommercialAC entities={entities} variables={variables} />
-        </Route>
-        <Route path="/commercialwh" exact>
-          <Breadcrumb />
-          <CommercialWH entities={entities} variables={variables} />
-        </Route>
-        <Route path="/commercialwh/base_eligibility_commercialwh" exact>
-          <Breadcrumb />
-          <BaseEligibilityCommercialWH
-            entities={entities}
-            variables={variables}
-            variableToLoad="ESS__PDRS__ACP_base_scheme_eligibility"
-            setEntities={setEntities}
-            setVariables={setVariables}
-            setLoading={setLoading}
-          />
-        </Route>
-        <Route path="/commercialac/base_eligibility_commercialac" exact>
-          <Breadcrumb />
-          <BaseEligibilityCommercialAC
-            entities={entities}
-            variables={variables}
-            variableToLoad="ESS__PDRS__ACP_base_scheme_eligibility"
-            setEntities={setEntities}
-            setVariables={setVariables}
-            setLoading={setLoading}
-          />
-        </Route>
-        <Route path="/commercialac/activity-requirements" exact>
-          <Breadcrumb />
-          <ActivityRequirementsCommercialAC
-            entities={entities}
-            variables={variables}
-            variableToLoad="HVAC2_installation_replacement_final_activity_eligibility"
-            setEntities={setEntities}
-            setVariables={setVariables}
-            setLoading={setLoading}
-          />
-        </Route>
+
         <Route path="/commercial-ac-estimator" exact>
           <Breadcrumb />
           <CertificateEstimatorHVAC
@@ -172,6 +127,7 @@ function App() {
             setHvacBrands={setHvacBrands}
           />
         </Route>
+
         <Route path="/commercial-wh-estimator" exact>
           <Breadcrumb />
           <CertificateEstimatorWH

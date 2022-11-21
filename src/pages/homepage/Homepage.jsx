@@ -110,8 +110,6 @@ export default function Homepage(props) {
           </div>
         </div>
       </section>
-      <br></br>
-      <br></br>
 
       <section class="nsw-section nsw-section--white">
         <div class="nsw-container">

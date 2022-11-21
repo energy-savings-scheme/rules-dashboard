@@ -216,7 +216,7 @@ export default function CertificateEstimatorHVAC(props) {
           <b> Commercial air conditioner certificate estimator</b>
         </p> */}
 
-        <ProgressIndicator step={stepNumber} of={3} />
+        <ProgressIndicator step={stepNumber} of={3} style={{width: '80%'}} />
 
         <Fragment>
           {stepNumber === 1 && (
