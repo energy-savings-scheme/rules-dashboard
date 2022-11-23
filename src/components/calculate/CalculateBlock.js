@@ -48,6 +48,25 @@ export default function CalculateBlock(props) {
   };
 
   const renderFormField = (formItem) => {
+
+    if (formItem.name === "SYS1_replacement_activity") {
+      if (formItem.default_value === true || formItem.form_value === true) {
+        if (formValues.find((o) => o.name === "SYS1_existing_equipment_rated_output") === undefined) {
+          formValues.push(dependencies.find((o) => o.name === "SYS1_existing_equipment_rated_output"));
+        }
+        if (formValues.find((o) => o.name === "SYS1_existing_equipment_motor_frequency") === undefined) {
+          formValues.push(dependencies.find((o) => o.name === "SYS1_existing_equipment_motor_frequency"));
+        }
+        if (formValues.find((o) => o.name === "SYS1_existing_equipment_no_of_poles") === undefined) {
+          formValues.push(dependencies.find((o) => o.name === "SYS1_existing_equipment_no_of_poles"));
+        }
+      } else if (formItem.default_value === false || formItem.form_value === false) {
+        removeItem(formValues, 'SYS1_existing_equipment_rated_output');
+        removeItem(formValues, 'SYS1_existing_equipment_motor_frequency');
+        removeItem(formValues, 'SYS1_existing_equipment_no_of_poles');
+      }
+    }
+
     if (
       formItem.name === 'Base_registered_ACP' &&
       (formItem.form_value === false || formItem.default_value === false)
@@ -169,6 +188,25 @@ export default function CalculateBlock(props) {
           }
         } else if (e.target.value === 'true') {
           removeItem(formValues, 'Base_engaged_ACP');
+        }
+      }
+
+      if (formItem.name === "SYS1_replacement_activity") {
+        if (e.target.value === 'true') {
+          if (formValues.find((o) => o.name === "SYS1_existing_equipment_rated_output") === undefined) {
+            formValues.push(dependencies.find((o) => o.name === "SYS1_existing_equipment_rated_output"));
+          }
+          if (formValues.find((o) => o.name === "SYS1_existing_equipment_motor_frequency") === undefined) {
+            formValues.push(dependencies.find((o) => o.name === "SYS1_existing_equipment_motor_frequency"));
+          }
+          if (formValues.find((o) => o.name === "SYS1_existing_equipment_no_of_poles") === undefined) {
+            formValues.push(dependencies.find((o) => o.name === "SYS1_existing_equipment_no_of_poles"));
+          }
+        } else if (e.target.value === 'false') {
+          removeItem(formValues, 'SYS1_existing_equipment_rated_output');
+          removeItem(formValues, 'SYS1_existing_equipment_motor_frequency');
+          removeItem(formValues, 'SYS1_existing_equipment_no_of_poles');
+
         }
       }
 
