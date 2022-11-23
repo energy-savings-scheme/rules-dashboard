@@ -97,17 +97,18 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
         array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
 
         setFormValues(array1);
+
+        const names = [
+          'SYS1_existing_equipment_rated_output',
+          'SYS1_existing_equipment_no_of_poles',
+          'SYS1_existing_equipment_motor_frequency',
+        ];
+        array2 = array1.filter((item) => names.includes(item.name));
+        console.log(array2);
+        setDependencies(array2);
       }
     }
   }, [variableData1, variableData2]);
-
-  const formatResultString = (result) => {
-    if (typeof result === 'boolean') {
-      return JSON.stringify(result);
-    }
-
-    return JSON.stringify(result) + ' kW';
-  };
 
   if (!variable) return null;
 

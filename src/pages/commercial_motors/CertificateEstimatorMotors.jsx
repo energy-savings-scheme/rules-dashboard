@@ -87,7 +87,7 @@ export default function CertificateEstimatorMotors(props) {
         wide
         style="dark"
         image={{
-          alt: 'commercial motoes',
+          alt: 'commercial motors',
           src: 'CommercialVentilationRefrigeration.jpeg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
