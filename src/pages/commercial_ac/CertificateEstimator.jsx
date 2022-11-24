@@ -240,7 +240,7 @@ export default function CertificateEstimatorHVAC(props) {
                         style={{ maxWidth: '50%', marginBottom: '1%' }}
                         as="input"
                         type="number"
-                        placeholder="Enter value"
+                        placeholder="Enter postcode"
                         value={postcode}
                         onChange={(e) => {
                           setPostcode(e.target.value);
