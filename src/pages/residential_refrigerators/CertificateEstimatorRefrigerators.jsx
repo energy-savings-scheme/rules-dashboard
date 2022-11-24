@@ -77,7 +77,7 @@ export default function CertificateEstimatorRefrigerators(props) {
         style="dark"
         image={{
           alt: 'res ref',
-          src: 'ResidentialRefrigeratorFreezer.jpeg',
+          src: 'ResidentialFridgeFreezerRemoval.jpeg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
         title="Safeguard Certificate Estimator"

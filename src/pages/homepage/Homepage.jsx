@@ -99,7 +99,7 @@ export default function Homepage(props) {
                   <Card
                     headline="Spare Refrigerator or Freezer"
                     link="#residential-refrigerators-estimator"
-                    image="/ResidentialRefrigeratorFreezer.jpeg"
+                    image="/ResidentialFridgeFreezerRemoval.jpeg"
                     highlight
                   >
                     <CardCopy>Remove a spare refrigerator or freezer</CardCopy>
