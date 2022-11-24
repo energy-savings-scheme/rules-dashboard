@@ -218,7 +218,7 @@ export default function CertificateEstimatorResidentialAC(props) {
                   <br></br>
                   <br></br>
                   <div className="nsw-content-block__content">
-                    <h5 className="nsw-content-block__copy"  style={{ paddingBottom: '30px'}}>
+                    <h5 className="nsw-content-block__copy" style={{ paddingBottom: '30px' }}>
                       <b>Please answer the following questions to calculate your ESCs and PRCs</b>
                     </h5>
 
