@@ -231,7 +231,7 @@ export default function CertificateEstimatorResidentialAC(props) {
                         style={{ maxWidth: '50%' }}
                         as="input"
                         type="number"
-                        placeholder="Enter value"
+                        placeholder="Enter postcode"
                         value={postcode}
                         onChange={(e) => {
                           setPostcode(e.target.value);
