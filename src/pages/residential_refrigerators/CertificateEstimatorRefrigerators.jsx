@@ -96,7 +96,8 @@ export default function CertificateEstimatorRefrigerators(props) {
             </h5> */}
             <br></br>
             <p className="nsw-content-block__copy">
-            Estimate your ESCs and PRCs for the Residential Spare Refrigerator or Freezer Removal Activity (C1 in the ESS and RF1 in the PDRS) by answering the following questions. 
+              Estimate your ESCs and PRCs for the Residential Spare Refrigerator or Freezer Removal
+              Activity (C1 in the ESS and RF1 in the PDRS) by answering the following questions.
             </p>
             <p className="nsw-content-block__copy">
               Please keep in mind that the results are indicative only and cannot be promoted or
