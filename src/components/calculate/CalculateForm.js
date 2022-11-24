@@ -154,7 +154,7 @@ export default function CalculateForm(props) {
 
       {props.children}
 
-      <div className="nsw-row" style={{width: '80%', paddingTop: '50px'}}>
+      <div className="nsw-row" style={{ width: '80%', paddingTop: '50px' }}>
         <div className="nsw-col-md-9" style={{ float: 'left' }}>
           {stepNumber !== 1 && (
             <Button
@@ -168,7 +168,7 @@ export default function CalculateForm(props) {
           )}
         </div>
 
-        <div className="nsw-col-md-3" style={{ paddingLeft: '20px'}}>
+        <div className="nsw-col-md-3" style={{ paddingLeft: '20px' }}>
           <Button as="dark" type="submit">
             {loading ? (
               <Spinner animation="border" role="status" size="lg">

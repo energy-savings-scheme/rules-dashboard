@@ -176,17 +176,17 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
 
         {stepNumber === 2 && (
           <div className="nsw-row" style={{ paddingTop: '30px' }}>
-          <div className="nsw-col nsw-col-md-6" style={{ padding: 'inherit' }}>
-            <Button
-              as="light"
-              onClick={(e) => {
-                setStepNumber(stepNumber - 1);
-              }}
-            >
-              Back
-            </Button>
+            <div className="nsw-col nsw-col-md-6" style={{ padding: 'inherit' }}>
+              <Button
+                as="light"
+                onClick={(e) => {
+                  setStepNumber(stepNumber - 1);
+                }}
+              >
+                Back
+              </Button>
+            </div>
           </div>
-        </div>
         )}
       </div>
     </div>
