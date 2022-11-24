@@ -206,13 +206,13 @@ export default function CertificateEstimatorLoadClausesRC(props) {
               <Alert as="info" title="ESCs and PRCs" style={{ width: '80%' }}>
                 <p>
                   {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
-                  Based on the information provided, your ESC certificates are
+                  Based on the information provided, your ESCs are
                   <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
                     <b>{Math.round(calculationResult2)}</b>
                   </span>
                   {/* </h4> */}
                   {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
-                  and your PRC certificates are
+                  and your PRCs are
                   <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
                     <b>{Math.round(calculationResult)}</b>
                   </span>
