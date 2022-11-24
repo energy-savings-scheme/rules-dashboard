@@ -243,8 +243,8 @@ export default function CertificateEstimatorMotors(props) {
           {stepNumber === 2 && calculationError && calculationError2 && <SpinnerFullscreen />}
 
           {stepNumber === 1 && registryData && postcode && postcode.length === 4 && (
-            <div className="nsw-row">
-              <div className="nsw-col">
+              <div className="nsw-row" style={{  paddingTop: '30px'}}>
+              <div className="nsw-col"  style={{ padding: 'inherit', width: '80%' }}>
                 <Button
                   as="dark"
                   onClick={(e) => {
