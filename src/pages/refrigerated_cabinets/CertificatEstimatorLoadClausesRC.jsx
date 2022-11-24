@@ -232,8 +232,8 @@ export default function CertificateEstimatorLoadClausesRC(props) {
           ))}
 
         {stepNumber === 3 && (
-          <div className="nsw-row">
-            <div className="nsw-col nsw-col-md-6">
+          <div className="nsw-row" style={{ paddingTop: '30px' }}>
+            <div className="nsw-col nsw-col-md-6" style={{ padding: 'inherit' }}>
               <Button
                 as="light"
                 onClick={(e) => {
