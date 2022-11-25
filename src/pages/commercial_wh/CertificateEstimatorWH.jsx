@@ -294,14 +294,13 @@ export default function CertificateEstimatorWH(props) {
             postcode.length === 4 &&
             selectedBrand &&
             selectedModel && (
-              <div className="nsw-row" style={{ paddingTop: '30px' }}>
-                <div className="nsw-col" style={{ padding: 'inherit', width: '80%' }}>
+              <div className="nsw-row" style={{ paddingTop: '30px', width: '80%' }}>
+                <div className="nsw-col" style={{ padding: 'inherit'}}>
                   <Button
                     as="dark"
                     onClick={(e) => {
                       setStepNumber(stepNumber + 1);
                     }}
-                    style={{ float: 'right' }}
                   >
                     Next
                   </Button>

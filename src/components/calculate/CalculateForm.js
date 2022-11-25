@@ -154,11 +154,12 @@ export default function CalculateForm(props) {
 
       {props.children}
 
-      <div className="nsw-row" style={{ width: '80%', paddingTop: '50px' }}>
-        <div className="nsw-col-md-9" style={{ float: 'left' }}>
+      {stepNumber === 2 && <div className="nsw-row" style={{ width: '80%', paddingTop: '50px' }}>
+        <div className="nsw-col-md-9">
           {stepNumber !== 1 && (
             <Button
-              as="light"
+            style={{ float: 'left' }}
+              as="dark-outline-solid"
               onClick={(e) => {
                 setStepNumber(stepNumber - 1);
               }}
@@ -168,8 +169,8 @@ export default function CalculateForm(props) {
           )}
         </div>
 
-        <div className="nsw-col-md-3" style={{ paddingLeft: '20px' }}>
-          <Button as="dark" type="submit">
+        <div className="nsw-col-md-3">
+          <Button as="dark" type="submit" style={{ float: 'right' }}>
             {loading ? (
               <Spinner animation="border" role="status" size="lg">
                 <span className="sr-only">Loading...</span>
@@ -181,7 +182,23 @@ export default function CalculateForm(props) {
             )}
           </Button>
         </div>
-      </div>
+      </div>}
+
+      {stepNumber === 1 && <div className="nsw-row" style={{ width: '80%', paddingTop: '50px' }}>
+        <div className="nsw-col-md-3">
+          <Button as="dark" type="submit" style={{ float: 'left' }}>
+            {loading ? (
+              <Spinner animation="border" role="status" size="lg">
+                <span className="sr-only">Loading...</span>
+              </Spinner>
+            ) : workflow === 'eligibility' ? (
+              'Check eligibility'
+            ) : (
+              'Calculate certificates'
+            )}
+          </Button>
+        </div>
+      </div> }
     </form>
   );
 }
