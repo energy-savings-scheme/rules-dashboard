@@ -348,7 +348,7 @@ export default function CertificateEstimatorHVAC(props) {
             selectedBrand &&
             selectedModel && (
               <div className="nsw-row" style={{ paddingTop: '30px', width: '80%' }}>
-                <div className="nsw-col" style={{ padding: 'inherit'}}>
+                <div className="nsw-col" style={{ padding: 'inherit' }}>
                   <Button
                     as="dark"
                     onClick={(e) => {

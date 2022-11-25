@@ -165,7 +165,7 @@ export default function Homepage(props) {
                     highlight
                   >
                     <CardCopy>
-                    Install a new or replace an existing motor with a high efficiency motor
+                      Install a new or replace an existing motor with a high efficiency motor
                     </CardCopy>
                   </Card>
                 </div>

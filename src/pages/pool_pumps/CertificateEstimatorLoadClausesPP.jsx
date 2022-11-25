@@ -177,33 +177,40 @@ export default function CertificateEstimatorLoadClausesPP(props) {
           ))}
 
         {stepNumber === 2 && (
-          <div className="nsw-row" 
-          style={{ paddingLeft: 'inherit', paddingRight: 'inherit', paddingTop: '30px', width: '80%'}}>
-      <div className="nsw-col-md-9" style={{ padding: 'inherit'}}>
-        <Button
-        style = {{ float: 'left'}}
-          as="dark-outline-solid"
-          onClick={(e) => {
-            setStepNumber(stepNumber - 1);
-          }}
-        >
-          Back
-        </Button>
-      </div>
+          <div
+            className="nsw-row"
+            style={{
+              paddingLeft: 'inherit',
+              paddingRight: 'inherit',
+              paddingTop: '30px',
+              width: '80%',
+            }}
+          >
+            <div className="nsw-col-md-9" style={{ padding: 'inherit' }}>
+              <Button
+                style={{ float: 'left' }}
+                as="dark-outline-solid"
+                onClick={(e) => {
+                  setStepNumber(stepNumber - 1);
+                }}
+              >
+                Back
+              </Button>
+            </div>
 
-      <div className="nsw-col-md-3" style={{ paddingTop: '30px' }}>
-      <Button
-          style={{ float: 'right'}}
-          as="dark"
-          link="/"
-          onClick={(e) => {
-            // setStepNumber(stepNumber - 1);
-          }}
-        >
-          Start Over
-        </Button>
-  </div>
-    </div>
+            <div className="nsw-col-md-3" style={{ paddingTop: '30px' }}>
+              <Button
+                style={{ float: 'right' }}
+                as="dark"
+                link="/"
+                onClick={(e) => {
+                  // setStepNumber(stepNumber - 1);
+                }}
+              >
+                Start Over
+              </Button>
+            </div>
+          </div>
         )}
       </div>
     </div>
