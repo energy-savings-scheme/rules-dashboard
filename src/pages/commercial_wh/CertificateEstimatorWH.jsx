@@ -28,6 +28,9 @@ export default function CertificateEstimatorWH(props) {
   const [calculationResult2, setCalculationResult2] = useState(null);
   const [zone, setZone] = useState(0);
   const [registryData, setRegistryData] = useState(true);
+  const [persistFormValues, setPersistFormValues] = useState([]);
+  const [flow, setFlow] = useState(null)
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -249,6 +252,12 @@ export default function CertificateEstimatorWH(props) {
               setCalculationResult2={setCalculationResult2}
               stepNumber={stepNumber}
               setStepNumber={setStepNumber}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
+              formValues={formValues}
+              setFormValues={setFormValues}
+              flow={flow}
+              setFlow={setFlow}
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}
@@ -277,14 +286,14 @@ export default function CertificateEstimatorWH(props) {
               setCalculationError={setCalculationError}
               calculationResult2={calculationResult2}
               setCalculationResult2={setCalculationResult2}
-              // calculationResult={calculationResult}
-              // setCalculationResult={setCalculationResult}
-              // setCalculationError={setCalculationError}
-              //   dependencies={dependencies}
               stepNumber={stepNumber}
               setStepNumber={setStepNumber}
-              //   formValues={formValues}
-              //   setFormValues={setFormValues}
+              formValues={formValues}
+              setFormValues={setFormValues}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
+              flow={flow}
+              setFlow={setFlow}
             />
           )}
 
@@ -299,6 +308,7 @@ export default function CertificateEstimatorWH(props) {
                   <Button
                     as="dark"
                     onClick={(e) => {
+                      setFlow(null)
                       setStepNumber(stepNumber + 1);
                     }}
                   >

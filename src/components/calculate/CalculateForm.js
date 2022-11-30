@@ -24,6 +24,13 @@ export default function CalculateForm(props) {
     setCalculationResult2,
     calculationResult2,
     workflow,
+    selectedModel,
+    selectedBrand,
+    flow,
+    setFlow,
+    setFormValues,
+    persistFormValues,
+    setPersistFormValues
   } = props;
 
   var { formValues } = props;
@@ -131,8 +138,9 @@ export default function CalculateForm(props) {
 
     setStepNumber(stepNumber + 1);
 
-    console.log(calculationResult);
-    console.log(calculationResult2);
+    setPersistFormValues(formValues);
+    console.log("PFV ^^^^" )
+    console.log(persistFormValues)
   };
 
   return (
@@ -162,6 +170,7 @@ export default function CalculateForm(props) {
                 style={{ float: 'left' }}
                 as="dark-outline-solid"
                 onClick={(e) => {
+                  setFlow("backward")
                   setStepNumber(stepNumber - 1);
                 }}
               >

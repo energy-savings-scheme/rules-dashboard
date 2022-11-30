@@ -28,15 +28,20 @@ export default function CertificateEstimatorLoadClauses(props) {
     setCalculationResult2,
     postcode,
     zone,
+    formValues,
+    setFormValues,
+    selectedBrand,
+    selectedModel,
+    flow,
+    setFlow,
+    persistFormValues,
+    setPersistFormValues
   } = props;
 
   console.log(variableToLoad1);
   console.log(variableToLoad2);
   console.log(metadata);
   console.log(postcode);
-
-  console.log(stepNumber);
-  console.log(zone);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -46,15 +51,14 @@ export default function CertificateEstimatorLoadClauses(props) {
 
   var today = new Date();
   const [calculationDate, setCalculationDate] = useState(moment(today).format('YYYY-MM-DD'));
-  const [dateInvalid, setDateInvalid] = useState(false);
 
-  const [formValues, setFormValues] = useState([]);
+  // const [formValues, setFormValues] = useState([]);
   const [dependencies, setDependencies] = useState([]);
 
   const [loading, setLoading] = useState(true);
-
   const [variableData1, setVariableData1] = useState([]);
   const [variableData2, setVariableData2] = useState([]);
+
 
   useEffect(() => {
     OpenFiscaApi.getVariable(variableToLoad1)
@@ -88,6 +92,7 @@ export default function CertificateEstimatorLoadClauses(props) {
     if (!found) arr.push(obj);
     return arr;
   }
+
 
   useEffect(() => {
     if (variables) {
@@ -158,19 +163,20 @@ export default function CertificateEstimatorLoadClauses(props) {
         }
       });
 
+      if (persistFormValues.length > 1 && flow === "backward") {
+        array1.map(e => {
+          let found = persistFormValues.find(f => e.name === f.name)
+          if (found !== undefined) {
+            e['form_value'] = found['form_value']
+          }
+          return e;
+      })
+    }
       array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
 
       setFormValues(array1);
     }
   }, [variableData1, variableData2]);
-
-  const formatResultString = (result) => {
-    if (typeof result === 'boolean') {
-      return JSON.stringify(result);
-    }
-
-    return JSON.stringify(result) + ' kW';
-  };
 
   if (!variable) return null;
 
@@ -203,6 +209,12 @@ export default function CertificateEstimatorLoadClauses(props) {
               dependencies={dependencies}
               metadata={metadata}
               workflow={'certificates'}
+              selectedBrand={selectedBrand}
+              selectedModel={selectedModel}
+              flow={flow}
+              setFlow={setFlow}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
             />
           </Fragment>
         )}
@@ -252,6 +264,7 @@ export default function CertificateEstimatorLoadClauses(props) {
                 style={{ float: 'left' }}
                 as="dark-outline-solid"
                 onClick={(e) => {
+                  setFlow("backward")
                   setStepNumber(stepNumber - 1);
                 }}
               >

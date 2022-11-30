@@ -26,27 +26,25 @@ export default function CertificateEstimatorLoadClausesPP(props) {
     setCalculationResult,
     calculationResult2,
     setCalculationResult2,
+    flow,
+    setFlow,
+    persistFormValues,
+    setPersistFormValues,
+    formValues,
+    setFormValues
   } = props;
-
-  console.log(variableData1);
-  console.log(variableData2);
-
-  console.log(stepNumber);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const [variable, setVariable] = useState({}); // all info about variable
 
   var today = new Date();
   const [calculationDate, setCalculationDate] = useState(moment(today).format('YYYY-MM-DD'));
-  const [dateInvalid, setDateInvalid] = useState(false);
-
-  const [formValues, setFormValues] = useState([]);
   const [dependencies, setDependencies] = useState([]);
 
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   function addElement(arr, obj) {
     const { length } = arr;
@@ -92,7 +90,15 @@ export default function CertificateEstimatorLoadClausesPP(props) {
 
         array2.forEach((item) => addElement(array1, item));
 
-        console.log(array1);
+        if (persistFormValues.length > 1 && flow === "backward") {
+            array1.map(e => {
+              let found = persistFormValues.find(f => e.name === f.name)
+              if (found !== undefined) {
+                e['form_value'] = found['form_value']
+              }
+              return e;
+          })
+        }
 
         array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
 
@@ -140,6 +146,10 @@ export default function CertificateEstimatorLoadClausesPP(props) {
               dependencies={dependencies}
               metadata={metadata}
               workflow={'certificates'}
+              flow={flow}
+              setFlow={setFlow}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
             />
           </Fragment>
         )}
@@ -191,6 +201,7 @@ export default function CertificateEstimatorLoadClausesPP(props) {
                 style={{ float: 'left' }}
                 as="dark-outline-solid"
                 onClick={(e) => {
+                  setFlow("backward")
                   setStepNumber(stepNumber - 1);
                 }}
               >
