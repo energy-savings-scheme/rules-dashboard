@@ -36,9 +36,8 @@ export default function CertificateEstimatorRC(props) {
   const [postcode, setPostcode] = useState(null);
   const [zone, setZone] = useState(null);
   const [registryData, setRegistryData] = useState(true);
-  const [flow, setFlow] = useState(null)
+  const [flow, setFlow] = useState(null);
   const [persistFormValues, setPersistFormValues] = useState([]);
-
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -334,7 +333,7 @@ export default function CertificateEstimatorRC(props) {
                   <Button
                     as="dark"
                     onClick={(e) => {
-                      setFlow(null)
+                      setFlow(null);
                       setStepNumber(stepNumber + 1);
                     }}
                   >

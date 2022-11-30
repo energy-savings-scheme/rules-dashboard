@@ -33,7 +33,7 @@ export default function CalculateBlock(props) {
     flow,
     setFlow,
     persistFormValues,
-    setPersistFormValues
+    setPersistFormValues,
   } = props;
 
   if (metadata) {

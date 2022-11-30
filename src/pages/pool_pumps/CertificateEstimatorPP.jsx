@@ -21,8 +21,7 @@ export default function CertificateEstimatorPP(props) {
   const [variableData1, setVariableData1] = useState([]);
   const [variableData2, setVariableData2] = useState([]);
   const [persistFormValues, setPersistFormValues] = useState([]);
-  const [flow, setFlow] = useState(null)
-
+  const [flow, setFlow] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -178,7 +177,7 @@ export default function CertificateEstimatorPP(props) {
                 <Button
                   as="dark"
                   onClick={(e) => {
-                    setFlow('forward')
+                    setFlow('forward');
                     setStepNumber(stepNumber + 1);
                   }}
                   style={{ float: 'right' }}

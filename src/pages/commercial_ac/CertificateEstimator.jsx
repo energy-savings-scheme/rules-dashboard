@@ -46,14 +46,13 @@ export default function CertificateEstimatorHVAC(props) {
   const [postcode, setPostcode] = useState(null);
   const [zone, setZone] = useState(null);
   const [registryData, setRegistryData] = useState(true);
-  const [flow, setFlow] = useState(null)
+  const [flow, setFlow] = useState(null);
   const [persistFormValues, setPersistFormValues] = useState([]);
-
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    setDropdownOptions([{ value: '', text: 'Please select brand'}]);
+    setDropdownOptions([{ value: '', text: 'Please select brand' }]);
 
     if (variables.length < 1) {
       OpenFiscaAPI.listEntities()
@@ -104,10 +103,9 @@ export default function CertificateEstimatorHVAC(props) {
   };
 
   useEffect(() => {
-    setDropdownOptionsModels([{ value: '', text: 'Please select model'}]);
-    models.forEach((item) => populateModelDropDown({ text: item, value: item}));
+    setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
+    models.forEach((item) => populateModelDropDown({ text: item, value: item }));
   }, [models]);
-
 
   useEffect(() => {
     if (!selectedBrand) return null;
@@ -125,14 +123,12 @@ export default function CertificateEstimatorHVAC(props) {
         console.log(err);
       });
   }, [selectedModel]);
- 
 
   useEffect(() => {
     if (hvacBrands.length > 1) {
       hvacBrands.forEach((item) => populateDropDown({ text: item, value: item }));
     }
   }, [hvacBrands]);
-
 
   useEffect(() => {
     RegistryApi.listHvacModels(selectedBrand)
@@ -145,7 +141,6 @@ export default function CertificateEstimatorHVAC(props) {
         setRegistryData(false);
       });
   }, [selectedBrand]);
-
 
   useEffect(() => {
     const payload = {
@@ -362,7 +357,7 @@ export default function CertificateEstimatorHVAC(props) {
                   <Button
                     as="dark"
                     onClick={(e) => {
-                      setFlow(null)
+                      setFlow(null);
                       setStepNumber(stepNumber + 1);
                     }}
                   >

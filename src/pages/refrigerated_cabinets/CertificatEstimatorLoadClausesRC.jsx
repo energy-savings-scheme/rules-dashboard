@@ -37,7 +37,7 @@ export default function CertificateEstimatorLoadClausesRC(props) {
     flow,
     setFlow,
     persistFormValues,
-    setPersistFormValues
+    setPersistFormValues,
   } = props;
 
   console.log(variableToLoad1);
@@ -155,15 +155,15 @@ export default function CertificateEstimatorLoadClausesRC(props) {
       }
     });
 
-    if (persistFormValues.length > 1 && flow === "backward") {
-      array1.map(e => {
-        let found = persistFormValues.find(f => e.name === f.name)
+    if (persistFormValues.length > 1 && flow === 'backward') {
+      array1.map((e) => {
+        let found = persistFormValues.find((f) => e.name === f.name);
         if (found !== undefined) {
-          e['form_value'] = found['form_value']
+          e['form_value'] = found['form_value'];
         }
         return e;
-    })
-  }
+      });
+    }
 
     array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
 
@@ -256,7 +256,7 @@ export default function CertificateEstimatorLoadClausesRC(props) {
                 style={{ float: 'left' }}
                 as="dark-outline-solid"
                 onClick={(e) => {
-                  setFlow("backward")
+                  setFlow('backward');
                   setStepNumber(stepNumber - 1);
                 }}
               >

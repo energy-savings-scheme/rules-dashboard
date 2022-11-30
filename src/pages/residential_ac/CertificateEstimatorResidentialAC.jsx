@@ -38,14 +38,13 @@ export default function CertificateEstimatorResidentialAC(props) {
   const [postcode, setPostcode] = useState(null);
   const [zone, setZone] = useState(null);
   const [registryData, setRegistryData] = useState(true);
-  const [flow, setFlow] = useState(null)
+  const [flow, setFlow] = useState(null);
   const [persistFormValues, setPersistFormValues] = useState([]);
-
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    setDropdownOptions([{ value: '', text: 'Please select brand'}]);
+    setDropdownOptions([{ value: '', text: 'Please select brand' }]);
 
     if (variables.length < 1) {
       OpenFiscaAPI.listEntities()
@@ -120,13 +119,11 @@ export default function CertificateEstimatorResidentialAC(props) {
     console.log(metadata);
   }, [selectedModel]);
 
-
   useEffect(() => {
     if (hvacBrands.length > 1) {
       hvacBrands.forEach((item) => populateDropDown({ text: item, value: item }));
     }
   }, [hvacBrands]);
-
 
   useEffect(() => {
     console.log(selectedBrand);
@@ -363,7 +360,7 @@ export default function CertificateEstimatorResidentialAC(props) {
                   <Button
                     as="dark"
                     onClick={(e) => {
-                      setFlow(null)
+                      setFlow(null);
                       setStepNumber(stepNumber + 1);
                     }}
                   >

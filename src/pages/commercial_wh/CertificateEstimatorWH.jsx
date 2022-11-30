@@ -29,8 +29,7 @@ export default function CertificateEstimatorWH(props) {
   const [zone, setZone] = useState(0);
   const [registryData, setRegistryData] = useState(true);
   const [persistFormValues, setPersistFormValues] = useState([]);
-  const [flow, setFlow] = useState(null)
-
+  const [flow, setFlow] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -308,7 +307,7 @@ export default function CertificateEstimatorWH(props) {
                   <Button
                     as="dark"
                     onClick={(e) => {
-                      setFlow(null)
+                      setFlow(null);
                       setStepNumber(stepNumber + 1);
                     }}
                   >
