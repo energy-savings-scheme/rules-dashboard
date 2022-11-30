@@ -38,7 +38,7 @@ export default function CertificateEstimatorLoadClausesRC(props) {
     setFlow,
     persistFormValues,
     setPersistFormValues,
-    selectedProductClass
+    selectedProductClass,
   } = props;
 
   console.log(variableToLoad1);
@@ -148,7 +148,7 @@ export default function CertificateEstimatorLoadClausesRC(props) {
       if (formItem.name === 'RF2_product_class') {
         console.log(formItem.form_value);
         formItem.form_value = selectedProductClass;
-        console.log(formItem.form_value)
+        console.log(formItem.form_value);
         formItem.read_only = true;
       }
 
@@ -166,13 +166,13 @@ export default function CertificateEstimatorLoadClausesRC(props) {
 
       if (formItem.name === 'RF2_duty_class') {
         formItem.possible_values = {
-          heavy_duty: "Heavy Duty",
-          light_duty: "Light Duty",
-          normal_duty: "Normal duty"
-        }
+          heavy_duty: 'Heavy Duty',
+          light_duty: 'Light Duty',
+          normal_duty: 'Normal duty',
+        };
 
         if (!['Class 3', 'Class 4', 'Class 9', 'Class 10'].includes(selectedProductClass)) {
-          delete formItem.possible_values["heavy_duty"]
+          delete formItem.possible_values['heavy_duty'];
         }
       }
     });

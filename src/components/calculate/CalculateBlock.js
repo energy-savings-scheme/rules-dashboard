@@ -44,7 +44,7 @@ export default function CalculateBlock(props) {
     console.log(zone);
   }
 
-  console.log("form values", formValues);
+  console.log('form values', formValues);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -405,15 +405,13 @@ export default function CalculateBlock(props) {
     } else if (formItem.value_type == 'Int') {
       return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
     } else if (formItem.value_type == 'Date') {
-<DateInput formItem={formItem} setItemValue={setItemValue} />;
+      <DateInput formItem={formItem} setItemValue={setItemValue} />;
     } else if (formItem.value_type == 'String' && formItem.name === 'RF2_product_class') {
       return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
-    }
-    else if (formItem.value_type == 'String' && formItem.name !== 'RF2_product_class') {
+    } else if (formItem.value_type == 'String' && formItem.name !== 'RF2_product_class') {
       return <DropDownMenu formItem={formItem} setItemValue={setItemValue} />;
-    }
-    else if (formItem.value_type == 'Boolean') {
-<RadioButton formItem={formItem} setItemValue={setItemValue} />;
+    } else if (formItem.value_type == 'Boolean') {
+      <RadioButton formItem={formItem} setItemValue={setItemValue} />;
     }
   };
 

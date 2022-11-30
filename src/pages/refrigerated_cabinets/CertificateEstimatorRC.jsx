@@ -57,13 +57,13 @@ export default function CertificateEstimatorRC(props) {
       { value: 'Class 7', text: 'Class 7' },
       { value: 'Class 8', text: 'Class 8' },
       { value: 'Class 9', text: 'Class 9' },
-      { value: 'Class 10', text: 'Class 10'},
+      { value: 'Class 10', text: 'Class 10' },
       { value: 'Class 11', text: 'Class 11' },
       { value: 'Class 12', text: 'Class 12' },
       { value: 'Class 13', text: 'Class 13' },
-      { value: 'Class 14', text: 'Class 14'},
-      { value: 'Class 15', text: 'Class 15' }
-  ])
+      { value: 'Class 14', text: 'Class 14' },
+      { value: 'Class 15', text: 'Class 15' },
+    ]);
 
     if (variables.length < 1) {
       OpenFiscaAPI.listEntities()
