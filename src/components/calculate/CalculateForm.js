@@ -137,10 +137,7 @@ export default function CalculateForm(props) {
     }
 
     setStepNumber(stepNumber + 1);
-
     setPersistFormValues(formValues);
-    console.log('PFV ^^^^');
-    console.log(persistFormValues);
   };
 
   return (
