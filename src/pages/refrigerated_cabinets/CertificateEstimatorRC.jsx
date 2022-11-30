@@ -38,11 +38,32 @@ export default function CertificateEstimatorRC(props) {
   const [registryData, setRegistryData] = useState(true);
   const [flow, setFlow] = useState(null);
   const [persistFormValues, setPersistFormValues] = useState([]);
+  const [productClassOptions, setProductClassOptions] = useState([]);
+  const [selectedProductClass, setSelectedProductClass] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
     setDropdownOptions([{ value: '', text: 'Please select brand' }]);
+
+    setProductClassOptions([
+      { value: '', text: 'Please select product class' },
+      { value: 'Class 1', text: 'Class 1' },
+      { value: 'Class 2', text: 'Class 2' },
+      { value: 'Class 3', text: 'Class 3' },
+      { value: 'Class 4', text: 'Class 4' },
+      { value: 'Class 5', text: 'Class 5' },
+      { value: 'Class 6', text: 'Class 6' },
+      { value: 'Class 7', text: 'Class 7' },
+      { value: 'Class 8', text: 'Class 8' },
+      { value: 'Class 9', text: 'Class 9' },
+      { value: 'Class 10', text: 'Class 10'},
+      { value: 'Class 11', text: 'Class 11' },
+      { value: 'Class 12', text: 'Class 12' },
+      { value: 'Class 13', text: 'Class 13' },
+      { value: 'Class 14', text: 'Class 14'},
+      { value: 'Class 15', text: 'Class 15' }
+  ])
 
     if (variables.length < 1) {
       OpenFiscaAPI.listEntities()
@@ -244,6 +265,22 @@ export default function CertificateEstimatorRC(props) {
                         required
                       />
                     </FormGroup>
+
+                    <FormGroup
+                      label="Product Class"
+                      helper="Refrigerated Cabinet Product Class (Product Characteristics Code)" // primary question text
+                      errorText="Invalid value!" // error text if invalid
+                    >
+                      <Select
+                        style={{ maxWidth: '50%' }}
+                        options={productClassOptions}
+                        onChange={(e) => {
+                          setSelectedProductClass(e.target.value);
+                        }}
+                        value={selectedProductClass}
+                        required
+                      />
+                    </FormGroup>
                   </div>
                 </div>
               </div>
@@ -289,6 +326,7 @@ export default function CertificateEstimatorRC(props) {
               setFlow={setFlow}
               persistFormValues={persistFormValues}
               setPersistFormValues={setPersistFormValues}
+              selectedProductClass={selectedProductClass}
             />
           )}
 
@@ -317,6 +355,7 @@ export default function CertificateEstimatorRC(props) {
               setFlow={setFlow}
               persistFormValues={persistFormValues}
               setPersistFormValues={setPersistFormValues}
+              selectedProductClass={selectedProductClass}
             />
           )}
 

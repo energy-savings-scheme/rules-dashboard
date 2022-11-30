@@ -44,6 +44,8 @@ export default function CalculateBlock(props) {
     console.log(zone);
   }
 
+  console.log("form values", formValues);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -398,17 +400,20 @@ export default function CalculateBlock(props) {
       );
     };
 
-    switch (formItem.value_type) {
-      case 'Float':
-        return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
-      case 'Int':
-        return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
-      case 'Date':
-        return <DateInput formItem={formItem} setItemValue={setItemValue} />;
-      case 'String':
-        return <DropDownMenu formItem={formItem} setItemValue={setItemValue} />;
-      case 'Boolean':
-        return <RadioButton formItem={formItem} setItemValue={setItemValue} />;
+    if (formItem.value_type == 'Float') {
+      return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
+    } else if (formItem.value_type == 'Int') {
+      return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
+    } else if (formItem.value_type == 'Date') {
+<DateInput formItem={formItem} setItemValue={setItemValue} />;
+    } else if (formItem.value_type == 'String' && formItem.name === 'RF2_product_class') {
+      return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
+    }
+    else if (formItem.value_type == 'String' && formItem.name !== 'RF2_product_class') {
+      return <DropDownMenu formItem={formItem} setItemValue={setItemValue} />;
+    }
+    else if (formItem.value_type == 'Boolean') {
+<RadioButton formItem={formItem} setItemValue={setItemValue} />;
     }
   };
 

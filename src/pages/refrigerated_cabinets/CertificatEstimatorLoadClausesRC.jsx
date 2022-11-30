@@ -38,6 +38,7 @@ export default function CertificateEstimatorLoadClausesRC(props) {
     setFlow,
     persistFormValues,
     setPersistFormValues,
+    selectedProductClass
   } = props;
 
   console.log(variableToLoad1);
@@ -136,10 +137,19 @@ export default function CertificateEstimatorLoadClausesRC(props) {
 
     console.log(metadata);
 
+    console.log(selectedProductClass);
+
     array1.map((formItem) => {
       if (formItem.name === 'RF2_product_EEI') {
         console.log(formItem.form_value);
         formItem.form_value = metadata['product_eei'];
+      }
+
+      if (formItem.name === 'RF2_product_class') {
+        console.log(formItem.form_value);
+        formItem.form_value = selectedProductClass;
+        console.log(formItem.form_value)
+        formItem.read_only = true;
       }
 
       if (formItem.name === 'RF2_total_display_area') {
@@ -152,6 +162,18 @@ export default function CertificateEstimatorLoadClausesRC(props) {
       if (formItem.name === 'RF2_PDRS__postcode') {
         formItem.form_value = postcode;
         formItem.read_only = true;
+      }
+
+      if (formItem.name === 'RF2_duty_class') {
+        formItem.possible_values = {
+          heavy_duty: "Heavy Duty",
+          light_duty: "Light Duty",
+          normal_duty: "Normal duty"
+        }
+
+        if (!['Class 3', 'Class 4', 'Class 9', 'Class 10'].includes(selectedProductClass)) {
+          delete formItem.possible_values["heavy_duty"]
+        }
       }
     });
 
@@ -168,7 +190,7 @@ export default function CertificateEstimatorLoadClausesRC(props) {
     array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
 
     setFormValues(array1);
-  }, [variableData1, variableData2]);
+  }, [variableData1, variableData2, selectedProductClass]);
 
   if (!variable) return null;
 
