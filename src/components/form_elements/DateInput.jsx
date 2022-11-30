@@ -9,7 +9,7 @@ export default function DateInput(props) {
     <FormGroup
       // label={formItem.metadata && formItem.metadata.alias ? formItem.metadata.alias : formItem.name} // primary label
       helper={formItem.description} // helper text (secondary label)
-      errorText="Demonstration error text!" // error text if invalid
+      error="Demonstration error text!" // error text if invalid
       status={formItem.invalid && 'invalid'} // if `true` renders invalid formatting
     >
       <TextInput

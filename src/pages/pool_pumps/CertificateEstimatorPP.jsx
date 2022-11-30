@@ -20,6 +20,8 @@ export default function CertificateEstimatorPP(props) {
   const [registryData, setRegistryData] = useState(true);
   const [variableData1, setVariableData1] = useState([]);
   const [variableData2, setVariableData2] = useState([]);
+  const [persistFormValues, setPersistFormValues] = useState([]);
+  const [flow, setFlow] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -132,6 +134,12 @@ export default function CertificateEstimatorPP(props) {
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
+              formValues={formValues}
+              setFormValues={setFormValues}
+              flow={flow}
+              setFlow={setFlow}
             />
           )}
 
@@ -150,6 +158,12 @@ export default function CertificateEstimatorPP(props) {
               setCalculationResult2={setCalculationResult2}
               stepNumber={stepNumber}
               setStepNumber={setStepNumber}
+              formValues={formValues}
+              setFormValues={setFormValues}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
+              flow={flow}
+              setFlow={setFlow}
             />
           )}
 
@@ -163,6 +177,7 @@ export default function CertificateEstimatorPP(props) {
                 <Button
                   as="dark"
                   onClick={(e) => {
+                    setFlow('forward');
                     setStepNumber(stepNumber + 1);
                   }}
                   style={{ float: 'right' }}

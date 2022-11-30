@@ -26,27 +26,24 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
     setCalculationResult,
     calculationResult2,
     setCalculationResult2,
+    flow,
+    setFlow,
+    persistFormValues,
+    setPersistFormValues,
+    formValues,
+    setFormValues,
   } = props;
-
-  console.log(variableData1);
-  console.log(variableData2);
-
-  console.log(stepNumber);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const [variable, setVariable] = useState({}); // all info about variable
 
   var today = new Date();
   const [calculationDate, setCalculationDate] = useState(moment(today).format('YYYY-MM-DD'));
-  const [dateInvalid, setDateInvalid] = useState(false);
-
-  const [formValues, setFormValues] = useState([]);
   const [dependencies, setDependencies] = useState([]);
-
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   function addElement(arr, obj) {
     const { length } = arr;
@@ -93,6 +90,18 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
         array2.forEach((item) => addElement(array1, item));
 
         console.log(array1);
+
+        console.log(persistFormValues);
+
+        if (persistFormValues.length > 1 && flow === 'backward') {
+          array1.map((e) => {
+            let found = persistFormValues.find((f) => e.name === f.name);
+            if (found !== undefined) {
+              e['form_value'] = found['form_value'];
+            }
+            return e;
+          });
+        }
 
         array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
 
@@ -141,6 +150,10 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
               dependencies={dependencies}
               metadata={metadata}
               workflow={'certificates'}
+              flow={flow}
+              setFlow={setFlow}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
             />
           </Fragment>
         )}
@@ -161,7 +174,6 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
                 </p>
               </Alert>
             }
-            <br></br> <br></br>
           </Fragment>
         )}
 
@@ -175,15 +187,38 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
           ))}
 
         {stepNumber === 2 && (
-          <div className="nsw-row" style={{ paddingTop: '30px' }}>
-            <div className="nsw-col nsw-col-md-6" style={{ padding: 'inherit' }}>
+          <div
+            className="nsw-row"
+            style={{
+              paddingLeft: 'inherit',
+              paddingRight: 'inherit',
+              paddingTop: '30px',
+              width: '80%',
+            }}
+          >
+            <div className="nsw-col-md-9" style={{ padding: 'inherit' }}>
               <Button
-                as="light"
+                style={{ float: 'left' }}
+                as="dark-outline-solid"
                 onClick={(e) => {
+                  setFlow('backward');
                   setStepNumber(stepNumber - 1);
                 }}
               >
                 Back
+              </Button>
+            </div>
+
+            <div className="nsw-col-md-3" style={{ paddingTop: '30px' }}>
+              <Button
+                style={{ float: 'right' }}
+                as="dark"
+                link="/"
+                onClick={(e) => {
+                  // setStepNumber(stepNumber - 1);
+                }}
+              >
+                Start Over
               </Button>
             </div>
           </div>

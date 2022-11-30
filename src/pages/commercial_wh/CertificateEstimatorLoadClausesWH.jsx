@@ -28,6 +28,14 @@ export default function CertificateEstimatorLoadClausesWH(props) {
     setCalculationResult2,
     zone,
     postcode,
+    formValues,
+    setFormValues,
+    selectedBrand,
+    selectedModel,
+    flow,
+    setFlow,
+    persistFormValues,
+    setPersistFormValues,
   } = props;
 
   console.log(variableToLoad1);
@@ -43,7 +51,7 @@ export default function CertificateEstimatorLoadClausesWH(props) {
   const [calculationDate, setCalculationDate] = useState(moment(today).format('YYYY-MM-DD'));
   const [dateInvalid, setDateInvalid] = useState(false);
 
-  const [formValues, setFormValues] = useState([]);
+  // const [formValues, setFormValues] = useState([]);
   const [dependencies, setDependencies] = useState([]);
 
   const [loading, setLoading] = useState(true);
@@ -144,6 +152,16 @@ export default function CertificateEstimatorLoadClausesWH(props) {
         }
       });
 
+      if (persistFormValues.length > 1 && flow === 'backward') {
+        array1.map((e) => {
+          let found = persistFormValues.find((f) => e.name === f.name);
+          if (found !== undefined) {
+            e['form_value'] = found['form_value'];
+          }
+          return e;
+        });
+      }
+
       array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
 
       setFormValues(array1);
@@ -188,6 +206,12 @@ export default function CertificateEstimatorLoadClausesWH(props) {
               dependencies={dependencies}
               metadata={metadata}
               workflow={'certificates'}
+              selectedBrand={selectedBrand}
+              selectedModel={selectedModel}
+              flow={flow}
+              setFlow={setFlow}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
             />
           </Fragment>
         )}
@@ -212,7 +236,6 @@ export default function CertificateEstimatorLoadClausesWH(props) {
                 </p>
               </Alert>
             }
-            <br></br> <br></br>
           </Fragment>
         )}
 
@@ -224,15 +247,38 @@ export default function CertificateEstimatorLoadClausesWH(props) {
           ))}
 
         {stepNumber === 3 && (
-          <div className="nsw-row" style={{ paddingTop: '30px' }}>
-            <div className="nsw-col nsw-col-md-6" style={{ padding: 'inherit' }}>
+          <div
+            className="nsw-row"
+            style={{
+              paddingLeft: 'inherit',
+              paddingRight: 'inherit',
+              paddingTop: '30px',
+              width: '80%',
+            }}
+          >
+            <div className="nsw-col-md-9" style={{ padding: 'inherit' }}>
               <Button
-                as="light"
+                style={{ float: 'left' }}
+                as="dark-outline-solid"
                 onClick={(e) => {
+                  setFlow('backward');
                   setStepNumber(stepNumber - 1);
                 }}
               >
                 Back
+              </Button>
+            </div>
+
+            <div className="nsw-col-md-3" style={{ paddingTop: '30px' }}>
+              <Button
+                style={{ float: 'right' }}
+                as="dark"
+                link="/"
+                onClick={(e) => {
+                  // setStepNumber(stepNumber - 1);
+                }}
+              >
+                Start Over
               </Button>
             </div>
           </div>

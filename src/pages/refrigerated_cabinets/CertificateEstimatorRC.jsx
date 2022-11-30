@@ -36,6 +36,8 @@ export default function CertificateEstimatorRC(props) {
   const [postcode, setPostcode] = useState(null);
   const [zone, setZone] = useState(null);
   const [registryData, setRegistryData] = useState(true);
+  const [flow, setFlow] = useState(null);
+  const [persistFormValues, setPersistFormValues] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -276,9 +278,17 @@ export default function CertificateEstimatorRC(props) {
               setStepNumber={setStepNumber}
               postcode={postcode}
               zone={zone}
+              formValues={formValues}
+              setFormValues={setFormValues}
+              selectedBrand={selectedBrand}
+              selectedModel={selectedModel}
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}
+              flow={flow}
+              setFlow={setFlow}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
             />
           )}
 
@@ -299,6 +309,14 @@ export default function CertificateEstimatorRC(props) {
               stepNumber={stepNumber}
               setStepNumber={setStepNumber}
               zone={zone}
+              formValues={formValues}
+              setFormValues={setFormValues}
+              selectedBrand={selectedBrand}
+              selectedModel={selectedModel}
+              flow={flow}
+              setFlow={setFlow}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
             />
           )}
 
@@ -310,14 +328,14 @@ export default function CertificateEstimatorRC(props) {
             postcode.length === 4 &&
             selectedBrand &&
             selectedModel && (
-              <div className="nsw-row" style={{ paddingTop: '30px' }}>
-                <div className="nsw-col" style={{ padding: 'inherit', width: '80%' }}>
+              <div className="nsw-row" style={{ paddingTop: '30px', width: '80%' }}>
+                <div className="nsw-col" style={{ padding: 'inherit' }}>
                   <Button
                     as="dark"
                     onClick={(e) => {
+                      setFlow(null);
                       setStepNumber(stepNumber + 1);
                     }}
-                    style={{ float: 'right' }}
                   >
                     Next
                   </Button>

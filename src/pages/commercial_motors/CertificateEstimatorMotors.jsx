@@ -31,6 +31,8 @@ export default function CertificateEstimatorMotors(props) {
   const [registryData, setRegistryData] = useState(true);
   const [variableData1, setVariableData1] = useState([]);
   const [variableData2, setVariableData2] = useState([]);
+  const [persistFormValues, setPersistFormValues] = useState([]);
+  const [flow, setFlow] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -115,86 +117,11 @@ export default function CertificateEstimatorMotors(props) {
           </div>
         </div>
 
-        {/* <p className="nsw-content-block__copy">
-          <b> Commercial motors certificate estimator</b>
-        </p> */}
         <br></br>
 
         <ProgressIndicator step={stepNumber} of={2} style={{ width: '80%' }} />
 
         <Fragment>
-          {/* {stepNumber === 1 && (
-            <div className="nsw-row">
-              <div className="nsw-col" style={{ padding: 'inherit' }}>
-                <div className="nsw-content-block">
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <div className="nsw-content-block__content">
-                    <h5 className="nsw-content-block__copy">
-                      <b>Answer the following questions to calculate your ESCs and PRCs</b>
-                    </h5>
-
-                    <FormGroup
-                      label="Postcode"
-                      helper="What is your postcode?" // helper text (secondary label)
-                      errorText="Invalid value!" // error text if invalid
-                    >
-                      <TextInput
-                        style={{ maxWidth: '50%' }}
-                        as="input"
-                        type="number"
-                        placeholder="Enter value"
-                        value={postcode}
-                        onChange={(e) => {
-                          setPostcode(e.target.value);
-                        }}
-                        required
-                      />
-                    </FormGroup>
-                    <FormGroup
-                      label="Brand"
-                      helper="Select commercial air conditioner brand" // primary question text
-                      errorText="Invalid value!" // error text if invalid
-                    >
-                      <Select
-                        style={{ maxWidth: '50%' }}
-                        options={dropdownOptions}
-                        onChange={(e) => {
-                          setSelectedBrand(hvacBrands.find((item) => item === e.target.value));
-                        }}
-                        value={selectedBrand}
-                        required
-                      />
-                    </FormGroup>
-
-                    <FormGroup
-                      label="Model"
-                      helper="Select commercial air conditioner model" // primary question text
-                      errorText="Invalid value!" // error text if invalid
-                    >
-                      <Select
-                        style={{ maxWidth: '50%' }}
-                        options={dropdownOptionsModels}
-                        onChange={(e) => {
-                          setSelectedModel(models.find((item) => item === e.target.value));
-                        }}
-                        value={selectedModel}
-                        required
-                      />
-                    </FormGroup>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {stepNumber === 1 && !registryData && (
-            <Notification as="error" title="Sorry! An error has occurred.">
-              <p>Unable to load data from the product registry. Please try again later.</p>
-            </Notification>
-          )} */}
-
           {stepNumber === 1 && loading && <SpinnerFullscreen />}
 
           {stepNumber === 1 && (
@@ -214,6 +141,12 @@ export default function CertificateEstimatorMotors(props) {
               setCalculationError2={setCalculationError2}
               stepNumber={stepNumber}
               setStepNumber={setStepNumber}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
+              formValues={formValues}
+              setFormValues={setFormValues}
+              flow={flow}
+              setFlow={setFlow}
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}
@@ -235,10 +168,14 @@ export default function CertificateEstimatorMotors(props) {
               setCalculationResult2={setCalculationResult2}
               stepNumber={stepNumber}
               setStepNumber={setStepNumber}
+              formValues={formValues}
+              setFormValues={setFormValues}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
+              flow={flow}
+              setFlow={setFlow}
             />
           )}
-
-          {/* {stepNumber === 3 && !calculationResult && !calculationResult2 && <SpinnerFullscreen />} */}
 
           {stepNumber === 2 && calculationError && calculationError2 && <SpinnerFullscreen />}
 
@@ -248,6 +185,7 @@ export default function CertificateEstimatorMotors(props) {
                 <Button
                   as="dark"
                   onClick={(e) => {
+                    setFlow('forward');
                     setStepNumber(stepNumber + 1);
                   }}
                   style={{ float: 'right' }}

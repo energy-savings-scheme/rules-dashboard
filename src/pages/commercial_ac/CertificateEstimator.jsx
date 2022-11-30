@@ -46,6 +46,8 @@ export default function CertificateEstimatorHVAC(props) {
   const [postcode, setPostcode] = useState(null);
   const [zone, setZone] = useState(null);
   const [registryData, setRegistryData] = useState(true);
+  const [flow, setFlow] = useState(null);
+  const [persistFormValues, setPersistFormValues] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -102,7 +104,6 @@ export default function CertificateEstimatorHVAC(props) {
 
   useEffect(() => {
     setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
-
     models.forEach((item) => populateModelDropDown({ text: item, value: item }));
   }, [models]);
 
@@ -114,7 +115,6 @@ export default function CertificateEstimatorHVAC(props) {
       brand: selectedBrand,
       model: selectedModel,
     };
-    console.log(payload);
     RegistryApi.getHvacModelsMetadata(payload)
       .then((res) => {
         setMetadata(res.data);
@@ -122,8 +122,6 @@ export default function CertificateEstimatorHVAC(props) {
       .catch((err) => {
         console.log(err);
       });
-
-    console.log(metadata);
   }, [selectedModel]);
 
   useEffect(() => {
@@ -133,8 +131,6 @@ export default function CertificateEstimatorHVAC(props) {
   }, [hvacBrands]);
 
   useEffect(() => {
-    console.log(selectedBrand);
-
     RegistryApi.listHvacModels(selectedBrand)
       .then((res) => {
         setModels(res.data);
@@ -144,8 +140,6 @@ export default function CertificateEstimatorHVAC(props) {
         console.log(err);
         setRegistryData(false);
       });
-
-    console.log(models);
   }, [selectedBrand]);
 
   useEffect(() => {
@@ -166,13 +160,10 @@ export default function CertificateEstimatorHVAC(props) {
         var result =
           res.data.buildings.building_1['HVAC2_get_climate_zone_by_postcode']['2021-01-01'];
         setZone(result);
-        console.log(result);
       })
       .catch((err) => {
         console.log(err);
       });
-
-    console.log(zone);
   }, [postcode]);
 
   return (
@@ -312,9 +303,17 @@ export default function CertificateEstimatorHVAC(props) {
               setStepNumber={setStepNumber}
               postcode={postcode}
               zone={zone}
+              formValues={formValues}
+              setFormValues={setFormValues}
+              selectedBrand={selectedBrand}
+              selectedModel={selectedModel}
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}
+              flow={flow}
+              setFlow={setFlow}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
             />
           )}
 
@@ -334,10 +333,16 @@ export default function CertificateEstimatorHVAC(props) {
               stepNumber={stepNumber}
               setStepNumber={setStepNumber}
               zone={zone}
+              formValues={formValues}
+              setFormValues={setFormValues}
+              selectedBrand={selectedBrand}
+              selectedModel={selectedModel}
+              flow={flow}
+              setFlow={setFlow}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
             />
           )}
-
-          {/* {stepNumber === 3 && !calculationResult && !calculationResult2 && <SpinnerFullscreen />} */}
 
           {stepNumber === 3 && calculationError && calculationError2 && <SpinnerFullscreen />}
 
@@ -347,14 +352,14 @@ export default function CertificateEstimatorHVAC(props) {
             postcode.length === 4 &&
             selectedBrand &&
             selectedModel && (
-              <div className="nsw-row" style={{ paddingTop: '30px' }}>
-                <div className="nsw-col" style={{ padding: 'inherit', width: '80%' }}>
+              <div className="nsw-row" style={{ paddingTop: '30px', width: '80%' }}>
+                <div className="nsw-col" style={{ padding: 'inherit' }}>
                   <Button
                     as="dark"
                     onClick={(e) => {
+                      setFlow(null);
                       setStepNumber(stepNumber + 1);
                     }}
-                    style={{ float: 'right' }}
                   >
                     Next
                   </Button>

@@ -38,9 +38,13 @@ export default function CertificateEstimatorResidentialAC(props) {
   const [postcode, setPostcode] = useState(null);
   const [zone, setZone] = useState(null);
   const [registryData, setRegistryData] = useState(true);
+  const [flow, setFlow] = useState(null);
+  const [persistFormValues, setPersistFormValues] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    setDropdownOptions([{ value: '', text: 'Please select brand' }]);
 
     if (variables.length < 1) {
       OpenFiscaAPI.listEntities()
@@ -117,7 +121,6 @@ export default function CertificateEstimatorResidentialAC(props) {
 
   useEffect(() => {
     if (hvacBrands.length > 1) {
-      setDropdownOptions([{ value: '', text: 'Please select brand' }]);
       hvacBrands.forEach((item) => populateDropDown({ text: item, value: item }));
     }
   }, [hvacBrands]);
@@ -306,6 +309,14 @@ export default function CertificateEstimatorResidentialAC(props) {
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}
+              formValues={formValues}
+              setFormValues={setFormValues}
+              selectedBrand={selectedBrand}
+              selectedModel={selectedModel}
+              flow={flow}
+              setFlow={setFlow}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
             />
           )}
 
@@ -327,6 +338,14 @@ export default function CertificateEstimatorResidentialAC(props) {
               stepNumber={stepNumber}
               setStepNumber={setStepNumber}
               zone={zone}
+              formValues={formValues}
+              setFormValues={setFormValues}
+              selectedBrand={selectedBrand}
+              selectedModel={selectedModel}
+              flow={flow}
+              setFlow={setFlow}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
             />
           )}
 
@@ -336,14 +355,14 @@ export default function CertificateEstimatorResidentialAC(props) {
             postcode.length === 4 &&
             selectedBrand &&
             selectedModel && (
-              <div className="nsw-row" style={{ paddingTop: '30px' }}>
-                <div className="nsw-col" style={{ padding: 'inherit', width: '80%' }}>
+              <div className="nsw-row" style={{ paddingTop: '30px', width: '80%' }}>
+                <div className="nsw-col" style={{ padding: 'inherit' }}>
                   <Button
                     as="dark"
                     onClick={(e) => {
+                      setFlow(null);
                       setStepNumber(stepNumber + 1);
                     }}
-                    style={{ float: 'right' }}
                   >
                     Next
                   </Button>

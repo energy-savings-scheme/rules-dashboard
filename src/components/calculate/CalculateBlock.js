@@ -28,6 +28,12 @@ export default function CalculateBlock(props) {
     metadata,
     zone,
     workflow,
+    selectedBrand,
+    selectedModel,
+    flow,
+    setFlow,
+    persistFormValues,
+    setPersistFormValues,
   } = props;
 
   if (metadata) {
@@ -334,7 +340,6 @@ export default function CalculateBlock(props) {
         }
 
         if (e.target.value === 'cold_zone' && heating_capacity === true) {
-          console.log('i am in here cold zone and true');
           if (formValues.find((o) => o.name === 'HVAC2_HSPF_cold') === undefined) {
             formValues.push(dependencies.find((o) => o.name === 'HVAC2_HSPF_cold'));
           }
@@ -425,9 +430,15 @@ export default function CalculateBlock(props) {
       setStepNumber={setStepNumber}
       dependencies={dependencies}
       workflow={workflow}
+      selectedBrand={selectedBrand}
+      selectedModel={selectedModel}
       backAction={(e) => {
         setStepNumber(stepNumber - 1);
       }}
+      flow={flow}
+      setFlow={setFlow}
+      persistFormValues={persistFormValues}
+      setPersistFormValues={setPersistFormValues}
     >
       {formValues.map((formItem, index) => renderFormField(formItem))}
     </CalculateForm>
