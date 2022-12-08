@@ -411,7 +411,7 @@ export default function CalculateBlock(props) {
     } else if (formItem.value_type == 'String' && formItem.name !== 'RF2_product_class') {
       return <DropDownMenu formItem={formItem} setItemValue={setItemValue} />;
     } else if (formItem.value_type == 'Boolean') {
-      <RadioButton formItem={formItem} setItemValue={setItemValue} />;
+      return <RadioButton formItem={formItem} setItemValue={setItemValue} />;
     }
   };
 
