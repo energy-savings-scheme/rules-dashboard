@@ -144,6 +144,10 @@ export default function CertificateEstimatorLoadClauses(props) {
           formItem.form_value = metadata[`Commercial thec_${zone}`];
         }
 
+        if (formItem.name === "HVAC2_TCSPF_mixed") {
+          formItem.form_value = metadata["Commercial TCSPF_mixed"];
+        }
+
         if (formItem.name === 'HVAC2_input_power' && metadata['Input Power'] != '') {
           formItem.form_value = metadata['Input Power'];
         }
@@ -279,7 +283,7 @@ export default function CertificateEstimatorLoadClauses(props) {
                   // setStepNumber(stepNumber - 1);
                 }}
               >
-                Start Over
+                Change Activity
               </Button>
             </div>
           </div>

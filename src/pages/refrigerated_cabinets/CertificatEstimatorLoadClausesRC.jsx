@@ -295,7 +295,7 @@ export default function CertificateEstimatorLoadClausesRC(props) {
                   // setStepNumber(stepNumber - 1);
                 }}
               >
-                Start Over
+                Change Activity
               </Button>
             </div>
           </div>
