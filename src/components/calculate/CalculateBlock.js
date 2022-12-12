@@ -400,25 +400,31 @@ export default function CalculateBlock(props) {
       );
     };
 
-    if (formItem.name !== "HVAC1_TCSPF_mixed" && formItem.name !== "HVAC1_HSPF_cold"
-      && formItem.name !== "HVAC1_HSPF_mixed" && formItem.name !== "HVAC1_input_power"
-      && formItem.name !== "HVAC2_TCSPF_mixed" && formItem.name !== "HVAC2_HSPF_mixed"
-      && formItem.name !== "HVAC2_HSPF_cold" && formItem.name !== "HVAC2_input_power") {
-    if (formItem.value_type == 'Float') {
-      return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
-    } else if (formItem.value_type == 'Int') {
-      return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
-    } else if (formItem.value_type == 'Date') {
-      return <DateInput formItem={formItem} setItemValue={setItemValue} />;
-    } else if (formItem.value_type == 'String' && formItem.name === 'RF2_product_class') {
-      return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
-    } else if (formItem.value_type == 'String' && formItem.name !== 'RF2_product_class') {
-      return <DropDownMenu formItem={formItem} setItemValue={setItemValue} />;
-    } else if (formItem.value_type == 'Boolean') {
-      return <RadioButton formItem={formItem} setItemValue={setItemValue} />;
+    if (
+      formItem.name !== 'HVAC1_TCSPF_mixed' &&
+      formItem.name !== 'HVAC1_HSPF_cold' &&
+      formItem.name !== 'HVAC1_HSPF_mixed' &&
+      formItem.name !== 'HVAC1_input_power' &&
+      formItem.name !== 'HVAC2_TCSPF_mixed' &&
+      formItem.name !== 'HVAC2_HSPF_mixed' &&
+      formItem.name !== 'HVAC2_HSPF_cold' &&
+      formItem.name !== 'HVAC2_input_power'
+    ) {
+      if (formItem.value_type == 'Float') {
+        return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
+      } else if (formItem.value_type == 'Int') {
+        return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
+      } else if (formItem.value_type == 'Date') {
+        return <DateInput formItem={formItem} setItemValue={setItemValue} />;
+      } else if (formItem.value_type == 'String' && formItem.name === 'RF2_product_class') {
+        return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
+      } else if (formItem.value_type == 'String' && formItem.name !== 'RF2_product_class') {
+        return <DropDownMenu formItem={formItem} setItemValue={setItemValue} />;
+      } else if (formItem.value_type == 'Boolean') {
+        return <RadioButton formItem={formItem} setItemValue={setItemValue} />;
+      }
     }
-  }
-};
+  };
 
   return (
     <CalculateForm
