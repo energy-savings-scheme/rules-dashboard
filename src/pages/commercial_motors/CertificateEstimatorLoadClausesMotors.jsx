@@ -218,7 +218,7 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
                   // setStepNumber(stepNumber - 1);
                 }}
               >
-                Start Over
+                Change Activity
               </Button>
             </div>
           </div>

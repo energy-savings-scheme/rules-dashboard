@@ -155,6 +155,16 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
           formItem.form_value = metadata['Heating Capacity'];
         }
 
+        if (formItem.name === 'HVAC1_TCSPF_mixed') {
+          formItem.form_value = metadata['Residential TCSPF_mixed'];
+        }
+        if (formItem.name === 'HVAC1_HSPF_cold') {
+          formItem.form_value = metadata['Residential HSPF_cold'];
+        }
+        if (formItem.name === 'HVAC1_HSPF_mixed') {
+          formItem.form_value = metadata['Residential HSPF_mixed'];
+        }
+
         if (formItem.name === 'HVAC1_input_power' && metadata['Input Power'] != '') {
           formItem.form_value = metadata['Input Power'];
         }
@@ -291,7 +301,7 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
                   // setStepNumber(stepNumber - 1);
                 }}
               >
-                Start Over
+                Change Activity
               </Button>
             </div>
           </div>
