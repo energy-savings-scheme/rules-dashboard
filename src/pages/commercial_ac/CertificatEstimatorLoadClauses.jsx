@@ -144,8 +144,8 @@ export default function CertificateEstimatorLoadClauses(props) {
           formItem.form_value = metadata[`Commercial thec_${zone}`];
         }
 
-        if (formItem.name === "HVAC2_TCSPF_mixed") {
-          formItem.form_value = metadata["Commercial TCSPF_mixed"];
+        if (formItem.name === 'HVAC2_TCSPF_mixed') {
+          formItem.form_value = metadata['Commercial TCSPF_mixed'];
         }
 
         if (formItem.name === 'HVAC2_input_power' && metadata['Input Power'] != '') {
