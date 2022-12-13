@@ -68,7 +68,7 @@ export default function Homepage(props) {
         <div class="nsw-container" style={{ paddingBottom: '4rem' }}>
           <div class="nsw-layout">
             <div class="nsw-layout__main">
-              <h2 className="nsw-col nsw-content-block__title">Residential</h2>
+              <h2 className="nsw-col nsw-content-block__title">Residential and Small Business</h2>
               <div class="nsw-grid">
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
                   <Card

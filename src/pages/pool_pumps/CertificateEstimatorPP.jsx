@@ -91,14 +91,14 @@ export default function CertificateEstimatorPP(props) {
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <h2 className="nsw-content-block__title">
-              Residential Pool Pump Certificate Estimator
+            Residential and Small Business Pool Pump Certificate Estimator
             </h2>
             {/* <h5 className="nsw-content-block__copy">
               Energy Savings Scheme and Peak Demand Reduction Scheme
             </h5> */}
             <br></br>
             <p className="nsw-content-block__copy">
-              Estimate your ESCs and PRCs for the Residential Pool Pumps Activity (D5 in the ESS and
+              Estimate your ESCs and PRCs for the Residential and Small Business Pool Pumps Activity (D5 in the ESS and
               SYS2 in the PDRS) by answering the following questions.
             </p>
             <p className="nsw-content-block__copy">

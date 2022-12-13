@@ -189,14 +189,14 @@ export default function CertificateEstimatorResidentialAC(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-              Residential Air Conditioner Certificate Estimator
+            Residential and Small Business Air Conditioner Certificate Estimator
             </h2>
             {/* <h5 className="nsw-content-block__copy">
               Energy Savings Scheme and Peak Demand Reduction Scheme
             </h5> */}
             <br></br>
             <p className="nsw-content-block__copy">
-              Estimate your ESCs and PRCs for the Residential Air Conditioner Activity (D16 in the
+              Estimate your ESCs and PRCs for the Residential and Small Business Air Conditioner Activity (D16 in the
               ESS and HVAC1 in the PDRS) by answering the following questions.
             </p>
             <p className="nsw-content-block__copy">
