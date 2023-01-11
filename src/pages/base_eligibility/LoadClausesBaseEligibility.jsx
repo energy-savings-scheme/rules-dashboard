@@ -14,7 +14,6 @@ import OpenFiscaApi from 'services/openfisca_api';
 import Alert from 'nsw-ds-react/alert/alert';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 
-
 export default function LoadClausesBaseEligibility(props) {
   const {
     variableToLoad,
@@ -26,7 +25,7 @@ export default function LoadClausesBaseEligibility(props) {
     setFormValues,
     dependencies,
     clausesForm,
-    setClausesForm
+    setClausesForm,
   } = props;
 
   console.log(variableToLoad);
@@ -47,13 +46,19 @@ export default function LoadClausesBaseEligibility(props) {
 
   useEffect(() => {
     if (stepNumber === 1) {
-        setCalculationResult(null);
+      setCalculationResult(null);
     }
-  }, [stepNumber])
+  }, [stepNumber]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+//   useEffect(() => {
+//       if (stepNumber === 1) {
+//           setClausesForm([]);
+//       }
+//   }, [stepNumber])
 
   useEffect(() => {
     OpenFiscaApi.getVariable(variableToLoad)
@@ -65,8 +70,6 @@ export default function LoadClausesBaseEligibility(props) {
         console.log(err);
       });
   }, [variableToLoad]);
-
-
 
   const formatResultString = (result) => {
     if (typeof result === 'boolean') {
@@ -81,14 +84,14 @@ export default function LoadClausesBaseEligibility(props) {
   };
 
   const formatBooleanToString = (result) => {
-    const s = String(result)
-    return s[0].toUpperCase() + s.slice(1)
+    const s = String(result);
+    return s[0].toUpperCase() + s.slice(1);
   };
 
   if (!variable) return null;
 
   return (
-    <div className style={{marginBottom: '7%'}}>
+    <div className style={{ marginBottom: '7%' }}>
       <div>
         {stepNumber === 1 && (
           <Fragment>
@@ -170,46 +173,56 @@ export default function LoadClausesBaseEligibility(props) {
         )}
 
         {stepNumber === 2 && calculationResult !== null && (
-                      <Fragment>
-                      {
-                          <div style={{ marginTop: '5%'}}>
-                        <Alert as="info" title="ESCs and PRCs" style={{ width: '80%' }}>
-                          <p>
-                            {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
-                            Based on the information provided {formatResultString(calculationResult)}.
-                          </p>
-                        </Alert>
+          <Fragment>
+            {
+              <div style={{ marginTop: '5%' }}>
+                <Alert as="info" title="ESCs and PRCs" style={{ width: '80%' }}>
+                  <p>
+                    {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
+                    Based on the information provided {formatResultString(calculationResult)}.
+                  </p>
+                </Alert>
 
-                        {calculationResult === false && <Alert as="warning" title="The following answers were ineligible:" style={{ width: '80%' }}>
-                        <p>
-                                   { clausesForm.length > 0 && clausesForm.map((item, i) => (
-                <React.Fragment>
-                <div class="nsw-global-alert__title">{item.metadata.display_question} : {formatBooleanToString(item.default_value)}</div>
-                <br></br>
-                <p>{item.metadata.eligibility_clause}</p>
-                <br></br>
-                </React.Fragment>
-                ))
+                {calculationResult === false && (
+                  <Alert
+                    as="warning"
+                    title="The following answers were ineligible:"
+                    style={{ width: '80%' }}
+                  >
+                    <p>
+                      {clausesForm.length > 0 &&
+                        clausesForm.map((item, i) => (
+                          <React.Fragment>
+                            <div class="nsw-global-alert__title">
+                              {item.metadata.display_question} :{' '}
+                              {formatBooleanToString(item.default_value)}
+                            </div>
+                            <br></br>
+                            <p>{item.metadata.eligibility_clause}</p>
+                            <br></br>
+                          </React.Fragment>
+                        ))}
+                    </p>
+                  </Alert>
+                )}
+              </div>
             }
-                        </p>
-                        </Alert> }
-                        </div>
-                      }
-                    </Fragment>
+          </Fragment>
         )}
 
-            {stepNumber === 2 && loading && <SpinnerFullscreen />}
+        {stepNumber === 2 && loading && <SpinnerFullscreen />}
 
-            {stepNumber === 2 && calculationError && (
-              <Alert as="error" title="Sorry! An error has occurred.">
-                <p>
-                  An error occurred during calculation. Please try again.
-                </p>
-              </Alert>
-            )}
+        {stepNumber === 2 && calculationError && (
+          <Alert as="error" title="Sorry! An error has occurred.">
+            <p>An error occurred during calculation. Please try again.</p>
+          </Alert>
+        )}
 
-            {stepNumber === 2 && (
-            <div className="nsw-col-md-9" style={{ padding: 'inherit', marginTop: '5%', marginBottom: '5%' }}>
+        {stepNumber === 2 && (
+          <div
+            className="nsw-col-md-9"
+            style={{ padding: 'inherit', marginTop: '5%', marginBottom: '5%' }}
+          >
             <Button
               style={{ float: 'left' }}
               as="dark"
@@ -221,7 +234,7 @@ export default function LoadClausesBaseEligibility(props) {
               Check base eligibility again
             </Button>
           </div>
-            )}
+        )}
       </div>
     </div>
   );

@@ -199,7 +199,7 @@ function App() {
             setLoading={setLoading}
           />
         </Route>
-        
+
         <Route path="/base-eligibility" exact>
           <Breadcrumb />
           <BaseEligibility

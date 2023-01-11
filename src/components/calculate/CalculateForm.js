@@ -78,25 +78,24 @@ export default function CalculateForm(props) {
     };
 
     if (workflow === 'eligibility') {
+      formValues
+        .filter((x) => x.hide === false)
+        .map((variable) => {
+          const variable_entity = entities.find((item) => item.name === variable.entity);
 
-    formValues.filter(x => x.hide === false).map((variable) => {
+          payload[variable_entity.plural][`${variable_entity.name}_1`][`${variable.name}`] = {
+            [date]: validateDataType(variable).form_value,
+          };
+        });
+    } else {
+      formValues.map((variable) => {
+        const variable_entity = entities.find((item) => item.name === variable.entity);
 
-      const variable_entity = entities.find((item) => item.name === variable.entity);
-
-      payload[variable_entity.plural][`${variable_entity.name}_1`][`${variable.name}`] = {
-        [date]: validateDataType(variable).form_value,
-      };
-    });
-  } else {
-    formValues.map((variable) => {
-
-      const variable_entity = entities.find((item) => item.name === variable.entity);
-
-      payload[variable_entity.plural][`${variable_entity.name}_1`][`${variable.name}`] = {
-        [date]: validateDataType(variable).form_value,
-      };
-    });
-  }
+        payload[variable_entity.plural][`${variable_entity.name}_1`][`${variable.name}`] = {
+          [date]: validateDataType(variable).form_value,
+        };
+      });
+    }
 
     console.log('payload', payload);
 
@@ -145,7 +144,7 @@ export default function CalculateForm(props) {
           setCalculationError2(true);
           console.log(err);
         })
-        .finally(() => { 
+        .finally(() => {
           setLoading(false);
         });
     }
