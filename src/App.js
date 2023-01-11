@@ -4,7 +4,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 // Import Pages
 import CalculatePage from 'pages/calculate/CalculatePage';
 import Homepage from 'pages/homepage/Homepage';
-import BaseEligibilityCommercialAC from 'pages/commercial_ac/BaseEligibilityCommercialAcPage';
+import BaseEligibilityCommercialAC from 'pages/base_eligibility/BaseEligibility';
 import BaseEligibilityCommercialWH from 'pages/commercial_wh/BaseEligibilityCommercialWhPage';
 import ActivityRequirementsCommercialAC from 'pages/commercial_ac/ActivityRequirementsAirCon';
 
@@ -33,6 +33,7 @@ import CertificateEstimatorRC from 'pages/refrigerated_cabinets/CertificateEstim
 import CertificateEstimatorPP from 'pages/pool_pumps/CertificateEstimatorPP';
 import CertificateEstimatorMotors from 'pages/commercial_motors/CertificateEstimatorMotors';
 import CertificateEstimatorRefrigerators from 'pages/residential_refrigerators/CertificateEstimatorRefrigerators';
+import BaseEligibility from 'pages/base_eligibility/BaseEligibility';
 
 function App() {
   const [entities, setEntities] = useState([]);
@@ -190,6 +191,18 @@ function App() {
         <Route path="/residential-refrigerators-estimator" exact>
           <Breadcrumb />
           <CertificateEstimatorRefrigerators
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        
+        <Route path="/base-eligibility" exact>
+          <Breadcrumb />
+          <BaseEligibility
             entities={entities}
             variables={variables}
             loading={loading}

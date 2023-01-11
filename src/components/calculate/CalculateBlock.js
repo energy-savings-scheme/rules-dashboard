@@ -56,6 +56,59 @@ export default function CalculateBlock(props) {
   };
 
   const renderFormField = (formItem) => {
+    console.log(dependencies);
+    if (
+      formItem.name === 'Base_meets_mandatory_requirement' &&
+      (formItem.form_value === true || formItem.default_value === true)
+    ) {
+
+      formValues.find(v => v.name === 'Base_basix_affected_development').hide = false;
+
+
+      // if (formValues.find((o) => o.name === 'Base_basix_affected_development') === undefined) {
+      //   formValues.push(dependencies.find((o) => o.name === 'Base_basix_affected_development'));
+      // }
+    } else if (      
+      formItem.name === 'Base_meets_mandatory_requirement' &&
+        (formItem.form_value === false || formItem.default_value === false)
+    ) {
+    //   if (formValues.find((o) => o.name === 'Base_basix_affected_development') !== undefined) {
+    //     removeItem(formValues, 'Base_basix_affected_development');
+    // }
+
+    formValues.find(v => v.name === 'Base_basix_affected_development').hide = true;
+  }
+
+  if (
+    formItem.name === 'Base_tradeable_certificates' &&
+    (formItem.form_value === true || formItem.default_value === true)
+  ) {
+    formValues.find(v => v.name === 'Base_replacement_water_heater_certificates').hide = false;
+    formValues.find(v => v.name === 'Base_replacement_solar_water_heater_certificates').hide = false;
+  } else if (      
+    formItem.name === 'Base_tradeable_certificates' &&
+      (formItem.form_value === false || formItem.default_value === false)
+  ) {
+    formValues.find(v => v.name === 'Base_replacement_water_heater_certificates').hide = true;
+    formValues.find(v => v.name === 'Base_replacement_solar_water_heater_certificates').hide = true;
+}
+
+  if (
+    formItem.name === 'Base_removing_or_replacing' &&
+    (formItem.form_value === true || formItem.default_value === true)
+  ) {
+
+    formValues.find(v => v.name === 'Base_resold_reused_or_refurbished').hide = false;
+    formValues.find(v => v.name === 'Base_disposal_of_equipment').hide = false;
+
+  } else if (      
+    formItem.name === 'Base_removing_or_replacing' &&
+      (formItem.form_value === false || formItem.default_value === false)
+  ) {
+    formValues.find(v => v.name === 'Base_resold_reused_or_refurbished').hide = true;
+    formValues.find(v => v.name === 'Base_disposal_of_equipment').hide = true;
+}
+
     if (formItem.name === 'SYS1_replacement_activity') {
       if (formItem.default_value === true || formItem.form_value === true) {
         if (
@@ -86,30 +139,19 @@ export default function CalculateBlock(props) {
       }
     }
 
-    if (
-      formItem.name === 'Base_registered_ACP' &&
-      (formItem.form_value === false || formItem.default_value === false)
-    ) {
-      if (formValues.find((o) => o.name === 'Base_engaged_ACP') === undefined) {
-        formValues.push(dependencies.find((o) => o.name === 'Base_engaged_ACP'));
-      }
-    }
 
     if (
       formItem.name === 'Base_registered_ACP' &&
       (formItem.form_value === false || formItem.default_value === false)
     ) {
-      if (formValues.find((o) => o.name === 'Base_engaged_ACP') === undefined) {
-        formValues.push(dependencies.find((o) => o.name === 'Base_engaged_ACP'));
-      }
+      formValues.find(v => v.name === 'Base_engaged_ACP').hide = false;
     } else if (
       formItem.name === 'Base_registered_ACP' &&
       (formItem.form_value === true || formItem.default_value === true)
     ) {
-      if (formValues.find((o) => o.name === 'Base_engaged_ACP') !== undefined) {
-        removeItem(formValues, 'Base_engaged_ACP');
-      }
+      formValues.find(v => v.name === 'Base_engaged_ACP').hide = true;
     }
+
 
     if (
       formItem.name === 'HVAC2_new_equipment_cooling_capacity' &&
@@ -153,7 +195,6 @@ export default function CalculateBlock(props) {
       formItem.name === 'HVAC2_installation' &&
       (formItem.form_value === true || formItem.default_value === true)
     ) {
-      console.log('i am here in else');
       if (formValues.find((o) => o.name === 'HVAC2_equipment_replaced') !== undefined) {
         removeItem(formValues, 'HVAC2_equipment_replaced');
       }
@@ -202,11 +243,10 @@ export default function CalculateBlock(props) {
 
       if (formItem.name === 'Base_registered_ACP') {
         if (e.target.value === 'false') {
-          if (formValues.find((o) => o.name === 'Base_engaged_ACP') === undefined) {
-            formValues.push(dependencies.find((o) => o.name === 'Base_engaged_ACP'));
-          }
+          formValues.find(v => v.name === 'Base_engaged_ACP').hide = false;
+
         } else if (e.target.value === 'true') {
-          removeItem(formValues, 'Base_engaged_ACP');
+          formValues.find(v => v.name === 'Base_engaged_ACP').hide = true;
         }
       }
 
@@ -268,7 +308,6 @@ export default function CalculateBlock(props) {
 
       if (formItem.name === 'HVAC2_installation') {
         if (e.target.value === 'false') {
-          console.log('i am in false ~');
           if (formValues.find((o) => o.name === 'HVAC2_equipment_replaced') === undefined) {
             formValues.push(dependencies.find((o) => o.name === 'HVAC2_equipment_replaced'));
           }
@@ -288,6 +327,41 @@ export default function CalculateBlock(props) {
               dependencies.find((o) => o.name === 'HVAC2_Installed_by_qualified_person'),
             );
           }
+        }
+      }
+
+      if (formItem.name === 'Base_tradeable_certificates') {
+        if (e.target.value === 'true') {
+
+          formValues.find(v => v.name === 'Base_replacement_water_heater_certificates').hide = false;
+          formValues.find(v => v.name === 'Base_replacement_solar_water_heater_certificates').hide = false;
+
+        } else {
+          formValues.find(v => v.name === 'Base_replacement_water_heater_certificates').hide = true;
+          formValues.find(v => v.name === 'Base_replacement_solar_water_heater_certificates').hide = true;
+  
+          console.log(formValues);
+        }
+      }
+
+    if (formItem.name === 'Base_removing_or_replacing') {
+      if (e.target.value === 'true') {
+        formValues.find(v => v.name === "Base_resold_reused_or_refurbished").hide = true;
+        formValues.find(v => v.name === 'Base_disposal_of_equipment').hide = true;
+      } else {
+        formValues.find(v => (v.name === "Base_resold_reused_or_refurbished")).hide = false;
+        formValues.find(v => (v.name === "Base_disposal_of_equipment")).hide = false;
+
+        console.log(formValues);
+      }
+    }
+
+      if (formItem.name === 'Base_meets_mandatory_requirement') {
+        if (e.target.value === 'true') {
+          formValues.find(v => v.name === 'Base_basix_affected_development').hide = false;
+        } else {
+          formValues.find(v => v.name === 'Base_basix_affected_development').hide = true;
+          console.log(formValues);
         }
       }
 
@@ -387,14 +461,14 @@ export default function CalculateBlock(props) {
       setFormValues(
         [...formValues].map((item) => {
           console.log(formValues);
-          if (item.name === formItem.name) {
-            if (formItem.value_type === 'Boolean') {
-              return { ...item, form_value: e.target.value === 'true' ? true : false };
+            if (item.name === formItem.name) {
+              if (formItem.value_type === 'Boolean') {
+                return { ...item, form_value: e.target.value === 'true' ? true : false };
+              } else {
+                return { ...item, form_value: e.target.value };
+              }
             } else {
-              return { ...item, form_value: e.target.value };
-            }
-          } else {
-            return item;
+              return item;
           }
         }),
       );
@@ -420,7 +494,9 @@ export default function CalculateBlock(props) {
         return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
       } else if (formItem.value_type == 'String' && formItem.name !== 'RF2_product_class') {
         return <DropDownMenu formItem={formItem} setItemValue={setItemValue} />;
-      } else if (formItem.value_type == 'Boolean') {
+      } else if (formItem.value_type == 'Boolean' && workflow === 'eligibility' && formItem.hide === false ) {
+        return <RadioButton formItem={formItem} setItemValue={setItemValue} />;
+      } else if (formItem.value_type == 'Boolean' && workflow !== 'eligibility') {
         return <RadioButton formItem={formItem} setItemValue={setItemValue} />;
       }
     }

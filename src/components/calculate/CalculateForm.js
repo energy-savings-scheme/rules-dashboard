@@ -77,13 +77,26 @@ export default function CalculateForm(props) {
       [entity.plural]: { [`${entity.name}_1`]: { [variable.name]: { [date]: null } } },
     };
 
-    formValues.map((variable) => {
+    if (workflow === 'eligibility') {
+
+    formValues.filter(x => x.hide === false).map((variable) => {
+
       const variable_entity = entities.find((item) => item.name === variable.entity);
 
       payload[variable_entity.plural][`${variable_entity.name}_1`][`${variable.name}`] = {
         [date]: validateDataType(variable).form_value,
       };
     });
+  } else {
+    formValues.map((variable) => {
+
+      const variable_entity = entities.find((item) => item.name === variable.entity);
+
+      payload[variable_entity.plural][`${variable_entity.name}_1`][`${variable.name}`] = {
+        [date]: validateDataType(variable).form_value,
+      };
+    });
+  }
 
     console.log('payload', payload);
 
@@ -93,6 +106,7 @@ export default function CalculateForm(props) {
         var result = res.data[entity.plural][`${entity.name}_1`][variable.name][date];
         setCalculationResult(result);
         setCalculationError(false);
+        setLoading(true);
       })
       .catch((err) => {
         setCalculationResult(null);
@@ -131,13 +145,16 @@ export default function CalculateForm(props) {
           setCalculationError2(true);
           console.log(err);
         })
-        .finally(() => {
+        .finally(() => { 
           setLoading(false);
         });
     }
 
     setStepNumber(stepNumber + 1);
-    setPersistFormValues(formValues);
+
+    if (workflow !== 'eligibility') {
+      setPersistFormValues(formValues);
+    }
   };
 
   return (
