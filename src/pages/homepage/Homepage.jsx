@@ -61,17 +61,16 @@ export default function Homepage(props) {
               <br></br>
               <h2 className="nsw-content-block__title">Schemes Base Eligibility Requirements</h2>
 
-                      <section class="nsw-section nsw-section--white">
-        <div class="nsw-container">
-          <div class="nsw-layout">
-                <p className="nsw-content-block__copy">
-                  There are <Link to="/base-eligibility"> 
-Base Eligibility Requirements </Link> that must be met across all activities
-                  in order to be eligible.
-                </p>
-            </div>
-        </div>
-      </section>
+              <section class="nsw-section nsw-section--white">
+                <div class="nsw-container">
+                  <div class="nsw-layout">
+                    <p className="nsw-content-block__copy">
+                      There are <Link to="/base-eligibility">Base Eligibility Requirements </Link>{' '}
+                      that must be met across all activities in order to be eligible.
+                    </p>
+                  </div>
+                </div>
+              </section>
               <h2 className="nsw-content-block__title">Which activity are you interested in?</h2>
             </div>
           </div>

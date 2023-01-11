@@ -16,7 +16,6 @@ export default function BaseEligibility(props) {
   const [persistFormValues, setPersistFormValues] = useState([]);
   const [clausesForm, setClausesForm] = useState([]);
 
-
   if (formValues.length === 0) {
     setLoading(true);
   } else if (variables.length === 0) {
@@ -69,7 +68,7 @@ export default function BaseEligibility(props) {
       var dep_arr = [];
 
       children.map((child) => {
-          array.push({ ...child, form_value: '', invalid: false, hide: false });
+        array.push({ ...child, form_value: '', invalid: false, hide: false });
       });
 
       array.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
@@ -87,8 +86,8 @@ export default function BaseEligibility(props) {
 
       dep_arr = array.filter((item) => names.includes(item.name));
 
-      dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }))
-      console.log(dep_arr)
+      dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }));
+      console.log(dep_arr);
 
       setFormValues(array);
       setDependencies(dep_arr);
@@ -99,19 +98,25 @@ export default function BaseEligibility(props) {
   useEffect(() => {
     console.log(formValues);
     console.log(clausesForm);
-        let a = [];
-        setClausesForm(a);
-        console.log(clausesForm);
-        formValues.filter(x => x.hide === false).map((child) => {
-            if (child.form_value !== child.default_value && clausesForm.find((o) => o.name === child.name) === undefined && child.value_type === "Boolean")
-                clausesForm.push(child);
-        });
-        setClausesForm(clausesForm)
-    
+
+    let new_arr = [];
+
+    formValues
+      .filter((x) => x.hide === false)
+      .map((child) => {
+        if (
+          child.form_value !== child.default_value &&
+          new_arr.find((o) => o.name === child.name) === undefined &&
+          child.value_type === 'Boolean'
+        )
+          new_arr.push(child);
+      });
+    setClausesForm(new_arr);
+
     console.log(clausesForm);
   }, [stepNumber]);
 
-  return ( 
+  return (
     <Fragment>
       {/* Search section */}
       <HeroBanner
@@ -125,14 +130,12 @@ export default function BaseEligibility(props) {
         title="Safeguard Certificate Estimator"
       />
 
-      <div className="nsw-container" style={{marginBottom: '10%'}}>
+      <div className="nsw-container" style={{ marginBottom: '10%' }}>
         <div className="nsw-grid nsw-grid--spaced">
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">
-              Schemes Base Eligibility Requirements
-            </h2>
+            <h2 className="nsw-content-block__title">Schemes Base Eligibility Requirements</h2>
             <br></br>
             <p className="nsw-content-block__copy">
               The following questions assess the basic eligibility requirements for the Energy
@@ -142,7 +145,6 @@ export default function BaseEligibility(props) {
             </p>
           </div>
         </div>
-
 
         <ProgressIndicator step={stepNumber} of={2} style={{ width: '80%' }} />
 
