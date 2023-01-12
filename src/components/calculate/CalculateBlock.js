@@ -62,18 +62,10 @@ export default function CalculateBlock(props) {
       (formItem.form_value === true || formItem.default_value === true)
     ) {
       formValues.find((v) => v.name === 'Base_basix_affected_development').hide = false;
-
-      // if (formValues.find((o) => o.name === 'Base_basix_affected_development') === undefined) {
-      //   formValues.push(dependencies.find((o) => o.name === 'Base_basix_affected_development'));
-      // }
     } else if (
       formItem.name === 'Base_meets_mandatory_requirement' &&
       (formItem.form_value === false || formItem.default_value === false)
     ) {
-      //   if (formValues.find((o) => o.name === 'Base_basix_affected_development') !== undefined) {
-      //     removeItem(formValues, 'Base_basix_affected_development');
-      // }
-
       formValues.find((v) => v.name === 'Base_basix_affected_development').hide = true;
     }
 
@@ -151,88 +143,83 @@ export default function CalculateBlock(props) {
       formValues.find((v) => v.name === 'Base_engaged_ACP').hide = true;
     }
 
+
     if (
       formItem.name === 'HVAC2_new_equipment_cooling_capacity' &&
       (formItem.form_value === false || formItem.default_value === false)
     ) {
-      if (formValues.find((o) => o.name === 'HVAC2_AEER_greater_than_minimum') === undefined) {
-        formValues.push(dependencies.find((o) => o.name === 'HVAC2_AEER_greater_than_minimum'));
-      }
-      if (formValues.find((o) => o.name === 'HVAC2_TCPSF_greater_than_minimum') !== undefined) {
-        removeItem(formValues, 'HVAC2_TCPSF_greater_than_minimum');
-      }
+      formValues.find((v) => v.name === 'HVAC2_AEER_greater_than_minimum').hide = false;
+      formValues.find((v) => v.name === 'HVAC2_TCPSF_greater_than_minimum').hide = true;
     } else if (
       formItem.name === 'HVAC2_new_equipment_cooling_capacity' &&
       (formItem.form_value === true || formItem.default_value === true)
     ) {
-      if (formValues.find((o) => o.name === 'HVAC2_TCPSF_greater_than_minimum') === undefined) {
-        formValues.push(dependencies.find((o) => o.name === 'HVAC2_TCPSF_greater_than_minimum'));
-      }
-
-      if (formValues.find((o) => o.name === 'HVAC2_AEER_greater_than_minimum') !== undefined) {
-        removeItem(formValues, 'HVAC2_AEER_greater_than_minimum');
-      }
+      formValues.find((v) => v.name === 'HVAC2_TCPSF_greater_than_minimum').hide = false;
+      formValues.find((v) => v.name === 'HVAC2_AEER_greater_than_minimum').hide = true;
     }
+
+    if (
+      formItem.name === 'HVAC1_new_equipment_cooling_capacity' &&
+      (formItem.form_value === false || formItem.default_value === false)
+    ) {
+      formValues.find((v) => v.name === 'HVAC1_AEER_greater_than_minimum').hide = false;
+      formValues.find((v) => v.name === 'HVAC1_TCPSF_greater_than_minimum').hide = true;
+    } else if (
+      formItem.name === 'HVAC1_new_equipment_cooling_capacity' &&
+      (formItem.form_value === true || formItem.default_value === true)
+    ) {
+      formValues.find((v) => v.name === 'HVAC1_TCPSF_greater_than_minimum').hide = false;
+      formValues.find((v) => v.name === 'HVAC1_AEER_greater_than_minimum').hide = true;
+    }
+
+
 
     // Installation or Replacement
     if (
       formItem.name === 'HVAC2_installation' &&
       (formItem.form_value === false || formItem.default_value === false)
     ) {
-      if (formValues.find((o) => o.name === 'HVAC2_equipment_replaced') === undefined) {
-        formValues.push(dependencies.find((o) => o.name === 'HVAC2_equipment_replaced'));
-      }
-      if (formValues.find((o) => o.name === 'HVAC2_Installed_by_qualified_person') !== undefined) {
-        removeItem(formValues, 'HVAC2_Installed_by_qualified_person');
-        console.log(formValues);
-      }
-      if (formValues.find((o) => o.name === 'HVAC2_equipment_removed') === undefined) {
-        formValues.push(dependencies.find((o) => o.name === 'HVAC2_equipment_removed'));
-      }
+      formValues.find((v) => v.name === 'HVAC2_equipment_replaced').hide = false;
+      formValues.find((v) => v.name === 'HVAC2_equipment_removed').hide = false;
+      formValues.find((v) => v.name === 'HVAC2_installed_by_qualified_person').hide = true;
     } else if (
       formItem.name === 'HVAC2_installation' &&
       (formItem.form_value === true || formItem.default_value === true)
     ) {
-      if (formValues.find((o) => o.name === 'HVAC2_equipment_replaced') !== undefined) {
-        removeItem(formValues, 'HVAC2_equipment_replaced');
-      }
-      if (formValues.find((o) => o.name === 'HVAC2_Installed_by_qualified_person') === undefined) {
-        formValues.push(dependencies.find((o) => o.name === 'HVAC2_Installed_by_qualified_person'));
-      }
-      if (formValues.find((o) => o.name === 'HVAC2_equipment_removed') !== undefined) {
-        removeItem(formValues, 'HVAC2_equipment_removed');
-      }
+      formValues.find((v) => v.name === 'HVAC2_equipment_replaced').hide = true;
+      formValues.find((v) => v.name === 'HVAC2_equipment_removed').hide = true;
+      formValues.find((v) => v.name === 'HVAC2_installed_by_qualified_person').hide = false;
     }
+
+    if (
+      formItem.name === 'HVAC1_installation' &&
+      (formItem.form_value === false || formItem.default_value === false)
+    ) {
+      formValues.find((v) => v.name === 'HVAC1_equipment_replaced').hide = false;
+      formValues.find((v) => v.name === 'HVAC1_equipment_removed').hide = false;
+      formValues.find((v) => v.name === 'HVAC1_installed_by_qualified_person').hide = true;
+    } else if (
+      formItem.name === 'HVAC1_installation' &&
+      (formItem.form_value === true || formItem.default_value === true)
+    ) {
+      formValues.find((v) => v.name === 'HVAC1_equipment_replaced').hide = true;
+      formValues.find((v) => v.name === 'HVAC1_equipment_removed').hide = true;
+      formValues.find((v) => v.name === 'HVAC1_installed_by_qualified_person').hide = false;
+    }
+
 
     if (
       formItem.name === 'HVAC2_residential_building' &&
       (formItem.form_value === true || formItem.default_value === true)
     ) {
-      if (
-        formValues.find(
-          (o) => o.name === 'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
-        ) === undefined
-      ) {
-        formValues.push(
-          dependencies.find(
-            (o) => o.name === 'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
-          ),
-        );
-      }
+      formValues.find((v) => v.name === 'HVAC2_installed_centralised_system_common_area_BCA_Class2_building').hide = false;
+
     } else if (
       formItem.name === 'HVAC2_residential_building' &&
       (formItem.form_value === false || formItem.default_value === false)
     ) {
-      if (
-        formValues.find(
-          (o) => o.name === 'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
-        ) !== undefined
-      ) {
-        removeItem(
-          formValues,
-          'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
-        );
-      }
+      formValues.find((v) => v.name === 'HVAC2_installed_centralised_system_common_area_BCA_Class2_building').hide = true;
+
     }
 
     const setItemValue = (e) => {
@@ -280,50 +267,34 @@ export default function CalculateBlock(props) {
 
       if (formItem.name === 'HVAC2_residential_building') {
         if (e.target.value === 'true') {
-          if (
-            formValues.find(
-              (o) =>
-                o.name === 'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
-            ) === undefined
-          ) {
-            formValues.push(
-              dependencies.find(
-                (o) =>
-                  o.name === 'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
-              ),
-            );
-          }
-          console.log(formValues);
+          formValues.find((v) => v.name === 'HVAC2_installed_centralised_system_common_area_BCA_Class2_building').hide = false;
         } else {
-          removeItem(
-            formValues,
-            'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
-          );
-          console.log(formValues);
-        }
+          formValues.find((v) => v.name === 'HVAC2_installed_centralised_system_common_area_BCA_Class2_building').hide = true;
       }
+    }
+
 
       if (formItem.name === 'HVAC2_installation') {
         if (e.target.value === 'false') {
-          if (formValues.find((o) => o.name === 'HVAC2_equipment_replaced') === undefined) {
-            formValues.push(dependencies.find((o) => o.name === 'HVAC2_equipment_replaced'));
-          }
-          if (formValues.find((o) => o.name === 'HVAC2_equipment_removed') === undefined) {
-            formValues.push(dependencies.find((o) => o.name === 'HVAC2_equipment_removed'));
-          }
-          removeItem(formValues, 'HVAC2_Installed_by_qualified_person');
-          console.log(formValues);
+          formValues.find((v) => v.name === 'HVAC2_equipment_replaced').hide = false;
+          formValues.find((v) => v.name === 'HVAC2_equipment_removed').hide = false;
+          formValues.find((v) => v.name === 'HVAC2_installed_by_qualified_person').hide = true;
         } else {
-          removeItem(formValues, 'HVAC2_equipment_replaced');
-          removeItem(formValues, 'HVAC2_equipment_removed');
+          formValues.find((v) => v.name === 'HVAC2_equipment_replaced').hide = true;
+          formValues.find((v) => v.name === 'HVAC2_equipment_removed').hide = true;
+          formValues.find((v) => v.name === 'HVAC2_installed_by_qualified_person').hide = false;
+        }
+      }
 
-          if (
-            formValues.find((o) => o.name === 'HVAC2_Installed_by_qualified_person') === undefined
-          ) {
-            formValues.push(
-              dependencies.find((o) => o.name === 'HVAC2_Installed_by_qualified_person'),
-            );
-          }
+      if (formItem.name === 'HVAC1_installation') {
+        if (e.target.value === 'false') {
+          formValues.find((v) => v.name === 'HVAC1_equipment_replaced').hide = false;
+          formValues.find((v) => v.name === 'HVAC1_equipment_removed').hide = false;
+          formValues.find((v) => v.name === 'HVAC1_installed_by_qualified_person').hide = true;
+        } else {
+          formValues.find((v) => v.name === 'HVAC1_equipment_replaced').hide = true;
+          formValues.find((v) => v.name === 'HVAC1_equipment_removed').hide = true;
+          formValues.find((v) => v.name === 'HVAC1_installed_by_qualified_person').hide = false;
         }
       }
 
@@ -368,39 +339,29 @@ export default function CalculateBlock(props) {
         }
       }
 
-      if (formItem.name === 'HVAC2_equipment_replaced') {
-        if (e.target.value === 'true') {
-          if (formValues.find((o) => o.name === 'HVAC2_equipment_removed') === undefined) {
-            formValues.push(dependencies.find((o) => o.name === 'HVAC2_equipment_removed'));
-          }
-        } else {
-          removeItem(formValues, 'HVAC2_equipment_removed');
-          removeItem(formValues, 'HVAC2_Installed_by_qualified_person');
-          console.log(formValues);
-        }
-      }
-
       // cooling capacity path
       if (formItem.name === 'HVAC2_new_equipment_cooling_capacity') {
         if (e.target.value === 'true') {
-          if (formValues.find((o) => o.name === 'HVAC2_TCPSF_greater_than_minimum') === undefined) {
-            formValues.push(
-              dependencies.find((o) => o.name === 'HVAC2_TCPSF_greater_than_minimum'),
-            );
-          }
-          removeItem(formValues, 'HVAC2_AEER_greater_than_minimum');
-
-          console.log(formValues);
+          formValues.find((v) => v.name === 'HVAC2_TCPSF_greater_than_minimum').hide = false;
+          formValues.find((v) => v.name === 'HVAC2_AEER_greater_than_minimum').hide = true;
         } else {
-          if (formValues.find((o) => o.name === 'HVAC2_AEER_greater_than_minimum') === undefined) {
-            formValues.push(dependencies.find((o) => o.name === 'HVAC2_AEER_greater_than_minimum'));
-          }
-          removeItem(formValues, 'HVAC2_TCPSF_greater_than_minimum');
+          formValues.find((v) => v.name === 'HVAC2_AEER_greater_than_minimum').hide = false;
+          formValues.find((v) => v.name === 'HVAC2_TCPSF_greater_than_minimum').hide = true;
+        }
+      }
+
+      if (formItem.name === 'HVAC1_new_equipment_cooling_capacity') {
+        if (e.target.value === 'true') {
+          formValues.find((v) => v.name === 'HVAC1_TCPSF_greater_than_minimum').hide = false;
+          formValues.find((v) => v.name === 'HVAC1_AEER_greater_than_minimum').hide = true;
+        } else {
+          formValues.find((v) => v.name === 'HVAC1_AEER_greater_than_minimum').hide = false;
+          formValues.find((v) => v.name === 'HVAC1_TCPSF_greater_than_minimum').hide = true;
         }
       }
 
       // Not added for page load
-      if (formItem.name === 'HVAC2_climate_zone') {
+      if (formItem.name === 'HVAC2_climate_zone' ) {
         const heating_capacity = formValues.find(
           (o) => o.name === 'HVAC2_new_equipment_heating_capacity',
         ).form_value;
@@ -411,19 +372,70 @@ export default function CalculateBlock(props) {
           heating_capacity === true
         ) {
           console.log('hot zone true');
-          if (formValues.find((o) => o.name === 'HVAC2_HSPF_mixed') === undefined) {
-            formValues.push(dependencies.find((o) => o.name === 'HVAC2_HSPF_mixed'));
-          }
-          removeItem(formValues, 'HVAC2_HSPF_cold');
-          removeItem(formValues, 'HVAC2_ACOP');
+          formValues.find((v) => v.name === 'HVAC2_HSPF_mixed_eligible').hide = false;
+          formValues.find((v) => v.name === 'HVAC2_HSPF_cold_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC2_ACOP_eligible').hide = true;
+        }
+
+        if (
+          (e.target.value === 'hot_zone' || e.target.value === 'average_zone') &&
+          heating_capacity === false
+        ) {
+          console.log('hot zone true');
+          formValues.find((v) => v.name === 'HVAC2_HSPF_mixed_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC2_HSPF_cold_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC2_ACOP_eligible').hide = false;
         }
 
         if (e.target.value === 'cold_zone' && heating_capacity === true) {
-          if (formValues.find((o) => o.name === 'HVAC2_HSPF_cold') === undefined) {
-            formValues.push(dependencies.find((o) => o.name === 'HVAC2_HSPF_cold'));
-          }
-          removeItem(formValues, 'HVAC2_HSPF_mixed');
-          removeItem(formValues, 'HVAC2_ACOP');
+          formValues.find((v) => v.name === 'HVAC2_HSPF_cold_eligible').hide = false;
+          formValues.find((v) => v.name === 'HVAC2_HSPF_mixed_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC2_ACOP_eligible').hide = true;
+        }
+
+        if (e.target.value === 'cold_zone' && heating_capacity === false) {
+          formValues.find((v) => v.name === 'HVAC2_HSPF_cold_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC2_HSPF_mixed_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC2_ACOP_eligible').hide = false;
+        }
+      }
+
+      if (formItem.name === 'HVAC1_climate_zone' ) {
+        const heating_capacity = formValues.find(
+          (o) => o.name === 'HVAC1_new_equipment_heating_capacity',
+        ).form_value;
+        console.log(heating_capacity);
+
+        if (
+          (e.target.value === 'hot_zone' || e.target.value === 'average_zone') &&
+          heating_capacity === true
+        ) {
+          console.log('hot zone true');
+          formValues.find((v) => v.name === 'HVAC1_HSPF_mixed_eligible').hide = false;
+          formValues.find((v) => v.name === 'HVAC1_HSPF_cold_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC1_ACOP_eligible').hide = true;
+        }
+
+        if (
+          (e.target.value === 'hot_zone' || e.target.value === 'average_zone') &&
+          heating_capacity === false
+        ) {
+          console.log('hot zone true');
+          formValues.find((v) => v.name === 'HVAC1_HSPF_mixed_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC1_HSPF_cold_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC1_ACOP_eligible').hide = false;
+        }
+
+        if (e.target.value === 'cold_zone' && heating_capacity === true) {
+          formValues.find((v) => v.name === 'HVAC1_HSPF_cold_eligible').hide = false;
+          formValues.find((v) => v.name === 'HVAC1_HSPF_mixed_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC1_ACOP_eligible').hide = true;
+        }
+
+        if (e.target.value === 'cold_zone' && heating_capacity === false) {
+          formValues.find((v) => v.name === 'HVAC1_HSPF_cold_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC1_HSPF_mixed_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC1_ACOP_eligible').hide = false;
         }
       }
 
@@ -432,32 +444,50 @@ export default function CalculateBlock(props) {
       if (formItem.name === 'HVAC2_new_equipment_heating_capacity') {
         const climateZone = formValues.find((o) => o.name === 'HVAC2_climate_zone').form_value;
         if (e.target.value === 'true' && climateZone === 'hot_zone') {
-          if (formValues.find((o) => o.name === 'HVAC2_HSPF_mixed') === undefined) {
-            formValues.push(dependencies.find((o) => o.name === 'HVAC2_HSPF_mixed'));
-          }
-          removeItem(formValues, 'HVAC2_HSPF_cold');
-          removeItem(formValues, 'HVAC2_ACOP');
+
+          formValues.find((v) => v.name === 'HVAC2_HSPF_mixed_eligible').hide = false;
+          formValues.find((v) => v.name === 'HVAC2_HSPF_cold_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC2_ACOP_eligible').hide = true;
         }
         if (e.target.value === 'true' && climateZone === 'average_zone') {
-          if (formValues.find((o) => o.name === 'HVAC2_HSPF_mixed') === undefined) {
-            formValues.push(dependencies.find((o) => o.name === 'HVAC2_HSPF_mixed'));
-          }
-          removeItem(formValues, 'HVAC2_HSPF_cold');
-          removeItem(formValues, 'HVAC2_ACOP');
+          formValues.find((v) => v.name === 'HVAC2_HSPF_mixed_eligible').hide = false;
+          formValues.find((v) => v.name === 'HVAC2_HSPF_cold_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC2_ACOP_eligible').hide = true;
         }
         if (e.target.value === 'true' && climateZone === 'cold_zone') {
-          if (formValues.find((o) => o.name === 'HVAC2_HSPF_cold') === undefined) {
-            formValues.push(dependencies.find((o) => o.name === 'HVAC2_HSPF_cold'));
-          }
-          removeItem(formValues, 'HVAC2_HSPF_mixed');
-          removeItem(formValues, 'HVAC2_ACOP');
+          formValues.find((v) => v.name === 'HVAC2_HSPF_cold_eligible').hide = false;
+          formValues.find((v) => v.name === 'HVAC2_HSPF_mixed_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC2_ACOP_eligible').hide = true;
         }
         if (e.target.value === 'false') {
-          if (formValues.find((o) => o.name === 'HVAC2_ACOP') === undefined) {
-            formValues.push(dependencies.find((o) => o.name === 'HVAC2_ACOP'));
-          }
-          removeItem(formValues, 'HVAC2_HSPF_mixed');
-          removeItem(formValues, 'HVAC2_HSPF_cold');
+          formValues.find((v) => v.name === 'HVAC2_HSPF_cold_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC2_HSPF_mixed_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC2_ACOP_eligible').hide = false;
+        }
+      }
+
+      if (formItem.name === 'HVAC1_new_equipment_heating_capacity') {
+        const climateZone = formValues.find((o) => o.name === 'HVAC1_climate_zone').form_value;
+        if (e.target.value === 'true' && climateZone === 'hot_zone') {
+
+          formValues.find((v) => v.name === 'HVAC1_HSPF_mixed_eligible').hide = false;
+          formValues.find((v) => v.name === 'HVAC1_HSPF_cold_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC1_ACOP_eligible').hide = true;
+        }
+        if (e.target.value === 'true' && climateZone === 'average_zone') {
+          formValues.find((v) => v.name === 'HVAC1_HSPF_mixed_eligible').hide = false;
+          formValues.find((v) => v.name === 'HVAC1_HSPF_cold_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC1_ACOP_eligible').hide = true;
+        }
+        if (e.target.value === 'true' && climateZone === 'cold_zone') {
+          formValues.find((v) => v.name === 'HVAC1_HSPF_cold_eligible').hide = false;
+          formValues.find((v) => v.name === 'HVAC1_HSPF_mixed_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC1_ACOP_eligible').hide = true;
+        }
+        if (e.target.value === 'false') {
+          formValues.find((v) => v.name === 'HVAC1_HSPF_cold_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC1_HSPF_mixed_eligible').hide = true;
+          formValues.find((v) => v.name === 'HVAC1_ACOP_eligible').hide = false;
         }
       }
 
@@ -476,6 +506,7 @@ export default function CalculateBlock(props) {
         }),
       );
     };
+
 
     if (
       formItem.name !== 'HVAC1_TCSPF_mixed' &&
@@ -503,7 +534,15 @@ export default function CalculateBlock(props) {
         formItem.hide === false
       ) {
         return <RadioButton formItem={formItem} setItemValue={setItemValue} />;
-      } else if (formItem.value_type == 'Boolean' && workflow !== 'eligibility') {
+      } 
+      else if (
+        formItem.value_type == 'Boolean' &&
+        workflow === 'activity' &&
+        formItem.hide === false
+      ) {
+        return <RadioButton formItem={formItem} setItemValue={setItemValue} />;
+      }
+      else if (formItem.value_type == 'Boolean' && workflow === 'certificates') {
         return <RadioButton formItem={formItem} setItemValue={setItemValue} />;
       }
     }
