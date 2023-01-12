@@ -7,6 +7,7 @@ import Homepage from 'pages/homepage/Homepage';
 import BaseEligibilityCommercialAC from 'pages/base_eligibility/BaseEligibility';
 import BaseEligibilityCommercialWH from 'pages/commercial_wh/BaseEligibilityCommercialWhPage';
 import ActivityRequirementsCommercialAC from 'pages/commercial_ac/ActivityRequirementsAirCon';
+import ActivityRequirementsSYS1 from 'pages/commercial_motors/ActivityRequirementsSYS1';
 
 // Import components
 import Breadcrumb from 'components/layout/Breadcrumb';
@@ -226,6 +227,17 @@ function App() {
         <Route path="/residential-ac-activity-requirements" exact>
           <Breadcrumb />
           <ActivityRequirementsResAC
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/commercial-motors-activity-requirements" exact>
+          <Breadcrumb />
+          <ActivityRequirementsSYS1
             entities={entities}
             variables={variables}
             loading={loading}
