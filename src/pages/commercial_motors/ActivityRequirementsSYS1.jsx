@@ -10,7 +10,6 @@ import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import LoadClausesSYS1 from './LoadClausesSYS1';
 
-
 export default function ActivityRequirementsSYS1(props) {
   const { entities, variables, setEntities, setVariables, loading, setLoading } = props;
 
@@ -85,28 +84,28 @@ export default function ActivityRequirementsSYS1(props) {
 
       console.log(array);
 
-    //   const names = [
-    //     'HVAC2_installed_by_qualified_person',
-    //     'HVAC2_equipment_replaced',
-    //     'HVAC2_equipment_removed',
-    //     'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
-    //     'HVAC2_AEER_greater_than_minimum',
-    //     'HVAC2_TCPSF_greater_than_minimum',
-    //     'HVAC2_HSPF_mixed_eligible',
-    //     'HVAC2_HSPF_cold_eligible',
-    //     'HVAC2_ACOP_eligible',
-    //   ];
+      //   const names = [
+      //     'HVAC2_installed_by_qualified_person',
+      //     'HVAC2_equipment_replaced',
+      //     'HVAC2_equipment_removed',
+      //     'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
+      //     'HVAC2_AEER_greater_than_minimum',
+      //     'HVAC2_TCPSF_greater_than_minimum',
+      //     'HVAC2_HSPF_mixed_eligible',
+      //     'HVAC2_HSPF_cold_eligible',
+      //     'HVAC2_ACOP_eligible',
+      //   ];
 
-    //   dep_arr = array.filter((item) => names.includes(item.name));
-    //   array.find((item) => {
-    //     if (names.includes(item.name)) {
-    //       item.hide = true;
-    //     }
-    //   });
+      //   dep_arr = array.filter((item) => names.includes(item.name));
+      //   array.find((item) => {
+      //     if (names.includes(item.name)) {
+      //       item.hide = true;
+      //     }
+      //   });
 
-    //   dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }));
+      //   dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }));
 
-    //   console.log(dep_arr);
+      //   console.log(dep_arr);
 
       setFormValues(array);
       setDependencies(dep_arr);
@@ -154,13 +153,11 @@ export default function ActivityRequirementsSYS1(props) {
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">
-              Commercial Motors Activity Requirements
-            </h2>
+            <h2 className="nsw-content-block__title">Commercial Motors Activity Requirements</h2>
             <br></br>
             <p className="nsw-content-block__copy">
-              The following questions assess the eligibility requirements for the Commercial Air
-              Conditioner Activity (F4 in the ESS and HVAC2 in the PDRS). Answer the questions to
+              The following questions assess the eligibility requirements for the Commercial Motors
+              Activity (F4 in the ESS and HVAC2 in the PDRS). Answer the questions to
               check your eligibility and click the button below to review ineligible answers and
               their corresponding rule clauses.{' '}
             </p>
