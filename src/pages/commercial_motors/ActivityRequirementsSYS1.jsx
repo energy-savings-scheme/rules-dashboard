@@ -5,19 +5,20 @@ import VariableSearchBar from 'pages/homepage/VariableSearchBar';
 import Card, { CardCopy } from 'nsw-ds-react/card/card';
 import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
-import LoadClauses from './LoadClauses';
 import OpenFiscaAPI from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
+import LoadClausesSYS1 from './LoadClausesSYS1';
 
-export default function ActivityRequirementsCommercialAC(props) {
+
+export default function ActivityRequirementsSYS1(props) {
   const { entities, variables, setEntities, setVariables, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
   const [dependencies, setDependencies] = useState([]);
   const [variableToLoad, setVariableToLoad] = useState(
-    'HVAC2_installation_replacement_final_activity_eligibility',
+    'SYS1_installation_final_activity_eligibility',
   );
   const [clausesForm, setClausesForm] = useState([]);
 
@@ -84,28 +85,28 @@ export default function ActivityRequirementsCommercialAC(props) {
 
       console.log(array);
 
-      const names = [
-        'HVAC2_installed_by_qualified_person',
-        'HVAC2_equipment_replaced',
-        'HVAC2_equipment_removed',
-        'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
-        'HVAC2_AEER_greater_than_minimum',
-        'HVAC2_TCPSF_greater_than_minimum',
-        'HVAC2_HSPF_mixed_eligible',
-        'HVAC2_HSPF_cold_eligible',
-        'HVAC2_ACOP_eligible',
-      ];
+    //   const names = [
+    //     'HVAC2_installed_by_qualified_person',
+    //     'HVAC2_equipment_replaced',
+    //     'HVAC2_equipment_removed',
+    //     'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
+    //     'HVAC2_AEER_greater_than_minimum',
+    //     'HVAC2_TCPSF_greater_than_minimum',
+    //     'HVAC2_HSPF_mixed_eligible',
+    //     'HVAC2_HSPF_cold_eligible',
+    //     'HVAC2_ACOP_eligible',
+    //   ];
 
-      dep_arr = array.filter((item) => names.includes(item.name));
-      array.find((item) => {
-        if (names.includes(item.name)) {
-          item.hide = true;
-        }
-      });
+    //   dep_arr = array.filter((item) => names.includes(item.name));
+    //   array.find((item) => {
+    //     if (names.includes(item.name)) {
+    //       item.hide = true;
+    //     }
+    //   });
 
-      dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }));
+    //   dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }));
 
-      console.log(dep_arr);
+    //   console.log(dep_arr);
 
       setFormValues(array);
       setDependencies(dep_arr);
@@ -154,7 +155,7 @@ export default function ActivityRequirementsCommercialAC(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-              Commercial Air Conditioner Activity Requirements
+              Commercial Motors Activity Requirements
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
@@ -171,7 +172,7 @@ export default function ActivityRequirementsCommercialAC(props) {
         <Fragment>
           {loading && <SpinnerFullscreen />}
           {!loading && (
-            <LoadClauses
+            <LoadClausesSYS1
               variableToLoad={variableToLoad}
               variables={variables}
               entities={entities}

@@ -14,7 +14,7 @@ import OpenFiscaApi from 'services/openfisca_api';
 import Alert from 'nsw-ds-react/alert/alert';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 
-export default function LoadClausesBaseEligibility(props) {
+export default function LoadClausesSYS1(props) {
   const {
     variableToLoad,
     variables,
@@ -41,7 +41,6 @@ export default function LoadClausesBaseEligibility(props) {
   const [calculationResult, setCalculationResult] = useState(null);
   const [calculationError, setCalculationError] = useState(false);
 
-  // const [formValues, setFormValues] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -53,12 +52,6 @@ export default function LoadClausesBaseEligibility(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  //   useEffect(() => {
-  //       if (stepNumber === 1) {
-  //           setClausesForm([]);
-  //       }
-  //   }, [stepNumber])
 
   useEffect(() => {
     OpenFiscaApi.getVariable(variableToLoad)
@@ -195,7 +188,7 @@ export default function LoadClausesBaseEligibility(props) {
                           <React.Fragment>
                             <div class="nsw-global-alert__title">
                               {item.metadata.display_question} :{' '}
-                              {formatBooleanToString(item.default_value)}
+                              {formatBooleanToString(item.form_value)}
                             </div>
                             <br></br>
                             <p>{item.metadata.eligibility_clause}</p>
