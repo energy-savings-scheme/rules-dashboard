@@ -34,6 +34,7 @@ import CertificateEstimatorPP from 'pages/pool_pumps/CertificateEstimatorPP';
 import CertificateEstimatorMotors from 'pages/commercial_motors/CertificateEstimatorMotors';
 import CertificateEstimatorRefrigerators from 'pages/residential_refrigerators/CertificateEstimatorRefrigerators';
 import BaseEligibility from 'pages/base_eligibility/BaseEligibility';
+import ActivityRequirementsResAC from 'pages/residential_ac/ActivityRequirementsResAC';
 
 function App() {
   const [entities, setEntities] = useState([]);
@@ -203,6 +204,28 @@ function App() {
         <Route path="/base-eligibility" exact>
           <Breadcrumb />
           <BaseEligibility
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/commercial-ac-activity-requirements" exact>
+          <Breadcrumb />
+          <ActivityRequirementsCommercialAC
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/residential-ac-activity-requirements" exact>
+          <Breadcrumb />
+          <ActivityRequirementsResAC
             entities={entities}
             variables={variables}
             loading={loading}

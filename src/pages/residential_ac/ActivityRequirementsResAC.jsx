@@ -5,19 +5,19 @@ import VariableSearchBar from 'pages/homepage/VariableSearchBar';
 import Card, { CardCopy } from 'nsw-ds-react/card/card';
 import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
-import LoadClauses from './LoadClauses';
 import OpenFiscaAPI from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
+import LoadClausesResidentialActivityRequirements from './LoadClausesActivityRequirements';
 
-export default function ActivityRequirementsCommercialAC(props) {
+export default function ActivityRequirementsResAC(props) {
   const { entities, variables, setEntities, setVariables, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
   const [dependencies, setDependencies] = useState([]);
   const [variableToLoad, setVariableToLoad] = useState(
-    'HVAC2_installation_replacement_final_activity_eligibility',
+    'HVAC1_installation_replacement_final_activity_eligibility',
   );
   const [clausesForm, setClausesForm] = useState([]);
 
@@ -86,15 +86,14 @@ export default function ActivityRequirementsCommercialAC(props) {
       console.log(array);
 
       const names = [
-        'HVAC2_installed_by_qualified_person',
-        'HVAC2_equipment_replaced',
-        'HVAC2_equipment_removed',
-        'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
-        'HVAC2_AEER_greater_than_minimum',
-        'HVAC2_TCPSF_greater_than_minimum',
-        'HVAC2_HSPF_mixed_eligible',
-        'HVAC2_HSPF_cold_eligible',
-        'HVAC2_ACOP_eligible'
+        'HVAC1_installed_by_qualified_person',
+        'HVAC1_equipment_replaced',
+        'HVAC1_equipment_removed',
+        'HVAC1_AEER_greater_than_minimum',
+        'HVAC1_TCPSF_greater_than_minimum',
+        'HVAC1_HSPF_mixed_eligible',
+        'HVAC1_HSPF_cold_eligible',
+        'HVAC1_ACOP_eligible'
       ];
 
       dep_arr = array.filter((item) => names.includes(item.name));
@@ -154,10 +153,10 @@ export default function ActivityRequirementsCommercialAC(props) {
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">Commercial Air Conditioner Activity Requirements</h2>
+            <h2 className="nsw-content-block__title">Residential Air Conditioner Activity Requirements</h2>
             <br></br>
             <p className="nsw-content-block__copy">
-            The following questions assess the eligibility requirements for the Commercial Air
+            The following questions assess the eligibility requirements for the Residential Air
               Conditioner Activity (F4 in the ESS and HVAC2 in the PDRS). Answer the questions to
               check your eligibility and click the button below to review ineligible answers and
               their corresponding rule clauses.{' '}
@@ -170,7 +169,7 @@ export default function ActivityRequirementsCommercialAC(props) {
         <Fragment>
           {loading && <SpinnerFullscreen />}
           {!loading && (
-            <LoadClauses
+            <LoadClausesResidentialActivityRequirements
               variableToLoad={variableToLoad}
               variables={variables}
               entities={entities}
@@ -188,46 +187,6 @@ export default function ActivityRequirementsCommercialAC(props) {
           )}
         </Fragment>
       </div>
-      {/* <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
-        <div class="nsw-container" style={{ paddingBottom: '4rem' }}>
-          <div class="nsw-layout">
-            <div class="nsw-layout__main">
-              <br></br>
-              <br></br>
-              <h2 className="nsw-col nsw-content-block__title">
-                Check your eligibility and estimate certificates
-              </h2>
-              <br></br>
-              <div class="nsw-grid">
-                <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Review schemes base eligibility, activity requirements and estimate certificates"
-                    link="base_eligibility_commercialac/"
-                    image="/commercialac/navigation_row/full_flow_card.jpeg"
-                  >
-                  </Card>
-                </div>
-                <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Check activity requirements and estimate certificates"
-                    link="activity-requirements/"
-                    image="/commercialac/navigation_row/activity_certificates.png"
-                  >
-                  </Card>
-                </div>
-                <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Estimate certificates only"
-                    link="compare2activities"
-                    image="/commercialac/navigation_row/certificates_only.jpg"
-                  >
-                  </Card>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
     </Fragment>
   );
 }
