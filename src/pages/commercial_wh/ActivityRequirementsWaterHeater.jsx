@@ -10,7 +10,6 @@ import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import LoadClausesWH1 from './LoadClausesWh';
 
-
 export default function ActivityRequirementsWH1(props) {
   const { entities, variables, setEntities, setVariables, loading, setLoading } = props;
 
@@ -48,7 +47,7 @@ export default function ActivityRequirementsWH1(props) {
         });
     }
 
-    if (entities.length < 1) { 
+    if (entities.length < 1) {
       OpenFiscaAPI.listVariables()
         .then((res) => {
           setVariables(res.data);
@@ -85,26 +84,22 @@ export default function ActivityRequirementsWH1(props) {
 
       console.log(array);
 
-        const names = [
-          'WH1_equipment_replaced',
-          'WH1_equipment_replaces_gas'
-        ];
+      const names = ['WH1_equipment_replaced', 'WH1_equipment_replaces_gas'];
 
-        dep_arr = array.filter((item) => names.includes(item.name));
+      dep_arr = array.filter((item) => names.includes(item.name));
 
-        array.find((item) => {
-            if (names.includes(item.name)) {
-              item.hide = true;
-            }
-          });
+      array.find((item) => {
+        if (names.includes(item.name)) {
+          item.hide = true;
+        }
+      });
 
-        dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }));
+      dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }));
 
-        array.map(obj => dep_arr.find(o => o.name === obj.name) || obj);
+      array.map((obj) => dep_arr.find((o) => o.name === obj.name) || obj);
 
-
-        console.log(dep_arr);
-        console.log(array);
+      console.log(dep_arr);
+      console.log(array);
 
       setFormValues(array);
       setDependencies(dep_arr);
@@ -152,7 +147,9 @@ export default function ActivityRequirementsWH1(props) {
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">Commercial Water Heater Activity Requirements</h2>
+            <h2 className="nsw-content-block__title">
+              Commercial Water Heater Activity Requirements
+            </h2>
             <br></br>
             <p className="nsw-content-block__copy">
               The following questions assess the eligibility requirements for the Commercial Motors

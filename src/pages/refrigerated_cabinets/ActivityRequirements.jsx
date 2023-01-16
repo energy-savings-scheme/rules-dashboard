@@ -84,26 +84,21 @@ export default function ActivityRequirementsRF2(props) {
 
       console.log(array);
 
-        const names = [
-          'RF2_equipment_replaced',
-          'RF2_EEI_under_51',
-          'RF2_EEI_under_81'
-        ];
+      const names = ['RF2_equipment_replaced', 'RF2_EEI_under_51', 'RF2_EEI_under_81'];
 
-        dep_arr = array.filter((item) => names.includes(item.name));
-        array.find((item) => {
-            if (names.includes(item.name)) {
-              item.hide = true;
-            }
-          });
+      dep_arr = array.filter((item) => names.includes(item.name));
+      array.find((item) => {
+        if (names.includes(item.name)) {
+          item.hide = true;
+        }
+      });
 
-        dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }));
+      dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }));
 
-        array.map(obj => dep_arr.find(o => o.name === obj.name) || obj);
+      array.map((obj) => dep_arr.find((o) => o.name === obj.name) || obj);
 
-
-        console.log(dep_arr);
-        console.log(array);
+      console.log(dep_arr);
+      console.log(array);
 
       setFormValues(array);
       setDependencies(dep_arr);

@@ -50,7 +50,6 @@ export default function CalculateBlock(props) {
     window.scrollTo(0, 0);
   }, []);
 
-
   const removeItem = (obj, toRemove) => {
     const findIndex = obj.findIndex((a) => a.name === toRemove);
     findIndex !== -1 && obj.splice(findIndex, 1);
@@ -58,7 +57,7 @@ export default function CalculateBlock(props) {
 
   const renderFormField = (formItem) => {
     var arr = [];
-    arr = formValues.map( x => ({...x}) )
+    arr = formValues.map((x) => ({ ...x }));
 
     console.log(dependencies);
     if (
@@ -79,17 +78,14 @@ export default function CalculateBlock(props) {
     ) {
       formValues.find((v) => v.name === 'RF2_EEI_under_51').hide = false;
       formValues.find((v) => v.name === 'RF2_EEI_under_81').hide = true;
-
     } else if (
       formItem.name === 'RF2_GEMS_product_class_5' &&
       (formItem.form_value === false || formItem.default_value === false)
     ) {
       formValues.find((v) => v.name === 'RF2_EEI_under_51').hide = true;
       formValues.find((v) => v.name === 'RF2_EEI_under_81').hide = false;
-
     }
 
-    
     // if (
     //   formItem.name === 'WH1_installation' &&
     //   (formItem.form_value === true || formItem.default_value === true)
@@ -104,7 +100,6 @@ export default function CalculateBlock(props) {
     //   // formValues.find((v) => v.name === 'WH1_equipment_replaced').hide = false;
     //   // formValues.find((v) => v.name === 'WH1_equipment_replaces_gas').hide = false;
     // }
-    
 
     if (
       formItem.name === 'Base_tradeable_certificates' &&
@@ -411,40 +406,37 @@ export default function CalculateBlock(props) {
         }
       }
 
-        // cooling capacity path
-        if (formItem.name === 'RF2_installation') {
-          if (e.target.value === 'true') {
-            formValues.find((v) => v.name === 'RF2_equipment_replaced').hide = true;
-          } else {
-            formValues.find((v) => v.name === 'RF2_equipment_replaced').hide = false;
-          }
+      // cooling capacity path
+      if (formItem.name === 'RF2_installation') {
+        if (e.target.value === 'true') {
+          formValues.find((v) => v.name === 'RF2_equipment_replaced').hide = true;
+        } else {
+          formValues.find((v) => v.name === 'RF2_equipment_replaced').hide = false;
         }
+      }
 
-        if (formItem.name === 'RF2_GEMS_product_class_5') {
-          if (e.target.value === 'true') {
-            formValues.find((v) => v.name === 'RF2_EEI_under_51').hide = false;
-            formValues.find((v) => v.name === 'RF2_EEI_under_81').hide = true;
-          } else {
-            formValues.find((v) => v.name === 'RF2_EEI_under_51').hide = true;
-            formValues.find((v) => v.name === 'RF2_EEI_under_81').hide = false;
-          }
+      if (formItem.name === 'RF2_GEMS_product_class_5') {
+        if (e.target.value === 'true') {
+          formValues.find((v) => v.name === 'RF2_EEI_under_51').hide = false;
+          formValues.find((v) => v.name === 'RF2_EEI_under_81').hide = true;
+        } else {
+          formValues.find((v) => v.name === 'RF2_EEI_under_51').hide = true;
+          formValues.find((v) => v.name === 'RF2_EEI_under_81').hide = false;
         }
+      }
 
-
-        if (formItem.name === 'WH1_installation') {
-          if (e.target.value === 'true') {
-            formValues.find((v) => v.name === 'WH1_equipment_replaced').hide = true;
-            formValues.find((v) => v.name === 'WH1_equipment_replaces_gas').hide = true;
-            setFormValues(formValues);
-
-          } else if (e.target.value === 'false') {
-            formValues.find((v) => v.name === 'WH1_equipment_replaced').hide = false;
-            formValues.find((v) => v.name === 'WH1_equipment_replaces_gas').hide = false;
-            setFormValues(formValues);
-            console.log(formValues)
-          }
+      if (formItem.name === 'WH1_installation') {
+        if (e.target.value === 'true') {
+          formValues.find((v) => v.name === 'WH1_equipment_replaced').hide = true;
+          formValues.find((v) => v.name === 'WH1_equipment_replaces_gas').hide = true;
+          setFormValues(formValues);
+        } else if (e.target.value === 'false') {
+          formValues.find((v) => v.name === 'WH1_equipment_replaced').hide = false;
+          formValues.find((v) => v.name === 'WH1_equipment_replaces_gas').hide = false;
+          setFormValues(formValues);
+          console.log(formValues);
         }
-  
+      }
 
       // cooling capacity path
       if (formItem.name === 'HVAC2_new_equipment_cooling_capacity') {
@@ -600,13 +592,12 @@ export default function CalculateBlock(props) {
         if (e.target.value === 'false') {
           formValues.find((v) => v.name === 'SYS2_single_speed_input_power').hide = false;
           formValues.find((v) => v.name === 'SYS2_multiple_speeds_input_power').hide = true;
-          setFormValues(formValues)
-
+          setFormValues(formValues);
         } else if (e.target.value === 'true') {
-          console.log("i am here")
+          console.log('i am here');
           formValues.find((v) => v.name === 'SYS2_single_speed_input_power').hide = true;
-          formValues.find((v) => v.name === 'SYS2_multiple_speeds_input_power').hide = false; 
-          setFormValues(formValues)
+          formValues.find((v) => v.name === 'SYS2_multiple_speeds_input_power').hide = false;
+          setFormValues(formValues);
         }
       }
 
@@ -620,7 +611,7 @@ export default function CalculateBlock(props) {
         } else {
           return item;
         }
-      })
+      });
 
       setFormValues(abc);
     };

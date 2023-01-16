@@ -41,7 +41,6 @@ import ActivityRequirementsRF1 from 'pages/residential_refrigerators/ActivityReq
 import ActivityRequirementsRF2 from 'pages/refrigerated_cabinets/ActivityRequirements';
 import ActivityRequirementsWH1 from 'pages/commercial_wh/ActivityRequirementsWaterHeater';
 
-
 function App() {
   const [entities, setEntities] = useState([]);
   const [variables, setVariables] = useState([]);

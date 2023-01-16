@@ -10,7 +10,6 @@ import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import LoadClausesSYS2 from './LoadClausesActivityReqSYS2';
 
-
 export default function ActivityRequirementsSYS2(props) {
   const { entities, variables, setEntities, setVariables, loading, setLoading } = props;
 
@@ -85,26 +84,22 @@ export default function ActivityRequirementsSYS2(props) {
 
       console.log(array);
 
-        const names = [
-          'SYS2_single_speed_input_power',
-          'SYS2_multiple_speeds_input_power'
-        ];
+      const names = ['SYS2_single_speed_input_power', 'SYS2_multiple_speeds_input_power'];
 
-        dep_arr = array.filter((item) => names.includes(item.name));
-        array.find((item) => {
-          if (item.name === "SYS2_multiple_speeds_input_power") {
-              console.log(" in here" + item.name)
-            item.hide = true
-          };
-        });
+      dep_arr = array.filter((item) => names.includes(item.name));
+      array.find((item) => {
+        if (item.name === 'SYS2_multiple_speeds_input_power') {
+          console.log(' in here' + item.name);
+          item.hide = true;
+        }
+      });
 
-        dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }));
+      dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }));
 
-        array.map(obj => dep_arr.find(o => o.name === obj.name) || obj);
+      array.map((obj) => dep_arr.find((o) => o.name === obj.name) || obj);
 
-
-        console.log(dep_arr);
-        console.log(array);
+      console.log(dep_arr);
+      console.log(array);
 
       setFormValues(array);
       setDependencies(dep_arr);

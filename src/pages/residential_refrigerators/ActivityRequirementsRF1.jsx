@@ -10,16 +10,13 @@ import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import LoadClausesRF1 from './LoadClauses';
 
-
 export default function ActivityRequirementsRF1(props) {
   const { entities, variables, setEntities, setVariables, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
   const [dependencies, setDependencies] = useState([]);
-  const [variableToLoad, setVariableToLoad] = useState(
-    'RF1_removal_activity_eligibility',
-  );
+  const [variableToLoad, setVariableToLoad] = useState('RF1_removal_activity_eligibility');
   const [clausesForm, setClausesForm] = useState([]);
 
   console.log(variables);
@@ -83,13 +80,11 @@ export default function ActivityRequirementsRF1(props) {
 
       array.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
 
-    //   console.log(array);
+      //   console.log(array);
 
+      //   dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }));
 
-    //   dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }));
-
-    //   array.map(obj => dep_arr.find(o => o.name === obj.name) || obj);
-
+      //   array.map(obj => dep_arr.find(o => o.name === obj.name) || obj);
 
       setFormValues(array);
       setDependencies(dep_arr);
@@ -137,7 +132,9 @@ export default function ActivityRequirementsRF1(props) {
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">Residential Refrigerator Activity Requirements</h2>
+            <h2 className="nsw-content-block__title">
+              Residential Refrigerator Activity Requirements
+            </h2>
             <br></br>
             <p className="nsw-content-block__copy">
               The following questions assess the eligibility requirements for the Commercial Motors
