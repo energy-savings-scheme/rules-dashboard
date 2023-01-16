@@ -56,6 +56,9 @@ export default function CalculateBlock(props) {
   };
 
   const renderFormField = (formItem) => {
+    var arr = [];
+    arr = formValues.map((x) => ({ ...x }));
+
     console.log(dependencies);
     if (
       formItem.name === 'Base_meets_mandatory_requirement' &&
@@ -68,6 +71,35 @@ export default function CalculateBlock(props) {
     ) {
       formValues.find((v) => v.name === 'Base_basix_affected_development').hide = true;
     }
+
+    if (
+      formItem.name === 'RF2_GEMS_product_class_5' &&
+      (formItem.form_value === true || formItem.default_value === true)
+    ) {
+      formValues.find((v) => v.name === 'RF2_EEI_under_51').hide = false;
+      formValues.find((v) => v.name === 'RF2_EEI_under_81').hide = true;
+    } else if (
+      formItem.name === 'RF2_GEMS_product_class_5' &&
+      (formItem.form_value === false || formItem.default_value === false)
+    ) {
+      formValues.find((v) => v.name === 'RF2_EEI_under_51').hide = true;
+      formValues.find((v) => v.name === 'RF2_EEI_under_81').hide = false;
+    }
+
+    // if (
+    //   formItem.name === 'WH1_installation' &&
+    //   (formItem.form_value === true || formItem.default_value === true)
+    // ) {
+    //   // formValues.find((v) => v.name === 'WH1_equipment_replaced').hide = true;
+    //   // formValues.find((v) => v.name === 'WH1_equipment_replaces_gas').hide = true;
+
+    // } else if (
+    //   formItem.name === 'WH1_installation' &&
+    //   (formItem.form_value === false || formItem.default_value === false)
+    // ) {
+    //   // formValues.find((v) => v.name === 'WH1_equipment_replaced').hide = false;
+    //   // formValues.find((v) => v.name === 'WH1_equipment_replaces_gas').hide = false;
+    // }
 
     if (
       formItem.name === 'Base_tradeable_certificates' &&
@@ -129,6 +161,18 @@ export default function CalculateBlock(props) {
         removeItem(formValues, 'SYS1_existing_equipment_motor_frequency');
         removeItem(formValues, 'SYS1_existing_equipment_no_of_poles');
       }
+    }
+
+    if (
+      formItem.name === 'RF2_installation' &&
+      (formItem.form_value === false || formItem.default_value === false)
+    ) {
+      formValues.find((v) => v.name === 'RF2_equipment_replaced').hide = false;
+    } else if (
+      formItem.name === 'RF2_installation' &&
+      (formItem.form_value === true || formItem.default_value === true)
+    ) {
+      formValues.find((v) => v.name === 'RF2_equipment_replaced').hide = true;
     }
 
     if (
@@ -219,6 +263,28 @@ export default function CalculateBlock(props) {
         (v) => v.name === 'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
       ).hide = true;
     }
+
+    // if (
+    //   formItem.name === 'SYS2_not_single_speed' &&
+    //   (formItem.form_value === false || formItem.default_value === false)
+    // ) {
+
+    //   // var foundIndex = arr.findIndex(x => x.name === 'SYS2_single_speed_input_power');
+    //   // arr[foundIndex]['hide'] = false;
+
+    //   // var foundIndex = arr.findIndex(x => x.name === 'SYS2_multiple_speeds_input_power');
+    //   // arr[foundIndex]['hide'] = true;
+
+    //   formValues.find((v) => v.name === 'SYS2_single_speed_input_power').hide = false;
+    //   formValues.find((v) => v.name === 'SYS2_multiple_speeds_input_power').hide = true;
+
+    // } else if (
+    //   formItem.name === 'SYS2_not_single_speed' &&
+    //   (formItem.form_value === true || formItem.default_value === true)
+    // ) {
+    //   formValues.find((v) => v.name === 'SYS2_single_speed_input_power').hide = true;
+    //   formValues.find((v) => v.name === 'SYS2_multiple_speeds_input_power').hide = false;
+    // }
 
     const setItemValue = (e) => {
       // Helper function which sets the value for formItem when the HTML input element's
@@ -336,6 +402,38 @@ export default function CalculateBlock(props) {
           formValues.find((v) => v.name === 'Base_basix_affected_development').hide = false;
         } else {
           formValues.find((v) => v.name === 'Base_basix_affected_development').hide = true;
+          console.log(formValues);
+        }
+      }
+
+      // cooling capacity path
+      if (formItem.name === 'RF2_installation') {
+        if (e.target.value === 'true') {
+          formValues.find((v) => v.name === 'RF2_equipment_replaced').hide = true;
+        } else {
+          formValues.find((v) => v.name === 'RF2_equipment_replaced').hide = false;
+        }
+      }
+
+      if (formItem.name === 'RF2_GEMS_product_class_5') {
+        if (e.target.value === 'true') {
+          formValues.find((v) => v.name === 'RF2_EEI_under_51').hide = false;
+          formValues.find((v) => v.name === 'RF2_EEI_under_81').hide = true;
+        } else {
+          formValues.find((v) => v.name === 'RF2_EEI_under_51').hide = true;
+          formValues.find((v) => v.name === 'RF2_EEI_under_81').hide = false;
+        }
+      }
+
+      if (formItem.name === 'WH1_installation') {
+        if (e.target.value === 'true') {
+          formValues.find((v) => v.name === 'WH1_equipment_replaced').hide = true;
+          formValues.find((v) => v.name === 'WH1_equipment_replaces_gas').hide = true;
+          setFormValues(formValues);
+        } else if (e.target.value === 'false') {
+          formValues.find((v) => v.name === 'WH1_equipment_replaced').hide = false;
+          formValues.find((v) => v.name === 'WH1_equipment_replaces_gas').hide = false;
+          setFormValues(formValues);
           console.log(formValues);
         }
       }
@@ -490,20 +588,32 @@ export default function CalculateBlock(props) {
         }
       }
 
-      setFormValues(
-        [...formValues].map((item) => {
-          console.log(formValues);
-          if (item.name === formItem.name) {
-            if (formItem.value_type === 'Boolean') {
-              return { ...item, form_value: e.target.value === 'true' ? true : false };
-            } else {
-              return { ...item, form_value: e.target.value };
-            }
+      if (formItem.name === 'SYS2_not_single_speed') {
+        if (e.target.value === 'false') {
+          formValues.find((v) => v.name === 'SYS2_single_speed_input_power').hide = false;
+          formValues.find((v) => v.name === 'SYS2_multiple_speeds_input_power').hide = true;
+          setFormValues(formValues);
+        } else if (e.target.value === 'true') {
+          console.log('i am here');
+          formValues.find((v) => v.name === 'SYS2_single_speed_input_power').hide = true;
+          formValues.find((v) => v.name === 'SYS2_multiple_speeds_input_power').hide = false;
+          setFormValues(formValues);
+        }
+      }
+
+      let abc = [...formValues].map((item) => {
+        if (item.name === formItem.name) {
+          if (formItem.value_type === 'Boolean') {
+            return { ...item, form_value: e.target.value === 'true' ? true : false };
           } else {
-            return item;
+            return { ...item, form_value: e.target.value };
           }
-        }),
-      );
+        } else {
+          return item;
+        }
+      });
+
+      setFormValues(abc);
     };
 
     if (

@@ -14,7 +14,7 @@ import OpenFiscaApi from 'services/openfisca_api';
 import Alert from 'nsw-ds-react/alert/alert';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 
-export default function LoadClausesWH1(props) {
+export default function LoadClausesRF1(props) {
   const {
     variableToLoad,
     variables,
