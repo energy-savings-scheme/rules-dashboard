@@ -36,6 +36,11 @@ import CertificateEstimatorMotors from 'pages/commercial_motors/CertificateEstim
 import CertificateEstimatorRefrigerators from 'pages/residential_refrigerators/CertificateEstimatorRefrigerators';
 import BaseEligibility from 'pages/base_eligibility/BaseEligibility';
 import ActivityRequirementsResAC from 'pages/residential_ac/ActivityRequirementsResAC';
+import ActivityRequirementsSYS2 from 'pages/pool_pumps/ActivityRequirementsSYS2';
+import ActivityRequirementsRF1 from 'pages/residential_refrigerators/ActivityRequirementsRF1';
+import ActivityRequirementsRF2 from 'pages/refrigerated_cabinets/ActivityRequirements';
+import ActivityRequirementsWH1 from 'pages/commercial_wh/ActivityRequirementsWaterHeater';
+
 
 function App() {
   const [entities, setEntities] = useState([]);
@@ -238,6 +243,50 @@ function App() {
         <Route path="/commercial-motors-activity-requirements" exact>
           <Breadcrumb />
           <ActivityRequirementsSYS1
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/pool-pumps-activity-requirements" exact>
+          <Breadcrumb />
+          <ActivityRequirementsSYS2
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/residential-refrigeration-activity-requirements" exact>
+          <Breadcrumb />
+          <ActivityRequirementsRF1
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/refrigerated-cabinet-activity-requirements" exact>
+          <Breadcrumb />
+          <ActivityRequirementsRF2
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/commercial-water-heater-activity-requirements" exact>
+          <Breadcrumb />
+          <ActivityRequirementsWH1
             entities={entities}
             variables={variables}
             loading={loading}
