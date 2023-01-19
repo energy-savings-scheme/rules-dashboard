@@ -157,7 +157,7 @@ export default function ActivityRequirementsSYS1(props) {
             <br></br>
             <p className="nsw-content-block__copy">
               The following questions assess the eligibility requirements for the Commercial Motors
-              Activity (F4 in the ESS and HVAC2 in the PDRS). Answer the questions to check your
+              Activity (F7 in the ESS and SYS1 in the PDRS). Answer the questions to check your
               eligibility and click the button below to review ineligible answers and their
               corresponding rule clauses.{' '}
             </p>

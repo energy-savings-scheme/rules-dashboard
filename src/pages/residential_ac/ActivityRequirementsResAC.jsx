@@ -158,7 +158,7 @@ export default function ActivityRequirementsResAC(props) {
             <br></br>
             <p className="nsw-content-block__copy">
               The following questions assess the eligibility requirements for the Residential Air
-              Conditioner Activity (F4 in the ESS and HVAC2 in the PDRS). Answer the questions to
+              Conditioner Activity (D16 in the ESS and HVAC1 in the PDRS). Answer the questions to
               check your eligibility and click the button below to review ineligible answers and
               their corresponding rule clauses.{' '}
             </p>
