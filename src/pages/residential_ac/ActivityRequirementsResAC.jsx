@@ -92,7 +92,7 @@ export default function ActivityRequirementsResAC(props) {
         'HVAC1_TCPSF_greater_than_minimum',
         'HVAC1_HSPF_mixed_eligible',
         'HVAC1_HSPF_cold_eligible',
-        'HVAC1_ACOP_eligible'
+        'HVAC1_ACOP_eligible',
       ];
 
       dep_arr = array.filter((item) => names.includes(item.name));
@@ -147,15 +147,18 @@ export default function ActivityRequirementsResAC(props) {
         title="Safeguard Certificate Estimator"
       />
 
-<div className="nsw-container" style={{ marginBottom: '10%' }}>
+      <div className="nsw-container" style={{ marginBottom: '10%' }}>
         <div className="nsw-grid nsw-grid--spaced">
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">Residential Air Conditioner Activity Requirements</h2>
+            <h2 className="nsw-content-block__title">
+              Residential Air Conditioner Activity Requirements
+            </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-            The following questions assess the eligibility requirements for the Residential Air Conditioner Activity (D16 in the ESS and HVAC1 in the PDRS). Answer the questions to
+              The following questions assess the eligibility requirements for the Residential Air
+              Conditioner Activity (D16 in the ESS and HVAC1 in the PDRS). Answer the questions to
               check your eligibility and click the button below to review ineligible answers and
               their corresponding rule clauses.{' '}
             </p>

@@ -137,9 +137,10 @@ export default function ActivityRequirementsRF1(props) {
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-              The following questions assess the eligibility requirements for the Residential Refrigerator Activity (C1 in the ESS and RF1 in the PDRS). Answer the questions to check your
-              eligibility and click the button below to review ineligible answers and their
-              corresponding rule clauses.{' '}
+              The following questions assess the eligibility requirements for the Residential
+              Refrigerator Activity (C1 in the ESS and RF1 in the PDRS). Answer the questions to
+              check your eligibility and click the button below to review ineligible answers and
+              their corresponding rule clauses.{' '}
             </p>
           </div>
         </div>
