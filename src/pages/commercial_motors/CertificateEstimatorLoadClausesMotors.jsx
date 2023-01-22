@@ -165,11 +165,11 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
                 <p>
                   Based on the information provided, your ESCs are
                   <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
-                    <b>{Math.round(calculationResult2)}</b>
+                    <b>{Math.floor(calculationResult2)}</b>
                   </span>
                   and your PRCs are
                   <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
-                    <b>{Math.round(calculationResult)}</b>
+                    <b>{Math.floor(calculationResult)}</b>
                   </span>
                 </p>
               </Alert>
