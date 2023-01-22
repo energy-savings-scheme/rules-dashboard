@@ -241,13 +241,13 @@ export default function CertificateEstimatorLoadClausesRC(props) {
                   {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
                   Based on the information provided, your ESCs are
                   <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
-                    <b>{Math.round(calculationResult2)}</b>
+                    <b>{Math.floor(calculationResult2)}</b>
                   </span>
                   {/* </h4> */}
                   {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
                   and your PRCs are
                   <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
-                    <b>{Math.round(calculationResult)}</b>
+                    <b>{Math.floor(calculationResult)}</b>
                   </span>
                   {/* </h4> */}
                 </p>
