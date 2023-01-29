@@ -83,7 +83,7 @@ export default function Homepage(props) {
             <div class="nsw-layout__main">
               <h2 className="nsw-col nsw-content-block__title">Residential and Small Business</h2>
               <div class="nsw-grid">
-                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
+                {/* <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
                   <Card
                     headline="Air Conditioner"
                     link="#residential-ac-estimator"
@@ -95,8 +95,25 @@ export default function Homepage(props) {
                       air conditioner
                     </CardCopy>
                   </Card>
+                </div> */}
+                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
+                  <ContentBlock
+                    copy="Install a new or replace an existing air conditioner with a high efficiency"
+                    headline="Air Conditioner"
+                    image="/ResidentialAC.jpg"
+                    links={[
+                      {
+                        href: '/#residential-ac-activity-requirements',
+                        title: 'Check Activity Eligibility',
+                      },
+                      {
+                        href: '/#residential-ac-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
+                    ]}
+                  />
                 </div>
-                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
+                {/* <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
                   <Card
                     headline="Pool Pump"
                     link="#pool-pumps-estimator"
@@ -107,8 +124,25 @@ export default function Homepage(props) {
                       Replace an existing pool pump with a high efficiency pool pump
                     </CardCopy>
                   </Card>
+                </div> */}
+                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
+                  <ContentBlock
+                    copy="Replace an existing pool pump with a high efficiency pool pump"
+                    headline="Pool Pump"
+                    image="/ResidentialPoolPumps.jpg"
+                    links={[
+                      {
+                        href: '#pool-pumps-activity-requirements',
+                        title: 'Check Activity Eligibility',
+                      },
+                      {
+                        href: '#pool-pumps-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
+                    ]}
+                  />
                 </div>
-                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
+                {/* <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
                   <Card
                     headline="Spare Refrigerator or Freezer"
                     link="#residential-refrigerators-estimator"
@@ -117,6 +151,24 @@ export default function Homepage(props) {
                   >
                     <CardCopy>Remove a spare refrigerator or freezer</CardCopy>
                   </Card>
+                </div> */}
+
+                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
+                  <ContentBlock
+                    copy="Remove a spare refrigerator or freezer"
+                    headline="Spare Refrigerator or Freezer"
+                    image="/ResidentialFridgeFreezerRemoval.jpeg"
+                    links={[
+                      {
+                        href: '#residential-refrigeration-activity-requirements',
+                        title: 'Check Activity Eligibility',
+                      },
+                      {
+                        href: '#residential-refrigerators-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
+                    ]}
+                  />
                 </div>
               </div>
             </div>
@@ -130,7 +182,25 @@ export default function Homepage(props) {
             <div class="nsw-layout__main">
               <h2 className="nsw-col nsw-content-block__title">Commercial</h2>
               <div className="nsw-grid">
-                <div className="nsw-col nsw-col-md-4">
+                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
+                  <ContentBlock
+                    copy="Install a new or replace an existing air conditioner with a high efficiency
+      air conditioner"
+                    headline="Air Conditioner"
+                    image="CommercialAC.jpeg"
+                    links={[
+                      {
+                        href: '#commercial-ac-activity-requirements',
+                        title: 'Check Activity Eligibility',
+                      },
+                      {
+                        href: '#commercial-ac-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
+                    ]}
+                  />
+                </div>
+                {/* <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Air Conditioner"
                     link="#commercial-ac-estimator"
@@ -142,8 +212,26 @@ export default function Homepage(props) {
                       air conditioner
                     </CardCopy>
                   </Card>
+                </div> */}
+                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
+                  <ContentBlock
+                    copy="Replace one or more existing hot water boilers or water heaters with one or
+          more air source heat pump water heater systems"
+                    headline="Heat Pump Water Heater"
+                    image="CommercialHeatPumpWaterHeater.jpeg"
+                    links={[
+                      {
+                        href: '#commercial-water-heater-activity-requirements',
+                        title: 'Check Activity Eligibility',
+                      },
+                      {
+                        href: '#commercial-wh-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
+                    ]}
+                  />
                 </div>
-                <div className="nsw-col nsw-col-md-4">
+                {/* <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Heat Pump Water Heater"
                     link="#commercial-wh-estimator"
@@ -155,8 +243,26 @@ export default function Homepage(props) {
                       more air source heat pump water heater systems
                     </CardCopy>
                   </Card>
+                </div> */}
+                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
+                  <ContentBlock
+                    copy="Install a new high efficiency refrigerated cabinet or replace an existing
+      refrigerated cabinet"
+                    headline="Refrigerated Cabinet"
+                    image="CommercialRefrigeratedCabinet.jpg"
+                    links={[
+                      {
+                        href: '#refrigerated-cabinet-activity-requirements',
+                        title: 'Check Activity Eligibility',
+                      },
+                      {
+                        href: '#refrigerated-cabinet-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
+                    ]}
+                  />
                 </div>
-                <div className="nsw-col nsw-col-md-4">
+                {/* <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Refrigerated Cabinet"
                     link="#refrigerated-cabinet-estimator"
@@ -168,9 +274,26 @@ export default function Homepage(props) {
                       refrigerated cabinet
                     </CardCopy>
                   </Card>
-                </div>
+                </div> */}
 
-                <div className="nsw-col nsw-col-md-4">
+                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
+                  <ContentBlock
+                    copy="Install a new or replace an existing motor with a high efficiency motor"
+                    headline="Ventilation or Refrigeration motor"
+                    image="CommercialVentilationRefrigeration.jpeg"
+                    links={[
+                      {
+                        href: '#commercial-motors-activity-requirements',
+                        title: 'Check Activity Eligibility',
+                      },
+                      {
+                        href: '#commercial-motors-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
+                    ]}
+                  />
+                </div>
+                {/* <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Ventilation or Refrigeration motor"
                     link="#commercial-motors-estimator"
@@ -181,7 +304,7 @@ export default function Homepage(props) {
                       Install a new or replace an existing motor with a high efficiency motor
                     </CardCopy>
                   </Card>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
