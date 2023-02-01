@@ -77,8 +77,7 @@ export default function LoadClauses(props) {
   };
 
   const formatBooleanToString = (result) => {
-    const s = String(result);
-    return s[0].toUpperCase() + s.slice(1);
+    return result === true ? 'Yes' : 'No';
   };
 
   if (!variable) return null;

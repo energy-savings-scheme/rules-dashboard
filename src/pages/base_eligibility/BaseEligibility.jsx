@@ -82,10 +82,10 @@ export default function BaseEligibility(props) {
         'Base_basix_affected_development',
         'Base_engaged_ACP',
         'Base_replacement_water_heater_certificates',
-        'Base_replacement_solar_water_heater_certificates'
+        'Base_replacement_solar_water_heater_certificates',
       ];
 
-      var second_dep = []
+      var second_dep = [];
 
       dep_arr = array.filter((item) => names.includes(item.name));
 
@@ -97,7 +97,6 @@ export default function BaseEligibility(props) {
           item.hide = true;
         }
       });
-
 
       setFormValues(array);
       setDependencies(dep_arr);

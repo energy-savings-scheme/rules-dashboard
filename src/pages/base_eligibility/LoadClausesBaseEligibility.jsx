@@ -78,7 +78,7 @@ export default function LoadClausesBaseEligibility(props) {
   };
 
   const formatBooleanToString = (result) => {
-    return result === true ? 'Yes' : 'No'
+    return result === true ? 'Yes' : 'No';
   };
 
   if (!variable) return null;
@@ -198,13 +198,10 @@ export default function LoadClausesBaseEligibility(props) {
                     </p>
                   </Alert>
                 )}
-
               </div>
             }
-
           </Fragment>
         )}
-
 
         {stepNumber === 2 && loading && <SpinnerFullscreen />}
 
@@ -231,7 +228,6 @@ export default function LoadClausesBaseEligibility(props) {
             </Button>
           </div>
         )}
-
       </div>
     </div>
   );
