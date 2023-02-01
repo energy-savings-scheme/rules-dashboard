@@ -15,6 +15,7 @@ export default function BaseEligibility(props) {
   const [variableToLoad, setVariableToLoad] = useState('ESS__PDRS__ACP_base_scheme_eligibility');
   const [persistFormValues, setPersistFormValues] = useState([]);
   const [clausesForm, setClausesForm] = useState([]);
+  const [secDep, setSecDep] = useState([]);
 
   if (formValues.length === 0) {
     setLoading(true);
@@ -81,17 +82,27 @@ export default function BaseEligibility(props) {
         'Base_basix_affected_development',
         'Base_engaged_ACP',
         'Base_replacement_water_heater_certificates',
-        'Base_replacement_solar_water_heater_certificates',
+        'Base_replacement_solar_water_heater_certificates'
       ];
+
+      var second_dep = []
 
       dep_arr = array.filter((item) => names.includes(item.name));
 
       dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }));
-      console.log(dep_arr);
+
+      array.find((item) => {
+        if (item.name === 'Base_replacement_solar_water_heater_certificates') {
+          console.log(' in here' + item.name);
+          item.hide = true;
+        }
+      });
+
 
       setFormValues(array);
       setDependencies(dep_arr);
       setLoading(false);
+      setSecDep(second_dep);
     }
   }, [variables, variableToLoad, stepNumber]);
 
@@ -164,6 +175,8 @@ export default function BaseEligibility(props) {
               setPersistFormValues={setPersistFormValues}
               clausesForm={clausesForm}
               setClausesForm={setClausesForm}
+              secDep={secDep}
+              setSecDep={setSecDep}
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}
@@ -171,46 +184,6 @@ export default function BaseEligibility(props) {
           )}
         </Fragment>
       </div>
-      {/* <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
-        <div class="nsw-container" style={{ paddingBottom: '4rem' }}>
-          <div class="nsw-layout">
-            <div class="nsw-layout__main">
-              <br></br>
-              <br></br>
-              <h2 className="nsw-col nsw-content-block__title">
-                Check your eligibility and estimate certificates
-              </h2>
-              <br></br>
-              <div class="nsw-grid">
-                <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Review schemes base eligibility, activity requirements and estimate certificates"
-                    link="base_eligibility_commercialac/"
-                    image="/commercialac/navigation_row/full_flow_card.jpeg"
-                  >
-                  </Card>
-                </div>
-                <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Check activity requirements and estimate certificates"
-                    link="activity-requirements/"
-                    image="/commercialac/navigation_row/activity_certificates.png"
-                  >
-                  </Card>
-                </div>
-                <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Estimate certificates only"
-                    link="compare2activities"
-                    image="/commercialac/navigation_row/certificates_only.jpg"
-                  >
-                  </Card>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
     </Fragment>
   );
 }

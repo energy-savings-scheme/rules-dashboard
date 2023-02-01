@@ -13,6 +13,7 @@ import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progres
 import OpenFiscaApi from 'services/openfisca_api';
 import Alert from 'nsw-ds-react/alert/alert';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
+import Card, { CardCopy } from 'nsw-ds-react/card/card';
 
 export default function LoadClausesBaseEligibility(props) {
   const {
@@ -41,7 +42,6 @@ export default function LoadClausesBaseEligibility(props) {
   const [calculationResult, setCalculationResult] = useState(null);
   const [calculationError, setCalculationError] = useState(false);
 
-  // const [formValues, setFormValues] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -53,12 +53,6 @@ export default function LoadClausesBaseEligibility(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  //   useEffect(() => {
-  //       if (stepNumber === 1) {
-  //           setClausesForm([]);
-  //       }
-  //   }, [stepNumber])
 
   useEffect(() => {
     OpenFiscaApi.getVariable(variableToLoad)
@@ -84,8 +78,7 @@ export default function LoadClausesBaseEligibility(props) {
   };
 
   const formatBooleanToString = (result) => {
-    const s = String(result);
-    return s[0].toUpperCase() + s.slice(1);
+    return result === true ? 'Yes' : 'No'
   };
 
   if (!variable) return null;
@@ -205,10 +198,13 @@ export default function LoadClausesBaseEligibility(props) {
                     </p>
                   </Alert>
                 )}
+
               </div>
             }
+
           </Fragment>
         )}
+
 
         {stepNumber === 2 && loading && <SpinnerFullscreen />}
 
@@ -235,6 +231,7 @@ export default function LoadClausesBaseEligibility(props) {
             </Button>
           </div>
         )}
+
       </div>
     </div>
   );

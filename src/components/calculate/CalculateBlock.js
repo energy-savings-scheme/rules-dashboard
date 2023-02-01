@@ -34,6 +34,8 @@ export default function CalculateBlock(props) {
     setFlow,
     persistFormValues,
     setPersistFormValues,
+    secDep,
+    setSecDep
   } = props;
 
   if (metadata) {
@@ -86,37 +88,16 @@ export default function CalculateBlock(props) {
       formValues.find((v) => v.name === 'RF2_EEI_under_81').hide = false;
     }
 
-    // if (
-    //   formItem.name === 'WH1_installation' &&
-    //   (formItem.form_value === true || formItem.default_value === true)
-    // ) {
-    //   // formValues.find((v) => v.name === 'WH1_equipment_replaced').hide = true;
-    //   // formValues.find((v) => v.name === 'WH1_equipment_replaces_gas').hide = true;
-
-    // } else if (
-    //   formItem.name === 'WH1_installation' &&
-    //   (formItem.form_value === false || formItem.default_value === false)
-    // ) {
-    //   // formValues.find((v) => v.name === 'WH1_equipment_replaced').hide = false;
-    //   // formValues.find((v) => v.name === 'WH1_equipment_replaces_gas').hide = false;
-    // }
-
     if (
       formItem.name === 'Base_tradeable_certificates' &&
       (formItem.form_value === true || formItem.default_value === true)
     ) {
       formValues.find((v) => v.name === 'Base_replacement_water_heater_certificates').hide = false;
-      formValues.find(
-        (v) => v.name === 'Base_replacement_solar_water_heater_certificates',
-      ).hide = false;
     } else if (
       formItem.name === 'Base_tradeable_certificates' &&
       (formItem.form_value === false || formItem.default_value === false)
     ) {
       formValues.find((v) => v.name === 'Base_replacement_water_heater_certificates').hide = true;
-      formValues.find(
-        (v) => v.name === 'Base_replacement_solar_water_heater_certificates',
-      ).hide = true;
     }
 
     if (
@@ -264,27 +245,6 @@ export default function CalculateBlock(props) {
       ).hide = true;
     }
 
-    // if (
-    //   formItem.name === 'SYS2_not_single_speed' &&
-    //   (formItem.form_value === false || formItem.default_value === false)
-    // ) {
-
-    //   // var foundIndex = arr.findIndex(x => x.name === 'SYS2_single_speed_input_power');
-    //   // arr[foundIndex]['hide'] = false;
-
-    //   // var foundIndex = arr.findIndex(x => x.name === 'SYS2_multiple_speeds_input_power');
-    //   // arr[foundIndex]['hide'] = true;
-
-    //   formValues.find((v) => v.name === 'SYS2_single_speed_input_power').hide = false;
-    //   formValues.find((v) => v.name === 'SYS2_multiple_speeds_input_power').hide = true;
-
-    // } else if (
-    //   formItem.name === 'SYS2_not_single_speed' &&
-    //   (formItem.form_value === true || formItem.default_value === true)
-    // ) {
-    //   formValues.find((v) => v.name === 'SYS2_single_speed_input_power').hide = true;
-    //   formValues.find((v) => v.name === 'SYS2_multiple_speeds_input_power').hide = false;
-    // }
 
     const setItemValue = (e) => {
       // Helper function which sets the value for formItem when the HTML input element's
@@ -372,7 +332,7 @@ export default function CalculateBlock(props) {
           ).hide = false;
           formValues.find(
             (v) => v.name === 'Base_replacement_solar_water_heater_certificates',
-          ).hide = false;
+          ).hide = true;
         } else {
           formValues.find(
             (v) => v.name === 'Base_replacement_water_heater_certificates',
@@ -380,7 +340,20 @@ export default function CalculateBlock(props) {
           formValues.find(
             (v) => v.name === 'Base_replacement_solar_water_heater_certificates',
           ).hide = true;
+          console.log(formValues);
+        }
+      }
 
+      if (formItem.name === 'Base_replacement_water_heater_certificates') {
+        if (e.target.value === 'true') {
+          formValues.find(
+            (v) => v.name === 'Base_replacement_solar_water_heater_certificates',
+          ).hide = true;
+        } else if (e.target.value === 'false'){
+          formValues.find(
+            (v) => v.name === 'Base_replacement_solar_water_heater_certificates',
+          ).hide = false;
+          setFormValues(formValues)
           console.log(formValues);
         }
       }
@@ -589,15 +562,33 @@ export default function CalculateBlock(props) {
       }
 
       if (formItem.name === 'SYS2_not_single_speed') {
-        if (e.target.value === 'false') {
+        if (e.target.value === 'true') {
           formValues.find((v) => v.name === 'SYS2_single_speed_input_power').hide = false;
           formValues.find((v) => v.name === 'SYS2_multiple_speeds_input_power').hide = true;
           setFormValues(formValues);
-        } else if (e.target.value === 'true') {
+        } else if (e.target.value === 'false') {
           console.log('i am here');
           formValues.find((v) => v.name === 'SYS2_single_speed_input_power').hide = true;
           formValues.find((v) => v.name === 'SYS2_multiple_speeds_input_power').hide = false;
           setFormValues(formValues);
+        }
+      }
+
+      if (formItem.name === 'SYS2_equipment_registered_in_GEMS') {
+        if (e.target.value === 'true') {
+          formValues.find((v) => v.name === 'SYS2_voluntary_labelling_scheme').hide = true;
+        } else if (e.target.value === 'false') {
+          formValues.find((v) => v.name === 'SYS2_voluntary_labelling_scheme').hide = false;
+        }
+      }
+
+      if (formItem.name === 'WH1_storage_volume') {
+        console.log(e.target.value)
+        if (e.target.value === "less_than_or_equal_to_700_L") {
+          console.log("print here")
+          formValues.find((v) => v.name === 'WH1_certified').hide = false;
+        } else {
+          formValues.find((v) => v.name === "WH1_certified").hide = true;
         }
       }
 
