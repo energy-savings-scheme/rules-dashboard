@@ -75,7 +75,7 @@ export default function LoadClausesSYS1(props) {
 
     return JSON.stringify(result) + ' kW';
   };
-  
+
   const formatBooleanToString = (result) => {
     return result === true ? 'Yes' : 'No';
   };
