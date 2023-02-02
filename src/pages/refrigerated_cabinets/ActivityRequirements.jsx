@@ -84,7 +84,7 @@ export default function ActivityRequirementsRF2(props) {
 
       console.log(array);
 
-      const names = ['RF2_equipment_replaced', 'RF2_EEI_under_51', 'RF2_EEI_under_81'];
+      const names = ['RF2_installation', 'RF2_EEI_under_51', 'RF2_EEI_under_81', "RF2_qualified_install", "RF2_qualified_install_removal", "RF2_legal_disposal"];
 
       dep_arr = array.filter((item) => names.includes(item.name));
       array.find((item) => {
