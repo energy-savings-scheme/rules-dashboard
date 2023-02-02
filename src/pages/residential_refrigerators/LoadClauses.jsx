@@ -65,9 +65,9 @@ export default function LoadClausesRF1(props) {
   const formatResultString = (result) => {
     if (typeof result === 'boolean') {
       if (result === true) {
-        return 'you have met the base eligibility requirements';
+        return 'you have met the activity eligibility requirements';
       } else {
-        return 'you have NOT met the base eligibility requirements';
+        return 'you have NOT met the activity eligibility requirements';
       }
     }
 
@@ -221,7 +221,7 @@ export default function LoadClausesRF1(props) {
                 setStepNumber(stepNumber - 1);
               }}
             >
-              Check base eligibility again
+              Check activity requirements again
             </Button>
           </div>
         )}
