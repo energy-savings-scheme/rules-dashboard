@@ -162,7 +162,6 @@ export default function CalculateBlock(props) {
       formValues.find((v) => v.name === 'RF2_legal_disposal').hide = false;
     }
 
-
     if (
       formItem.name === 'Base_registered_ACP' &&
       (formItem.form_value === false || formItem.default_value === false)
