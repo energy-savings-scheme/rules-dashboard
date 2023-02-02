@@ -145,15 +145,21 @@ export default function CalculateBlock(props) {
     }
 
     if (
-      formItem.name === 'RF2_installation' &&
+      formItem.name === 'RF2_equipment_replaced' &&
       (formItem.form_value === false || formItem.default_value === false)
     ) {
-      formValues.find((v) => v.name === 'RF2_equipment_replaced').hide = false;
+      formValues.find((v) => v.name === 'RF2_installation').hide = false;
+      formValues.find((v) => v.name === 'RF2_qualified_install_removal').hide = true;
+      formValues.find((v) => v.name === 'RF2_qualified_install').hide = false;
+      formValues.find((v) => v.name === 'RF2_legal_disposal').hide = true;
     } else if (
-      formItem.name === 'RF2_installation' &&
+      formItem.name === 'RF2_equipment_replaced' &&
       (formItem.form_value === true || formItem.default_value === true)
     ) {
-      formValues.find((v) => v.name === 'RF2_equipment_replaced').hide = true;
+      formValues.find((v) => v.name === 'RF2_installation').hide = true;
+      formValues.find((v) => v.name === 'RF2_qualified_install_removal').hide = false;
+      formValues.find((v) => v.name === 'RF2_qualified_install').hide = true;
+      formValues.find((v) => v.name === 'RF2_legal_disposal').hide = false;
     }
 
     if (
@@ -379,11 +385,11 @@ export default function CalculateBlock(props) {
       }
 
       // cooling capacity path
-      if (formItem.name === 'RF2_installation') {
+      if (formItem.name === 'RF2_equipment_replaced') {
         if (e.target.value === 'true') {
-          formValues.find((v) => v.name === 'RF2_equipment_replaced').hide = true;
+          formValues.find((v) => v.name === 'RF2_installation').hide = true;
         } else {
-          formValues.find((v) => v.name === 'RF2_equipment_replaced').hide = false;
+          formValues.find((v) => v.name === 'RF2_installation').hide = false;
         }
       }
 
