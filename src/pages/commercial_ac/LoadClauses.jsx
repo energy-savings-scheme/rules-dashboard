@@ -91,8 +91,7 @@ export default function LoadClauses(props) {
               <div className="nsw-col">
                 <br></br>
                 <div className="nsw-content-block">
-                  <div className="nsw-content-block__content">
-                  </div>
+                  <div className="nsw-content-block__content"></div>
                 </div>
               </div>
             </div>
