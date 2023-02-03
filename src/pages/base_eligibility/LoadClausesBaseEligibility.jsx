@@ -188,7 +188,7 @@ export default function LoadClausesBaseEligibility(props) {
                           <React.Fragment>
                             <div class="nsw-global-alert__title">
                               {item.metadata.display_question} :{' '}
-                              {formatBooleanToString(item.default_value)}
+                              {formatBooleanToString(item.form_value)}
                             </div>
                             <br></br>
                             <p>{item.metadata.eligibility_clause}</p>
