@@ -188,124 +188,126 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
 
         {stepNumber === 2 && (
           <Fragment>
-          <div
-            className="nsw-row"
-            style={{
-              paddingLeft: 'inherit',
-              paddingRight: 'inherit',
-              paddingTop: '30px',
-              width: '80%',
-            }}
-          >
-            <div className="nsw-col-md-9" style={{ padding: 'inherit' }}>
-              <Button
-                style={{ float: 'left' }}
-                as="dark-outline-solid"
-                onClick={(e) => {
-                  setFlow('backward');
-                  setStepNumber(stepNumber - 1);
-                }}
-              >
-                Back
-              </Button>
-            </div>
+            <div
+              className="nsw-row"
+              style={{
+                paddingLeft: 'inherit',
+                paddingRight: 'inherit',
+                paddingTop: '30px',
+                width: '80%',
+              }}
+            >
+              <div className="nsw-col-md-9" style={{ padding: 'inherit' }}>
+                <Button
+                  style={{ float: 'left' }}
+                  as="dark-outline-solid"
+                  onClick={(e) => {
+                    setFlow('backward');
+                    setStepNumber(stepNumber - 1);
+                  }}
+                >
+                  Back
+                </Button>
+              </div>
 
-            <div className="nsw-col-md-3" style={{ paddingTop: '30px' }}>
-              <Button
-                style={{ float: 'right' }}
-                as="dark"
-                link="/"
-                onClick={(e) => {
-                  // setStepNumber(stepNumber - 1);
-                }}
-              >
-                Change Activity
-              </Button>
+              <div className="nsw-col-md-3" style={{ paddingTop: '30px' }}>
+                <Button
+                  style={{ float: 'right' }}
+                  as="dark"
+                  link="/"
+                  onClick={(e) => {
+                    // setStepNumber(stepNumber - 1);
+                  }}
+                >
+                  Change Activity
+                </Button>
+              </div>
             </div>
-          </div>
-          <div
-          className="nsw-row"
-          style={{
-            padding: 'inherit', marginTop: '5%', marginBottom: '5%'
-          }}
-          >
-                      <div className="nsw-col-md-12" style={{ width: '80%' }}>
-                          <hr
-                            style={{
-                              background: 'black',
-                              height: '1.5px',
-                            }}
-                          />
+            <div
+              className="nsw-row"
+              style={{
+                padding: 'inherit',
+                marginTop: '5%',
+                marginBottom: '5%',
+              }}
+            >
+              <div className="nsw-col-md-12" style={{ width: '80%' }}>
+                <hr
+                  style={{
+                    background: 'black',
+                    height: '1.5px',
+                  }}
+                />
+              </div>
+
+              <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
+                <h4>More Options</h4>
+                <br></br>
+
+                <div class="nsw-grid nsw-grid--spaced">
+                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
+                    <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
+                      <div class="nsw-card__content null">
+                        <div class="nsw-card__title">
+                          <a
+                            href="/#commercial-motors-activity-requirements"
+                            class="nsw-card__link"
+                          >
+                            Check Activity Eligibility
+                          </a>
                         </div>
-          
-                        <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
-                          <h4>More Options</h4>
-                          <br></br>
-          
-                          <div class="nsw-grid nsw-grid--spaced">
-                            <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
-                              <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
-                                <div class="nsw-card__content null">
-                                  <div class="nsw-card__title">
-                                    <a href="/#commercial-motors-activity-requirements" class="nsw-card__link">
-                                      Check Activity Eligibility
-                                    </a>
-                                  </div>
-                                  <span
-                                    class="material-icons nsw-material-icons nsw-card__icon"
-                                    focusable="false"
-                                    aria-hidden="true"
-                                  >
-                                    east
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-          
-                            <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
-                              <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
-                                <div class="nsw-card__content null">
-                                  <div class="nsw-card__title">
-                                    <a href="/#base-eligibility" class="nsw-card__link">
-                                      Check Schemes Base Eligibility
-                                    </a>
-                                  </div>
-                                  <span
-                                    class="material-icons nsw-material-icons nsw-card__icon"
-                                    focusable="false"
-                                    aria-hidden="true"
-                                  >
-                                    east
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-          
-                            <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
-                              <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
-                                <div class="nsw-card__content null">
-                                  <div class="nsw-card__title">
-                                    <a href="/" class="nsw-card__link">
-                                      Go to another Activity
-                                    </a>
-                                  </div>
-                                  <span
-                                    class="material-icons nsw-material-icons nsw-card__icon"
-                                    focusable="false"
-                                    aria-hidden="true"
-                                  >
-                                    east
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-          
-          
-          
+                        <span
+                          class="material-icons nsw-material-icons nsw-card__icon"
+                          focusable="false"
+                          aria-hidden="true"
+                        >
+                          east
+                        </span>
+                      </div>
                     </div>
-                    </Fragment>
+                  </div>
+
+                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
+                    <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
+                      <div class="nsw-card__content null">
+                        <div class="nsw-card__title">
+                          <a href="/#base-eligibility" class="nsw-card__link">
+                            Check Schemes Base Eligibility
+                          </a>
+                        </div>
+                        <span
+                          class="material-icons nsw-material-icons nsw-card__icon"
+                          focusable="false"
+                          aria-hidden="true"
+                        >
+                          east
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
+                    <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
+                      <div class="nsw-card__content null">
+                        <div class="nsw-card__title">
+                          <a href="/" class="nsw-card__link">
+                            Go to another Activity
+                          </a>
+                        </div>
+                        <span
+                          class="material-icons nsw-material-icons nsw-card__icon"
+                          focusable="false"
+                          aria-hidden="true"
+                        >
+                          east
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Fragment>
         )}
       </div>
     </div>

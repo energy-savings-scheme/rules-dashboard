@@ -265,49 +265,51 @@ export default function CertificateEstimatorLoadClausesRC(props) {
 
         {stepNumber === 3 && (
           <Fragment>
-          <div
-            className="nsw-row"
-            style={{
-              paddingLeft: 'inherit',
-              paddingRight: 'inherit',
-              paddingTop: '30px',
-              width: '80%',
-            }}
-          >
-            <div className="nsw-col-md-9" style={{ padding: 'inherit' }}>
-              <Button
-                style={{ float: 'left' }}
-                as="dark-outline-solid"
-                onClick={(e) => {
-                  setFlow('backward');
-                  setStepNumber(stepNumber - 1);
-                }}
-              >
-                Back
-              </Button>
+            <div
+              className="nsw-row"
+              style={{
+                paddingLeft: 'inherit',
+                paddingRight: 'inherit',
+                paddingTop: '30px',
+                width: '80%',
+              }}
+            >
+              <div className="nsw-col-md-9" style={{ padding: 'inherit' }}>
+                <Button
+                  style={{ float: 'left' }}
+                  as="dark-outline-solid"
+                  onClick={(e) => {
+                    setFlow('backward');
+                    setStepNumber(stepNumber - 1);
+                  }}
+                >
+                  Back
+                </Button>
+              </div>
+
+              <div className="nsw-col-md-3" style={{ paddingTop: '30px' }}>
+                <Button
+                  style={{ float: 'right' }}
+                  as="dark"
+                  link="/"
+                  onClick={(e) => {
+                    // setStepNumber(stepNumber - 1);
+                  }}
+                >
+                  Change Activity
+                </Button>
+              </div>
             </div>
 
-            <div className="nsw-col-md-3" style={{ paddingTop: '30px' }}>
-              <Button
-                style={{ float: 'right' }}
-                as="dark"
-                link="/"
-                onClick={(e) => {
-                  // setStepNumber(stepNumber - 1);
-                }}
-              >
-                Change Activity
-              </Button>
-            </div>
-          </div>
-
-<div
-className="nsw-row"
-style={{
-  padding: 'inherit', marginTop: '5%', marginBottom: '5%'
-}}
->
-            <div className="nsw-col-md-12" style={{ width: '80%' }}>
+            <div
+              className="nsw-row"
+              style={{
+                padding: 'inherit',
+                marginTop: '5%',
+                marginBottom: '5%',
+              }}
+            >
+              <div className="nsw-col-md-12" style={{ width: '80%' }}>
                 <hr
                   style={{
                     background: 'black',
@@ -325,7 +327,10 @@ style={{
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/#refrigerated-cabinet-activity-requirements" class="nsw-card__link">
+                          <a
+                            href="/#refrigerated-cabinet-activity-requirements"
+                            class="nsw-card__link"
+                          >
                             Check Activity Eligibility
                           </a>
                         </div>
@@ -379,10 +384,7 @@ style={{
                   </div>
                 </div>
               </div>
-
-
-
-          </div>
+            </div>
           </Fragment>
         )}
       </div>
