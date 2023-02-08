@@ -137,6 +137,7 @@ export default function ActivityRequirementsSYS1(props) {
   return (
     <Fragment>
       {/* Search section */}
+      <br></br>
       <HeroBanner
         wide
         style="dark"

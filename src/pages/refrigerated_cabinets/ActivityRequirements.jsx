@@ -137,6 +137,7 @@ export default function ActivityRequirementsRF2(props) {
   return (
     <Fragment>
       {/* Search section */}
+      <br></br>
       <HeroBanner
         wide
         style="dark"

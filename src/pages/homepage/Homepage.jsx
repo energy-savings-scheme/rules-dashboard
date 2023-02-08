@@ -83,22 +83,9 @@ export default function Homepage(props) {
             <div class="nsw-layout__main">
               <h2 className="nsw-col nsw-content-block__title">Residential and Small Business</h2>
               <div class="nsw-grid">
-                {/* <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
-                  <Card
-                    headline="Air Conditioner"
-                    link="#residential-ac-estimator"
-                    image="/ResidentialAC.jpg"
-                    highlight
-                  >
-                    <CardCopy>
-                      Install a new or replace an existing air conditioner with a high efficiency
-                      air conditioner
-                    </CardCopy>
-                  </Card>
-                </div> */}
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
-                    copy="Install a new or replace an existing air conditioner with a high efficiency"
+                    copy="Install a new or replace an existing air conditioner with a high efficiency air conditioner"
                     headline="Air Conditioner"
                     image="/ResidentialAC.jpg"
                     links={[
