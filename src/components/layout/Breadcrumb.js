@@ -32,6 +32,41 @@ export default function Breadcrumb() {
   }
 
   if (
+    location.pathname === '/commercial-ac-activity-requirements' ||
+    location.pathname === '/residential-ac-activity-requirements' ||
+    location.pathname === '/commercial-motors-activity-requirements' ||
+    location.pathname === '/pool-pumps-activity-requirements' ||
+    location.pathname === '/residential-refrigeration-activity-requirements' ||
+    location.pathname === '/refrigerated-cabinet-activity-requirements' ||
+    location.pathname === '/commercial-water-heater-activity-requirements'
+  ) {
+    return (
+      <div className="nsw-container" style={{ marginBottom: 20 }}>
+        <Breadcrumbs
+          label="Breadcrumb for certificates"
+          items={[
+            {
+              link: '/',
+              text: 'Home',
+            },
+            {
+              link: '#',
+              text: 'Safeguard Digital Tools',
+            },
+            {
+              link: '/',
+              text: 'Activities',
+            },
+            {
+              text: 'Activity Requirements',
+            },
+          ]}
+        />
+      </div>
+    );
+  }
+
+  if (
     location.pathname === '/residential-ac-estimator' ||
     location.pathname === '/commercial-ac-estimator' ||
     location.pathname === '/refrigerated-cabinet-estimator' ||

@@ -136,6 +136,7 @@ export default function ActivityRequirementsResAC(props) {
   return (
     <Fragment>
       {/* Search section */}
+      <br></br>
       <HeroBanner
         wide
         style="dark"
