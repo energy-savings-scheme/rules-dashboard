@@ -32,6 +32,35 @@ export default function Breadcrumb() {
   }
 
   if (
+    location.pathname === '/base-eligibility'
+  ) {
+    return (
+      <div className="nsw-container" style={{ marginBottom: 20 }}>
+        <Breadcrumbs
+          label="Breadcrumb for certificates"
+          items={[
+            {
+              link: '/',
+              text: 'Home',
+            },
+            {
+              link: '#',
+              text: 'Safeguard Digital Tools',
+            },
+            {
+              link: '/',
+              text: 'Activities',
+            },
+            {
+              text: 'Base Eligibility',
+            },
+          ]}
+        />
+      </div>
+    );
+  }
+
+  if (
     location.pathname === '/commercial-ac-activity-requirements' ||
     location.pathname === '/residential-ac-activity-requirements' ||
     location.pathname === '/commercial-motors-activity-requirements' ||
