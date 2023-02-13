@@ -80,9 +80,9 @@ export default function BaseEligibility(props) {
         'Base_basix_affected_development',
         'Base_replacement_water_heater_certificates',
         'Base_replacement_solar_water_heater_certificates',
-        "Base_disposal_of_equipment",
-        'Base_resold_reused_or_refurbished'
-         ];
+        'Base_disposal_of_equipment',
+        'Base_resold_reused_or_refurbished',
+      ];
 
       var second_dep = [];
 

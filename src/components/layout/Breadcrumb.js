@@ -31,9 +31,7 @@ export default function Breadcrumb() {
     );
   }
 
-  if (
-    location.pathname === '/base-eligibility'
-  ) {
+  if (location.pathname === '/base-eligibility') {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
         <Breadcrumbs

@@ -89,7 +89,6 @@ export default function CalculateBlock(props) {
     //   formValues.find((v) => v.name === 'Base_disposal_of_equipment').hide = true;
     // }
 
-
     if (
       formItem.name === 'RF2_GEMS_product_class_5' &&
       (formItem.form_value === true || formItem.default_value === true)
@@ -279,7 +278,6 @@ export default function CalculateBlock(props) {
       //   }
       // }
 
-
       if (formItem.name === 'SYS1_replacement_activity') {
         if (e.target.value === 'true') {
           if (
@@ -325,16 +323,13 @@ export default function CalculateBlock(props) {
 
       if (formItem.name === 'Base_removing_or_replacing') {
         if (e.target.value === 'true') {
-          formValues.find(
-            (v) => v.name === 'Base_resold_reused_or_refurbished',
-          ).hide = false;
+          formValues.find((v) => v.name === 'Base_resold_reused_or_refurbished').hide = false;
           formValues.find((v) => v.name === 'Base_disposal_of_equipment').hide = false;
         } else {
           formValues.find((v) => v.name === 'Base_resold_reused_or_refurbished').hide = true;
           formValues.find((v) => v.name === 'Base_disposal_of_equipment').hide = true;
         }
       }
-
 
       if (formItem.name === 'HVAC2_installation') {
         if (e.target.value === 'false') {
@@ -392,7 +387,6 @@ export default function CalculateBlock(props) {
           console.log(formValues);
         }
       }
-
 
       if (formItem.name === 'Base_meets_mandatory_requirement') {
         if (e.target.value === 'true') {
