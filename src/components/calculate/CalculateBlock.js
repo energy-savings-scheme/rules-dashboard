@@ -74,6 +74,21 @@ export default function CalculateBlock(props) {
       formValues.find((v) => v.name === 'Base_basix_affected_development').hide = true;
     }
 
+    // if (
+    //   formItem.name === 'Base_removing_or_replacing' &&
+    //   (formItem.form_value === true || formItem.default_value === true)
+    // ) {
+    //   formValues.find((v) => v.name === 'Base_resold_reused_or_refurbished').hide = false;
+    //   formValues.find((v) => v.name === 'Base_disposal_of_equipment').hide = false;
+
+    // } else if (
+    //   formItem.name === 'Base_removing_or_replacing' &&
+    //   (formItem.form_value === false || formItem.default_value === false)
+    // ) {
+    //   formValues.find((v) => v.name === 'Base_resold_reused_or_refurbished').hide = true;
+    //   formValues.find((v) => v.name === 'Base_disposal_of_equipment').hide = true;
+    // }
+
     if (
       formItem.name === 'RF2_GEMS_product_class_5' &&
       (formItem.form_value === true || formItem.default_value === true)
@@ -100,19 +115,19 @@ export default function CalculateBlock(props) {
       formValues.find((v) => v.name === 'Base_replacement_water_heater_certificates').hide = true;
     }
 
-    if (
-      formItem.name === 'Base_removing_or_replacing' &&
-      (formItem.form_value === true || formItem.default_value === true)
-    ) {
-      formValues.find((v) => v.name === 'Base_resold_reused_or_refurbished').hide = false;
-      formValues.find((v) => v.name === 'Base_disposal_of_equipment').hide = false;
-    } else if (
-      formItem.name === 'Base_removing_or_replacing' &&
-      (formItem.form_value === false || formItem.default_value === false)
-    ) {
-      formValues.find((v) => v.name === 'Base_resold_reused_or_refurbished').hide = true;
-      formValues.find((v) => v.name === 'Base_disposal_of_equipment').hide = true;
-    }
+    // if (
+    //   formItem.name === 'Base_removing_or_replacing' &&
+    //   (formItem.form_value === true || formItem.default_value === true)
+    // ) {
+    //   formValues.find((v) => v.name === 'Base_resold_reused_or_refurbished').hide = false;
+    //   formValues.find((v) => v.name === 'Base_disposal_of_equipment').hide = false;
+    // } else if (
+    //   formItem.name === 'Base_removing_or_replacing' &&
+    //   (formItem.form_value === false || formItem.default_value === false)
+    // ) {
+    //   formValues.find((v) => v.name === 'Base_resold_reused_or_refurbished').hide = true;
+    //   formValues.find((v) => v.name === 'Base_disposal_of_equipment').hide = true;
+    // }
 
     if (formItem.name === 'SYS1_replacement_activity') {
       if (formItem.default_value === true || formItem.form_value === true) {
@@ -162,17 +177,17 @@ export default function CalculateBlock(props) {
       formValues.find((v) => v.name === 'RF2_legal_disposal').hide = false;
     }
 
-    if (
-      formItem.name === 'Base_registered_ACP' &&
-      (formItem.form_value === false || formItem.default_value === false)
-    ) {
-      formValues.find((v) => v.name === 'Base_engaged_ACP').hide = false;
-    } else if (
-      formItem.name === 'Base_registered_ACP' &&
-      (formItem.form_value === true || formItem.default_value === true)
-    ) {
-      formValues.find((v) => v.name === 'Base_engaged_ACP').hide = true;
-    }
+    // if (
+    //   formItem.name === 'Base_registered_ACP' &&
+    //   (formItem.form_value === false || formItem.default_value === false)
+    // ) {
+    //   formValues.find((v) => v.name === 'Base_engaged_ACP').hide = false;
+    // } else if (
+    //   formItem.name === 'Base_registered_ACP' &&
+    //   (formItem.form_value === true || formItem.default_value === true)
+    // ) {
+    //   formValues.find((v) => v.name === 'Base_engaged_ACP').hide = true;
+    // }
 
     if (
       formItem.name === 'HVAC2_new_equipment_cooling_capacity' &&
@@ -255,13 +270,13 @@ export default function CalculateBlock(props) {
       // Helper function which sets the value for formItem when the HTML input element's
       // onChange event is triggered
 
-      if (formItem.name === 'Base_registered_ACP') {
-        if (e.target.value === 'false') {
-          formValues.find((v) => v.name === 'Base_engaged_ACP').hide = false;
-        } else if (e.target.value === 'true') {
-          formValues.find((v) => v.name === 'Base_engaged_ACP').hide = true;
-        }
-      }
+      // if (formItem.name === 'Base_registered_ACP') {
+      //   if (e.target.value === 'false') {
+      //     formValues.find((v) => v.name === 'Base_engaged_ACP').hide = false;
+      //   } else if (e.target.value === 'true') {
+      //     formValues.find((v) => v.name === 'Base_engaged_ACP').hide = true;
+      //   }
+      // }
 
       if (formItem.name === 'SYS1_replacement_activity') {
         if (e.target.value === 'true') {
@@ -303,6 +318,16 @@ export default function CalculateBlock(props) {
           formValues.find(
             (v) => v.name === 'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
           ).hide = true;
+        }
+      }
+
+      if (formItem.name === 'Base_removing_or_replacing') {
+        if (e.target.value === 'true') {
+          formValues.find((v) => v.name === 'Base_resold_reused_or_refurbished').hide = false;
+          formValues.find((v) => v.name === 'Base_disposal_of_equipment').hide = false;
+        } else {
+          formValues.find((v) => v.name === 'Base_resold_reused_or_refurbished').hide = true;
+          formValues.find((v) => v.name === 'Base_disposal_of_equipment').hide = true;
         }
       }
 
@@ -359,18 +384,6 @@ export default function CalculateBlock(props) {
             (v) => v.name === 'Base_replacement_solar_water_heater_certificates',
           ).hide = false;
           setFormValues(formValues);
-          console.log(formValues);
-        }
-      }
-
-      if (formItem.name === 'Base_removing_or_replacing') {
-        if (e.target.value === 'true') {
-          formValues.find((v) => v.name === 'Base_resold_reused_or_refurbished').hide = true;
-          formValues.find((v) => v.name === 'Base_disposal_of_equipment').hide = true;
-        } else {
-          formValues.find((v) => v.name === 'Base_resold_reused_or_refurbished').hide = false;
-          formValues.find((v) => v.name === 'Base_disposal_of_equipment').hide = false;
-
           console.log(formValues);
         }
       }
