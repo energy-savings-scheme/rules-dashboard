@@ -139,17 +139,17 @@ export default function LoadClauses(props) {
           <Fragment>
             {
               <div style={{ marginTop: '5%' }}>
-                <Alert as="info" title="ESCs and PRCs" style={{ width: '80%' }}>
+                <Alert as="info" title="Activity Requirements" style={{ width: '80%' }}>
                   <p>
                     {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
-                    Based on the information provided {formatResultString(calculationResult)}.
+                    Based on the information you have provided {formatResultString(calculationResult)}.
                   </p>
                 </Alert>
 
                 {calculationResult === false && (
                   <Alert
                     as="warning"
-                    title="Your following answers were ineligible:"
+                    title="The following answers were ineligible:"
                     style={{ width: '80%' }}
                   >
                     <p>
