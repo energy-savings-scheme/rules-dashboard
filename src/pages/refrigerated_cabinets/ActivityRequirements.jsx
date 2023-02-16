@@ -23,6 +23,10 @@ export default function ActivityRequirementsRF2(props) {
 
   console.log(variables);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [stepNumber]);
+
   if (formValues.length === 0) {
     setLoading(true);
   } else if (variables.length === 0) {
