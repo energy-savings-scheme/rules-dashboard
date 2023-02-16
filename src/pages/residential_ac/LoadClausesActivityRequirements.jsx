@@ -171,7 +171,8 @@ export default function LoadClausesResidentialActivityRequirements(props) {
                 <Alert as="info" title="Activity Requirements" style={{ width: '80%' }}>
                   <p>
                     {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
-                    Based on the information you have provided {formatResultString(calculationResult)}.
+                    Based on the information you have provided{' '}
+                    {formatResultString(calculationResult)}.
                   </p>
                 </Alert>
 
