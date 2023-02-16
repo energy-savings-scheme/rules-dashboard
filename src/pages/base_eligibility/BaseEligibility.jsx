@@ -28,6 +28,10 @@ export default function BaseEligibility(props) {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (variables.length < 1) {
       OpenFiscaAPI.listEntities()
         .then((res) => {
@@ -116,9 +120,14 @@ export default function BaseEligibility(props) {
           child.form_value !== child.default_value &&
           new_arr.find((o) => o.name === child.name) === undefined &&
           child.value_type === 'Boolean'
-        )
+        ){
           new_arr.push(child);
+        }
+          if(child.name === "Implementation_date" && child.form_value === "before_may_2016"){
+            new_arr.push(child);
+          }
       });
+
     setClausesForm(new_arr);
 
     console.log(clausesForm);
@@ -140,16 +149,19 @@ export default function BaseEligibility(props) {
 
       <div className="nsw-container" style={{ marginBottom: '10%' }}>
         <div className="nsw-grid nsw-grid--spaced">
-          <div className="nsw-col nsw-col-md-12">
+          <div className="nsw-col nsw-col-md-10">
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">Schemes Base Eligibility Requirements</h2>
             <br></br>
             <p className="nsw-content-block__copy">
-              The following questions assess the basic eligibility requirements for the Energy
-              Savings Scheme and Peak Demand Reduction Scheme. Answer the questions and click the
-              button below to check your eligibility. If ineligible, you will be shown the
-              ineligible answers and their corresponding rule clauses.
+            The following questions assess the base eligibility requirements for the Energy Savings Scheme and the Peak Demand Reduction Scheme.
+            </p>
+            <p className="nsw-content-block__copy">
+Answer the questions and click the button below to check your eligibility. If ineligible, you will be shown the ineligible answers and their corresponding rule clauses.
+            </p>
+            <p className="nsw-content-block__copy">
+Please keep in mind that the results are indicative only and cannot be promoted or published.
             </p>
           </div>
         </div>

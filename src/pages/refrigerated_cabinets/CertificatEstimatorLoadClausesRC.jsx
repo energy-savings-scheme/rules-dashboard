@@ -199,6 +199,15 @@ export default function CertificateEstimatorLoadClausesRC(props) {
       <div style={{ marginTop: 70, marginBottom: 70 }}>
         {stepNumber === 2 && (
           <Fragment>
+            <div class="nsw-global-alert nsw-global-alert--light js-global-alert" role="alert" style={{ width: '80%', marginBottom: '7%'}}>
+  <div class="nsw-global-alert__wrapper">
+    <div class="nsw-global-alert__content">
+      {/* <div class="nsw-global-alert__title"></div> */}
+      <p> <b>Brand: </b> {selectedBrand} </p>
+      <p> <b>Model: </b> {selectedModel}</p>
+    </div>
+  </div>
+</div>
             <CalculateBlock
               calculationDate={calculationDate}
               variable={variableData1}
@@ -235,6 +244,15 @@ export default function CertificateEstimatorLoadClausesRC(props) {
 
         {stepNumber === 3 && !calculationError && !calculationError2 && (
           <Fragment>
+            <div class="nsw-global-alert nsw-global-alert--light js-global-alert" role="alert" style={{ width: '80%', marginBottom: '7%'}}>
+  <div class="nsw-global-alert__wrapper">
+    <div class="nsw-global-alert__content">
+      {/* <div class="nsw-global-alert__title"></div> */}
+      <p> <b>Brand: </b> {selectedBrand} </p>
+      <p> <b>Model: </b> {selectedModel}</p>
+    </div>
+  </div>
+</div>
             {
               <Alert as="info" title="ESCs and PRCs" style={{ width: '80%' }}>
                 <p>

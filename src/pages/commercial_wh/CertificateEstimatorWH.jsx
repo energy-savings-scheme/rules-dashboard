@@ -257,6 +257,8 @@ export default function CertificateEstimatorWH(props) {
               setFormValues={setFormValues}
               flow={flow}
               setFlow={setFlow}
+              selectedBrand={selectedBrand}
+              selectedModel={selectedModel}
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}
@@ -291,6 +293,8 @@ export default function CertificateEstimatorWH(props) {
               setFormValues={setFormValues}
               persistFormValues={persistFormValues}
               setPersistFormValues={setPersistFormValues}
+              selectedBrand={selectedBrand}
+              selectedModel={selectedModel}
               flow={flow}
               setFlow={setFlow}
             />
