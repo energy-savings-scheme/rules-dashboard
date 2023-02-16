@@ -181,19 +181,20 @@ export default function CertificateEstimatorRC(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-              Commercial Refrigerated Cabinet Certificate Estimator
+            Commercial Refrigerated Cabinet certificate estimator           
             </h2>
-            {/* <h5 className="nsw-content-block__copy">
-              Energy Savings Scheme and Peak Demand Reduction Scheme
-            </h5> */}
             <br></br>
             <p className="nsw-content-block__copy">
-              Estimate your ESCs and PRCs for the Commercial Refrigerated Cabinet Activity (F1 in
-              the ESS and RF2 in the PDRS) by answering the following questions.
+            Estimate the energy savings certificates (ESCs) and peak reduction certificates (PRCs) for the Commercial Refrigerated Cabinet Activity (F1.1 and F1.2 in the Energy Savings Scheme and RF2 in the Peak Demand Reduction Scheme) by answering the following questions. Note that a new installation activity will not generate PRCs.
             </p>
             <p className="nsw-content-block__copy">
-              Please keep in mind that the results are indicative only and cannot be promoted or
-              published.{' '}
+            Where possible, residential and small business air conditioner specifications are automatically pulled in from the <a href="https://reg.energyrating.gov.au/comparator/product_types/">Greenhouse & Energy Minimum Standards (GEMS) Registry </a> based on brand and model, but you may also enter your own values.
+            </p>
+            <p className="nsw-content-block__copy">
+            If you are receiving an estimation of 0 certificates, the brand and model may not be generating enough energy savings to earn certificates, or the new installation or replacement activity you have chosen may be ineligible.
+            </p>
+            <p className="nsw-content-block__copy">
+            Please keep in mind that the results are indicative only and cannot be promoted or published.
             </p>
           </div>
         </div>

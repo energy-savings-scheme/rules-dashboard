@@ -40,15 +40,33 @@ export default function Homepage(props) {
                   </h5> */}
                   {/* <br></br> */}
                   <p className="nsw-content-block__copy">
-                    Use our Safeguard Certificate Estimator to get an idea of how many Energy
-                    Savings Certificates (ESCs) and Peak Demand Reduction Certificates (PRCs) your
-                    activity may qualify for. Remember, results are an indication only and cannot be
-                    promoted or published.
+                  We have created this tool to help you check the eligibility of an activity and estimate how many energy savings certificates (ESCs) and peak reduction certificates (PRCs) your activity may generate.
                   </p>
                   <p className="nsw-content-block__copy">
-                    The Estimator is based on the latest Energy Savings Scheme rule and Peak Demand
-                    Reduction Scheme rule. To complete the certificate estimation you may need
-                    product information from the IPART Product Registry or GEMS Registry.
+                  This tool can help you to compare and explore:
+                  <ul>
+                    <li>
+                    base eligibility requirements for the Energy Savings Scheme and Peak Demand Reduction Scheme
+                    </li>
+                    <li>
+                    activity-specific eligibility requirements for both schemes
+                    </li>
+                    <li>
+                    the number of certificates generated for different brands and models of equipment
+                    </li>
+                    <li>
+                    how changes in technical specifications for a product affect certificate creation
+                    </li>
+                    <li>
+                    activities in the Energy Savings Scheme and Peak Demand Reduction Scheme by demonstrating how ESCs and PRCs stack together
+                    </li>
+                    <li>
+                    the estimator's number of certificates with your own modelling for specific brands and models.
+                    </li>
+                  </ul>
+                  </p>
+                  <p className="nsw-content-block__copy">
+                  The estimator is based on the latest <a href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme">Energy Savings Scheme</a> and <a href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme">Peak Demand Reduction Scheme </a>rules.
                   </p>
                   <p className="nsw-content-block__copy">
                     If you have any questions or feedback about this tool, please contact{' '}
@@ -58,20 +76,67 @@ export default function Homepage(props) {
                   </p>
                 </div>
               </div>
-              <br></br>
-              <h2 className="nsw-content-block__title">Schemes Base Eligibility Requirements</h2>
 
-              <section class="nsw-section nsw-section--white">
-                <div class="nsw-container">
-                  <div class="nsw-layout">
-                    <p className="nsw-content-block__copy">
-                      There are <Link to="/base-eligibility">Base Eligibility Requirements </Link>{' '}
-                      that must be met across all activities in order to be eligible.
+              <h2 className="nsw-content-block__title">How to use the Estimator</h2>
+
+<section class="nsw-section nsw-section--white">
+  <div class="nsw-container">
+    <div class="nsw-layout">
+      <p className="nsw-content-block__copy">
+      There are 2 parts to using the certificate estimator.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<ul>
+  <li> <h3 className="nsw-content-block__title">Check Eligibility</h3>
+  </li>
+  <p className="nsw-content-block__copy">
+  If you are unsure whether an activity meets eligibility for creating certificates, you can check the requirements for base scheme and the specific activity.
+</p>
+<p className="nsw-content-block__copy">
+To assess eligibility you need to answer a sequence of questions. Explanations will be provided if you do not meet the eligibility requirement for the scheme or for a particular activity.
+      </p>
+
+      <div class="nsw-callout">
+  <div class="nsw-callout__content">
+    <h4>Base eligibility requirements</h4>
+    <p>Check <a href='#/base-eligibility'> base eligibility requirements</a></p>
+  </div>
+</div>
+
+<div class="nsw-callout">
+  <div class="nsw-callout__content">
+    <h4>Activity eligibility requirements</h4>
+    <p>Check activity specific eligibility requirements by <a href='#'>choosing the required activity</a></p>
+  </div>
+</div>
+
+<br></br>
+<br></br>
+<li><h3 className="nsw-content-block__title">Estimate certificates </h3></li>
+<p className="nsw-content-block__copy">
+The second part is to estimate how many certificates can be created for the activity. You can access the estimator for each activity below.</p>
+
+<p className="nsw-content-block__copy">
+You will need:
+                  <ul>
+                    <li>
+                    the postcode of the site installation                    </li>
+                    <li>
+                    the brand and model number of the equipment you have installed
+                    </li>
+                    </ul>
                     </p>
-                  </div>
-                </div>
-              </section>
-              <h2 className="nsw-content-block__title">Which activity are you interested in?</h2>
+
+                    <p className="nsw-content-block__copy">
+                    Where possible, technical information has been populated from the relevant product registry. Please double-check the populated fields to make sure they are accurate to your expected equipment specifications. Note that results are indicative only and cannot be promoted or published.
+</p>
+</ul>
+<br></br>
+              <h2 className="nsw-content-block__title">Choose the activity you are interested in</h2>
             </div>
           </div>
         </div>
