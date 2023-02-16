@@ -155,14 +155,22 @@ export default function ActivityRequirementsCommercialAC(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-              Commercial Air Conditioner Activity Requirements
+              Commercial Air Conditioner Activity eligibility check
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
               The following questions assess the eligibility requirements for the Commercial Air
-              Conditioner Activity (F4 in the ESS and HVAC2 in the PDRS). Answer the questions to
-              check your eligibility and click the button below to review ineligible answers and
-              their corresponding rule clauses.{' '}
+              Conditioner Activity (F4 in the Energy Savings Scheme and HVAC2 in the Peak Demand
+              Reduction Scheme).
+            </p>
+            <p className="nsw-content-block__copy">
+              Answer the questions and click the button below to check your eligibility. If
+              ineligible, you will be shown the ineligible answers and their corresponding rule
+              clauses.
+            </p>
+            <p className="nsw-content-block__copy">
+              Please keep in mind that the results are indicative only and cannot be promoted or
+              published.
             </p>
           </div>
         </div>
