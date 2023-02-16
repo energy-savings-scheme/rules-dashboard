@@ -38,7 +38,6 @@ export default function ActivityRequirementsCommercialAC(props) {
   }, [stepNumber]);
 
   useEffect(() => {
-
     if (variables.length < 1) {
       OpenFiscaAPI.listEntities()
         .then((res) => {

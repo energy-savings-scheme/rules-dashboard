@@ -36,7 +36,7 @@ export default function ActivityRequirementsSYS1(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [stepNumber]);
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
 
