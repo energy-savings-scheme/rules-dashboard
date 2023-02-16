@@ -182,7 +182,7 @@ export default function LoadClausesSYS2(props) {
                 {calculationResult === false && (
                   <Alert
                     as="warning"
-                    title="The following answers were ineligible:"
+                    title="Your following answers were ineligible:"
                     style={{ width: '80%' }}
                   >
                     <p>
