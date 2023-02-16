@@ -134,17 +134,22 @@ export default function ActivityRequirementsRF1(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-            Residential and Small Business Spare Refrigerator or Freezer Removal eligibility check
+              Residential and Small Business Spare Refrigerator or Freezer Removal eligibility check
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-            The following questions assess the eligibility requirements for the Residential and Small Business Spare Refrigerator or Freezer removal Activity (C1 in the Energy Savings Scheme and RF1 in the Peak Demand Reduction Scheme).
+              The following questions assess the eligibility requirements for the Residential and
+              Small Business Spare Refrigerator or Freezer removal Activity (C1 in the Energy
+              Savings Scheme and RF1 in the Peak Demand Reduction Scheme).
             </p>
             <p className="nsw-content-block__copy">
-            Answer the questions and click the button below to check your eligibility. If ineligible, you will be shown the ineligible answers and their corresponding rule clauses.
+              Answer the questions and click the button below to check your eligibility. If
+              ineligible, you will be shown the ineligible answers and their corresponding rule
+              clauses.
             </p>
             <p className="nsw-content-block__copy">
-            Please keep in mind that the results are indicative only and cannot be promoted or published.
+              Please keep in mind that the results are indicative only and cannot be promoted or
+              published.
             </p>
           </div>
         </div>

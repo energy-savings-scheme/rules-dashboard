@@ -154,7 +154,9 @@ export default function ActivityRequirementsRF2(props) {
           <div className="nsw-col nsw-col-md-12">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">Commercial Refrigerated Cabinet Activity eligibility check</h2>
+            <h2 className="nsw-content-block__title">
+              Commercial Refrigerated Cabinet Activity eligibility check
+            </h2>
             <br></br>
             <p className="nsw-content-block__copy">
               The following questions assess the eligibility requirements for the Refrigerated
@@ -163,10 +165,13 @@ export default function ActivityRequirementsRF2(props) {
               their corresponding rule clauses.{' '}
             </p>
             <p className="nsw-content-block__copy">
-            Answer the questions and click the button below to check your eligibility. If ineligible, you will be shown the ineligible answers and their corresponding rule clauses.
+              Answer the questions and click the button below to check your eligibility. If
+              ineligible, you will be shown the ineligible answers and their corresponding rule
+              clauses.
             </p>
             <p className="nsw-content-block__copy">
-            Please keep in mind that the results are indicative only and cannot be promoted or published.
+              Please keep in mind that the results are indicative only and cannot be promoted or
+              published.
             </p>
           </div>
         </div>
