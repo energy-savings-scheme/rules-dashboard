@@ -84,19 +84,10 @@ export default function ActivityRequirementsSYS2(props) {
 
       console.log(array);
 
-      const names = [
-        'SYS2_single_speed_input_power',
-        'SYS2_multiple_speeds_input_power',
-        'SYS2_voluntary_labelling_scheme',
-      ];
+      const names = ['SYS2_voluntary_labelling_scheme'];
 
       dep_arr = array.filter((item) => names.includes(item.name));
       array.find((item) => {
-        if (item.name === 'SYS2_single_speed_input_power') {
-          console.log(' in here' + item.name);
-          item.hide = true;
-        }
-
         if (item.name === 'SYS2_voluntary_labelling_scheme') {
           item.hide = true;
         }
@@ -128,12 +119,33 @@ export default function ActivityRequirementsSYS2(props) {
           child.form_value !== child.default_value &&
           new_arr.find((o) => o.name === child.name) === undefined &&
           child.value_type === 'Boolean'
-        )
+        ) {
           new_arr.push(child);
+        }
       });
-    setClausesForm(new_arr);
 
-    console.log(clausesForm);
+    var multiple_speed_var = formValues.find((item) => item.name === 'SYS2_multiple_speed');
+    var single_speed_input_power_var = formValues.find(
+      (item) => item.name === 'SYS2_input_power_dropdown',
+    );
+
+    if (
+      multiple_speed_var !== undefined &&
+      multiple_speed_var.form_value === true &&
+      single_speed_input_power_var.form_value === 'single_speed'
+    ) {
+      new_arr.push(single_speed_input_power_var);
+    }
+
+    if (
+      single_speed_input_power_var !== undefined &&
+      multiple_speed_var.form_value === false &&
+      single_speed_input_power_var.form_value === 'multiple_speed'
+    ) {
+      new_arr.push(single_speed_input_power_var);
+    }
+
+    setClausesForm(new_arr);
   }, [stepNumber]);
 
   return (

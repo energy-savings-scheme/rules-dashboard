@@ -579,19 +579,6 @@ export default function CalculateBlock(props) {
         }
       }
 
-      if (formItem.name === 'SYS2_not_single_speed') {
-        if (e.target.value === 'true') {
-          formValues.find((v) => v.name === 'SYS2_single_speed_input_power').hide = false;
-          formValues.find((v) => v.name === 'SYS2_multiple_speeds_input_power').hide = true;
-          setFormValues(formValues);
-        } else if (e.target.value === 'false') {
-          console.log('i am here');
-          formValues.find((v) => v.name === 'SYS2_single_speed_input_power').hide = true;
-          formValues.find((v) => v.name === 'SYS2_multiple_speeds_input_power').hide = false;
-          setFormValues(formValues);
-        }
-      }
-
       if (formItem.name === 'SYS2_equipment_registered_in_GEMS') {
         if (e.target.value === 'true') {
           formValues.find((v) => v.name === 'SYS2_voluntary_labelling_scheme').hide = true;
