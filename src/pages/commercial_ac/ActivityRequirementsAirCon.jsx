@@ -35,6 +35,9 @@ export default function ActivityRequirementsCommercialAC(props) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, [stepNumber]);
+
+  useEffect(() => {
 
     if (variables.length < 1) {
       OpenFiscaAPI.listEntities()

@@ -58,6 +58,10 @@ export default function ActivityRequirementsRF1(props) {
   }, []);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [stepNumber]);
+
+  useEffect(() => {
     if (variables.length > 0 && stepNumber === 1) {
       console.log(variableToLoad);
       console.log(variables);
