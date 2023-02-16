@@ -79,12 +79,11 @@ export default function LoadClausesBaseEligibility(props) {
 
   const formatBooleanToString = (result) => {
     if (result.form_value === true) {
-      return 'Yes'
+      return 'Yes';
     } else if (result.form_value === false) {
-      return 'No'
-    } 
-    else {
-      return result.possible_values[result.form_value]
+      return 'No';
+    } else {
+      return result.possible_values[result.form_value];
     }
   };
 
@@ -194,8 +193,7 @@ export default function LoadClausesBaseEligibility(props) {
                         clausesForm.map((item, i) => (
                           <React.Fragment>
                             <div class="nsw-global-alert__title">
-                              {item.metadata.display_question} :{' '}
-                              {formatBooleanToString(item)}
+                              {item.metadata.display_question} : {formatBooleanToString(item)}
                             </div>
                             <br></br>
                             <p>{item.metadata.eligibility_clause}</p>
