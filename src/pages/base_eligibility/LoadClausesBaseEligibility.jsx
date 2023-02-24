@@ -211,11 +211,11 @@ export default function LoadClausesBaseEligibility(props) {
 
         {stepNumber === 2 && loading && <SpinnerFullscreen />}
 
-        {stepNumber === 2 && calculationError && (
+        {/* {stepNumber === 2 && calculationError && (
           <Alert as="error" title="Sorry! An error has occurred.">
             <p>An error occurred during calculation. Please try again.</p>
           </Alert>
-        )}
+        )} */}
 
         {stepNumber === 2 && (
           <Fragment>
