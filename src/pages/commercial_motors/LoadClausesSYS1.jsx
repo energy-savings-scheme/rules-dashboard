@@ -186,7 +186,7 @@ export default function LoadClausesSYS1(props) {
                       {clausesForm.length > 0 &&
                         clausesForm.map((item, i) => (
                           <React.Fragment>
-                                                        <br></br>
+                            <br></br>
                             <br></br>
                             <div class="nsw-global-alert__title">
                               {item.metadata.display_question} :{' '}
