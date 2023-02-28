@@ -194,7 +194,7 @@ export default function LoadClausesSYS2(props) {
                               {item.metadata.display_question} : {formatBooleanToString(item)}
                             </div>
                             <br></br>
-                            <p>{item.metadata.eligibility_clause}</p>
+                            <p style={{ whiteSpace: "pre-line" }}>{item.metadata.eligibility_clause.split("<br />").join("\n")}</p>
                             <br></br>
                           </React.Fragment>
                         ))}
@@ -207,7 +207,7 @@ export default function LoadClausesSYS2(props) {
         )}
 
         {stepNumber === 2 && loading && <SpinnerFullscreen />}
-{/* 
+        {/* 
         {stepNumber === 2 && calculationError && (
           <Alert as="error" title="Sorry! An error has occurred.">
             <p>An error occurred during calculation. Please try again.</p>

@@ -6,6 +6,7 @@ import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import LoadClausesBaseEligibility from './LoadClausesBaseEligibility';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 
+
 export default function BaseEligibility(props) {
   const { entities, variables, setEntities, setVariables, loading, setLoading } = props;
 
