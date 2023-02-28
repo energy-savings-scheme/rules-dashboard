@@ -189,7 +189,9 @@ export default function LoadClausesRF2(props) {
                               {formatBooleanToString(item.form_value)}
                             </div>
                             <br></br>
-                            <p>{item.metadata.eligibility_clause}</p>
+                            <p style={{ whiteSpace: 'pre-line' }}>
+                              {item.metadata.eligibility_clause.split('<br />').join('\n')}
+                            </p>
                             <br></br>
                           </React.Fragment>
                         ))}

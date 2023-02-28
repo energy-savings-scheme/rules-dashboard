@@ -197,7 +197,9 @@ export default function LoadClausesBaseEligibility(props) {
                               {item.metadata.display_question} : {formatBooleanToString(item)}
                             </div>
                             <br></br>
-                            <p>{item.metadata.eligibility_clause}</p>
+                            <p style={{ whiteSpace: 'pre-line' }}>
+                              {item.metadata.eligibility_clause.split('<br />').join('\n')}
+                            </p>
                             <br></br>
                           </React.Fragment>
                         ))}
