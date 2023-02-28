@@ -184,11 +184,12 @@ export default function LoadClausesRF1(props) {
                       {clausesForm.length > 0 &&
                         clausesForm.map((item, i) => (
                           <React.Fragment>
+                            <br></br>
+                            <br></br>
                             <div class="nsw-global-alert__title">
                               {item.metadata.display_question} :{' '}
                               {formatBooleanToString(item.form_value)}
                             </div>
-                            <br></br>
                             <p style={{ whiteSpace: 'pre-line' }}>
                               {item.metadata.eligibility_clause.split('<br />').join('\n')}
                             </p>
