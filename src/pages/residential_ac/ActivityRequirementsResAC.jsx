@@ -89,9 +89,7 @@ export default function ActivityRequirementsResAC(props) {
       console.log(array);
 
       const names = [
-        'HVAC1_installed_by_qualified_person',
         'HVAC1_equipment_replaced',
-        'HVAC1_equipment_removed',
         'HVAC1_AEER_greater_than_minimum',
         'HVAC1_TCPSF_greater_than_minimum',
         'HVAC1_HSPF_mixed_eligible',

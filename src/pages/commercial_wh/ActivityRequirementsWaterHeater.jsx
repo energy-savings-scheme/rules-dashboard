@@ -88,7 +88,7 @@ export default function ActivityRequirementsWH1(props) {
 
       console.log(array);
 
-      const names = ['WH1_equipment_replaced', 'WH1_equipment_replaces_gas', 'WH1_certified'];
+      const names = ['WH1_installation', 'WH1_certified'];
 
       dep_arr = array.filter((item) => names.includes(item.name));
 

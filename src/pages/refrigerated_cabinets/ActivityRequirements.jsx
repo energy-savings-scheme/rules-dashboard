@@ -92,8 +92,6 @@ export default function ActivityRequirementsRF2(props) {
         'RF2_installation',
         'RF2_EEI_under_51',
         'RF2_EEI_under_81',
-        'RF2_qualified_install',
-        'RF2_qualified_install_removal',
         'RF2_legal_disposal',
       ];
 
