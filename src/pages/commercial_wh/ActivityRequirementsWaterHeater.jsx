@@ -153,7 +153,7 @@ export default function ActivityRequirementsWH1(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-              Commercial Heat Pump Water Heater Activity eligibility check
+              Commercial Heat Pump Water Heater activity eligibility check
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">

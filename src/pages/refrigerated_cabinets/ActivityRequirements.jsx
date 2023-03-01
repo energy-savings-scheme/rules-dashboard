@@ -157,7 +157,7 @@ export default function ActivityRequirementsRF2(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-              Commercial Refrigerated Cabinet Activity eligibility check
+              Commercial Refrigerated Cabinet activity eligibility check
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">

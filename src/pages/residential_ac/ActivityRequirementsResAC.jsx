@@ -156,7 +156,7 @@ export default function ActivityRequirementsResAC(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-              Residential and Small Business Air Conditioner Activity eligibility check
+              Residential and Small Business Air Conditioner activity eligibility check
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
