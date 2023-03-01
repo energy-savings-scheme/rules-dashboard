@@ -87,9 +87,7 @@ export default function ActivityRequirementsCommercialAC(props) {
       console.log(array);
 
       const names = [
-        'HVAC2_installed_by_qualified_person',
         'HVAC2_equipment_replaced',
-        'HVAC2_equipment_removed',
         'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
         'HVAC2_AEER_greater_than_minimum',
         'HVAC2_TCPSF_greater_than_minimum',
