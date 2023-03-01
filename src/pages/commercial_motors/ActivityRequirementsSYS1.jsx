@@ -159,7 +159,7 @@ export default function ActivityRequirementsSYS1(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-              Commercial Motors Activity eligibility check
+              Commercial Motors activity eligibility check
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">

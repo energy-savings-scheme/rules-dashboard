@@ -155,7 +155,7 @@ export default function ActivityRequirementsCommercialAC(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-              Commercial Air Conditioner Activity eligibility check
+              Commercial Air Conditioner activity eligibility check
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
