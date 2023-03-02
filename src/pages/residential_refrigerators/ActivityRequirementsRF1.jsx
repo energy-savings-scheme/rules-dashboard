@@ -138,7 +138,8 @@ export default function ActivityRequirementsRF1(props) {
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">
-              Residential and Small Business Spare Refrigerator or Freezer Removal activity eligibility check
+              Residential and Small Business Spare Refrigerator or Freezer Removal activity
+              eligibility check
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
