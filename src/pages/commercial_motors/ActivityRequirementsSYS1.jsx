@@ -163,8 +163,8 @@ export default function ActivityRequirementsSYS1(props) {
             </h2>
             <br></br>
             <p className="nsw-content-block__copy">
-              The following questions assess the eligibility requirements for the Commercial Motors activity
-              (Refrigeration or Ventilation) Activity (F7 in the Energy Savings Scheme and SYS1 in
+              The following questions assess the eligibility requirements for the Commercial Motors
+              (Refrigeration or Ventilation) activity (F7 in the Energy Savings Scheme and SYS1 in
               the Peak Demand Reduction Scheme).
             </p>
             <p className="nsw-content-block__copy">
