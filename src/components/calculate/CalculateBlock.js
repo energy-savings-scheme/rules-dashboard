@@ -74,6 +74,7 @@ export default function CalculateBlock(props) {
       formValues.find((v) => v.name === 'Base_basix_affected_development').hide = true;
     }
 
+
     // if (
     //   formItem.name === 'Base_removing_or_replacing' &&
     //   (formItem.form_value === true || formItem.default_value === true)
@@ -258,13 +259,18 @@ export default function CalculateBlock(props) {
       // Helper function which sets the value for formItem when the HTML input element's
       // onChange event is triggered
 
-      // if (formItem.name === 'Base_registered_ACP') {
-      //   if (e.target.value === 'false') {
-      //     formValues.find((v) => v.name === 'Base_engaged_ACP').hide = false;
-      //   } else if (e.target.value === 'true') {
-      //     formValues.find((v) => v.name === 'Base_engaged_ACP').hide = true;
-      //   }
-      // }
+      if (formItem.name === 'SYS2_multiple_speed') {
+        if (e.target.value === 'true') {
+          formValues.find((v) => v.name === 'SYS2_single_speed_input_power').hide = true;
+          formValues.find((v) => v.name === 'SYS2_multiple_speeds_input_power').hide = false;
+          setFormValues(formValues);
+        } else if (e.target.value === 'false') {
+          console.log('i am here');
+          formValues.find((v) => v.name === 'SYS2_single_speed_input_power').hide = false;
+          formValues.find((v) => v.name === 'SYS2_multiple_speeds_input_power').hide = true;
+          setFormValues(formValues);
+        }
+      }
 
       if (formItem.name === 'SYS1_replacement_activity') {
         if (e.target.value === 'true') {
