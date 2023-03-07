@@ -74,7 +74,6 @@ export default function CalculateBlock(props) {
       formValues.find((v) => v.name === 'Base_basix_affected_development').hide = true;
     }
 
-
     // if (
     //   formItem.name === 'Base_removing_or_replacing' &&
     //   (formItem.form_value === true || formItem.default_value === true)
