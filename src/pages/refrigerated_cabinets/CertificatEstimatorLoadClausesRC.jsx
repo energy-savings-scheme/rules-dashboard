@@ -320,11 +320,11 @@ export default function CertificateEstimatorLoadClausesRC(props) {
                     </p>
                     <p>
                       ACPs work with{' '}
-                      <a href="https://www.energy.nsw.gov.au/households/rebates-grants-and-schemes/household-energy-saving-upgrades">
+                      <a href="https://www.energy.nsw.gov.au/households/rebates-grants-and-schemes/household-energy-saving-upgrades" target="_blank">
                         households
                       </a>{' '}
                       and{' '}
-                      <a href="https://www.energy.nsw.gov.au/business-and-industry/programs-grants-and-schemes/business-equipment">
+                      <a href="https://www.energy.nsw.gov.au/business-and-industry/programs-grants-and-schemes/business-equipment" target="_blank">
                         businesses{' '}
                       </a>{' '}
                       and will explain the process and get you the incentive under the ESS and PDRS.
