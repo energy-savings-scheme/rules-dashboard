@@ -102,10 +102,10 @@ export default function Homepage(props) {
                 </div>
               </section>
 
-              <ul>
+              <ol style={ { listStyle: 'none' }}>
                 <li>
                   {' '}
-                  <h3 className="nsw-content-block__title">Check Eligibility</h3>
+                  <h3 className="nsw-content-block__title">1. Check Eligibility</h3>
                 </li>
                 <p className="nsw-content-block__copy">
                   If you are unsure whether an activity meets eligibility for creating certificates,
@@ -139,7 +139,7 @@ export default function Homepage(props) {
                 <br></br>
                 <br></br>
                 <li>
-                  <h3 className="nsw-content-block__title">Estimate certificates </h3>
+                  <h3 className="nsw-content-block__title">2. Estimate certificates </h3>
                 </li>
                 <p className="nsw-content-block__copy">
                   The second part is to estimate how many certificates can be created for the
@@ -160,7 +160,7 @@ export default function Homepage(props) {
                   to your expected equipment specifications. Note that results are indicative only
                   and cannot be promoted or published.
                 </p>
-              </ul>
+              </ol>
               <br></br>
               <h2 className="nsw-content-block__title">
                 Choose the activity you are interested in
