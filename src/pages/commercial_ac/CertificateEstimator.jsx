@@ -204,11 +204,6 @@ export default function CertificateEstimatorHVAC(props) {
               based on brand and model, but you may also enter your own values.
             </p>
             <p className="nsw-content-block__copy">
-              If you are receiving an estimation of 0 certificates, the brand and model may not be
-              generating enough energy savings to earn certificates, or the new installation or
-              replacement activity you have chosen may be ineligible.
-            </p>
-            <p className="nsw-content-block__copy">
               Please keep in mind that the results are indicative only and cannot be promoted or
               published.
             </p>

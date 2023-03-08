@@ -279,13 +279,18 @@ export default function CertificateEstimatorLoadClauses(props) {
                   </span>
                   {/* </h4> */}
                 </p>
+                <p>
+                  If you are receiving an estimation of 0 certificates, the brand and model may not
+                  be generating enough energy savings to earn certificates, or the new installation
+                  or replacement activity you have chosen may be ineligible.
+                </p>
               </Alert>
             }
             {
               <div
                 class="nsw-global-alert js-global-alert"
                 role="alert"
-                style={{ width: '80%', marginTop: '2%' }}
+                style={{ width: '80%', marginTop: '4%' }}
               >
                 <div class="nsw-global-alert__wrapper">
                   <div class="nsw-global-alert__content">
@@ -301,7 +306,7 @@ export default function CertificateEstimatorLoadClauses(props) {
                       Certificates are sold by ACPs to electricity retailers and large energy users
                       at a market-based price. A portion of the funds received from selling the
                       certificates is then transferred to you as an upfront service discount or a
-                      pay out at a later stage of your project. 
+                      pay out at a later stage of your project.
                     </p>
                     <p>
                       ACPs work with{' '}
