@@ -102,10 +102,6 @@ export default function CertificateEstimatorRefrigerators(props) {
               answering the following questions.
             </p>
             <p className="nsw-content-block__copy">
-              If you are receiving an estimation of 0 certificates, the equipment may not be
-              generating enough energy savings to earn certificates.
-            </p>
-            <p className="nsw-content-block__copy">
               Please keep in mind that the results are indicative only and cannot be promoted or
               published.
             </p>

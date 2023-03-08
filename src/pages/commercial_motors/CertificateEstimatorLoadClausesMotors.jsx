@@ -172,6 +172,11 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
                     <b>{Math.floor(calculationResult)}</b>
                   </span>
                 </p>
+                <p>
+                  If you are receiving an estimation of 0 certificates, the brand and model may not
+                  be generating enough energy savings to earn certificates, or the new installation
+                  or replacement activity you have chosen may be ineligible.
+                </p>
               </Alert>
             }
             {
