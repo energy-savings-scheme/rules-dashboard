@@ -101,11 +101,6 @@ export default function CertificateEstimatorPP(props) {
               questions. Note that a new installation activity will not generate ESCs or PRCs.
             </p>
             <p className="nsw-content-block__copy">
-              If you are receiving an estimation of 0 certificates, the brand and model may not be
-              generating enough energy savings to earn certificates, or the new installation or
-              replacement activity you have chosen may be ineligible.
-            </p>
-            <p className="nsw-content-block__copy">
               Please keep in mind that the results are indicative only and cannot be promoted or
               published.
             </p>
