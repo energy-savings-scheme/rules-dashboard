@@ -91,7 +91,6 @@ function getPoolPumpMetadata(payload) {
   });
 }
 
-
 const RegistryApi = {
   getCommercialHVACBrands,
   getCommercialWHBrands,
@@ -104,7 +103,7 @@ const RegistryApi = {
   getRF2ModelsMetadata,
   getPoolPumpBrands,
   listPoolPumpModels,
-  getPoolPumpMetadata
+  getPoolPumpMetadata,
 };
 
 export default RegistryApi;

@@ -92,8 +92,7 @@ function App() {
         console.log(err);
       });
 
-
-      RegistryApi.getPoolPumpBrands()
+    RegistryApi.getPoolPumpBrands()
       .then((res) => {
         setPoolPumpBrands(res.data);
         setLoading(false);

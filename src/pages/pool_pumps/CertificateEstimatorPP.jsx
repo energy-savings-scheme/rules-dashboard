@@ -141,7 +141,6 @@ export default function CertificateEstimatorPP(props) {
       });
   }, [selectedBrand]);
 
-
   return (
     <Fragment>
       <br></br>
