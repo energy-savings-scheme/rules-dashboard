@@ -50,6 +50,7 @@ function App() {
   const [hvacModels, setHvacModels] = useState([]);
   const [whBrands, setWhBrands] = useState([]);
   const [RF2Brands, setRF2Brands] = useState([]);
+  const [PoolPumpBrands, setPoolPumpBrands] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -85,6 +86,16 @@ function App() {
     RegistryApi.getCommercialHVACBrands()
       .then((res) => {
         setHvacBrands(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+
+      RegistryApi.getPoolPumpBrands()
+      .then((res) => {
+        setPoolPumpBrands(res.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -181,6 +192,8 @@ function App() {
             setEntities={setEntities}
             setVariables={setVariables}
             setLoading={setLoading}
+            setPoolPumpBrands={setPoolPumpBrands}
+            PoolPumpBrands={PoolPumpBrands}
           />
         </Route>
         <Route path="/commercial-motors-estimator" exact>

@@ -69,6 +69,29 @@ function getRF2ModelsMetadata(payload) {
   });
 }
 
+function getPoolPumpBrands() {
+  return RegistryApiBase({
+    url: `/pool_pumps/brands`,
+    method: 'GET',
+  });
+}
+
+function listPoolPumpModels(brandName) {
+  return RegistryApiBase({
+    url: `/pool_pumps/brands/${brandName}/models`,
+    method: 'GET',
+  });
+}
+
+function getPoolPumpMetadata(payload) {
+  return RegistryApiBase({
+    url: `/pool_pumps/metadata`,
+    method: 'POST',
+    data: payload,
+  });
+}
+
+
 const RegistryApi = {
   getCommercialHVACBrands,
   getCommercialWHBrands,
@@ -79,6 +102,9 @@ const RegistryApi = {
   getRF2Brands,
   listRF2Models,
   getRF2ModelsMetadata,
+  getPoolPumpBrands,
+  listPoolPumpModels,
+  getPoolPumpMetadata
 };
 
 export default RegistryApi;

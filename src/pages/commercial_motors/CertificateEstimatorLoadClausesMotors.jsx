@@ -180,15 +180,16 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
               </Alert>
             }
             {
-              <div
-                class="nsw-global-alert js-global-alert"
-                role="alert"
-                style={{ width: '80%', marginTop: '4%' }}
-              >
-                <div class="nsw-global-alert__wrapper">
-                  <div class="nsw-global-alert__content">
-                    <div class="nsw-global-alert__title">Getting started under the Schemes</div>
-                    <p>
+
+<div className="nsw-grid nsw-grid--spaced">
+<div className="nsw-col nsw-col-md-10">
+  <br></br>
+  <br></br>
+  <h2 className="nsw-content-block__title">
+  Getting started under the Schemes
+  </h2>
+  <br></br>
+  <p>
                       Approved suppliers (known as Accredited Certificate Providers, or ACPs)
                       conduct upgrades under the Energy Savings Scheme (ESS) and Peak Demand
                       Reduction Scheme (PDRS). Only an ACP can provide the scheme incentives, and
@@ -219,9 +220,8 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
                       and will explain the process and get you the incentive under the ESS and PDRS.
                       Please contact an approved supplier to get started.
                     </p>
-                  </div>
-                </div>
-              </div>
+</div>
+</div>
             }
           </Fragment>
         )}
