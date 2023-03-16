@@ -182,7 +182,7 @@ export default function CertificateEstimatorHVAC(props) {
 
       <div className="nsw-container">
         <div className="nsw-grid nsw-grid--spaced">
-          <div className="nsw-col nsw-col-md-12">
+          <div className="nsw-col nsw-col-md-10">
             <br></br>
             <br></br>
             <h2 className="nsw-content-block__title">

@@ -12,6 +12,7 @@ import 'nsw-design-system/src/main.scss';
 import '@fontsource/public-sans';
 import '@fontsource/public-sans/600.css';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 export default function Homepage(props) {
   return (
@@ -102,7 +103,7 @@ export default function Homepage(props) {
                 </div>
               </section>
 
-              <ol style={ { listStyle: 'none' }}>
+              <ol style={{ listStyle: 'none' }}>
                 <li>
                   {' '}
                   <h3 className="nsw-content-block__title">1. Check Eligibility</h3>
@@ -162,7 +163,7 @@ export default function Homepage(props) {
                 </p>
               </ol>
               <br></br>
-              <h2 className="nsw-content-block__title">
+              <h2 id="activity-choice" className="nsw-content-block__title">
                 Choose the activity you are interested in
               </h2>
             </div>

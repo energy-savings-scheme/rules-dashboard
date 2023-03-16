@@ -6,13 +6,14 @@ import moment from 'moment';
 // Import components
 import CalculateBlock from 'components/calculate/CalculateBlock';
 import Button from 'nsw-ds-react/button/button';
-import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
-import Alert from 'nsw-ds-react/alert/alert';
+import { Alert } from 'nsw-ds-react/alert/alert';
+import OpenFiscaApi from 'services/openfisca_api';
+import GlobalAlert from 'nsw-ds-react/global-alert/globalAlert';
 
 export default function CertificateEstimatorLoadClausesPP(props) {
   const {
-    variableData1,
-    variableData2,
+    variableToLoad1,
+    variableToLoad2,
     variables,
     entities,
     setStepNumber,
@@ -26,25 +27,63 @@ export default function CertificateEstimatorLoadClausesPP(props) {
     setCalculationResult,
     calculationResult2,
     setCalculationResult2,
+    postcode,
+    zone,
+    formValues,
+    setFormValues,
+    selectedBrand,
+    selectedModel,
     flow,
     setFlow,
     persistFormValues,
     setPersistFormValues,
-    formValues,
-    setFormValues,
   } = props;
+
+  console.log(variableToLoad1);
+  console.log(variableToLoad2);
+  console.log(metadata);
+  console.log(postcode);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const [variable, setVariable] = useState({}); // all info about variable
 
   var today = new Date();
   const [calculationDate, setCalculationDate] = useState(moment(today).format('YYYY-MM-DD'));
+
+  // const [formValues, setFormValues] = useState([]);
   const [dependencies, setDependencies] = useState([]);
 
   const [loading, setLoading] = useState(true);
+  const [variableData1, setVariableData1] = useState([]);
+  const [variableData2, setVariableData2] = useState([]);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    OpenFiscaApi.getVariable(variableToLoad1)
+      .then((res) => {
+        setVariableData1(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [variableToLoad1]);
+
+  useEffect(() => {
+    OpenFiscaApi.getVariable(variableToLoad2)
+      .then((res) => {
+        setVariableData2(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [variableToLoad2]);
+
+  console.log(variableData1);
+  console.log(variableData2);
 
   function addElement(arr, obj) {
     const { length } = arr;
@@ -55,73 +94,97 @@ export default function CertificateEstimatorLoadClausesPP(props) {
   }
 
   useEffect(() => {
-    if (variableData1.length == 0 || variableData1.length == 0) {
-      setLoading(true);
-    } else {
-      setLoading(false);
-      if (variables.length == 0) {
-        setLoading(true);
-      } else {
-        setLoading(false);
-        console.log(variables);
-        const variable1 = variables.find((item) => item.name === 'SYS2_ESC_calculation');
-        const variable2 = variables.find((item) => item.name === 'SYS2_PRC_calculation');
+    if (variables) {
+      const variable1 = variables.find((item) => item.name === variableToLoad1);
+      const variable2 = variables.find((item) => item.name === variableToLoad2);
 
-        const offsprings1 = variable1.metadata.input_offspring;
-        const offsprings2 = variable2.metadata.input_offspring;
+      const offsprings1 = variable1.metadata.input_offspring;
+      const offsprings2 = variable2.metadata.input_offspring;
 
-        const children1 = variables.filter((item) => offsprings1.includes(item.name));
-        const children2 = variables.filter((item) => offsprings2.includes(item.name));
+      const children1 = variables.filter((item) => offsprings1.includes(item.name));
+      const children2 = variables.filter((item) => offsprings2.includes(item.name));
 
-        console.log(children1);
-        console.log(children2);
+      console.log(children1);
+      console.log(children2);
 
-        // Define the original array (at a minimum include the Implementation Date)
-        var array1 = [];
-        var array2 = [];
+      // Define the original array (at a minimum include the Implementation Date)
+      var array1 = [];
+      var array2 = [];
 
-        children1.map((child) => {
-          array1.push({ ...child, form_value: '', invalid: false });
-        });
+      children1.map((child) => {
+        array1.push({ ...child, form_value: '', invalid: false });
+      });
 
-        children2.map((child) => {
-          array2.push({ ...child, form_value: '', invalid: false });
-        });
+      children2.map((child) => {
+        array2.push({ ...child, form_value: '', invalid: false });
+      });
 
-        array2.forEach((item) => addElement(array1, item));
+      array2.forEach((item) => addElement(array1, item));
 
-        if (persistFormValues.length > 1 && flow === 'backward') {
-          array1.map((e) => {
-            let found = persistFormValues.find((f) => e.name === f.name);
-            if (found !== undefined) {
-              e['form_value'] = found['form_value'];
-            }
-            return e;
-          });
+      console.log(array1);
+
+      array1.map((formItem) => {
+        if (formItem.name === 'SYS2_pool_pump_type') {
+          console.log(formItem.form_value);
+          formItem.form_value = metadata['pool_pump_type'].toLowerCase();
         }
 
-        array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
+        if (formItem.name === 'SYS2_star_rating') {
+          formItem.form_value = metadata['star_rating'].toString();
+        }
 
-        setFormValues(array1);
+        if (formItem.name === 'SYS2_input_power') {
+          formItem.form_value = metadata['input_power'];
+        }
+
+        if (formItem.name === 'SYS2_PDRS__postcode') {
+          formItem.form_value = postcode;
+          formItem.read_only = true;
+        }
+      });
+
+      if (persistFormValues.length > 1 && flow === 'backward') {
+        array1.map((e) => {
+          let found = persistFormValues.find((f) => e.name === f.name);
+          if (found !== undefined) {
+            e['form_value'] = found['form_value'];
+          }
+          return e;
+        });
       }
+      array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
+
+      setFormValues(array1);
     }
   }, [variableData1, variableData2]);
-
-  const formatResultString = (result) => {
-    if (typeof result === 'boolean') {
-      return JSON.stringify(result);
-    }
-
-    return JSON.stringify(result) + ' kW';
-  };
 
   if (!variable) return null;
 
   return (
     <div className>
       <div style={{ marginTop: 70, marginBottom: 70 }}>
-        {stepNumber === 1 && (
+        {stepNumber === 2 && (
           <Fragment>
+            <div
+              class="nsw-global-alert nsw-global-alert--light js-global-alert"
+              role="alert"
+              style={{ width: '80%', marginBottom: '7%' }}
+            >
+              <div class="nsw-global-alert__wrapper">
+                <div class="nsw-global-alert__content">
+                  {/* <div class="nsw-global-alert__title"></div> */}
+                  <p>
+                    {' '}
+                    <b>Brand: </b> {selectedBrand}{' '}
+                  </p>
+                  <p>
+                    {' '}
+                    <b>Model: </b> {selectedModel}
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <CalculateBlock
               calculationDate={calculationDate}
               variable={variableData1}
@@ -146,6 +209,8 @@ export default function CertificateEstimatorLoadClausesPP(props) {
               dependencies={dependencies}
               metadata={metadata}
               workflow={'certificates'}
+              selectedBrand={selectedBrand}
+              selectedModel={selectedModel}
               flow={flow}
               setFlow={setFlow}
               persistFormValues={persistFormValues}
@@ -154,8 +219,27 @@ export default function CertificateEstimatorLoadClausesPP(props) {
           </Fragment>
         )}
 
-        {stepNumber === 2 && !calculationError && !calculationError2 && (
+        {stepNumber === 3 && !calculationError && !calculationError2 && (
           <Fragment>
+            <div
+              class="nsw-global-alert nsw-global-alert--light js-global-alert"
+              role="alert"
+              style={{ width: '80%', marginBottom: '7%' }}
+            >
+              <div class="nsw-global-alert__wrapper">
+                <div class="nsw-global-alert__content">
+                  {/* <div class="nsw-global-alert__title"></div> */}
+                  <p>
+                    {' '}
+                    <b>Brand: </b> {selectedBrand}{' '}
+                  </p>
+                  <p>
+                    {' '}
+                    <b>Model: </b> {selectedModel}
+                  </p>
+                </div>
+              </div>
+            </div>
             {
               <Alert as="info" title="ESCs and PRCs" style={{ width: '80%' }}>
                 <p>
@@ -180,62 +264,57 @@ export default function CertificateEstimatorLoadClausesPP(props) {
               </Alert>
             }
             {
-              <div
-                class="nsw-global-alert js-global-alert"
-                role="alert"
-                style={{ width: '80%', marginTop: '4%' }}
-              >
-                <div class="nsw-global-alert__wrapper">
-                  <div class="nsw-global-alert__content">
-                    <div class="nsw-global-alert__title">Getting started under the Schemes</div>
-                    <p>
-                      Approved suppliers (known as Accredited Certificate Providers, or ACPs)
-                      conduct upgrades under the Energy Savings Scheme (ESS) and Peak Demand
-                      Reduction Scheme (PDRS). Only an ACP can provide the scheme incentives, and
-                      they must be engaged before any works commence.
-                    </p>
-                    <p>
-                      Incentives in the form of Energy Saving Certificates or Peak Reduction
-                      Certificates are sold by ACPs to electricity retailers and large energy users
-                      at a market-based price. A portion of the funds received from selling the
-                      certificates is then transferred to you as an upfront service discount or a
-                      pay out at a later stage of your project.
-                    </p>
-                    <p>
-                      ACPs work with{' '}
-                      <a
-                        href="https://www.energy.nsw.gov.au/households/rebates-grants-and-schemes/household-energy-saving-upgrades"
-                        target="_blank"
-                      >
-                        households
-                      </a>{' '}
-                      and{' '}
-                      <a
-                        href="https://www.energy.nsw.gov.au/business-and-industry/programs-grants-and-schemes/business-equipment"
-                        target="_blank"
-                      >
-                        businesses{' '}
-                      </a>{' '}
-                      and will explain the process and get you the incentive under the ESS and PDRS.
-                      Please contact an approved supplier to get started.
-                    </p>
-                  </div>
+              <div className="nsw-grid nsw-grid--spaced">
+                <div className="nsw-col nsw-col-md-10">
+                  <br></br>
+                  <br></br>
+                  <h2 className="nsw-content-block__title">Getting started under the Schemes</h2>
+                  <br></br>
+                  <p>
+                    Approved suppliers (known as Accredited Certificate Providers, or ACPs) conduct
+                    upgrades under the Energy Savings Scheme (ESS) and Peak Demand Reduction Scheme
+                    (PDRS). Only an ACP can provide the scheme incentives, and they must be engaged
+                    before any works commence.
+                  </p>
+                  <p>
+                    Incentives in the form of Energy Saving Certificates or Peak Reduction
+                    Certificates are sold by ACPs to electricity retailers and large energy users at
+                    a market-based price. A portion of the funds received from selling the
+                    certificates is then transferred to you as an upfront service discount or a pay
+                    out at a later stage of your project.
+                  </p>
+                  <p>
+                    ACPs work with{' '}
+                    <a
+                      href="https://www.energy.nsw.gov.au/households/rebates-grants-and-schemes/household-energy-saving-upgrades"
+                      target="_blank"
+                    >
+                      households
+                    </a>{' '}
+                    and{' '}
+                    <a
+                      href="https://www.energy.nsw.gov.au/business-and-industry/programs-grants-and-schemes/business-equipment"
+                      target="_blank"
+                    >
+                      businesses{' '}
+                    </a>{' '}
+                    and will explain the process and get you the incentive under the ESS and PDRS.
+                    Please contact an approved supplier to get started.
+                  </p>
                 </div>
               </div>
             }
           </Fragment>
         )}
 
-        {stepNumber === 1 && loading && <SpinnerFullscreen />}
-
-        {(stepNumber === 2 && calculationError === true) ||
-          (stepNumber === 2 && calculationError2 === true && (
+        {(stepNumber === 3 && calculationError === true) ||
+          (stepNumber === 3 && calculationError2 === true && (
             <Alert as="error" title="Sorry! An error has occurred.">
               <p>An error occurred during calculation. Try re-running the calculation</p>
             </Alert>
           ))}
 
-        {stepNumber === 2 && (
+        {stepNumber === 3 && (
           <Fragment>
             <div
               className="nsw-row"
@@ -299,7 +378,7 @@ export default function CertificateEstimatorLoadClausesPP(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/#pool-pumps-activity-requirements" class="nsw-card__link">
+                          <a href="/#commercial-ac-activity-requirements" class="nsw-card__link">
                             Check Activity Eligibility
                           </a>
                         </div>
