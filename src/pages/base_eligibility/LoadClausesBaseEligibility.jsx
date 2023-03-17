@@ -249,16 +249,35 @@ export default function LoadClausesBaseEligibility(props) {
                 />
               </div>
 
-              <div className="nsw-col-md-4" style={{ paddingTop: '9%' }}>
+              <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
                 <h4>More Options</h4>
                 <br></br>
                 <div class="nsw-grid nsw-grid--spaced">
-                  <div class="nsw-col nsw-col-md-12" style={{ height: '12vw' }}>
+                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/" class="nsw-card__link">
-                            Choose an Activity
+                          <a href="#" class="nsw-card__link">
+                          Estimate Certificates for an Activity
+                          </a>
+                        </div>
+                        <span
+                          class="material-icons nsw-material-icons nsw-card__icon"
+                          focusable="false"
+                          aria-hidden="true"
+                        >
+                          east
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
+                    <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
+                      <div class="nsw-card__content null">
+                        <div class="nsw-card__title">
+                          <a href="#" class="nsw-card__link">
+                          Check Eligibility for an Activity
                           </a>
                         </div>
                         <span
