@@ -126,6 +126,10 @@ export default function BaseEligibility(props) {
         if (child.name === 'Implementation_date' && child.form_value === 'planned_activity') {
           new_arr.push(child);
         }
+
+        if (child.name === 'Implementation_date' && child.form_value ===  "before_april_1_2022") {
+          new_arr.push(child);
+        }
       });
 
     setClausesForm(new_arr);
