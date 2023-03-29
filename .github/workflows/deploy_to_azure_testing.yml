@@ -3,7 +3,7 @@ name: Deploy website to Azure
 on:
   workflow_dispatch:
   push:
-    branches: [nonprod]
+    branches: [hspf_fields]
 
 jobs:
   build-and-deploy:
