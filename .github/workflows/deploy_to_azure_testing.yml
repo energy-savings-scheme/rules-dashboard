@@ -1,9 +1,9 @@
-name: Deploy website to Azure
+name: Deploy website to Azure testing
 
 on:
   workflow_dispatch:
   push:
-    branches: [hspf_fields]
+    branches: nonprod
 
 jobs:
   build-and-deploy:
