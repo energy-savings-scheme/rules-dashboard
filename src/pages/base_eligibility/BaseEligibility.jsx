@@ -203,5 +203,4 @@ export default function BaseEligibility(props) {
       </div>
     </Fragment>
   );
-
 }
