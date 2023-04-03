@@ -41,7 +41,9 @@ export default function Homepage(props) {
                   </h5> */}
                   {/* <br></br> */}
                   <p className="nsw-content-block__copy">
-                  This tool helps you check eligibility and estimate how many Energy Savings Certificates (ESCs) and Peak Reduction Certificates (PRCs) your activity may generate.
+                    This tool helps you check eligibility and estimate how many Energy Savings
+                    Certificates (ESCs) and Peak Reduction Certificates (PRCs) your activity may
+                    generate.
                   </p>
                   <p className="nsw-content-block__copy">
                     This tool can help you to compare and explore:
@@ -60,10 +62,12 @@ export default function Homepage(props) {
                         creation
                       </li>
                       <li>
-                      combined incentives across the Energy Savings Scheme and Peak Demand Reduction Scheme by demonstrating how ESCs and PRCs work together
+                        combined incentives across the Energy Savings Scheme and Peak Demand
+                        Reduction Scheme by demonstrating how ESCs and PRCs work together
                       </li>
                       <li>
-                      how the estimator's number of certificates compare with your own modelling for specific brands and models.
+                        how the estimator's number of certificates compare with your own modelling
+                        for specific brands and models.
                       </li>
                     </ul>
                   </p>
@@ -105,10 +109,12 @@ export default function Homepage(props) {
                   <h3 className="nsw-content-block__title">1. Check Eligibility</h3>
                 </li>
                 <p className="nsw-content-block__copy">
-                Answer questions directly from the rules to check core scheme eligibility requirements and activity-specific eligibility requirements.
+                  Answer questions directly from the rules to check core scheme eligibility
+                  requirements and activity-specific eligibility requirements.
                 </p>
                 <p className="nsw-content-block__copy">
-                Explanations are provided where the eligibility requirements for a scheme or for a particular activity are not met.
+                  Explanations are provided where the eligibility requirements for a scheme or for a
+                  particular activity are not met.
                 </p>
 
                 <div class="nsw-callout">
