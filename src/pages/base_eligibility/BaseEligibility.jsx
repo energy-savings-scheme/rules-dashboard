@@ -139,7 +139,6 @@ export default function BaseEligibility(props) {
 
   return (
     <Fragment>
-      {/* Search section */}
       <HeroBanner
         wide
         style="dark"
