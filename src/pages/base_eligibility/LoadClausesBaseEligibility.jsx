@@ -68,9 +68,9 @@ export default function LoadClausesBaseEligibility(props) {
   const formatResultString = (result) => {
     if (typeof result === 'boolean') {
       if (result === true) {
-        return 'you have met the base eligibility requirements';
+        return 'you have met the core eligibility requirements';
       } else {
-        return 'you have NOT met the base eligibility requirements';
+        return 'you have NOT met the core eligibility requirements';
       }
     }
 
@@ -175,7 +175,7 @@ export default function LoadClausesBaseEligibility(props) {
           <Fragment>
             {
               <div style={{ marginTop: '5%' }}>
-                <Alert as="info" title="Base Eligibility" style={{ width: '80%' }}>
+                <Alert as="info" title="Core Eligibility" style={{ width: '80%' }}>
                   <p>
                     {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
                     Based on the information you have provided{' '}
@@ -236,7 +236,7 @@ export default function LoadClausesBaseEligibility(props) {
                     setStepNumber(stepNumber - 1);
                   }}
                 >
-                  Check base eligibility again
+                  Check core eligibility again
                 </Button>
               </div>
 

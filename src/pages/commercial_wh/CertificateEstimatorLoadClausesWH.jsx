@@ -425,7 +425,7 @@ export default function CertificateEstimatorLoadClausesWH(props) {
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
                           <a href="/#base-eligibility" class="nsw-card__link">
-                            Check Schemes Base Eligibility
+                            Check Schemes Core Eligibility
                           </a>
                         </div>
                         <span
