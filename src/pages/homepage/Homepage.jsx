@@ -41,15 +41,13 @@ export default function Homepage(props) {
                   </h5> */}
                   {/* <br></br> */}
                   <p className="nsw-content-block__copy">
-                    We have created this tool to help you check the eligibility of an activity and
-                    estimate how many energy savings certificates (ESCs) and peak reduction
-                    certificates (PRCs) your activity may generate.
+                  This tool helps you check eligibility and estimate how many Energy Savings Certificates (ESCs) and Peak Reduction Certificates (PRCs) your activity may generate.
                   </p>
                   <p className="nsw-content-block__copy">
                     This tool can help you to compare and explore:
                     <ul>
                       <li>
-                        base eligibility requirements for the Energy Savings Scheme and Peak Demand
+                        core eligibility requirements for the Energy Savings Scheme and Peak Demand
                         Reduction Scheme
                       </li>
                       <li>activity-specific eligibility requirements for both schemes</li>
@@ -62,12 +60,10 @@ export default function Homepage(props) {
                         creation
                       </li>
                       <li>
-                        activities in the Energy Savings Scheme and Peak Demand Reduction Scheme by
-                        demonstrating how ESCs and PRCs stack together
+                      combined incentives across the Energy Savings Scheme and Peak Demand Reduction Scheme by demonstrating how ESCs and PRCs work together
                       </li>
                       <li>
-                        the estimator's number of certificates with your own modelling for specific
-                        brands and models.
+                      how the estimator's number of certificates compare with your own modelling for specific brands and models.
                       </li>
                     </ul>
                   </p>
@@ -109,20 +105,17 @@ export default function Homepage(props) {
                   <h3 className="nsw-content-block__title">1. Check Eligibility</h3>
                 </li>
                 <p className="nsw-content-block__copy">
-                  If you are unsure whether an activity meets eligibility for creating certificates,
-                  you can check the requirements for base scheme and the specific activity.
+                Answer questions directly from the rules to check core scheme eligibility requirements and activity-specific eligibility requirements.
                 </p>
                 <p className="nsw-content-block__copy">
-                  To assess eligibility you need to answer a sequence of questions. Explanations
-                  will be provided if you do not meet the eligibility requirement for the scheme or
-                  for a particular activity.
+                Explanations are provided where the eligibility requirements for a scheme or for a particular activity are not met.
                 </p>
 
                 <div class="nsw-callout">
                   <div class="nsw-callout__content">
-                    <h4>Base eligibility requirements</h4>
+                    <h4>Core eligibility requirements</h4>
                     <p>
-                      Check <a href="#/base-eligibility"> base eligibility requirements</a>
+                      Check <a href="#/base-eligibility"> core eligibility requirements</a>
                     </p>
                   </div>
                 </div>

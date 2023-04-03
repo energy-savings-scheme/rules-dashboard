@@ -156,10 +156,10 @@ export default function BaseEligibility(props) {
           <div className="nsw-col nsw-col-md-10">
             <br></br>
             <br></br>
-            <h2 className="nsw-content-block__title">Schemes Base Eligibility Requirements</h2>
+            <h2 className="nsw-content-block__title">Schemes Core Eligibility Requirements</h2>
             <br></br>
             <p className="nsw-content-block__copy">
-              The following questions assess the base eligibility requirements for the Energy
+              The following questions assess the core eligibility requirements for the Energy
               Savings Scheme and the Peak Demand Reduction Scheme.
             </p>
             <p className="nsw-content-block__copy">
