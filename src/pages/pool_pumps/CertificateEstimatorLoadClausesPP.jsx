@@ -130,7 +130,7 @@ export default function CertificateEstimatorLoadClausesPP(props) {
         }
 
         if (formItem.name === 'SYS2_star_rating') {
-          formItem.form_value = metadata['star_rating'].toString();
+          formItem.form_value = metadata['star_rating'];
         }
 
         if (formItem.name === 'SYS2_input_power') {
