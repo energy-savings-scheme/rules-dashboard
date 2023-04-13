@@ -139,10 +139,12 @@ export default function CertificateEstimatorWH(props) {
       />
 
       <div className="nsw-container">
-        <div className="nsw-grid nsw-grid--spaced">
+
+        <br></br>
+        <br></br>
+
+        {stepNumber !== 3 && (<div className="nsw-grid nsw-grid--spaced">
           <div className="nsw-col nsw-col-md-10">
-            <br></br>
-            <br></br>
             <h2 className="nsw-content-block__title">
               Commercial Heat Pump Water Heater certificate estimator
             </h2>
@@ -169,11 +171,15 @@ export default function CertificateEstimatorWH(props) {
               published.
             </p>
           </div>
-        </div>
-        <br></br>
-        {/* <p className="nsw-content-block__copy">
-          <b> Commercial heat pump water heater certificate estimator </b>
-        </p> */}
+        </div>) }
+
+        {stepNumber === 3 &&  (<div className="nsw-grid nsw-grid--spaced">
+          <div className="nsw-col nsw-col-md-10">
+            <h2 className="nsw-content-block__title">Commercial Heat Pump Water Heater certificate estimator</h2>
+          </div>
+        </div>)
+      }
+
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
         <Fragment>

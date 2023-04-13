@@ -154,10 +154,10 @@ export default function ActivityRequirementsSYS1(props) {
       />
 
       <div className="nsw-container" style={{ marginBottom: '10%' }}>
-        <div className="nsw-grid nsw-grid--spaced">
+        <br></br>
+        <br></br>
+        {stepNumber !== 2 && (<div className="nsw-grid nsw-grid--spaced">
           <div className="nsw-col nsw-col-md-12">
-            <br></br>
-            <br></br>
             <h2 className="nsw-content-block__title">
               Commercial Motors activity eligibility check
             </h2>
@@ -177,7 +177,14 @@ export default function ActivityRequirementsSYS1(props) {
               published.
             </p>
           </div>
-        </div>
+        </div> ) }
+
+        {stepNumber === 2 &&  (<div className="nsw-grid nsw-grid--spaced">
+          <div className="nsw-col nsw-col-md-12">
+            <h2 className="nsw-content-block__title">Commercial Motors activity eligibility check</h2>
+          </div>
+        </div>)
+      }
 
         <ProgressIndicator step={stepNumber} of={2} style={{ width: '80%' }} />
 

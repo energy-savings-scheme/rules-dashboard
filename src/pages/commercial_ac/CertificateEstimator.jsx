@@ -181,10 +181,10 @@ export default function CertificateEstimatorHVAC(props) {
       />
 
       <div className="nsw-container">
-        <div className="nsw-grid nsw-grid--spaced">
+        <br></br>
+        <br></br>
+        {stepNumber !== 3 && (<div className="nsw-grid nsw-grid--spaced">
           <div className="nsw-col nsw-col-md-10">
-            <br></br>
-            <br></br>
             <h2 className="nsw-content-block__title">
               Commercial Air Conditioner certificate estimator
             </h2>
@@ -208,11 +208,18 @@ export default function CertificateEstimatorHVAC(props) {
               published.
             </p>
           </div>
-        </div>
+        </div> ) }
         <br></br>
-        {/* <p className="nsw-content-block__copy">
-          <b> Commercial air conditioner certificate estimator</b>
-        </p> */}
+
+
+    {stepNumber === 3 &&  (<div className="nsw-grid nsw-grid--spaced">
+          <div className="nsw-col nsw-col-md-10">
+
+            <h2 className="nsw-content-block__title">Commercial Air Conditioner certificate estimator</h2>
+
+          </div>
+        </div>)
+      }
 
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 

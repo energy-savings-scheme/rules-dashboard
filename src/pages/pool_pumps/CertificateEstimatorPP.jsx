@@ -156,9 +156,10 @@ export default function CertificateEstimatorPP(props) {
       />
 
       <div className="nsw-container">
-        <div className="nsw-grid nsw-grid--spaced">
+        <br></br> 
+        <br></br>
+        {stepNumber !== 3 && (<div className="nsw-grid nsw-grid--spaced">
           <div className="nsw-col nsw-col-md-10">
-            <br></br>
             <h2 className="nsw-content-block__title">
               Residential and Small Business Pool Pump certificate estimator
             </h2>
@@ -174,8 +175,18 @@ export default function CertificateEstimatorPP(props) {
               published.
             </p>
           </div>
-        </div>
-        <br></br>
+        </div> )}
+
+        {stepNumber === 3 &&  (<div className="nsw-grid nsw-grid--spaced">
+          <div className="nsw-col nsw-col-md-12">
+            <h2 className="nsw-content-block__title">
+
+            Residential and Small Business Pool Pump certificate estimator
+
+            </h2>
+          </div>
+        </div>)
+      }
 
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
