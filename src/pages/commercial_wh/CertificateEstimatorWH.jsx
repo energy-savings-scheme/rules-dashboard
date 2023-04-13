@@ -139,41 +139,51 @@ export default function CertificateEstimatorWH(props) {
       />
 
       <div className="nsw-container">
-        <div className="nsw-grid nsw-grid--spaced">
-          <div className="nsw-col nsw-col-md-10">
-            <br></br>
-            <br></br>
-            <h2 className="nsw-content-block__title">
-              Commercial Heat Pump Water Heater certificate estimator
-            </h2>
-            {/* <h5 className="nsw-content-block__copy">
+        <br></br>
+        <br></br>
+
+        {stepNumber !== 3 && (
+          <div className="nsw-grid nsw-grid--spaced">
+            <div className="nsw-col nsw-col-md-10">
+              <h2 className="nsw-content-block__title">
+                Commercial Heat Pump Water Heater certificate estimator
+              </h2>
+              {/* <h5 className="nsw-content-block__copy">
               Energy Savings Scheme and Peak Demand Reduction Scheme
             </h5> */}
-            <br></br>
-            <p className="nsw-content-block__copy">
-              Estimate the energy savings certificates (ESCs) and peak reduction certificates (PRCs)
-              for the Commercial Heat Pump Water Heater Activity (F16 in the Energy Savings Scheme
-              and WH1 in the Peak Demand Reduction Scheme) by answering the following questions.
-              Note that a new installation activity will not generate ESCs or PRCs.
-            </p>
-            <p className="nsw-content-block__copy">
-              Where possible, commercial heat pump water heater specifications are automatically
-              pulled in from the{' '}
-              <a href="https://tessa.energysustainabilityschemes.nsw.gov.au/ipart?id=accepted_products">
-                Independent Pricing and Regulatory Tribunal (IPART) Product Registry{' '}
-              </a>{' '}
-              based on brand and model, but you may also enter your own values.
-            </p>
-            <p className="nsw-content-block__copy">
-              Please keep in mind that the results are indicative only and cannot be promoted or
-              published.
-            </p>
+              <br></br>
+              <p className="nsw-content-block__copy">
+                Estimate the energy savings certificates (ESCs) and peak reduction certificates
+                (PRCs) for the Commercial Heat Pump Water Heater Activity (F16 in the Energy Savings
+                Scheme and WH1 in the Peak Demand Reduction Scheme) by answering the following
+                questions. Note that a new installation activity will not generate ESCs or PRCs.
+              </p>
+              <p className="nsw-content-block__copy">
+                Where possible, commercial heat pump water heater specifications are automatically
+                pulled in from the{' '}
+                <a href="https://tessa.energysustainabilityschemes.nsw.gov.au/ipart?id=accepted_products">
+                  Independent Pricing and Regulatory Tribunal (IPART) Product Registry{' '}
+                </a>{' '}
+                based on brand and model, but you may also enter your own values.
+              </p>
+              <p className="nsw-content-block__copy">
+                Please keep in mind that the results are indicative only and cannot be promoted or
+                published.
+              </p>
+            </div>
           </div>
-        </div>
-        <br></br>
-        {/* <p className="nsw-content-block__copy">
-          <b> Commercial heat pump water heater certificate estimator </b>
-        </p> */}
+        )}
+
+        {stepNumber === 3 && (
+          <div className="nsw-grid nsw-grid--spaced">
+            <div className="nsw-col nsw-col-md-10">
+              <h2 className="nsw-content-block__title">
+                Commercial Heat Pump Water Heater certificate estimator
+              </h2>
+            </div>
+          </div>
+        )}
+
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
         <Fragment>

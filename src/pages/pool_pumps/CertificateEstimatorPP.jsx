@@ -156,26 +156,39 @@ export default function CertificateEstimatorPP(props) {
       />
 
       <div className="nsw-container">
-        <div className="nsw-grid nsw-grid--spaced">
-          <div className="nsw-col nsw-col-md-10">
-            <br></br>
-            <h2 className="nsw-content-block__title">
-              Residential and Small Business Pool Pump certificate estimator
-            </h2>
-            <br></br>
-            <p className="nsw-content-block__copy">
-              Estimate the energy savings certificates (ESCs) and peak reduction certificates (PRCs)
-              for the Residential and Small Business Pool Pumps Activity (D5 in the Energy Savings
-              Scheme and SYS2 in the Peak Demand Reduction Scheme) by answering the following
-              questions. Note that a new installation activity will not generate ESCs or PRCs.
-            </p>
-            <p className="nsw-content-block__copy">
-              Please keep in mind that the results are indicative only and cannot be promoted or
-              published.
-            </p>
-          </div>
-        </div>
         <br></br>
+        <br></br>
+        {stepNumber !== 3 && (
+          <div className="nsw-grid nsw-grid--spaced">
+            <div className="nsw-col nsw-col-md-10">
+              <h2 className="nsw-content-block__title">
+                Residential and Small Business Pool Pump certificate estimator
+              </h2>
+              <br></br>
+              <p className="nsw-content-block__copy">
+                Estimate the energy savings certificates (ESCs) and peak reduction certificates
+                (PRCs) for the Residential and Small Business Pool Pumps Activity (D5 in the Energy
+                Savings Scheme and SYS2 in the Peak Demand Reduction Scheme) by answering the
+                following questions. Note that a new installation activity will not generate ESCs or
+                PRCs.
+              </p>
+              <p className="nsw-content-block__copy">
+                Please keep in mind that the results are indicative only and cannot be promoted or
+                published.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {stepNumber === 3 && (
+          <div className="nsw-grid nsw-grid--spaced">
+            <div className="nsw-col nsw-col-md-12">
+              <h2 className="nsw-content-block__title">
+                Residential and Small Business Pool Pump certificate estimator
+              </h2>
+            </div>
+          </div>
+        )}
 
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 

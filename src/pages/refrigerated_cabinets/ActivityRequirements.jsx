@@ -152,31 +152,44 @@ export default function ActivityRequirementsRF2(props) {
       />
 
       <div className="nsw-container" style={{ marginBottom: '10%' }}>
-        <div className="nsw-grid nsw-grid--spaced">
-          <div className="nsw-col nsw-col-md-12">
-            <br></br>
-            <br></br>
-            <h2 className="nsw-content-block__title">
-              Commercial Refrigerated Cabinet activity eligibility check
-            </h2>
-            <br></br>
-            <p className="nsw-content-block__copy">
-              The following questions assess the eligibility requirements for the Refrigerated
-              Cabinet Activity (F1.1 and F1.2 the ESS and RF2 in the PDRS). Answer the questions to
-              check your eligibility and click the button below to review ineligible answers and
-              their corresponding rule clauses.{' '}
-            </p>
-            <p className="nsw-content-block__copy">
-              Answer the questions and click the button below to check your eligibility. If
-              ineligible, you will be shown the ineligible answers and their corresponding rule
-              clauses.
-            </p>
-            <p className="nsw-content-block__copy">
-              Please keep in mind that the results are indicative only and cannot be promoted or
-              published.
-            </p>
+        <br></br>
+        <br></br>
+
+        {stepNumber !== 2 && (
+          <div className="nsw-grid nsw-grid--spaced">
+            <div className="nsw-col nsw-col-md-12">
+              <h2 className="nsw-content-block__title">
+                Commercial Refrigerated Cabinet activity eligibility check
+              </h2>
+              <br></br>
+              <p className="nsw-content-block__copy">
+                The following questions assess the eligibility requirements for the Refrigerated
+                Cabinet Activity (F1.1 and F1.2 the ESS and RF2 in the PDRS). Answer the questions
+                to check your eligibility and click the button below to review ineligible answers
+                and their corresponding rule clauses.{' '}
+              </p>
+              <p className="nsw-content-block__copy">
+                Answer the questions and click the button below to check your eligibility. If
+                ineligible, you will be shown the ineligible answers and their corresponding rule
+                clauses.
+              </p>
+              <p className="nsw-content-block__copy">
+                Please keep in mind that the results are indicative only and cannot be promoted or
+                published.
+              </p>
+            </div>
           </div>
-        </div>
+        )}
+
+        {stepNumber === 2 && (
+          <div className="nsw-grid nsw-grid--spaced">
+            <div className="nsw-col nsw-col-md-12">
+              <h2 className="nsw-content-block__title">
+                Commercial Refrigerated Cabinet activity eligibility check
+              </h2>
+            </div>
+          </div>
+        )}
 
         <ProgressIndicator step={stepNumber} of={2} style={{ width: '80%' }} />
 
