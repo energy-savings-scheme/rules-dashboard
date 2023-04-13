@@ -186,41 +186,44 @@ export default function CertificateEstimatorResidentialAC(props) {
       <div className="nsw-container">
         <br></br>
         <br></br>
-        {stepNumber !== 3 && (<div className="nsw-grid nsw-grid--spaced">
-          <div className="nsw-col nsw-col-md-10">
-            <h2 className="nsw-content-block__title">
-              Residential and Small Business Air Conditioner certificate estimator
-            </h2>
-            <br></br>
-            <p className="nsw-content-block__copy">
-              Estimate the energy savings certificates (ESCs) and peak reduction certificates (PRCs)
-              for the Residential and Small Business Air Conditioner Activity (D16 in the Energy
-              Savings Scheme and HVAC1 in the Peak Demand Reduction Scheme) by answering the
-              following questions.
-            </p>
-            <p className="nsw-content-block__copy">
-              Where possible, residential and small business air conditioner specifications are
-              automatically pulled in from the{' '}
-              <a href="https://reg.energyrating.gov.au/comparator/product_types/">
-                Greenhouse & Energy Minimum Standards (GEMS) Registry{' '}
-              </a>{' '}
-              based on brand and model, but you may also enter your own values.
-            </p>
-            <p className="nsw-content-block__copy">
-              Please keep in mind that the results are indicative only and cannot be promoted or
-              published.
-            </p>
+        {stepNumber !== 3 && (
+          <div className="nsw-grid nsw-grid--spaced">
+            <div className="nsw-col nsw-col-md-10">
+              <h2 className="nsw-content-block__title">
+                Residential and Small Business Air Conditioner certificate estimator
+              </h2>
+              <br></br>
+              <p className="nsw-content-block__copy">
+                Estimate the energy savings certificates (ESCs) and peak reduction certificates
+                (PRCs) for the Residential and Small Business Air Conditioner Activity (D16 in the
+                Energy Savings Scheme and HVAC1 in the Peak Demand Reduction Scheme) by answering
+                the following questions.
+              </p>
+              <p className="nsw-content-block__copy">
+                Where possible, residential and small business air conditioner specifications are
+                automatically pulled in from the{' '}
+                <a href="https://reg.energyrating.gov.au/comparator/product_types/">
+                  Greenhouse & Energy Minimum Standards (GEMS) Registry{' '}
+                </a>{' '}
+                based on brand and model, but you may also enter your own values.
+              </p>
+              <p className="nsw-content-block__copy">
+                Please keep in mind that the results are indicative only and cannot be promoted or
+                published.
+              </p>
+            </div>
           </div>
-        </div> )}
+        )}
 
-        {stepNumber === 3 &&  (<div className="nsw-grid nsw-grid--spaced">
-          <div className="nsw-col nsw-col-md-10">
-            <h2 className="nsw-content-block__title">
-            Residential and Small Business Air Conditioner certificate estimator
-            </h2>
+        {stepNumber === 3 && (
+          <div className="nsw-grid nsw-grid--spaced">
+            <div className="nsw-col nsw-col-md-10">
+              <h2 className="nsw-content-block__title">
+                Residential and Small Business Air Conditioner certificate estimator
+              </h2>
+            </div>
           </div>
-        </div>)
-      }
+        )}
 
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 

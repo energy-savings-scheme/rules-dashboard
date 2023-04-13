@@ -156,35 +156,40 @@ export default function ActivityRequirementsSYS1(props) {
       <div className="nsw-container" style={{ marginBottom: '10%' }}>
         <br></br>
         <br></br>
-        {stepNumber !== 2 && (<div className="nsw-grid nsw-grid--spaced">
-          <div className="nsw-col nsw-col-md-12">
-            <h2 className="nsw-content-block__title">
-              Commercial Motors activity eligibility check
-            </h2>
-            <br></br>
-            <p className="nsw-content-block__copy">
-              The following questions assess the eligibility requirements for the Commercial Motors
-              Activity for refrigeration or ventilation (F7 in the Energy Savings Scheme and SYS1 in
-              the Peak Demand Reduction Scheme).
-            </p>
-            <p className="nsw-content-block__copy">
-              Answer the questions and click the button below to check your eligibility. If
-              ineligible, you will be shown the ineligible answers and their corresponding rule
-              clauses.
-            </p>
-            <p className="nsw-content-block__copy">
-              Please keep in mind that the results are indicative only and cannot be promoted or
-              published.
-            </p>
+        {stepNumber !== 2 && (
+          <div className="nsw-grid nsw-grid--spaced">
+            <div className="nsw-col nsw-col-md-12">
+              <h2 className="nsw-content-block__title">
+                Commercial Motors activity eligibility check
+              </h2>
+              <br></br>
+              <p className="nsw-content-block__copy">
+                The following questions assess the eligibility requirements for the Commercial
+                Motors Activity for refrigeration or ventilation (F7 in the Energy Savings Scheme
+                and SYS1 in the Peak Demand Reduction Scheme).
+              </p>
+              <p className="nsw-content-block__copy">
+                Answer the questions and click the button below to check your eligibility. If
+                ineligible, you will be shown the ineligible answers and their corresponding rule
+                clauses.
+              </p>
+              <p className="nsw-content-block__copy">
+                Please keep in mind that the results are indicative only and cannot be promoted or
+                published.
+              </p>
+            </div>
           </div>
-        </div> ) }
+        )}
 
-        {stepNumber === 2 &&  (<div className="nsw-grid nsw-grid--spaced">
-          <div className="nsw-col nsw-col-md-12">
-            <h2 className="nsw-content-block__title">Commercial Motors activity eligibility check</h2>
+        {stepNumber === 2 && (
+          <div className="nsw-grid nsw-grid--spaced">
+            <div className="nsw-col nsw-col-md-12">
+              <h2 className="nsw-content-block__title">
+                Commercial Motors activity eligibility check
+              </h2>
+            </div>
           </div>
-        </div>)
-      }
+        )}
 
         <ProgressIndicator step={stepNumber} of={2} style={{ width: '80%' }} />
 

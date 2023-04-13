@@ -89,35 +89,38 @@ export default function CertificateEstimatorRefrigerators(props) {
         <br></br>
         <br></br>
 
-        {stepNumber !== 2 && (<div className="nsw-grid nsw-grid--spaced">
-          <div className="nsw-col nsw-col-md-10">
-            <h2 className="nsw-content-block__title">
-              Residential and Small Business Spare Refrigerator or Freezer Removal certificate
-              estimator
-            </h2>
-            <br></br>
-            <p className="nsw-content-block__copy">
-              Estimate the energy savings certificates (ESCs) and peak reduction certificates (PRCs)
-              for the Residential and Small Business Spare Refrigerator or Freezer removal Activity
-              (C1 in the Energy Savings Scheme and RF1 in the Peak Demand Reduction Scheme) by
-              answering the following questions.
-            </p>
-            <p className="nsw-content-block__copy">
-              Please keep in mind that the results are indicative only and cannot be promoted or
-              published.
-            </p>
+        {stepNumber !== 2 && (
+          <div className="nsw-grid nsw-grid--spaced">
+            <div className="nsw-col nsw-col-md-10">
+              <h2 className="nsw-content-block__title">
+                Residential and Small Business Spare Refrigerator or Freezer Removal certificate
+                estimator
+              </h2>
+              <br></br>
+              <p className="nsw-content-block__copy">
+                Estimate the energy savings certificates (ESCs) and peak reduction certificates
+                (PRCs) for the Residential and Small Business Spare Refrigerator or Freezer removal
+                Activity (C1 in the Energy Savings Scheme and RF1 in the Peak Demand Reduction
+                Scheme) by answering the following questions.
+              </p>
+              <p className="nsw-content-block__copy">
+                Please keep in mind that the results are indicative only and cannot be promoted or
+                published.
+              </p>
+            </div>
           </div>
-        </div> )}
+        )}
 
-        {stepNumber === 2 &&  (<div className="nsw-grid nsw-grid--spaced">
-          <div className="nsw-col nsw-col-md-12">
-            <h2 className="nsw-content-block__title">
-            Residential and Small Business Spare Refrigerator or Freezer Removal certificate
-              estimator          
-            </h2>
+        {stepNumber === 2 && (
+          <div className="nsw-grid nsw-grid--spaced">
+            <div className="nsw-col nsw-col-md-12">
+              <h2 className="nsw-content-block__title">
+                Residential and Small Business Spare Refrigerator or Freezer Removal certificate
+                estimator
+              </h2>
+            </div>
           </div>
-        </div>)
-      }
+        )}
 
         <ProgressIndicator step={stepNumber} of={2} style={{ width: '80%' }} />
 

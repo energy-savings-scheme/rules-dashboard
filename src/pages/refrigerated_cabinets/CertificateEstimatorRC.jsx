@@ -176,48 +176,47 @@ export default function CertificateEstimatorRC(props) {
       />
 
       <div className="nsw-container">
-        <br>
-        </br>
+        <br></br>
         <br></br>
 
-        {stepNumber !== 3 && (<div className="nsw-grid nsw-grid--spaced">
-          <div className="nsw-col nsw-col-md-10">
-            <h2 className="nsw-content-block__title">
-              Commercial Refrigerated Cabinet certificate estimator
-            </h2>
-            <br></br>
-            <p className="nsw-content-block__copy">
-              Estimate the energy savings certificates (ESCs) and peak reduction certificates (PRCs)
-              for the Commercial Refrigerated Cabinet Activity (F1.1 and F1.2 in the Energy Savings
-              Scheme and RF2 in the Peak Demand Reduction Scheme) by answering the following
-              questions. Note that a new installation activity will not generate PRCs.
-            </p>
-            <p className="nsw-content-block__copy">
-              Where possible, residential and small business air conditioner specifications are
-              automatically pulled in from the{' '}
-              <a href="https://reg.energyrating.gov.au/comparator/product_types/">
-                Greenhouse & Energy Minimum Standards (GEMS) Registry{' '}
-              </a>{' '}
-              based on brand and model, but you may also enter your own values.
-            </p>
-            <p className="nsw-content-block__copy">
-              Please keep in mind that the results are indicative only and cannot be promoted or
-              published.
-            </p>
+        {stepNumber !== 3 && (
+          <div className="nsw-grid nsw-grid--spaced">
+            <div className="nsw-col nsw-col-md-10">
+              <h2 className="nsw-content-block__title">
+                Commercial Refrigerated Cabinet certificate estimator
+              </h2>
+              <br></br>
+              <p className="nsw-content-block__copy">
+                Estimate the energy savings certificates (ESCs) and peak reduction certificates
+                (PRCs) for the Commercial Refrigerated Cabinet Activity (F1.1 and F1.2 in the Energy
+                Savings Scheme and RF2 in the Peak Demand Reduction Scheme) by answering the
+                following questions. Note that a new installation activity will not generate PRCs.
+              </p>
+              <p className="nsw-content-block__copy">
+                Where possible, residential and small business air conditioner specifications are
+                automatically pulled in from the{' '}
+                <a href="https://reg.energyrating.gov.au/comparator/product_types/">
+                  Greenhouse & Energy Minimum Standards (GEMS) Registry{' '}
+                </a>{' '}
+                based on brand and model, but you may also enter your own values.
+              </p>
+              <p className="nsw-content-block__copy">
+                Please keep in mind that the results are indicative only and cannot be promoted or
+                published.
+              </p>
+            </div>
           </div>
-        </div> )}
+        )}
 
-        {stepNumber === 3 &&  (<div className="nsw-grid nsw-grid--spaced">
-          <div className="nsw-col nsw-col-md-12">
-            <h2 className="nsw-content-block__title">
-
-              Commercial Refrigerated Cabinet certificate estimator
-
-            </h2>
+        {stepNumber === 3 && (
+          <div className="nsw-grid nsw-grid--spaced">
+            <div className="nsw-col nsw-col-md-12">
+              <h2 className="nsw-content-block__title">
+                Commercial Refrigerated Cabinet certificate estimator
+              </h2>
+            </div>
           </div>
-        </div>)
-      }
-
+        )}
 
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
