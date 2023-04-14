@@ -126,7 +126,16 @@ export default function CertificateEstimatorLoadClausesPP(props) {
       array1.map((formItem) => {
         if (formItem.name === 'SYS2_pool_pump_type') {
           console.log(formItem.form_value);
-          formItem.form_value = metadata['pool_pump_type'].toLowerCase();
+          console.log("pool pump type" + metadata['pool_pump_type']);
+
+          const dct = {
+            "multi speed": "multiple_speed_pool_pump",
+            "single speed": "single_speed_pool_pump",
+            "two speed": "fixed_speed_pool_pump",
+            "variable speed": "variable_speed_pool_pump"
+          }
+
+          formItem.form_value = dct[metadata['pool_pump_type'].toLowerCase()];
         }
 
         if (formItem.name === 'SYS2_star_rating') {
