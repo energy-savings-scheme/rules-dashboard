@@ -14,12 +14,10 @@ import '@fontsource/public-sans/600.css';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
-
 export default function EligibilityPage(props) {
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Fragment>
@@ -45,28 +43,28 @@ export default function EligibilityPage(props) {
 
                   {/* <br></br> */}
                   <p className="nsw-content-block__copy">
-                  Answer questions directly from the rules to check scheme eligibility requirements and activity-specific requirements. 
+                    Answer questions directly from the rules to check scheme eligibility
+                    requirements and activity-specific requirements.
                   </p>
                   <p className="nsw-content-block__copy">
-                  Explanations are provided when the eligibility requirements for a scheme or for a particular activity are not met.
-
+                    Explanations are provided when the eligibility requirements for a scheme or for
+                    a particular activity are not met.
                   </p>
-
                 </div>
               </div>
 
               <h2 className="nsw-content-block__title">Check core eligibility requirements</h2>
 
-                    <p className="nsw-content-block__copy">
-                    Check the basic core scheme eligibility requirements which are common across all activities.
-                    </p>
-
+              <p className="nsw-content-block__copy">
+                Check the basic core scheme eligibility requirements which are common across all
+                activities.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      <section class="nsw-section nsw-section" style={{paddingBottom: '0px', paddingTop: '0px'}}>
+      <section class="nsw-section nsw-section" style={{ paddingBottom: '0px', paddingTop: '0px' }}>
         <div class="nsw-container">
           <div class="nsw-layout">
             <div class="nsw-layout__main">
@@ -78,9 +76,7 @@ export default function EligibilityPage(props) {
                     image="/ResidentialPoolPumps.jpg"
                     highlight
                   >
-                    <CardCopy>
-                    Check what the schemes core eligibility requirements are
-                    </CardCopy>
+                    <CardCopy>Check what the schemes core eligibility requirements are</CardCopy>
                   </Card>
                 </div>
               </div>
@@ -94,26 +90,26 @@ export default function EligibilityPage(props) {
           <div class="nsw-layout">
             <div class="nsw-layout__main">
               <div class="nsw-grid">
-              <div className="nsw-col nsw-col-md-12">
-
-              <h2 className="nsw-content-block__title">Check activity specific requirements</h2>
-                <p className="nsw-content-block__copy">
-                Choose an activity below to check the scheme eligibility requirements that are unique to this activity.
-                </p>
-
-              </div>
+                <div className="nsw-col nsw-col-md-12">
+                  <h2 className="nsw-content-block__title">Check activity specific requirements</h2>
+                  <p className="nsw-content-block__copy">
+                    Choose an activity below to check the scheme eligibility requirements that are
+                    unique to this activity.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-
-        <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
+      <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
         <div class="nsw-container" style={{ paddingBottom: '4rem' }}>
           <div class="nsw-layout">
             <div class="nsw-layout__main">
-              <h2 className="nsw-content-block__title" style={{paddingBottom: '2%'}}>Residential and Small Business</h2>
+              <h2 className="nsw-content-block__title" style={{ paddingBottom: '2%' }}>
+                Residential and Small Business
+              </h2>
               <div class="nsw-grid">
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
@@ -165,7 +161,9 @@ export default function EligibilityPage(props) {
         <div class="nsw-container">
           <div class="nsw-layout">
             <div class="nsw-layout__main">
-              <h2 className="nsw-content-block__title" style={{paddingBottom: '2%'}}>Commercial</h2>
+              <h2 className="nsw-content-block__title" style={{ paddingBottom: '2%' }}>
+                Commercial
+              </h2>
               <div className="nsw-grid">
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
@@ -241,7 +239,6 @@ export default function EligibilityPage(props) {
           </div>
         </div>
       </section>
-      
     </Fragment>
-  )
+  );
 }

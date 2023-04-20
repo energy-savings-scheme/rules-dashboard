@@ -14,7 +14,6 @@ import '@fontsource/public-sans/600.css';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
-
 export default function Homepage(props) {
   return (
     <Fragment>
@@ -93,67 +92,63 @@ export default function Homepage(props) {
               </div>
 
               <div style={{ fontFamily: 'sans-serif', paddingTop: '4%' }}>
-              <h2 className="nsw-content-block__title">How to use the Estimator</h2>
+                <h2 className="nsw-content-block__title">How to use the Estimator</h2>
 
-              <section class="nsw-section nsw-section--white">
-                <div class="nsw-container">
-                  <div class="nsw-layout">
-                    <p className="nsw-content-block__copy">
-                      There are 2 parts to using the certificate estimator.
-                    </p>
+                <section class="nsw-section nsw-section--white">
+                  <div class="nsw-container">
+                    <div class="nsw-layout">
+                      <p className="nsw-content-block__copy">
+                        There are 2 parts to using the certificate estimator.
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </section>
-
+                </section>
 
                 <h3 className="nsw-content-block__title">1. Check Eligibility</h3>
                 <p className="nsw-content-block__copy">
-                The first part checks the eligibility requirements of a scheme or activity by answering questions from the scheme rules.
+                  The first part checks the eligibility requirements of a scheme or activity by
+                  answering questions from the scheme rules.
                 </p>
                 <p className="nsw-content-block__copy">
-                Eligibility requirements are broken down into 2 stages:
+                  Eligibility requirements are broken down into 2 stages:
                 </p>
                 <ul>
-                  <li>
-                  Core eligibility requirements
-                  </li>
-                  <li>
-                  Activity-specific eligibility requirements
-                  </li>
+                  <li>Core eligibility requirements</li>
+                  <li>Activity-specific eligibility requirements</li>
                 </ul>
 
                 <p className="nsw-content-block__copy">
-                If eligibility requirements for a scheme or for a particular activity are not met, explanations are provided.
+                  If eligibility requirements for a scheme or for a particular activity are not met,
+                  explanations are provided.
                 </p>
 
                 <br></br>
                 <br></br>
-                  <h3 className="nsw-content-block__title">2. Estimate certificates </h3>
+                <h3 className="nsw-content-block__title">2. Estimate certificates </h3>
                 <p className="nsw-content-block__copy">
                   The second part is to estimate how many certificates can be created for an
                   activity.
                 </p>
 
                 <p className="nsw-content-block__copy">
-                To access the Estimator for each of the activities listed below, you will need:
+                  To access the Estimator for each of the activities listed below, you will need:
                 </p>
 
                 <ul>
-                  <li>
-                  the postcode of the site installation
-                  </li>
-                  <li>
-                  the brand and model number of the equipment you have installed
-                  </li>
-                </ul>                  
+                  <li>the postcode of the site installation</li>
+                  <li>the brand and model number of the equipment you have installed</li>
+                </ul>
 
                 <p className="nsw-content-block__copy">
-                Where possible, technical information has been populated from the relevant product registry. Please double-check the populated fields to make sure they are accurate to your expected equipment specifications. Note that results are indicative only and cannot be promoted or published.
+                  Where possible, technical information has been populated from the relevant product
+                  registry. Please double-check the populated fields to make sure they are accurate
+                  to your expected equipment specifications. Note that results are indicative only
+                  and cannot be promoted or published.
                 </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
 
       <section class="nsw-section nsw-section">
@@ -177,31 +172,24 @@ export default function Homepage(props) {
                     image="/ResidentialPoolPumps.jpg"
                     highlight
                   >
-                    <CardCopy>
-                    Check what the scheme eligibility requirements are
-                    </CardCopy>
+                    <CardCopy>Check what the scheme eligibility requirements are</CardCopy>
                   </Card>
                 </div>
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
-
-                <Card
+                  <Card
                     headline="Estimate Certificates"
                     link="#certificate-estimation"
                     image="/ResidentialPoolPumps.jpg"
                     highlight
                   >
-                    <CardCopy>
-                    Estimate the certificates for your activity
-                    </CardCopy>
+                    <CardCopy>Estimate the certificates for your activity</CardCopy>
                   </Card>
-              </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      
     </Fragment>
-  )
+  );
 }

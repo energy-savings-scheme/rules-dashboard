@@ -14,12 +14,10 @@ import '@fontsource/public-sans/600.css';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
-
 export default function CertificateEstimationPage(props) {
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Fragment>
@@ -44,43 +42,39 @@ export default function CertificateEstimationPage(props) {
                   <h2>Certificate Estimation</h2>
 
                   <p className="nsw-content-block__copy">
-                  The second part is to estimate how many certificates can be created for an
-                  activity.
-                </p>
+                    The second part is to estimate how many certificates can be created for an
+                    activity.
+                  </p>
 
-                <p className="nsw-content-block__copy">
-                To access the Estimator for each of the activities listed below, you will need:
-                </p>
+                  <p className="nsw-content-block__copy">
+                    To access the Estimator for each of the activities listed below, you will need:
+                  </p>
 
-                <ul>
-                    <li>
-                    the postcode of the site installation
-                    </li>
-                    <li>
-                    the brand and model number of the equipment you have installed
-                    </li>
-                </ul>
-                 
+                  <ul>
+                    <li>the postcode of the site installation</li>
+                    <li>the brand and model number of the equipment you have installed</li>
+                  </ul>
 
-                <p className="nsw-content-block__copy">
-                Where possible, technical information has been populated from the relevant product registry. Please double-check the populated fields to make sure they are accurate to your expected equipment specifications. Note that results are indicative only and cannot be promoted or published.
-                </p>
-
+                  <p className="nsw-content-block__copy">
+                    Where possible, technical information has been populated from the relevant
+                    product registry. Please double-check the populated fields to make sure they are
+                    accurate to your expected equipment specifications. Note that results are
+                    indicative only and cannot be promoted or published.
+                  </p>
                 </div>
               </div>
-
-
             </div>
           </div>
         </div>
       </div>
 
-
-        <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
+      <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
         <div class="nsw-container" style={{ paddingBottom: '4rem' }}>
           <div class="nsw-layout">
             <div class="nsw-layout__main">
-              <h2 className="nsw-content-block__title" style={{paddingBottom: '2%'}}>Residential and Small Business</h2>
+              <h2 className="nsw-content-block__title" style={{ paddingBottom: '2%' }}>
+                Residential and Small Business
+              </h2>
               <div class="nsw-grid">
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
@@ -88,10 +82,10 @@ export default function CertificateEstimationPage(props) {
                     headline="Air Conditioner"
                     image="/ResidentialAC.jpg"
                     links={[
-                        {
-                            href: '/#residential-ac-estimator',
-                            title: 'Estimate Scheme Certificates',
-                          },
+                      {
+                        href: '/#residential-ac-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
                     ]}
                   />
                 </div>
@@ -101,10 +95,10 @@ export default function CertificateEstimationPage(props) {
                     headline="Pool Pump"
                     image="/ResidentialPoolPumps.jpg"
                     links={[
-                        {
-                            href: '#pool-pumps-estimator',
-                            title: 'Estimate Scheme Certificates',
-                          },
+                      {
+                        href: '#pool-pumps-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
                     ]}
                   />
                 </div>
@@ -115,10 +109,10 @@ export default function CertificateEstimationPage(props) {
                     headline="Spare Refrigerator or Freezer"
                     image="/ResidentialFridgeFreezerRemoval.jpeg"
                     links={[
-                        {
-                            href: '#residential-refrigerators-estimator',
-                            title: 'Estimate Scheme Certificates',
-                          },
+                      {
+                        href: '#residential-refrigerators-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
                     ]}
                   />
                 </div>
@@ -132,7 +126,9 @@ export default function CertificateEstimationPage(props) {
         <div class="nsw-container">
           <div class="nsw-layout">
             <div class="nsw-layout__main">
-              <h2 className="nsw-content-block__title" style={{paddingBottom: '2%'}}>Commercial</h2>
+              <h2 className="nsw-content-block__title" style={{ paddingBottom: '2%' }}>
+                Commercial
+              </h2>
               <div className="nsw-grid">
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
@@ -141,10 +137,10 @@ export default function CertificateEstimationPage(props) {
                     headline="Air Conditioner"
                     image="CommercialAC.jpeg"
                     links={[
-                        {
-                            href: '#commercial-ac-estimator',
-                            title: 'Estimate Scheme Certificates',
-                          },
+                      {
+                        href: '#commercial-ac-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
                     ]}
                   />
                 </div>
@@ -155,10 +151,10 @@ export default function CertificateEstimationPage(props) {
                     headline="Heat Pump Water Heater"
                     image="CommercialHeatPumpWaterHeater.jpeg"
                     links={[
-                        {
-                            href: '#commercial-wh-estimator',
-                            title: 'Estimate Scheme Certificates',
-                          },
+                      {
+                        href: '#commercial-wh-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
                     ]}
                   />
                 </div>
@@ -169,10 +165,10 @@ export default function CertificateEstimationPage(props) {
                     headline="Refrigerated Cabinet"
                     image="CommercialRefrigeratedCabinet.jpg"
                     links={[
-                        {
-                            href: '#refrigerated-cabinet-estimator',
-                            title: 'Estimate Scheme Certificates',
-                          },
+                      {
+                        href: '#refrigerated-cabinet-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
                     ]}
                   />
                 </div>
@@ -196,10 +192,10 @@ export default function CertificateEstimationPage(props) {
                     headline="Ventilation or Refrigeration motor"
                     image="CommercialVentilationRefrigeration.jpeg"
                     links={[
-                        {
-                            href: '#commercial-motors-estimator',
-                            title: 'Estimate Scheme Certificates',
-                          },
+                      {
+                        href: '#commercial-motors-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
                     ]}
                   />
                 </div>
@@ -208,7 +204,6 @@ export default function CertificateEstimationPage(props) {
           </div>
         </div>
       </section>
-      
     </Fragment>
-  )
+  );
 }

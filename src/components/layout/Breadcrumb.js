@@ -49,10 +49,10 @@ export default function Breadcrumb() {
               link: '#',
               text: 'Safeguard Certificate Estimator',
             },
-              {
-                link: '#eligibility',
-                text: 'Eligibility',
-              },
+            {
+              link: '#eligibility',
+              text: 'Eligibility',
+            },
             {
               text: 'Core Eligibility',
             },
