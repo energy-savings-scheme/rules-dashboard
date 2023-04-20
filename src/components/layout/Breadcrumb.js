@@ -23,7 +23,7 @@ export default function Breadcrumb() {
               text: 'Safeguard Digital Tools',
             },
             {
-              text: 'Activities',
+              text: 'Safeguard Certificate Estimator',
             },
           ]}
         />
@@ -46,11 +46,69 @@ export default function Breadcrumb() {
               text: 'Safeguard Digital Tools',
             },
             {
+              link: '#',
+              text: 'Safeguard Certificate Estimator',
+            },
+              {
+                link: '#eligibility',
+                text: 'Eligibility',
+              },
+            {
+              text: 'Core Eligibility',
+            },
+          ]}
+        />
+      </div>
+    );
+  }
+
+  if (location.pathname === '/eligibility') {
+    return (
+      <div className="nsw-container" style={{ marginBottom: 20 }}>
+        <Breadcrumbs
+          label="Breadcrumb for eligibility"
+          items={[
+            {
               link: '/',
-              text: 'Activities',
+              text: 'Home',
             },
             {
-              text: 'Base Eligibility',
+              link: '#',
+              text: 'Safeguard Digital Tools',
+            },
+            {
+              link: '#',
+              text: 'Safeguard Certificate Estimator',
+            },
+            {
+              text: 'Eligibility',
+            },
+          ]}
+        />
+      </div>
+    );
+  }
+
+  if (location.pathname === '/certificate-estimation') {
+    return (
+      <div className="nsw-container" style={{ marginBottom: 20 }}>
+        <Breadcrumbs
+          label="Breadcrumb for eligibility"
+          items={[
+            {
+              link: '/',
+              text: 'Home',
+            },
+            {
+              link: '#',
+              text: 'Safeguard Digital Tools',
+            },
+            {
+              link: '#',
+              text: 'Safeguard Certificate Estimator',
+            },
+            {
+              text: 'Certificate Estimation',
             },
           ]}
         />
@@ -81,11 +139,15 @@ export default function Breadcrumb() {
               text: 'Safeguard Digital Tools',
             },
             {
-              link: '/',
-              text: 'Activities',
+              link: '#',
+              text: 'Safeguard Certificate Estimator',
             },
             {
-              text: 'Activity Requirements',
+              link: '#eligibility',
+              text: 'Eligibility',
+            },
+            {
+              text: 'Activity Eligibility',
             },
           ]}
         />
@@ -116,11 +178,15 @@ export default function Breadcrumb() {
               text: 'Safeguard Digital Tools',
             },
             {
-              link: '/',
-              text: 'Activities',
+              link: '#',
+              text: 'Safeguard Certificate Estimator',
             },
             {
-              text: 'Certificate Estimator',
+              link: '#certificate-estimation',
+              text: 'Certificate Estimation',
+            },
+            {
+              text: 'Estimator',
             },
           ]}
         />
