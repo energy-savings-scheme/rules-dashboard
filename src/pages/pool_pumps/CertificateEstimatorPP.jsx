@@ -253,7 +253,7 @@ export default function CertificateEstimatorPP(props) {
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
-                        style={{ maxWidth: '50%'}}
+                        style={{ maxWidth: '50%' }}
                         options={dropdownOptionsModels}
                         onChange={(e) => {
                           setSelectedModel(models.find((item) => item === e.target.value));
@@ -263,8 +263,11 @@ export default function CertificateEstimatorPP(props) {
                       />
                     </FormGroup>
 
-                    <p style={{ fontSize: '14px', marginBottom: '2%'}}> Updated from product registry: {format ( previousSunday(new Date()), 'MMMM d, Y')}</p>
-
+                    <p style={{ fontSize: '14px', marginBottom: '2%' }}>
+                      {' '}
+                      Updated from product registry:{' '}
+                      {format(previousSunday(new Date()), 'MMMM d, Y')}
+                    </p>
                   </div>
                 </div>
               </div>

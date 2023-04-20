@@ -8,7 +8,7 @@ import OpenFiscaApi from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import Alert from 'nsw-ds-react/alert/alert';
-import { compareAsc, format, previousSunday } from 'date-fns'
+import { compareAsc, format, previousSunday } from 'date-fns';
 
 export default function CertificateEstimatorWH(props) {
   const { entities, variables, brands, loading, setLoading } = props;
@@ -248,8 +248,11 @@ export default function CertificateEstimatorWH(props) {
                       />
                     </FormGroup>
 
-                    <p style={{ fontSize: '14px', marginBottom: '2%'}}> Updated from product registry: {format ( previousSunday(new Date()), 'MMMM d, Y')}</p>
-                  
+                    <p style={{ fontSize: '14px', marginBottom: '2%' }}>
+                      {' '}
+                      Updated from product registry:{' '}
+                      {format(previousSunday(new Date()), 'MMMM d, Y')}
+                    </p>
                   </div>
                 </div>
               </div>

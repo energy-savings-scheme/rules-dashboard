@@ -12,7 +12,6 @@ import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import Alert from 'nsw-ds-react/alert/alert';
 import { compareAsc, format, previousSunday } from 'date-fns';
 
-
 export default function CertificateEstimatorResidentialAC(props) {
   const {
     entities,
@@ -290,8 +289,11 @@ export default function CertificateEstimatorResidentialAC(props) {
                         required
                       />
                     </FormGroup>
-                    <p style={{ fontSize: '14px', marginBottom: '2%'}}> Updated from product registry: {format ( previousSunday(new Date()), 'MMMM d, Y')}</p>
-
+                    <p style={{ fontSize: '14px', marginBottom: '2%' }}>
+                      {' '}
+                      Updated from product registry:{' '}
+                      {format(previousSunday(new Date()), 'MMMM d, Y')}
+                    </p>
                   </div>
                 </div>
               </div>
