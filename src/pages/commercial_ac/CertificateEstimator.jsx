@@ -18,6 +18,7 @@ import OpenFiscaApi from 'services/openfisca_api';
 import Notification from 'nsw-ds-react/notification/notification';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import Alert from 'nsw-ds-react/alert/alert';
+import { compareAsc, format, previousSunday } from 'date-fns';
 
 export default function CertificateEstimatorHVAC(props) {
   const {
@@ -198,7 +199,7 @@ export default function CertificateEstimatorHVAC(props) {
               </p>
               <p className="nsw-content-block__copy">
                 Where possible, residential and small business air conditioner specifications are
-                automatically pulled in from the{' '}
+                automatically pulled in at the end of each week from the{' '}
                 <a href="https://reg.energyrating.gov.au/comparator/product_types/">
                   Greenhouse & Energy Minimum Standards (GEMS) Registry{' '}
                 </a>{' '}
@@ -277,7 +278,7 @@ export default function CertificateEstimatorHVAC(props) {
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
-                        style={{ maxWidth: '50%', marginBottom: '1%' }}
+                        style={{ maxWidth: '50%' }}
                         options={dropdownOptionsModels}
                         onChange={(e) => {
                           setSelectedModel(models.find((item) => item === e.target.value));
@@ -286,6 +287,12 @@ export default function CertificateEstimatorHVAC(props) {
                         required
                       />
                     </FormGroup>
+
+                    <p style={{ fontSize: '14px', marginBottom: '2%' }}>
+                      {' '}
+                      Updated from product registry:{' '}
+                      {format(previousSunday(new Date()), 'MMMM d, Y')}
+                    </p>
                   </div>
                 </div>
               </div>
