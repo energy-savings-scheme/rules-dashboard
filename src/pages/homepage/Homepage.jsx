@@ -88,7 +88,13 @@ export default function Homepage(props) {
                     <a href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme">
                       Peak Demand Reduction Scheme{' '}
                     </a>
-                    rules.
+                    rules. It is designed as an approximate guide only and does not guarantee eligibility or provide an accurate assessment of the number of certificates that can be created for an installation.
+                  </p>
+                  <p className="nsw-content-block__copy">
+                  An Accredited Certificate Provider must be engaged before the project begins to assess scheme feasibility and ensure the accuracy of a submission.
+                  </p>
+                  <p className="nsw-content-block__copy">
+                  For an optimal user experience we recommend using the latest browser versions of Google Chrome or Mozilla Firefox.
                   </p>
                   <p className="nsw-content-block__copy">
                     If you have any questions or feedback about this tool, please contact{' '}

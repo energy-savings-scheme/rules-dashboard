@@ -8,6 +8,7 @@ import OpenFiscaApi from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import Alert from 'nsw-ds-react/alert/alert';
+import { compareAsc, format, previousSunday } from 'date-fns'
 
 export default function CertificateEstimatorWH(props) {
   const { entities, variables, brands, loading, setLoading } = props;
@@ -160,7 +161,7 @@ export default function CertificateEstimatorWH(props) {
               </p>
               <p className="nsw-content-block__copy">
                 Where possible, commercial heat pump water heater specifications are automatically
-                pulled in from the{' '}
+                pulled in at the end of each week from the{' '}
                 <a href="https://tessa.energysustainabilityschemes.nsw.gov.au/ipart?id=accepted_products">
                   Independent Pricing and Regulatory Tribunal (IPART) Product Registry{' '}
                 </a>{' '}
@@ -246,6 +247,9 @@ export default function CertificateEstimatorWH(props) {
                         required
                       />
                     </FormGroup>
+
+                    <p style={{ fontSize: '14px', marginBottom: '2%'}}> Updated from product registry: {format ( previousSunday(new Date()), 'MMMM d, Y')}</p>
+                  
                   </div>
                 </div>
               </div>
