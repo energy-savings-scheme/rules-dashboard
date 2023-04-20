@@ -29,31 +29,25 @@ export default function Homepage(props) {
         title="Safeguard Certificate Estimator"
       />
 
-
       <div class="nsw-section nsw-section--white">
         <div class="nsw-container">
           <div class="nsw-layout">
             <div class="nsw-layout__main">
               <div className="nsw-grid nsw-grid--spaced" style={{ fontFamily: 'sans-serif' }}>
                 <div className="nsw-col nsw-col-md-12">
-                <nav class="nsw-in-page-nav" aria-labelledby="in-page-nav">
-  <div id="in-page-nav" class="nsw-in-page-nav__title">On this page</div>
-  <ul>
-    <li>
-    How to use this estimator
-    </li>
-    <li>
-    Check eligibility requirements
-    </li>
-    <li>
-    Estimate certificates for an activity
-    </li>
-  </ul>
-</nav>
+                  <nav class="nsw-in-page-nav" aria-labelledby="in-page-nav">
+                    <div id="in-page-nav" class="nsw-in-page-nav__title">
+                      On this page
+                    </div>
+                    <ul>
+                      <li>How to use this estimator</li>
+                      <li>Check eligibility requirements</li>
+                      <li>Estimate certificates for an activity</li>
+                    </ul>
+                  </nav>
 
-<br>
-</br>
-<br></br>
+                  <br></br>
+                  <br></br>
                   <p className="nsw-content-block__copy">
                     The Safeguard Certificate Estimator helps you check eligibility and estimate how
                     many Energy Savings Certificates (ESCs) and Peak Reduction Certificates (PRCs)
