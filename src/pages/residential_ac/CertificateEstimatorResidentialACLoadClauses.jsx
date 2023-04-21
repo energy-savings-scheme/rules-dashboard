@@ -382,7 +382,7 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
                 <Button
                   style={{ float: 'right' }}
                   as="dark"
-                  link="/"
+                  link="/#certificate-estimation"
                   onClick={(e) => {
                     // setStepNumber(stepNumber - 1);
                   }}
@@ -456,7 +456,7 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/" class="nsw-card__link">
+                        <a href="/#certificate-estimation" class="nsw-card__link">
                             Go to another Activity
                           </a>
                         </div>
