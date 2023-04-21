@@ -187,7 +187,7 @@ export default function Homepage(props) {
                   <Card
                     headline="Check eligibility requirements"
                     link="#eligibility"
-                    image="/ResidentialPoolPumps.jpg"
+                    image="/iStock_000020664590_Full(optimised).jpg"
                     highlight
                   >
                     <CardCopy>Check what the scheme eligibility requirements are</CardCopy>
@@ -197,7 +197,7 @@ export default function Homepage(props) {
                   <Card
                     headline="Estimate Certificates"
                     link="#certificate-estimation"
-                    image="/ResidentialPoolPumps.jpg"
+                    image="/iStock-901937314(optimised).jpg"
                     highlight
                   >
                     <CardCopy>Estimate the certificates for your activity</CardCopy>

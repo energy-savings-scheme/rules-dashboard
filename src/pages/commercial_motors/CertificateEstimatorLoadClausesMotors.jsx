@@ -317,7 +317,7 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/#base-eligibility" class="nsw-card__link">
+                          <a href="/#core-eligibility" class="nsw-card__link">
                             Check Schemes Core Eligibility
                           </a>
                         </div>

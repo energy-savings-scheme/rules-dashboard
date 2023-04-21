@@ -230,7 +230,7 @@ function App() {
           />
         </Route>
 
-        <Route path="/base-eligibility" exact>
+        <Route path="/core-eligibility" exact>
           <Breadcrumb />
           <BaseEligibility
             entities={entities}

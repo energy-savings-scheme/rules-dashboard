@@ -257,7 +257,7 @@ export default function LoadClausesBaseEligibility(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="#" class="nsw-card__link">
+                          <a href="#certificate-estimation" class="nsw-card__link">
                             Estimate Certificates for an Activity
                           </a>
                         </div>
@@ -276,7 +276,7 @@ export default function LoadClausesBaseEligibility(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="#" class="nsw-card__link">
+                          <a href="#eligibility" class="nsw-card__link">
                             Check Eligibility for an Activity
                           </a>
                         </div>
