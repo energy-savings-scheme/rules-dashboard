@@ -72,8 +72,8 @@ export default function EligibilityPage(props) {
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
                   <Card
                     headline="Check core eligibility requirements"
-                    link="#base-eligibility"
-                    image="/ResidentialPoolPumps.jpg"
+                    link="#core-eligibility"
+                    image="/iStock_000020810378_XXXLarge(optimised).jpg"
                     highlight
                   >
                     <CardCopy>Check what the schemes core eligibility requirements are</CardCopy>
