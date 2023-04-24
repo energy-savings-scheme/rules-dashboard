@@ -252,7 +252,7 @@ export default function LoadClausesResidentialActivityRequirements(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/#residential-ac-estimator" class="nsw-card__link">
+                          <a href="#" class="nsw-card__link">
                             Back to Estimator homepage
                           </a>
                         </div>
