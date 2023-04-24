@@ -401,8 +401,8 @@ export default function CertificateEstimatorLoadClauses(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/#commercial-ac-activity-requirements" class="nsw-card__link">
-                            Check Activity Eligibility
+                          <a href="#" class="nsw-card__link">
+                            Back to Estimator homepage
                           </a>
                         </div>
                         <span
@@ -421,7 +421,7 @@ export default function CertificateEstimatorLoadClauses(props) {
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
                           <a href="/#core-eligibility" class="nsw-card__link">
-                            Check Schemes Core Eligibility
+                            Check schemes core eligibility
                           </a>
                         </div>
                         <span
@@ -439,8 +439,8 @@ export default function CertificateEstimatorLoadClauses(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/#certificate-estimation" class="nsw-card__link">
-                            Go to another Activity
+                          <a href="/#commercial-ac-activity-requirements" class="nsw-card__link">
+                          Review eligibility for this activity
                           </a>
                         </div>
                         <span

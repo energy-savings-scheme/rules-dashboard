@@ -253,7 +253,7 @@ export default function LoadClausesResidentialActivityRequirements(props) {
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
                           <a href="/#residential-ac-estimator" class="nsw-card__link">
-                            Estimate Certificates for this Activity
+                          Back to Estimator homepage
                           </a>
                         </div>
                         <span
@@ -272,7 +272,7 @@ export default function LoadClausesResidentialActivityRequirements(props) {
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
                           <a href="/#core-eligibility" class="nsw-card__link">
-                            Check Schemes Core Eligibility
+                          Check schemes core eligibility
                           </a>
                         </div>
                         <span
@@ -290,8 +290,8 @@ export default function LoadClausesResidentialActivityRequirements(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/#eligibility" class="nsw-card__link">
-                            Go to another Activity
+                          <a href="/#residential-ac-estimator" class="nsw-card__link">
+                          Estimate certificates for this activity
                           </a>
                         </div>
                         <span

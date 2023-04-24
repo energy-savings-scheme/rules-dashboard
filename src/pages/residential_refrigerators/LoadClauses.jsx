@@ -250,8 +250,8 @@ export default function LoadClausesRF1(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/#residential-refrigerators-estimator" class="nsw-card__link">
-                            Estimate Certificates for this Activity
+                          <a href="#" class="nsw-card__link">
+                          Back to Estimator homepage
                           </a>
                         </div>
                         <span
@@ -270,7 +270,7 @@ export default function LoadClausesRF1(props) {
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
                           <a href="/#core-eligibility" class="nsw-card__link">
-                            Check Schemes Core Eligibility
+                          Check schemes core eligibility
                           </a>
                         </div>
                         <span
@@ -288,8 +288,8 @@ export default function LoadClausesRF1(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/#eligibility" class="nsw-card__link">
-                            Go to another Activity
+                          <a href="/#residential-refrigerators-estimator" class="nsw-card__link">
+                          Estimate certificates for this activity
                           </a>
                         </div>
                         <span
