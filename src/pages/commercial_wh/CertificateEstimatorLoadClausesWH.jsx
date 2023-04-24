@@ -402,11 +402,8 @@ export default function CertificateEstimatorLoadClausesWH(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a
-                            href="/#commercial-water-heater-activity-requirements"
-                            class="nsw-card__link"
-                          >
-                            Check Activity Eligibility
+                          <a href="#" class="nsw-card__link">
+                            Back to Estimator homepage
                           </a>
                         </div>
                         <span
@@ -443,8 +440,11 @@ export default function CertificateEstimatorLoadClausesWH(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/#certificate-estimation" class="nsw-card__link">
-                            Go to another Activity
+                          <a
+                            href="/#commercial-water-heater-activity-requirements"
+                            class="nsw-card__link"
+                          >
+                            Review eligibility for this activity
                           </a>
                         </div>
                         <span
