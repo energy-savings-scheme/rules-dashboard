@@ -457,7 +457,7 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
                           <a href="/#residential-ac-activity-requirements" class="nsw-card__link">
-                          Review eligibility for this activity
+                            Review eligibility for this activity
                           </a>
                         </div>
                         <span

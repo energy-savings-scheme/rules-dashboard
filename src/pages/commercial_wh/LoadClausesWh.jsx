@@ -251,7 +251,7 @@ export default function LoadClausesWH1(props) {
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
                           <a href="#" class="nsw-card__link">
-                          Back to Estimator homepage
+                            Back to Estimator homepage
                           </a>
                         </div>
                         <span
@@ -270,7 +270,7 @@ export default function LoadClausesWH1(props) {
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
                           <a href="/#core-eligibility" class="nsw-card__link">
-                          Check schemes core eligibility
+                            Check schemes core eligibility
                           </a>
                         </div>
                         <span
@@ -289,7 +289,7 @@ export default function LoadClausesWH1(props) {
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
                           <a href="/#commercial-wh-estimator" class="nsw-card__link">
-                          Estimate certificates for this activity
+                            Estimate certificates for this activity
                           </a>
                         </div>
                         <span

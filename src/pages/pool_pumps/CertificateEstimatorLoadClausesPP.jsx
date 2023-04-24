@@ -426,7 +426,7 @@ export default function CertificateEstimatorLoadClausesPP(props) {
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
                           <a href="/#pool-pumps-activity-requirements" class="nsw-card__link">
-                          Review eligibility for this activity
+                            Review eligibility for this activity
                           </a>
                         </div>
                         <span

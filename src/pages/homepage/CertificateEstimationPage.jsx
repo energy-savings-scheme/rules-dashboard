@@ -200,76 +200,73 @@ export default function CertificateEstimationPage(props) {
                   />
                 </div>
 
+                <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
+                  <h4>More Options</h4>
+                  <br></br>
 
-              <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
-                <h4>More Options</h4>
-                <br></br>
-
-                <div class="nsw-grid nsw-grid--spaced">
-                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
-                    <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
-                      <div class="nsw-card__content null">
-                        <div class="nsw-card__title">
-                          <a href="#" class="nsw-card__link">
-                          Back to Estimator homepage
-                          </a>
+                  <div class="nsw-grid nsw-grid--spaced">
+                    <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
+                      <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
+                        <div class="nsw-card__content null">
+                          <div class="nsw-card__title">
+                            <a href="#" class="nsw-card__link">
+                              Back to Estimator homepage
+                            </a>
+                          </div>
+                          <span
+                            class="material-icons nsw-material-icons nsw-card__icon"
+                            focusable="false"
+                            aria-hidden="true"
+                          >
+                            east
+                          </span>
                         </div>
-                        <span
-                          class="material-icons nsw-material-icons nsw-card__icon"
-                          focusable="false"
-                          aria-hidden="true"
-                        >
-                          east
-                        </span>
                       </div>
                     </div>
-                  </div>
 
-                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
-                    <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
-                      <div class="nsw-card__content null">
-                        <div class="nsw-card__title">
-                          <a href="/#core-eligibility" class="nsw-card__link">
-                          Check schemes core eligibility
-                          </a>
+                    <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
+                      <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
+                        <div class="nsw-card__content null">
+                          <div class="nsw-card__title">
+                            <a href="/#core-eligibility" class="nsw-card__link">
+                              Check schemes core eligibility
+                            </a>
+                          </div>
+                          <span
+                            class="material-icons nsw-material-icons nsw-card__icon"
+                            focusable="false"
+                            aria-hidden="true"
+                          >
+                            east
+                          </span>
                         </div>
-                        <span
-                          class="material-icons nsw-material-icons nsw-card__icon"
-                          focusable="false"
-                          aria-hidden="true"
-                        >
-                          east
-                        </span>
                       </div>
                     </div>
-                  </div>
 
-                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
-                    <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
-                      <div class="nsw-card__content null">
-                        <div class="nsw-card__title">
-                          <a href="/#eligibility" class="nsw-card__link">
-                          Review eligibility
-                          </a>
+                    <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
+                      <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
+                        <div class="nsw-card__content null">
+                          <div class="nsw-card__title">
+                            <a href="/#eligibility" class="nsw-card__link">
+                              Review eligibility
+                            </a>
+                          </div>
+                          <span
+                            class="material-icons nsw-material-icons nsw-card__icon"
+                            focusable="false"
+                            aria-hidden="true"
+                          >
+                            east
+                          </span>
                         </div>
-                        <span
-                          class="material-icons nsw-material-icons nsw-card__icon"
-                          focusable="false"
-                          aria-hidden="true"
-                        >
-                          east
-                        </span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              </div>
             </div>
           </div>
         </div>
-
-        
       </section>
     </Fragment>
   );

@@ -262,7 +262,7 @@ export default function LoadClauses(props) {
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
                           <a href="/#commercial-ac-estimator" class="nsw-card__link">
-                          Estimate certificates for this activity
+                            Estimate certificates for this activity
                           </a>
                         </div>
                         <span
