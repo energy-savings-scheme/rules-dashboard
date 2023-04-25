@@ -42,12 +42,12 @@ export default function CertificateEstimationPage(props) {
                   <h2>Certificate Estimation</h2>
 
                   <p className="nsw-content-block__copy">
-                    The second part is to estimate how many certificates can be created for an
-                    activity.
+                    Estimate how many certificates can be created for an
+                    activity. You can access the estimator for each activity below.
                   </p>
 
                   <p className="nsw-content-block__copy">
-                    To access the Estimator for each of the activities listed below, you will need:
+                    You will need:
                   </p>
 
                   <ul>
