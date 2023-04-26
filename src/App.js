@@ -8,6 +8,8 @@ import BaseEligibilityCommercialAC from 'pages/base_eligibility/BaseEligibility'
 import BaseEligibilityCommercialWH from 'pages/commercial_wh/BaseEligibilityCommercialWhPage';
 import ActivityRequirementsCommercialAC from 'pages/commercial_ac/ActivityRequirementsAirCon';
 import ActivityRequirementsSYS1 from 'pages/commercial_motors/ActivityRequirementsSYS1';
+import EligibilityPage from 'pages/homepage/EligibilityPage';
+import CertificateEstimationPage from 'pages/homepage/CertificateEstimationPage';
 
 // Import components
 import Breadcrumb from 'components/layout/Breadcrumb';
@@ -131,6 +133,16 @@ function App() {
           <Homepage />
         </Route>
 
+        <Route path="/eligibility" exact>
+          <Breadcrumb />
+          <EligibilityPage />
+        </Route>
+
+        <Route path="/certificate-estimation" exact>
+          <Breadcrumb />
+          <CertificateEstimationPage />
+        </Route>
+
         <Route path="/commercial-ac-estimator" exact>
           <Breadcrumb />
           <CertificateEstimatorHVAC
@@ -218,7 +230,7 @@ function App() {
           />
         </Route>
 
-        <Route path="/base-eligibility" exact>
+        <Route path="/core-eligibility" exact>
           <Breadcrumb />
           <BaseEligibility
             entities={entities}

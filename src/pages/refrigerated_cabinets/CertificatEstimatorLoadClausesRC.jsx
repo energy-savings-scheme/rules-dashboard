@@ -375,12 +375,12 @@ export default function CertificateEstimatorLoadClausesRC(props) {
                 <Button
                   style={{ float: 'right' }}
                   as="dark"
-                  link="/"
+                  link="/#certificate-estimation"
                   onClick={(e) => {
                     // setStepNumber(stepNumber - 1);
                   }}
                 >
-                  Change Activity
+                  Change activity
                 </Button>
               </div>
             </div>
@@ -403,10 +403,48 @@ export default function CertificateEstimatorLoadClausesRC(props) {
               </div>
 
               <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
-                <h4>More Options</h4>
+                <h4>More options</h4>
                 <br></br>
 
                 <div class="nsw-grid nsw-grid--spaced">
+                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
+                    <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
+                      <div class="nsw-card__content null">
+                        <div class="nsw-card__title">
+                          <a href="#" class="nsw-card__link">
+                            Back to Estimator homepage
+                          </a>
+                        </div>
+                        <span
+                          class="material-icons nsw-material-icons nsw-card__icon"
+                          focusable="false"
+                          aria-hidden="true"
+                        >
+                          east
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
+                    <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
+                      <div class="nsw-card__content null">
+                        <div class="nsw-card__title">
+                          <a href="/#core-eligibility" class="nsw-card__link">
+                            Check core eligibility
+                          </a>
+                        </div>
+                        <span
+                          class="material-icons nsw-material-icons nsw-card__icon"
+                          focusable="false"
+                          aria-hidden="true"
+                        >
+                          east
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
@@ -415,45 +453,7 @@ export default function CertificateEstimatorLoadClausesRC(props) {
                             href="/#refrigerated-cabinet-activity-requirements"
                             class="nsw-card__link"
                           >
-                            Check Activity Eligibility
-                          </a>
-                        </div>
-                        <span
-                          class="material-icons nsw-material-icons nsw-card__icon"
-                          focusable="false"
-                          aria-hidden="true"
-                        >
-                          east
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
-                    <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
-                      <div class="nsw-card__content null">
-                        <div class="nsw-card__title">
-                          <a href="/#base-eligibility" class="nsw-card__link">
-                            Check Schemes Core Eligibility
-                          </a>
-                        </div>
-                        <span
-                          class="material-icons nsw-material-icons nsw-card__icon"
-                          focusable="false"
-                          aria-hidden="true"
-                        >
-                          east
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
-                    <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
-                      <div class="nsw-card__content null">
-                        <div class="nsw-card__title">
-                          <a href="/" class="nsw-card__link">
-                            Go to another Activity
+                            Review eligibility for this activity
                           </a>
                         </div>
                         <span

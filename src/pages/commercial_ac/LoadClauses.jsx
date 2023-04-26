@@ -215,7 +215,7 @@ export default function LoadClauses(props) {
               </div>
 
               <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
-                <h4>More Options</h4>
+                <h4>More options</h4>
                 <br></br>
 
                 <div class="nsw-grid nsw-grid--spaced">
@@ -223,46 +223,46 @@ export default function LoadClauses(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
+                          <a href="#" class="nsw-card__link">
+                            Back to Estimator homepage
+                          </a>
+                        </div>
+                        <span
+                          class="material-icons nsw-material-icons nsw-card__icon"
+                          focusable="false"
+                          aria-hidden="true"
+                        >
+                          east
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
+                    <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
+                      <div class="nsw-card__content null">
+                        <div class="nsw-card__title">
+                          <a href="/#core-eligibility" class="nsw-card__link">
+                            Check core eligibility
+                          </a>
+                        </div>
+                        <span
+                          class="material-icons nsw-material-icons nsw-card__icon"
+                          focusable="false"
+                          aria-hidden="true"
+                        >
+                          east
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
+                    <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
+                      <div class="nsw-card__content null">
+                        <div class="nsw-card__title">
                           <a href="/#commercial-ac-estimator" class="nsw-card__link">
-                            Estimate Certificates for this Activity
-                          </a>
-                        </div>
-                        <span
-                          class="material-icons nsw-material-icons nsw-card__icon"
-                          focusable="false"
-                          aria-hidden="true"
-                        >
-                          east
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
-                    <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
-                      <div class="nsw-card__content null">
-                        <div class="nsw-card__title">
-                          <a href="/#base-eligibility" class="nsw-card__link">
-                            Check Schemes Core Eligibility
-                          </a>
-                        </div>
-                        <span
-                          class="material-icons nsw-material-icons nsw-card__icon"
-                          focusable="false"
-                          aria-hidden="true"
-                        >
-                          east
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
-                    <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
-                      <div class="nsw-card__content null">
-                        <div class="nsw-card__title">
-                          <a href="/" class="nsw-card__link">
-                            Go to another Activity
+                            Estimate certificates for this activity
                           </a>
                         </div>
                         <span

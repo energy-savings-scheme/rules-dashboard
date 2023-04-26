@@ -126,14 +126,14 @@ export default function CertificateEstimatorLoadClausesPP(props) {
       array1.map((formItem) => {
         if (formItem.name === 'SYS2_pool_pump_type') {
           console.log(formItem.form_value);
-          console.log("pool pump type" + metadata['pool_pump_type']);
+          console.log('pool pump type' + metadata['pool_pump_type']);
 
           const dct = {
-            "multi speed": "multiple_speed_pool_pump",
-            "single speed": "single_speed_pool_pump",
-            "two speed": "fixed_speed_pool_pump",
-            "variable speed": "variable_speed_pool_pump"
-          }
+            'multi speed': 'multiple_speed_pool_pump',
+            'single speed': 'single_speed_pool_pump',
+            'two speed': 'fixed_speed_pool_pump',
+            'variable speed': 'variable_speed_pool_pump',
+          };
 
           formItem.form_value = dct[metadata['pool_pump_type'].toLowerCase()];
         }
@@ -351,12 +351,12 @@ export default function CertificateEstimatorLoadClausesPP(props) {
                 <Button
                   style={{ float: 'right' }}
                   as="dark"
-                  link="/"
+                  link="/#certificate-estimation"
                   onClick={(e) => {
                     // setStepNumber(stepNumber - 1);
                   }}
                 >
-                  Change Activity
+                  Change activity
                 </Button>
               </div>
             </div>
@@ -379,7 +379,7 @@ export default function CertificateEstimatorLoadClausesPP(props) {
               </div>
 
               <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
-                <h4>More Options</h4>
+                <h4>More options</h4>
                 <br></br>
 
                 <div class="nsw-grid nsw-grid--spaced">
@@ -387,8 +387,8 @@ export default function CertificateEstimatorLoadClausesPP(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/#commercial-ac-activity-requirements" class="nsw-card__link">
-                            Check Activity Eligibility
+                          <a href="#" class="nsw-card__link">
+                            Back to Estimator homepage
                           </a>
                         </div>
                         <span
@@ -406,8 +406,8 @@ export default function CertificateEstimatorLoadClausesPP(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/#base-eligibility" class="nsw-card__link">
-                            Check Schemes Core Eligibility
+                          <a href="/#core-eligibility" class="nsw-card__link">
+                            Check core eligibility
                           </a>
                         </div>
                         <span
@@ -425,8 +425,8 @@ export default function CertificateEstimatorLoadClausesPP(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/" class="nsw-card__link">
-                            Go to another Activity
+                          <a href="/#pool-pumps-activity-requirements" class="nsw-card__link">
+                            Review eligibility for this activity
                           </a>
                         </div>
                         <span

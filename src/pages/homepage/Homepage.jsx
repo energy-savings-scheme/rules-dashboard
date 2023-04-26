@@ -35,11 +35,19 @@ export default function Homepage(props) {
             <div class="nsw-layout__main">
               <div className="nsw-grid nsw-grid--spaced" style={{ fontFamily: 'sans-serif' }}>
                 <div className="nsw-col nsw-col-md-12">
-                  {/* <h2 className="nsw-content-block__title">Safeguard Certificate Estimator</h2>
-                  <h5 className="nsw-content-block__copy">
-                    Energy Savings Scheme and Peak Demand Reduction Scheme
-                  </h5> */}
-                  {/* <br></br> */}
+                  <nav class="nsw-in-page-nav" aria-labelledby="in-page-nav">
+                    <div id="in-page-nav" class="nsw-in-page-nav__title">
+                      On this page
+                    </div>
+                    <ul>
+                      <li>How to use this estimator</li>
+                      <li>Check eligibility requirements</li>
+                      <li>Estimate certificates for an activity</li>
+                    </ul>
+                  </nav>
+
+                  <br></br>
+                  <br></br>
                   <p className="nsw-content-block__copy">
                     The Safeguard Certificate Estimator helps you check eligibility and estimate how
                     many Energy Savings Certificates (ESCs) and Peak Reduction Certificates (PRCs)
@@ -80,7 +88,15 @@ export default function Homepage(props) {
                     <a href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme">
                       Peak Demand Reduction Scheme{' '}
                     </a>
-                    rules.
+                    rules. It is designed as an approximate guide only and does not guarantee
+                    eligibility to generate certificates for a specific project, or guarantee that
+                    the estimated certificates are applicable for every installation. An Accredited
+                    Certificate Provider must be engaged before a project begins to assess scheme
+                    feasibility and ensure the accuracy of a submission.
+                  </p>
+                  <p className="nsw-content-block__copy">
+                    For an optimal user experience we recommend using the latest browser versions of
+                    Google Chrome or Mozilla Firefox.
                   </p>
                   <p className="nsw-content-block__copy">
                     If you have any questions or feedback about this tool, please contact{' '}
@@ -91,68 +107,53 @@ export default function Homepage(props) {
                 </div>
               </div>
 
-              <h2 className="nsw-content-block__title">How to use the Estimator</h2>
+              <div style={{ fontFamily: 'sans-serif', paddingTop: '4%' }}>
+                <h2 className="nsw-content-block__title">How to use the Estimator</h2>
 
-              <section class="nsw-section nsw-section--white">
-                <div class="nsw-container">
-                  <div class="nsw-layout">
-                    <p className="nsw-content-block__copy">
-                      There are 2 parts to using the certificate estimator.
-                    </p>
+                <section class="nsw-section nsw-section--white">
+                  <div class="nsw-container">
+                    <div class="nsw-layout">
+                      <p className="nsw-content-block__copy">
+                        There are 2 parts to using the certificate estimator.
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </section>
+                </section>
 
-              <ol style={{ listStyle: 'none' }}>
-                <li>
-                  {' '}
-                  <h3 className="nsw-content-block__title">1. Check Eligibility</h3>
-                </li>
+                <h3 className="nsw-content-block__title">1. Check Eligibility</h3>
                 <p className="nsw-content-block__copy">
-                  Answer questions directly from the rules to check core scheme eligibility
-                  requirements and activity-specific eligibility requirements.
+                  The first part checks the eligibility requirements of a scheme or activity by
+                  answering questions from the scheme rules.
                 </p>
                 <p className="nsw-content-block__copy">
-                  Explanations are provided where the eligibility requirements for a scheme or for a
-                  particular activity are not met.
+                  Eligibility requirements are broken down into 2 stages:
                 </p>
+                <ul>
+                  <li>Core eligibility requirements</li>
+                  <li>Activity-specific eligibility requirements</li>
+                </ul>
 
-                <div class="nsw-callout">
-                  <div class="nsw-callout__content">
-                    <h4>Core eligibility requirements</h4>
-                    <p>
-                      Check <a href="#/base-eligibility"> core eligibility requirements</a>
-                    </p>
-                  </div>
-                </div>
-
-                <div class="nsw-callout">
-                  <div class="nsw-callout__content">
-                    <h4>Activity eligibility requirements</h4>
-                    <p>
-                      Check activity specific eligibility requirements by{' '}
-                      <a href="#">choosing the required activity</a>
-                    </p>
-                  </div>
-                </div>
+                <p className="nsw-content-block__copy">
+                  If eligibility requirements for a scheme or for a particular activity are not met,
+                  explanations are provided.
+                </p>
 
                 <br></br>
                 <br></br>
-                <li>
-                  <h3 className="nsw-content-block__title">2. Estimate certificates </h3>
-                </li>
+                <h3 className="nsw-content-block__title">2. Estimate certificates </h3>
                 <p className="nsw-content-block__copy">
-                  The second part is to estimate how many certificates can be created for the
-                  activity. You can access the estimator for each activity below.
+                  The second part is to estimate how many certificates can be created for an
+                  activity.
                 </p>
 
                 <p className="nsw-content-block__copy">
-                  You will need:
-                  <ul>
-                    <li>the postcode of the site installation </li>
-                    <li>the brand and model number of the equipment you have installed</li>
-                  </ul>
+                  To estimate how many certificates can be created for an activity you will need:
                 </p>
+
+                <ul>
+                  <li>the postcode of the site installation</li>
+                  <li>the brand and model number of the equipment you have installed</li>
+                </ul>
 
                 <p className="nsw-content-block__copy">
                   Where possible, technical information has been populated from the relevant product
@@ -160,231 +161,46 @@ export default function Homepage(props) {
                   to your expected equipment specifications. Note that results are indicative only
                   and cannot be promoted or published.
                 </p>
-              </ol>
-              <br></br>
-              <h2 id="activity-choice" className="nsw-content-block__title">
-                Choose the activity you are interested in
-              </h2>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
+      <section class="nsw-section nsw-section">
         <div class="nsw-container" style={{ paddingBottom: '4rem' }}>
           <div class="nsw-layout">
             <div class="nsw-layout__main">
-              <h2 className="nsw-col nsw-content-block__title">Residential and Small Business</h2>
               <div class="nsw-grid">
-                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
+                {/* <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
-                    copy="Install a new or replace an existing air conditioner with a high efficiency air conditioner"
-                    headline="Air Conditioner"
+                    copy="Check what the scheme eligibility requirements are"
+                    headline="Check eligibility requirements"
                     image="/ResidentialAC.jpg"
                     links={[
-                      {
-                        href: '/#residential-ac-activity-requirements',
-                        title: 'Check Activity Eligibility',
-                      },
-                      {
-                        href: '/#residential-ac-estimator',
-                        title: 'Estimate Scheme Certificates',
-                      },
                     ]}
                   />
-                </div>
-                {/* <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
+                </div> */}
+                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
                   <Card
-                    headline="Pool Pump"
-                    link="#pool-pumps-estimator"
-                    image="/ResidentialPoolPumps.jpg"
+                    headline="Check eligibility requirements"
+                    link="#eligibility"
+                    image="/iStock_000020664590_Full(optimised).jpg"
                     highlight
                   >
-                    <CardCopy>
-                      Replace an existing pool pump with a high efficiency pool pump
-                    </CardCopy>
+                    <CardCopy>Check what the scheme eligibility requirements are</CardCopy>
                   </Card>
-                </div> */}
-                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
-                  <ContentBlock
-                    copy="Replace an existing pool pump with a high efficiency pool pump"
-                    headline="Pool Pump"
-                    image="/ResidentialPoolPumps.jpg"
-                    links={[
-                      {
-                        href: '#pool-pumps-activity-requirements',
-                        title: 'Check Activity Eligibility',
-                      },
-                      {
-                        href: '#pool-pumps-estimator',
-                        title: 'Estimate Scheme Certificates',
-                      },
-                    ]}
-                  />
                 </div>
-                {/* <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
+                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
                   <Card
-                    headline="Spare Refrigerator or Freezer"
-                    link="#residential-refrigerators-estimator"
-                    image="/ResidentialFridgeFreezerRemoval.jpeg"
+                    headline="Estimate Certificates"
+                    link="#certificate-estimation"
+                    image="/iStock-901937314(optimised).jpg"
                     highlight
                   >
-                    <CardCopy>Remove a spare refrigerator or freezer</CardCopy>
+                    <CardCopy>Estimate the certificates for your activity</CardCopy>
                   </Card>
-                </div> */}
-
-                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
-                  <ContentBlock
-                    copy="Remove a spare refrigerator or freezer"
-                    headline="Spare Refrigerator or Freezer"
-                    image="/ResidentialFridgeFreezerRemoval.jpeg"
-                    links={[
-                      {
-                        href: '#residential-refrigeration-activity-requirements',
-                        title: 'Check Activity Eligibility',
-                      },
-                      {
-                        href: '#residential-refrigerators-estimator',
-                        title: 'Estimate Scheme Certificates',
-                      },
-                    ]}
-                  />
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="nsw-section nsw-section--white">
-        <div class="nsw-container">
-          <div class="nsw-layout">
-            <div class="nsw-layout__main">
-              <h2 className="nsw-col nsw-content-block__title">Commercial</h2>
-              <div className="nsw-grid">
-                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
-                  <ContentBlock
-                    copy="Install a new or replace an existing air conditioner with a high efficiency
-      air conditioner"
-                    headline="Air Conditioner"
-                    image="CommercialAC.jpeg"
-                    links={[
-                      {
-                        href: '#commercial-ac-activity-requirements',
-                        title: 'Check Activity Eligibility',
-                      },
-                      {
-                        href: '#commercial-ac-estimator',
-                        title: 'Estimate Scheme Certificates',
-                      },
-                    ]}
-                  />
-                </div>
-                {/* <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Air Conditioner"
-                    link="#commercial-ac-estimator"
-                    image="CommercialAC.jpeg"
-                    highlight
-                  >
-                    <CardCopy>
-                      Install a new or replace an existing air conditioner with a high efficiency
-                      air conditioner
-                    </CardCopy>
-                  </Card>
-                </div> */}
-                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
-                  <ContentBlock
-                    copy="Replace one or more existing hot water boilers or water heaters with one or
-          more air source heat pump water heater systems"
-                    headline="Heat Pump Water Heater"
-                    image="CommercialHeatPumpWaterHeater.jpeg"
-                    links={[
-                      {
-                        href: '#commercial-water-heater-activity-requirements',
-                        title: 'Check Activity Eligibility',
-                      },
-                      {
-                        href: '#commercial-wh-estimator',
-                        title: 'Estimate Scheme Certificates',
-                      },
-                    ]}
-                  />
-                </div>
-                {/* <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Heat Pump Water Heater"
-                    link="#commercial-wh-estimator"
-                    image="CommercialHeatPumpWaterHeater.jpeg"
-                    highlight
-                  >
-                    <CardCopy>
-                      Replace one or more existing hot water boilers or water heaters with one or
-                      more air source heat pump water heater systems
-                    </CardCopy>
-                  </Card>
-                </div> */}
-                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
-                  <ContentBlock
-                    copy="Install a new high efficiency refrigerated cabinet or replace an existing
-      refrigerated cabinet"
-                    headline="Refrigerated Cabinet"
-                    image="CommercialRefrigeratedCabinet.jpg"
-                    links={[
-                      {
-                        href: '#refrigerated-cabinet-activity-requirements',
-                        title: 'Check Activity Eligibility',
-                      },
-                      {
-                        href: '#refrigerated-cabinet-estimator',
-                        title: 'Estimate Scheme Certificates',
-                      },
-                    ]}
-                  />
-                </div>
-                {/* <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Refrigerated Cabinet"
-                    link="#refrigerated-cabinet-estimator"
-                    image="CommercialRefrigeratedCabinet.jpg"
-                    highlight
-                  >
-                    <CardCopy>
-                      Install a new high efficiency refrigerated cabinet or replace an existing
-                      refrigerated cabinet
-                    </CardCopy>
-                  </Card>
-                </div> */}
-
-                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
-                  <ContentBlock
-                    copy="Install a new or replace an existing motor with a high efficiency motor"
-                    headline="Ventilation or Refrigeration motor"
-                    image="CommercialVentilationRefrigeration.jpeg"
-                    links={[
-                      {
-                        href: '#commercial-motors-activity-requirements',
-                        title: 'Check Activity Eligibility',
-                      },
-                      {
-                        href: '#commercial-motors-estimator',
-                        title: 'Estimate Scheme Certificates',
-                      },
-                    ]}
-                  />
-                </div>
-                {/* <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Ventilation or Refrigeration motor"
-                    link="#commercial-motors-estimator"
-                    image="CommercialVentilationRefrigeration.jpeg"
-                    highlight
-                  >
-                    <CardCopy>
-                      Install a new or replace an existing motor with a high efficiency motor
-                    </CardCopy>
-                  </Card>
-                </div> */}
               </div>
             </div>
           </div>
