@@ -259,7 +259,7 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
                     // setStepNumber(stepNumber - 1);
                   }}
                 >
-                  Change Activity
+                  Change activity
                 </Button>
               </div>
             </div>
@@ -282,7 +282,7 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
               </div>
 
               <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
-                <h4>More Options</h4>
+                <h4>More options</h4>
                 <br></br>
 
                 <div class="nsw-grid nsw-grid--spaced">
@@ -310,7 +310,7 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
                           <a href="/#core-eligibility" class="nsw-card__link">
-                            Check Schemes Core Eligibility
+                            Check core eligibility
                           </a>
                         </div>
                         <span

@@ -89,12 +89,10 @@ export default function Homepage(props) {
                       Peak Demand Reduction Scheme{' '}
                     </a>
                     rules. It is designed as an approximate guide only and does not guarantee
-                    eligibility or provide an accurate assessment of the number of certificates that
-                    can be created for an installation.
-                  </p>
-                  <p className="nsw-content-block__copy">
-                    An Accredited Certificate Provider must be engaged before the project begins to
-                    assess scheme feasibility and ensure the accuracy of a submission.
+                    eligibility to generate certificates for a specific project, or guarantee that
+                    the estimated certificates are applicable for every installation. An Accredited
+                    Certificate Provider must be engaged before a project begins to assess scheme
+                    feasibility and ensure the accuracy of a submission.
                   </p>
                   <p className="nsw-content-block__copy">
                     For an optimal user experience we recommend using the latest browser versions of
@@ -149,7 +147,7 @@ export default function Homepage(props) {
                 </p>
 
                 <p className="nsw-content-block__copy">
-                  To access the Estimator for each of the activities listed below, you will need:
+                  To estimate how many certificates can be created for an activity you will need:
                 </p>
 
                 <ul>

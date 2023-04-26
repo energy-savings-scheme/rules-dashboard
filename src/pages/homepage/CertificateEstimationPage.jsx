@@ -42,13 +42,11 @@ export default function CertificateEstimationPage(props) {
                   <h2>Certificate Estimation</h2>
 
                   <p className="nsw-content-block__copy">
-                    Estimate how many certificates can be created for an
-                    activity. You can access the estimator for each activity below.
+                    Estimate how many certificates can be created for an activity. You can access
+                    the estimator for each activity below.
                   </p>
 
-                  <p className="nsw-content-block__copy">
-                    You will need:
-                  </p>
+                  <p className="nsw-content-block__copy">You will need:</p>
 
                   <ul>
                     <li>the postcode of the site installation</li>
@@ -201,7 +199,7 @@ export default function CertificateEstimationPage(props) {
                 </div>
 
                 <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
-                  <h4>More Options</h4>
+                  <h4>More options</h4>
                   <br></br>
 
                   <div class="nsw-grid nsw-grid--spaced">
@@ -229,7 +227,7 @@ export default function CertificateEstimationPage(props) {
                         <div class="nsw-card__content null">
                           <div class="nsw-card__title">
                             <a href="/#core-eligibility" class="nsw-card__link">
-                              Check schemes core eligibility
+                              Check core eligibility
                             </a>
                           </div>
                           <span
