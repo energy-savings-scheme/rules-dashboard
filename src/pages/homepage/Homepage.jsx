@@ -88,7 +88,11 @@ export default function Homepage(props) {
                     <a href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme">
                       Peak Demand Reduction Scheme{' '}
                     </a>
-                    rules. It is designed as an approximate guide only and does not guarantee eligibility to generate certificates for a specific project, or guarantee that the estimated certificates are applicable for every installation. An Accredited Certificate Provider must be engaged before a project begins to assess scheme feasibility and ensure the accuracy of a submission.
+                    rules. It is designed as an approximate guide only and does not guarantee
+                    eligibility to generate certificates for a specific project, or guarantee that
+                    the estimated certificates are applicable for every installation. An Accredited
+                    Certificate Provider must be engaged before a project begins to assess scheme
+                    feasibility and ensure the accuracy of a submission.
                   </p>
                   <p className="nsw-content-block__copy">
                     For an optimal user experience we recommend using the latest browser versions of
@@ -143,7 +147,7 @@ export default function Homepage(props) {
                 </p>
 
                 <p className="nsw-content-block__copy">
-                To estimate how many certificates can be created for an activity you will need:
+                  To estimate how many certificates can be created for an activity you will need:
                 </p>
 
                 <ul>
