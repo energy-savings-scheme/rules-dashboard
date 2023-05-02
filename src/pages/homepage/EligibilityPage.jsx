@@ -33,38 +33,35 @@ export default function EligibilityPage(props) {
         title="Safeguard Certificate Estimator"
       />
 
-      <div class="nsw-section nsw-section--white">
+      <div class="nsw-section nsw-section--white"  style={{ fontFamily: 'sans-serif' }}>
         <div class="nsw-container">
           <div class="nsw-layout">
             <div class="nsw-layout__main">
-              <div className="nsw-grid nsw-grid--spaced" style={{ fontFamily: 'sans-serif' }}>
+              <div className="nsw-grid nsw-grid--spaced">
                 <div className="nsw-col nsw-col-md-12">
                   <h2>Eligibility Requirements</h2>
 
                   {/* <br></br> */}
                   <p className="nsw-content-block__copy">
-                    Answer questions directly from the rules to check scheme eligibility
-                    requirements and activity-specific requirements.
+                  Answer questions from the rules to check scheme eligibility requirements and activity-specific requirements.
                   </p>
                   <p className="nsw-content-block__copy">
-                    Explanations are provided when the eligibility requirements for a scheme or for
-                    a particular activity are not met.
+                  Use this feature to verify that activities are in compliance with the scheme rules. Note that the Estimator does not evaluate your eligibility to receive incentives. You must engage an Accredited Certificate Provider before any works begin to assess the feasibility of installing a more energy efficient system.
                   </p>
                 </div>
               </div>
 
-              <h2 className="nsw-content-block__title">Check core eligibility requirements</h2>
+              <h2 className="nsw-content-block__title">Review core eligibility requirements</h2>
 
               <p className="nsw-content-block__copy">
-                Check the basic core scheme eligibility requirements which are common across all
-                activities.
+              Find out what the basic eligibility requirements are. These conditions are common across all activities and are required to meet compliance.
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      <section class="nsw-section nsw-section" style={{ paddingBottom: '0px', paddingTop: '0px' }}>
+      <section class="nsw-section nsw-section" style={{ paddingBottom: '0px', paddingTop: '0px', fontFamily: 'sans-serif' }}>
         <div class="nsw-container">
           <div class="nsw-layout">
             <div class="nsw-layout__main">
@@ -76,7 +73,7 @@ export default function EligibilityPage(props) {
                     image="/iStock_000020810378_XXXLarge(optimised).jpg"
                     highlight
                   >
-                    <CardCopy>Check what the schemes core eligibility requirements are</CardCopy>
+                    <CardCopy></CardCopy>
                   </Card>
                 </div>
               </div>
@@ -85,7 +82,7 @@ export default function EligibilityPage(props) {
         </div>
       </section>
 
-      <section class="nsw-section nsw-section">
+      <section class="nsw-section nsw-section" style={{ fontFamily: 'sans-serif' }}>
         <div class="nsw-container">
           <div class="nsw-layout">
             <div class="nsw-layout__main">
@@ -103,7 +100,7 @@ export default function EligibilityPage(props) {
         </div>
       </section>
 
-      <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
+      <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5', fontFamily: 'sans-serif' }}>
         <div class="nsw-container" style={{ paddingBottom: '4rem' }}>
           <div class="nsw-layout">
             <div class="nsw-layout__main">
@@ -157,7 +154,7 @@ export default function EligibilityPage(props) {
         </div>
       </section>
 
-      <section class="nsw-section nsw-section--white">
+      <section class="nsw-section nsw-section--white" style={{ fontFamily: 'sans-serif'}} >
         <div class="nsw-container">
           <div class="nsw-layout">
             <div class="nsw-layout__main">
