@@ -33,7 +33,7 @@ export default function EligibilityPage(props) {
         title="Safeguard Certificate Estimator"
       />
 
-      <div class="nsw-section nsw-section--white"  style={{ fontFamily: 'sans-serif' }}>
+      <div class="nsw-section nsw-section--white" style={{ fontFamily: 'sans-serif' }}>
         <div class="nsw-container">
           <div class="nsw-layout">
             <div class="nsw-layout__main">
@@ -43,10 +43,14 @@ export default function EligibilityPage(props) {
 
                   {/* <br></br> */}
                   <p className="nsw-content-block__copy">
-                  Answer questions from the rules to check scheme eligibility requirements and activity-specific requirements.
+                    Answer questions from the rules to check scheme eligibility requirements and
+                    activity-specific requirements.
                   </p>
                   <p className="nsw-content-block__copy">
-                  Use this feature to verify that activities are in compliance with the scheme rules. Note that the Estimator does not evaluate your eligibility to receive incentives. You must engage an Accredited Certificate Provider before any works begin to assess the feasibility of installing a more energy efficient system.
+                    Use this feature to verify that activities are in compliance with the scheme
+                    rules. Note that the Estimator does not evaluate your eligibility to receive
+                    incentives. You must engage an Accredited Certificate Provider before any works
+                    begin to assess the feasibility of installing a more energy efficient system.
                   </p>
                 </div>
               </div>
@@ -54,14 +58,18 @@ export default function EligibilityPage(props) {
               <h2 className="nsw-content-block__title">Review core eligibility requirements</h2>
 
               <p className="nsw-content-block__copy">
-              Find out what the basic eligibility requirements are. These conditions are common across all activities and are required to meet compliance.
+                Find out what the basic eligibility requirements are. These conditions are common
+                across all activities and are required to meet compliance.
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      <section class="nsw-section nsw-section" style={{ paddingBottom: '0px', paddingTop: '0px', fontFamily: 'sans-serif' }}>
+      <section
+        class="nsw-section nsw-section"
+        style={{ paddingBottom: '0px', paddingTop: '0px', fontFamily: 'sans-serif' }}
+      >
         <div class="nsw-container">
           <div class="nsw-layout">
             <div class="nsw-layout__main">
@@ -100,7 +108,10 @@ export default function EligibilityPage(props) {
         </div>
       </section>
 
-      <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5', fontFamily: 'sans-serif' }}>
+      <section
+        class="nsw-section nsw-section--off-white"
+        style={{ backgroundColor: '#F5F5F5', fontFamily: 'sans-serif' }}
+      >
         <div class="nsw-container" style={{ paddingBottom: '4rem' }}>
           <div class="nsw-layout">
             <div class="nsw-layout__main">
@@ -154,7 +165,7 @@ export default function EligibilityPage(props) {
         </div>
       </section>
 
-      <section class="nsw-section nsw-section--white" style={{ fontFamily: 'sans-serif'}} >
+      <section class="nsw-section nsw-section--white" style={{ fontFamily: 'sans-serif' }}>
         <div class="nsw-container">
           <div class="nsw-layout">
             <div class="nsw-layout__main">
