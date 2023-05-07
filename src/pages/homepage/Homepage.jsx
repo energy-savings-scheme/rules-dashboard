@@ -188,7 +188,7 @@ export default function Homepage(props) {
                     image="/iStock_000020664590_Full(optimised).jpg"
                     highlight
                   >
-                    <CardCopy>Check what the scheme eligibility requirements are</CardCopy>
+                    <CardCopy></CardCopy>
                   </Card>
                 </div>
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
@@ -198,7 +198,7 @@ export default function Homepage(props) {
                     image="/iStock-901937314(optimised).jpg"
                     highlight
                   >
-                    <CardCopy>Estimate the certificates for your activity</CardCopy>
+                    <CardCopy></CardCopy>
                   </Card>
                 </div>
               </div>
