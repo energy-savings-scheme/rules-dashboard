@@ -177,9 +177,9 @@ export default function CertificateEstimatorPP(props) {
                 Where possible, residential and small business pool pumps specifications are
                 automatically pulled in at the end of each week from the{' '}
                 <a href="https://reg.energyrating.gov.au/comparator/product_types/">
-                  Greenhouse & Energy Minimum Standards (GEMS) Registry{' '}
-                </a>{' '}
-                based on brand and model, but you may also enter your own values.
+                  Greenhouse & Energy Minimum Standards (GEMS) Registry
+                </a>
+               {' '} based on brand and model, but you may also enter your own values.
               </p>
               <p className="nsw-content-block__copy">
                 Please keep in mind that the results are indicative only and cannot be promoted or
