@@ -55,11 +55,11 @@ export default function EligibilityPage(props) {
                 </div>
               </div>
 
-              <h2 className="nsw-content-block__title">Review core eligibility requirements</h2>
+              <h2 className="nsw-content-block__title">Check core eligibility requirements</h2>
 
               <p className="nsw-content-block__copy">
-                Find out what the basic eligibility requirements are. These conditions are common
-                across all activities and are required to meet compliance.
+                Review the basic eligibility requirements for the schemes. These conditions are
+                common across all activities and are required to meet compliance.
               </p>
             </div>
           </div>

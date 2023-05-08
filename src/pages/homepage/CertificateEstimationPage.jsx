@@ -222,7 +222,7 @@ export default function CertificateEstimationPage(props) {
                       </div>
                     </div>
 
-                    <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
+                    {/* <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
                       <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                         <div class="nsw-card__content null">
                           <div class="nsw-card__title">
@@ -239,14 +239,14 @@ export default function CertificateEstimationPage(props) {
                           </span>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
 
                     <div class="nsw-col nsw-col-md-4" style={{ height: '12vw' }}>
                       <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                         <div class="nsw-card__content null">
                           <div class="nsw-card__title">
                             <a href="/#eligibility" class="nsw-card__link">
-                              Review eligibility
+                              Check eligibility requirements
                             </a>
                           </div>
                           <span

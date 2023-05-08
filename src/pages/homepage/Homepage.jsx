@@ -35,19 +35,6 @@ export default function Homepage(props) {
             <div class="nsw-layout__main">
               <div className="nsw-grid nsw-grid--spaced" style={{ fontFamily: 'sans-serif' }}>
                 <div className="nsw-col nsw-col-md-12">
-                  <nav class="nsw-in-page-nav" aria-labelledby="in-page-nav">
-                    <div id="in-page-nav" class="nsw-in-page-nav__title">
-                      On this page
-                    </div>
-                    <ul>
-                      <li>How to use this estimator</li>
-                      <li>Check eligibility requirements</li>
-                      <li>Estimate certificates for an activity</li>
-                    </ul>
-                  </nav>
-
-                  <br></br>
-                  <br></br>
                   <p className="nsw-content-block__copy">
                     The Safeguard Certificate Estimator helps you check eligibility and estimate how
                     many Energy Savings Certificates (ESCs) and Peak Reduction Certificates (PRCs)
@@ -86,8 +73,9 @@ export default function Homepage(props) {
                     </a>{' '}
                     and{' '}
                     <a href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme">
-                      Peak Demand Reduction Scheme{' '}
+                      Peak Demand Reduction Scheme
                     </a>
+                    {' '}
                     rules. It is designed as an approximate guide only and does not guarantee
                     eligibility to generate certificates for a specific project, or guarantee that
                     the estimated certificates are applicable for every installation. An Accredited
@@ -188,7 +176,7 @@ export default function Homepage(props) {
                     image="/iStock_000020664590_Full(optimised).jpg"
                     highlight
                   >
-                    <CardCopy>Check what the scheme eligibility requirements are</CardCopy>
+                    <CardCopy></CardCopy>
                   </Card>
                 </div>
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
@@ -198,7 +186,7 @@ export default function Homepage(props) {
                     image="/iStock-901937314(optimised).jpg"
                     highlight
                   >
-                    <CardCopy>Estimate the certificates for your activity</CardCopy>
+                    <CardCopy></CardCopy>
                   </Card>
                 </div>
               </div>
