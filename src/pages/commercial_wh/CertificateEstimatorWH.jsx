@@ -162,7 +162,10 @@ export default function CertificateEstimatorWH(props) {
               <p className="nsw-content-block__copy">
                 Where possible, commercial heat pump water heater specifications are automatically
                 pulled in at the end of each week from the{' '}
-                <a href="https://tessa.energysustainabilityschemes.nsw.gov.au/ipart?id=accepted_products" target="_blank">
+                <a
+                  href="https://tessa.energysustainabilityschemes.nsw.gov.au/ipart?id=accepted_products"
+                  target="_blank"
+                >
                   Independent Pricing and Regulatory Tribunal (IPART) Product Registry
                 </a>{' '}
                 based on brand and model, but you may also enter your own values.
