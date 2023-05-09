@@ -39,7 +39,7 @@ export default function EligibilityPage(props) {
             <div class="nsw-layout__main">
               <div className="nsw-grid nsw-grid--spaced">
                 <div className="nsw-col nsw-col-md-12">
-                  <h2>Eligibility Requirements</h2>
+                  <h2>Eligibility requirements</h2>
 
                   {/* <br></br> */}
                   <p className="nsw-content-block__copy">
@@ -76,7 +76,7 @@ export default function EligibilityPage(props) {
               <div class="nsw-grid">
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
                   <Card
-                    headline="Check core eligibility requirements"
+                    headline="Check core eligibility"
                     link="#core-eligibility"
                     image="/iStock_000020810378_XXXLarge(optimised).jpg"
                     highlight
