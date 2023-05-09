@@ -202,8 +202,8 @@ export default function CertificateEstimatorHVAC(props) {
                 automatically pulled in at the end of each week from the{' '}
                 <a href="https://reg.energyrating.gov.au/comparator/product_types/">
                   Greenhouse & Energy Minimum Standards (GEMS) Registry
-                </a>
-                {' '} based on brand and model, but you may also enter your own values.
+                </a>{' '}
+                based on brand and model, but you may also enter your own values.
               </p>
               <p className="nsw-content-block__copy">
                 Please keep in mind that the results are indicative only and cannot be promoted or
@@ -380,6 +380,7 @@ export default function CertificateEstimatorHVAC(props) {
                   <Button
                     as="dark"
                     onClick={(e) => {
+                      // validatePostcode();
                       setFlow(null);
                       setStepNumber(stepNumber + 1);
                     }}
