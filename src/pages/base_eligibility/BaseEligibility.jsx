@@ -155,7 +155,7 @@ export default function BaseEligibility(props) {
         {stepNumber !== 2 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
-              <h2 className="nsw-content-block__title">Schemes Core Eligibility Requirements</h2>
+              <h2 className="nsw-content-block__title">Core eligibility requirements</h2>
               <br></br>
               <p className="nsw-content-block__copy">
                 The following questions assess the core eligibility requirements for the Energy
@@ -177,7 +177,7 @@ export default function BaseEligibility(props) {
         {stepNumber === 2 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
-              <h2 className="nsw-content-block__title">Schemes Core Eligibility Requirements</h2>
+              <h2 className="nsw-content-block__title">Core eligibility requirements</h2>
             </div>
           </div>
         )}

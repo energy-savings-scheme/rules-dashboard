@@ -170,7 +170,7 @@ export default function Homepage(props) {
                 </div> */}
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
                   <Card
-                    headline="Check eligibility requirements"
+                    headline="Check eligibility"
                     link="#eligibility"
                     image="/iStock_000020664590_Full(optimised).jpg"
                     highlight
@@ -180,7 +180,7 @@ export default function Homepage(props) {
                 </div>
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4">
                   <Card
-                    headline="Estimate Certificates"
+                    headline="Estimate certificates"
                     link="#certificate-estimation"
                     image="/iStock-901937314(optimised).jpg"
                     highlight

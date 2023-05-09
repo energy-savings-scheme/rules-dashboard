@@ -103,7 +103,6 @@ export default function CertificateEstimatorHVAC(props) {
     });
   };
 
-
   useEffect(() => {
     setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
     models.forEach((item) => populateModelDropDown({ text: item, value: item }));
