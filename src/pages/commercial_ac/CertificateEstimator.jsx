@@ -103,6 +103,7 @@ export default function CertificateEstimatorHVAC(props) {
     });
   };
 
+
   useEffect(() => {
     setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
     models.forEach((item) => populateModelDropDown({ text: item, value: item }));
@@ -200,7 +201,7 @@ export default function CertificateEstimatorHVAC(props) {
               <p className="nsw-content-block__copy">
                 Where possible, residential and small business air conditioner specifications are
                 automatically pulled in at the end of each week from the{' '}
-                <a href="https://reg.energyrating.gov.au/comparator/product_types/">
+                <a href="https://reg.energyrating.gov.au/comparator/product_types/" target="_blank">
                   Greenhouse & Energy Minimum Standards (GEMS) Registry
                 </a>{' '}
                 based on brand and model, but you may also enter your own values.
