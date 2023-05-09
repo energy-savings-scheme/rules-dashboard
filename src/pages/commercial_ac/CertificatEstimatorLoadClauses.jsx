@@ -319,7 +319,7 @@ export default function CertificateEstimatorLoadClauses(props) {
                       href="https://www.energy.nsw.gov.au/business-and-industry/programs-grants-and-schemes/business-equipment"
                       target="_blank"
                     >
-                      businesses{' '}
+                      businesses
                     </a>{' '}
                     and will explain the process and get you the incentive under the ESS and PDRS.
                     Please contact an approved supplier to get started.

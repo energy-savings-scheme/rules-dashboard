@@ -74,8 +74,7 @@ export default function Homepage(props) {
                     and{' '}
                     <a href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme">
                       Peak Demand Reduction Scheme
-                    </a>
-                    {' '}
+                    </a>{' '}
                     rules. It is designed as an approximate guide only and does not guarantee
                     eligibility to generate certificates for a specific project, or guarantee that
                     the estimated certificates are applicable for every installation. An Accredited
