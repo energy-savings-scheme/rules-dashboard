@@ -107,7 +107,7 @@ export default function Homepage(props) {
                   </div>
                 </section>
 
-                <h3 className="nsw-content-block__title">1. Check Eligibility</h3>
+                <h3 className="nsw-content-block__title">1. Check eligibility</h3>
                 <p className="nsw-content-block__copy">
                   The first part checks the eligibility requirements of a scheme or activity by
                   answering questions from the scheme rules.
