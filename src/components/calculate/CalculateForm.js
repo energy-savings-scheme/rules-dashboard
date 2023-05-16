@@ -167,7 +167,7 @@ export default function CalculateForm(props) {
       formValues.map((variable) => {
         if (variable.name === 'RF1_PDRS__postcode' || variable.name === 'SYS1_PDRS__postcode') {
           axios
-            .get('http://api.beliefmedia.com/postcodes/' + variable.form_value + '.json')
+            .get('https://api.beliefmedia.com/postcodes/' + variable.form_value + '.json')
             .then((res) => {
               const persons = res.data;
               console.log(res);
