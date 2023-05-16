@@ -18,6 +18,8 @@ import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import Alert from 'nsw-ds-react/alert/alert';
 import CertificateEstimatorLoadClausesPP from './CertificateEstimatorLoadClausesPP';
 import { compareAsc, format, previousSunday } from 'date-fns';
+import axios from 'axios';
+
 
 export default function CertificateEstimatorPP(props) {
   const {
@@ -48,6 +50,8 @@ export default function CertificateEstimatorPP(props) {
   const [registryData, setRegistryData] = useState(true);
   const [flow, setFlow] = useState(null);
   const [persistFormValues, setPersistFormValues] = useState([]);
+  const [showPostcodeError, setShowPostcodeError] = useState(false);
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -101,6 +105,32 @@ export default function CertificateEstimatorPP(props) {
       return [...prev, newOption];
     });
   };
+
+  useEffect(() => {
+    if (postcode && postcode.length < 4) {
+      setShowPostcodeError(false)
+    }
+  }, [postcode]);
+
+
+  const validatePostcode = (postcode) => {
+    axios.get('http://api.beliefmedia.com/postcodes/'+ postcode + '.json')
+    .then(res => {
+      const persons = res.data;
+      console.log(res);
+      if (persons.status === "200" & persons.data.postcode === postcode & persons.data.state === "NSW") {
+        setFlow(null);
+        setStepNumber(stepNumber + 1); 
+        setShowPostcodeError(false);
+      } else {
+        setShowPostcodeError(true);
+      }
+    }).catch (e => {
+      console.log(e);
+      setShowPostcodeError(true);
+    } 
+    )
+  }
 
   useEffect(() => {
     setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
@@ -344,6 +374,11 @@ export default function CertificateEstimatorPP(props) {
 
           {stepNumber === 3 && calculationError && calculationError2 && <SpinnerFullscreen />}
 
+          {stepNumber === 1 && showPostcodeError && postcode.length >= 4 && <Alert as="error" title="The postcode is not valid in NSW">
+              <p>Please check your postcode and try again.</p>
+            </Alert>}
+
+
           {stepNumber === 1 &&
             registryData &&
             postcode &&
@@ -355,8 +390,9 @@ export default function CertificateEstimatorPP(props) {
                   <Button
                     as="dark"
                     onClick={(e) => {
-                      setFlow(null);
-                      setStepNumber(stepNumber + 1);
+                      validatePostcode(postcode)
+                      // setFlow(null);
+                      // setStepNumber(stepNumber + 1);
                     }}
                   >
                     Next

@@ -6,6 +6,7 @@ import Alert from 'nsw-ds-react/alert/alert';
 
 import { Spinner } from 'react-bootstrap';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
+import axios from 'axios';
 
 export default function CalculateForm(props) {
   const {
@@ -36,10 +37,22 @@ export default function CalculateForm(props) {
   var { formValues } = props;
 
   const [loading, setLoading] = useState(false);
+  const [showPostcodeError, setShowPostcodeError] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    formValues.map((variable) => {
+      if (variable.name === "RF1_PDRS__postcode" || variable.name === "SYS1_PDRS__postcode") { 
+        console.log("i ah here")
+        if (variable.form_value.length < 4) {
+          console.log("i am here in length")
+          setShowPostcodeError(false);
+        }
+      }})
+  }, [formValues]);
 
   const validateDataType = (item) => {
     // OpenFisca requires payload data to be correctly typed.
@@ -149,7 +162,29 @@ export default function CalculateForm(props) {
         });
     }
 
-    setStepNumber(stepNumber + 1);
+    if (stepNumber === 1 && workflow !== 'eligibility') {
+      formValues.map((variable) => {
+          if (variable.name === "RF1_PDRS__postcode" || variable.name === "SYS1_PDRS__postcode") {
+          axios.get('http://api.beliefmedia.com/postcodes/'+ variable.form_value + '.json')
+          .then(res => {
+            const persons = res.data;
+            console.log(res);
+            if (persons.status === "200" & persons.data.postcode === variable.form_value & persons.data.state === "NSW") {
+              setStepNumber(stepNumber + 1); 
+              setShowPostcodeError(false);
+            } else {
+              setShowPostcodeError(true);
+            }
+          }).catch (e => {
+            console.log(e);
+            setShowPostcodeError(true);
+          } 
+          )
+        }
+      })
+    } else {
+      setStepNumber(stepNumber + 1);
+    }
 
     if (workflow !== 'eligibility') {
       setPersistFormValues(formValues);
@@ -174,6 +209,10 @@ export default function CalculateForm(props) {
       </div>
 
       {props.children}
+
+      {stepNumber === 1 && showPostcodeError && <Alert as="error" title="The postcode is not valid in NSW">
+              <p>Please check your postcode and try again.</p>
+            </Alert>}
 
       {stepNumber === 2 && (
         <div className="nsw-row" style={{ width: '80%', paddingTop: '50px' }}>
