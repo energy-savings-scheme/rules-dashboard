@@ -45,13 +45,14 @@ export default function CalculateForm(props) {
 
   useEffect(() => {
     formValues.map((variable) => {
-      if (variable.name === "RF1_PDRS__postcode" || variable.name === "SYS1_PDRS__postcode") { 
-        console.log("i ah here")
+      if (variable.name === 'RF1_PDRS__postcode' || variable.name === 'SYS1_PDRS__postcode') {
+        console.log('i ah here');
         if (variable.form_value.length < 4) {
-          console.log("i am here in length")
+          console.log('i am here in length');
           setShowPostcodeError(false);
         }
-      }})
+      }
+    });
   }, [formValues]);
 
   const validateDataType = (item) => {
@@ -164,24 +165,29 @@ export default function CalculateForm(props) {
 
     if (stepNumber === 1 && workflow !== 'eligibility') {
       formValues.map((variable) => {
-          if (variable.name === "RF1_PDRS__postcode" || variable.name === "SYS1_PDRS__postcode") {
-          axios.get('http://api.beliefmedia.com/postcodes/'+ variable.form_value + '.json')
-          .then(res => {
-            const persons = res.data;
-            console.log(res);
-            if (persons.status === "200" & persons.data.postcode === variable.form_value & persons.data.state === "NSW") {
-              setStepNumber(stepNumber + 1); 
-              setShowPostcodeError(false);
-            } else {
+        if (variable.name === 'RF1_PDRS__postcode' || variable.name === 'SYS1_PDRS__postcode') {
+          axios
+            .get('http://api.beliefmedia.com/postcodes/' + variable.form_value + '.json')
+            .then((res) => {
+              const persons = res.data;
+              console.log(res);
+              if (
+                (persons.status === '200') &
+                (persons.data.postcode === variable.form_value) &
+                (persons.data.state === 'NSW')
+              ) {
+                setStepNumber(stepNumber + 1);
+                setShowPostcodeError(false);
+              } else {
+                setShowPostcodeError(true);
+              }
+            })
+            .catch((e) => {
+              console.log(e);
               setShowPostcodeError(true);
-            }
-          }).catch (e => {
-            console.log(e);
-            setShowPostcodeError(true);
-          } 
-          )
+            });
         }
-      })
+      });
     } else {
       setStepNumber(stepNumber + 1);
     }
@@ -210,9 +216,11 @@ export default function CalculateForm(props) {
 
       {props.children}
 
-      {stepNumber === 1 && showPostcodeError && <Alert as="error" title="The postcode is not valid in NSW">
-              <p>Please check your postcode and try again.</p>
-            </Alert>}
+      {stepNumber === 1 && showPostcodeError && (
+        <Alert as="error" title="The postcode is not valid in NSW">
+          <p>Please check your postcode and try again.</p>
+        </Alert>
+      )}
 
       {stepNumber === 2 && (
         <div className="nsw-row" style={{ width: '80%', paddingTop: '50px' }}>

@@ -34,7 +34,6 @@ export default function CertificateEstimatorWH(props) {
   const [flow, setFlow] = useState(null);
   const [showPostcodeError, setShowPostcodeError] = useState(false);
 
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -55,30 +54,33 @@ export default function CertificateEstimatorWH(props) {
 
   useEffect(() => {
     if (postcode && postcode.length < 4) {
-      setShowPostcodeError(false)
+      setShowPostcodeError(false);
     }
   }, [postcode]);
 
-
-
   const validatePostcode = (postcode) => {
-    axios.get('http://api.beliefmedia.com/postcodes/'+ postcode + '.json')
-    .then(res => {
-      const persons = res.data;
-      console.log(res);
-      if (persons.status === "200" & persons.data.postcode === postcode & persons.data.state === "NSW") {
-        setFlow(null);
-        setStepNumber(stepNumber + 1); 
-        setShowPostcodeError(false);
-      } else {
+    axios
+      .get('http://api.beliefmedia.com/postcodes/' + postcode + '.json')
+      .then((res) => {
+        const persons = res.data;
+        console.log(res);
+        if (
+          (persons.status === '200') &
+          (persons.data.postcode === postcode) &
+          (persons.data.state === 'NSW')
+        ) {
+          setFlow(null);
+          setStepNumber(stepNumber + 1);
+          setShowPostcodeError(false);
+        } else {
+          setShowPostcodeError(true);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
         setShowPostcodeError(true);
-      }
-    }).catch (e => {
-      console.log(e);
-      setShowPostcodeError(true);
-    } 
-    )
-  }
+      });
+  };
 
   useEffect(() => {
     setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
@@ -192,10 +194,13 @@ export default function CertificateEstimatorWH(props) {
               <p className="nsw-content-block__copy">
                 Where possible, commercial heat pump water heater specifications are automatically
                 pulled in at the end of each week from the{' '}
-                <a href="https://tessa.energysustainabilityschemes.nsw.gov.au/ipart?id=accepted_products" target="_blank">
+                <a
+                  href="https://tessa.energysustainabilityschemes.nsw.gov.au/ipart?id=accepted_products"
+                  target="_blank"
+                >
                   Independent Pricing and Regulatory Tribunal (IPART) Product Registry
                 </a>{' '}
-                based on brand and model, but you may also enter your own values.if(postcode 
+                based on brand and model, but you may also enter your own values.if(postcode
               </p>
               <p className="nsw-content-block__copy">
                 Please keep in mind that the results are indicative only and cannot be promoted or
@@ -330,10 +335,11 @@ export default function CertificateEstimatorWH(props) {
 
           {stepNumber === 2 && loading && <SpinnerFullscreen />}
 
-
-          {stepNumber === 1 && showPostcodeError && postcode.length >= 4 && <Alert as="error" title="The postcode is not valid in NSW">
+          {stepNumber === 1 && showPostcodeError && postcode.length >= 4 && (
+            <Alert as="error" title="The postcode is not valid in NSW">
               <p>Please check your postcode and try again.</p>
-            </Alert>}
+            </Alert>
+          )}
 
           {stepNumber === 3 && (
             <CertificateEstimatorLoadClausesWH
@@ -373,7 +379,7 @@ export default function CertificateEstimatorWH(props) {
                   <Button
                     as="dark"
                     onClick={(e) => {
-                      validatePostcode(postcode)
+                      validatePostcode(postcode);
                       // setFlow(null);
                       // setStepNumber(stepNumber + 1);
                     }}

@@ -44,7 +44,6 @@ export default function CertificateEstimatorRC(props) {
   const [selectedProductClass, setSelectedProductClass] = useState(null);
   const [showPostcodeError, setShowPostcodeError] = useState(false);
 
-
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -119,29 +118,33 @@ export default function CertificateEstimatorRC(props) {
 
   useEffect(() => {
     if (postcode && postcode.length < 4) {
-      setShowPostcodeError(false)
+      setShowPostcodeError(false);
     }
   }, [postcode]);
 
-
   const validatePostcode = (postcode) => {
-    axios.get('http://api.beliefmedia.com/postcodes/'+ postcode + '.json')
-    .then(res => {
-      const persons = res.data;
-      console.log(res);
-      if (persons.status === "200" & persons.data.postcode === postcode & persons.data.state === "NSW") {
-        setFlow(null);
-        setStepNumber(stepNumber + 1); 
-        setShowPostcodeError(false);
-      } else {
+    axios
+      .get('http://api.beliefmedia.com/postcodes/' + postcode + '.json')
+      .then((res) => {
+        const persons = res.data;
+        console.log(res);
+        if (
+          (persons.status === '200') &
+          (persons.data.postcode === postcode) &
+          (persons.data.state === 'NSW')
+        ) {
+          setFlow(null);
+          setStepNumber(stepNumber + 1);
+          setShowPostcodeError(false);
+        } else {
+          setShowPostcodeError(true);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
         setShowPostcodeError(true);
-      }
-    }).catch (e => {
-      console.log(e);
-      setShowPostcodeError(true);
-    } 
-    )
-  }
+      });
+  };
 
   useEffect(() => {
     setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
@@ -412,10 +415,11 @@ export default function CertificateEstimatorRC(props) {
 
           {stepNumber === 3 && calculationError && calculationError2 && <SpinnerFullscreen />}
 
-          {stepNumber === 1 && showPostcodeError && postcode.length >= 4 && <Alert as="error" title="The postcode is not valid in NSW">
+          {stepNumber === 1 && showPostcodeError && postcode.length >= 4 && (
+            <Alert as="error" title="The postcode is not valid in NSW">
               <p>Please check your postcode and try again.</p>
-            </Alert>}
-
+            </Alert>
+          )}
 
           {stepNumber === 1 &&
             registryData &&
@@ -428,7 +432,7 @@ export default function CertificateEstimatorRC(props) {
                   <Button
                     as="dark"
                     onClick={(e) => {
-                      validatePostcode(postcode)
+                      validatePostcode(postcode);
                       // setFlow(null);
                       // setStepNumber(stepNumber + 1);
                     }}
