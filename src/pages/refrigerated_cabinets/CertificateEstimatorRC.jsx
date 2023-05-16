@@ -124,7 +124,7 @@ export default function CertificateEstimatorRC(props) {
 
   const validatePostcode = (postcode) => {
     axios
-      .get('http://api.beliefmedia.com/postcodes/' + postcode + '.json')
+      .get('https://api.beliefmedia.com/postcodes/' + postcode + '.json')
       .then((res) => {
         const persons = res.data;
         console.log(res);
