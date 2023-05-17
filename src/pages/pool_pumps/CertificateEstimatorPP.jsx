@@ -111,8 +111,7 @@ export default function CertificateEstimatorPP(props) {
   }, [postcode]);
 
   const validatePostcode = (postcode) => {
-    axios
-      .get('https://api.beliefmedia.com/postcodes/' + postcode + '.json')
+    RegistryApi.getPostcodeValidation(postcode)
       .then((res) => {
         const persons = res.data;
         console.log(res);
@@ -128,8 +127,8 @@ export default function CertificateEstimatorPP(props) {
           setShowPostcodeError(true);
         }
       })
-      .catch((e) => {
-        console.log(e);
+      .catch((err) => {
+        console.log(err);
         setShowPostcodeError(true);
       });
   };

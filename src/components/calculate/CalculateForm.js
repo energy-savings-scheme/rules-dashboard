@@ -7,6 +7,7 @@ import Alert from 'nsw-ds-react/alert/alert';
 import { Spinner } from 'react-bootstrap';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import axios from 'axios';
+import RegistryApi from 'services/registry_api';
 
 export default function CalculateForm(props) {
   const {
@@ -166,26 +167,26 @@ export default function CalculateForm(props) {
     if (stepNumber === 1 && workflow !== 'eligibility') {
       formValues.map((variable) => {
         if (variable.name === 'RF1_PDRS__postcode' || variable.name === 'SYS1_PDRS__postcode') {
-          axios
-            .get('https://api.beliefmedia.com/postcodes/' + variable.form_value + '.json')
-            .then((res) => {
-              const persons = res.data;
-              console.log(res);
-              if (
-                (persons.status === '200') &
-                (persons.data.postcode === variable.form_value) &
-                (persons.data.state === 'NSW')
-              ) {
-                setStepNumber(stepNumber + 1);
-                setShowPostcodeError(false);
-              } else {
-                setShowPostcodeError(true);
-              }
-            })
-            .catch((e) => {
-              console.log(e);
+          RegistryApi.getPostcodeValidation(variable.form_value)
+          .then((res) => {
+            const persons = res.data;
+            console.log(res);
+            if (
+              (persons.status === '200') &
+              (persons.data.postcode === variable.form_value) &
+              (persons.data.state === 'NSW')
+            ) {
+              setFlow(null);
+              setStepNumber(stepNumber + 1);
+              setShowPostcodeError(false);
+            } else {
               setShowPostcodeError(true);
-            });
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+            setShowPostcodeError(true);
+          });
         }
       });
     } else {
