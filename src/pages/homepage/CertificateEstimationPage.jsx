@@ -42,7 +42,9 @@ export default function CertificateEstimationPage(props) {
                   <h2>Certificate estimation</h2>
 
                   <p className="nsw-content-block__copy">
-                  Estimate how many certificates can be created for an activity. Activities include replacing or installing new equipment or appliances which are more energy efficient.  
+                    Estimate how many certificates can be created for an activity. Activities
+                    include replacing or installing new equipment or appliances which are more
+                    energy efficient.
                   </p>
 
                   <p className="nsw-content-block__copy">You will need:</p>
@@ -53,7 +55,11 @@ export default function CertificateEstimationPage(props) {
                   </ul>
 
                   <p className="nsw-content-block__copy">
-                  Some activities may require additional technical information. Where possible, this information has been pulled in from the relevant product registry. Please double-check the fields to make sure they are accurate to your expected equipment specifications. Please note that results are indicative only and cannot be promoted or published.
+                    Some activities may require additional technical information. Where possible,
+                    this information has been pulled in from the relevant product registry. Please
+                    double-check the fields to make sure they are accurate to your expected
+                    equipment specifications. Please note that results are indicative only and
+                    cannot be promoted or published.
                   </p>
                 </div>
               </div>
