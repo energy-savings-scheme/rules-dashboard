@@ -158,17 +158,26 @@ export default function BaseEligibility(props) {
               <h2 className="nsw-content-block__title">Core eligibility requirements</h2>
               <br></br>
               <p className="nsw-content-block__copy">
-                The following questions assess the core eligibility requirements for the Energy
-                Savings Scheme and the Peak Demand Reduction Scheme.
+                The following questions assess the core eligibility requirements for the {' '}                     
+                <a
+                        href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
+                        target="_blank"
+                      >
+                        Energy Savings Scheme
+                      </a>{' '}
+                      and{' '}
+                      <a
+                        href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme"
+                        target="_blank"
+                      >
+                        Peak Demand Reduction Scheme
+                      </a>{' '}
               </p>
               <p className="nsw-content-block__copy">
-                Answer the questions and click the button below to check your eligibility. If
-                ineligible, you will be shown the ineligible answers and their corresponding rule
-                clauses.
+              Answer the questions and check your eligibility. If ineligible, you will be shown the relevant answers and their corresponding rule clauses.
               </p>
               <p className="nsw-content-block__copy">
-                Please keep in mind that the results are indicative only and cannot be promoted or
-                published.
+              Please note the results are a guide only and cannot be promoted or published. 
               </p>
             </div>
           </div>
