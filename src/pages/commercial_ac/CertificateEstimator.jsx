@@ -272,7 +272,7 @@ export default function CertificateEstimatorHVAC(props) {
 
                     <FormGroup
                       label="Postcode"
-                      helper="What is your postcode?" // helper text (secondary label)
+                      helper="Postcode where the installation has taken place" // helper text (secondary label)
                       errorText="Invalid value!" // error text if invalid
                     >
                       <TextInput
