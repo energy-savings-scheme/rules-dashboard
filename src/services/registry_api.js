@@ -111,7 +111,7 @@ const RegistryApi = {
   getPoolPumpBrands,
   listPoolPumpModels,
   getPoolPumpMetadata,
-  getPostcodeValidation
+  getPostcodeValidation,
 };
 
 export default RegistryApi;
