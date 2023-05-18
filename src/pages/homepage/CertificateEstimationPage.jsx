@@ -189,7 +189,7 @@ export default function CertificateEstimationPage(props) {
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
                     copy="Install a new or replace an existing motor with a high efficiency motor"
-                    headline="Ventilation or Refrigeration motor"
+                    headline="Ventilation or refrigeration motor"
                     image="CommercialVentilationRefrigeration.jpeg"
                     links={[
                       {
