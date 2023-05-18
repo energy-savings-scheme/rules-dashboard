@@ -39,25 +39,21 @@ export default function CertificateEstimationPage(props) {
             <div class="nsw-layout__main">
               <div className="nsw-grid nsw-grid--spaced" style={{ fontFamily: 'sans-serif' }}>
                 <div className="nsw-col nsw-col-md-12">
-                  <h2>Certificate Estimation</h2>
+                  <h2>Certificate estimation</h2>
 
                   <p className="nsw-content-block__copy">
-                    Estimate how many certificates can be created for an activity. You can access
-                    the estimator for each activity below.
+                  Estimate how many certificates can be created for an activity. Activities include replacing or installing new equipment or appliances which are more energy efficient.  
                   </p>
 
                   <p className="nsw-content-block__copy">You will need:</p>
 
                   <ul>
                     <li>the postcode of the site installation</li>
-                    <li>the brand and model number of the equipment you have installed</li>
+                    <li>the brand and model number of the equipment being installed</li>
                   </ul>
 
                   <p className="nsw-content-block__copy">
-                    Where possible, technical information has been populated from the relevant
-                    product registry. Please double-check the populated fields to make sure they are
-                    accurate to your expected equipment specifications. Note that results are
-                    indicative only and cannot be promoted or published.
+                  Some activities may require additional technical information. Where possible, this information has been pulled in from the relevant product registry. Please double-check the fields to make sure they are accurate to your expected equipment specifications. Please note that results are indicative only and cannot be promoted or published.
                   </p>
                 </div>
               </div>
@@ -71,13 +67,13 @@ export default function CertificateEstimationPage(props) {
           <div class="nsw-layout">
             <div class="nsw-layout__main">
               <h2 className="nsw-content-block__title" style={{ paddingBottom: '2%' }}>
-                Residential and Small Business
+                Residential and small business
               </h2>
               <div class="nsw-grid">
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
                     copy="Install a new or replace an existing air conditioner with a high efficiency air conditioner"
-                    headline="Air Conditioner"
+                    headline="Air conditioner"
                     image="/ResidentialAC.jpg"
                     links={[
                       {
@@ -90,7 +86,7 @@ export default function CertificateEstimationPage(props) {
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
                     copy="Replace an existing pool pump with a high efficiency pool pump"
-                    headline="Pool Pump"
+                    headline="Pool pump"
                     image="/ResidentialPoolPumps.jpg"
                     links={[
                       {
@@ -104,7 +100,7 @@ export default function CertificateEstimationPage(props) {
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
                     copy="Remove a spare refrigerator or freezer"
-                    headline="Spare Refrigerator or Freezer"
+                    headline="Spare refrigerator or freezer"
                     image="/ResidentialFridgeFreezerRemoval.jpeg"
                     links={[
                       {
@@ -132,7 +128,7 @@ export default function CertificateEstimationPage(props) {
                   <ContentBlock
                     copy="Install a new or replace an existing air conditioner with a high efficiency
       air conditioner"
-                    headline="Air Conditioner"
+                    headline="Air conditioner"
                     image="CommercialAC.jpeg"
                     links={[
                       {
@@ -146,7 +142,7 @@ export default function CertificateEstimationPage(props) {
                   <ContentBlock
                     copy="Replace one or more existing hot water boilers or water heaters with one or
           more air source heat pump water heater systems"
-                    headline="Heat Pump Water Heater"
+                    headline="Heat pump water heater"
                     image="CommercialHeatPumpWaterHeater.jpeg"
                     links={[
                       {
@@ -160,7 +156,7 @@ export default function CertificateEstimationPage(props) {
                   <ContentBlock
                     copy="Install a new high efficiency refrigerated cabinet or replace an existing
       refrigerated cabinet"
-                    headline="Refrigerated Cabinet"
+                    headline="Refrigerated cabinet"
                     image="CommercialRefrigeratedCabinet.jpg"
                     links={[
                       {
