@@ -198,7 +198,6 @@ export default function CalculateBlock(props) {
       formValues.find((v) => v.name === 'HVAC1_AEER_greater_than_minimum').hide = true;
     }
 
-
     if (
       formItem.name === 'HVAC2_residential_building' &&
       (formItem.form_value === true || formItem.default_value === true)
@@ -284,7 +283,6 @@ export default function CalculateBlock(props) {
           formValues.find((v) => v.name === 'Base_disposal_of_equipment').hide = true;
         }
       }
-
 
       if (formItem.name === 'Base_tradeable_certificates') {
         if (e.target.value === 'true') {

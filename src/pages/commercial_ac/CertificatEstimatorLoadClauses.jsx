@@ -286,47 +286,6 @@ export default function CertificateEstimatorLoadClauses(props) {
                 </p>
               </Alert>
             }
-            {
-              <div className="nsw-grid nsw-grid--spaced">
-                <div className="nsw-col nsw-col-md-10">
-                  <br></br>
-                  <br></br>
-                  <h2 className="nsw-content-block__title">Getting started under the Schemes</h2>
-                  <br></br>
-                  <p>
-                    Approved suppliers (known as Accredited Certificate Providers, or ACPs) conduct
-                    upgrades under the Energy Savings Scheme (ESS) and Peak Demand Reduction Scheme
-                    (PDRS). Only an ACP can provide the scheme incentives, and they must be engaged
-                    before any works commence.
-                  </p>
-                  <p>
-                    Incentives in the form of Energy Saving Certificates or Peak Reduction
-                    Certificates are sold by ACPs to electricity retailers and large energy users at
-                    a market-based price. A portion of the funds received from selling the
-                    certificates is then transferred to you as an upfront service discount or a pay
-                    out at a later stage of your project.
-                  </p>
-                  <p>
-                    ACPs work with{' '}
-                    <a
-                      href="https://www.energy.nsw.gov.au/households/rebates-grants-and-schemes/household-energy-saving-upgrades"
-                      target="_blank"
-                    >
-                      households
-                    </a>{' '}
-                    and{' '}
-                    <a
-                      href="https://www.energy.nsw.gov.au/business-and-industry/programs-grants-and-schemes/business-equipment"
-                      target="_blank"
-                    >
-                      businesses
-                    </a>{' '}
-                    and will explain the process and get you the incentive under the ESS and PDRS.
-                    Please contact an approved supplier to get started.
-                  </p>
-                </div>
-              </div>
-            }
           </Fragment>
         )}
 
