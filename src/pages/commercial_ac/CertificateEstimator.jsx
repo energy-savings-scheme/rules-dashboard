@@ -111,7 +111,6 @@ export default function CertificateEstimatorHVAC(props) {
     }
   }, [postcode]);
 
-
   const validatePostcode = (postcode) => {
     RegistryApi.getPostcodeValidation(postcode)
       .then((res) => {

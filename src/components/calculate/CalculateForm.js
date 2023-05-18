@@ -168,25 +168,25 @@ export default function CalculateForm(props) {
       formValues.map((variable) => {
         if (variable.name === 'RF1_PDRS__postcode' || variable.name === 'SYS1_PDRS__postcode') {
           RegistryApi.getPostcodeValidation(variable.form_value)
-          .then((res) => {
-            const persons = res.data;
-            console.log(res);
-            if (
-              (persons.status === '200') &
-              (persons.data.postcode === variable.form_value) &
-              (persons.data.state === 'NSW')
-            ) {
-              setFlow(null);
-              setStepNumber(stepNumber + 1);
-              setShowPostcodeError(false);
-            } else {
+            .then((res) => {
+              const persons = res.data;
+              console.log(res);
+              if (
+                (persons.status === '200') &
+                (persons.data.postcode === variable.form_value) &
+                (persons.data.state === 'NSW')
+              ) {
+                setFlow(null);
+                setStepNumber(stepNumber + 1);
+                setShowPostcodeError(false);
+              } else {
+                setShowPostcodeError(true);
+              }
+            })
+            .catch((err) => {
+              console.log(err);
               setShowPostcodeError(true);
-            }
-          })
-          .catch((err) => {
-            console.log(err);
-            setShowPostcodeError(true);
-          });
+            });
         }
       });
     } else {
