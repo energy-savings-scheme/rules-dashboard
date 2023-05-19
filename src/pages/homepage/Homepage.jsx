@@ -50,10 +50,16 @@ export default function Homepage(props) {
                         certificates (PRCs) generated for different brands and models of equipment
                       </li>
                       <li>
-                        core eligibility requirements for the Energy Savings Scheme and Peak Demand
-                        Reduction Scheme
+                        eligibility for:
+                        <ul>
+                          <li>
+                          Energy Savings Scheme and Peak Demand Reduction Scheme core requirements
+                          </li>
+                          <li>
+                          activity-specific requirements
+                          </li>
+                        </ul>
                       </li>
-                      <li>activity-specific eligibility requirements</li>
                       <li>
                         how changes in technical specifications for a product affect how many
                         certificates you can generate
