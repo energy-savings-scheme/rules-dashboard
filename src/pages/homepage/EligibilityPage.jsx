@@ -47,22 +47,22 @@ export default function EligibilityPage(props) {
                     activity.
                   </p>
                   <p className="nsw-content-block__copy">
-                    Answer questions from the {' '}
-                      <a
-                        href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
-                        target="_blank"
-                      >
-                        Energy Savings Scheme
-                      </a>{' '}
-                      and{' '}
-                      <a
-                        href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme"
-                        target="_blank"
-                      >
-                        Peak Demand Reduction Scheme
-                      </a>{' '}
-                      rules to check scheme eligibility requirements and
-                    activity-specific requirements.
+                    Answer questions from the{' '}
+                    <a
+                      href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
+                      target="_blank"
+                    >
+                      Energy Savings Scheme
+                    </a>{' '}
+                    and{' '}
+                    <a
+                      href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme"
+                      target="_blank"
+                    >
+                      Peak Demand Reduction Scheme
+                    </a>{' '}
+                    rules to check scheme eligibility requirements and activity-specific
+                    requirements.
                   </p>
                   <p className="nsw-content-block__copy">
                     Check if an activity is compliant with the scheme rules and eligible for
