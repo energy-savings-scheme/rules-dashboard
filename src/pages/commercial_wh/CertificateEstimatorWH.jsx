@@ -8,7 +8,8 @@ import OpenFiscaApi from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import Alert from 'nsw-ds-react/alert/alert';
-import { compareAsc, format, previousSunday } from 'date-fns';
+import { format, previousSunday } from 'date-fns';
+import axios from 'axios';
 
 export default function CertificateEstimatorWH(props) {
   const { entities, variables, brands, loading, setLoading } = props;
@@ -31,6 +32,7 @@ export default function CertificateEstimatorWH(props) {
   const [registryData, setRegistryData] = useState(true);
   const [persistFormValues, setPersistFormValues] = useState([]);
   const [flow, setFlow] = useState(null);
+  const [showPostcodeError, setShowPostcodeError] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -48,6 +50,35 @@ export default function CertificateEstimatorWH(props) {
     setDropdownOptionsModels((prev) => {
       return [...prev, newOption];
     });
+  };
+
+  useEffect(() => {
+    if (postcode && postcode.length < 4) {
+      setShowPostcodeError(false);
+    }
+  }, [postcode]);
+
+  const validatePostcode = (postcode) => {
+    RegistryApi.getPostcodeValidation(postcode)
+      .then((res) => {
+        const persons = res.data;
+        console.log(res);
+        if (
+          (persons.status === '200') &
+          (persons.data.postcode === postcode) &
+          (persons.data.state === 'NSW')
+        ) {
+          setFlow(null);
+          setStepNumber(stepNumber + 1);
+          setShowPostcodeError(false);
+        } else {
+          setShowPostcodeError(true);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setShowPostcodeError(true);
+      });
   };
 
   useEffect(() => {
@@ -154,14 +185,27 @@ export default function CertificateEstimatorWH(props) {
             </h5> */}
               <br></br>
               <p className="nsw-content-block__copy">
-                Estimate the energy savings certificates (ESCs) and peak reduction certificates
-                (PRCs) for the Commercial Heat Pump Water Heater Activity (F16 in the Energy Savings
-                Scheme and WH1 in the Peak Demand Reduction Scheme) by answering the following
-                questions. Note that a new installation activity will not generate ESCs or PRCs.
+                Answer the following questions to estimate the energy savings certificates (ESCs)
+                and peak reduction certificates (PRCs) for the Commercial Heat Pump Water Heater
+                Activity (F16 in the{' '}
+                <a
+                  href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
+                  target="_blank"
+                >
+                  Energy Savings Scheme
+                </a>{' '}
+                and WH1 in the{' '}
+                <a
+                  href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme"
+                  target="_blank"
+                >
+                  Peak Demand Reduction Scheme
+                </a>
+                ).
               </p>
               <p className="nsw-content-block__copy">
                 Where possible, commercial heat pump water heater specifications are automatically
-                pulled in at the end of each week from the{' '}
+                updated at the end of each week from the{' '}
                 <a
                   href="https://tessa.energysustainabilityschemes.nsw.gov.au/ipart?id=accepted_products"
                   target="_blank"
@@ -204,7 +248,7 @@ export default function CertificateEstimatorWH(props) {
 
                     <FormGroup
                       label="Postcode"
-                      helper="What is your postcode?" // helper text (secondary label)
+                      helper="Postcode where the installation has taken place" // helper text (secondary label)
                       errorText="Invalid value!" // error text if invalid
                     >
                       <TextInput
@@ -303,6 +347,12 @@ export default function CertificateEstimatorWH(props) {
 
           {stepNumber === 2 && loading && <SpinnerFullscreen />}
 
+          {stepNumber === 1 && showPostcodeError && postcode.length >= 4 && (
+            <Alert as="error" title="The postcode is not valid in NSW">
+              <p>Please check your postcode and try again.</p>
+            </Alert>
+          )}
+
           {stepNumber === 3 && (
             <CertificateEstimatorLoadClausesWH
               // calculationDate={calculationDate}
@@ -341,8 +391,9 @@ export default function CertificateEstimatorWH(props) {
                   <Button
                     as="dark"
                     onClick={(e) => {
-                      setFlow(null);
-                      setStepNumber(stepNumber + 1);
+                      validatePostcode(postcode);
+                      // setFlow(null);
+                      // setStepNumber(stepNumber + 1);
                     }}
                   >
                     Next

@@ -19,6 +19,7 @@ import Notification from 'nsw-ds-react/notification/notification';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import Alert from 'nsw-ds-react/alert/alert';
 import { compareAsc, format, previousSunday } from 'date-fns';
+import axios from 'axios';
 
 export default function CertificateEstimatorHVAC(props) {
   const {
@@ -49,6 +50,7 @@ export default function CertificateEstimatorHVAC(props) {
   const [registryData, setRegistryData] = useState(true);
   const [flow, setFlow] = useState(null);
   const [persistFormValues, setPersistFormValues] = useState([]);
+  const [showPostcodeError, setShowPostcodeError] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -101,6 +103,35 @@ export default function CertificateEstimatorHVAC(props) {
     setDropdownOptionsModels((prev) => {
       return [...prev, newOption];
     });
+  };
+
+  useEffect(() => {
+    if (postcode && postcode.length < 4) {
+      setShowPostcodeError(false);
+    }
+  }, [postcode]);
+
+  const validatePostcode = (postcode) => {
+    RegistryApi.getPostcodeValidation(postcode)
+      .then((res) => {
+        const persons = res.data;
+        console.log(res);
+        if (
+          (persons.status === '200') &
+          (persons.data.postcode === postcode) &
+          (persons.data.state === 'NSW')
+        ) {
+          setFlow(null);
+          setStepNumber(stepNumber + 1);
+          setShowPostcodeError(false);
+        } else {
+          setShowPostcodeError(true);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setShowPostcodeError(true);
+      });
   };
 
   useEffect(() => {
@@ -192,21 +223,34 @@ export default function CertificateEstimatorHVAC(props) {
               </h2>
               <br></br>
               <p className="nsw-content-block__copy">
-                Estimate the energy savings certificates (ESCs) and peak reduction certificates
-                (PRCs) for the Residential and Small Business Air Conditioner Activity (D16 in the
-                Energy Savings Scheme and HVAC1 in the Peak Demand Reduction Scheme) by answering
-                the following questions.
+                Answer the following questions to estimate the energy savings certificates (ESCs)
+                and peak reduction certificates (PRCs) for the Residential and Small Business Air
+                Conditioner Activity (D16 in the{' '}
+                <a
+                  href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
+                  target="_blank"
+                >
+                  Energy Savings Scheme
+                </a>{' '}
+                and HVAC2 in the{' '}
+                <a
+                  href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme"
+                  target="_blank"
+                >
+                  Peak Demand Reduction Scheme
+                </a>
+                ).
               </p>
               <p className="nsw-content-block__copy">
                 Where possible, residential and small business air conditioner specifications are
-                automatically pulled in at the end of each week from the{' '}
+                automatically updated at the end of each week from the{' '}
                 <a href="https://reg.energyrating.gov.au/comparator/product_types/" target="_blank">
                   Greenhouse & Energy Minimum Standards (GEMS) Registry
                 </a>{' '}
                 based on brand and model, but you may also enter your own values.
               </p>
               <p className="nsw-content-block__copy">
-                Please keep in mind that the results are indicative only and cannot be promoted or
+                Please keep in mind that the results are a guide only and cannot be promoted or
                 published.
               </p>
             </div>
@@ -241,7 +285,7 @@ export default function CertificateEstimatorHVAC(props) {
 
                     <FormGroup
                       label="Postcode"
-                      helper="What is your postcode?" // helper text (secondary label)
+                      helper="Postcode where the installation has taken place" // helper text (secondary label)
                       errorText="Invalid value!" // error text if invalid
                     >
                       <TextInput
@@ -369,6 +413,12 @@ export default function CertificateEstimatorHVAC(props) {
 
           {stepNumber === 3 && calculationError && calculationError2 && <SpinnerFullscreen />}
 
+          {stepNumber === 1 && showPostcodeError && postcode.length >= 4 && (
+            <Alert as="error" title="The postcode is not valid in NSW">
+              <p>Please check your postcode and try again.</p>
+            </Alert>
+          )}
+
           {stepNumber === 1 &&
             registryData &&
             postcode &&
@@ -380,9 +430,9 @@ export default function CertificateEstimatorHVAC(props) {
                   <Button
                     as="dark"
                     onClick={(e) => {
-                      // validatePostcode();
-                      setFlow(null);
-                      setStepNumber(stepNumber + 1);
+                      validatePostcode(postcode);
+                      // setFlow(null);
+                      // setStepNumber(stepNumber + 1);
                     }}
                   >
                     Next

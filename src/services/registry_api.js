@@ -91,6 +91,13 @@ function getPoolPumpMetadata(payload) {
   });
 }
 
+function getPostcodeValidation(postcode) {
+  return RegistryApiBase({
+    url: `/postcode/${postcode}`,
+    method: 'GET',
+  });
+}
+
 const RegistryApi = {
   getCommercialHVACBrands,
   getCommercialWHBrands,
@@ -104,6 +111,7 @@ const RegistryApi = {
   getPoolPumpBrands,
   listPoolPumpModels,
   getPoolPumpMetadata,
+  getPostcodeValidation,
 };
 
 export default RegistryApi;

@@ -175,7 +175,7 @@ export default function LoadClausesBaseEligibility(props) {
           <Fragment>
             {
               <div style={{ marginTop: '5%' }}>
-                <Alert as="info" title="Core Eligibility" style={{ width: '80%' }}>
+                <Alert as="info" title="Core eligibility" style={{ width: '80%' }}>
                   <p>
                     {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
                     Based on the information you have provided{' '}
