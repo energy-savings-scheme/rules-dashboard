@@ -105,14 +105,23 @@ export default function CertificateEstimatorMotors(props) {
               <h2 className="nsw-content-block__title">Commercial Motors certificate estimator</h2>
               <br></br>
               <p className="nsw-content-block__copy">
-                Estimate the energy savings certificates (ESCs) and peak reduction certificates
-                (PRCs) for the Commercial Motors (Refrigeration or Ventilation) Activity (F7 in the
-                Energy Savings Scheme and SYS1 in the Peak Demand Reduction Scheme) by answering the
-                following questions.
+              Answer the following questions to estimate the energy savings certificates (ESCs) and peak reduction certificates (PRCs) for the Commercial Motors (Refrigeration or Ventilation) Activity (F7 in the {' '}
+                <a
+                  href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
+                  target="_blank"
+                >
+                  Energy Savings Scheme
+                </a>{' '}
+                and SYS1 in the{' '}
+                <a
+                  href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme"
+                  target="_blank"
+                >
+                  Peak Demand Reduction Scheme
+                </a>). 
               </p>
               <p className="nsw-content-block__copy">
-                Please keep in mind that the results are indicative only and cannot be promoted or
-                published.
+              Please keep in mind that the results are a guide only and cannot be promoted or published.
               </p>
             </div>
           </div>

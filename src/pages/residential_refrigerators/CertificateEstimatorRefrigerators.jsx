@@ -98,14 +98,23 @@ export default function CertificateEstimatorRefrigerators(props) {
               </h2>
               <br></br>
               <p className="nsw-content-block__copy">
-                Estimate the energy savings certificates (ESCs) and peak reduction certificates
-                (PRCs) for the Residential and Small Business Spare Refrigerator or Freezer removal
-                Activity (C1 in the Energy Savings Scheme and RF1 in the Peak Demand Reduction
-                Scheme) by answering the following questions.
+              Answer the following questions to estimate the energy savings certificates (ESCs) and peak reduction certificates (PRCs) the Residential and Small Business Spare Refrigerator or Freezer removal Activity (C1 in the {' '}
+                <a
+                  href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
+                  target="_blank"
+                >
+                  Energy Savings Scheme
+                </a>{' '}
+                and RF1 in the{' '}
+                <a
+                  href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme"
+                  target="_blank"
+                >
+                  Peak Demand Reduction Scheme
+                </a>). 
               </p>
               <p className="nsw-content-block__copy">
-                Please keep in mind that the results are indicative only and cannot be promoted or
-                published.
+              Please keep in mind that the results are a guide only and cannot be promoted or published.
               </p>
             </div>
           </div>
