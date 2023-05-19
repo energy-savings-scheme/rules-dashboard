@@ -223,9 +223,9 @@ export default function CertificateEstimatorHVAC(props) {
               </h2>
               <br></br>
               <p className="nsw-content-block__copy">
-              Answer the following questions to estimate the energy savings certificates (ESCs) and peak reduction certificates
-                (PRCs) for the Residential and Small Business Air Conditioner Activity (D16 in the
-                  {' '}
+                Answer the following questions to estimate the energy savings certificates (ESCs)
+                and peak reduction certificates (PRCs) for the Residential and Small Business Air
+                Conditioner Activity (D16 in the{' '}
                 <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
                   target="_blank"
@@ -238,7 +238,8 @@ export default function CertificateEstimatorHVAC(props) {
                   target="_blank"
                 >
                   Peak Demand Reduction Scheme
-                </a>).
+                </a>
+                ).
               </p>
               <p className="nsw-content-block__copy">
                 Where possible, residential and small business air conditioner specifications are
@@ -249,7 +250,8 @@ export default function CertificateEstimatorHVAC(props) {
                 based on brand and model, but you may also enter your own values.
               </p>
               <p className="nsw-content-block__copy">
-              Please keep in mind that the results are a guide only and cannot be promoted or published.
+                Please keep in mind that the results are a guide only and cannot be promoted or
+                published.
               </p>
             </div>
           </div>
