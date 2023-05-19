@@ -219,21 +219,34 @@ export default function CertificateEstimatorRC(props) {
               </h2>
               <br></br>
               <p className="nsw-content-block__copy">
-                Estimate the energy savings certificates (ESCs) and peak reduction certificates
-                (PRCs) for the Commercial Refrigerated Cabinet Activity (F1.1 and F1.2 in the Energy
-                Savings Scheme and RF2 in the Peak Demand Reduction Scheme) by answering the
-                following questions. Note that a new installation activity will not generate PRCs.
+                Answer the following questions to estimate the energy savings certificates (ESCs)
+                and peak reduction certificates (PRCs) for the Commercial Refrigerated Cabinet
+                Activity (F1.1 and F1.2 in the{' '}
+                <a
+                  href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
+                  target="_blank"
+                >
+                  Energy Savings Scheme
+                </a>{' '}
+                and RF2 in the{' '}
+                <a
+                  href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme"
+                  target="_blank"
+                >
+                  Peak Demand Reduction Scheme
+                </a>
+                ).
               </p>
               <p className="nsw-content-block__copy">
                 Where possible, residential and small business air conditioner specifications are
-                automatically pulled in at the end of each week from the{' '}
+                automatically updated at the end of each week from the{' '}
                 <a href="https://reg.energyrating.gov.au/comparator/product_types/" target="_blank">
                   Greenhouse & Energy Minimum Standards (GEMS) Registry
                 </a>{' '}
                 based on brand and model, but you may also enter your own values.
               </p>
               <p className="nsw-content-block__copy">
-                Please keep in mind that the results are indicative only and cannot be promoted or
+                Please keep in mind that the results are a guide only and cannot be promoted or
                 published.
               </p>
             </div>

@@ -43,16 +43,22 @@ export default function EligibilityPage(props) {
 
                   {/* <br></br> */}
                   <p className="nsw-content-block__copy">
-                  You can check the eligibility requirements for both certificate schemes and an activity.
+                    You can check the eligibility requirements for both certificate schemes and an
+                    activity.
                   </p>
                   <p className="nsw-content-block__copy">
-                  Answer questions from the Energy Saving Scheme Rule and the Peak Demand Reduction Scheme Rule to check scheme eligibility requirements and activity-specific requirements.
+                    Answer questions from the Energy Saving Scheme Rule and the Peak Demand
+                    Reduction Scheme Rule to check scheme eligibility requirements and
+                    activity-specific requirements.
                   </p>
                   <p className="nsw-content-block__copy">
-                  Check if an activity is compliant with the scheme rules and eligible for certificates.
+                    Check if an activity is compliant with the scheme rules and eligible for
+                    certificates.
                   </p>
                   <p className="nsw-content-block__copy">
-                  Please note that the estimator is a guide and does not ensure your eligibility to receive incentives. An Accredited Certificate Provider must be engaged before any installation work begins.
+                    Please note that the estimator is a guide and does not ensure your eligibility
+                    to receive incentives. An Accredited Certificate Provider must be engaged before
+                    any installation work begins.
                   </p>
                 </div>
               </div>
@@ -60,9 +66,9 @@ export default function EligibilityPage(props) {
               <h2 className="nsw-content-block__title">Check core eligibility requirements</h2>
 
               <p className="nsw-content-block__copy">
-              Review the basic eligibility requirements for the schemes. These conditions are common across all activities and are required to meet compliance.
+                Review the basic eligibility requirements for the schemes. These conditions are
+                common across all activities and are required to meet compliance.
               </p>
-
             </div>
           </div>
         </div>
@@ -100,7 +106,8 @@ export default function EligibilityPage(props) {
                 <div className="nsw-col nsw-col-md-12">
                   <h2 className="nsw-content-block__title">Check activity specific requirements</h2>
                   <p className="nsw-content-block__copy">
-                  Choose an activity below to check the scheme eligibility requirements that are unique to that activity.
+                    Choose an activity below to check the scheme eligibility requirements that are
+                    unique to that activity.
                   </p>
                 </div>
               </div>
@@ -216,7 +223,6 @@ export default function EligibilityPage(props) {
                     ]}
                   />
                 </div>
-
 
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
