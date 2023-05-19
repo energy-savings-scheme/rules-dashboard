@@ -53,11 +53,9 @@ export default function Homepage(props) {
                         eligibility for:
                         <ul>
                           <li>
-                          Energy Savings Scheme and Peak Demand Reduction Scheme core requirements
+                            Energy Savings Scheme and Peak Demand Reduction Scheme core requirements
                           </li>
-                          <li>
-                          activity-specific requirements
-                          </li>
+                          <li>activity-specific requirements</li>
                         </ul>
                       </li>
                       <li>
@@ -108,7 +106,7 @@ export default function Homepage(props) {
               </div>
 
               <div style={{ fontFamily: 'sans-serif', paddingTop: '4%' }}>
-                <h2 className="nsw-content-block__title">How to use the Estimator</h2>
+                <h2 className="nsw-content-block__title">How to use the estimator</h2>
                 <p className="nsw-content-block__copy">
                   For an optimal user experience, we recommend using the latest browser versions of
                   Google Chrome or Mozilla Firefox.
