@@ -167,7 +167,7 @@ export default function CertificateEstimatorWH(props) {
           src: '/commercial_wh/WH1_Activity_Page_Hero.jpeg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard Certificate Estimator"
+        title="Safeguard certificate estimator"
       />
 
       <div className="nsw-container">
@@ -215,8 +215,7 @@ export default function CertificateEstimatorWH(props) {
                 based on brand and model, but you may also enter your own values.
               </p>
               <p className="nsw-content-block__copy">
-                Please keep in mind that the results are indicative only and cannot be promoted or
-                published.
+              Please keep in mind that the results are a guide only and cannot be promoted or published.
               </p>
             </div>
           </div>

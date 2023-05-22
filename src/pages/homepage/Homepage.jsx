@@ -26,7 +26,7 @@ export default function Homepage(props) {
           src: '/LandingPageHero.jpg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard Certificate Estimator"
+        title="Safeguard certificate estimator"
       />
 
       <div class="nsw-section nsw-section--white">
@@ -68,7 +68,7 @@ export default function Homepage(props) {
                       </li>
                       <li>
                         how the estimator's number of certificates compares with your own modelling
-                        for specific brands and models
+                        for specific brands and models.
                       </li>
                     </ul>
                   </p>
@@ -136,7 +136,7 @@ export default function Homepage(props) {
                   </li>
                   <li>
                     activity-specific eligibility requirements: is the brand or model of equipment
-                    eligible{' '}
+                    eligible.{' '}
                   </li>
                 </ul>
 
@@ -155,9 +155,6 @@ export default function Homepage(props) {
                 <p className="nsw-content-block__copy">
                   To estimate how many certificates can be created, you will need to provide some
                   information about the installation, including the postcode and brand and model
-                  number. Additional technical details may be required for certain activities. To
-                  estimate how many certificates can be created, you will need to provide some
-                  information about the installation, including the postcode and brand and model
                   number. Additional technical details may be required for certain activities.{' '}
                 </p>
                 <p className="nsw-content-block__copy">
@@ -169,6 +166,7 @@ export default function Homepage(props) {
                   <a href={`mailto:sustainability@environment.nsw.gov.au`}>
                     sustainability@environment.nsw.gov.au
                   </a>
+                  .
                 </p>
               </div>
 

@@ -209,7 +209,7 @@ export default function CertificateEstimatorHVAC(props) {
           src: '/commercialac/HVAC2Hero.jpeg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard Certificate Estimator"
+        title="Safeguard certificate estimator"
       />
 
       <div className="nsw-container">

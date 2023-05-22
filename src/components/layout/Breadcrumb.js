@@ -23,7 +23,7 @@ export default function Breadcrumb() {
               text: 'Safeguard Digital Tools',
             },
             {
-              text: 'Safeguard Certificate Estimator',
+              text: 'Safeguard certificate estimator',
             },
           ]}
         />
@@ -47,7 +47,7 @@ export default function Breadcrumb() {
             },
             {
               link: '#',
-              text: 'Safeguard Certificate Estimator',
+              text: 'Safeguard certificate estimator',
             },
             {
               link: '#eligibility',
@@ -78,7 +78,7 @@ export default function Breadcrumb() {
             },
             {
               link: '#',
-              text: 'Safeguard Certificate Estimator',
+              text: 'Safeguard certificate estimator',
             },
             {
               text: 'Eligibility',
@@ -105,7 +105,7 @@ export default function Breadcrumb() {
             },
             {
               link: '#',
-              text: 'Safeguard Certificate Estimator',
+              text: 'Safeguard certificate estimator',
             },
             {
               text: 'Certificate Estimation',
@@ -140,7 +140,7 @@ export default function Breadcrumb() {
             },
             {
               link: '#',
-              text: 'Safeguard Certificate Estimator',
+              text: 'Safeguard certificate estimator',
             },
             {
               link: '#eligibility',
@@ -179,7 +179,7 @@ export default function Breadcrumb() {
             },
             {
               link: '#',
-              text: 'Safeguard Certificate Estimator',
+              text: 'Safeguard certificate estimator',
             },
             {
               link: '#certificate-estimation',

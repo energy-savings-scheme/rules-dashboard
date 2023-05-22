@@ -147,7 +147,7 @@ export default function ActivityRequirementsResAC(props) {
           src: 'base_elig_hero.jpg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard Certificate Estimator"
+        title="Safeguard certificate estimator"
       />
 
       <div className="nsw-container" style={{ marginBottom: '10%' }}>
