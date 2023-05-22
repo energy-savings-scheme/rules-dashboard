@@ -30,7 +30,7 @@ export default function EligibilityPage(props) {
           src: '/LandingPageHero.jpg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard Certificate Estimator"
+        title="Safeguard certificate estimator"
       />
 
       <div class="nsw-section nsw-section--white" style={{ fontFamily: 'sans-serif' }}>
