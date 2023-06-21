@@ -321,7 +321,7 @@ export default function CertificateEstimatorLoadClausesWH(props) {
                 </Button>
               </div>
 
-              <div className="nsw-col-md-3" style={{ paddingTop: '30px' }}>
+              {/* <div className="nsw-col-md-3" style={{ paddingTop: '30px' }}>
                 <Button
                   style={{ float: 'right' }}
                   as="dark"
@@ -332,7 +332,7 @@ export default function CertificateEstimatorLoadClausesWH(props) {
                 >
                   Change activity
                 </Button>
-              </div>
+              </div> */}
             </div>
 
             <div
