@@ -30,7 +30,7 @@ export default function CertificateEstimationPage(props) {
           src: '/LandingPageHero.jpg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard Certificate Estimator"
+        title="Safeguard certificate estimator"
       />
 
       <div class="nsw-section nsw-section--white">
@@ -51,7 +51,7 @@ export default function CertificateEstimationPage(props) {
 
                   <ul>
                     <li>the postcode of the site installation</li>
-                    <li>the brand and model number of the equipment being installed</li>
+                    <li>the brand and model number of the equipment being installed.</li>
                   </ul>
 
                   <p className="nsw-content-block__copy">
