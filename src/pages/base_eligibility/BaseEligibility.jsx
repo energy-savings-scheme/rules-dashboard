@@ -148,7 +148,7 @@ export default function BaseEligibility(props) {
         title="Safeguard Certificate Estimator"
       />
 
-      <div className="nsw-container" style={{ marginBottom: '10%' }}>
+      <div className="nsw-container" style={{ marginBottom: '10%', paddingLeft: '0px' }}>
         <br></br>
         <br></br>
 
