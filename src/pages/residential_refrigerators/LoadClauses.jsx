@@ -207,12 +207,6 @@ export default function LoadClausesRF1(props) {
 
         {stepNumber === 2 && loading && <SpinnerFullscreen />}
 
-        {/* {stepNumber === 2 && calculationError && (
-          <Alert as="error" title="Sorry! An error has occurred.">
-            <p>An error occurred during calculation. Please try again.</p>
-          </Alert>
-        )} */}
-
         {stepNumber === 2 && (
           <Fragment>
             <div className="nsw-row">
@@ -241,7 +235,7 @@ export default function LoadClausesRF1(props) {
                 />
               </div>
 
-              <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
+              {/* <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
                 <h4>More options</h4>
                 <br></br>
 
@@ -303,7 +297,7 @@ export default function LoadClausesRF1(props) {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </Fragment>
         )}

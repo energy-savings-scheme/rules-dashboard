@@ -96,19 +96,6 @@ export default function LoadClauses(props) {
               </div>
             </div>
 
-            {/* <div className="nsw-row">
-              <div className="nsw-col">
-                <Button
-                  as="primary"
-                  onClick={(e) => {
-                    setStepNumber(stepNumber + 1);
-                  }}
-                  style={{ float: 'right' }}
-                >
-                  Check Schemes Base Eligibility
-                </Button>
-              </div>
-            </div> */}
           </Fragment>
         )}
 
@@ -214,7 +201,7 @@ export default function LoadClauses(props) {
                 />
               </div>
 
-              <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
+              {/* <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
                 <h4>More options</h4>
                 <br></br>
 
@@ -276,7 +263,7 @@ export default function LoadClauses(props) {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </Fragment>
         )}

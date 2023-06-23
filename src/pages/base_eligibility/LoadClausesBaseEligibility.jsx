@@ -249,7 +249,7 @@ export default function LoadClausesBaseEligibility(props) {
                 />
               </div>
 
-              <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
+              {/* <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
                 <h4>More options</h4>
                 <br></br>
                 <div class="nsw-grid nsw-grid--spaced">
@@ -291,12 +291,7 @@ export default function LoadClausesBaseEligibility(props) {
                     </div>
                   </div>
                 </div>
-                {/* <Card
-              headline="Choose an Activity"
-              link="/"
-              style="light">
-            </Card> */}
-              </div>
+              </div> */}
             </div>
           </Fragment>
         )}

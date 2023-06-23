@@ -159,7 +159,7 @@ export default function CertificateEstimatorWH(props) {
     <Fragment>
       {/* Search section */}
       <br></br>
-      <HeroBanner
+      {/* <HeroBanner
         wide
         style="dark"
         image={{
@@ -168,21 +168,18 @@ export default function CertificateEstimatorWH(props) {
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
         title="Safeguard certificate estimator"
-      />
+      /> */}
 
       <div className="nsw-container">
         <br></br>
         <br></br>
 
-        {stepNumber !== 3 && (
+        {/* {stepNumber !== 3 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">
                 Commercial Heat Pump Water Heater certificate estimator
               </h2>
-              {/* <h5 className="nsw-content-block__copy">
-              Energy Savings Scheme and Peak Demand Reduction Scheme
-            </h5> */}
               <br></br>
               <p className="nsw-content-block__copy">
                 Answer the following questions to estimate the energy savings certificates (ESCs)
@@ -229,7 +226,7 @@ export default function CertificateEstimatorWH(props) {
               </h2>
             </div>
           </div>
-        )}
+        )} */}
 
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
@@ -354,7 +351,6 @@ export default function CertificateEstimatorWH(props) {
 
           {stepNumber === 3 && (
             <CertificateEstimatorLoadClausesWH
-              // calculationDate={calculationDate}
               variableToLoad1={'WH1_PRC_calculation'}
               variableToLoad2={'WH1_ESC_calculation'}
               variables={variables}

@@ -329,19 +329,6 @@ export default function CertificateEstimatorLoadClausesRC(props) {
                   Back
                 </Button>
               </div>
-
-              {/* <div className="nsw-col-md-3" style={{ paddingTop: '30px' }}>
-                <Button
-                  style={{ float: 'right' }}
-                  as="dark"
-                  link="/#certificate-estimation"
-                  onClick={(e) => {
-                    // setStepNumber(stepNumber - 1);
-                  }}
-                >
-                  Change activity
-                </Button>
-              </div> */}
             </div>
 
             <div
@@ -361,7 +348,7 @@ export default function CertificateEstimatorLoadClausesRC(props) {
                 />
               </div>
 
-              <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
+              {/* <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
                 <h4>More options</h4>
                 <br></br>
 
@@ -426,7 +413,7 @@ export default function CertificateEstimatorLoadClausesRC(props) {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </Fragment>
         )}
