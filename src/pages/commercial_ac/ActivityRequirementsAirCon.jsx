@@ -136,9 +136,8 @@ export default function ActivityRequirementsCommercialAC(props) {
 
   return (
     <Fragment>
-      {/* Search section */}
       <br></br>
-      <HeroBanner
+      {/* <HeroBanner
         wide
         style="dark"
         image={{
@@ -147,16 +146,14 @@ export default function ActivityRequirementsCommercialAC(props) {
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
         title="Safeguard certificate estimator"
-      />
+      /> */}
 
       <div className="nsw-container" style={{ marginBottom: '10%' }}>
         <br></br>
         <br></br>
-        {stepNumber !== 2 && (
+        {/* {stepNumber !== 2 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-12">
-              {/* <br></br>
-            <br></br> */}
               <h2 className="nsw-content-block__title">
                 Commercial Air Conditioner activity eligibility check
               </h2>
@@ -199,7 +196,7 @@ export default function ActivityRequirementsCommercialAC(props) {
               </h2>
             </div>
           </div>
-        )}
+        )} */}
 
         <ProgressIndicator step={stepNumber} of={2} style={{ width: '80%' }} />
 

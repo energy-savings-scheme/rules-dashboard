@@ -95,7 +95,6 @@ export default function LoadClauses(props) {
                 </div>
               </div>
             </div>
-
           </Fragment>
         )}
 

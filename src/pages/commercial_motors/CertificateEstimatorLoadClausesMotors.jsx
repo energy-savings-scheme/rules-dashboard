@@ -244,7 +244,7 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
                   }}
                 />
               </div>
-{/* 
+              {/* 
               <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
                 <h4>More options</h4>
                 <br></br>
