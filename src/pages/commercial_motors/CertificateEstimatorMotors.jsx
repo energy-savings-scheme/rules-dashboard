@@ -85,7 +85,7 @@ export default function CertificateEstimatorMotors(props) {
   return (
     <Fragment>
       <br></br>
-      <HeroBanner
+      {/* <HeroBanner
         wide
         style="dark"
         image={{
@@ -94,12 +94,12 @@ export default function CertificateEstimatorMotors(props) {
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
         title="Safeguard certificate estimator"
-      />
+      /> */}
 
       <div className="nsw-container">
         <br></br>
         <br></br>
-        {stepNumber !== 2 && (
+        {/* {stepNumber !== 2 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">Commercial Motors certificate estimator</h2>
@@ -137,7 +137,7 @@ export default function CertificateEstimatorMotors(props) {
               <h2 className="nsw-content-block__title">Commercial Motors certificate estimator</h2>
             </div>
           </div>
-        )}
+        )} */}
 
         <ProgressIndicator step={stepNumber} of={2} style={{ width: '80%' }} />
 
