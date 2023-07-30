@@ -143,9 +143,9 @@ export default function CertificateEstimatorLoadClausesWH(props) {
         if (formItem.name === 'WH1_HP_gas') {
           formItem.form_value = metadata[`HPGas_zone_${zone}`];
         }
-        if (formItem.name === 'WH1_WH_capacity_factor') {
-          formItem.form_value = metadata['WHCap'];
-        }
+        // if (formItem.name === 'WH1_WH_capacity_factor') {
+        //   formItem.form_value = metadata['WHCap'];
+        // }
         if (formItem.name === 'WH1_PDRS__postcode') {
           formItem.form_value = postcode;
           formItem.read_only = true;
