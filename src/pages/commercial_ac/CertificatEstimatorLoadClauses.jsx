@@ -316,7 +316,7 @@ export default function CertificateEstimatorLoadClauses(props) {
                     setStepNumber(stepNumber - 2);
                   }}
                 >
-                  Calculate certificates again
+                  Estimate certificates again
                 </Button>
               </div>
 
