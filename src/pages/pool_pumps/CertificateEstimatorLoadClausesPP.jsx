@@ -299,10 +299,10 @@ export default function CertificateEstimatorLoadClausesPP(props) {
                   as="dark-outline-solid"
                   onClick={(e) => {
                     setFlow('backward');
-                    setStepNumber(stepNumber - 1);
+                    setStepNumber(stepNumber - 2);
                   }}
                 >
-                  Back
+                  Calculate certificates again
                 </Button>
               </div>
 

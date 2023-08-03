@@ -205,7 +205,7 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
                     setStepNumber(stepNumber - 1);
                   }}
                 >
-                  Back
+                  Calculate certificates again
                 </Button>
               </div>
 
