@@ -132,8 +132,8 @@ export default function CertificateEstimatorWH(props) {
     const payload = {
       buildings: {
         building_1: {
-          WH1_PDRS__postcode: { '2021-01-01': postcode },
-          WH1_get_zone_by_postcode: { '2021-01-01': null },
+          WH1_BCA_climate_zone_by_postcode_int: { '2023-01-01': postcode },
+          WH1_get_HP_zone_by_BCA_climate_zone: { '2023-01-01': null },
         },
       },
       persons: {
@@ -143,7 +143,7 @@ export default function CertificateEstimatorWH(props) {
 
     OpenFiscaApi.postCalculate(payload)
       .then((res) => {
-        var result = res.data.buildings.building_1['WH1_get_zone_by_postcode']['2021-01-01'];
+        var result = res.data.buildings.building_1['WH1_get_HP_zone_by_BCA_climate_zone']['2023-01-01'];
         setZone(result);
         console.log(result);
       })
@@ -387,8 +387,6 @@ export default function CertificateEstimatorWH(props) {
                     as="dark"
                     onClick={(e) => {
                       validatePostcode(postcode);
-                      // setFlow(null);
-                      // setStepNumber(stepNumber + 1);
                     }}
                   >
                     Next
