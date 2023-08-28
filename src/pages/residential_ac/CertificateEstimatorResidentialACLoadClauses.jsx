@@ -330,10 +330,10 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
                   as="dark-outline-solid"
                   onClick={(e) => {
                     setFlow('backward');
-                    setStepNumber(stepNumber - 1);
+                    setStepNumber(stepNumber - 2);
                   }}
                 >
-                  Back
+                  Estimate certificates again
                 </Button>
               </div>
 
