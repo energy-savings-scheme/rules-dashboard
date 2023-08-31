@@ -167,6 +167,12 @@ export default function CalculateForm(props) {
     if (stepNumber === 1 && workflow !== 'eligibility') {
       formValues.map((variable) => {
         if (variable.name === 'RF1_PDRS__postcode' || variable.name === 'SYS1_PDRS__postcode') {
+
+          if (['2817', '2818', '2819'].includes(variable.form_value)){
+            setFlow(null);
+            setStepNumber(stepNumber + 1);
+            setShowPostcodeError(false);
+          } else {
           RegistryApi.getPostcodeValidation(variable.form_value)
             .then((res) => {
               const persons = res.data;
@@ -187,7 +193,7 @@ export default function CalculateForm(props) {
               console.log(err);
               setShowPostcodeError(true);
             });
-        }
+        } }
       });
     } else {
       setStepNumber(stepNumber + 1);
