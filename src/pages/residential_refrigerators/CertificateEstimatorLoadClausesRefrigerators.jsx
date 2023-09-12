@@ -208,19 +208,6 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
                   Estimate certificates again
                 </Button>
               </div>
-
-              {/* <div className="nsw-col-md-3" style={{ paddingTop: '30px' }}>
-                <Button
-                  style={{ float: 'right' }}
-                  as="dark"
-                  link="/#certificate-estimation"
-                  onClick={(e) => {
-                    // setStepNumber(stepNumber - 1);
-                  }}
-                >
-                  Change activity
-                </Button>
-              </div> */}
             </div>
 
             <div
