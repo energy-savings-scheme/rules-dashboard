@@ -123,6 +123,11 @@ export default function CertificateEstimatorRC(props) {
   }, [postcode]);
 
   const validatePostcode = (postcode) => {
+    if (['2817', '2818', '2819'].includes(postcode)){
+      setFlow(null);
+      setStepNumber(stepNumber + 1);
+      setShowPostcodeError(false);
+    } else {
     RegistryApi.getPostcodeValidation(postcode)
       .then((res) => {
         const persons = res.data;
@@ -135,7 +140,8 @@ export default function CertificateEstimatorRC(props) {
           setFlow(null);
           setStepNumber(stepNumber + 1);
           setShowPostcodeError(false);
-        } else {
+        }
+        else {
           setShowPostcodeError(true);
         }
       })
@@ -143,6 +149,7 @@ export default function CertificateEstimatorRC(props) {
         console.log(err);
         setShowPostcodeError(true);
       });
+    }
   };
 
   useEffect(() => {

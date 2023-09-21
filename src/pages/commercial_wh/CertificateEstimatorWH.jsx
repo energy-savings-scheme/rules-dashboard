@@ -59,26 +59,32 @@ export default function CertificateEstimatorWH(props) {
   }, [postcode]);
 
   const validatePostcode = (postcode) => {
-    RegistryApi.getPostcodeValidation(postcode)
-      .then((res) => {
-        const persons = res.data;
-        console.log(res);
-        if (
-          (persons.status === '200') &
-          (persons.data.postcode === postcode) &
-          (persons.data.state === 'NSW')
-        ) {
-          setFlow(null);
-          setStepNumber(stepNumber + 1);
-          setShowPostcodeError(false);
-        } else {
+    if (['2817', '2818', '2819'].includes(postcode)) {
+      setFlow(null);
+      setStepNumber(stepNumber + 1);
+      setShowPostcodeError(false);
+    } else {
+      RegistryApi.getPostcodeValidation(postcode)
+        .then((res) => {
+          const persons = res.data;
+          console.log(res);
+          if (
+            (persons.status === '200') &
+            (persons.data.postcode === postcode) &
+            (persons.data.state === 'NSW')
+          ) {
+            setFlow(null);
+            setStepNumber(stepNumber + 1);
+            setShowPostcodeError(false);
+          } else {
+            setShowPostcodeError(true);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
           setShowPostcodeError(true);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        setShowPostcodeError(true);
-      });
+        });
+    }
   };
 
   useEffect(() => {
@@ -132,7 +138,7 @@ export default function CertificateEstimatorWH(props) {
     const payload = {
       buildings: {
         building_1: {
-          WH1_BCA_climate_zone_by_postcode_int: { '2023-01-01': postcode },
+          WH1_PDRS__postcode: { '2023-01-01': postcode },
           WH1_get_HP_zone_by_BCA_climate_zone: { '2023-01-01': null },
         },
       },
@@ -143,7 +149,8 @@ export default function CertificateEstimatorWH(props) {
 
     OpenFiscaApi.postCalculate(payload)
       .then((res) => {
-        var result = res.data.buildings.building_1['WH1_get_HP_zone_by_BCA_climate_zone']['2023-01-01'];
+        var result =
+          res.data.buildings.building_1['WH1_get_HP_zone_by_BCA_climate_zone']['2023-01-01'];
         setZone(result);
         console.log(result);
       })
@@ -212,7 +219,8 @@ export default function CertificateEstimatorWH(props) {
                 based on brand and model, but you may also enter your own values.
               </p>
               <p className="nsw-content-block__copy">
-              Please keep in mind that the results are a guide only and cannot be promoted or published.
+                Please keep in mind that the results are a guide only and cannot be promoted or
+                published.
               </p>
             </div>
           </div>
