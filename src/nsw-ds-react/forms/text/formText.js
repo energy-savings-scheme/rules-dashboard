@@ -46,7 +46,6 @@ export const TextInput = ({
         `${block ? ' nsw-form__input--block' : ''}` +
         `${number ? ' nsw-form__input--number' : ''}`
       }
-      step="any"
       aria-invalid={status === 'invalid' ? 'true' : 'false'}
       aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
       type={type}
