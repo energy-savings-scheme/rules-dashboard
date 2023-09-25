@@ -224,24 +224,21 @@ export default function ActivityRequirementsRF1(props) {
                     headline="Review schemes base eligibility, activity requirements and estimate certificates"
                     link="base_eligibility_commercialac/"
                     image="/commercialac/navigation_row/full_flow_card.jpeg"
-                  >
-                  </Card>
+                  ></Card>
                 </div>
                 <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Check activity requirements and estimate certificates"
                     link="activity-requirements/"
                     image="/commercialac/navigation_row/activity_certificates.png"
-                  >
-                  </Card>
+                  ></Card>
                 </div>
                 <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Estimate certificates only"
                     link="compare2activities"
                     image="/commercialac/navigation_row/certificates_only.jpg"
-                  >
-                  </Card>
+                  ></Card>
                 </div>
               </div>
             </div>
