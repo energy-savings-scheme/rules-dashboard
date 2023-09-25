@@ -139,8 +139,38 @@ export default function CertificateEstimatorLoadClausesPP(props) {
         }
 
         if (formItem.name === 'SYS2_star_rating') {
-          formItem.form_value = metadata['star_rating'];
+          console.log(formItem.form_value);
+
+
+          const dic = {
+            '4.5': 'four_and_a_half_stars',
+          '5': 'five_stars',
+          '5.5': 'five_and_a_half_stars',
+          '6': 'six_stars',
+          '6.5': 'six_and_a_half_stars',
+          '7': 'seven_stars',
+          '7.5': 'seven_and_a_half_stars',
+          '8': 'eight_stars',
+          '8.5': 'eight_and_a_half_stars',
+          '9': 'nine_stars',
+          '9.5': 'nine_and_a_half_stars',
+          '10': 'ten_stars'
+          }
+
+
+          // const dct = {
+          //   'multi speed': 'multiple_speed_pool_pump',
+          //   'single speed': 'single_speed_pool_pump',
+          //   'two speed': 'fixed_speed_pool_pump',
+          //   'variable speed': 'variable_speed_pool_pump',
+          // };
+
+          formItem.form_value = dic[metadata['star_rating']];
         }
+
+        // if (formItem.name === 'SYS2_star_rating') {
+        //   formItem.form_value = metadata['star_rating'];
+        // }
 
         if (formItem.name === 'SYS2_input_power') {
           formItem.form_value = metadata['input_power'];

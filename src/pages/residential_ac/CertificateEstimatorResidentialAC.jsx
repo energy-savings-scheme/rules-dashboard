@@ -103,34 +103,32 @@ export default function CertificateEstimatorResidentialAC(props) {
     }
   }, [postcode]);
 
-
   const validatePostcode = (postcode) => {
-    if (['2817', '2818', '2819'].includes(postcode)){
+    if (['2817', '2818', '2819'].includes(postcode)) {
       setFlow(null);
       setStepNumber(stepNumber + 1);
       setShowPostcodeError(false);
     } else {
-    RegistryApi.getPostcodeValidation(postcode)
-      .then((res) => {
-        const persons = res.data;
-        console.log(res);
-        if (
-          (persons.status === '200') &
-          (persons.data.postcode === postcode) &
-          (persons.data.state === 'NSW')
-        ) {
-          setFlow(null);
-          setStepNumber(stepNumber + 1);
-          setShowPostcodeError(false);
-        }
-        else {
+      RegistryApi.getPostcodeValidation(postcode)
+        .then((res) => {
+          const persons = res.data;
+          console.log(res);
+          if (
+            (persons.status === '200') &
+            (persons.data.postcode === postcode) &
+            (persons.data.state === 'NSW')
+          ) {
+            setFlow(null);
+            setStepNumber(stepNumber + 1);
+            setShowPostcodeError(false);
+          } else {
+            setShowPostcodeError(true);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
           setShowPostcodeError(true);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        setShowPostcodeError(true);
-      });
+        });
     }
   };
 
