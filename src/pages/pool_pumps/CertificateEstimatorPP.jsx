@@ -182,7 +182,7 @@ export default function CertificateEstimatorPP(props) {
   return (
     <Fragment>
       <br></br>
-      {/* <HeroBanner
+      <HeroBanner
         wide
         style="dark"
         image={{
@@ -191,12 +191,12 @@ export default function CertificateEstimatorPP(props) {
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
         title="Safeguard certificate estimator"
-      /> */}
+      />
 
       <div className="nsw-container">
         <br></br>
         <br></br>
-        {/* {stepNumber !== 3 && (
+        {stepNumber !== 3 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">
@@ -246,7 +246,7 @@ export default function CertificateEstimatorPP(props) {
               </h2>
             </div>
           </div>
-        )} */}
+        )}
 
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
