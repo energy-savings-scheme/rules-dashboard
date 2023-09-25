@@ -139,7 +139,7 @@ export default function CertificateEstimatorLoadClausesPP(props) {
         }
 
         if (formItem.name === 'SYS2_star_rating') {
-          formItem.form_value = metadata['star_rating'];
+
           console.log(formItem.form_value);
 
           const dic = {
@@ -159,6 +159,7 @@ export default function CertificateEstimatorLoadClausesPP(props) {
 
           formItem.form_value = dic[metadata['star_rating']];
         }
+
 
         if (formItem.name === 'SYS2_input_power') {
           formItem.form_value = metadata['input_power'];
@@ -323,19 +324,6 @@ export default function CertificateEstimatorLoadClausesPP(props) {
                   Estimate certificates again
                 </Button>
               </div>
-
-              {/* <div className="nsw-col-md-3" style={{ paddingTop: '30px' }}>
-                <Button
-                  style={{ float: 'right' }}
-                  as="dark"
-                  link="/#certificate-estimation"
-                  onClick={(e) => {
-                    // setStepNumber(stepNumber - 1);
-                  }}
-                >
-                  Change activity
-                </Button>
-              </div> */}
             </div>
 
             <div

@@ -208,7 +208,7 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
                   as="dark-outline-solid"
                   onClick={(e) => {
                     setFlow('backward');
-                    setStepNumber(stepNumber - 1);
+                    setStepNumber(stepNumber - 2);
                   }}
                 >
                   Estimate certificates again
