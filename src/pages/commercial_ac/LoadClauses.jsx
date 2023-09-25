@@ -95,20 +95,6 @@ export default function LoadClauses(props) {
                 </div>
               </div>
             </div>
-
-            {/* <div className="nsw-row">
-              <div className="nsw-col">
-                <Button
-                  as="primary"
-                  onClick={(e) => {
-                    setStepNumber(stepNumber + 1);
-                  }}
-                  style={{ float: 'right' }}
-                >
-                  Check Schemes Base Eligibility
-                </Button>
-              </div>
-            </div> */}
           </Fragment>
         )}
 

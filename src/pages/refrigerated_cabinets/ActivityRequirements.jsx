@@ -138,7 +138,6 @@ export default function ActivityRequirementsRF2(props) {
 
   return (
     <Fragment>
-      {/* Search section */}
       <br></br>
       <HeroBanner
         wide
@@ -225,7 +224,7 @@ export default function ActivityRequirementsRF2(props) {
           )}
         </Fragment>
       </div>
-      {/* <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
+      <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
         <div class="nsw-container" style={{ paddingBottom: '4rem' }}>
           <div class="nsw-layout">
             <div class="nsw-layout__main">
@@ -241,30 +240,27 @@ export default function ActivityRequirementsRF2(props) {
                     headline="Review schemes base eligibility, activity requirements and estimate certificates"
                     link="base_eligibility_commercialac/"
                     image="/commercialac/navigation_row/full_flow_card.jpeg"
-                  >
-                  </Card>
+                  ></Card>
                 </div>
                 <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Check activity requirements and estimate certificates"
                     link="activity-requirements/"
                     image="/commercialac/navigation_row/activity_certificates.png"
-                  >
-                  </Card>
+                  ></Card>
                 </div>
                 <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Estimate certificates only"
                     link="compare2activities"
                     image="/commercialac/navigation_row/certificates_only.jpg"
-                  >
-                  </Card>
+                  ></Card>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
     </Fragment>
   );
 }
