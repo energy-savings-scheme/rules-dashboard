@@ -139,6 +139,7 @@ export default function CertificateEstimatorLoadClausesPP(props) {
         }
 
         if (formItem.name === 'SYS2_star_rating') {
+
           console.log(formItem.form_value);
 
           const dic = {
@@ -156,19 +157,9 @@ export default function CertificateEstimatorLoadClausesPP(props) {
             10: 'ten_stars',
           };
 
-          // const dct = {
-          //   'multi speed': 'multiple_speed_pool_pump',
-          //   'single speed': 'single_speed_pool_pump',
-          //   'two speed': 'fixed_speed_pool_pump',
-          //   'variable speed': 'variable_speed_pool_pump',
-          // };
-
           formItem.form_value = dic[metadata['star_rating']];
         }
 
-        // if (formItem.name === 'SYS2_star_rating') {
-        //   formItem.form_value = metadata['star_rating'];
-        // }
 
         if (formItem.name === 'SYS2_input_power') {
           formItem.form_value = metadata['input_power'];
