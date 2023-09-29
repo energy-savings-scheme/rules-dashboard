@@ -131,15 +131,14 @@ export default function CertificateEstimatorLoadClausesD17(props) {
         if (formItem.name === 'D17_system_size') {
           formItem.form_value = metadata[`System_size_zone_${zone}`];
         }
-        // if (formItem.name === 'WH1_com_peak_load') {
-        //   formItem.form_value = metadata[`ComPkLoad_zone_${zone}`];
-        // }
-        // if (formItem.name === 'WH1_HP_capacity_factor') {
-        //   formItem.form_value = metadata['HPCap'];
-        // }
-        // if (formItem.name === 'WH1_HP_elec') {
-        //   formItem.form_value = metadata[`HPElec_zone_${zone}`];
-        // }
+        if (formItem.name === "D17_Be") {
+          formItem.form_value = metadata[`Be_annual_electrical_energy_usage_zone_${zone}`];
+        }
+
+        if (formItem.name === "D17_Bs") {
+          formItem.form_value = metadata[`Bs_annual_supplementary_energy_zone_${zone}`];
+        }
+
         // if (formItem.name === 'WH1_HP_gas') {
         //   formItem.form_value = metadata[`HPGas_zone_${zone}`];
         // }
