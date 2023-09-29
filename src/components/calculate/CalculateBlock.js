@@ -558,7 +558,7 @@ export default function CalculateBlock(props) {
         return <DateInput formItem={formItem} setItemValue={setItemValue} />;
       } else if (
         formItem.value_type == 'String' &&
-        (formItem.name === 'RF2_product_class' || formItem.name === 'SYS2_star_rating')
+        (formItem.name === 'RF2_product_class')
       ) {
         return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
       } else if (formItem.value_type == 'String' && formItem.name !== 'RF2_product_class') {
