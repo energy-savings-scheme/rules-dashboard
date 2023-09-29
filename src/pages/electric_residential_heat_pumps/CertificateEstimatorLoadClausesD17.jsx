@@ -128,9 +128,21 @@ export default function CertificateEstimatorLoadClausesD17(props) {
 
       array1.map((formItem) => {
         console.log(metadata);
+
         if (formItem.name === 'D17_system_size') {
+          // console.log(formItem.form_value);
+          console.log("zone is" + zone);
           formItem.form_value = metadata[`System_size_zone_${zone}`];
+          console.log(metadata[`System_size_zone_${zone}`]);
+
+          const dic = {
+            "medium": "system_size_medium",
+            "small": "system_size_small"
+          };
+
+          formItem.form_value = dic[metadata[`System_size_zone_${zone}`].toLowerCase()];
         }
+        
         if (formItem.name === "D17_Be") {
           formItem.form_value = metadata[`Be_annual_electrical_energy_usage_zone_${zone}`];
         }
@@ -139,18 +151,12 @@ export default function CertificateEstimatorLoadClausesD17(props) {
           formItem.form_value = metadata[`Bs_annual_supplementary_energy_zone_${zone}`];
         }
 
-        // if (formItem.name === 'WH1_HP_gas') {
-        //   formItem.form_value = metadata[`HPGas_zone_${zone}`];
-        // }
-        // Remove whcap
-        // if (formItem.name === 'WH1_WH_capacity_factor') {
-        //   formItem.form_value = metadata['WHCap'];
-        // }
-        // if (formItem.name === 'WH1_PDRS__postcode') {
-        //   formItem.form_value = postcode;
-        //   formItem.read_only = true;
-        // }
+        if (formItem.name === 'D17_PDRS__postcode') {
+          formItem.form_value = postcode;
+          formItem.read_only = true;
+        }
       });
+
 
       if (persistFormValues.length > 1 && flow === 'backward') {
         array1.map((e) => {
@@ -264,20 +270,13 @@ export default function CertificateEstimatorLoadClausesD17(props) {
         {stepNumber === 3 && !calculationError && !calculationError2 && (
           <Fragment>
             {
-              <Alert as="info" title="ESCs and PRCs" style={{ width: '80%' }}>
+              <Alert as="info" title="ESCs" style={{ width: '80%' }}>
                 <p>
                   {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
                   Based on the information provided, your ESCs are
                   <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
                     <b>{Math.floor(calculationResult2)}</b>
                   </span>
-                  {/* </h4> */}
-                  {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
-                  and your PRCs are
-                  <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
-                    <b>{Math.floor(calculationResult)}</b>
-                  </span>
-                  {/* </h4> */}
                 </p>
 
                 <p>
