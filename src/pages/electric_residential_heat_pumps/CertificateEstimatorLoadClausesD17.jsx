@@ -131,23 +131,23 @@ export default function CertificateEstimatorLoadClausesD17(props) {
 
         if (formItem.name === 'D17_system_size') {
           // console.log(formItem.form_value);
-          console.log("zone is" + zone);
+          console.log('zone is' + zone);
           formItem.form_value = metadata[`System_size_zone_${zone}`];
           console.log(metadata[`System_size_zone_${zone}`]);
 
           const dic = {
-            "medium": "system_size_medium",
-            "small": "system_size_small"
+            medium: 'system_size_medium',
+            small: 'system_size_small',
           };
 
           formItem.form_value = dic[metadata[`System_size_zone_${zone}`].toLowerCase()];
         }
-        
-        if (formItem.name === "D17_Be") {
+
+        if (formItem.name === 'D17_Be') {
           formItem.form_value = metadata[`Be_annual_electrical_energy_usage_zone_${zone}`];
         }
 
-        if (formItem.name === "D17_Bs") {
+        if (formItem.name === 'D17_Bs') {
           formItem.form_value = metadata[`Bs_annual_supplementary_energy_zone_${zone}`];
         }
 
@@ -156,7 +156,6 @@ export default function CertificateEstimatorLoadClausesD17(props) {
           formItem.read_only = true;
         }
       });
-
 
       if (persistFormValues.length > 1 && flow === 'backward') {
         array1.map((e) => {

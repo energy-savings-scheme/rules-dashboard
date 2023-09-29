@@ -136,7 +136,7 @@ const RegistryApi = {
   getPostcodeValidation,
   getResidentialHeatPumpBrands,
   getResidentialHeatPumpModels,
-  getResidentialHeatPumpModelsMetadata
+  getResidentialHeatPumpModelsMetadata,
 };
 
 export default RegistryApi;

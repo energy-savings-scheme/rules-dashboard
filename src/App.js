@@ -105,7 +105,7 @@ function App() {
         console.log(err);
       });
 
-      RegistryApi.getResidentialHeatPumpBrands()
+    RegistryApi.getResidentialHeatPumpBrands()
       .then((res) => {
         setresHPBrands(res.data);
         setLoading(false);
