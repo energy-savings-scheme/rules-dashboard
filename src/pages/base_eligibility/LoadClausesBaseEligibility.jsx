@@ -31,7 +31,7 @@ export default function LoadClausesBaseEligibility(props) {
 
   console.log(variableToLoad);
 
-  // const [dropdownOptions, setDropdownOptions] = useState([{}]);
+  const [dropdownOptions, setDropdownOptions] = useState([{}]);
   // const [stepNumber, setStepNumber] = useState(1);
   const [variable, setVariable] = useState({}); // all info about variable
 
