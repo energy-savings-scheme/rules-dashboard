@@ -250,7 +250,7 @@ export default function CertificateEstimatorElectricHeatPump(props) {
 
                     <FormGroup
                       label="Postcode"
-                      helper="Postcode where the installation has taken place" // helper text (secondary label)
+                      helper="Postcode where the replacement has taken place" // helper text (secondary label)
                       errorText="Invalid value!" // error text if invalid
                     >
                       <TextInput
@@ -267,7 +267,7 @@ export default function CertificateEstimatorElectricHeatPump(props) {
                     </FormGroup>
                     <FormGroup
                       label="Brand"
-                      helper="Select commercial water heater brand" // primary question text
+                      helper="Select residential heat pump brand" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
@@ -283,7 +283,7 @@ export default function CertificateEstimatorElectricHeatPump(props) {
 
                     <FormGroup
                       label="Model"
-                      helper="Select commercial water heater model" // primary question text
+                      helper="Select residential heat pump model" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select

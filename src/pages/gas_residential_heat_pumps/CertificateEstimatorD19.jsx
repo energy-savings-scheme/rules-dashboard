@@ -191,21 +191,21 @@ export default function CertificateEstimatorGasHeatPump(props) {
             </h5> */}
               <br></br>
               <p className="nsw-content-block__copy">
-              Estimate the energy savings certificates (ESCs) for the Residential and small business gas 
-              heat pump water heater activity (D19 in the {' '}                 
-              <a
+                Estimate the energy savings certificates (ESCs) for the Residential and small
+                business gas heat pump water heater activity (D19 in the{' '}
+                <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
                   target="_blank"
                 >
                   Energy Savings Scheme
-                </a>{' '}) by answering the following questions. 
-              This activity is for replacement of an existing gas water heater with an (air source) heat pump water heater.
-
-              <p className="nsw-content-block__copy">
-              Note that this activity is only eligible for the Energy Savings Scheme, and is not eligible for the Peak Demand Reduction scheme. As this is a replacement activity, a new installation activity will not generate certificates.
-
-              </p>
-
+                </a>{' '}
+                ) by answering the following questions. This activity is for replacement of an
+                existing gas water heater with an (air source) heat pump water heater.
+                <p className="nsw-content-block__copy">
+                  Note that this activity is only eligible for the Energy Savings Scheme, and is not
+                  eligible for the Peak Demand Reduction scheme. As this is a replacement activity,
+                  a new installation activity will not generate certificates.
+                </p>
               </p>
               <p className="nsw-content-block__copy">
                 Where possible, residential electric heat pump water heater specifications are
@@ -252,7 +252,7 @@ export default function CertificateEstimatorGasHeatPump(props) {
 
                     <FormGroup
                       label="Postcode"
-                      helper="Postcode where the installation has taken place" // helper text (secondary label)
+                      helper="Postcode where the replacement has taken place" // helper text (secondary label)
                       errorText="Invalid value!" // error text if invalid
                     >
                       <TextInput
@@ -269,7 +269,7 @@ export default function CertificateEstimatorGasHeatPump(props) {
                     </FormGroup>
                     <FormGroup
                       label="Brand"
-                      helper="Select commercial water heater brand" // primary question text
+                      helper="Select residential heat pump brand" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
@@ -285,7 +285,7 @@ export default function CertificateEstimatorGasHeatPump(props) {
 
                     <FormGroup
                       label="Model"
-                      helper="Select commercial water heater model" // primary question text
+                      helper="Select residential heat pump model" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
