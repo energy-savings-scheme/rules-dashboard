@@ -201,12 +201,10 @@ export default function CertificateEstimatorElectricHeatPump(props) {
                 </a>{' '}
                 ) by answering the following questions. This activity is for replacement of an
                 existing electric water heater with an (air source) heat pump water heater.
-                
                 <p className="nsw-content-block__copy">
-                Note
-                that this activity is only eligible for the Energy Savings Scheme, and is not
-                eligible for the Peak Demand Reduction scheme. As this is a replacement activity, a
-                new installation activity will not generate certificates.
+                  Note that this activity is only eligible for the Energy Savings Scheme, and is not
+                  eligible for the Peak Demand Reduction scheme. As this is a replacement activity,
+                  a new installation activity will not generate certificates.
                 </p>
               </p>
               <p className="nsw-content-block__copy">

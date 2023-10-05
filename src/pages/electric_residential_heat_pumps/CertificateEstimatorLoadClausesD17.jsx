@@ -278,7 +278,9 @@ export default function CertificateEstimatorLoadClausesD17(props) {
                   </span>
                 </p>
                 <p>
-                As this activity is only eligible for the Energy Savings Scheme, it generates Energy Savings Certificates (ESCs) only and does not generate Peak Reduction Certificates (PRCs).
+                  As this activity is only eligible for the Energy Savings Scheme, it generates
+                  Energy Savings Certificates (ESCs) only and does not generate Peak Reduction
+                  Certificates (PRCs).
                 </p>
 
                 <p>
@@ -401,7 +403,7 @@ export default function CertificateEstimatorLoadClausesD17(props) {
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
                           <a
-                            href="/#commercial-water-heater-activity-requirements"
+                            href="/#electric-residential-heat-pump-activity-requirements"
                             class="nsw-card__link"
                           >
                             Review eligibility for this activity
