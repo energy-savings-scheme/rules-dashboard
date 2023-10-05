@@ -277,6 +277,9 @@ export default function CertificateEstimatorLoadClausesD17(props) {
                     <b>{Math.floor(calculationResult2)}</b>
                   </span>
                 </p>
+                <p>
+                As this activity is only eligible for the Energy Savings Scheme, it generates Energy Savings Certificates (ESCs) only and does not generate Peak Reduction Certificates (PRCs).
+                </p>
 
                 <p>
                   If you are receiving an estimation of 0 certificates, the brand and model may not

@@ -170,7 +170,7 @@ export default function CertificateEstimatorElectricHeatPump(props) {
         style="dark"
         image={{
           alt: 'commercial wh',
-          src: '/commercial_wh/WH1_Activity_Page_Hero.jpeg',
+          src: 'D17cropped,optimised).jpg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
         title="Safeguard certificate estimator"
@@ -200,10 +200,14 @@ export default function CertificateEstimatorElectricHeatPump(props) {
                   Energy Savings Scheme
                 </a>{' '}
                 ) by answering the following questions. This activity is for replacement of an
-                existing electric water heater with an (air source) heat pump water heater. Note
+                existing electric water heater with an (air source) heat pump water heater.
+                
+                <p className="nsw-content-block__copy">
+                Note
                 that this activity is only eligible for the Energy Savings Scheme, and is not
                 eligible for the Peak Demand Reduction scheme. As this is a replacement activity, a
                 new installation activity will not generate certificates.
+                </p>
               </p>
               <p className="nsw-content-block__copy">
                 Where possible, residential electric heat pump water heater specifications are

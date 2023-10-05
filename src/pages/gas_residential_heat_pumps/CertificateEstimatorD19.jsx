@@ -170,7 +170,7 @@ export default function CertificateEstimatorGasHeatPump(props) {
         style="dark"
         image={{
           alt: 'commercial wh',
-          src: '/commercial_wh/WH1_Activity_Page_Hero.jpeg',
+          src: 'D19(optimised).jpg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
         title="Safeguard certificate estimator"

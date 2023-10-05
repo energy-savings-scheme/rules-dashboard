@@ -123,7 +123,9 @@ export default function Breadcrumb() {
     location.pathname === '/pool-pumps-activity-requirements' ||
     location.pathname === '/residential-refrigeration-activity-requirements' ||
     location.pathname === '/refrigerated-cabinet-activity-requirements' ||
-    location.pathname === '/commercial-water-heater-activity-requirements'
+    location.pathname === '/commercial-water-heater-activity-requirements' ||
+    location.pathname === '/electric-residential-heat-pump-activity-requirements' ||
+    location.pathname === '/gas-residential-heat-pump-activity-requirements'
   ) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
