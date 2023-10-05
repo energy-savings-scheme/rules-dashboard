@@ -5,27 +5,24 @@ import VariableSearchBar from 'pages/homepage/VariableSearchBar';
 import Card, { CardCopy } from 'nsw-ds-react/card/card';
 import { ContentBlock } from 'nsw-ds-react/content-block/contenBlock';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
+import LoadClauses from './LoadClausesActReq';
 import OpenFiscaAPI from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
-import LoadClausesRF2 from './LoadClauses';
+import LoadClausesD17 from './LoadClausesActReq';
 
-export default function ActivityRequirementsRF2(props) {
+export default function ActivityRequirementsD17(props) {
   const { entities, variables, setEntities, setVariables, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
   const [dependencies, setDependencies] = useState([]);
   const [variableToLoad, setVariableToLoad] = useState(
-    'RF2_installation_replacement_final_activity_eligibility',
+    'D17_replacement_final_activity_eligibility',
   );
   const [clausesForm, setClausesForm] = useState([]);
 
   console.log(variables);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [stepNumber]);
 
   if (formValues.length === 0) {
     setLoading(true);
@@ -39,7 +36,9 @@ export default function ActivityRequirementsRF2(props) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, [stepNumber]);
 
+  useEffect(() => {
     if (variables.length < 1) {
       OpenFiscaAPI.listEntities()
         .then((res) => {
@@ -89,10 +88,13 @@ export default function ActivityRequirementsRF2(props) {
       console.log(array);
 
       const names = [
-        'RF2_installation',
-        'RF2_EEI_under_51',
-        'RF2_EEI_under_81',
-        'RF2_legal_disposal',
+        'HVAC2_equipment_replaced',
+        'HVAC2_installed_centralised_system_common_area_BCA_Class2_building',
+        'HVAC2_AEER_greater_than_minimum',
+        'HVAC2_TCPSF_greater_than_minimum',
+        'HVAC2_HSPF_mixed_eligible',
+        'HVAC2_HSPF_cold_eligible',
+        'HVAC2_ACOP_eligible',
       ];
 
       dep_arr = array.filter((item) => names.includes(item.name));
@@ -104,10 +106,7 @@ export default function ActivityRequirementsRF2(props) {
 
       dep_arr = dep_arr.map((obj, i) => ({ ...obj, hide: true }));
 
-      array.map((obj) => dep_arr.find((o) => o.name === obj.name) || obj);
-
       console.log(dep_arr);
-      console.log(array);
 
       setFormValues(array);
       setDependencies(dep_arr);
@@ -144,7 +143,7 @@ export default function ActivityRequirementsRF2(props) {
         style="dark"
         image={{
           alt: 'commercial ac',
-          src: 'base_elig_hero.jpg',
+          src: 'D17cropped,optimised).jpg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
         title="Safeguard certificate estimator"
@@ -153,24 +152,23 @@ export default function ActivityRequirementsRF2(props) {
       <div className="nsw-container" style={{ marginBottom: '10%' }}>
         <br></br>
         <br></br>
-
         {stepNumber !== 2 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-12">
               <h2 className="nsw-content-block__title">
-                Commercial Refrigerated Cabinet activity eligibility check
+              Residential Heat Pump Water Heater activity eligibility check
               </h2>
               <br></br>
               <p className="nsw-content-block__copy">
                 Answer the following questions to check if you meet the eligibility requirements for
-                the Refrigerated Cabinet Activity (F1.1 and F1.2 the{' '}
+                the for the Commercial Air Conditioner Activity (F4 in the{' '}
                 <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
                   target="_blank"
                 >
                   Energy Savings Scheme
                 </a>{' '}
-                and RF2 in the{' '}
+                and HVAC2 in the{' '}
                 <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme"
                   target="_blank"
@@ -195,7 +193,7 @@ export default function ActivityRequirementsRF2(props) {
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-12">
               <h2 className="nsw-content-block__title">
-                Commercial Refrigerated Cabinet activity eligibility check
+              Residential Heat Pump Water Heaters activity eligibility check
               </h2>
             </div>
           </div>
@@ -206,7 +204,7 @@ export default function ActivityRequirementsRF2(props) {
         <Fragment>
           {loading && <SpinnerFullscreen />}
           {!loading && (
-            <LoadClausesRF2
+            <LoadClausesD17
               variableToLoad={variableToLoad}
               variables={variables}
               entities={entities}
@@ -224,43 +222,6 @@ export default function ActivityRequirementsRF2(props) {
           )}
         </Fragment>
       </div>
-      <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
-        <div class="nsw-container" style={{ paddingBottom: '4rem' }}>
-          <div class="nsw-layout">
-            <div class="nsw-layout__main">
-              <br></br>
-              <br></br>
-              <h2 className="nsw-col nsw-content-block__title">
-                Check your eligibility and estimate certificates
-              </h2>
-              <br></br>
-              <div class="nsw-grid">
-                <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Review schemes base eligibility, activity requirements and estimate certificates"
-                    link="base_eligibility_commercialac/"
-                    image="/commercialac/navigation_row/full_flow_card.jpeg"
-                  ></Card>
-                </div>
-                <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Check activity requirements and estimate certificates"
-                    link="activity-requirements/"
-                    image="/commercialac/navigation_row/activity_certificates.png"
-                  ></Card>
-                </div>
-                <div className="nsw-col nsw-col-md-4">
-                  <Card
-                    headline="Estimate certificates only"
-                    link="compare2activities"
-                    image="/commercialac/navigation_row/certificates_only.jpg"
-                  ></Card>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </Fragment>
   );
 }

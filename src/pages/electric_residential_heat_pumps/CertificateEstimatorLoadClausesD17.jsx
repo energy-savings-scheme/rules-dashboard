@@ -6,11 +6,10 @@ import moment from 'moment';
 // Import components
 import CalculateBlock from 'components/calculate/CalculateBlock';
 import Button from 'nsw-ds-react/button/button';
-import { Alert } from 'nsw-ds-react/alert/alert';
 import OpenFiscaApi from 'services/openfisca_api';
-import GlobalAlert from 'nsw-ds-react/global-alert/globalAlert';
+import Alert from 'nsw-ds-react/alert/alert';
 
-export default function CertificateEstimatorLoadClausesPP(props) {
+export default function CertificateEstimatorLoadClausesD17(props) {
   const {
     variableToLoad1,
     variableToLoad2,
@@ -27,8 +26,8 @@ export default function CertificateEstimatorLoadClausesPP(props) {
     setCalculationResult,
     calculationResult2,
     setCalculationResult2,
-    postcode,
     zone,
+    postcode,
     formValues,
     setFormValues,
     selectedBrand,
@@ -42,23 +41,27 @@ export default function CertificateEstimatorLoadClausesPP(props) {
   console.log(variableToLoad1);
   console.log(variableToLoad2);
   console.log(metadata);
-  console.log(postcode);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  console.log('**********');
+  console.log(zone);
+  console.log(stepNumber);
 
   const [variable, setVariable] = useState({}); // all info about variable
 
   var today = new Date();
   const [calculationDate, setCalculationDate] = useState(moment(today).format('YYYY-MM-DD'));
+  const [dateInvalid, setDateInvalid] = useState(false);
 
   // const [formValues, setFormValues] = useState([]);
   const [dependencies, setDependencies] = useState([]);
 
   const [loading, setLoading] = useState(true);
+
   const [variableData1, setVariableData1] = useState([]);
   const [variableData2, setVariableData2] = useState([]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     OpenFiscaApi.getVariable(variableToLoad1)
@@ -124,48 +127,31 @@ export default function CertificateEstimatorLoadClausesPP(props) {
       console.log(array1);
 
       array1.map((formItem) => {
-        if (formItem.name === 'SYS2_pool_pump_type') {
-          console.log(formItem.form_value);
-          console.log('pool pump type' + metadata['pool_pump_type']);
+        console.log(metadata);
 
-          const dct = {
-            'multi speed': 'multiple_speed_pool_pump',
-            'single speed': 'single_speed_pool_pump',
-            'two speed': 'fixed_speed_pool_pump',
-            'variable speed': 'variable_speed_pool_pump',
-          };
-
-          formItem.form_value = dct[metadata['pool_pump_type'].toLowerCase()];
-        }
-
-        if (formItem.name === 'SYS2_star_rating') {
-
-          console.log(formItem.form_value);
+        if (formItem.name === 'D17_system_size') {
+          // console.log(formItem.form_value);
+          console.log('zone is' + zone);
+          formItem.form_value = metadata[`System_size_zone_${zone}`];
+          console.log(metadata[`System_size_zone_${zone}`]);
 
           const dic = {
-            4.5: 'four_and_a_half_stars',
-            5: 'five_stars',
-            5.5: 'five_and_a_half_stars',
-            6: 'six_stars',
-            6.5: 'six_and_a_half_stars',
-            7: 'seven_stars',
-            7.5: 'seven_and_a_half_stars',
-            8: 'eight_stars',
-            8.5: 'eight_and_a_half_stars',
-            9: 'nine_stars',
-            9.5: 'nine_and_a_half_stars',
-            10: 'ten_stars',
+            medium: 'system_size_medium',
+            small: 'system_size_small',
           };
 
-          formItem.form_value = dic[metadata['star_rating']];
+          formItem.form_value = dic[metadata[`System_size_zone_${zone}`].toLowerCase()];
         }
 
-
-        if (formItem.name === 'SYS2_input_power') {
-          formItem.form_value = metadata['input_power'];
+        if (formItem.name === 'D17_Be') {
+          formItem.form_value = metadata[`Be_annual_electrical_energy_usage_zone_${zone}`];
         }
 
-        if (formItem.name === 'SYS2_PDRS__postcode') {
+        if (formItem.name === 'D17_Bs') {
+          formItem.form_value = metadata[`Bs_annual_supplementary_energy_zone_${zone}`];
+        }
+
+        if (formItem.name === 'D17_PDRS__postcode') {
           formItem.form_value = postcode;
           formItem.read_only = true;
         }
@@ -180,13 +166,24 @@ export default function CertificateEstimatorLoadClausesPP(props) {
           return e;
         });
       }
+
       array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
 
       setFormValues(array1);
     }
   }, [variableData1, variableData2]);
 
+  const formatResultString = (result) => {
+    if (typeof result === 'boolean') {
+      return JSON.stringify(result);
+    }
+
+    return JSON.stringify(result) + ' kW';
+  };
+
   if (!variable) return null;
+
+  console.log('******', selectedModel);
 
   return (
     <div className>
@@ -212,8 +209,8 @@ export default function CertificateEstimatorLoadClausesPP(props) {
                 </div>
               </div>
             </div>
-
             <CalculateBlock
+              zone={zone}
               calculationDate={calculationDate}
               variable={variableData1}
               variable2={variableData2}
@@ -247,43 +244,43 @@ export default function CertificateEstimatorLoadClausesPP(props) {
           </Fragment>
         )}
 
-        {stepNumber === 3 && !calculationError && !calculationError2 && (
-          <Fragment>
-            <div
-              class="nsw-global-alert nsw-global-alert--light js-global-alert"
-              role="alert"
-              style={{ width: '80%', marginBottom: '7%' }}
-            >
-              <div class="nsw-global-alert__wrapper">
-                <div class="nsw-global-alert__content">
-                  {/* <div class="nsw-global-alert__title"></div> */}
-                  <p>
-                    {' '}
-                    <b>Brand: </b> {selectedBrand}{' '}
-                  </p>
-                  <p>
-                    {' '}
-                    <b>Model: </b> {selectedModel}
-                  </p>
-                </div>
+        {stepNumber === 3 && (
+          <div
+            class="nsw-global-alert nsw-global-alert--light js-global-alert"
+            role="alert"
+            style={{ width: '80%', marginBottom: '7%' }}
+          >
+            <div class="nsw-global-alert__wrapper">
+              <div class="nsw-global-alert__content">
+                {/* <div class="nsw-global-alert__title"></div> */}
+                <p>
+                  {' '}
+                  <b>Brand: </b> {selectedBrand}{' '}
+                </p>
+                <p>
+                  {' '}
+                  <b>Model: </b> {selectedModel}
+                </p>
               </div>
             </div>
+          </div>
+        )}
+
+        {stepNumber === 3 && !calculationError && !calculationError2 && (
+          <Fragment>
             {
-              <Alert as="info" title="ESCs and PRCs" style={{ width: '80%' }}>
+              <Alert as="info" title="ESCs" style={{ width: '80%' }}>
                 <p>
                   {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
                   Based on the information provided, your ESCs are
                   <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
                     <b>{Math.floor(calculationResult2)}</b>
                   </span>
-                  {/* </h4> */}
-                  {/* <h4 className="nsw-content-block__title" style={{ textAlign: 'center' }}> */}
-                  and your PRCs are
-                  <span style={{ fontSize: '25px', paddingLeft: '10px', paddingRight: '10px' }}>
-                    <b>{Math.floor(calculationResult)}</b>
-                  </span>
-                  {/* </h4> */}
                 </p>
+                <p>
+                As this activity is only eligible for the Energy Savings Scheme, it generates Energy Savings Certificates (ESCs) only and does not generate Peak Reduction Certificates (PRCs).
+                </p>
+
                 <p>
                   If you are receiving an estimation of 0 certificates, the brand and model may not
                   be generating enough energy savings to earn certificates, or the new installation
@@ -294,8 +291,8 @@ export default function CertificateEstimatorLoadClausesPP(props) {
           </Fragment>
         )}
 
-        {(stepNumber === 3 && calculationError === true) ||
-          (stepNumber === 3 && calculationError2 === true && (
+        {(stepNumber === 3 && calculationError) ||
+          (stepNumber === 3 && calculationError2 && (
             <Alert as="error" title="Sorry! An error has occurred.">
               <p>An error occurred during calculation. Try re-running the calculation</p>
             </Alert>
@@ -324,6 +321,19 @@ export default function CertificateEstimatorLoadClausesPP(props) {
                   Estimate certificates again
                 </Button>
               </div>
+
+              {/* <div className="nsw-col-md-3" style={{ paddingTop: '30px' }}>
+                <Button
+                  style={{ float: 'right' }}
+                  as="dark"
+                  link="/#certificate-estimation"
+                  onClick={(e) => {
+                    // setStepNumber(stepNumber - 1);
+                  }}
+                >
+                  Change activity
+                </Button>
+              </div> */}
             </div>
 
             <div
@@ -390,7 +400,10 @@ export default function CertificateEstimatorLoadClausesPP(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/#pool-pumps-activity-requirements" class="nsw-card__link">
+                          <a
+                            href="/#commercial-water-heater-activity-requirements"
+                            class="nsw-card__link"
+                          >
                             Review eligibility for this activity
                           </a>
                         </div>

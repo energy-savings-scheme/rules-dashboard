@@ -123,7 +123,9 @@ export default function Breadcrumb() {
     location.pathname === '/pool-pumps-activity-requirements' ||
     location.pathname === '/residential-refrigeration-activity-requirements' ||
     location.pathname === '/refrigerated-cabinet-activity-requirements' ||
-    location.pathname === '/commercial-water-heater-activity-requirements'
+    location.pathname === '/commercial-water-heater-activity-requirements' ||
+    location.pathname === '/electric-residential-heat-pump-activity-requirements' ||
+    location.pathname === '/gas-residential-heat-pump-activity-requirements'
   ) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
@@ -162,7 +164,9 @@ export default function Breadcrumb() {
     location.pathname === '/pool-pumps-estimator' ||
     location.pathname === '/commercial-motors-estimator' ||
     location.pathname === '/residential-refrigerators-estimator' ||
-    location.pathname === '/commercial-wh-estimator'
+    location.pathname === '/commercial-wh-estimator' ||
+    location.pathname === '/electric-heat-pumps-estimator' ||
+    location.pathname === '/gas-heat-pumps-estimator'
   ) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>

@@ -42,6 +42,10 @@ import ActivityRequirementsSYS2 from 'pages/pool_pumps/ActivityRequirementsSYS2'
 import ActivityRequirementsRF1 from 'pages/residential_refrigerators/ActivityRequirementsRF1';
 import ActivityRequirementsRF2 from 'pages/refrigerated_cabinets/ActivityRequirements';
 import ActivityRequirementsWH1 from 'pages/commercial_wh/ActivityRequirementsWaterHeater';
+import CertificateEstimatorElectricHeatPump from 'pages/electric_residential_heat_pumps/CertificateEstimatorD17';
+import CertificateEstimatorGasHeatPump from 'pages/gas_residential_heat_pumps/CertificateEstimatorD19';
+import ActivityRequirementsD17 from 'pages/electric_residential_heat_pumps/ActivityRequirementsD17';
+import ActivityRequirementsD19 from 'pages/gas_residential_heat_pumps/ActivityRequirementsD19';
 
 function App() {
   const [entities, setEntities] = useState([]);
@@ -53,6 +57,7 @@ function App() {
   const [whBrands, setWhBrands] = useState([]);
   const [RF2Brands, setRF2Brands] = useState([]);
   const [PoolPumpBrands, setPoolPumpBrands] = useState([]);
+  const [resHPBrands, setresHPBrands] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -97,6 +102,15 @@ function App() {
     RegistryApi.getPoolPumpBrands()
       .then((res) => {
         setPoolPumpBrands(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    RegistryApi.getResidentialHeatPumpBrands()
+      .then((res) => {
+        setresHPBrands(res.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -229,6 +243,30 @@ function App() {
             setLoading={setLoading}
           />
         </Route>
+        <Route path="/gas-heat-pumps-estimator" exact>
+          <Breadcrumb />
+          <CertificateEstimatorGasHeatPump
+            entities={entities}
+            variables={variables}
+            brands={resHPBrands}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/electric-heat-pumps-estimator" exact>
+          <Breadcrumb />
+          <CertificateEstimatorElectricHeatPump
+            entities={entities}
+            variables={variables}
+            brands={resHPBrands}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
 
         <Route path="/core-eligibility" exact>
           <Breadcrumb />
@@ -310,6 +348,28 @@ function App() {
         <Route path="/commercial-water-heater-activity-requirements" exact>
           <Breadcrumb />
           <ActivityRequirementsWH1
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/electric-residential-heat-pump-activity-requirements" exact>
+          <Breadcrumb />
+          <ActivityRequirementsD17
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/gas-residential-heat-pump-activity-requirements" exact>
+          <Breadcrumb />
+          <ActivityRequirementsD19
             entities={entities}
             variables={variables}
             loading={loading}

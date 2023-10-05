@@ -1,30 +1,22 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 import Button from 'nsw-ds-react/button/button';
-import { FormGroup, TextInput, Select } from 'nsw-ds-react/forms';
 import RegistryApi from 'services/registry_api';
-import OpenFiscaAPI from 'services/openfisca_api';
+import CertificateEstimatorLoadClausesD17 from './CertificateEstimatorLoadClausesD17';
+import { FormGroup, TextInput, Select } from 'nsw-ds-react/forms';
+import OpenFiscaApi from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
-import CertificateEstimatorLoadClausesRC from './CertificatEstimatorLoadClausesRC';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import Alert from 'nsw-ds-react/alert/alert';
-import { compareAsc, format, previousSunday } from 'date-fns';
+import { format, previousSunday } from 'date-fns';
 import axios from 'axios';
 
-export default function CertificateEstimatorRC(props) {
-  const {
-    entities,
-    variables,
-    RF2Brands,
-    setVariables,
-    setEntities,
-    setRF2Brands,
-    loading,
-    setLoading,
-  } = props;
+export default function CertificateEstimatorElectricHeatPump(props) {
+  const { entities, variables, brands, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
+  const [dependencies, setDependencies] = useState([]);
   const [dropdownOptions, setDropdownOptions] = useState([]);
   const [dropdownOptionsModels, setDropdownOptionsModels] = useState([]);
   const [selectedBrand, setSelectedBrand] = useState(null);
@@ -32,74 +24,18 @@ export default function CertificateEstimatorRC(props) {
   const [models, setModels] = useState([]);
   const [metadata, setMetadata] = useState(null);
   const [calculationResult, setCalculationResult] = useState(null);
-  const [calculationResult2, setCalculationResult2] = useState(null);
   const [calculationError, setCalculationError] = useState(false);
   const [calculationError2, setCalculationError2] = useState(false);
   const [postcode, setPostcode] = useState(null);
-  const [zone, setZone] = useState(null);
+  const [calculationResult2, setCalculationResult2] = useState(null);
+  const [zone, setZone] = useState(0);
   const [registryData, setRegistryData] = useState(true);
-  const [flow, setFlow] = useState(null);
   const [persistFormValues, setPersistFormValues] = useState([]);
-  const [productClassOptions, setProductClassOptions] = useState([]);
-  const [selectedProductClass, setSelectedProductClass] = useState(null);
+  const [flow, setFlow] = useState(null);
   const [showPostcodeError, setShowPostcodeError] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    setDropdownOptions([{ value: '', text: 'Please select brand' }]);
-
-    setProductClassOptions([
-      { value: '', text: 'Please select product class' },
-      { value: 'Class 1', text: 'Class 1' },
-      { value: 'Class 2', text: 'Class 2' },
-      { value: 'Class 3', text: 'Class 3' },
-      { value: 'Class 4', text: 'Class 4' },
-      { value: 'Class 5', text: 'Class 5' },
-      { value: 'Class 6', text: 'Class 6' },
-      { value: 'Class 7', text: 'Class 7' },
-      { value: 'Class 8', text: 'Class 8' },
-      { value: 'Class 9', text: 'Class 9' },
-      { value: 'Class 10', text: 'Class 10' },
-      { value: 'Class 11', text: 'Class 11' },
-      { value: 'Class 12', text: 'Class 12' },
-      { value: 'Class 13', text: 'Class 13' },
-      { value: 'Class 14', text: 'Class 14' },
-      { value: 'Class 15', text: 'Class 15' },
-    ]);
-
-    if (variables.length < 1) {
-      OpenFiscaAPI.listEntities()
-        .then((res) => {
-          setEntities(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-
-    if (entities.length < 1) {
-      OpenFiscaAPI.listVariables()
-        .then((res) => {
-          setVariables(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-
-    if (RF2Brands.length < 1) {
-      RegistryApi.getRF2Brands()
-        .then((res) => {
-          setRF2Brands(res.data);
-          setLoading(false);
-          setRegistryData(true);
-        })
-        .catch((err) => {
-          console.log(err);
-          setRegistryData(false);
-        });
-    }
   }, []);
 
   // For brands
@@ -153,7 +89,6 @@ export default function CertificateEstimatorRC(props) {
 
   useEffect(() => {
     setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
-
     models.forEach((item) => populateModelDropDown({ text: item, value: item }));
   }, [models]);
 
@@ -166,7 +101,7 @@ export default function CertificateEstimatorRC(props) {
       model: selectedModel,
     };
     console.log(payload);
-    RegistryApi.getRF2ModelsMetadata(payload)
+    RegistryApi.getResidentialHeatPumpModelsMetadata(payload)
       .then((res) => {
         setMetadata(res.data);
       })
@@ -178,15 +113,15 @@ export default function CertificateEstimatorRC(props) {
   }, [selectedModel]);
 
   useEffect(() => {
-    if (RF2Brands.length > 1) {
-      RF2Brands.forEach((item) => populateDropDown({ text: item, value: item }));
-    }
-  }, [RF2Brands]);
+    setDropdownOptions([{ value: '', text: 'Please select brand' }]);
+
+    brands.forEach((item) => populateDropDown({ text: item, value: item }));
+  }, [brands]);
 
   useEffect(() => {
     console.log(selectedBrand);
 
-    RegistryApi.listRF2Models(selectedBrand)
+    RegistryApi.getResidentialHeatPumpModels(selectedBrand)
       .then((res) => {
         setModels(res.data);
         setRegistryData(true);
@@ -199,15 +134,43 @@ export default function CertificateEstimatorRC(props) {
     console.log(models);
   }, [selectedBrand]);
 
+  useEffect(() => {
+    const payload = {
+      buildings: {
+        building_1: {
+          D17_PDRS__postcode: { '2023-01-01': postcode },
+          D17_get_HP_zone_by_BCA_climate_zone: { '2023-01-01': null },
+        },
+      },
+      persons: {
+        person1: {},
+      },
+    };
+
+    OpenFiscaApi.postCalculate(payload)
+      .then((res) => {
+        var result =
+          res.data.buildings.building_1['D17_get_HP_zone_by_BCA_climate_zone']['2023-01-01'];
+        setZone(result);
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    console.log(zone);
+  }, [postcode]);
+
   return (
     <Fragment>
+      {/* Search section */}
       <br></br>
       <HeroBanner
         wide
         style="dark"
         image={{
-          alt: 'RF2',
-          src: '/CommercialRefrigeratedCabinet.jpg',
+          alt: 'commercial wh',
+          src: 'D17cropped,optimised).jpg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
         title="Safeguard certificate estimator"
@@ -221,38 +184,44 @@ export default function CertificateEstimatorRC(props) {
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">
-                Commercial Refrigerated Cabinet certificate estimator
+                Residential Electric Heat Pump certificate estimator
               </h2>
+              {/* <h5 className="nsw-content-block__copy">
+              Energy Savings Scheme and Peak Demand Reduction Scheme
+            </h5> */}
               <br></br>
               <p className="nsw-content-block__copy">
-                Answer the following questions to estimate the energy savings certificates (ESCs)
-                and peak reduction certificates (PRCs) for the Commercial Refrigerated Cabinet
-                Activity (F1.1 and F1.2 in the{' '}
+                Estimate the energy savings certificates (ESCs) for the Residential and small
+                business electric heat pump water heater activity (D17 in the{' '}
                 <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
                   target="_blank"
                 >
                   Energy Savings Scheme
                 </a>{' '}
-                and RF2 in the{' '}
-                <a
-                  href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme"
-                  target="_blank"
-                >
-                  Peak Demand Reduction Scheme
-                </a>
-                ).
+                ) by answering the following questions. This activity is for replacement of an
+                existing electric water heater with an (air source) heat pump water heater.
+                
+                <p className="nsw-content-block__copy">
+                Note
+                that this activity is only eligible for the Energy Savings Scheme, and is not
+                eligible for the Peak Demand Reduction scheme. As this is a replacement activity, a
+                new installation activity will not generate certificates.
+                </p>
               </p>
               <p className="nsw-content-block__copy">
-                Where possible, residential and small business air conditioner specifications are
+                Where possible, residential electric heat pump water heater specifications are
                 automatically updated at the end of each week from the{' '}
-                <a href="https://reg.energyrating.gov.au/comparator/product_types/" target="_blank">
-                  Greenhouse & Energy Minimum Standards (GEMS) Registry
+                <a
+                  href="https://tessa.energysustainabilityschemes.nsw.gov.au/ipart?id=accepted_products"
+                  target="_blank"
+                >
+                  Independent Pricing and Regulatory Tribunal (IPART) Product Registry
                 </a>{' '}
                 based on brand and model, but you may also enter your own values.
               </p>
               <p className="nsw-content-block__copy">
-                Please keep in mind that the results are a guide only and cannot be promoted or
+                Please keep in mind that the results are indicative only and cannot be promoted or
                 published.
               </p>
             </div>
@@ -261,9 +230,9 @@ export default function CertificateEstimatorRC(props) {
 
         {stepNumber === 3 && (
           <div className="nsw-grid nsw-grid--spaced">
-            <div className="nsw-col nsw-col-md-12">
+            <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">
-                Commercial Refrigerated Cabinet certificate estimator
+                Residential Electric Heat Pump Water Heater certificate estimator
               </h2>
             </div>
           </div>
@@ -278,15 +247,14 @@ export default function CertificateEstimatorRC(props) {
                 <div className="nsw-content-block">
                   <br></br>
                   <br></br>
-                  <br></br>
                   <div className="nsw-content-block__content">
                     <h5 className="nsw-content-block__copy" style={{ paddingBottom: '30px' }}>
-                      <b>Please answer the following questions to calculate your ESCs and PRCs</b>
+                      <b>Please answer the following questions to calculate your ESCs</b>
                     </h5>
 
                     <FormGroup
                       label="Postcode"
-                      helper="Postcode where the installation has taken place" // helper text (secondary label)
+                      helper="Postcode where the replacement has taken place" // helper text (secondary label)
                       errorText="Invalid value!" // error text if invalid
                     >
                       <TextInput
@@ -303,14 +271,14 @@ export default function CertificateEstimatorRC(props) {
                     </FormGroup>
                     <FormGroup
                       label="Brand"
-                      helper="Select refrigerated cabinet brand" // primary question text
+                      helper="Select residential heat pump brand" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
                         style={{ maxWidth: '50%' }}
                         options={dropdownOptions}
                         onChange={(e) => {
-                          setSelectedBrand(RF2Brands.find((item) => item === e.target.value));
+                          setSelectedBrand(brands.find((item) => item === e.target.value));
                         }}
                         value={selectedBrand}
                         required
@@ -319,7 +287,7 @@ export default function CertificateEstimatorRC(props) {
 
                     <FormGroup
                       label="Model"
-                      helper="Select refrigerated cabinet model" // primary question text
+                      helper="Select residential heat pump model" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
@@ -333,21 +301,6 @@ export default function CertificateEstimatorRC(props) {
                       />
                     </FormGroup>
 
-                    <FormGroup
-                      label="Product Class"
-                      helper="Refrigerated Cabinet Product Class (Product Characteristics Code)" // primary question text
-                      errorText="Invalid value!" // error text if invalid
-                    >
-                      <Select
-                        style={{ maxWidth: '50%' }}
-                        options={productClassOptions}
-                        onChange={(e) => {
-                          setSelectedProductClass(e.target.value);
-                        }}
-                        value={selectedProductClass}
-                        required
-                      />
-                    </FormGroup>
                     <p style={{ fontSize: '14px', marginBottom: '2%' }}>
                       {' '}
                       Updated from product registry:{' '}
@@ -359,6 +312,39 @@ export default function CertificateEstimatorRC(props) {
             </div>
           )}
 
+          {stepNumber === 2 && (
+            <CertificateEstimatorLoadClausesD17
+              variableToLoad1={'D17_ESC_calculation'}
+              variableToLoad2={'D17_ESC_calculation'}
+              variables={variables}
+              entities={entities}
+              metadata={metadata}
+              calculationResult={calculationResult}
+              setCalculationResult={setCalculationResult}
+              calculationError={calculationError}
+              calculationError2={calculationError2}
+              setCalculationError={setCalculationError}
+              setCalculationError2={setCalculationError2}
+              zone={zone}
+              postcode={postcode}
+              calculationResult2={calculationResult2}
+              setCalculationResult2={setCalculationResult2}
+              stepNumber={stepNumber}
+              setStepNumber={setStepNumber}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
+              formValues={formValues}
+              setFormValues={setFormValues}
+              flow={flow}
+              setFlow={setFlow}
+              selectedBrand={selectedBrand}
+              selectedModel={selectedModel}
+              backAction={(e) => {
+                setStepNumber(stepNumber - 1);
+              }}
+            />
+          )}
+
           {stepNumber === 1 && !registryData && (
             <Alert as="error" title="Sorry! An error has occurred.">
               <p>Unable to load data from the product registry. Please try again later.</p>
@@ -367,76 +353,36 @@ export default function CertificateEstimatorRC(props) {
 
           {stepNumber === 2 && loading && <SpinnerFullscreen />}
 
-          {stepNumber === 2 && (
-            <CertificateEstimatorLoadClausesRC
-              variableToLoad1={'RF2_PRC_calculation'}
-              variableToLoad2={'RF2_ESC_calculation'}
-              variables={variables}
-              setVariables={setVariables}
-              entities={entities}
-              metadata={metadata}
-              calculationResult={calculationResult}
-              calculationResult2={calculationResult2}
-              setCalculationResult={setCalculationResult}
-              setCalculationResult2={setCalculationResult2}
-              calculationError={calculationError}
-              calculationError2={calculationError2}
-              setCalculationError={setCalculationError}
-              setCalculationError2={setCalculationError2}
-              stepNumber={stepNumber}
-              setStepNumber={setStepNumber}
-              postcode={postcode}
-              zone={zone}
-              formValues={formValues}
-              setFormValues={setFormValues}
-              selectedBrand={selectedBrand}
-              selectedModel={selectedModel}
-              backAction={(e) => {
-                setStepNumber(stepNumber - 1);
-              }}
-              flow={flow}
-              setFlow={setFlow}
-              persistFormValues={persistFormValues}
-              setPersistFormValues={setPersistFormValues}
-              selectedProductClass={selectedProductClass}
-            />
-          )}
-
-          {stepNumber === 3 && (
-            <CertificateEstimatorLoadClausesRC
-              variableToLoad1={'RF2_PRC_calculation'}
-              variableToLoad2={'RF2_ESC_calculation'}
-              variables={variables}
-              setVariables={setVariables}
-              entities={entities}
-              metadata={metadata}
-              calculationResult={calculationResult}
-              setCalculationResult={setCalculationResult}
-              calculationError={calculationError}
-              setCalculationError={setCalculationError}
-              calculationResult2={calculationResult2}
-              setCalculationResult2={setCalculationResult2}
-              stepNumber={stepNumber}
-              setStepNumber={setStepNumber}
-              zone={zone}
-              formValues={formValues}
-              setFormValues={setFormValues}
-              selectedBrand={selectedBrand}
-              selectedModel={selectedModel}
-              flow={flow}
-              setFlow={setFlow}
-              persistFormValues={persistFormValues}
-              setPersistFormValues={setPersistFormValues}
-              selectedProductClass={selectedProductClass}
-            />
-          )}
-
-          {stepNumber === 3 && calculationError && calculationError2 && <SpinnerFullscreen />}
-
           {stepNumber === 1 && showPostcodeError && postcode.length >= 4 && (
             <Alert as="error" title="The postcode is not valid in NSW">
               <p>Please check your postcode and try again.</p>
             </Alert>
+          )}
+
+          {stepNumber === 3 && (
+            <CertificateEstimatorLoadClausesD17
+              variableToLoad1={'WH1_PRC_calculation'}
+              variableToLoad2={'WH1_ESC_calculation'}
+              variables={variables}
+              entities={entities}
+              metadata={metadata}
+              calculationResult={calculationResult}
+              setCalculationResult={setCalculationResult}
+              calculationError={calculationError}
+              setCalculationError={setCalculationError}
+              calculationResult2={calculationResult2}
+              setCalculationResult2={setCalculationResult2}
+              stepNumber={stepNumber}
+              setStepNumber={setStepNumber}
+              formValues={formValues}
+              setFormValues={setFormValues}
+              persistFormValues={persistFormValues}
+              setPersistFormValues={setPersistFormValues}
+              selectedBrand={selectedBrand}
+              selectedModel={selectedModel}
+              flow={flow}
+              setFlow={setFlow}
+            />
           )}
 
           {stepNumber === 1 &&

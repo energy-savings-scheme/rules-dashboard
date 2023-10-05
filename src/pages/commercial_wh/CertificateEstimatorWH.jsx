@@ -187,9 +187,6 @@ export default function CertificateEstimatorWH(props) {
               <h2 className="nsw-content-block__title">
                 Commercial Heat Pump Water Heater certificate estimator
               </h2>
-              {/* <h5 className="nsw-content-block__copy">
-              Energy Savings Scheme and Peak Demand Reduction Scheme
-            </h5> */}
               <br></br>
               <p className="nsw-content-block__copy">
                 Answer the following questions to estimate the energy savings certificates (ESCs)
@@ -362,7 +359,6 @@ export default function CertificateEstimatorWH(props) {
 
           {stepNumber === 3 && (
             <CertificateEstimatorLoadClausesWH
-              // calculationDate={calculationDate}
               variableToLoad1={'WH1_PRC_calculation'}
               variableToLoad2={'WH1_ESC_calculation'}
               variables={variables}
@@ -399,8 +395,6 @@ export default function CertificateEstimatorWH(props) {
                     as="dark"
                     onClick={(e) => {
                       validatePostcode(postcode);
-                      // setFlow(null);
-                      // setStepNumber(stepNumber + 1);
                     }}
                   >
                     Next
