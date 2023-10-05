@@ -44,6 +44,8 @@ import ActivityRequirementsRF2 from 'pages/refrigerated_cabinets/ActivityRequire
 import ActivityRequirementsWH1 from 'pages/commercial_wh/ActivityRequirementsWaterHeater';
 import CertificateEstimatorElectricHeatPump from 'pages/electric_residential_heat_pumps/CertificateEstimatorD17';
 import CertificateEstimatorGasHeatPump from 'pages/gas_residential_heat_pumps/CertificateEstimatorD19';
+import ActivityRequirementsD17 from 'pages/electric_residential_heat_pumps/ActivityRequirementsD17';
+import ActivityRequirementsD19 from 'pages/gas_residential_heat_pumps/ActivityRequirementsD19';
 
 function App() {
   const [entities, setEntities] = useState([]);
@@ -241,10 +243,9 @@ function App() {
             setLoading={setLoading}
           />
         </Route>
-
-        <Route path="/electric-heat-pumps-estimator" exact>
+        <Route path="/gas-heat-pumps-estimator" exact>
           <Breadcrumb />
-          <CertificateEstimatorElectricHeatPump
+          <CertificateEstimatorGasHeatPump
             entities={entities}
             variables={variables}
             brands={resHPBrands}
@@ -254,10 +255,9 @@ function App() {
             setLoading={setLoading}
           />
         </Route>
-
-        <Route path="/gas-heat-pumps-estimator" exact>
+        <Route path="/electric-heat-pumps-estimator" exact>
           <Breadcrumb />
-          <CertificateEstimatorGasHeatPump
+          <CertificateEstimatorElectricHeatPump
             entities={entities}
             variables={variables}
             brands={resHPBrands}
@@ -348,6 +348,28 @@ function App() {
         <Route path="/commercial-water-heater-activity-requirements" exact>
           <Breadcrumb />
           <ActivityRequirementsWH1
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/electric-residential-heat-pump-activity-requirements" exact>
+          <Breadcrumb />
+          <ActivityRequirementsD17
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/gas-residential-heat-pump-activity-requirements" exact>
+          <Breadcrumb />
+          <ActivityRequirementsD19
             entities={entities}
             variables={variables}
             loading={loading}
