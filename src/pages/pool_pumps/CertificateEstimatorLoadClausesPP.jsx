@@ -139,7 +139,6 @@ export default function CertificateEstimatorLoadClausesPP(props) {
         }
 
         if (formItem.name === 'SYS2_star_rating') {
-
           console.log(formItem.form_value);
 
           const dic = {
@@ -159,7 +158,6 @@ export default function CertificateEstimatorLoadClausesPP(props) {
 
           formItem.form_value = dic[metadata['star_rating']];
         }
-
 
         if (formItem.name === 'SYS2_input_power') {
           formItem.form_value = metadata['input_power'];
