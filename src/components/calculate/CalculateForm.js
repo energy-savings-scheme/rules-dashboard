@@ -118,6 +118,7 @@ export default function CalculateForm(props) {
     OpenFiscaApi.postCalculate(payload)
       .then((res) => {
         var result = res.data[entity.plural][`${entity.name}_1`][variable.name][date];
+        console.log(res.data);
         setCalculationResult(result);
         setCalculationError(false);
         setLoading(true);
@@ -167,33 +168,33 @@ export default function CalculateForm(props) {
     if (stepNumber === 1 && workflow !== 'eligibility') {
       formValues.map((variable) => {
         if (variable.name === 'RF1_PDRS__postcode' || variable.name === 'SYS1_PDRS__postcode') {
-
-          if (['2817', '2818', '2819'].includes(variable.form_value)){
+          if (['2817', '2818', '2819'].includes(variable.form_value)) {
             setFlow(null);
             setStepNumber(stepNumber + 1);
             setShowPostcodeError(false);
           } else {
-          RegistryApi.getPostcodeValidation(variable.form_value)
-            .then((res) => {
-              const persons = res.data;
-              console.log(res);
-              if (
-                (persons.status === '200') &
-                (persons.data.postcode === variable.form_value) &
-                (persons.data.state === 'NSW')
-              ) {
-                setFlow(null);
-                setStepNumber(stepNumber + 1);
-                setShowPostcodeError(false);
-              } else {
+            RegistryApi.getPostcodeValidation(variable.form_value)
+              .then((res) => {
+                const persons = res.data;
+                console.log(res);
+                if (
+                  (persons.status === '200') &
+                  (persons.data.postcode === variable.form_value) &
+                  (persons.data.state === 'NSW')
+                ) {
+                  setFlow(null);
+                  setStepNumber(stepNumber + 1);
+                  setShowPostcodeError(false);
+                } else {
+                  setShowPostcodeError(true);
+                }
+              })
+              .catch((err) => {
+                console.log(err);
                 setShowPostcodeError(true);
-              }
-            })
-            .catch((err) => {
-              console.log(err);
-              setShowPostcodeError(true);
-            });
-        } }
+              });
+          }
+        }
       });
     } else {
       setStepNumber(stepNumber + 1);

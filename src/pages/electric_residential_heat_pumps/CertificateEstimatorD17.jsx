@@ -191,23 +191,19 @@ export default function CertificateEstimatorElectricHeatPump(props) {
             </h5> */}
               <br></br>
               <p className="nsw-content-block__copy">
-                Answer the following questions to estimate the energy savings certificates (ESCs)
-                and peak reduction certificates (PRCs) for the Commercial Heat Pump Water Heater
-                Activity (F16 in the{' '}
+                Estimate the energy savings certificates (ESCs) for the Residential and small
+                business electric heat pump water heater activity (D17 in the{' '}
                 <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
                   target="_blank"
                 >
                   Energy Savings Scheme
                 </a>{' '}
-                and WH1 in the{' '}
-                <a
-                  href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme"
-                  target="_blank"
-                >
-                  Peak Demand Reduction Scheme
-                </a>
-                ).
+                ) by answering the following questions. This activity is for replacement of an
+                existing electric water heater with an (air source) heat pump water heater. Note
+                that this activity is only eligible for the Energy Savings Scheme, and is not
+                eligible for the Peak Demand Reduction scheme. As this is a replacement activity, a
+                new installation activity will not generate certificates.
               </p>
               <p className="nsw-content-block__copy">
                 Where possible, residential electric heat pump water heater specifications are
@@ -221,7 +217,7 @@ export default function CertificateEstimatorElectricHeatPump(props) {
                 based on brand and model, but you may also enter your own values.
               </p>
               <p className="nsw-content-block__copy">
-                Please keep in mind that the results are a guide only and cannot be promoted or
+                Please keep in mind that the results are indicative only and cannot be promoted or
                 published.
               </p>
             </div>
@@ -249,12 +245,12 @@ export default function CertificateEstimatorElectricHeatPump(props) {
                   <br></br>
                   <div className="nsw-content-block__content">
                     <h5 className="nsw-content-block__copy" style={{ paddingBottom: '30px' }}>
-                      <b>Please answer the following questions to calculate your ESCs and PRCs</b>
+                      <b>Please answer the following questions to calculate your ESCs</b>
                     </h5>
 
                     <FormGroup
                       label="Postcode"
-                      helper="Postcode where the installation has taken place" // helper text (secondary label)
+                      helper="Postcode where the replacement has taken place" // helper text (secondary label)
                       errorText="Invalid value!" // error text if invalid
                     >
                       <TextInput
@@ -271,7 +267,7 @@ export default function CertificateEstimatorElectricHeatPump(props) {
                     </FormGroup>
                     <FormGroup
                       label="Brand"
-                      helper="Select commercial water heater brand" // primary question text
+                      helper="Select residential heat pump brand" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
@@ -287,7 +283,7 @@ export default function CertificateEstimatorElectricHeatPump(props) {
 
                     <FormGroup
                       label="Model"
-                      helper="Select commercial water heater model" // primary question text
+                      helper="Select residential heat pump model" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select

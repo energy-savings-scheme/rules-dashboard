@@ -43,6 +43,7 @@ import ActivityRequirementsRF1 from 'pages/residential_refrigerators/ActivityReq
 import ActivityRequirementsRF2 from 'pages/refrigerated_cabinets/ActivityRequirements';
 import ActivityRequirementsWH1 from 'pages/commercial_wh/ActivityRequirementsWaterHeater';
 import CertificateEstimatorElectricHeatPump from 'pages/electric_residential_heat_pumps/CertificateEstimatorD17';
+import CertificateEstimatorGasHeatPump from 'pages/gas_residential_heat_pumps/CertificateEstimatorD19';
 
 function App() {
   const [entities, setEntities] = useState([]);
@@ -105,7 +106,7 @@ function App() {
         console.log(err);
       });
 
-      RegistryApi.getResidentialHeatPumpBrands()
+    RegistryApi.getResidentialHeatPumpBrands()
       .then((res) => {
         setresHPBrands(res.data);
         setLoading(false);
@@ -244,6 +245,19 @@ function App() {
         <Route path="/electric-heat-pumps-estimator" exact>
           <Breadcrumb />
           <CertificateEstimatorElectricHeatPump
+            entities={entities}
+            variables={variables}
+            brands={resHPBrands}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+
+        <Route path="/gas-heat-pumps-estimator" exact>
+          <Breadcrumb />
+          <CertificateEstimatorGasHeatPump
             entities={entities}
             variables={variables}
             brands={resHPBrands}
