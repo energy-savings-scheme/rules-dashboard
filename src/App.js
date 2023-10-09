@@ -46,6 +46,8 @@ import CertificateEstimatorElectricHeatPump from 'pages/electric_residential_hea
 import CertificateEstimatorGasHeatPump from 'pages/gas_residential_heat_pumps/CertificateEstimatorD19';
 import ActivityRequirementsD17 from 'pages/electric_residential_heat_pumps/ActivityRequirementsD17';
 import ActivityRequirementsD19 from 'pages/gas_residential_heat_pumps/ActivityRequirementsD19';
+import HotWaterEligibilityPage from 'pages/homepage/HotWaterHeaterEligibility';
+import HotWaterCertificatePage from 'pages/homepage/HotWaterHeaterCertificatePage';
 
 function App() {
   const [entities, setEntities] = useState([]);
@@ -271,6 +273,28 @@ function App() {
         <Route path="/core-eligibility" exact>
           <Breadcrumb />
           <BaseEligibility
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/hot-water-heater-eligibility" exact>
+          <Breadcrumb />
+          <HotWaterEligibilityPage
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/hot-water-heater-certificate" exact>
+          <Breadcrumb />
+          <HotWaterCertificatePage
             entities={entities}
             variables={variables}
             loading={loading}
