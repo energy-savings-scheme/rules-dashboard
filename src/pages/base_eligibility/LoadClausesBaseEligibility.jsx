@@ -93,7 +93,7 @@ export default function LoadClausesBaseEligibility(props) {
     <div className style={{ marginBottom: '7%' }}>
       <div>
         <br></br>
-<br></br>
+        <br></br>
         {stepNumber === 1 && (
           <Fragment>
             <CalculateBlock
