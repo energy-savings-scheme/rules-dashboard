@@ -125,7 +125,8 @@ export default function Breadcrumb() {
     location.pathname === '/refrigerated-cabinet-activity-requirements' ||
     location.pathname === '/commercial-water-heater-activity-requirements' ||
     location.pathname === '/electric-residential-heat-pump-activity-requirements' ||
-    location.pathname === '/gas-residential-heat-pump-activity-requirements'
+    location.pathname === '/gas-residential-heat-pump-activity-requirements' ||
+    location.pathname === '/hot-water-heater-eligibility'
   ) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
@@ -166,7 +167,8 @@ export default function Breadcrumb() {
     location.pathname === '/residential-refrigerators-estimator' ||
     location.pathname === '/commercial-wh-estimator' ||
     location.pathname === '/electric-heat-pumps-estimator' ||
-    location.pathname === '/gas-heat-pumps-estimator'
+    location.pathname === '/gas-heat-pumps-estimator' ||
+    location.pathname === '/hot-water-heater-certificate'
   ) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>
