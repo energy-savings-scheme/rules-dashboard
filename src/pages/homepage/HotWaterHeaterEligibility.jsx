@@ -40,7 +40,9 @@ export default function HotWaterEligibilityPage(props) {
               <div className="nsw-grid nsw-grid--spaced">
                 <div className="nsw-col nsw-col-md-12">
                   <p className="nsw-content-block__copy">
-                  The Safeguard certificate estimator reviews eligibility for replacement of an electric or gas water heater, with an (air source) heat pump or a solar (electric boosted) water heater.
+                    The Safeguard certificate estimator reviews eligibility for replacement of an
+                    electric or gas water heater, with an (air source) heat pump or a solar
+                    (electric boosted) water heater.
                   </p>
                 </div>
               </div>
