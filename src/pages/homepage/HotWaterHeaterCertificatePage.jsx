@@ -40,12 +40,8 @@ export default function HotWaterCertificatePage(props) {
               <div className="nsw-grid nsw-grid--spaced">
                 <div className="nsw-col nsw-col-md-12">
                   <p className="nsw-content-block__copy">
-                    There are five activities for household and small business water heater
-                    replacement under the Energy Savings Scheme.
-                  </p>
-                  <p className="nsw-content-block__copy">
-                    The Safeguard certificate estimator estimates certificates for replacement of an
-                    electric or gas water heater, with an (air source) heat pump or a solar
+                    The Safeguard certificate estimator calculates certificates for replacement of
+                    an electric or gas water heater, with an (air source) heat pump or a solar
                     (electric boosted) water heater.{' '}
                   </p>
                 </div>
