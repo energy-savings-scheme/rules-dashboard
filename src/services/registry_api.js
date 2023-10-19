@@ -160,7 +160,7 @@ const RegistryApi = {
   getResidentialHeatPumpModelsMetadata,
   getResidentialSolarWaterHeaterBrands,
   getResidentialSolarWaterHeaterModels,
-  getResidentialSolarWaterHeaterMetadata
+  getResidentialSolarWaterHeaterMetadata,
 };
 
 export default RegistryApi;
