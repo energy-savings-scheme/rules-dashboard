@@ -9,16 +9,16 @@ import LoadClauses from './LoadClausesActReq';
 import OpenFiscaAPI from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
-import LoadClausesD19 from './LoadClausesActReq';
+import LoadClausesD17 from './LoadClausesActReq';
 
-export default function ActivityRequirementsD19(props) {
+export default function ActivityRequirementsD18(props) {
   const { entities, variables, setEntities, setVariables, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
   const [dependencies, setDependencies] = useState([]);
   const [variableToLoad, setVariableToLoad] = useState(
-    'D19_replacement_final_activity_eligibility',
+    'D18_replacement_final_activity_eligibility',
   );
   const [clausesForm, setClausesForm] = useState([]);
 
@@ -143,7 +143,7 @@ export default function ActivityRequirementsD19(props) {
         style="dark"
         image={{
           alt: 'commercial ac',
-          src: 'D19(optimised).jpg',
+          src: 'D17cropped,optimised).jpg',
         }}
         intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
         title="Safeguard certificate estimator"
@@ -156,26 +156,21 @@ export default function ActivityRequirementsD19(props) {
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-12">
               <h2 className="nsw-content-block__title">
-                Residential gas heat pump water heater activity eligibility check
+              Residential and small business solar water heater activity eligibility check
               </h2>
               <br></br>
               <p className="nsw-content-block__copy">
-                Answer the following questions to check if you meet the eligibility requirements for
-                the for the Residential and small business gas heat pump water heater activity (D19
-                in the{' '}
+              Answer the following questions to check if you meet the eligibility requirements for the Residential and small business solar water heater activity (D18 in the{' '}
                 <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
                   target="_blank"
                 >
                   Energy Savings Scheme
                 </a>{' '}
-                ). This activity is for replacement of an existing gas water heater with an (air
-                source) heat pump water heater.
+                ). This activity is for replacement of an existing electric water heater with a solar (electric boosted) water heater.
               </p>
               <p className="nsw-content-block__copy">
-                Note that this activity is only eligible for the Energy Savings Scheme, and is not
-                eligible for the Peak Demand Reduction scheme. If ineligible, you will be shown the
-                ineligible answers and their corresponding rule clauses.
+              Note that this activity is only eligible for the Energy Savings Scheme, and is not eligible for the Peak Demand Reduction scheme. If ineligible, you will be shown the ineligible answers and their corresponding rule clauses.
               </p>
               <p className="nsw-content-block__copy">
                 Please keep in mind that the results are a guide only and cannot be promoted or
@@ -189,7 +184,7 @@ export default function ActivityRequirementsD19(props) {
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-12">
               <h2 className="nsw-content-block__title">
-                Residential gas heat pump water heater activity eligibility check
+              Residential and small business solar water heater activity eligibility check
               </h2>
             </div>
           </div>
@@ -200,7 +195,7 @@ export default function ActivityRequirementsD19(props) {
         <Fragment>
           {loading && <SpinnerFullscreen />}
           {!loading && (
-            <LoadClausesD19
+            <LoadClausesD17
               variableToLoad={variableToLoad}
               variables={variables}
               entities={entities}
