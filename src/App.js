@@ -50,8 +50,8 @@ import HotWaterEligibilityPage from 'pages/homepage/HotWaterHeaterEligibility';
 import HotWaterCertificatePage from 'pages/homepage/HotWaterHeaterCertificatePage';
 import ActivityRequirementsD18 from 'pages/residential_solar_water_heater_D18/ActivityRequirementsD18';
 import CertificateEstimatorResidentialSolarWaterHeater from 'pages/residential_solar_water_heater_D18/CertificateEstimatorD18';
-import ActivityRequirementsD20 from 'pages/residential_solar_water_heater_gas_replacement/ActivityRequirementsD20';
-import CertificateEstimatorResidentialGasReplacementSolarWaterHeater from 'pages/residential_solar_water_heater_gas_replacement/CertificateEstimatorD20';
+import ActivityRequirementsD20 from 'pages/residential_solar_water_heater_gas_replacement_D20/ActivityRequirementsD20';
+import CertificateEstimatorResidentialGasReplacementSolarWaterHeater from 'pages/residential_solar_water_heater_gas_replacement_D20/CertificateEstimatorD20';
 
 function App() {
   const [entities, setEntities] = useState([]);
