@@ -188,14 +188,16 @@ export default function CertificateEstimatorResidentialGasReplacementSolarWaterH
               </h2>
               <br></br>
               <p className="nsw-content-block__copy">
-              Estimate the energy savings certificates (ESCs) for the Residential and small business solar water heater activity (D20 in the{' '}
+                Estimate the energy savings certificates (ESCs) for the Residential and small
+                business solar water heater activity (D20 in the{' '}
                 <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
                   target="_blank"
                 >
                   Energy Savings Scheme
                 </a>{' '}
-                ) by answering the following questions. This activity is for replacement of an existing gas water heater with a solar (electric boosted) water heater.
+                ) by answering the following questions. This activity is for replacement of an
+                existing gas water heater with a solar (electric boosted) water heater.
                 <p className="nsw-content-block__copy">
                   Note that this activity is only eligible for the Energy Savings Scheme, and is not
                   eligible for the Peak Demand Reduction scheme. As this is a replacement activity,
@@ -203,8 +205,8 @@ export default function CertificateEstimatorResidentialGasReplacementSolarWaterH
                 </p>
               </p>
               <p className="nsw-content-block__copy">
-                Where possible, residential heat pump water heater specifications are
-                automatically updated at the end of each week from the{' '}
+                Where possible, residential heat pump water heater specifications are automatically
+                updated at the end of each week from the{' '}
                 <a
                   href="https://tessa.energysustainabilityschemes.nsw.gov.au/ipart?id=accepted_products"
                   target="_blank"
