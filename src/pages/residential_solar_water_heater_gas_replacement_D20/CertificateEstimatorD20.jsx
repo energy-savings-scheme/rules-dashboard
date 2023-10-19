@@ -2,7 +2,6 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { ProgressIndicator } from 'nsw-ds-react/forms/progress-indicator/progressIndicator';
 import Button from 'nsw-ds-react/button/button';
 import RegistryApi from 'services/registry_api';
-import CertificateEstimatorLoadClausesD18 from './CertificateEstimatorLoadClausesD18';
 import { FormGroup, TextInput, Select } from 'nsw-ds-react/forms';
 import OpenFiscaApi from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
@@ -10,8 +9,9 @@ import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import Alert from 'nsw-ds-react/alert/alert';
 import { format, previousSunday } from 'date-fns';
 import axios from 'axios';
+import CertificateEstimatorLoadClausesD20 from './CertificateEstimatorLoadClausesD20';
 
-export default function CertificateEstimatorResidentialSolarWaterHeater(props) {
+export default function CertificateEstimatorResidentialGasReplacementSolarWaterHeater(props) {
   const { entities, variables, brands, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
@@ -138,8 +138,8 @@ export default function CertificateEstimatorResidentialSolarWaterHeater(props) {
     const payload = {
       buildings: {
         building_1: {
-          D18_PDRS__postcode: { '2023-01-01': postcode },
-          D18_BCA_climate_zone_by_postcode_int: { '2023-01-01': null },
+          D20_PDRS__postcode: { '2023-01-01': postcode },
+          D20_BCA_climate_zone_by_postcode_int: { '2023-01-01': null },
         },
       },
       persons: {
@@ -150,7 +150,7 @@ export default function CertificateEstimatorResidentialSolarWaterHeater(props) {
     OpenFiscaApi.postCalculate(payload)
       .then((res) => {
         var result =
-          res.data.buildings.building_1['D18_BCA_climate_zone_by_postcode_int']['2023-01-01'];
+          res.data.buildings.building_1['D20_BCA_climate_zone_by_postcode_int']['2023-01-01'];
         setZone(result);
         console.log(result);
       })
@@ -184,24 +184,26 @@ export default function CertificateEstimatorResidentialSolarWaterHeater(props) {
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">
-              Residential and small business solar water heater certificate estimator
+                Residential and small business solar water heater certificate estimator
               </h2>
               <br></br>
               <p className="nsw-content-block__copy">
-              Estimate the energy savings certificates (ESCs) for the Residential and small business solar water heater activity (D18 in the{' '}
+              Estimate the energy savings certificates (ESCs) for the Residential and small business solar water heater activity (D20 in the{' '}
                 <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
                   target="_blank"
                 >
                   Energy Savings Scheme
                 </a>{' '}
-                ) by answering the following questions. This activity is for replacement of an existing electric water heater with a solar (electric boosted) water heater.
+                ) by answering the following questions. This activity is for replacement of an existing gas water heater with a solar (electric boosted) water heater.
                 <p className="nsw-content-block__copy">
-                Note that this activity is only eligible for the Energy Savings Scheme, and is not eligible for the Peak Demand Reduction scheme. As this is a replacement activity, a new installation activity will not generate certificates.
+                  Note that this activity is only eligible for the Energy Savings Scheme, and is not
+                  eligible for the Peak Demand Reduction scheme. As this is a replacement activity,
+                  a new installation activity will not generate certificates.
                 </p>
               </p>
               <p className="nsw-content-block__copy">
-                Where possible, residential electric heat pump water heater specifications are
+                Where possible, residential heat pump water heater specifications are
                 automatically updated at the end of each week from the{' '}
                 <a
                   href="https://tessa.energysustainabilityschemes.nsw.gov.au/ipart?id=accepted_products"
@@ -223,7 +225,7 @@ export default function CertificateEstimatorResidentialSolarWaterHeater(props) {
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">
-              Residential and small business solar water heater certificate estimator
+                Residential and small business solar water heater certificate estimator
               </h2>
             </div>
           </div>
@@ -262,7 +264,7 @@ export default function CertificateEstimatorResidentialSolarWaterHeater(props) {
                     </FormGroup>
                     <FormGroup
                       label="Brand"
-                      helper="Select residential heat pump brand" // primary question text
+                      helper="Select residential solar water heater brand" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
@@ -278,7 +280,7 @@ export default function CertificateEstimatorResidentialSolarWaterHeater(props) {
 
                     <FormGroup
                       label="Model"
-                      helper="Select residential heat pump model" // primary question text
+                      helper="Select residential solar water heater model" // primary question text
                       errorText="Invalid value!" // error text if invalid
                     >
                       <Select
@@ -304,9 +306,9 @@ export default function CertificateEstimatorResidentialSolarWaterHeater(props) {
           )}
 
           {stepNumber === 2 && (
-            <CertificateEstimatorLoadClausesD18
-              variableToLoad1={'D18_ESC_calculation'}
-              variableToLoad2={'D18_ESC_calculation'}
+            <CertificateEstimatorLoadClausesD20
+              variableToLoad1={'D20_ESC_calculation'}
+              variableToLoad2={'D20_ESC_calculation'}
               variables={variables}
               entities={entities}
               metadata={metadata}
@@ -351,7 +353,7 @@ export default function CertificateEstimatorResidentialSolarWaterHeater(props) {
           )}
 
           {stepNumber === 3 && (
-            <CertificateEstimatorLoadClausesD18
+            <CertificateEstimatorLoadClausesD20
               variableToLoad1={'WH1_PRC_calculation'}
               variableToLoad2={'WH1_ESC_calculation'}
               variables={variables}
