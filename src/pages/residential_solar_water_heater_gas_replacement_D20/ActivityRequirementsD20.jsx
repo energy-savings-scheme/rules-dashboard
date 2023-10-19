@@ -156,18 +156,20 @@ export default function ActivityRequirementsD20(props) {
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-12">
               <h2 className="nsw-content-block__title">
-              Residential and small business solar water heater activity eligibility check
+                Residential and small business solar water heater activity eligibility check
               </h2>
               <br></br>
               <p className="nsw-content-block__copy">
-              Answer the following questions to check if you meet the eligibility requirements for the Residential and small business solar water heater activity (D20 in the{' '}
+                Answer the following questions to check if you meet the eligibility requirements for
+                the Residential and small business solar water heater activity (D20 in the{' '}
                 <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
                   target="_blank"
                 >
                   Energy Savings Scheme
                 </a>{' '}
-                ). This activity is for replacement of an existing gas water heater with a solar (electric boosted) water heater.
+                ). This activity is for replacement of an existing gas water heater with a solar
+                (electric boosted) water heater.
               </p>
               <p className="nsw-content-block__copy">
                 Note that this activity is only eligible for the Energy Savings Scheme, and is not
