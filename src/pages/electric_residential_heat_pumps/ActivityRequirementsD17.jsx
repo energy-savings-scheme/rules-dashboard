@@ -161,8 +161,8 @@ export default function ActivityRequirementsD17(props) {
               <br></br>
               <p className="nsw-content-block__copy">
                 Answer the following questions to check if you meet the eligibility requirements for
-                the Residential and small business electric heat pump water heater activity
-                (D17 in the{' '}
+                the Residential and small business electric heat pump water heater activity (D17 in
+                the{' '}
                 <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
                   target="_blank"
