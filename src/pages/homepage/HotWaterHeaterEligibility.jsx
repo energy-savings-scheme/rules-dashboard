@@ -94,7 +94,7 @@ export default function HotWaterEligibilityPage(props) {
                   <ContentBlock
                     headline="Replace an electric water heater with solar water heater"
                     copy="Replace existing electric water heater with solar (electric boosted) water heater"
-                    image="D18HandWash.jpg"
+                    image="iStock-1373843137(optimised).jpg"
                     highlight
                     links={[
                       {
@@ -108,7 +108,7 @@ export default function HotWaterEligibilityPage(props) {
                   <ContentBlock
                     headline="Replace a gas water heater with solar water heater"
                     copy="Replace existing gas water heater with solar (electric boosted) water heater"
-                    image="D20DogWash.jpg"
+                    image="iStock-1322180347(optimised).jpg"
                     highlight
                     links={[
                       {
