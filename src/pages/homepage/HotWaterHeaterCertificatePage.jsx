@@ -90,6 +90,34 @@ export default function HotWaterCertificatePage(props) {
                     ]}
                   />
                 </div>
+                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
+                  <ContentBlock
+                    headline="Replace an electric water heater with solar water heater"
+                    copy="Replace existing electric water heater with solar (electric boosted) water heater"
+                    image="D18HandWash.jpg"
+                    highlight
+                    links={[
+                      {
+                        href: '#residential-solar-water-heater-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
+                    ]}
+                  />
+                </div>
+                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
+                  <ContentBlock
+                    headline="Replace a gas water heater with solar water heater"
+                    copy="Replace existing gas water heater with solar (electric boosted) water heater"
+                    image="D20DogWash.jpg"
+                    highlight
+                    links={[
+                      {
+                        href: '#residential-gas-replacement-solar-water-heater-estimator',
+                        title: 'Estimate Scheme Certificates',
+                      },
+                    ]}
+                  />
+                </div>
               </div>
             </div>
           </div>
