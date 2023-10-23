@@ -389,7 +389,7 @@ export default function CertificateEstimatorLoadClausesD18(props) {
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
                           <a
-                            href="/#electric-residential-heat-pump-activity-requirements"
+                            href="/#residential-solar-water-heater-activity-requirements"
                             class="nsw-card__link"
                           >
                             Review eligibility for this activity
