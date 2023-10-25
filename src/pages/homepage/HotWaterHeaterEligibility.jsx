@@ -92,8 +92,8 @@ export default function HotWaterEligibilityPage(props) {
                 </div>
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
-                    headline="Replace an electric water heater with solar water heater"
-                    copy="Replace existing electric water heater with solar (electric boosted) water heater"
+                    headline="Replace an electric water heater with a solar water heater"
+                    copy="Replace an existing electric water heater with a solar (electric boosted) water heater"
                     image="iStock-1373843137(optimised).jpg"
                     highlight
                     links={[
@@ -106,8 +106,8 @@ export default function HotWaterEligibilityPage(props) {
                 </div>
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
-                    headline="Replace a gas water heater with solar water heater"
-                    copy="Replace existing gas water heater with solar (electric boosted) water heater"
+                    headline="Replace a gas water heater with a solar water heater"
+                    copy="Replace an existing gas water heater with a solar (electric boosted) water heater"
                     image="iStock-1322180347(optimised).jpg"
                     highlight
                     links={[
