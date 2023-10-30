@@ -39,10 +39,14 @@ export default function HotWaterEligibilityPage(props) {
             <div class="nsw-layout__main">
               <div className="nsw-grid nsw-grid--spaced">
                 <div className="nsw-col nsw-col-md-12">
-                  <p className="nsw-content-block__copy">
-                    The Safeguard certificate estimator reviews eligibility for replacement of an
-                    electric or gas water heater, with an (air source) heat pump or a solar
-                    (electric boosted) water heater.
+                <p className="nsw-content-block__copy">
+                  The Safeguard certificate estimator calculates certificates for the replacement of an electric or gas water heater with:
+                  <ul>
+                  <li>an air source heat pump or </li>
+                  <li>
+                  a solar electric-boosted water heater
+                  </li>
+                  </ul>
                   </p>
                 </div>
               </div>
@@ -64,7 +68,7 @@ export default function HotWaterEligibilityPage(props) {
               <div class="nsw-grid">
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
-                    copy="Replace an existing electric water heater with an (air source) heat pump water heater"
+                    copy="Replace an existing electric water heater with an air source heat pump water heater"
                     headline="Replace an electric water heater with a heat pump"
                     image="D17cropped,optimised).jpg"
                     highlight
@@ -78,13 +82,41 @@ export default function HotWaterEligibilityPage(props) {
                 </div>
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
-                    copy="Replace an existing gas water heater with an (air source) heat pump water heater"
+                    copy="Replace an existing gas water heater with an air source heat pump water heater"
                     headline="Replace a gas water heater with a heat pump"
                     image="D19(optimised).jpg"
                     highlight
                     links={[
                       {
                         href: '#gas-residential-heat-pump-activity-requirements',
+                        title: 'Check eligibility',
+                      },
+                    ]}
+                  />
+                </div>
+                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
+                  <ContentBlock
+                    headline="Replace an electric water heater with a solar water heater"
+                    copy="Replace an existing electric water heater with a solar electric-boosted water heater"
+                    image="iStock-1373843137(optimised).jpg"
+                    highlight
+                    links={[
+                      {
+                        href: '#residential-solar-water-heater-activity-requirements',
+                        title: 'Check eligibility',
+                      },
+                    ]}
+                  />
+                </div>
+                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
+                  <ContentBlock
+                    headline="Replace a gas water heater with a solar water heater"
+                    copy="Replace an existing gas water heater with a solar electric boosted water heater"
+                    image="iStock-1322180347(optimised).jpg"
+                    highlight
+                    links={[
+                      {
+                        href: '#residential-solar-gas-water-heater-activity-requirements',
                         title: 'Check eligibility',
                       },
                     ]}
