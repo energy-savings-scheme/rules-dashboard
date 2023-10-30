@@ -161,7 +161,7 @@ export default function ActivityRequirementsD18(props) {
               <br></br>
               <p className="nsw-content-block__copy">
                 Answer the following questions to check if you meet the eligibility requirements for
-                the Residential and small business solar water heater activity (D18 in the{' '}
+                the residential and small business solar water heater activity (D18 in the{' '}
                 <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
                   target="_blank"
@@ -169,7 +169,7 @@ export default function ActivityRequirementsD18(props) {
                   Energy Savings Scheme
                 </a>{' '}
                 ). This activity is for replacement of an existing electric water heater with a
-                solar (electric boosted) water heater.
+                solar electric-boosted water heater.
               </p>
               <p className="nsw-content-block__copy">
                 Note that this activity is only eligible for the Energy Savings Scheme, and is not
