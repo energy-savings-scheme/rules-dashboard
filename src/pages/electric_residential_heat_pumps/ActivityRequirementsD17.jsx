@@ -161,7 +161,7 @@ export default function ActivityRequirementsD17(props) {
               <br></br>
               <p className="nsw-content-block__copy">
                 Answer the following questions to check if you meet the eligibility requirements for
-                the Residential and small business electric heat pump water heater activity (D17 in
+                the residential and small business electric heat pump water heater activity (D17 in
                 the{' '}
                 <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
@@ -170,7 +170,7 @@ export default function ActivityRequirementsD17(props) {
                   Energy Savings Scheme
                 </a>{' '}
                 ). This activity is for replacement of an existing electric water heater with an
-                (air source) heat pump water heater.
+                air source heat pump water heater.
               </p>
               <p className="nsw-content-block__copy">
                 Note that this activity is only eligible for the Energy Savings Scheme, and is not

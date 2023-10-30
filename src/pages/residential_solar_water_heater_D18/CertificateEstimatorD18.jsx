@@ -197,11 +197,10 @@ export default function CertificateEstimatorResidentialSolarWaterHeater(props) {
                   Energy Savings Scheme
                 </a>{' '}
                 ) by answering the following questions. This activity is for replacement of an
-                existing electric water heater with a solar (electric boosted) water heater.
+                existing electric water heater with a solar electric-boosted water heater.
                 <p className="nsw-content-block__copy">
                   Note that this activity is only eligible for the Energy Savings Scheme, and is not
-                  eligible for the Peak Demand Reduction scheme. As this is a replacement activity,
-                  a new installation activity will not generate certificates.
+                  eligible for the Peak Demand Reduction scheme. As this is a replacement activity, installation of a new water heater will not generate certificates.
                 </p>
               </p>
               <p className="nsw-content-block__copy">
