@@ -145,8 +145,8 @@ export default function ActivityRequirementsD19(props) {
           alt: 'commercial ac',
           src: 'D19(optimised).jpg',
         }}
-        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard certificate estimator"
+        intro="Residential and small business"
+        title="Gas water heater replacement with an air source heat pump - eligibility"
       />
 
       <div className="nsw-container" style={{ marginBottom: '10%' }}>
