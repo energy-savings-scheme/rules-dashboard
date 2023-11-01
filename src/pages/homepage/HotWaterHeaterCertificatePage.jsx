@@ -40,13 +40,12 @@ export default function HotWaterCertificatePage(props) {
               <div className="nsw-grid nsw-grid--spaced">
                 <div className="nsw-col nsw-col-md-12">
                   <p className="nsw-content-block__copy">
-                  The Safeguard certificate estimator calculates certificates for the replacement of an electric or gas water heater with:
-                  <ul>
-                  <li>an air source heat pump or </li>
-                  <li>
-                  a solar electric-boosted water heater
-                  </li>
-                  </ul>
+                    The Safeguard certificate estimator calculates certificates for the replacement
+                    of an electric or gas water heater with:
+                    <ul>
+                      <li>an air source heat pump or </li>
+                      <li>a solar electric-boosted water heater</li>
+                    </ul>
                   </p>
                 </div>
               </div>
@@ -108,7 +107,7 @@ export default function HotWaterCertificatePage(props) {
                     ]}
                   />
                 </div>
-                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>  
+                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
                     headline="Replace a gas water heater with a solar water heater"
                     copy="Replace an existing gas water heater with a solar (electric boosted) water heater"

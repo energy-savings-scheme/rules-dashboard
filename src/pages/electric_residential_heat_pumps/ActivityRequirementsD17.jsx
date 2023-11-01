@@ -145,8 +145,8 @@ export default function ActivityRequirementsD17(props) {
           alt: 'commercial ac',
           src: 'D17cropped,optimised).jpg',
         }}
-        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard certificate estimator"
+        title="Electric water heater replacement with an air source heat pump - eligibility"
+        intro="Residential and small business"
       />
 
       <div className="nsw-container" style={{ marginBottom: '10%' }}>
@@ -169,8 +169,8 @@ export default function ActivityRequirementsD17(props) {
                 >
                   Energy Savings Scheme
                 </a>{' '}
-                ). This activity is for replacement of an existing electric water heater with an
-                air source heat pump water heater.
+                ). This activity is for replacement of an existing electric water heater with an air
+                source heat pump water heater.
               </p>
               <p className="nsw-content-block__copy">
                 Note that this activity is only eligible for the Energy Savings Scheme, and is not

@@ -39,14 +39,13 @@ export default function HotWaterEligibilityPage(props) {
             <div class="nsw-layout__main">
               <div className="nsw-grid nsw-grid--spaced">
                 <div className="nsw-col nsw-col-md-12">
-                <p className="nsw-content-block__copy">
-                  The Safeguard certificate estimator calculates certificates for the replacement of an electric or gas water heater with:
-                  <ul>
-                  <li>an air source heat pump or </li>
-                  <li>
-                  a solar electric-boosted water heater
-                  </li>
-                  </ul>
+                  <p className="nsw-content-block__copy">
+                    The Safeguard certificate estimator calculates certificates for the replacement
+                    of an electric or gas water heater with:
+                    <ul>
+                      <li>an air source heat pump or </li>
+                      <li>a solar electric-boosted water heater</li>
+                    </ul>
                   </p>
                 </div>
               </div>

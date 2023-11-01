@@ -172,8 +172,8 @@ export default function CertificateEstimatorResidentialSolarWaterHeater(props) {
           alt: 'commercial wh',
           src: 'D17cropped,optimised).jpg',
         }}
-        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard certificate estimator"
+        intro="Residential and small business"
+        title="Gas water heater replacement with a solar electric boosted water heater - certificates"
       />
 
       <div className="nsw-container">
@@ -200,7 +200,8 @@ export default function CertificateEstimatorResidentialSolarWaterHeater(props) {
                 existing electric water heater with a solar electric-boosted water heater.
                 <p className="nsw-content-block__copy">
                   Note that this activity is only eligible for the Energy Savings Scheme, and is not
-                  eligible for the Peak Demand Reduction scheme. As this is a replacement activity, installation of a new water heater will not generate certificates.
+                  eligible for the Peak Demand Reduction scheme. As this is a replacement activity,
+                  installation of a new water heater will not generate certificates.
                 </p>
               </p>
               <p className="nsw-content-block__copy">
