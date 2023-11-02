@@ -209,8 +209,8 @@ export default function CertificateEstimatorRC(props) {
           alt: 'RF2',
           src: '/CommercialRefrigeratedCabinet.jpg',
         }}
-        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard certificate estimator"
+        intro="Commercial"
+        title="Refrigerated cabinet - certificates"
       />
 
       <div className="nsw-container">

@@ -189,8 +189,8 @@ export default function CertificateEstimatorPP(props) {
           alt: 'pool pumps',
           src: 'ResidentialPoolPumps.jpg',
         }}
-        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard certificate estimator"
+        intro="Residential and small business"
+        title="Pool pump - certificates"
       />
 
       <div className="nsw-container">
