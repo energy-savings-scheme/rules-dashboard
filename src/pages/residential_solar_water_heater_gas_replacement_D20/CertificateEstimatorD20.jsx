@@ -183,10 +183,9 @@ export default function CertificateEstimatorResidentialGasReplacementSolarWaterH
         {stepNumber !== 3 && (
           <div className="nsw-grid nsw-grid--spaced">
             {' '}
-             
             <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">
-                Residential and small business solar water heater certificate estimator
+                Solar water heater certificate estimator
               </h2>
               <br></br>
               <p className="nsw-content-block__copy">
@@ -229,7 +228,7 @@ export default function CertificateEstimatorResidentialGasReplacementSolarWaterH
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">
-                Residential and small business solar water heater certificate estimator
+                Solar water heater certificate estimator
               </h2>
             </div>
           </div>
