@@ -156,7 +156,7 @@ export default function ActivityRequirementsD17(props) {
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-12">
               <h2 className="nsw-content-block__title">
-                Residential electric heat pump water heater activity eligibility check
+                Electric heat pump water heater activity eligibility check
               </h2>
               <br></br>
               <p className="nsw-content-block__copy">
@@ -189,7 +189,7 @@ export default function ActivityRequirementsD17(props) {
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-12">
               <h2 className="nsw-content-block__title">
-                Residential electric heat pump water heater activity eligibility check
+                Electric heat pump water heater activity eligibility check
               </h2>
             </div>
           </div>

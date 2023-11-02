@@ -184,7 +184,7 @@ export default function CertificateEstimatorElectricHeatPump(props) {
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">
-                Residential electric heat pump certificate estimator
+                Electric heat pump certificate estimator
               </h2>
               {/* <h5 className="nsw-content-block__copy">
               Energy Savings Scheme and Peak Demand Reduction Scheme
@@ -230,7 +230,7 @@ export default function CertificateEstimatorElectricHeatPump(props) {
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">
-                Residential electric heat pump water heater certificate estimator
+                Electric heat pump water heater certificate estimator
               </h2>
             </div>
           </div>
