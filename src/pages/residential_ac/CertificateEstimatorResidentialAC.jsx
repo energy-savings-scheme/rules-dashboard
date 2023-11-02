@@ -217,8 +217,8 @@ export default function CertificateEstimatorResidentialAC(props) {
           alt: 'res ac',
           src: 'ResidentialAC.jpg',
         }}
-        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard certificate estimator"
+        intro="Residential and small business"
+        title="Air conditioner - certificates"
       />
 
       <div className="nsw-container">

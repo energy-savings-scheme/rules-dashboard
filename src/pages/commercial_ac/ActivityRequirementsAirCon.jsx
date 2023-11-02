@@ -144,8 +144,8 @@ export default function ActivityRequirementsCommercialAC(props) {
           alt: 'commercial ac',
           src: 'base_elig_hero.jpg',
         }}
-        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard certificate estimator"
+        intro="Commercial"
+        title="Air conditioner - eligibility"
       />
 
       <div className="nsw-container" style={{ marginBottom: '10%' }}>

@@ -92,8 +92,8 @@ export default function CertificateEstimatorMotors(props) {
           alt: 'commercial motors',
           src: 'CommercialVentilationRefrigeration.jpeg',
         }}
-        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard certificate estimator"
+        intro="Commercial"
+        title="Motors - certificates"
       />
 
       <div className="nsw-container">

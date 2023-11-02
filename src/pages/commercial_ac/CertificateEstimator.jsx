@@ -214,8 +214,8 @@ export default function CertificateEstimatorHVAC(props) {
           alt: 'commercial ac',
           src: '/commercialac/HVAC2Hero.jpeg',
         }}
-        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard certificate estimator"
+        intro="Commercial"
+        title="Air conditioner - certificates"
       />
 
       <div className="nsw-container">
