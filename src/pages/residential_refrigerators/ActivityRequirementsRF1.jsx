@@ -128,8 +128,8 @@ export default function ActivityRequirementsRF1(props) {
           alt: 'commercial ac',
           src: 'base_elig_hero.jpg',
         }}
-        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard certificate estimator"
+        intro="Residential and small business"
+        title="Spare refrigerator or freezer - eligibility"
       />
 
       <div className="nsw-container" style={{ marginBottom: '10%' }}>

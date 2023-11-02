@@ -173,8 +173,8 @@ export default function CertificateEstimatorWH(props) {
           alt: 'commercial wh',
           src: '/commercial_wh/WH1_Activity_Page_Hero.jpeg',
         }}
-        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard certificate estimator"
+        intro="Commercial"
+        title="Heat pump - certificates"
       />
 
       <div className="nsw-container">

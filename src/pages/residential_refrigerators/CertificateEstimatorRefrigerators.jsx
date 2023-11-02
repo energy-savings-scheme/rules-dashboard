@@ -81,8 +81,8 @@ export default function CertificateEstimatorRefrigerators(props) {
           alt: 'res ref',
           src: 'ResidentialFridgeFreezerRemoval.jpeg',
         }}
-        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard certificate estimator"
+        intro="Residential and small business"
+        title="Spare refrigerator or freezer - certificates"
       />
 
       <div className="nsw-container">
