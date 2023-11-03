@@ -223,7 +223,7 @@ export default function CertificateEstimatorElectricHeatPump(props) {
             </div>
           </div>
         )}
-{/* 
+        {/* 
         {stepNumber === 3 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
