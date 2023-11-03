@@ -227,9 +227,7 @@ export default function CertificateEstimatorResidentialAC(props) {
         {stepNumber !== 3 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
-              <h2 className="nsw-content-block__title">
-                Air Conditioner certificate estimator
-              </h2>
+              <h2 className="nsw-content-block__title">Air Conditioner certificate estimator</h2>
               <br></br>
               <p className="nsw-content-block__copy">
                 Answer the following questions to estimate the energy savings certificates (ESCs)
@@ -269,9 +267,7 @@ export default function CertificateEstimatorResidentialAC(props) {
         {stepNumber === 3 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
-              <h2 className="nsw-content-block__title">
-                Air Conditioner certificate estimator
-              </h2>
+              <h2 className="nsw-content-block__title">Air Conditioner certificate estimator</h2>
             </div>
           </div>
         )}
