@@ -184,7 +184,7 @@ export default function ActivityRequirementsD17(props) {
             </div>
           </div>
         )}
-{/* 
+        {/* 
         {stepNumber === 2 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-12">
