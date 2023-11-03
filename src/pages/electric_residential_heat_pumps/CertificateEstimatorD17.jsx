@@ -183,9 +183,7 @@ export default function CertificateEstimatorElectricHeatPump(props) {
         {stepNumber !== 3 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
-              <h2 className="nsw-content-block__title">
-                Electric heat pump certificate estimator
-              </h2>
+              <h2 className="nsw-content-block__title">Electric heat pump certificate estimator</h2>
               {/* <h5 className="nsw-content-block__copy">
               Energy Savings Scheme and Peak Demand Reduction Scheme
             </h5> */}

@@ -93,7 +93,7 @@ export default function CertificateEstimatorRefrigerators(props) {
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">
-                Residential and Small Business Spare Refrigerator or Freezer Removal certificate
+                Spare Refrigerator or Freezer Removal certificate
                 estimator
               </h2>
               <br></br>
@@ -128,7 +128,7 @@ export default function CertificateEstimatorRefrigerators(props) {
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-12">
               <h2 className="nsw-content-block__title">
-                Residential and Small Business Spare Refrigerator or Freezer Removal certificate
+                Spare Refrigerator or Freezer Removal certificate
                 estimator
               </h2>
             </div>
