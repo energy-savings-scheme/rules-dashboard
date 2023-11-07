@@ -182,7 +182,7 @@ export default function EligibilityPage(props) {
                 </div>
                 <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
                   <ContentBlock
-                    copy="Replace an existing water heater with an (air source) heat pump or solar (electric boosted) water heater"
+                    copy="Replace an existing gas or electric water heater with an (air source) heat pump or solar (electric boosted) water heater"
                     headline="Hot water heater"
                     image="HotWaterTile.jpg"
                     links={[

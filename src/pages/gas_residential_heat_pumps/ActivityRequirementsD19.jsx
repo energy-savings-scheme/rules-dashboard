@@ -155,9 +155,9 @@ export default function ActivityRequirementsD19(props) {
         {stepNumber !== 2 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-12">
-              <h2 className="nsw-content-block__title">
-                Residential gas heat pump water heater activity eligibility check
-              </h2>
+              {/* <h2 className="nsw-content-block__title">
+                Gas heat pump water heater activity eligibility check
+              </h2> */}
               <br></br>
               <p className="nsw-content-block__copy">
                 Answer the following questions to check if you meet the eligibility requirements for
@@ -185,15 +185,15 @@ export default function ActivityRequirementsD19(props) {
           </div>
         )}
 
-        {stepNumber === 2 && (
+        {/* {stepNumber === 2 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-12">
               <h2 className="nsw-content-block__title">
-                Residential gas heat pump water heater activity eligibility check
+                Gas heat pump water heater activity eligibility check
               </h2>
             </div>
           </div>
-        )}
+        )} */}
 
         <ProgressIndicator step={stepNumber} of={2} style={{ width: '80%' }} />
 

@@ -157,7 +157,7 @@ export default function ActivityRequirementsResAC(props) {
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">
-                Residential and Small Business Air Conditioner activity eligibility check
+                Air Conditioner activity eligibility check
               </h2>
               <br></br>
               <p className="nsw-content-block__copy">
@@ -194,7 +194,7 @@ export default function ActivityRequirementsResAC(props) {
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">
-                Residential and Small Business Air Conditioner activity eligibility check
+                Air Conditioner activity eligibility check
               </h2>
             </div>
           </div>

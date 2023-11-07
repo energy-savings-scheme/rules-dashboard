@@ -183,11 +183,8 @@ export default function CertificateEstimatorResidentialGasReplacementSolarWaterH
         {stepNumber !== 3 && (
           <div className="nsw-grid nsw-grid--spaced">
             {' '}
-             
             <div className="nsw-col nsw-col-md-10">
-              <h2 className="nsw-content-block__title">
-                Residential and small business solar water heater certificate estimator
-              </h2>
+              {/* <h2 className="nsw-content-block__title">Solar water heater certificate estimator</h2> */}
               <br></br>
               <p className="nsw-content-block__copy">
                 Estimate the energy savings certificates (ESCs) for the residential and small
@@ -225,15 +222,13 @@ export default function CertificateEstimatorResidentialGasReplacementSolarWaterH
           </div>
         )}
 
-        {stepNumber === 3 && (
+        {/* {stepNumber === 3 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
-              <h2 className="nsw-content-block__title">
-                Residential and small business solar water heater certificate estimator
-              </h2>
+              <h2 className="nsw-content-block__title">Solar water heater certificate estimator</h2>
             </div>
           </div>
-        )}
+        )} */}
 
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
