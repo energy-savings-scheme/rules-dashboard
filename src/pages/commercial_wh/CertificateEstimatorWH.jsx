@@ -166,22 +166,22 @@ export default function CertificateEstimatorWH(props) {
     <Fragment>
       {/* Search section */}
       <br></br>
-      {/* <HeroBanner
+      <HeroBanner
         wide
         style="dark"
         image={{
           alt: 'commercial wh',
           src: '/commercial_wh/WH1_Activity_Page_Hero.jpeg',
         }}
-        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard certificate estimator"
-      /> */}
+        intro="Commercial"
+        title="Heat pump - certificates"
+      />
 
       <div className="nsw-container">
         <br></br>
         <br></br>
 
-        {/* {stepNumber !== 3 && (
+        {stepNumber !== 3 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">
@@ -234,7 +234,7 @@ export default function CertificateEstimatorWH(props) {
               </h2>
             </div>
           </div>
-        )} */}
+        )}
 
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 

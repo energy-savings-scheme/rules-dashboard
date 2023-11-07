@@ -142,21 +142,21 @@ export default function ActivityRequirementsSYS1(props) {
     <Fragment>
       {/* Search section */}
       <br></br>
-      {/* <HeroBanner
+      <HeroBanner
         wide
         style="dark"
         image={{
           alt: 'commercial ac',
           src: 'base_elig_hero.jpg',
         }}
-        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard certificate estimator"
-      /> */}
+        intro="Commercial"
+        title="Motors - eligibility"
+      />
 
       <div className="nsw-container" style={{ marginBottom: '10%' }}>
         <br></br>
         <br></br>
-        {/* {stepNumber !== 2 && (
+        {stepNumber !== 2 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-12">
               <h2 className="nsw-content-block__title">
@@ -201,7 +201,7 @@ export default function ActivityRequirementsSYS1(props) {
               </h2>
             </div>
           </div>
-        )} */}
+        )}
 
         <ProgressIndicator step={stepNumber} of={2} style={{ width: '80%' }} />
 
@@ -226,7 +226,7 @@ export default function ActivityRequirementsSYS1(props) {
           )}
         </Fragment>
       </div>
-      {/* <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
+      <section class="nsw-section nsw-section--off-white" style={{ backgroundColor: '#F5F5F5' }}>
         <div class="nsw-container" style={{ paddingBottom: '4rem' }}>
           <div class="nsw-layout">
             <div class="nsw-layout__main">
@@ -242,30 +242,27 @@ export default function ActivityRequirementsSYS1(props) {
                     headline="Review schemes base eligibility, activity requirements and estimate certificates"
                     link="base_eligibility_commercialac/"
                     image="/commercialac/navigation_row/full_flow_card.jpeg"
-                  >
-                  </Card>
+                  ></Card>
                 </div>
                 <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Check activity requirements and estimate certificates"
                     link="activity-requirements/"
                     image="/commercialac/navigation_row/activity_certificates.png"
-                  >
-                  </Card>
+                  ></Card>
                 </div>
                 <div className="nsw-col nsw-col-md-4">
                   <Card
                     headline="Estimate certificates only"
                     link="compare2activities"
                     image="/commercialac/navigation_row/certificates_only.jpg"
-                  >
-                  </Card>
+                  ></Card>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
     </Fragment>
   );
 }

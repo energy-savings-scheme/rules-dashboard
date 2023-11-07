@@ -110,34 +110,32 @@ export default function CertificateEstimatorPP(props) {
     }
   }, [postcode]);
 
-
   const validatePostcode = (postcode) => {
-    if (['2817', '2818', '2819'].includes(postcode)){
+    if (['2817', '2818', '2819'].includes(postcode)) {
       setFlow(null);
       setStepNumber(stepNumber + 1);
       setShowPostcodeError(false);
     } else {
-    RegistryApi.getPostcodeValidation(postcode)
-      .then((res) => {
-        const persons = res.data;
-        console.log(res);
-        if (
-          (persons.status === '200') &
-          (persons.data.postcode === postcode) &
-          (persons.data.state === 'NSW')
-        ) {
-          setFlow(null);
-          setStepNumber(stepNumber + 1);
-          setShowPostcodeError(false);
-        }
-        else {
+      RegistryApi.getPostcodeValidation(postcode)
+        .then((res) => {
+          const persons = res.data;
+          console.log(res);
+          if (
+            (persons.status === '200') &
+            (persons.data.postcode === postcode) &
+            (persons.data.state === 'NSW')
+          ) {
+            setFlow(null);
+            setStepNumber(stepNumber + 1);
+            setShowPostcodeError(false);
+          } else {
+            setShowPostcodeError(true);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
           setShowPostcodeError(true);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        setShowPostcodeError(true);
-      });
+        });
     }
   };
 
@@ -184,21 +182,21 @@ export default function CertificateEstimatorPP(props) {
   return (
     <Fragment>
       <br></br>
-      {/* <HeroBanner
+      <HeroBanner
         wide
         style="dark"
         image={{
           alt: 'pool pumps',
           src: 'ResidentialPoolPumps.jpg',
         }}
-        intro="Energy Savings Scheme and Peak Demand Reduction Scheme"
-        title="Safeguard certificate estimator"
-      /> */}
+        intro="Residential and small business"
+        title="Pool pump - certificates"
+      />
 
       <div className="nsw-container">
         <br></br>
         <br></br>
-        {/* {stepNumber !== 3 && (
+        {stepNumber !== 3 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-10">
               <h2 className="nsw-content-block__title">
@@ -248,7 +246,7 @@ export default function CertificateEstimatorPP(props) {
               </h2>
             </div>
           </div>
-        )} */}
+        )}
 
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 

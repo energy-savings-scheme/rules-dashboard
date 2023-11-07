@@ -116,6 +116,20 @@ export default function CertificateEstimationPage(props) {
                     ]}
                   />
                 </div>
+
+                <div class="nsw-col nsw-col-md-6 nsw-col-lg-4" style={{ backgroundColor: 'white' }}>
+                  <ContentBlock
+                    copy="Replace an existing gas or electric water heater with an (air source) heat pump or solar (electric boosted) water heater"
+                    headline="Hot water heater"
+                    image="HotWaterTile.jpg"
+                    links={[
+                      {
+                        href: '#hot-water-heater-certificate',
+                        title: 'Estimate Scheme Certificates',
+                      },
+                    ]}
+                  />
+                </div>
               </div>
             </div>
           </div>

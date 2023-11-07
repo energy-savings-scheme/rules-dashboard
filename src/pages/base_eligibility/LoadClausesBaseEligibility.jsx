@@ -31,7 +31,7 @@ export default function LoadClausesBaseEligibility(props) {
 
   console.log(variableToLoad);
 
-  // const [dropdownOptions, setDropdownOptions] = useState([{}]);
+  const [dropdownOptions, setDropdownOptions] = useState([{}]);
   // const [stepNumber, setStepNumber] = useState(1);
   const [variable, setVariable] = useState({}); // all info about variable
 
@@ -92,62 +92,8 @@ export default function LoadClausesBaseEligibility(props) {
   return (
     <div className style={{ marginBottom: '7%' }}>
       <div>
-        {stepNumber === 1 && (
-          <Fragment>
-            <div className="nsw-row">
-              <div className="nsw-col">
-                <br></br>
-                <div className="nsw-content-block">
-                  <div className="nsw-content-block__content">
-                    {/* <h3 className="nsw-content-block__title">
-                      What would you like to calculate savings for?
-                    </h3>
-
-                    <FormGroupSelect
-                      label="What activity are you calculating savings for?" // primary label
-                      helper="Select a variable below." // helper text (secondary label)
-                      options={dropdownOptions}
-                      value={variable.name}
-                      onChange={(e) => {
-                        setVariable(variables.find((item) => item.name === e.target.value));
-                      }}
-                    ></FormGroupSelect>
-                    <FormGroup
-                      label="What is the activity date?"
-                      helper="What date did the energy saving activity occur?"
-                      errorText="The date provided is invalid!"
-                      status={dateInvalid && 'invalid'}
-                    >
-                      <TextInput
-                        as="input"
-                        type="date"
-                        status={dateInvalid && 'invalid'}
-                        placeholder="Enter value"
-                        value={calculationDate}
-                        onChange={(e) => setCalculationDate(e.target.value)}
-                      />
-                    </FormGroup> */}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* <div className="nsw-row">
-              <div className="nsw-col">
-                <Button
-                  as="primary"
-                  onClick={(e) => {
-                    setStepNumber(stepNumber + 1);
-                  }}
-                  style={{ float: 'right' }}
-                >
-                  Check Schemes Base Eligibility
-                </Button>
-              </div>
-            </div> */}
-          </Fragment>
-        )}
-
+        <br></br>
+        <br></br>
         {stepNumber === 1 && (
           <Fragment>
             <CalculateBlock
@@ -249,7 +195,7 @@ export default function LoadClausesBaseEligibility(props) {
                 />
               </div>
 
-              {/* <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
+              <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
                 <h4>More options</h4>
                 <br></br>
                 <div class="nsw-grid nsw-grid--spaced">
@@ -291,7 +237,7 @@ export default function LoadClausesBaseEligibility(props) {
                     </div>
                   </div>
                 </div>
-              </div> */}
+              </div>
             </div>
           </Fragment>
         )}

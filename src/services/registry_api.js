@@ -69,6 +69,49 @@ function getRF2ModelsMetadata(payload) {
   });
 }
 
+function getResidentialHeatPumpBrands() {
+  return RegistryApiBase({
+    url: `/residential_heat_pumps/brands`,
+    method: 'GET',
+  });
+}
+
+function getResidentialHeatPumpModels(brandName) {
+  return RegistryApiBase({
+    url: `/residential_heat_pumps/brands/${brandName}/models`,
+    method: 'GET',
+  });
+}
+
+function getResidentialHeatPumpModelsMetadata(payload) {
+  return RegistryApiBase({
+    url: `/residential_heat_pumps/metadata`,
+    method: 'POST',
+    data: payload,
+  });
+}
+function getResidentialSolarWaterHeaterBrands() {
+  return RegistryApiBase({
+    url: `/residential_solar_water_heater/brands`,
+    method: 'GET',
+  });
+}
+
+function getResidentialSolarWaterHeaterModels(brandName) {
+  return RegistryApiBase({
+    url: `/residential_solar_water_heater/brands/${brandName}/models`,
+    method: 'GET',
+  });
+}
+
+function getResidentialSolarWaterHeaterMetadata(payload) {
+  return RegistryApiBase({
+    url: `/residential_solar_water_heater/metadata`,
+    method: 'POST',
+    data: payload,
+  });
+}
+
 function getPoolPumpBrands() {
   return RegistryApiBase({
     url: `/pool_pumps/brands`,
@@ -112,6 +155,12 @@ const RegistryApi = {
   listPoolPumpModels,
   getPoolPumpMetadata,
   getPostcodeValidation,
+  getResidentialHeatPumpBrands,
+  getResidentialHeatPumpModels,
+  getResidentialHeatPumpModelsMetadata,
+  getResidentialSolarWaterHeaterBrands,
+  getResidentialSolarWaterHeaterModels,
+  getResidentialSolarWaterHeaterMetadata,
 };
 
 export default RegistryApi;

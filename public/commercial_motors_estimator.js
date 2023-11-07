@@ -18417,8 +18417,8 @@
         i = n.n(a),
         r = n(44),
         c = n.n(r),
-        s = n(2),
-        l = n(3),
+        l = n(2),
+        s = n(3),
         o = n(14),
         u = n(8),
         d = n.n(u),
@@ -18502,8 +18502,8 @@
             i = e.as,
             r = e.type,
             c = e.block,
-            s = e.className,
-            o = void 0 === s ? '' : s,
+            l = e.className,
+            o = void 0 === l ? '' : l,
             u = Object(v.a)(e, O);
           if (n) {
             var d = t;
@@ -18511,8 +18511,8 @@
               'a' === d ? (u.href = n) : 'function' === typeof d && (u.to = n),
               Object(g.jsx)(
                 d,
-                Object(l.a)(
-                  Object(l.a)(
+                Object(s.a)(
+                  Object(s.a)(
                     {
                       className: 'nsw-button '
                         .concat(o, ' nsw-button--')
@@ -18529,8 +18529,8 @@
           }
           return Object(g.jsx)(
             'button',
-            Object(l.a)(
-              Object(l.a)(
+            Object(s.a)(
+              Object(s.a)(
                 {
                   type: r,
                   className: 'nsw-button '
@@ -18562,11 +18562,11 @@
             i = e.children,
             r = e.className,
             c = void 0 === r ? '' : r,
-            s = Object(v.a)(e, C);
+            l = Object(v.a)(e, C);
           return Object(g.jsxs)(
             'div',
-            Object(l.a)(
-              Object(l.a)({ className: 'nsw-in-page-alert '.concat(c, ' ').concat(S[a]) }, s),
+            Object(s.a)(
+              Object(s.a)({ className: 'nsw-in-page-alert '.concat(c, ' ').concat(S[a]) }, l),
               {},
               {
                 children: [
@@ -18606,7 +18606,7 @@
           withCredentials: !1,
         });
       console.log('https://essestimator-uat.azurewebsites.net');
-      var k = function (e) {
+      var F = function (e) {
         return P(e)
           .then(function (e) {
             return e;
@@ -18623,45 +18623,45 @@
             );
           });
       };
-      var F = {
+      var k = {
         getCommercialHVACBrands: function () {
-          return k({ url: '/commercial_hvac/brands', method: 'GET' });
+          return F({ url: '/commercial_hvac/brands', method: 'GET' });
         },
         getCommercialWHBrands: function () {
-          return k({ url: '/commercial_wh/brands', method: 'GET' });
+          return F({ url: '/commercial_wh/brands', method: 'GET' });
         },
         listHvacModels: function (e) {
-          return k({ url: '/commercial_hvac/brands/'.concat(e, '/models'), method: 'GET' });
+          return F({ url: '/commercial_hvac/brands/'.concat(e, '/models'), method: 'GET' });
         },
         getHvacModelsMetadata: function (e) {
-          return k({ url: '/commercial_hvac/metadata', method: 'POST', data: e });
+          return F({ url: '/commercial_hvac/metadata', method: 'POST', data: e });
         },
         listWHModels: function (e) {
-          return k({ url: '/commercial_wh/brands/'.concat(e, '/models'), method: 'GET' });
+          return F({ url: '/commercial_wh/brands/'.concat(e, '/models'), method: 'GET' });
         },
         getWHModelsMetadata: function (e) {
-          return k({ url: '/commercial_wh/metadata', method: 'POST', data: e });
+          return F({ url: '/commercial_wh/metadata', method: 'POST', data: e });
         },
         getRF2Brands: function () {
-          return k({ url: '/refrigerated_cabinets/brands', method: 'GET' });
+          return F({ url: '/refrigerated_cabinets/brands', method: 'GET' });
         },
         listRF2Models: function (e) {
-          return k({ url: '/refrigerated_cabinets/brands/'.concat(e, '/models'), method: 'GET' });
+          return F({ url: '/refrigerated_cabinets/brands/'.concat(e, '/models'), method: 'GET' });
         },
         getRF2ModelsMetadata: function (e) {
-          return k({ url: '/refrigerated_cabinets/metadata', method: 'POST', data: e });
+          return F({ url: '/refrigerated_cabinets/metadata', method: 'POST', data: e });
         },
         getPoolPumpBrands: function () {
-          return k({ url: '/pool_pumps/brands', method: 'GET' });
+          return F({ url: '/pool_pumps/brands', method: 'GET' });
         },
         listPoolPumpModels: function (e) {
-          return k({ url: '/pool_pumps/brands/'.concat(e, '/models'), method: 'GET' });
+          return F({ url: '/pool_pumps/brands/'.concat(e, '/models'), method: 'GET' });
         },
         getPoolPumpMetadata: function (e) {
-          return k({ url: '/pool_pumps/metadata', method: 'POST', data: e });
+          return F({ url: '/pool_pumps/metadata', method: 'POST', data: e });
         },
         getPostcodeValidation: function (e) {
-          return k({ url: '/postcode/'.concat(e), method: 'GET' });
+          return F({ url: '/postcode/'.concat(e), method: 'GET' });
         },
       };
       function E(e) {
@@ -18670,7 +18670,7 @@
           i = e.entities,
           r = e.calculationDate,
           c = (e.calculationResult, e.setCalculationResult),
-          l = e.setCalculationError,
+          s = e.setCalculationError,
           o = e.setCalculationError2,
           u = e.stepNumber,
           d = e.setStepNumber,
@@ -18680,11 +18680,11 @@
           h = (e.setFormValues, e.persistFormValues, e.setPersistFormValues),
           j = e.formValues,
           v = Object(a.useState)(!1),
-          O = Object(s.a)(v, 2),
+          O = Object(l.a)(v, 2),
           x = O[0],
           C = O[1],
           S = Object(a.useState)(!1),
-          N = Object(s.a)(S, 2),
+          N = Object(l.a)(S, 2),
           y = N[0],
           A = N[1];
         Object(a.useEffect)(function () {
@@ -18706,11 +18706,11 @@
         console.log(t), console.log(n);
         return Object(g.jsxs)('form', {
           onSubmit: function (e) {
-            e.preventDefault(), C(!0), l(!0), n && o(!0);
+            e.preventDefault(), C(!0), s(!0), n && o(!0);
             var a = i.find(function (e) {
                 return e.name === t.entity;
               }),
-              s = r;
+              l = r;
             j = j.filter(function (e) {
               return 'Implementation Date' !== e.name;
             });
@@ -18720,7 +18720,7 @@
               Object(m.a)(
                 {},
                 ''.concat(a.name, '_1'),
-                Object(m.a)({}, t.name, Object(m.a)({}, s, null)),
+                Object(m.a)({}, t.name, Object(m.a)({}, l, null)),
               ),
             );
             if (
@@ -18735,7 +18735,7 @@
                       });
                       v[t.plural][''.concat(t.name, '_1')][''.concat(e.name)] = Object(m.a)(
                         {},
-                        s,
+                        l,
                         P(e).form_value,
                       );
                     })
@@ -18745,7 +18745,7 @@
                     });
                     v[t.plural][''.concat(t.name, '_1')][''.concat(e.name)] = Object(m.a)(
                       {},
-                      s,
+                      l,
                       P(e).form_value,
                     );
                   }),
@@ -18754,11 +18754,11 @@
               p
                 .postCalculate(v)
                 .then(function (e) {
-                  var n = e.data[a.plural][''.concat(a.name, '_1')][t.name][s];
-                  c(n), l(!1), C(!0);
+                  var n = e.data[a.plural][''.concat(a.name, '_1')][t.name][l];
+                  c(n), s(!1), C(!0);
                 })
                 .catch(function (e) {
-                  c(null), l(!0);
+                  c(null), s(!0);
                 })
                 .finally(function () {
                   C(!1);
@@ -18774,7 +18774,7 @@
                   Object(m.a)(
                     {},
                     ''.concat(g.name, '_1'),
-                    Object(m.a)({}, n.name, Object(m.a)({}, s, null)),
+                    Object(m.a)({}, n.name, Object(m.a)({}, l, null)),
                   ),
                 );
               j.map(function (e) {
@@ -18783,7 +18783,7 @@
                 });
                 O[t.plural][''.concat(t.name, '_1')][''.concat(e.name)] = Object(m.a)(
                   {},
-                  s,
+                  l,
                   P(e).form_value,
                 );
               }),
@@ -18791,7 +18791,7 @@
                 p
                   .postCalculate(O)
                   .then(function (e) {
-                    var t = e.data[g.plural][''.concat(g.name, '_1')][n.name][s];
+                    var t = e.data[g.plural][''.concat(g.name, '_1')][n.name][l];
                     console.log(e.data), _(t), o(!1);
                   })
                   .catch(function (e) {
@@ -18806,7 +18806,8 @@
                   ('RF1_PDRS__postcode' !== e.name && 'SYS1_PDRS__postcode' !== e.name) ||
                     (['2817', '2818', '2819'].includes(e.form_value)
                       ? (b(null), d(u + 1), A(!1))
-                      : F.getPostcodeValidation(e.form_value)
+                      : k
+                          .getPostcodeValidation(e.form_value)
                           .then(function (t) {
                             var n = t.data;
                             console.log(t),
@@ -18943,8 +18944,8 @@
             r = Object(v.a)(e, q);
           return Object(g.jsxs)(
             'span',
-            Object(l.a)(
-              Object(l.a)(
+            Object(s.a)(
+              Object(s.a)(
                 {
                   id: ''.concat('invalid' === i ? 'error' : 'helper').concat(t),
                   className: 'nsw-form__helper '
@@ -18980,8 +18981,8 @@
           i = Object(v.a)(e, B);
         return Object(g.jsx)(
           'label',
-          Object(l.a)(
-            Object(l.a)({ htmlFor: t, className: 'nsw-form__label '.concat(a) }, i),
+          Object(s.a)(
+            Object(s.a)({ htmlFor: t, className: 'nsw-form__label '.concat(a) }, i),
             {},
             { children: n },
           ),
@@ -18994,20 +18995,20 @@
           a = e.status,
           r = e.children,
           c = e.label,
-          s = e.helper,
+          l = e.helper,
           o = e.statusText,
           u = e.error,
           d = e.className,
           m = Object(v.a)(e, T);
         return Object(g.jsxs)(
           'div',
-          Object(l.a)(
-            Object(l.a)({ className: 'nsw-form__group '.concat(d) }, m),
+          Object(s.a)(
+            Object(s.a)({ className: 'nsw-form__group '.concat(d) }, m),
             {},
             {
               children: [
                 Object(g.jsx)(D, { htmlFor: n, text: c }),
-                s ? Object(g.jsx)(z, { htmlId: n, children: s }) : '',
+                l ? Object(g.jsx)(z, { htmlId: n, children: l }) : '',
                 i.a.Children.map(r, function (e) {
                   return i.a.cloneElement(e, { error: u });
                 }),
@@ -19026,14 +19027,14 @@
             i = e.number,
             r = e.htmlId,
             c = e.type,
-            s = void 0 === c ? 'text' : c,
+            l = void 0 === c ? 'text' : c,
             o = e.className,
             u = void 0 === o ? '' : o,
             d = Object(v.a)(e, G);
           return 'textarea' === t
             ? Object(g.jsx)(
                 'textarea',
-                Object(l.a)(
+                Object(s.a)(
                   {
                     className:
                       'nsw-form__input '.concat(u) +
@@ -19049,8 +19050,8 @@
               )
             : Object(g.jsx)(
                 'input',
-                Object(l.a)(
-                  Object(l.a)(
+                Object(s.a)(
+                  Object(s.a)(
                     {
                       className:
                         'nsw-form__input '.concat(u) +
@@ -19062,7 +19063,7 @@
                         'invalid' === n
                           ? 'helper'.concat(r, ' error').concat(r)
                           : 'helper'.concat(r),
-                      type: s,
+                      type: l,
                     },
                     d,
                   ),
@@ -19087,11 +19088,11 @@
             i = (e.block, e.status),
             r = e.className,
             c = void 0 === r ? '' : r,
-            s = Object(v.a)(e, L);
+            l = Object(v.a)(e, L);
           return Object(g.jsx)(
             'select',
-            Object(l.a)(
-              Object(l.a)(
+            Object(s.a)(
+              Object(s.a)(
                 {
                   className: 'nsw-form__select '.concat(c),
                   'aria-invalid': 'invalid' === i ? 'true' : '',
@@ -19100,12 +19101,12 @@
                   id: t,
                   defaultValue: n,
                 },
-                s,
+                l,
               ),
               {},
               {
                 children: a.map(function (e) {
-                  return Object(g.jsx)(U, Object(l.a)({}, e), e.value);
+                  return Object(g.jsx)(U, Object(s.a)({}, e), e.value);
                 }),
               },
             ),
@@ -19118,13 +19119,13 @@
             i = e.label,
             r = e.helper,
             c = e.options,
-            s = e.htmlId;
+            l = e.htmlId;
           return Object(g.jsx)(M, {
             status: t,
             statusText: a,
             label: i,
             helper: r,
-            htmlId: s,
+            htmlId: l,
             children: Object(g.jsx)(K, { options: c, selected: n }),
           });
         };
@@ -19137,7 +19138,7 @@
             a = e.value,
             r = e.status,
             c = (e.as, e.uniqueID),
-            s = void 0 === c ? I()() : c,
+            l = void 0 === c ? I()() : c,
             o = e.checked,
             u = void 0 === o ? '' : o,
             d = Object(v.a)(e, X);
@@ -19145,14 +19146,14 @@
             children: [
               Object(g.jsx)(
                 'input',
-                Object(l.a)(
+                Object(s.a)(
                   {
                     className: 'nsw-form__radio-input',
                     type: 'radio',
                     name: n,
                     'aria-describedby':
                       'invalid' === r ? 'helper'.concat(n, ' error').concat(n) : 'helper'.concat(n),
-                    id: s,
+                    id: l,
                     value: a,
                     checked: u,
                   },
@@ -19162,7 +19163,7 @@
               Object(g.jsx)('label', {
                 style: { display: 'inline-block', marginRight: '100px' },
                 className: 'nsw-form__radio-label',
-                for: s,
+                for: l,
                 children: t,
               }),
             ],
@@ -19202,8 +19203,8 @@
                   children: e.options.map(function (t, n) {
                     return Object(g.jsx)(
                       Z,
-                      Object(l.a)(
-                        Object(l.a)({}, t),
+                      Object(s.a)(
+                        Object(s.a)({}, t),
                         {},
                         {
                           checked: e.form_value === t.value,
@@ -19233,8 +19234,8 @@
             a = Object(v.a)(e, ee);
           return Object(g.jsxs)(
             'div',
-            Object(l.a)(
-              Object(l.a)({ className: 'nsw-progress-indicator' }, a),
+            Object(s.a)(
+              Object(s.a)({ className: 'nsw-progress-indicator' }, a),
               {},
               {
                 children: [
@@ -19344,14 +19345,14 @@
           })
         );
       }
-      function se(e) {
+      function le(e) {
         e.variables;
         var t = e.variable,
           n = e.variable2,
           i = e.entities,
           r = e.calculationDate,
           c = void 0 === r ? '2021-01-01' : r,
-          s = e.calculationResult,
+          l = e.calculationResult,
           u = e.calculationResult2,
           d = e.setCalculationResult,
           m = e.setCalculationResult2,
@@ -19391,7 +19392,7 @@
           entities: i,
           formValues: j,
           setFormValues: p,
-          calculationResult: s,
+          calculationResult: l,
           calculationResult2: u,
           setCalculationResult: d,
           setCalculationResult2: m,
@@ -19413,7 +19414,7 @@
           children: j.map(function (e, t) {
             return (function (e) {
               j.map(function (e) {
-                return Object(l.a)({}, e);
+                return Object(s.a)({}, e);
               }),
                 console.log(v),
                 'Base_meets_mandatory_requirement' !== e.name ||
@@ -19955,12 +19956,12 @@
                 var c = Object(o.a)(j).map(function (n) {
                   return n.name === e.name
                     ? 'Boolean' === e.value_type
-                      ? Object(l.a)(
-                          Object(l.a)({}, n),
+                      ? Object(s.a)(
+                          Object(s.a)({}, n),
                           {},
                           { form_value: 'true' === t.target.value },
                         )
-                      : Object(l.a)(Object(l.a)({}, n), {}, { form_value: t.target.value })
+                      : Object(s.a)(Object(s.a)({}, n), {}, { form_value: t.target.value })
                     : n;
                 });
                 p(c);
@@ -19997,7 +19998,7 @@
         });
       }
       n(13);
-      var le = [
+      var se = [
           'link',
           'style',
           'headline',
@@ -20021,18 +20022,18 @@
             i = e.highlight,
             r = e.tag,
             c = e.date,
-            s = e.image,
+            l = e.image,
             o = e.imageAlt,
             u = e.className,
             d = e.children,
-            m = Object(v.a)(e, le),
+            m = Object(v.a)(e, se),
             _ = 'div';
           return (
             void 0 !== t && ((_ = 'div'), (m.href = t)),
             Object(g.jsxs)(
               _,
-              Object(l.a)(
-                Object(l.a)(
+              Object(s.a)(
+                Object(s.a)(
                   {
                     className:
                       'nsw-card nsw-card--'.concat(n, ' ').concat(u) +
@@ -20044,7 +20045,7 @@
                 {},
                 {
                   children: [
-                    s ? Object(g.jsx)(je, { src: s, alt: o }) : '',
+                    l ? Object(g.jsx)(je, { src: l, alt: o }) : '',
                     Object(g.jsxs)(be, {
                       children: [
                         r ? Object(g.jsx)(ve, { children: r }) : '',
@@ -20066,8 +20067,8 @@
           a = Object(v.a)(e, oe);
         return Object(g.jsxs)(
           'div',
-          Object(l.a)(
-            Object(l.a)({ className: 'nsw-card__content '.concat(t) }, a),
+          Object(s.a)(
+            Object(s.a)({ className: 'nsw-card__content '.concat(t) }, a),
             {},
             {
               children: [
@@ -20103,7 +20104,7 @@
           i = Object(v.a)(e, ue);
         return Object(g.jsx)('div', {
           className: 'nsw-card__image',
-          children: Object(g.jsx)('img', Object(l.a)({ className: n, src: t, alt: a }, i)),
+          children: Object(g.jsx)('img', Object(s.a)({ className: n, src: t, alt: a }, i)),
         });
       };
       je.defaultProps = { className: '' };
@@ -20114,8 +20115,8 @@
           a = Object(v.a)(e, de);
         return Object(g.jsx)(
           'p',
-          Object(l.a)(
-            Object(l.a)({ className: 'nsw-card__copy '.concat(n) }, a),
+          Object(s.a)(
+            Object(s.a)({ className: 'nsw-card__copy '.concat(n) }, a),
             {},
             { children: t },
           ),
@@ -20128,8 +20129,8 @@
           a = Object(v.a)(e, me);
         return Object(g.jsx)(
           'p',
-          Object(l.a)(
-            Object(l.a)({ className: 'nsw-card__tag '.concat(n) }, a),
+          Object(s.a)(
+            Object(s.a)({ className: 'nsw-card__tag '.concat(n) }, a),
             {},
             { children: t },
           ),
@@ -20142,8 +20143,8 @@
           a = Object(v.a)(e, _e);
         return Object(g.jsx)(
           'p',
-          Object(l.a)(
-            Object(l.a)({ className: 'nsw-card__date '.concat(t) }, a),
+          Object(s.a)(
+            Object(s.a)({ className: 'nsw-card__date '.concat(t) }, a),
             {},
             { children: Object(g.jsx)('time', { dateTime: n, children: n }) },
           ),
@@ -20161,13 +20162,13 @@
             i = e.copy,
             r = e.image,
             c = e.imageAlt,
-            s = e.icon,
-            l = e.className;
+            l = e.icon,
+            s = e.className;
           return Object(g.jsxs)('div', {
-            className: 'nsw-content-block '.concat(l),
+            className: 'nsw-content-block '.concat(s),
             children: [
               r ? Object(g.jsx)(Ne, { src: r, alt: c }) : '',
-              s ? Object(g.jsx)(ye, { children: s }) : '',
+              l ? Object(g.jsx)(ye, { children: l }) : '',
               Object(g.jsxs)('div', {
                 className: 'nsw-content-block__content',
                 children: [
@@ -20205,7 +20206,7 @@
           className: 'nsw-content-block__image',
           children: Object(g.jsx)(
             'img',
-            Object(l.a)({ src: t, alt: n, className: 'nsw-content-block__image' }, a),
+            Object(s.a)({ src: t, alt: n, className: 'nsw-content-block__image' }, a),
           ),
         });
       };
@@ -20215,8 +20216,8 @@
           n = (e.className, Object(v.a)(e, xe));
         return Object(g.jsx)(
           'div',
-          Object(l.a)(
-            Object(l.a)({ className: 'nsw-content-block__image' }, n),
+          Object(s.a)(
+            Object(s.a)({ className: 'nsw-content-block__image' }, n),
             {},
             {
               children: Object(g.jsx)('div', { className: 'nsw-content-block__icon', children: t }),
@@ -20231,8 +20232,8 @@
           a = Object(v.a)(e, we);
         return Object(g.jsx)(
           'p',
-          Object(l.a)(
-            Object(l.a)({ className: 'nsw-content-block__copy '.concat(n) }, a),
+          Object(s.a)(
+            Object(s.a)({ className: 'nsw-content-block__copy '.concat(n) }, a),
             {},
             { children: t },
           ),
@@ -20244,8 +20245,8 @@
           n = (e.className, Object(v.a)(e, Ce));
         return Object(g.jsx)(
           'h2',
-          Object(l.a)(
-            Object(l.a)({ className: 'nsw-content-block__title' }, n),
+          Object(s.a)(
+            Object(s.a)({ className: 'nsw-content-block__title' }, n),
             {},
             { children: t },
           ),
@@ -20254,8 +20255,8 @@
       Ve.defaultProps = { className: null };
       var Ae = ['label', 'items', 'linkComponent', 'className'],
         Pe = ['text', 'link', 'linkComponent', 'children', 'onClick'],
-        ke = ['inline', 'items', 'linkComponent', 'className'],
-        Fe = function (e) {
+        Fe = ['inline', 'items', 'linkComponent', 'className'],
+        ke = function (e) {
           var t = e.label,
             n = e.items,
             a = e.linkComponent,
@@ -20264,14 +20265,14 @@
             c = Object(v.a)(e, Ae);
           return Object(g.jsx)(
             'nav',
-            Object(l.a)(
-              Object(l.a)({ className: 'nsw-breadcrumbs '.concat(r), 'aria-label': t }, c),
+            Object(s.a)(
+              Object(s.a)({ className: 'nsw-breadcrumbs '.concat(r), 'aria-label': t }, c),
               {},
               { children: Object(g.jsx)(Re, { inline: !0, linkComponent: a, items: n }) },
             ),
           );
         };
-      Fe.defaultProps = { linkComponent: 'a', className: null, label: null };
+      ke.defaultProps = { linkComponent: 'a', className: null, label: null };
       var Ee = function (e) {
         var t = e.text,
           n = e.link,
@@ -20279,14 +20280,14 @@
           i = e.children,
           r = e.onClick,
           c = Object(v.a)(e, Pe),
-          s = a;
+          l = a;
         return (
           'function' === typeof r && ((c.onClick = r), n || (n = '#')),
-          'a' === s ? (c.href = n) : 'function' === typeof s && (c.to = n),
+          'a' === l ? (c.href = n) : 'function' === typeof l && (c.to = n),
           n
             ? Object(g.jsxs)('li', {
                 children: [
-                  Object(g.jsx)(s, Object(l.a)(Object(l.a)({}, c), {}, { children: t })),
+                  Object(g.jsx)(l, Object(s.a)(Object(s.a)({}, c), {}, { children: t })),
                   i,
                 ],
               })
@@ -20300,11 +20301,11 @@
           a = e.linkComponent,
           i = e.className,
           r = void 0 === i ? '' : i,
-          c = Object(v.a)(e, ke);
+          c = Object(v.a)(e, Fe);
         return Object(g.jsx)(
           'ol',
-          Object(l.a)(
-            Object(l.a)(
+          Object(s.a)(
+            Object(s.a)(
               {
                 className: 'nsw-breadcrumb__list '
                   .concat(r)
@@ -20315,7 +20316,7 @@
             {},
             {
               children: n.map(function (e) {
-                return Object(g.jsx)(Ee, Object(l.a)({ linkComponent: a }, e), e.text);
+                return Object(g.jsx)(Ee, Object(s.a)({ linkComponent: a }, e), e.text);
               }),
             },
           ),
@@ -20350,15 +20351,15 @@
             i = e.style,
             r = e.wide,
             c = e.featured,
-            s = e.image,
+            l = e.image,
             o = e.children,
             u = e.className,
             d = void 0 === u ? '' : u,
             m = Object(v.a)(e, Ie);
           return Object(g.jsx)(
             'div',
-            Object(l.a)(
-              Object(l.a)(
+            Object(s.a)(
+              Object(s.a)(
                 {
                   className: 'nsw-hero-banner '
                     .concat(i ? qe[i] : '', ' ')
@@ -20396,11 +20397,11 @@
                       Object(g.jsx)('div', {
                         className: 'nsw-hero-banner__box',
                         role: 'presentation',
-                        children: s
+                        children: l
                           ? Object(g.jsx)('img', {
                               className: 'nsw-hero-banner__image',
-                              src: s.src,
-                              alt: s.alt,
+                              src: l.src,
+                              alt: l.alt,
                             })
                           : Object(g.jsx)('div', { className: 'nsw-hero-banner__bg' }),
                       }),
@@ -20412,16 +20413,15 @@
           );
         };
       Te.defaultProps = { style: 'white', title: 'Hero banner' };
-      var Ye = Te;
       n(28), n(29), n(30);
       n(20);
-      var ze = n(9),
-        De = n(10),
-        Me = n(35),
-        Ge = n(34),
-        We = n(25),
-        Le = ['navItems', 'className', 'children'],
-        Je =
+      var Ye = n(9),
+        ze = n(10),
+        De = n(35),
+        Me = n(34),
+        Ge = n(25),
+        We = ['navItems', 'className', 'children'],
+        Le =
           (i.a.PureComponent,
           function (e) {
             var t = e.url,
@@ -20491,7 +20491,7 @@
               ],
             });
           }),
-        Ue = function (e) {
+        Je = function (e) {
           var t = e.subNav,
             n = e.url,
             a = e.text,
@@ -20503,7 +20503,7 @@
             role: 'region',
             'aria-label': a,
             children: [
-              Object(g.jsx)(Je, { url: n, text: a, description: i, id: r }),
+              Object(g.jsx)(Le, { url: n, text: a, description: i, id: r }),
               Object(g.jsx)('ul', {
                 className: 'nsw-main-nav__sub-list',
                 children: t.map(function (e) {
@@ -20533,7 +20533,7 @@
                               role: 'region',
                               'aria-label': ''.concat(a, ' Submenu'),
                               children: [
-                                Object(g.jsx)(Je, { url: n, text: a, description: i }),
+                                Object(g.jsx)(Le, { url: n, text: a, description: i }),
                                 Object(g.jsx)('ul', {
                                   className: 'nsw-main-nav__sub-list',
                                   children: e.subNav.map(function (e) {
@@ -20575,16 +20575,16 @@
         };
       n(63);
       n(64);
-      var Ke = ['title', 'content', 'ctaText', 'ctaHref', 'as', 'className', 'children'],
-        Qe = { critical: 'nsw-global-alert--critical', light: 'nsw-global-alert--light' },
-        Xe = {
+      var Ue = ['title', 'content', 'ctaText', 'ctaHref', 'as', 'className', 'children'],
+        Ke = { critical: 'nsw-global-alert--critical', light: 'nsw-global-alert--light' },
+        Qe = {
           default: 'nsw-button nsw-button--white',
           critical: 'nsw-button nsw-button--white',
           light: 'nsw-button nsw-button--dark',
         };
       i.a.PureComponent;
       n(67), n(68);
-      function Ze(e) {
+      function Xe(e) {
         var t = e.variableData1,
           n = e.variableData2,
           i = e.variables,
@@ -20607,18 +20607,18 @@
           N = e.formValues,
           y = e.setFormValues,
           V = Object(a.useState)({}),
-          P = Object(s.a)(V, 2),
-          k = P[0],
-          F = (P[1], new Date()),
-          E = Object(a.useState)(d()(F).format('YYYY-MM-DD')),
-          R = Object(s.a)(E, 2),
+          P = Object(l.a)(V, 2),
+          F = P[0],
+          k = (P[1], new Date()),
+          E = Object(a.useState)(d()(k).format('YYYY-MM-DD')),
+          R = Object(l.a)(E, 2),
           I = R[0],
           q = (R[1], Object(a.useState)([])),
-          B = Object(s.a)(q, 2),
+          B = Object(l.a)(q, 2),
           T = B[0],
           Y = B[1],
           z = Object(a.useState)(!0),
-          D = Object(s.a)(z, 2),
+          D = Object(l.a)(z, 2),
           M = D[0],
           G = D[1];
         return (
@@ -20642,17 +20642,17 @@
                   c = i.filter(function (e) {
                     return a.includes(e.name);
                   }),
-                  s = i.filter(function (e) {
+                  l = i.filter(function (e) {
                     return r.includes(e.name);
                   });
-                console.log(c), console.log(s);
+                console.log(c), console.log(l);
                 var o = [],
                   u = [];
                 c.map(function (e) {
-                  o.push(Object(l.a)(Object(l.a)({}, e), {}, { form_value: '', invalid: !1 }));
+                  o.push(Object(s.a)(Object(s.a)({}, e), {}, { form_value: '', invalid: !1 }));
                 }),
-                  s.map(function (e) {
-                    u.push(Object(l.a)(Object(l.a)({}, e), {}, { form_value: '', invalid: !1 }));
+                  l.map(function (e) {
+                    u.push(Object(s.a)(Object(s.a)({}, e), {}, { form_value: '', invalid: !1 }));
                   }),
                   u.forEach(function (e) {
                     return (
@@ -20693,7 +20693,7 @@
             },
             [t, n],
           ),
-          k
+          F
             ? Object(g.jsx)('div', {
                 className: !0,
                 children: Object(g.jsxs)('div', {
@@ -20701,7 +20701,7 @@
                   children: [
                     1 === o &&
                       Object(g.jsx)(a.Fragment, {
-                        children: Object(g.jsx)(se, {
+                        children: Object(g.jsx)(le, {
                           calculationDate: I,
                           variable: t,
                           variable2: n,
@@ -20805,115 +20805,16 @@
                               }),
                             }),
                           }),
-                          Object(g.jsxs)('div', {
+                          Object(g.jsx)('div', {
                             className: 'nsw-row',
                             style: { padding: 'inherit', marginTop: '5%', marginBottom: '5%' },
-                            children: [
-                              Object(g.jsx)('div', {
-                                className: 'nsw-col-md-12',
-                                style: { width: '80%' },
-                                children: Object(g.jsx)('hr', {
-                                  style: { background: 'black', height: '1.5px' },
-                                }),
+                            children: Object(g.jsx)('div', {
+                              className: 'nsw-col-md-12',
+                              style: { width: '80%' },
+                              children: Object(g.jsx)('hr', {
+                                style: { background: 'black', height: '1.5px' },
                               }),
-                              Object(g.jsxs)('div', {
-                                className: 'nsw-col-md-12',
-                                style: { paddingTop: '9%', width: '80%' },
-                                children: [
-                                  Object(g.jsx)('h4', { children: 'More options' }),
-                                  Object(g.jsx)('br', {}),
-                                  Object(g.jsxs)('div', {
-                                    class: 'nsw-grid nsw-grid--spaced',
-                                    children: [
-                                      Object(g.jsx)('div', {
-                                        class: 'nsw-col nsw-col-md-4',
-                                        style: { height: '12vw' },
-                                        children: Object(g.jsx)('div', {
-                                          class: 'nsw-card nsw-card--light nullnsw-card--headline',
-                                          href: '/',
-                                          children: Object(g.jsxs)('div', {
-                                            class: 'nsw-card__content null',
-                                            children: [
-                                              Object(g.jsx)('div', {
-                                                class: 'nsw-card__title',
-                                                children: Object(g.jsx)('a', {
-                                                  href: '#',
-                                                  class: 'nsw-card__link',
-                                                  children: 'Back to estimator homepage',
-                                                }),
-                                              }),
-                                              Object(g.jsx)('span', {
-                                                class:
-                                                  'material-icons nsw-material-icons nsw-card__icon',
-                                                focusable: 'false',
-                                                'aria-hidden': 'true',
-                                                children: 'east',
-                                              }),
-                                            ],
-                                          }),
-                                        }),
-                                      }),
-                                      Object(g.jsx)('div', {
-                                        class: 'nsw-col nsw-col-md-4',
-                                        style: { height: '12vw' },
-                                        children: Object(g.jsx)('div', {
-                                          class: 'nsw-card nsw-card--light nullnsw-card--headline',
-                                          href: '/',
-                                          children: Object(g.jsxs)('div', {
-                                            class: 'nsw-card__content null',
-                                            children: [
-                                              Object(g.jsx)('div', {
-                                                class: 'nsw-card__title',
-                                                children: Object(g.jsx)('a', {
-                                                  href: '/#core-eligibility',
-                                                  class: 'nsw-card__link',
-                                                  children: 'Check core eligibility',
-                                                }),
-                                              }),
-                                              Object(g.jsx)('span', {
-                                                class:
-                                                  'material-icons nsw-material-icons nsw-card__icon',
-                                                focusable: 'false',
-                                                'aria-hidden': 'true',
-                                                children: 'east',
-                                              }),
-                                            ],
-                                          }),
-                                        }),
-                                      }),
-                                      Object(g.jsx)('div', {
-                                        class: 'nsw-col nsw-col-md-4',
-                                        style: { height: '12vw' },
-                                        children: Object(g.jsx)('div', {
-                                          class: 'nsw-card nsw-card--light nullnsw-card--headline',
-                                          href: '/',
-                                          children: Object(g.jsxs)('div', {
-                                            class: 'nsw-card__content null',
-                                            children: [
-                                              Object(g.jsx)('div', {
-                                                class: 'nsw-card__title',
-                                                children: Object(g.jsx)('a', {
-                                                  href: '/#commercial-motors-activity-requirements',
-                                                  class: 'nsw-card__link',
-                                                  children: 'Review eligibility for this activity',
-                                                }),
-                                              }),
-                                              Object(g.jsx)('span', {
-                                                class:
-                                                  'material-icons nsw-material-icons nsw-card__icon',
-                                                focusable: 'false',
-                                                'aria-hidden': 'true',
-                                                children: 'east',
-                                              }),
-                                            ],
-                                          }),
-                                        }),
-                                      }),
-                                    ],
-                                  }),
-                                ],
-                              }),
-                            ],
+                            }),
                           }),
                         ],
                       }),
@@ -20923,62 +20824,62 @@
             : null
         );
       }
-      function $e(e) {
+      function Ze(e) {
         var t = e.entities,
           n = e.variables,
           i = e.setVariables,
           r = e.setEntities,
           c = e.loading,
-          l = e.setLoading,
+          s = e.setLoading,
           o = Object(a.useState)([]),
-          u = Object(s.a)(o, 2),
+          u = Object(l.a)(o, 2),
           d = u[0],
           m = u[1],
           _ = Object(a.useState)(1),
-          f = Object(s.a)(_, 2),
+          f = Object(l.a)(_, 2),
           b = f[0],
           h = f[1],
           j = Object(a.useState)(null),
-          v = Object(s.a)(j, 2),
+          v = Object(l.a)(j, 2),
           O = v[0],
           x = (v[1], Object(a.useState)(null)),
-          C = Object(s.a)(x, 2),
+          C = Object(l.a)(x, 2),
           S = C[0],
           N = C[1],
           y = Object(a.useState)(null),
-          H = Object(s.a)(y, 2),
+          H = Object(l.a)(y, 2),
           V = H[0],
           P = H[1],
-          k = Object(a.useState)(!1),
-          F = Object(s.a)(k, 2),
-          E = F[0],
-          R = F[1],
+          F = Object(a.useState)(!1),
+          k = Object(l.a)(F, 2),
+          E = k[0],
+          R = k[1],
           I = Object(a.useState)(!1),
-          q = Object(s.a)(I, 2),
+          q = Object(l.a)(I, 2),
           B = q[0],
           T = q[1],
           Y = Object(a.useState)(null),
-          z = Object(s.a)(Y, 2),
+          z = Object(l.a)(Y, 2),
           D = z[0],
           M = (z[1], Object(a.useState)(!0)),
-          G = Object(s.a)(M, 2),
+          G = Object(l.a)(M, 2),
           W = G[0],
           L = (G[1], Object(a.useState)([])),
-          J = Object(s.a)(L, 2),
+          J = Object(l.a)(L, 2),
           U = J[0],
           K = J[1],
           Q = Object(a.useState)([]),
-          X = Object(s.a)(Q, 2),
+          X = Object(l.a)(Q, 2),
           Z = X[0],
           $ = X[1],
           ee = Object(a.useState)([]),
-          ne = Object(s.a)(ee, 2),
+          ne = Object(l.a)(ee, 2),
           ae = ne[0],
           ie = ne[1],
           re = Object(a.useState)(null),
-          ce = Object(s.a)(re, 2),
-          se = ce[0],
-          le = ce[1];
+          ce = Object(l.a)(re, 2),
+          le = ce[0],
+          se = ce[1];
         return (
           Object(a.useEffect)(function () {
             window.scrollTo(0, 0),
@@ -21006,7 +20907,7 @@
               p
                 .getVariable('SYS1_PRC_calculation')
                 .then(function (e) {
-                  K(e.data), console.log(e.data), console.log('here!!'), l(!1);
+                  K(e.data), console.log(e.data), console.log('here!!'), s(!1);
                 })
                 .catch(function (e) {
                   console.log(e);
@@ -21014,7 +20915,7 @@
                 p
                   .getVariable('SYS1_ESC_calculation')
                   .then(function (e) {
-                    $(e.data), console.log(e.data), l(!1);
+                    $(e.data), console.log(e.data), s(!1);
                   })
                   .catch(function (e) {
                     console.log(e);
@@ -21025,77 +20926,17 @@
           Object(g.jsxs)(a.Fragment, {
             children: [
               Object(g.jsx)('br', {}),
-              Object(g.jsx)(Ye, {
-                wide: !0,
-                style: 'dark',
-                image: { alt: 'commercial motors', src: 'CommercialVentilationRefrigeration.jpeg' },
-                intro: 'Energy Savings Scheme and Peak Demand Reduction Scheme',
-                title: 'Safeguard certificate estimator',
-              }),
               Object(g.jsxs)('div', {
                 className: 'nsw-container',
                 children: [
                   Object(g.jsx)('br', {}),
                   Object(g.jsx)('br', {}),
-                  2 !== b &&
-                    Object(g.jsx)('div', {
-                      className: 'nsw-grid nsw-grid--spaced',
-                      children: Object(g.jsxs)('div', {
-                        className: 'nsw-col nsw-col-md-10',
-                        children: [
-                          Object(g.jsx)('h2', {
-                            className: 'nsw-content-block__title',
-                            children: 'Commercial Motors certificate estimator',
-                          }),
-                          Object(g.jsx)('br', {}),
-                          Object(g.jsxs)('p', {
-                            className: 'nsw-content-block__copy',
-                            children: [
-                              'Answer the following questions to estimate the energy savings certificates (ESCs) and peak reduction certificates (PRCs) for the Commercial Motors (Refrigeration or Ventilation) Activity (F7 in the',
-                              ' ',
-                              Object(g.jsx)('a', {
-                                href:
-                                  'https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme',
-                                target: '_blank',
-                                children: 'Energy Savings Scheme',
-                              }),
-                              ' ',
-                              'and SYS1 in the',
-                              ' ',
-                              Object(g.jsx)('a', {
-                                href:
-                                  'https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme',
-                                target: '_blank',
-                                children: 'Peak Demand Reduction Scheme',
-                              }),
-                              ').',
-                            ],
-                          }),
-                          Object(g.jsx)('p', {
-                            className: 'nsw-content-block__copy',
-                            children:
-                              'Please keep in mind that the results are a guide only and cannot be promoted or published.',
-                          }),
-                        ],
-                      }),
-                    }),
-                  2 === b &&
-                    Object(g.jsx)('div', {
-                      className: 'nsw-grid nsw-grid--spaced',
-                      children: Object(g.jsx)('div', {
-                        className: 'nsw-col nsw-col-md-10',
-                        children: Object(g.jsx)('h2', {
-                          className: 'nsw-content-block__title',
-                          children: 'Commercial Motors certificate estimator',
-                        }),
-                      }),
-                    }),
                   Object(g.jsx)(te, { step: b, of: 2, style: { width: '80%' } }),
                   Object(g.jsxs)(a.Fragment, {
                     children: [
                       1 === b && c && Object(g.jsx)(A, {}),
                       1 === b &&
-                        Object(g.jsx)(Ze, {
+                        Object(g.jsx)(Xe, {
                           variableData1: U,
                           variableData2: Z,
                           variables: n,
@@ -21115,14 +20956,14 @@
                           setPersistFormValues: ie,
                           formValues: d,
                           setFormValues: m,
-                          flow: se,
-                          setFlow: le,
+                          flow: le,
+                          setFlow: se,
                           backAction: function (e) {
                             h(b - 1);
                           },
                         }),
                       2 === b &&
-                        Object(g.jsx)(Ze, {
+                        Object(g.jsx)(Xe, {
                           variableData1: U,
                           variableData2: Z,
                           variables: n,
@@ -21140,8 +20981,8 @@
                           setFormValues: m,
                           persistFormValues: ae,
                           setPersistFormValues: ie,
-                          flow: se,
-                          setFlow: le,
+                          flow: le,
+                          setFlow: se,
                         }),
                       2 === b && E && B && Object(g.jsx)(A, {}),
                       1 === b &&
@@ -21157,7 +20998,7 @@
                             children: Object(g.jsx)(w, {
                               as: 'dark',
                               onClick: function (e) {
-                                le('forward'), h(b + 1);
+                                se('forward'), h(b + 1);
                               },
                               style: { float: 'right' },
                               children: 'Next',
@@ -21172,36 +21013,36 @@
           })
         );
       }
-      var et = function () {
+      var $e = function () {
         var e = Object(a.useState)([]),
-          t = Object(s.a)(e, 2),
+          t = Object(l.a)(e, 2),
           n = t[0],
           i = t[1],
           r = Object(a.useState)([]),
-          c = Object(s.a)(r, 2),
-          l = c[0],
+          c = Object(l.a)(r, 2),
+          s = c[0],
           o = c[1],
           u = Object(a.useState)([]),
-          d = Object(s.a)(u, 2),
+          d = Object(l.a)(u, 2),
           m = (d[0], d[1]),
           _ = Object(a.useState)(!0),
-          f = Object(s.a)(_, 2),
+          f = Object(l.a)(_, 2),
           b = f[0],
           h = f[1],
           j = Object(a.useState)([]),
-          v = Object(s.a)(j, 2),
+          v = Object(l.a)(j, 2),
           O = (v[0], v[1]),
           x = Object(a.useState)([]),
-          w = Object(s.a)(x, 2),
+          w = Object(l.a)(x, 2),
           C = (w[0], w[1], Object(a.useState)([])),
-          S = Object(s.a)(C, 2),
+          S = Object(l.a)(C, 2),
           N = (S[0], S[1]),
           y = Object(a.useState)([]),
-          H = Object(s.a)(y, 2),
+          H = Object(l.a)(y, 2),
           V = (H[0], H[1]),
           A = Object(a.useState)([]),
-          P = Object(s.a)(A, 2),
-          k = (P[0], P[1]);
+          P = Object(l.a)(A, 2),
+          F = (P[0], P[1]);
         return (
           Object(a.useEffect)(function () {
             window.scrollTo(0, 0);
@@ -21231,28 +21072,32 @@
                 .catch(function (e) {
                   console.log(e);
                 }),
-              F.getCommercialHVACBrands()
+              k
+                .getCommercialHVACBrands()
                 .then(function (e) {
                   O(e.data), h(!1);
                 })
                 .catch(function (e) {
                   console.log(e);
                 }),
-              F.getPoolPumpBrands()
+              k
+                .getPoolPumpBrands()
                 .then(function (e) {
-                  k(e.data), h(!1);
+                  F(e.data), h(!1);
                 })
                 .catch(function (e) {
                   console.log(e);
                 }),
-              F.getCommercialWHBrands()
+              k
+                .getCommercialWHBrands()
                 .then(function (e) {
                   N(e.data), h(!1);
                 })
                 .catch(function (e) {
                   console.log(e);
                 }),
-              F.getRF2Brands()
+              k
+                .getRF2Brands()
                 .then(function (e) {
                   V(e.data), h(!1);
                 })
@@ -21260,9 +21105,9 @@
                   console.log(e);
                 });
           }, []),
-          Object(g.jsx)($e, {
+          Object(g.jsx)(Ze, {
             entities: n,
-            variables: l,
+            variables: s,
             loading: b,
             setEntities: i,
             setVariables: o,
@@ -21270,12 +21115,13 @@
           })
         );
       };
-      c.a.render(Object(g.jsx)(et, {}), document.getElementById('root'));
+      c.a.render(Object(g.jsx)($e, {}), document.getElementById('root'));
     },
   },
   [[65, 1, 2]],
 ]);
-//# sourceMappingURL=main.02006eef.chunk.js.map
+//# sourceMappingURL=main.22a480d2.chunk.js.map
+
 !(function (e) {
   function r(r) {
     for (var n, p, i = r[0], l = r[1], f = r[2], c = 0, s = []; c < i.length; c++)

@@ -139,7 +139,6 @@ export default function CertificateEstimatorLoadClausesPP(props) {
         }
 
         if (formItem.name === 'SYS2_star_rating') {
-          formItem.form_value = metadata['star_rating'];
           console.log(formItem.form_value);
 
           const dic = {
@@ -342,7 +341,7 @@ export default function CertificateEstimatorLoadClausesPP(props) {
                 />
               </div>
 
-              {/* <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
+              <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
                 <h4>More options</h4>
                 <br></br>
 
@@ -404,7 +403,7 @@ export default function CertificateEstimatorLoadClausesPP(props) {
                     </div>
                   </div>
                 </div>
-              </div> */}
+              </div>
             </div>
           </Fragment>
         )}

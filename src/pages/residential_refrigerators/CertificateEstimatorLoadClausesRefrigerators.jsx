@@ -227,7 +227,7 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
                 />
               </div>
 
-              {/* <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
+              <div className="nsw-col-md-12" style={{ paddingTop: '9%', width: '80%' }}>
                 <h4>More options</h4>
                 <br></br>
 
@@ -292,7 +292,7 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
                     </div>
                   </div>
                 </div>
-              </div> */}
+              </div>
             </div>
           </Fragment>
         )}
