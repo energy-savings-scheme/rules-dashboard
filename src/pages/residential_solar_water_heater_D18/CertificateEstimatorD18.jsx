@@ -170,10 +170,10 @@ export default function CertificateEstimatorResidentialSolarWaterHeater(props) {
         style="dark"
         image={{
           alt: 'commercial wh',
-          src: 'D17cropped,optimised).jpg',
+          src: 'D18HandWash.jpg',
         }}
         intro="Residential and small business"
-        title="Gas water heater replacement with a solar electric boosted water heater - certificates"
+        title="Electric water heater replacement with a solar electric boosted water heater - certificates"
       />
 
       <div className="nsw-container">

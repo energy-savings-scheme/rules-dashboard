@@ -143,10 +143,10 @@ export default function ActivityRequirementsD18(props) {
         style="dark"
         image={{
           alt: 'commercial ac',
-          src: 'D17cropped,optimised).jpg',
+          src: 'D18HandWash.jpg',
         }}
         intro="Residential and small business"
-        title="Gas water heater replacement with a solar electric boosted water heater - eligibility"
+        title="Electric water heater replacement with a solar electric boosted water heater - eligibility"
       />
 
       <div className="nsw-container" style={{ marginBottom: '10%' }}>
