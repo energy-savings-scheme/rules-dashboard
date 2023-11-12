@@ -163,14 +163,13 @@ export default function CertificateEstimatorResidentialGasReplacementSolarWaterH
 
   return (
     <Fragment>
-      {/* Search section */}
       <br></br>
       <HeroBanner
         wide
         style="dark"
         image={{
           alt: 'commercial wh',
-          src: 'D17cropped,optimised).jpg',
+          src: 'D20DogWash.jpg',
         }}
         intro="Residential and small business"
         title="Gas water heater replacement with a solar electric boosted water heater - certificates"
