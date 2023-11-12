@@ -143,7 +143,7 @@ export default function ActivityRequirementsD20(props) {
         style="dark"
         image={{
           alt: 'commercial ac',
-          src: 'D17cropped,optimised).jpg',
+          src: 'D20DogWash.jpg',
         }}
         intro="Residential and small business"
         title="Gas water heater replacement with a solar electric boosted water heater - eligibility"
