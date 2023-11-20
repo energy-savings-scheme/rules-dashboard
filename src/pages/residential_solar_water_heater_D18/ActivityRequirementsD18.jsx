@@ -143,7 +143,7 @@ export default function ActivityRequirementsD18(props) {
         style="dark"
         image={{
           alt: 'commercial ac',
-          src: 'D18HandWash.jpg',
+          src: 'iStock-1373843137(optimised).jpg',
         }}
         intro="Residential and small business"
         title="Electric water heater replacement with a solar electric boosted water heater - eligibility"
