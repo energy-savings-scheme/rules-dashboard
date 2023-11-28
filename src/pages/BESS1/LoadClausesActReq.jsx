@@ -30,7 +30,6 @@ export default function LoadClausesBESS1(props) {
 
   console.log(variableToLoad);
 
-
   const [variable, setVariable] = useState({}); // all info about variable
 
   var today = new Date();
