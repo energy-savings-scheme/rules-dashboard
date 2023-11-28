@@ -146,7 +146,7 @@ export default function ActivityRequirementsBESS1(props) {
           src: 'BESS1.jpg',
         }}
         intro="Residential and small business"
-        title="Install a new household solar battery - eligibility"
+        title="Install a new behind the meter residential battery energy storage system - eligibility"
       />
 
       <div className="nsw-container" style={{ marginBottom: '10%' }}>
@@ -160,17 +160,20 @@ export default function ActivityRequirementsBESS1(props) {
               </h2> */}
               <br></br>
               <p className="nsw-content-block__copy">
-              Answer the following questions to check if you meet the eligibility requirements for the residential solar battery activity (BESS1 in the{' '}
+                Answer the following questions to check if you meet the eligibility requirements for
+                the residential solar battery activity (BESS1 in the{' '}
                 <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/energy-savings-scheme"
                   target="_blank"
                 >
                   Energy Savings Scheme
                 </a>{' '}
-                ). This activity is for the installation of a new 'behind the meter' solar battery at a residential address.
+                ). This activity is for the installation of a new 'behind the meter' solar battery
+                at a residential address.
               </p>
               <p className="nsw-content-block__copy">
-              Note that this activity is only eligible for the Peak Demand Reduction Scheme, and is not eligible for the Energy Savings Scheme. If ineligible, you will be shown the
+                Note that this activity is only eligible for the Peak Demand Reduction Scheme, and
+                is not eligible for the Energy Savings Scheme. If ineligible, you will be shown the
                 ineligible answers and their corresponding rule clauses.
               </p>
               <p className="nsw-content-block__copy">
