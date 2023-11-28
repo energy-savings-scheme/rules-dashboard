@@ -52,7 +52,7 @@ import ActivityRequirementsD18 from 'pages/residential_solar_water_heater_D18/Ac
 import CertificateEstimatorResidentialSolarWaterHeater from 'pages/residential_solar_water_heater_D18/CertificateEstimatorD18';
 import ActivityRequirementsD20 from 'pages/residential_solar_water_heater_gas_replacement_D20/ActivityRequirementsD20';
 import CertificateEstimatorResidentialGasReplacementSolarWaterHeater from 'pages/residential_solar_water_heater_gas_replacement_D20/CertificateEstimatorD20';
-
+import ActivityRequirementsBESS1 from 'pages/BESS1/ActivityRequirementsBESS1';
 function App() {
   const [entities, setEntities] = useState([]);
   const [variables, setVariables] = useState([]);
@@ -455,6 +455,17 @@ function App() {
         <Route path="/residential-solar-gas-water-heater-activity-requirements" exact>
           <Breadcrumb />
           <ActivityRequirementsD20
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/residential-solar-battery-activity-requirements" exact>
+          <Breadcrumb />
+          <ActivityRequirementsBESS1
             entities={entities}
             variables={variables}
             loading={loading}
