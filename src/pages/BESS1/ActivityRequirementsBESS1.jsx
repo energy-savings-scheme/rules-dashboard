@@ -145,8 +145,8 @@ export default function ActivityRequirementsBESS1(props) {
           alt: 'commercial ac',
           src: 'BESS1.jpg',
         }}
-        intro="Residential and small business"
-        title="Install a new behind the meter residential battery energy storage system - eligibility"
+        intro="Residential"
+        title="Install a new household solar battery - eligibility"
       />
 
       <div className="nsw-container" style={{ marginBottom: '10%' }}>
