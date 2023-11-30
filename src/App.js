@@ -53,6 +53,8 @@ import CertificateEstimatorResidentialSolarWaterHeater from 'pages/residential_s
 import ActivityRequirementsD20 from 'pages/residential_solar_water_heater_gas_replacement_D20/ActivityRequirementsD20';
 import CertificateEstimatorResidentialGasReplacementSolarWaterHeater from 'pages/residential_solar_water_heater_gas_replacement_D20/CertificateEstimatorD20';
 import ActivityRequirementsBESS1 from 'pages/BESS1/ActivityRequirementsBESS1';
+import SolarBatteryEligibilityPage from 'pages/homepage/SolarBatteryEligibility';
+import SolarBatteryCertificatePage from 'pages/homepage/SolarBatteryCertificatePage';
 function App() {
   const [entities, setEntities] = useState([]);
   const [variables, setVariables] = useState([]);
@@ -334,6 +336,28 @@ function App() {
         <Route path="/hot-water-heater-certificate" exact>
           <Breadcrumb />
           <HotWaterCertificatePage
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/solar-battery-eligibility" exact>
+          <Breadcrumb />
+          <SolarBatteryEligibilityPage
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        <Route path="/solar-battery-certificates" exact>
+          <Breadcrumb />
+          <SolarBatteryCertificatePage
             entities={entities}
             variables={variables}
             loading={loading}
