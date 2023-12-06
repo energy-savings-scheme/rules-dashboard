@@ -112,6 +112,28 @@ function getResidentialSolarWaterHeaterMetadata(payload) {
   });
 }
 
+function getResidentialSolarBatteryBrands() {
+  return RegistryApiBase({
+    url: `/residential_solar_battery/brands`,
+    method: 'GET',
+  });
+}
+
+function getResidentialSolarBatteryModels(brandName) {
+  return RegistryApiBase({
+    url: `/residential_solar_battery/brands/${brandName}/models`,
+    method: 'GET',
+  });
+}
+
+function getResidentialSolarBatteryMetadata(payload) {
+  return RegistryApiBase({
+    url: `/residential_solar_battery/metadata`,
+    method: 'POST',
+    data: payload,
+  });
+}
+
 function getPoolPumpBrands() {
   return RegistryApiBase({
     url: `/pool_pumps/brands`,
@@ -161,6 +183,9 @@ const RegistryApi = {
   getResidentialSolarWaterHeaterBrands,
   getResidentialSolarWaterHeaterModels,
   getResidentialSolarWaterHeaterMetadata,
+  getResidentialSolarBatteryBrands,
+  getResidentialSolarBatteryModels,
+  getResidentialSolarBatteryMetadata
 };
 
 export default RegistryApi;

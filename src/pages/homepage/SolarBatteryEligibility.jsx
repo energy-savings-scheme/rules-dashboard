@@ -40,14 +40,14 @@ export default function SolarBatteryEligibilityPage(props) {
               <div className="nsw-grid nsw-grid--spaced">
                 <div className="nsw-col nsw-col-md-12">
                   <p className="nsw-content-block__copy">
-                  The Safeguard certificate estimator reviews eligibility for:
+                    The Safeguard certificate estimator reviews eligibility for:
                     <ul>
                       <li>installation of a new residential solar battery or</li>
                       <li>signing up a solar battery to a demand response contract</li>
                     </ul>
-                    </p>
-                    <p className="nsw-content-block__copy">
-                  Both of these activities are for residential buildings only.
+                  </p>
+                  <p className="nsw-content-block__copy">
+                    Both of these activities are for residential buildings only.
                   </p>
                 </div>
               </div>
