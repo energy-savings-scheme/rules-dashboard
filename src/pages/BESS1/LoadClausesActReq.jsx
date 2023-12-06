@@ -240,7 +240,7 @@ export default function LoadClausesBESS1(props) {
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
                           <a
-                            href="/#residential-solar-water-heater-estimator"
+                            href="/#residential-solar-battery-certificates"
                             class="nsw-card__link"
                           >
                             Estimate certificates for this activity

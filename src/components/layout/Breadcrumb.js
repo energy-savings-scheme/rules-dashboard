@@ -175,7 +175,8 @@ export default function Breadcrumb() {
     location.pathname === '/hot-water-heater-certificate' ||
     location.pathname === '/residential-solar-water-heater-estimator' ||
     location.pathname === '/residential-gas-replacement-solar-water-heater-estimator' ||
-    location.pathname === '/solar-battery-certificates'
+    location.pathname === '/solar-battery-certificates' ||
+    location.pathname === '/residential-solar-battery-certificates'
   ) {
     return (
       <div className="nsw-container" style={{ marginBottom: 20 }}>

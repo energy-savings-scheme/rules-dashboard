@@ -40,14 +40,14 @@ export default function SolarBatteryCertificatePage(props) {
               <div className="nsw-grid nsw-grid--spaced">
                 <div className="nsw-col nsw-col-md-12">
                   <p className="nsw-content-block__copy">
-                  The Safeguard certificate estimator estimates certificates for:
+                    The Safeguard certificate estimator estimates certificates for:
                     <ul>
                       <li>installation of a new residential solar battery or</li>
                       <li>sign up of a solar battery to a demand response contract</li>
                     </ul>
-                    </p>
-                    <p className="nsw-content-block__copy">
-                  Both of these activities are for residential buildings only.
+                  </p>
+                  <p className="nsw-content-block__copy">
+                    Both of these activities are for residential buildings only.
                   </p>
                 </div>
               </div>
@@ -75,7 +75,7 @@ export default function SolarBatteryCertificatePage(props) {
                     highlight
                     links={[
                       {
-                        href: '',
+                        href: '#residential-solar-battery-certificates',
                         title: 'Estimate certificates',
                       },
                     ]}

@@ -55,6 +55,8 @@ import CertificateEstimatorResidentialGasReplacementSolarWaterHeater from 'pages
 import ActivityRequirementsBESS1 from 'pages/BESS1/ActivityRequirementsBESS1';
 import SolarBatteryEligibilityPage from 'pages/homepage/SolarBatteryEligibility';
 import SolarBatteryCertificatePage from 'pages/homepage/SolarBatteryCertificatePage';
+import CertificateEstimatorBESS1 from 'pages/BESS1/CertificateEstimatorBESS1';
+
 function App() {
   const [entities, setEntities] = useState([]);
   const [variables, setVariables] = useState([]);
@@ -67,6 +69,8 @@ function App() {
   const [PoolPumpBrands, setPoolPumpBrands] = useState([]);
   const [resHPBrands, setresHPBrands] = useState([]);
   const [resSolarWaterHeaterBrands, setResSolarWaterHeaterBrands] = useState([]);
+  const [resSolarBatteryBrands, setResSolarBatteryBrands] = useState([])
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -138,6 +142,15 @@ function App() {
     RegistryApi.getCommercialWHBrands()
       .then((res) => {
         setWhBrands(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+      RegistryApi.getResidentialSolarBatteryBrands()
+      .then((res) => {
+        setResSolarBatteryBrands(res.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -311,6 +324,18 @@ function App() {
           />
         </Route>
 
+        <Route path="/residential-solar-battery-certificates" exact>
+          <Breadcrumb />
+          <CertificateEstimatorBESS1
+            entities={entities}
+            variables={variables}
+            brands={resSolarBatteryBrands}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
         <Route path="/core-eligibility" exact>
           <Breadcrumb />
           <BaseEligibility
