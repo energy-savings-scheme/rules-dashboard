@@ -155,9 +155,6 @@ export default function ActivityRequirementsBESS1(props) {
         {stepNumber !== 2 && (
           <div className="nsw-grid nsw-grid--spaced">
             <div className="nsw-col nsw-col-md-12">
-              {/* <h2 className="nsw-content-block__title">
-                Solar water heater activity eligibility check
-              </h2> */}
               <br></br>
               <p className="nsw-content-block__copy">
                 Answer the following questions to check if you meet the eligibility requirements for
