@@ -69,8 +69,7 @@ function App() {
   const [PoolPumpBrands, setPoolPumpBrands] = useState([]);
   const [resHPBrands, setresHPBrands] = useState([]);
   const [resSolarWaterHeaterBrands, setResSolarWaterHeaterBrands] = useState([]);
-  const [resSolarBatteryBrands, setResSolarBatteryBrands] = useState([])
-  
+  const [resSolarBatteryBrands, setResSolarBatteryBrands] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -148,7 +147,7 @@ function App() {
         console.log(err);
       });
 
-      RegistryApi.getResidentialSolarBatteryBrands()
+    RegistryApi.getResidentialSolarBatteryBrands()
       .then((res) => {
         setResSolarBatteryBrands(res.data);
         setLoading(false);

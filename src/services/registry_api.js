@@ -185,7 +185,7 @@ const RegistryApi = {
   getResidentialSolarWaterHeaterMetadata,
   getResidentialSolarBatteryBrands,
   getResidentialSolarBatteryModels,
-  getResidentialSolarBatteryMetadata
+  getResidentialSolarBatteryMetadata,
 };
 
 export default RegistryApi;
