@@ -89,7 +89,7 @@ export default function SolarBatteryCertificatePage(props) {
                     highlight
                     links={[
                       {
-                        href: '',
+                        href: '#residential-solar-battery-demand-response-certificates',
                         title: 'Estimate certificates',
                       },
                     ]}

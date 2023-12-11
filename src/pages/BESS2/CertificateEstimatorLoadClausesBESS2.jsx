@@ -9,7 +9,7 @@ import Button from 'nsw-ds-react/button/button';
 import OpenFiscaApi from 'services/openfisca_api';
 import Alert from 'nsw-ds-react/alert/alert';
 
-export default function CertificateEstimatorLoadClausesBESS1(props) {
+export default function CertificateEstimatorLoadClausesBESS2(props) {
   const {
     variableToLoad1,
     variableToLoad2,
@@ -36,6 +36,7 @@ export default function CertificateEstimatorLoadClausesBESS1(props) {
     setFlow,
     persistFormValues,
     setPersistFormValues,
+    brands
   } = props;
 
   console.log(variableToLoad1);
@@ -129,11 +130,11 @@ export default function CertificateEstimatorLoadClausesBESS1(props) {
       array1.map((formItem) => {
         console.log(metadata);
 
-        if (formItem.name === 'BESS1_usable_battery_capacity') {
+        if (formItem.name === 'BESS2_usable_battery_capacity') {
           formItem.form_value = metadata[`Usable Battery Capacity`];
         }
 
-        if (formItem.name === 'BESS1_PDRS__postcode') {
+        if (formItem.name === 'BESS2_PDRS__postcode') {
           formItem.form_value = postcode;
           formItem.read_only = true;
         }

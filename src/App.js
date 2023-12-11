@@ -56,6 +56,8 @@ import ActivityRequirementsBESS1 from 'pages/BESS1/ActivityRequirementsBESS1';
 import SolarBatteryEligibilityPage from 'pages/homepage/SolarBatteryEligibility';
 import SolarBatteryCertificatePage from 'pages/homepage/SolarBatteryCertificatePage';
 import CertificateEstimatorBESS1 from 'pages/BESS1/CertificateEstimatorBESS1';
+import ActivityRequirementsBESS2 from 'pages/BESS2/ActivityRequirementsBESS2';
+import CertificateEstimatorBESS2 from 'pages/BESS2/CertificateEstimatorBESS2';
 
 function App() {
   const [entities, setEntities] = useState([]);
@@ -335,6 +337,19 @@ function App() {
             setLoading={setLoading}
           />
         </Route>
+        <Route path="/residential-solar-battery-demand-response-certificates" exact>
+          <Breadcrumb />
+          <CertificateEstimatorBESS2
+            entities={entities}
+            variables={variables}
+            resSolarBatteryBrands={resSolarBatteryBrands}
+            setResSolarBatteryBrands={setResSolarBatteryBrands}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
         <Route path="/core-eligibility" exact>
           <Breadcrumb />
           <BaseEligibility
@@ -514,6 +529,18 @@ function App() {
         <Route path="/residential-solar-battery-eligibility" exact>
           <Breadcrumb />
           <ActivityRequirementsBESS1
+            entities={entities}
+            variables={variables}
+            loading={loading}
+            setEntities={setEntities}
+            setVariables={setVariables}
+            setLoading={setLoading}
+          />
+        </Route>
+        
+        <Route path="/residential-solar-battery-demand-response-eligibility" exact>
+          <Breadcrumb />
+          <ActivityRequirementsBESS2
             entities={entities}
             variables={variables}
             loading={loading}

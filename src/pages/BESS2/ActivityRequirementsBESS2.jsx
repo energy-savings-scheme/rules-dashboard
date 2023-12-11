@@ -9,16 +9,16 @@ import LoadClauses from './LoadClausesActReq';
 import OpenFiscaAPI from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
-import LoadClausesBESS1 from './LoadClausesActReq';
+import LoadClausesBESS2 from './LoadClausesActReq';
 
-export default function ActivityRequirementsBESS1(props) {
+export default function ActivityRequirementsBESS2(props) {
   const { entities, variables, setEntities, setVariables, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
   const [dependencies, setDependencies] = useState([]);
   const [variableToLoad, setVariableToLoad] = useState(
-    'BESS1_installation_final_activity_eligibility',
+    'BESS2_installation_final_activity_eligibility',
   );
   const [clausesForm, setClausesForm] = useState([]);
 
@@ -143,10 +143,10 @@ export default function ActivityRequirementsBESS1(props) {
         style="dark"
         image={{
           alt: 'commercial ac',
-          src: 'BESS1.jpg',
+          src: 'BESS2.jpg',
         }}
         intro="Residential"
-        title="Install a new household solar battery - eligibility"
+        title="Sign a solar battery up to a demand response contract - eligibility"
       />
 
       <div className="nsw-container" style={{ marginBottom: '10%' }}>
@@ -157,21 +157,17 @@ export default function ActivityRequirementsBESS1(props) {
             <div className="nsw-col nsw-col-md-12">
               <br></br>
               <p className="nsw-content-block__copy">
-                Answer the following questions to check if you meet the eligibility requirements for
-                the residential solar battery activity (BESS1 in the{' '}
-                <a
+              Answer the following questions to check if you meet the eligibility requirements for the residential solar battery demand response activity (BESS2 in the{' '}
+              <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme"
                   target="_blank"
                 >
                   Peak Demand Reduction Scheme
                 </a>{' '}
-                ). This activity is for the installation of a new 'behind the meter' solar battery
-                at a residential address.
+                ). This activity is for the signup of a 'behind the meter' residential solar battery to a demand response contract.
               </p>
               <p className="nsw-content-block__copy">
-                Note that this activity is only eligible for the Peak Demand Reduction Scheme, and
-                is not eligible for the Energy Savings Scheme. If ineligible, you will be shown the
-                ineligible answers and their corresponding rule clauses.
+              Note that this activity is only eligible for the Peak Demand Reduction Scheme, and is not eligible for the Energy Savings Scheme.
               </p>
               <p className="nsw-content-block__copy">
                 Please keep in mind that the results are a guide only and cannot be promoted or
@@ -196,7 +192,7 @@ export default function ActivityRequirementsBESS1(props) {
         <Fragment>
           {loading && <SpinnerFullscreen />}
           {!loading && (
-            <LoadClausesBESS1
+            <LoadClausesBESS2
               variableToLoad={variableToLoad}
               variables={variables}
               entities={entities}

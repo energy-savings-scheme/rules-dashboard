@@ -89,7 +89,7 @@ export default function SolarBatteryEligibilityPage(props) {
                     highlight
                     links={[
                       {
-                        href: '',
+                        href: '/#residential-solar-battery-demand-response-eligibility',
                         title: 'Check eligibility',
                       },
                     ]}
