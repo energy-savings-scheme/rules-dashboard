@@ -36,7 +36,7 @@ export default function CertificateEstimatorLoadClausesBESS2(props) {
     setFlow,
     persistFormValues,
     setPersistFormValues,
-    brands
+    brands,
   } = props;
 
   console.log(variableToLoad1);
@@ -367,7 +367,10 @@ export default function CertificateEstimatorLoadClausesBESS2(props) {
                     <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                       <div class="nsw-card__content null">
                         <div class="nsw-card__title">
-                          <a href="/#residential-solar-battery-eligibility" class="nsw-card__link">
+                          <a
+                            href="/#residential-solar-battery-demand-response-eligibility"
+                            class="nsw-card__link"
+                          >
                             Review eligibility for this activity
                           </a>
                         </div>

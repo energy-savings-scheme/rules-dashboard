@@ -151,7 +151,7 @@ export default function SolarBatteryEligibilityPage(props) {
                   <div class="nsw-card nsw-card--light nullnsw-card--headline" href="/">
                     <div class="nsw-card__content null">
                       <div class="nsw-card__title">
-                        <a href="/#hot-water-heater-certificate" class="nsw-card__link">
+                        <a href="/#solar-battery-certificates" class="nsw-card__link">
                           Estimate certificates for this activity
                         </a>
                       </div>
