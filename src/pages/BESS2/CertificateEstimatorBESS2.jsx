@@ -13,7 +13,14 @@ import axios from 'axios';
 import CertificateEstimatorLoadClausesBESS2 from './CertificateEstimatorLoadClausesBESS2';
 
 export default function CertificateEstimatorBESS2(props) {
-  const { entities, variables, resSolarBatteryBrands, setResSolarBatteryBrands, loading, setLoading } = props;
+  const {
+    entities,
+    variables,
+    resSolarBatteryBrands,
+    setResSolarBatteryBrands,
+    loading,
+    setLoading,
+  } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
@@ -37,23 +44,19 @@ export default function CertificateEstimatorBESS2(props) {
 
   console.log(resSolarBatteryBrands);
 
- 
-
   useEffect(() => {
     window.scrollTo(0, 0);
 
-
     if (!resSolarBatteryBrands || resSolarBatteryBrands === undefined) {
       RegistryApi.getResidentialSolarBatteryBrands()
-      .then((res) => {
-        setResSolarBatteryBrands(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((res) => {
+          setResSolarBatteryBrands(res.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
-
   }, []);
 
   // For resSolarBatteryBrands
@@ -204,17 +207,20 @@ export default function CertificateEstimatorBESS2(props) {
               {/* <h2 className="nsw-content-block__title">Solar water heater certificate estimator</h2> */}
               <br></br>
               <p className="nsw-content-block__copy">
-              Estimate the peak reduction certificates (PRCs) for the residential solar battery demand response activity (BESS2 in the{' '}
+                Estimate the peak reduction certificates (PRCs) for the residential solar battery
+                demand response activity (BESS2 in the{' '}
                 <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme"
                   target="_blank"
                 >
                   Peak Demand Reduction Scheme
                 </a>{' '}
-                ) by answering the following questions. This activity is for the signup of a 'behind the meter' residential solar battery to a demand response contract.
+                ) by answering the following questions. This activity is for the signup of a 'behind
+                the meter' residential solar battery to a demand response contract. A key requirement of this activity is that there is a solar PV and battery system installed at the address.
                 <p className="nsw-content-block__copy">
-                Note that this activity is only eligible for the Peak Demand Reduction scheme, and is not eligible for the Energy Savings Scheme.
-                As this is a new installation activity, a replacement activity will not generate certificates.
+                  Note that this activity is only eligible for the Peak Demand Reduction scheme, and
+                  is not eligible for the Energy Savings Scheme. As this is a new installation
+                  activity, a replacement activity will not generate certificates.
                 </p>
               </p>
               <p className="nsw-content-block__copy">
@@ -276,7 +282,9 @@ export default function CertificateEstimatorBESS2(props) {
                         style={{ maxWidth: '50%' }}
                         options={dropdownOptions}
                         onChange={(e) => {
-                          setSelectedBrand(resSolarBatteryBrands.find((item) => item === e.target.value));
+                          setSelectedBrand(
+                            resSolarBatteryBrands.find((item) => item === e.target.value),
+                          );
                         }}
                         value={selectedBrand}
                         required

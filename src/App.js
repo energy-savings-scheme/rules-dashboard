@@ -537,7 +537,7 @@ function App() {
             setLoading={setLoading}
           />
         </Route>
-        
+
         <Route path="/residential-solar-battery-demand-response-eligibility" exact>
           <Breadcrumb />
           <ActivityRequirementsBESS2

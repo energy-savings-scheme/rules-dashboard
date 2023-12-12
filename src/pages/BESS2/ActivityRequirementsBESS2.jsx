@@ -157,17 +157,20 @@ export default function ActivityRequirementsBESS2(props) {
             <div className="nsw-col nsw-col-md-12">
               <br></br>
               <p className="nsw-content-block__copy">
-              Answer the following questions to check if you meet the eligibility requirements for the residential solar battery demand response activity (BESS2 in the{' '}
-              <a
+                Answer the following questions to check if you meet the eligibility requirements for
+                the residential solar battery demand response activity (BESS2 in the{' '}
+                <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme"
                   target="_blank"
                 >
                   Peak Demand Reduction Scheme
                 </a>{' '}
-                ). This activity is for the signup of a 'behind the meter' residential solar battery to a demand response contract.
+                ). This activity is for the signup of a 'behind the meter' residential solar battery
+                to a demand response contract.
               </p>
               <p className="nsw-content-block__copy">
-              Note that this activity is only eligible for the Peak Demand Reduction Scheme, and is not eligible for the Energy Savings Scheme.
+                Note that this activity is only eligible for the Peak Demand Reduction Scheme, and
+                is not eligible for the Energy Savings Scheme.
               </p>
               <p className="nsw-content-block__copy">
                 Please keep in mind that the results are a guide only and cannot be promoted or
