@@ -188,16 +188,21 @@ export default function CertificateEstimatorBESS1(props) {
               {/* <h2 className="nsw-content-block__title">Solar water heater certificate estimator</h2> */}
               <br></br>
               <p className="nsw-content-block__copy">
-              Estimate the peak reduction certificates (PRCs) for the residential solar battery activity (BESS1 in the{' '}
+                Estimate the peak reduction certificates (PRCs) for the residential solar battery
+                activity (BESS1 in the{' '}
                 <a
                   href="https://www.energy.nsw.gov.au/nsw-plans-and-progress/regulation-and-policy/energy-security-safeguard/peak-demand-reduction-scheme"
                   target="_blank"
                 >
                   Peak Demand Reduction Scheme
                 </a>{' '}
-                ) by answering the following questions. This activity is for the installation of a new 'behind the meter' solar battery at a residential address. A key requirement of this activity is that there is already a solar PV system installed at the address.
+                ) by answering the following questions. This activity is for the installation of a
+                new 'behind the meter' solar battery at a residential address. A key requirement of
+                this activity is that there is already a solar PV system installed at the address.
                 <p className="nsw-content-block__copy">
-                Note that this activity is only eligible for the Peak Demand Reduction scheme, and is not eligible for the Energy Savings Scheme. As this is a new installation activity, a replacement activity will not generate certificates.
+                  Note that this activity is only eligible for the Peak Demand Reduction scheme, and
+                  is not eligible for the Energy Savings Scheme. As this is a new installation
+                  activity, a replacement activity will not generate certificates.
                 </p>
               </p>
               <p className="nsw-content-block__copy">
