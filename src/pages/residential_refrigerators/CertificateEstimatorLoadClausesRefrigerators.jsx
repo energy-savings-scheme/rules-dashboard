@@ -40,6 +40,8 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
 
   console.log(stepNumber);
 
+  console.log(calculationError, calculationError2)
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -50,6 +52,7 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
   const [calculationDate, setCalculationDate] = useState(moment(today).format('YYYY-MM-DD'));
   const [dependencies, setDependencies] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false)
 
   function addElement(arr, obj) {
     const { length } = arr;

@@ -16,6 +16,7 @@ import OpenFiscaApi from 'services/openfisca_api';
 import Notification from 'nsw-ds-react/notification/notification';
 import CertificateEstimatorLoadClausesMotors from './CertificateEstimatorLoadClausesMotors';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
+import Alert from 'nsw-ds-react/alert/alert';
 
 export default function CertificateEstimatorMotors(props) {
   const { entities, variables, setVariables, setEntities, loading, setLoading } = props;
@@ -142,6 +143,11 @@ export default function CertificateEstimatorMotors(props) {
         <ProgressIndicator step={stepNumber} of={2} style={{ width: '80%' }} />
 
         <Fragment>
+        {stepNumber === 2 && calculationError && calculationError2 &&       
+          <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
+          <p>We are experiencing technical difficulties right now, please try again later.</p>
+          </Alert>}
+
           {stepNumber === 1 && loading && <SpinnerFullscreen />}
 
           {stepNumber === 1 && (
@@ -197,7 +203,7 @@ export default function CertificateEstimatorMotors(props) {
             />
           )}
 
-          {stepNumber === 2 && calculationError && calculationError2 && <SpinnerFullscreen />}
+          {/* {stepNumber === 2 && calculationError && calculationError2 && <SpinnerFullscreen />} */}
 
           {stepNumber === 1 && registryData && postcode && postcode.length === 4 && (
             <div className="nsw-row" style={{ paddingTop: '30px' }}>

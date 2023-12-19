@@ -39,7 +39,8 @@ export default function CalculateForm(props) {
 
   const [loading, setLoading] = useState(false);
   const [showPostcodeError, setShowPostcodeError] = useState(false);
-
+  const [ error, setError ] = useState(false)
+ 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -124,6 +125,7 @@ export default function CalculateForm(props) {
         setLoading(true);
       })
       .catch((err) => {
+        console.log("here!!!!")
         setCalculationResult(null);
         setCalculationError(true);
       })
@@ -158,6 +160,7 @@ export default function CalculateForm(props) {
         .catch((err) => {
           setCalculationResult2(null);
           setCalculationError2(true);
+          setError(true)
           console.log(err);
         })
         .finally(() => {
@@ -227,6 +230,13 @@ export default function CalculateForm(props) {
       {stepNumber === 1 && showPostcodeError && (
         <Alert as="error" title="The postcode is not valid in NSW">
           <p>Please check your postcode and try again.</p>
+        </Alert>
+      )}
+
+
+      {stepNumber === 2 && error && (
+        <Alert as="error" title="Technical difficulties">
+          <p>We are facing technical difficulties at the moment.</p>
         </Alert>
       )}
 
