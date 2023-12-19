@@ -12,7 +12,7 @@ import { format, previousSunday } from 'date-fns';
 import axios from 'axios';
 
 export default function CertificateEstimatorElectricHeatPump(props) {
-  const { entities, variables, brands, loading, setLovading } = props;
+  const { entities, variables, brands, loading, setLoading } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
@@ -237,11 +237,11 @@ export default function CertificateEstimatorElectricHeatPump(props) {
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
         <Fragment>
-
-        {stepNumber === 3 && calculationError && calculationError2 &&       
-          <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
-          <p>We are experiencing technical difficulties right now, please try again later.</p>
-          </Alert>}
+          {stepNumber === 3 && calculationError && calculationError2 && (
+            <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
+              <p>We are experiencing technical difficulties right now, please try again later.</p>
+            </Alert>
+          )}
 
           {stepNumber === 1 && (
             <div className="nsw-row">

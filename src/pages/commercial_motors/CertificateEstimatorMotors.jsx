@@ -143,10 +143,11 @@ export default function CertificateEstimatorMotors(props) {
         <ProgressIndicator step={stepNumber} of={2} style={{ width: '80%' }} />
 
         <Fragment>
-        {stepNumber === 2 && calculationError && calculationError2 &&       
-          <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
-          <p>We are experiencing technical difficulties right now, please try again later.</p>
-          </Alert>}
+          {stepNumber === 2 && calculationError && calculationError2 && (
+            <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
+              <p>We are experiencing technical difficulties right now, please try again later.</p>
+            </Alert>
+          )}
 
           {stepNumber === 1 && loading && <SpinnerFullscreen />}
 
