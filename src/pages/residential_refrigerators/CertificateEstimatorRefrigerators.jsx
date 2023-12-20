@@ -5,6 +5,7 @@ import OpenFiscaAPI from 'services/openfisca_api';
 import SpinnerFullscreen from 'components/layout/SpinnerFullscreen';
 import CertificateEstimatorLoadClausesRefrigerators from './CertificateEstimatorLoadClausesRefrigerators';
 import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
+import Alert from 'nsw-ds-react/alert/alert';
 
 export default function CertificateEstimatorRefrigerators(props) {
   const { entities, variables, setVariables, setEntities, loading, setLoading } = props;
@@ -138,6 +139,12 @@ export default function CertificateEstimatorRefrigerators(props) {
         <Fragment>
           {stepNumber === 1 && loading && <SpinnerFullscreen />}
 
+          {stepNumber === 2 && calculationError && calculationError2 && (
+            <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
+              <p>We are experiencing technical difficulties right now, please try again later.</p>
+            </Alert>
+          )}
+
           {stepNumber === 1 && (
             <CertificateEstimatorLoadClausesRefrigerators
               variableData1={variableData1}
@@ -190,8 +197,6 @@ export default function CertificateEstimatorRefrigerators(props) {
               setFlow={setFlow}
             />
           )}
-
-          {stepNumber === 2 && calculationError && calculationError2 && <SpinnerFullscreen />}
 
           {stepNumber === 1 && registryData && postcode && postcode.length === 4 && (
             <div className="nsw-row" style={{ paddingTop: '30px' }}>

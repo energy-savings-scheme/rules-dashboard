@@ -239,6 +239,12 @@ export default function CertificateEstimatorWH(props) {
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
         <Fragment>
+          {stepNumber === 3 && calculationError && calculationError2 && (
+            <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
+              <p>We are experiencing technical difficulties right now, please try again later.</p>
+            </Alert>
+          )}
+
           {stepNumber === 1 && (
             <div className="nsw-row">
               <div className="nsw-col" style={{ padding: 'inherit' }}>

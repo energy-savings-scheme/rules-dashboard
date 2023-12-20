@@ -88,6 +88,13 @@ export default function LoadClausesSYS2(props) {
 
   return (
     <div className style={{ marginBottom: '7%' }}>
+      <br></br>
+      {stepNumber === 2 && calculationError && (
+        <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
+          <p>We are experiencing technical difficulties right now, please try again later.</p>
+        </Alert>
+      )}
+      <div></div>
       <div>
         {stepNumber === 1 && (
           <Fragment>

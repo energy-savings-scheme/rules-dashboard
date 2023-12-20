@@ -240,7 +240,7 @@ export default function CertificateEstimatorLoadClausesWH(props) {
           </Fragment>
         )}
 
-        {stepNumber === 3 && (
+        {stepNumber === 3 && !calculationError && !calculationError2 && (
           <div
             class="nsw-global-alert nsw-global-alert--light js-global-alert"
             role="alert"
