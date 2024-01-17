@@ -36,6 +36,10 @@ export default function CalculateBlock(props) {
     setPersistFormValues,
     secDep,
     setSecDep,
+    loading,
+    setLoading,
+    showError,
+    setShowError
   } = props;
 
   if (metadata) {
@@ -608,6 +612,10 @@ export default function CalculateBlock(props) {
       setFlow={setFlow}
       persistFormValues={persistFormValues}
       setPersistFormValues={setPersistFormValues}
+      loading={loading}
+      setLoading={setLoading}
+      showError={showError}
+      setShowError={setShowError}
     >
       {formValues.map((formItem, index) => renderFormField(formItem))}
     </CalculateForm>
