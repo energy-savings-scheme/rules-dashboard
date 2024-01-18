@@ -19,8 +19,6 @@ export default function CertificateEstimatorRC(props) {
     setVariables,
     setEntities,
     setRF2Brands,
-    loading,
-    setLoading,
   } = props;
 
   const [formValues, setFormValues] = useState([]);
@@ -43,6 +41,8 @@ export default function CertificateEstimatorRC(props) {
   const [productClassOptions, setProductClassOptions] = useState([]);
   const [selectedProductClass, setSelectedProductClass] = useState(null);
   const [showPostcodeError, setShowPostcodeError] = useState(false);
+  const [loading, setLoading] = useState(false)
+  const [showError, setShowError] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -271,8 +271,11 @@ export default function CertificateEstimatorRC(props) {
 
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
+        {stepNumber === 3 && loading && !showError && <SpinnerFullscreen />}
+
+
         <Fragment>
-          {stepNumber === 3 && calculationError && calculationError2 && (
+          {stepNumber === 3 && calculationError && calculationError2 && showError && (
             <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
               <p>We are experiencing technical difficulties right now, please try again later.</p>
             </Alert>
@@ -405,6 +408,10 @@ export default function CertificateEstimatorRC(props) {
               persistFormValues={persistFormValues}
               setPersistFormValues={setPersistFormValues}
               selectedProductClass={selectedProductClass}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
             />
           )}
 
@@ -434,10 +441,12 @@ export default function CertificateEstimatorRC(props) {
               persistFormValues={persistFormValues}
               setPersistFormValues={setPersistFormValues}
               selectedProductClass={selectedProductClass}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
             />
           )}
-
-          {/* {stepNumber === 3 && calculationError && calculationError2 && <SpinnerFullscreen />} */}
 
           {stepNumber === 1 && showPostcodeError && postcode.length >= 4 && (
             <Alert as="error" title="The postcode is not valid in NSW">

@@ -166,7 +166,8 @@ export default function ActivityRequirementsBESS2(props) {
                   Peak Demand Reduction Scheme
                 </a>{' '}
                 ). This activity is for the signup of a 'behind the meter' residential solar battery
-                to a demand response contract. A key requirement of this activity is that there is a solar PV and battery system installed at the address.
+                to a demand response contract. A key requirement of this activity is that there is a
+                solar PV and battery system installed at the address.
               </p>
               <p className="nsw-content-block__copy">
                 Note that this activity is only eligible for the Peak Demand Reduction Scheme, and

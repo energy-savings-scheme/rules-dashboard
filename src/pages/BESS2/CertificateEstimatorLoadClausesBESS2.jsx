@@ -261,7 +261,9 @@ export default function CertificateEstimatorLoadClausesBESS2(props) {
                   </span>
                 </p>
                 <p>
-                As this activity is only eligible for the Peak Demand Reduction Scheme, it generates Peak Reduction Certificates (PRCs) only and does not generate Energy Savings Certificates (ESCs).
+                  As this activity is only eligible for the Peak Demand Reduction Scheme, it
+                  generates Peak Reduction Certificates (PRCs) only and does not generate Energy
+                  Savings Certificates (ESCs).
                 </p>
                 <p>
                   If you are receiving an estimation of 0 certificates, the brand and model may not

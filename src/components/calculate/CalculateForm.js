@@ -36,7 +36,7 @@ export default function CalculateForm(props) {
     loading,
     setLoading,
     showError,
-    setShowError
+    setShowError,
   } = props;
 
   var { formValues } = props;
@@ -134,7 +134,6 @@ export default function CalculateForm(props) {
       })
       .finally(() => {
         setLoading(false);
-
       });
 
     if (variable2) {
