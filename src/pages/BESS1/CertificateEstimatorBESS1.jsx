@@ -12,7 +12,7 @@ import { format, previousSunday } from 'date-fns';
 import axios from 'axios';
 
 export default function CertificateEstimatorBESS1(props) {
-  const { entities, variables, brands, loading, setLoading } = props;
+  const { entities, variables, brands } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
@@ -33,6 +33,8 @@ export default function CertificateEstimatorBESS1(props) {
   const [persistFormValues, setPersistFormValues] = useState([]);
   const [flow, setFlow] = useState(null);
   const [showPostcodeError, setShowPostcodeError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   console.log(brands);
 
@@ -226,6 +228,8 @@ export default function CertificateEstimatorBESS1(props) {
 
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
+        {stepNumber === 3 && loading && !showError && <SpinnerFullscreen />}
+
         <Fragment>
           {stepNumber === 1 && (
             <div className="nsw-row">
@@ -325,6 +329,10 @@ export default function CertificateEstimatorBESS1(props) {
               setFlow={setFlow}
               selectedBrand={selectedBrand}
               selectedModel={selectedModel}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}
@@ -338,6 +346,12 @@ export default function CertificateEstimatorBESS1(props) {
           )}
 
           {stepNumber === 2 && loading && <SpinnerFullscreen />}
+
+          {stepNumber === 3 && calculationError && calculationError2 && showError && (
+            <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
+              <p>We are experiencing technical difficulties right now, please try again later.</p>
+            </Alert>
+          )}
 
           {stepNumber === 1 && showPostcodeError && postcode.length >= 4 && (
             <Alert as="error" title="The postcode is not valid in NSW">
@@ -368,6 +382,10 @@ export default function CertificateEstimatorBESS1(props) {
               selectedModel={selectedModel}
               flow={flow}
               setFlow={setFlow}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
             />
           )}
 

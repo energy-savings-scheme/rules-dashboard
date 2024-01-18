@@ -34,8 +34,8 @@ export default function CertificateEstimatorMotors(props) {
   const [variableData2, setVariableData2] = useState([]);
   const [persistFormValues, setPersistFormValues] = useState([]);
   const [flow, setFlow] = useState(null);
-  const [loading, setLoading] = useState(false)
-  const [showError, setShowError] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -215,7 +215,6 @@ export default function CertificateEstimatorMotors(props) {
               setShowError={setShowError}
             />
           )}
-
 
           {stepNumber === 1 && registryData && postcode && postcode.length === 4 && (
             <div className="nsw-row" style={{ paddingTop: '30px' }}>

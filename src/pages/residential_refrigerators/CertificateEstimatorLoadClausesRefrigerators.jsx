@@ -36,7 +36,7 @@ export default function CertificateEstimatorLoadClausesRefrigerators(props) {
     loading,
     setLoading,
     showError,
-    setShowError
+    setShowError,
   } = props;
 
   console.log(variableData1);

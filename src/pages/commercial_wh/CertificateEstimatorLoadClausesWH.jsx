@@ -39,7 +39,7 @@ export default function CertificateEstimatorLoadClausesWH(props) {
     loading,
     setLoading,
     showError,
-    setShowError
+    setShowError,
   } = props;
 
   console.log(variableToLoad1);

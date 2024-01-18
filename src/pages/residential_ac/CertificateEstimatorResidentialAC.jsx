@@ -14,14 +14,7 @@ import { compareAsc, format, previousSunday } from 'date-fns';
 import axios from 'axios';
 
 export default function CertificateEstimatorResidentialAC(props) {
-  const {
-    entities,
-    variables,
-    hvacBrands,
-    setVariables,
-    setEntities,
-    setHvacBrands,
-  } = props;
+  const { entities, variables, hvacBrands, setVariables, setEntities, setHvacBrands } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
@@ -41,8 +34,8 @@ export default function CertificateEstimatorResidentialAC(props) {
   const [flow, setFlow] = useState(null);
   const [persistFormValues, setPersistFormValues] = useState([]);
   const [showPostcodeError, setShowPostcodeError] = useState(false);
-  const [loading, setLoading] = useState(false)
-  const [showError, setShowError] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -275,7 +268,6 @@ export default function CertificateEstimatorResidentialAC(props) {
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
         {stepNumber === 3 && loading && !showError && <SpinnerFullscreen />}
-
 
         <Fragment>
           {stepNumber === 3 && calculationError && calculationError2 && showError && (

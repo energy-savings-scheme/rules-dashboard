@@ -18,8 +18,6 @@ export default function CertificateEstimatorBESS2(props) {
     variables,
     resSolarBatteryBrands,
     setResSolarBatteryBrands,
-    loading,
-    setLoading,
   } = props;
 
   const [formValues, setFormValues] = useState([]);
@@ -41,6 +39,8 @@ export default function CertificateEstimatorBESS2(props) {
   const [persistFormValues, setPersistFormValues] = useState([]);
   const [flow, setFlow] = useState(null);
   const [showPostcodeError, setShowPostcodeError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   console.log(resSolarBatteryBrands);
 
@@ -246,6 +246,9 @@ export default function CertificateEstimatorBESS2(props) {
 
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
+        {stepNumber === 3 && loading && !showError && <SpinnerFullscreen />}
+
+
         <Fragment>
           {stepNumber === 1 && (
             <div className="nsw-row">
@@ -351,6 +354,10 @@ export default function CertificateEstimatorBESS2(props) {
                 setStepNumber(stepNumber - 1);
               }}
               brands={resSolarBatteryBrands}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
             />
           )}
 
@@ -365,6 +372,12 @@ export default function CertificateEstimatorBESS2(props) {
           {stepNumber === 1 && showPostcodeError && postcode.length >= 4 && (
             <Alert as="error" title="The postcode is not valid in NSW">
               <p>Please check your postcode and try again.</p>
+            </Alert>
+          )}
+
+          {stepNumber === 3 && calculationError && calculationError2 && showError && (
+            <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
+              <p>We are experiencing technical difficulties right now, please try again later.</p>
             </Alert>
           )}
 
@@ -392,6 +405,10 @@ export default function CertificateEstimatorBESS2(props) {
               flow={flow}
               setFlow={setFlow}
               brands={resSolarBatteryBrands}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
             />
           )}
 
