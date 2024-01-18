@@ -21,8 +21,6 @@ export default function CertificateEstimatorResidentialAC(props) {
     setVariables,
     setEntities,
     setHvacBrands,
-    loading,
-    setLoading,
   } = props;
 
   const [formValues, setFormValues] = useState([]);
@@ -43,6 +41,8 @@ export default function CertificateEstimatorResidentialAC(props) {
   const [flow, setFlow] = useState(null);
   const [persistFormValues, setPersistFormValues] = useState([]);
   const [showPostcodeError, setShowPostcodeError] = useState(false);
+  const [loading, setLoading] = useState(false)
+  const [showError, setShowError] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -274,8 +274,11 @@ export default function CertificateEstimatorResidentialAC(props) {
 
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
+        {stepNumber === 3 && loading && !showError && <SpinnerFullscreen />}
+
+
         <Fragment>
-          {stepNumber === 3 && calculationError && calculationError2 && (
+          {stepNumber === 3 && calculationError && calculationError2 && showError && (
             <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
               <p>We are experiencing technical difficulties right now, please try again later.</p>
             </Alert>
@@ -389,6 +392,10 @@ export default function CertificateEstimatorResidentialAC(props) {
               setFlow={setFlow}
               persistFormValues={persistFormValues}
               setPersistFormValues={setPersistFormValues}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
             />
           )}
 
@@ -424,6 +431,10 @@ export default function CertificateEstimatorResidentialAC(props) {
               setFlow={setFlow}
               persistFormValues={persistFormValues}
               setPersistFormValues={setPersistFormValues}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
             />
           )}
 

@@ -33,11 +33,14 @@ export default function CalculateForm(props) {
     setFormValues,
     persistFormValues,
     setPersistFormValues,
+    loading,
+    setLoading,
+    showError,
+    setShowError,
   } = props;
 
   var { formValues } = props;
 
-  const [loading, setLoading] = useState(false);
   const [showPostcodeError, setShowPostcodeError] = useState(false);
 
   useEffect(() => {
@@ -122,10 +125,12 @@ export default function CalculateForm(props) {
         setCalculationResult(result);
         setCalculationError(false);
         setLoading(true);
+        setShowError(false);
       })
       .catch((err) => {
         setCalculationResult(null);
         setCalculationError(true);
+        setShowError(true);
       })
       .finally(() => {
         setLoading(false);
@@ -154,11 +159,14 @@ export default function CalculateForm(props) {
           console.log(res.data);
           setCalculationResult2(result);
           setCalculationError2(false);
+          setLoading(true);
+          setShowError(false);
         })
         .catch((err) => {
           setCalculationResult2(null);
           setCalculationError2(true);
           console.log(err);
+          setShowError(true);
         })
         .finally(() => {
           setLoading(false);

@@ -32,6 +32,10 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
     setPersistFormValues,
     formValues,
     setFormValues,
+    loading,
+    setLoading,
+    showError,
+    setShowError,
   } = props;
 
   const [variable, setVariable] = useState({}); // all info about variable
@@ -39,7 +43,6 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
   var today = new Date();
   const [calculationDate, setCalculationDate] = useState(moment(today).format('YYYY-MM-DD'));
   const [dependencies, setDependencies] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -154,6 +157,10 @@ export default function CertificateEstimatorLoadClausesMotors(props) {
               setFlow={setFlow}
               persistFormValues={persistFormValues}
               setPersistFormValues={setPersistFormValues}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
             />
           </Fragment>
         )}

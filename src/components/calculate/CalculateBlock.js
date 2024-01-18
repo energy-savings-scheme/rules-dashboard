@@ -36,6 +36,10 @@ export default function CalculateBlock(props) {
     setPersistFormValues,
     secDep,
     setSecDep,
+    loading,
+    setLoading,
+    showError,
+    setShowError,
   } = props;
 
   if (metadata) {
@@ -556,10 +560,7 @@ export default function CalculateBlock(props) {
         return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
       } else if (formItem.value_type == 'Date') {
         return <DateInput formItem={formItem} setItemValue={setItemValue} />;
-      } else if (
-        formItem.value_type == 'String' &&
-        (formItem.name === 'RF2_product_class')
-      ) {
+      } else if (formItem.value_type == 'String' && formItem.name === 'RF2_product_class') {
         return <FormTextInput formItem={formItem} setItemValue={setItemValue} />;
       } else if (formItem.value_type == 'String' && formItem.name !== 'RF2_product_class') {
         return <DropDownMenu formItem={formItem} setItemValue={setItemValue} />;
@@ -608,6 +609,10 @@ export default function CalculateBlock(props) {
       setFlow={setFlow}
       persistFormValues={persistFormValues}
       setPersistFormValues={setPersistFormValues}
+      loading={loading}
+      setLoading={setLoading}
+      showError={showError}
+      setShowError={setShowError}
     >
       {formValues.map((formItem, index) => renderFormField(formItem))}
     </CalculateForm>

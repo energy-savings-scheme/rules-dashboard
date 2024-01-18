@@ -12,7 +12,7 @@ import { format, previousSunday } from 'date-fns';
 import axios from 'axios';
 
 export default function CertificateEstimatorElectricHeatPump(props) {
-  const { entities, variables, brands, loading, setLoading } = props;
+  const { entities, variables, brands} = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
@@ -33,6 +33,8 @@ export default function CertificateEstimatorElectricHeatPump(props) {
   const [persistFormValues, setPersistFormValues] = useState([]);
   const [flow, setFlow] = useState(null);
   const [showPostcodeError, setShowPostcodeError] = useState(false);
+  const [loading, setLoading] = useState(false)
+  const [showError, setShowError] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -236,8 +238,11 @@ export default function CertificateEstimatorElectricHeatPump(props) {
 
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
+        {stepNumber === 3 && loading && !showError && <SpinnerFullscreen />}
+
+
         <Fragment>
-          {stepNumber === 3 && calculationError && calculationError2 && (
+          {stepNumber === 3 && calculationError && calculationError2 && showError && (
             <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
               <p>We are experiencing technical difficulties right now, please try again later.</p>
             </Alert>
@@ -341,6 +346,10 @@ export default function CertificateEstimatorElectricHeatPump(props) {
               setFlow={setFlow}
               selectedBrand={selectedBrand}
               selectedModel={selectedModel}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}
@@ -384,6 +393,10 @@ export default function CertificateEstimatorElectricHeatPump(props) {
               selectedModel={selectedModel}
               flow={flow}
               setFlow={setFlow}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
             />
           )}
 

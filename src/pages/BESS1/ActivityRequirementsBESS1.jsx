@@ -166,7 +166,8 @@ export default function ActivityRequirementsBESS1(props) {
                   Peak Demand Reduction Scheme
                 </a>{' '}
                 ). This activity is for the installation of a new 'behind the meter' solar battery
-                at a residential address. A key requirement of this activity is that there is already a solar PV system installed at the address.
+                at a residential address. A key requirement of this activity is that there is
+                already a solar PV system installed at the address.
               </p>
               <p className="nsw-content-block__copy">
                 Note that this activity is only eligible for the Peak Demand Reduction Scheme, and

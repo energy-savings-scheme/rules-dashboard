@@ -19,7 +19,7 @@ import HeroBanner from 'nsw-ds-react/heroBanner/heroBanner';
 import Alert from 'nsw-ds-react/alert/alert';
 
 export default function CertificateEstimatorMotors(props) {
-  const { entities, variables, setVariables, setEntities, loading, setLoading } = props;
+  const { entities, variables, setVariables, setEntities } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
@@ -34,6 +34,8 @@ export default function CertificateEstimatorMotors(props) {
   const [variableData2, setVariableData2] = useState([]);
   const [persistFormValues, setPersistFormValues] = useState([]);
   const [flow, setFlow] = useState(null);
+  const [loading, setLoading] = useState(false)
+  const [showError, setShowError] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -142,8 +144,10 @@ export default function CertificateEstimatorMotors(props) {
 
         <ProgressIndicator step={stepNumber} of={2} style={{ width: '80%' }} />
 
+        {stepNumber === 2 && loading && !showError && <SpinnerFullscreen />}
+
         <Fragment>
-          {stepNumber === 2 && calculationError && calculationError2 && (
+          {stepNumber === 2 && calculationError && calculationError2 && showError && (
             <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
               <p>We are experiencing technical difficulties right now, please try again later.</p>
             </Alert>
@@ -174,6 +178,10 @@ export default function CertificateEstimatorMotors(props) {
               setFormValues={setFormValues}
               flow={flow}
               setFlow={setFlow}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}
@@ -201,10 +209,13 @@ export default function CertificateEstimatorMotors(props) {
               setPersistFormValues={setPersistFormValues}
               flow={flow}
               setFlow={setFlow}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
             />
           )}
 
-          {/* {stepNumber === 2 && calculationError && calculationError2 && <SpinnerFullscreen />} */}
 
           {stepNumber === 1 && registryData && postcode && postcode.length === 4 && (
             <div className="nsw-row" style={{ paddingTop: '30px' }}>

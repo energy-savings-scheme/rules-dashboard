@@ -39,6 +39,10 @@ export default function CertificateEstimatorLoadClausesRC(props) {
     persistFormValues,
     setPersistFormValues,
     selectedProductClass,
+    loading,
+    setLoading,
+    showError,
+    setShowError
   } = props;
 
   console.log(variableToLoad1);
@@ -57,7 +61,6 @@ export default function CertificateEstimatorLoadClausesRC(props) {
   var today = new Date();
   const [calculationDate, setCalculationDate] = useState(moment(today).format('YYYY-MM-DD'));
   const [dependencies, setDependencies] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [variableData1, setVariableData1] = useState([]);
   const [variableData2, setVariableData2] = useState([]);
 
@@ -248,6 +251,10 @@ export default function CertificateEstimatorLoadClausesRC(props) {
               setFlow={setFlow}
               persistFormValues={persistFormValues}
               setPersistFormValues={setPersistFormValues}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
             />
           </Fragment>
         )}
