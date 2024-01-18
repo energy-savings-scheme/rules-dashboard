@@ -37,6 +37,10 @@ export default function CertificateEstimatorLoadClausesBESS2(props) {
     persistFormValues,
     setPersistFormValues,
     brands,
+    loading,
+    setLoading,
+    showError,
+    setShowError,
   } = props;
 
   console.log(variableToLoad1);
@@ -54,9 +58,6 @@ export default function CertificateEstimatorLoadClausesBESS2(props) {
 
   // const [formValues, setFormValues] = useState([]);
   const [dependencies, setDependencies] = useState([]);
-
-  const [loading, setLoading] = useState(true);
-
   const [variableData1, setVariableData1] = useState([]);
   const [variableData2, setVariableData2] = useState([]);
 
@@ -223,6 +224,10 @@ export default function CertificateEstimatorLoadClausesBESS2(props) {
               setFlow={setFlow}
               persistFormValues={persistFormValues}
               setPersistFormValues={setPersistFormValues}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
             />
           </Fragment>
         )}

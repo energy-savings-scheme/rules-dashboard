@@ -39,7 +39,7 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
     loading,
     setLoading,
     showError,
-    setShowError
+    setShowError,
   } = props;
 
   console.log(variableToLoad1);

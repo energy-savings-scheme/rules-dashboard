@@ -12,7 +12,7 @@ import { format, previousSunday } from 'date-fns';
 import axios from 'axios';
 
 export default function CertificateEstimatorGasHeatPump(props) {
-  const { entities, variables, brands} = props;
+  const { entities, variables, brands } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
@@ -33,8 +33,8 @@ export default function CertificateEstimatorGasHeatPump(props) {
   const [persistFormValues, setPersistFormValues] = useState([]);
   const [flow, setFlow] = useState(null);
   const [showPostcodeError, setShowPostcodeError] = useState(false);
-  const [loading, setLoading] = useState(false)
-  const [showError, setShowError] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);

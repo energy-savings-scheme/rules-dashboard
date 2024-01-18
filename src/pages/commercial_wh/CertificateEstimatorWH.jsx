@@ -33,8 +33,8 @@ export default function CertificateEstimatorWH(props) {
   const [persistFormValues, setPersistFormValues] = useState([]);
   const [flow, setFlow] = useState(null);
   const [showPostcodeError, setShowPostcodeError] = useState(false);
-  const [loading, setLoading] = useState(false)
-  const [showError, setShowError] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
