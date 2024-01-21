@@ -174,6 +174,10 @@ export default function CertificateEstimatorRefrigerators(props) {
               setFormValues={setFormValues}
               flow={flow}
               setFlow={setFlow}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
             />
           )}
 
@@ -198,6 +202,10 @@ export default function CertificateEstimatorRefrigerators(props) {
               setPersistFormValues={setPersistFormValues}
               flow={flow}
               setFlow={setFlow}
+              loading={loading}
+              setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
             />
           )}
 
