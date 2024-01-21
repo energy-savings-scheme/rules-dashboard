@@ -13,12 +13,7 @@ import axios from 'axios';
 import CertificateEstimatorLoadClausesBESS2 from './CertificateEstimatorLoadClausesBESS2';
 
 export default function CertificateEstimatorBESS2(props) {
-  const {
-    entities,
-    variables,
-    resSolarBatteryBrands,
-    setResSolarBatteryBrands,
-  } = props;
+  const { entities, variables, resSolarBatteryBrands, setResSolarBatteryBrands } = props;
 
   const [formValues, setFormValues] = useState([]);
   const [stepNumber, setStepNumber] = useState(1);
@@ -247,7 +242,6 @@ export default function CertificateEstimatorBESS2(props) {
         <ProgressIndicator step={stepNumber} of={3} style={{ width: '80%' }} />
 
         {stepNumber === 3 && loading && !showError && <SpinnerFullscreen />}
-
 
         <Fragment>
           {stepNumber === 1 && (
