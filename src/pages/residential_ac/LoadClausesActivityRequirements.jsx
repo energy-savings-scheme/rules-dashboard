@@ -27,7 +27,7 @@ export default function LoadClausesResidentialActivityRequirements(props) {
     clausesForm,
     setClausesForm,
     showError,
-    setShowError
+    setShowError,
   } = props;
 
   console.log(variableToLoad);
@@ -222,7 +222,7 @@ export default function LoadClausesResidentialActivityRequirements(props) {
           </Fragment>
         )}
 
-{/* 
+        {/* 
         {stepNumber === 2 && calculationError & showError && (
           <Alert as="error" title="Sorry! An error has occurred.">
             <p>An error occurred during calculation. Please try again.</p>

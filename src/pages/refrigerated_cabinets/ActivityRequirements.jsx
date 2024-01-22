@@ -20,6 +20,8 @@ export default function ActivityRequirementsRF2(props) {
     'RF2_installation_replacement_final_activity_eligibility',
   );
   const [clausesForm, setClausesForm] = useState([]);
+  const [showError, setShowError] = useState(false);
+
 
   console.log(variables);
 
@@ -217,6 +219,8 @@ export default function ActivityRequirementsRF2(props) {
               setFormValues={setFormValues}
               clausesForm={clausesForm}
               setClausesForm={setClausesForm}
+              showError={showError}
+              setShowError={setShowError}
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}

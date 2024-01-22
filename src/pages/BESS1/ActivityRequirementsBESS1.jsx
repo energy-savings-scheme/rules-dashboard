@@ -21,6 +21,7 @@ export default function ActivityRequirementsBESS1(props) {
     'BESS1_installation_final_activity_eligibility',
   );
   const [clausesForm, setClausesForm] = useState([]);
+  const [showError, setShowError] = useState(false);
 
   console.log(variables);
 
@@ -208,6 +209,8 @@ export default function ActivityRequirementsBESS1(props) {
               setFormValues={setFormValues}
               clausesForm={clausesForm}
               setClausesForm={setClausesForm}
+              showError={showError}
+              setShowError={setShowError}
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}

@@ -16,6 +16,8 @@ export default function BaseEligibility(props) {
   const [persistFormValues, setPersistFormValues] = useState([]);
   const [clausesForm, setClausesForm] = useState([]);
   const [secDep, setSecDep] = useState([]);
+  const [showError, setShowError] = useState(false);
+
 
   if (formValues.length === 0) {
     setLoading(true);
@@ -212,6 +214,8 @@ export default function BaseEligibility(props) {
               setClausesForm={setClausesForm}
               secDep={secDep}
               setSecDep={setSecDep}
+              showError={showError}
+              setShowError={setShowError}
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}
