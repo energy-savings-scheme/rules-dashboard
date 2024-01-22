@@ -349,6 +349,8 @@ export default function CertificateEstimatorGasHeatPump(props) {
               selectedModel={selectedModel}
               loading={loading}
               setLoading={setLoading}
+              showError={showError}
+              setShowError={setShowError}
               backAction={(e) => {
                 setStepNumber(stepNumber - 1);
               }}

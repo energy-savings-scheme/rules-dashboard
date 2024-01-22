@@ -87,11 +87,11 @@ export default function LoadClausesRF2(props) {
       <br></br>
       {stepNumber === 2 && loading && !showError && <SpinnerFullscreen />}
 
-{stepNumber === 2 && calculationError && showError && (
-  <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
-    <p>We are experiencing technical difficulties right now, please try again later.</p>
-  </Alert>
-)}
+      {stepNumber === 2 && calculationError && showError && (
+        <Alert as="error" title="Sorry!" style={{ width: '80%' }}>
+          <p>We are experiencing technical difficulties right now, please try again later.</p>
+        </Alert>
+      )}
 
       <div></div>
       <div>
@@ -177,7 +177,6 @@ export default function LoadClausesRF2(props) {
             />
           </Fragment>
         )}
-
 
         {stepNumber === 2 && calculationResult !== null && (
           <Fragment>
