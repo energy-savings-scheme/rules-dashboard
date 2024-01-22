@@ -22,7 +22,6 @@ export default function ActivityRequirementsWH1(props) {
   const [clausesForm, setClausesForm] = useState([]);
   const [showError, setShowError] = useState(false);
 
-
   console.log(variables);
 
   if (formValues.length === 0) {

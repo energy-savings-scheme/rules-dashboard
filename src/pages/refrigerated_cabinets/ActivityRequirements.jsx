@@ -22,7 +22,6 @@ export default function ActivityRequirementsRF2(props) {
   const [clausesForm, setClausesForm] = useState([]);
   const [showError, setShowError] = useState(false);
 
-
   console.log(variables);
 
   useEffect(() => {

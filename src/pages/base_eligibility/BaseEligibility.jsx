@@ -18,7 +18,6 @@ export default function BaseEligibility(props) {
   const [secDep, setSecDep] = useState([]);
   const [showError, setShowError] = useState(false);
 
-
   if (formValues.length === 0) {
     setLoading(true);
   } else if (variables.length === 0) {
@@ -173,7 +172,8 @@ export default function BaseEligibility(props) {
                   target="_blank"
                 >
                   Peak Demand Reduction Scheme
-                </a>.{' '}
+                </a>
+                .{' '}
               </p>
               <p className="nsw-content-block__copy">
                 Answer the questions and check your eligibility. If ineligible, you will be shown
