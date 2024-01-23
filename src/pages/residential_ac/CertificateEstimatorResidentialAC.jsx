@@ -36,6 +36,8 @@ export default function CertificateEstimatorResidentialAC(props) {
   const [showPostcodeError, setShowPostcodeError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [showNoResponsePostcodeError, setShowNoResponsePostcodeError] = useState(false);
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -108,19 +110,23 @@ export default function CertificateEstimatorResidentialAC(props) {
           console.log(res);
           if (
             (persons.status === '200') &
-            (persons.data.postcode === postcode) &
-            (persons.data.state === 'NSW')
-          ) {
-            setFlow(null);
-            setStepNumber(stepNumber + 1);
-            setShowPostcodeError(false);
-          } else {
-            setShowPostcodeError(true);
-          }
+            (persons.data.postcode === postcode) ) {
+              if (persons.data.state === 'NSW') {
+                  setShowPostcodeError(false)
+                  setFlow(null);
+                  setStepNumber(stepNumber + 1);
+              } else {
+                setShowPostcodeError(true);
+              }
+
+             } else if (persons.status !== '200'){
+              setShowPostcodeError(false);
+              setShowNoResponsePostcodeError(true);
+             } 
         })
         .catch((err) => {
           console.log(err);
-          setShowPostcodeError(true);
+          setShowNoResponsePostcodeError(true);
         });
     }
   };
@@ -398,6 +404,13 @@ export default function CertificateEstimatorResidentialAC(props) {
               <p>Please check your postcode and try again.</p>
             </Alert>
           )}
+
+{stepNumber === 1 && showNoResponsePostcodeError && postcode.length >= 4 && (
+            <Alert as="error" title="Sorry!">
+              <p>We are experiencing technical difficulties validating the postcode, please try again later.</p>
+            </Alert>
+          )}
+
 
           {stepNumber === 3 && (
             <CertificateEstimatorResidentialACLoadClauses
