@@ -121,21 +121,18 @@ export default function CertificateEstimatorPP(props) {
         .then((res) => {
           const persons = res.data;
           console.log(res);
-          if (
-            (persons.status === '200') &
-            (persons.data.postcode === postcode) ) {
-              if (persons.data.state === 'NSW') {
-                  setShowPostcodeError(false)
-                  setFlow(null);
-                  setStepNumber(stepNumber + 1);
-              } else {
-                setShowPostcodeError(true);
-              }
-
-             } else if (persons.status !== '200'){
+          if ((persons.status === '200') & (persons.data.postcode === postcode)) {
+            if (persons.data.state === 'NSW') {
               setShowPostcodeError(false);
-              setShowNoResponsePostcodeError(true);
-             } 
+              setFlow(null);
+              setStepNumber(stepNumber + 1);
+            } else {
+              setShowPostcodeError(true);
+            }
+          } else if (persons.status !== '200') {
+            setShowPostcodeError(false);
+            setShowNoResponsePostcodeError(true);
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -420,9 +417,12 @@ export default function CertificateEstimatorPP(props) {
             </Alert>
           )}
 
-{stepNumber === 1 && showNoResponsePostcodeError && postcode.length >= 4 && (
+          {stepNumber === 1 && showNoResponsePostcodeError && postcode.length >= 4 && (
             <Alert as="error" title="Sorry!">
-              <p>We are experiencing technical difficulties validating the postcode, please try again later.</p>
+              <p>
+                We are experiencing technical difficulties validating the postcode, please try again
+                later.
+              </p>
             </Alert>
           )}
 
