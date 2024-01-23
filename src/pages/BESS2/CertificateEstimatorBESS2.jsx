@@ -36,6 +36,7 @@ export default function CertificateEstimatorBESS2(props) {
   const [showPostcodeError, setShowPostcodeError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [showNoResponsePostcodeError, setShowNoResponsePostcodeError] = useState(false);
 
   console.log(resSolarBatteryBrands);
 
@@ -84,25 +85,25 @@ export default function CertificateEstimatorBESS2(props) {
         .then((res) => {
           const persons = res.data;
           console.log(res);
-          if (
-            (persons.status === '200') &
-            (persons.data.postcode === postcode) &
-            (persons.data.state === 'NSW')
-          ) {
-            setFlow(null);
-            setStepNumber(stepNumber + 1);
+          if ((persons.status === '200') & (persons.data.postcode === postcode)) {
+            if (persons.data.state === 'NSW') {
+              setShowPostcodeError(false);
+              setFlow(null);
+              setStepNumber(stepNumber + 1);
+            } else {
+              setShowPostcodeError(true);
+            }
+          } else if (persons.status !== '200') {
             setShowPostcodeError(false);
-          } else {
-            setShowPostcodeError(true);
+            setShowNoResponsePostcodeError(true);
           }
         })
         .catch((err) => {
           console.log(err);
-          setShowPostcodeError(true);
+          setShowNoResponsePostcodeError(true);
         });
     }
   };
-
   useEffect(() => {
     setDropdownOptionsModels([{ value: '', text: 'Please select model' }]);
     models.forEach((item) => populateModelDropDown({ text: item, value: item }));
@@ -366,6 +367,15 @@ export default function CertificateEstimatorBESS2(props) {
           {stepNumber === 1 && showPostcodeError && postcode.length >= 4 && (
             <Alert as="error" title="The postcode is not valid in NSW">
               <p>Please check your postcode and try again.</p>
+            </Alert>
+          )}
+
+          {stepNumber === 1 && showNoResponsePostcodeError && postcode.length >= 4 && (
+            <Alert as="error" title="Sorry!">
+              <p>
+                We are experiencing technical difficulties validating the postcode, please try again
+                later.
+              </p>
             </Alert>
           )}
 

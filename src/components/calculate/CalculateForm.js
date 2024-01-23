@@ -42,6 +42,8 @@ export default function CalculateForm(props) {
   var { formValues } = props;
 
   const [showPostcodeError, setShowPostcodeError] = useState(false);
+  const [showNoResponsePostcodeError, setShowNoResponsePostcodeError] = useState(false);
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -180,26 +182,27 @@ export default function CalculateForm(props) {
             setFlow(null);
             setStepNumber(stepNumber + 1);
             setShowPostcodeError(false);
-          } else {
+          } else  {
             RegistryApi.getPostcodeValidation(variable.form_value)
               .then((res) => {
                 const persons = res.data;
                 console.log(res);
-                if (
-                  (persons.status === '200') &
-                  (persons.data.postcode === variable.form_value) &
-                  (persons.data.state === 'NSW')
-                ) {
-                  setFlow(null);
-                  setStepNumber(stepNumber + 1);
+                if ((persons.status === '200') & (persons.data.postcode === variable.form_value)) {
+                  if (persons.data.state === 'NSW') {
+                    setShowPostcodeError(false);
+                    setFlow(null);
+                    setStepNumber(stepNumber + 1);
+                  } else {
+                    setShowPostcodeError(true);
+                  }
+                } else if (persons.status !== '200') {
                   setShowPostcodeError(false);
-                } else {
-                  setShowPostcodeError(true);
+                  setShowNoResponsePostcodeError(true);
                 }
               })
               .catch((err) => {
                 console.log(err);
-                setShowPostcodeError(true);
+                setShowNoResponsePostcodeError(true);
               });
           }
         }
@@ -237,6 +240,15 @@ export default function CalculateForm(props) {
           <p>Please check your postcode and try again.</p>
         </Alert>
       )}
+
+{stepNumber === 1 && showNoResponsePostcodeError && (
+            <Alert as="error" title="Sorry!">
+              <p>
+                We are experiencing technical difficulties validating the postcode, please try again
+                later.
+              </p>
+            </Alert>
+          )}
 
       {stepNumber === 2 && (
         <div className="nsw-row" style={{ width: '80%', paddingTop: '50px' }}>
