@@ -182,19 +182,23 @@ export default function CalculateForm(props) {
             setFlow(null);
             setStepNumber(stepNumber + 1);
             setShowPostcodeError(false);
-          } else  {
+          } else {
             RegistryApi.getPostcodeValidation(variable.form_value)
               .then((res) => {
                 const persons = res.data;
                 console.log(res);
-                if ((persons.status === '200') & (persons.data.postcode === variable.form_value)) {
-                  if (persons.data.state === 'NSW') {
+                if ((persons.status === '200') && (persons.code === '200') && persons.data.postcode && (persons.data.postcode === variable.form_value)) {
+                  if (persons.data["state"] === 'NSW') {
                     setShowPostcodeError(false);
                     setFlow(null);
                     setStepNumber(stepNumber + 1);
                   } else {
                     setShowPostcodeError(true);
+                    setShowNoResponsePostcodeError(false);
                   }
+                } else if ((persons.status === '200') && (persons.code === '404')) {
+                  setShowPostcodeError(true);
+                  setShowNoResponsePostcodeError(false);
                 } else if (persons.status !== '200') {
                   setShowPostcodeError(false);
                   setShowNoResponsePostcodeError(true);
