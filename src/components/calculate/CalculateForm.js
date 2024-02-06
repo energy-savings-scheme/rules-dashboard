@@ -44,7 +44,6 @@ export default function CalculateForm(props) {
   const [showPostcodeError, setShowPostcodeError] = useState(false);
   const [showNoResponsePostcodeError, setShowNoResponsePostcodeError] = useState(false);
 
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -187,8 +186,13 @@ export default function CalculateForm(props) {
               .then((res) => {
                 const persons = res.data;
                 console.log(res);
-                if ((persons.status === '200') && (persons.code === '200') && persons.data.postcode && (persons.data.postcode === variable.form_value)) {
-                  if (persons.data["state"] === 'NSW') {
+                if (
+                  persons.status === '200' &&
+                  persons.code === '200' &&
+                  persons.data.postcode &&
+                  persons.data.postcode === variable.form_value
+                ) {
+                  if (persons.data['state'] === 'NSW') {
                     setShowPostcodeError(false);
                     setFlow(null);
                     setStepNumber(stepNumber + 1);
@@ -196,7 +200,7 @@ export default function CalculateForm(props) {
                     setShowPostcodeError(true);
                     setShowNoResponsePostcodeError(false);
                   }
-                } else if ((persons.status === '200') && (persons.code === '404')) {
+                } else if (persons.status === '200' && persons.code === '404') {
                   setShowPostcodeError(true);
                   setShowNoResponsePostcodeError(false);
                 } else if (persons.status !== '200') {
@@ -245,14 +249,14 @@ export default function CalculateForm(props) {
         </Alert>
       )}
 
-{stepNumber === 1 && showNoResponsePostcodeError && (
-            <Alert as="error" title="Sorry!">
-              <p>
-                We are experiencing technical difficulties validating the postcode, please try again
-                later.
-              </p>
-            </Alert>
-          )}
+      {stepNumber === 1 && showNoResponsePostcodeError && (
+        <Alert as="error" title="Sorry!">
+          <p>
+            We are experiencing technical difficulties validating the postcode, please try again
+            later.
+          </p>
+        </Alert>
+      )}
 
       {stepNumber === 2 && (
         <div className="nsw-row" style={{ width: '80%', paddingTop: '50px' }}>
