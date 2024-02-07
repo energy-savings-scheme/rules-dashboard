@@ -45,6 +45,7 @@ export default function CertificateEstimatorHVAC(props) {
   const [showNoResponsePostcodeError, setShowNoResponsePostcodeError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [lastModified, setLastModified] = useState("")
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -71,6 +72,16 @@ export default function CertificateEstimatorHVAC(props) {
         });
     }
 
+    if (lastModified.length == 0) {
+      RegistryApi.getCommercialHVACLastModified("commercial_hvac")
+        .then((res) => {
+          setLastModified(res.data)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+
     if (hvacBrands.length < 1) {
       RegistryApi.getCommercialHVACBrands()
         .then((res) => {
@@ -84,6 +95,7 @@ export default function CertificateEstimatorHVAC(props) {
         });
     }
   }, []);
+
 
   // For brands
   const populateDropDown = (newOption) => {
@@ -115,8 +127,13 @@ export default function CertificateEstimatorHVAC(props) {
         .then((res) => {
           const persons = res.data;
           console.log(res);
-          if ((persons.status === '200') && (persons.code === '200') && persons.data.postcode && (persons.data.postcode === postcode)) {
-            if (persons.data["state"] === 'NSW') {
+          if (
+            persons.status === '200' &&
+            persons.code === '200' &&
+            persons.data.postcode &&
+            persons.data.postcode === postcode
+          ) {
+            if (persons.data['state'] === 'NSW') {
               setShowPostcodeError(false);
               setFlow(null);
               setStepNumber(stepNumber + 1);
@@ -124,7 +141,7 @@ export default function CertificateEstimatorHVAC(props) {
               setShowPostcodeError(true);
               setShowNoResponsePostcodeError(false);
             }
-          } else if ((persons.status === '200') && (persons.code === '404')) {
+          } else if (persons.status === '200' && persons.code === '404') {
             setShowPostcodeError(true);
             setShowNoResponsePostcodeError(false);
           } else if (persons.status !== '200') {
@@ -351,7 +368,7 @@ export default function CertificateEstimatorHVAC(props) {
                     <p style={{ fontSize: '14px', marginBottom: '2%' }}>
                       {' '}
                       Updated from product registry:{' '}
-                      {format(previousSunday(new Date()), 'MMMM d, Y')}
+                      {lastModified}
                     </p>
                   </div>
                 </div>
