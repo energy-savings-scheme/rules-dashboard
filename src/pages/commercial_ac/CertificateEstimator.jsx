@@ -45,7 +45,7 @@ export default function CertificateEstimatorHVAC(props) {
   const [showNoResponsePostcodeError, setShowNoResponsePostcodeError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
-  const [lastModified, setLastModified] = useState("")
+  const [lastModified, setLastModified] = useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -73,9 +73,9 @@ export default function CertificateEstimatorHVAC(props) {
     }
 
     if (lastModified.length == 0) {
-      RegistryApi.getCommercialHVACLastModified("commercial_hvac")
+      RegistryApi.getCommercialHVACLastModified('commercial_hvac')
         .then((res) => {
-          setLastModified(res.data)
+          setLastModified(res.data);
         })
         .catch((err) => {
           console.log(err);
@@ -95,7 +95,6 @@ export default function CertificateEstimatorHVAC(props) {
         });
     }
   }, []);
-
 
   // For brands
   const populateDropDown = (newOption) => {
@@ -367,8 +366,7 @@ export default function CertificateEstimatorHVAC(props) {
 
                     <p style={{ fontSize: '14px', marginBottom: '2%' }}>
                       {' '}
-                      Updated from product registry:{' '}
-                      {lastModified}
+                      Updated from product registry: {lastModified}
                     </p>
                   </div>
                 </div>
