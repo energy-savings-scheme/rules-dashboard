@@ -37,12 +37,20 @@ export default function CalculateForm(props) {
     setLoading,
     showError,
     setShowError,
+    postcode,
+    annualEnergySavings,
+    peakDemandReductionSavings,
+    annualEnergySavingsNumber,
+    setAnnualEnergySavingsNumber,
+    peakDemandReductionSavingsNumber,
+    setPeakDemandReductionSavingsNumber
   } = props;
 
   var { formValues } = props;
 
   const [showPostcodeError, setShowPostcodeError] = useState(false);
   const [showNoResponsePostcodeError, setShowNoResponsePostcodeError] = useState(false);
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -137,6 +145,42 @@ export default function CalculateForm(props) {
         setLoading(false);
       });
 
+      if (workflow !== 'eligibility')
+      {
+
+        var payload = {
+          persons: { person1: {} },
+          [entity.plural]: { [`${entity.name}_1`]: { [annualEnergySavings]: { [date]: null } } },
+        };
+    
+        formValues.map((variable) => {
+          const variable_entity = entities.find((item) => item.name === variable.entity);
+  
+          payload[variable_entity.plural][`${variable_entity.name}_1`][`${variable.name}`] = {
+            [date]: validateDataType(variable).form_value,
+          };
+        });
+
+      OpenFiscaApi.postCalculate(payload)
+      .then((res) => {
+        var result = res.data[entity.plural][`${entity.name}_1`][annualEnergySavings][date];
+        console.log(res.data);
+        setAnnualEnergySavingsNumber(result);
+        // setCalculationError(false);
+        // setLoading(true);
+        // setShowError(false);
+      })
+      .catch((err) => {
+        // setCalculationResult(null);
+        // setCalculationError(true);
+        setShowError(true);
+      })
+      .finally(() => {
+        // setLoading(false);
+      });
+
+    }
+
     if (variable2) {
       const entity2 = entities.find((item) => item.name === variable2.entity);
       var payload2 = {
@@ -182,17 +226,12 @@ export default function CalculateForm(props) {
             setStepNumber(stepNumber + 1);
             setShowPostcodeError(false);
           } else {
-            RegistryApi.getPostcodeValidation(variable.form_value)
+            RegistryApi.getPostcodeValidation(postcode)
               .then((res) => {
                 const persons = res.data;
                 console.log(res);
-                if (
-                  persons.status === '200' &&
-                  persons.code === '200' &&
-                  persons.data.postcode &&
-                  persons.data.postcode === variable.form_value
-                ) {
-                  if (persons.data['state'] === 'NSW') {
+                if ((persons.status === '200') && (persons.code === '200') && persons.data.postcode && (persons.data.postcode === variable.form_value)) {
+                  if (persons.data["state"] === 'NSW') {
                     setShowPostcodeError(false);
                     setFlow(null);
                     setStepNumber(stepNumber + 1);
@@ -200,7 +239,7 @@ export default function CalculateForm(props) {
                     setShowPostcodeError(true);
                     setShowNoResponsePostcodeError(false);
                   }
-                } else if (persons.status === '200' && persons.code === '404') {
+                } else if ((persons.status === '200') && (persons.code === '404')) {
                   setShowPostcodeError(true);
                   setShowNoResponsePostcodeError(false);
                 } else if (persons.status !== '200') {
@@ -249,14 +288,14 @@ export default function CalculateForm(props) {
         </Alert>
       )}
 
-      {stepNumber === 1 && showNoResponsePostcodeError && (
-        <Alert as="error" title="Sorry!">
-          <p>
-            We are experiencing technical difficulties validating the postcode, please try again
-            later.
-          </p>
-        </Alert>
-      )}
+{stepNumber === 1 && showNoResponsePostcodeError && (
+            <Alert as="error" title="Sorry!">
+              <p>
+                We are experiencing technical difficulties validating the postcode, please try again
+                later.
+              </p>
+            </Alert>
+          )}
 
       {stepNumber === 2 && (
         <div className="nsw-row" style={{ width: '80%', paddingTop: '50px' }}>

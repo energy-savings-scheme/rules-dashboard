@@ -37,7 +37,7 @@ export default function CertificateEstimatorRC(props) {
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
   const [showNoResponsePostcodeError, setShowNoResponsePostcodeError] = useState(false);
-  const [lastModified, setLastModified] = useState("");
+  const [lastModified, setLastModified] = useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -118,9 +118,9 @@ export default function CertificateEstimatorRC(props) {
   }, [postcode]);
 
   if (lastModified.length == 0) {
-    RegistryApi.getRF2LastModified("refrigerated_cabinets")
+    RegistryApi.getRF2LastModified('refrigerated_cabinets')
       .then((res) => {
-        setLastModified(res.data)
+        setLastModified(res.data);
       })
       .catch((err) => {
         console.log(err);

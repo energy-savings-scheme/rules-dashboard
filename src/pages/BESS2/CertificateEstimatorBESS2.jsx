@@ -37,7 +37,7 @@ export default function CertificateEstimatorBESS2(props) {
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
   const [showNoResponsePostcodeError, setShowNoResponsePostcodeError] = useState(false);
-  const [lastModified, setLastModified] = useState("")
+  const [lastModified, setLastModified] = useState('');
 
   console.log(resSolarBatteryBrands);
 
@@ -79,7 +79,7 @@ export default function CertificateEstimatorBESS2(props) {
   if (lastModified.length == 0) {
     RegistryApi.getResidentialSolarBatteryLastModified()
       .then((res) => {
-        setLastModified(res.data)
+        setLastModified(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -329,8 +329,7 @@ export default function CertificateEstimatorBESS2(props) {
 
                     <p style={{ fontSize: '14px', marginBottom: '2%' }}>
                       {' '}
-                      Updated from product registry:{' '}
-                      {lastModified}
+                      Updated from product registry: {lastModified}
                     </p>
                   </div>
                 </div>

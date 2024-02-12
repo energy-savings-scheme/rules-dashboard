@@ -51,7 +51,7 @@ export default function CertificateEstimatorPP(props) {
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
   const [showNoResponsePostcodeError, setShowNoResponsePostcodeError] = useState(false);
-  const [lastModified, setLastModified] = useState("");
+  const [lastModified, setLastModified] = useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -113,9 +113,9 @@ export default function CertificateEstimatorPP(props) {
   }, [postcode]);
 
   if (lastModified.length == 0) {
-    RegistryApi.getPoolPumpLastModified("pool_pumps")
+    RegistryApi.getPoolPumpLastModified('pool_pumps')
       .then((res) => {
-        setLastModified(res.data)
+        setLastModified(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -344,8 +344,7 @@ export default function CertificateEstimatorPP(props) {
 
                     <p style={{ fontSize: '14px', marginBottom: '2%' }}>
                       {' '}
-                      Updated from product registry:{' '}
-                      {lastModified}
+                      Updated from product registry: {lastModified}
                     </p>
                   </div>
                 </div>

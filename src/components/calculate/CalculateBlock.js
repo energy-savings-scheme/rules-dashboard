@@ -40,6 +40,12 @@ export default function CalculateBlock(props) {
     setLoading,
     showError,
     setShowError,
+    annualEnergySavings,
+    peakDemadReductionSavings,
+    annualEnergySavingsNumber,
+    setAnnualEnergySavingsNumber,
+    peakDemandReductionSavingsNumber,
+    setPeakDemandReductionSavingsNumber
   } = props;
 
   if (metadata) {
@@ -613,6 +619,12 @@ export default function CalculateBlock(props) {
       setLoading={setLoading}
       showError={showError}
       setShowError={setShowError}
+      annualEnergySavings={annualEnergySavings}
+      peakDemadReductionSavings={peakDemadReductionSavings}
+      annualEnergySavingsNumber={annualEnergySavingsNumber}
+      setAnnualEnergySavingsNumber={setAnnualEnergySavingsNumber}
+      peakDemandReductionSavingsNumber={peakDemandReductionSavingsNumber}
+      setPeakDemandReductionSavingsNumber={setPeakDemandReductionSavingsNumber}
     >
       {formValues.map((formItem, index) => renderFormField(formItem))}
     </CalculateForm>

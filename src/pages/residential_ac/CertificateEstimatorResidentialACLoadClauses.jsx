@@ -40,6 +40,12 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
     setLoading,
     showError,
     setShowError,
+    annualEnergySavings,
+    peakDemandReductionSavings,
+    annualEnergySavingsNumber,
+    setAnnualEnergySavingsNumber,
+    peakDemandReductionSavingsNumber,
+    setPeakDemandReductionSavingsNumber
   } = props;
 
   console.log(variableToLoad1);
@@ -198,8 +204,10 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
       array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
 
       setFormValues(array1);
+
     }
   }, [variableData1, variableData2]);
+
 
   if (!variable) return null;
 
@@ -261,6 +269,12 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
               setLoading={setLoading}
               showError={showError}
               setShowError={setShowError}
+              annualEnergySavings={annualEnergySavings}
+              peakDemandReductionSavings={peakDemandReductionSavings}
+              annualEnergySavingsNumber={annualEnergySavingsNumber}
+              setAnnualEnergySavingsNumber={setAnnualEnergySavingsNumber}
+              peakDemandReductionSavingsNumber={peakDemandReductionSavingsNumber}
+              setPeakDemandReductionSavingsNumber={setPeakDemandReductionSavingsNumber}
             />
           </Fragment>
         )}
@@ -301,6 +315,15 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
                     <b>{Math.floor(calculationResult)}</b>
                   </span>
                   {/* </h4> */}
+                </p>
+                <p>
+                  Your estimated annual energy savings are { ' ' }
+                  <b>{annualEnergySavingsNumber} kWh </b>
+                </p>
+                <p>
+                  Your estimated annual peak demand reduction is 
+                  <b>{peakDemandReductionSavingsNumber} kWh </b>
+
                 </p>
 
                 <p>
@@ -343,19 +366,6 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
                   Estimate certificates again
                 </Button>
               </div>
-
-              {/* <div className="nsw-col-md-3" style={{ paddingTop: '30px' }}>
-                <Button
-                  style={{ float: 'right' }}
-                  as="dark"
-                  link="/#certificate-estimation"
-                  onClick={(e) => {
-                    // setStepNumber(stepNumber - 1);
-                  }}
-                >
-                  Change activity
-                </Button>
-              </div> */}
             </div>
 
             <div
