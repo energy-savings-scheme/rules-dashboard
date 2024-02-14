@@ -128,7 +128,7 @@ export default function CertificateEstimatorResidentialAC(props) {
   if (lastModified.length == 0) {
     RegistryApi.getCommercialHVACLastModified()
       .then((res) => {
-        setLastModified(res.data)
+        setLastModified(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -386,8 +386,7 @@ export default function CertificateEstimatorResidentialAC(props) {
                     </FormGroup>
                     <p style={{ fontSize: '14px', marginBottom: '2%' }}>
                       {' '}
-                      Updated from product registry:{' '}
-                      {lastModified}
+                      Updated from product registry: {lastModified}
                     </p>
                   </div>
                 </div>

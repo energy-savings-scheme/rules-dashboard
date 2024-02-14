@@ -36,6 +36,7 @@ export default function CertificateEstimatorElectricHeatPump(props) {
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
   const [showNoResponsePostcodeError, setShowNoResponsePostcodeError] = useState(false);
+  const [lastModified, setLastModified] = useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -60,6 +61,14 @@ export default function CertificateEstimatorElectricHeatPump(props) {
       setShowPostcodeError(false);
     }
   }, [postcode]);
+
+  RegistryApi.getResidentialHeatPumpLastModified()
+    .then((res) => {
+      setLastModified(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 
   const validatePostcode = (postcode) => {
     if (['2817', '2818', '2819'].includes(postcode)) {
@@ -320,8 +329,7 @@ export default function CertificateEstimatorElectricHeatPump(props) {
 
                     <p style={{ fontSize: '14px', marginBottom: '2%' }}>
                       {' '}
-                      Updated from product registry:{' '}
-                      {format(previousSunday(new Date()), 'MMMM d, Y')}
+                      Updated from product registry: {lastModified}
                     </p>
                   </div>
                 </div>
