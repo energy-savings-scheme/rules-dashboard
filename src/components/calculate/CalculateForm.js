@@ -148,35 +148,33 @@ export default function CalculateForm(props) {
       if (workflow !== 'eligibility')
       {
 
-        var payload = {
+        console.log(peakDemandReductionSavings)
+        var payload_peak_demand = {
           persons: { person1: {} },
-          [entity.plural]: { [`${entity.name}_1`]: { [annualEnergySavings]: { [date]: null } } },
+          [entity.plural]: { [`${entity.name}_1`]: { [peakDemandReductionSavings]: { [date]: null } } },
         };
     
         formValues.map((variable) => {
           const variable_entity = entities.find((item) => item.name === variable.entity);
   
-          payload[variable_entity.plural][`${variable_entity.name}_1`][`${variable.name}`] = {
+          payload_peak_demand[variable_entity.plural][`${variable_entity.name}_1`][`${variable.name}`] = {
             [date]: validateDataType(variable).form_value,
           };
         });
 
-      OpenFiscaApi.postCalculate(payload)
+        console.log("peak demand payload", payload_peak_demand);
+
+      OpenFiscaApi.postCalculate(payload_peak_demand)
       .then((res) => {
-        var result = res.data[entity.plural][`${entity.name}_1`][annualEnergySavings][date];
+        var result = res.data[entity.plural][`${entity.name}_1`][peakDemandReductionSavings][date];
         console.log(res.data);
-        setAnnualEnergySavingsNumber(result);
-        // setCalculationError(false);
-        // setLoading(true);
-        // setShowError(false);
+        setPeakDemandReductionSavingsNumber(result);
+        setShowError(false);
       })
       .catch((err) => {
-        // setCalculationResult(null);
-        // setCalculationError(true);
         setShowError(true);
       })
       .finally(() => {
-        // setLoading(false);
       });
 
     }
@@ -216,6 +214,37 @@ export default function CalculateForm(props) {
         .finally(() => {
           setLoading(false);
         });
+
+
+        // ANNUAL ENERGY SAVINGS API
+        var annual_energy_savings = {
+          persons: { person1: {} },
+          [entity.plural]: { [`${entity.name}_1`]: { [annualEnergySavings]: { [date]: null } } },
+        };
+    
+        formValues.map((variable) => {
+          const variable_entity = entities.find((item) => item.name === variable.entity);
+  
+          annual_energy_savings[variable_entity.plural][`${variable_entity.name}_1`][`${variable.name}`] = {
+            [date]: validateDataType(variable).form_value,
+          };
+        });
+
+
+        console.log("annual energy savings" , annual_energy_savings)
+
+      OpenFiscaApi.postCalculate(annual_energy_savings)
+      .then((res) => {
+        var result = res.data[entity.plural][`${entity.name}_1`][annualEnergySavings][date];
+        console.log(res.data);
+        setAnnualEnergySavingsNumber(result);
+        setShowError(false);
+      })
+      .catch((err) => {
+        setShowError(true);
+      })
+      .finally(() => {
+      });
     }
 
     if (stepNumber === 1 && workflow !== 'eligibility') {

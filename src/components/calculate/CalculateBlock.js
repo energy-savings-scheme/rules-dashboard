@@ -41,7 +41,7 @@ export default function CalculateBlock(props) {
     showError,
     setShowError,
     annualEnergySavings,
-    peakDemadReductionSavings,
+    peakDemandReductionSavings,
     annualEnergySavingsNumber,
     setAnnualEnergySavingsNumber,
     peakDemandReductionSavingsNumber,
@@ -620,7 +620,7 @@ export default function CalculateBlock(props) {
       showError={showError}
       setShowError={setShowError}
       annualEnergySavings={annualEnergySavings}
-      peakDemadReductionSavings={peakDemadReductionSavings}
+      peakDemandReductionSavings={peakDemandReductionSavings}
       annualEnergySavingsNumber={annualEnergySavingsNumber}
       setAnnualEnergySavingsNumber={setAnnualEnergySavingsNumber}
       peakDemandReductionSavingsNumber={peakDemandReductionSavingsNumber}

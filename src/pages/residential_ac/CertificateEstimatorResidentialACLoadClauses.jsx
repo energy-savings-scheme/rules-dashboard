@@ -318,11 +318,11 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
                 </p>
                 <p>
                   Your estimated annual energy savings are { ' ' }
-                  <b>{annualEnergySavingsNumber} kWh </b>
+                  <b><b>{Math.floor(calculationResult) === 0 ? 0 : Math.floor(annualEnergySavingsNumber) }</b> kWh </b>
                 </p>
                 <p>
-                  Your estimated annual peak demand reduction is 
-                  <b>{peakDemandReductionSavingsNumber} kWh </b>
+                  Your estimated annual peak demand reduction is { ' ' }
+                  <b><b>{Math.floor(calculationResult2) === 0 ? 0 : Math.floor(peakDemandReductionSavingsNumber) }</b> kWh </b>
 
                 </p>
 
