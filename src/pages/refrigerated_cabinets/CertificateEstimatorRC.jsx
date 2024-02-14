@@ -118,7 +118,7 @@ export default function CertificateEstimatorRC(props) {
   }, [postcode]);
 
   if (lastModified.length == 0) {
-    RegistryApi.getRF2LastModified('refrigerated_cabinets')
+    RegistryApi.getRF2LastModified()
       .then((res) => {
         setLastModified(res.data);
       })
@@ -374,7 +374,7 @@ export default function CertificateEstimatorRC(props) {
                     <p style={{ fontSize: '14px', marginBottom: '2%' }}>
                       {' '}
                       Updated from product registry:{' '}
-                      {format(previousSunday(new Date()), 'MMMM d, Y')}
+                      {lastModified}
                     </p>
                   </div>
                 </div>
