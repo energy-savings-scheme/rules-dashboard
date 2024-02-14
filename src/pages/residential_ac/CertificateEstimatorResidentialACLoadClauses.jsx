@@ -45,7 +45,7 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
     annualEnergySavingsNumber,
     setAnnualEnergySavingsNumber,
     peakDemandReductionSavingsNumber,
-    setPeakDemandReductionSavingsNumber
+    setPeakDemandReductionSavingsNumber,
   } = props;
 
   console.log(variableToLoad1);
@@ -204,10 +204,8 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
       array1.sort((a, b) => a.metadata.sorting - b.metadata.sorting);
 
       setFormValues(array1);
-
     }
   }, [variableData1, variableData2]);
-
 
   if (!variable) return null;
 
@@ -317,13 +315,26 @@ export default function CertificateEstimatorResidentialACLoadClauses(props) {
                   {/* </h4> */}
                 </p>
                 <p>
-                  Your estimated annual energy savings are { ' ' }
-                  <b><b>{Math.floor(calculationResult) === 0 ? 0 : Math.floor(annualEnergySavingsNumber) }</b> kWh </b>
+                  Your estimated annual energy savings are{' '}
+                  <b>
+                    <b>
+                      {Math.floor(calculationResult) === 0
+                        ? 0
+                        : Math.floor(annualEnergySavingsNumber)}
+                    </b>{' '}
+                    kWh{' '}
+                  </b>
                 </p>
                 <p>
-                  Your estimated annual peak demand reduction is { ' ' }
-                  <b><b>{Math.floor(calculationResult2) === 0 ? 0 : Math.floor(peakDemandReductionSavingsNumber) }</b> kWh </b>
-
+                  Your estimated annual peak demand reduction is{' '}
+                  <b>
+                    <b>
+                      {Math.floor(calculationResult2) === 0
+                        ? 0
+                        : Math.floor(peakDemandReductionSavingsNumber)}
+                    </b>{' '}
+                    kWh{' '}
+                  </b>
                 </p>
 
                 <p>

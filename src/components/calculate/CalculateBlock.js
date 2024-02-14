@@ -45,7 +45,7 @@ export default function CalculateBlock(props) {
     annualEnergySavingsNumber,
     setAnnualEnergySavingsNumber,
     peakDemandReductionSavingsNumber,
-    setPeakDemandReductionSavingsNumber
+    setPeakDemandReductionSavingsNumber,
   } = props;
 
   if (metadata) {

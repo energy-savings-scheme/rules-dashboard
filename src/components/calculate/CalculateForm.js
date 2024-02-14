@@ -43,14 +43,13 @@ export default function CalculateForm(props) {
     annualEnergySavingsNumber,
     setAnnualEnergySavingsNumber,
     peakDemandReductionSavingsNumber,
-    setPeakDemandReductionSavingsNumber
+    setPeakDemandReductionSavingsNumber,
   } = props;
 
   var { formValues } = props;
 
   const [showPostcodeError, setShowPostcodeError] = useState(false);
   const [showNoResponsePostcodeError, setShowNoResponsePostcodeError] = useState(false);
-
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -145,38 +144,39 @@ export default function CalculateForm(props) {
         setLoading(false);
       });
 
-      if (workflow !== 'eligibility')
-      {
+    if (workflow !== 'eligibility') {
+      console.log(peakDemandReductionSavings);
+      var payload_peak_demand = {
+        persons: { person1: {} },
+        [entity.plural]: {
+          [`${entity.name}_1`]: { [peakDemandReductionSavings]: { [date]: null } },
+        },
+      };
 
-        console.log(peakDemandReductionSavings)
-        var payload_peak_demand = {
-          persons: { person1: {} },
-          [entity.plural]: { [`${entity.name}_1`]: { [peakDemandReductionSavings]: { [date]: null } } },
+      formValues.map((variable) => {
+        const variable_entity = entities.find((item) => item.name === variable.entity);
+
+        payload_peak_demand[variable_entity.plural][`${variable_entity.name}_1`][
+          `${variable.name}`
+        ] = {
+          [date]: validateDataType(variable).form_value,
         };
-    
-        formValues.map((variable) => {
-          const variable_entity = entities.find((item) => item.name === variable.entity);
-  
-          payload_peak_demand[variable_entity.plural][`${variable_entity.name}_1`][`${variable.name}`] = {
-            [date]: validateDataType(variable).form_value,
-          };
-        });
-
-        console.log("peak demand payload", payload_peak_demand);
-
-      OpenFiscaApi.postCalculate(payload_peak_demand)
-      .then((res) => {
-        var result = res.data[entity.plural][`${entity.name}_1`][peakDemandReductionSavings][date];
-        console.log(res.data);
-        setPeakDemandReductionSavingsNumber(result);
-        setShowError(false);
-      })
-      .catch((err) => {
-        setShowError(true);
-      })
-      .finally(() => {
       });
 
+      console.log('peak demand payload', payload_peak_demand);
+
+      OpenFiscaApi.postCalculate(payload_peak_demand)
+        .then((res) => {
+          var result =
+            res.data[entity.plural][`${entity.name}_1`][peakDemandReductionSavings][date];
+          console.log(res.data);
+          setPeakDemandReductionSavingsNumber(result);
+          setShowError(false);
+        })
+        .catch((err) => {
+          setShowError(true);
+        })
+        .finally(() => {});
     }
 
     if (variable2) {
@@ -215,36 +215,35 @@ export default function CalculateForm(props) {
           setLoading(false);
         });
 
+      // ANNUAL ENERGY SAVINGS API
+      var annual_energy_savings = {
+        persons: { person1: {} },
+        [entity.plural]: { [`${entity.name}_1`]: { [annualEnergySavings]: { [date]: null } } },
+      };
 
-        // ANNUAL ENERGY SAVINGS API
-        var annual_energy_savings = {
-          persons: { person1: {} },
-          [entity.plural]: { [`${entity.name}_1`]: { [annualEnergySavings]: { [date]: null } } },
+      formValues.map((variable) => {
+        const variable_entity = entities.find((item) => item.name === variable.entity);
+
+        annual_energy_savings[variable_entity.plural][`${variable_entity.name}_1`][
+          `${variable.name}`
+        ] = {
+          [date]: validateDataType(variable).form_value,
         };
-    
-        formValues.map((variable) => {
-          const variable_entity = entities.find((item) => item.name === variable.entity);
-  
-          annual_energy_savings[variable_entity.plural][`${variable_entity.name}_1`][`${variable.name}`] = {
-            [date]: validateDataType(variable).form_value,
-          };
-        });
+      });
 
-
-        console.log("annual energy savings" , annual_energy_savings)
+      console.log('annual energy savings', annual_energy_savings);
 
       OpenFiscaApi.postCalculate(annual_energy_savings)
-      .then((res) => {
-        var result = res.data[entity.plural][`${entity.name}_1`][annualEnergySavings][date];
-        console.log(res.data);
-        setAnnualEnergySavingsNumber(result);
-        setShowError(false);
-      })
-      .catch((err) => {
-        setShowError(true);
-      })
-      .finally(() => {
-      });
+        .then((res) => {
+          var result = res.data[entity.plural][`${entity.name}_1`][annualEnergySavings][date];
+          console.log(res.data);
+          setAnnualEnergySavingsNumber(result);
+          setShowError(false);
+        })
+        .catch((err) => {
+          setShowError(true);
+        })
+        .finally(() => {});
     }
 
     if (stepNumber === 1 && workflow !== 'eligibility') {
@@ -259,8 +258,13 @@ export default function CalculateForm(props) {
               .then((res) => {
                 const persons = res.data;
                 console.log(res);
-                if ((persons.status === '200') && (persons.code === '200') && persons.data.postcode && (persons.data.postcode === variable.form_value)) {
-                  if (persons.data["state"] === 'NSW') {
+                if (
+                  persons.status === '200' &&
+                  persons.code === '200' &&
+                  persons.data.postcode &&
+                  persons.data.postcode === variable.form_value
+                ) {
+                  if (persons.data['state'] === 'NSW') {
                     setShowPostcodeError(false);
                     setFlow(null);
                     setStepNumber(stepNumber + 1);
@@ -268,7 +272,7 @@ export default function CalculateForm(props) {
                     setShowPostcodeError(true);
                     setShowNoResponsePostcodeError(false);
                   }
-                } else if ((persons.status === '200') && (persons.code === '404')) {
+                } else if (persons.status === '200' && persons.code === '404') {
                   setShowPostcodeError(true);
                   setShowNoResponsePostcodeError(false);
                 } else if (persons.status !== '200') {
@@ -317,14 +321,14 @@ export default function CalculateForm(props) {
         </Alert>
       )}
 
-{stepNumber === 1 && showNoResponsePostcodeError && (
-            <Alert as="error" title="Sorry!">
-              <p>
-                We are experiencing technical difficulties validating the postcode, please try again
-                later.
-              </p>
-            </Alert>
-          )}
+      {stepNumber === 1 && showNoResponsePostcodeError && (
+        <Alert as="error" title="Sorry!">
+          <p>
+            We are experiencing technical difficulties validating the postcode, please try again
+            later.
+          </p>
+        </Alert>
+      )}
 
       {stepNumber === 2 && (
         <div className="nsw-row" style={{ width: '80%', paddingTop: '50px' }}>
